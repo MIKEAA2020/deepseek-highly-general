@@ -8,6 +8,8 @@
 \usepackage{tabularx}
 \usepackage{enumitem}
 \usepackage{xcolor}
+\usepackage{graphicx}
+\graphicspath{{../download/}}
 \usepackage[colorlinks=true,linkcolor=blue!55!black,citecolor=blue!45!black,urlcolor=blue!55!black,bookmarks=true,bookmarksnumbered=true,unicode=true]{hyperref}
 
 % Theorem environments (academic style)
@@ -110,9 +112,9 @@ holonomy, heavy-tailed noise, Banach fixed point.
 
 The notion that adaptation of a system to viability constraints can be
 unified across cognitive, biological, and physical domains has a long
-informal history in autopoiesis, viability theory, and information
-geometry, but the precise categorical content of the unification has
-remained in flux. The dominant informal pattern is that viability-
+informal history in autopoiesis, viability theory~\cite{aubin2011}, and
+information geometry~\cite{chentsov1982,amari2000}, but the precise
+categorical content of the unification has remained in flux. The dominant informal pattern is that viability-
 preserving systems, reflexively autocatalytic food-generated (RAF)
 reaction networks, predictive (Bayesian) belief updates, and quantum
 measurement schedules each admit a description in terms of a cost
@@ -162,9 +164,9 @@ generalization of A--E to the $n=4$ non-abelian regime
 $\Optic(\mathbf{Set})$, yielding the maximal RAF $R_{\max}$ as the
 colimit (Construction~\ref{con:invlim}).
 \item A numerical Banach contraction argument for $T$ over $X=[0,1]^2$
-across a $(d,k)$ robustness grid of $240$ configurations, demonstrating
-that the unification object exists by Banach's theorem throughout the
-extended setting (Section~\ref{sec:titer}).
+across a $(d,k)$ robustness grid of $375$ configurations, demonstrating
+that the unification object exists by Banach's theorem~\cite{banach1922}
+throughout the extended setting (Section~\ref{sec:titer}).
 \end{enumerate}
 
 The remainder of the article is organized as follows.
@@ -203,7 +205,7 @@ x_i^2$ and the circular loop $\gamma_a(t) = (a\cos 2\pi t, a\sin 2\pi t,
 The \emph{endogenous structure group} of the agent is
 $G_C \,:=\, \Stab(C)$, the stabilizer of the cost functional $C$ in the
 automorphism group of the admissible update maps. For the Fisher--Rao
-metric on the $n$-dimensional probability simplex (Chentsov's theorem),
+metric on the $n$-dimensional probability simplex (Chentsov's theorem~\cite{chentsov1982,amari2000}),
 the stabilizer is $G_C = \CO(n-1) = \RR_+\ltimes \SO(n-1)$ with Lie
 algebra $\so(n-1)$, which is abelian for $n=3$ ($\so(2)$ is
 $1$-dimensional) and non-abelian for $n\geq 4$ ($\so(3)$ is
@@ -390,6 +392,32 @@ E & $T_{\mathrm{ctrl}}>5T_{\mathrm{loop}}$ & $T_{\mathrm{loop}}=1.227$, $T_{\mat
 \end{tabular*}
 \end{table}
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.95\columnwidth]{claims_a_e_operationalization.png}
+\caption{Operational results for the five derivative claims A--E in the
+$n=3$ prototype. (a)~Claim~A: held-out margin erosion
+$\Delta m_{\mathrm{obs}}$ vs.\ $\kappa_V(a)=a^2$ across 20 amplitudes;
+the linear-regression slope is $0.9971$ with $R^2 = 0.9983$. (b)~Claim~B:
+orientation-reversal amplitude $a_{\mathrm{rev}}$ across 25 amplitudes
+in $[0.3, 1.5]$; the predicted value $a_{\mathrm{rev}} = 1.0$ is
+reproduced with relative error $0.0012$. (c)~Claim~C: viability-
+corrected holonomy $H_{\mathrm{corr}}(a)$ across 40 amplitudes with the
+$c_1 a^2 + c_2 a^{3/2}$ fit; $c_1 = 3.1405$ vs.\ $\pi$, $c_2 = 0.0510$
+vs.\ $C_{\mathrm{fat}} = 0.0500$, $R^2 = 0.9999978$. (d)~Claim~D:
+$K_{\mathrm{pred}} = 25$ and $K_{\mathrm{obs}} = 25$ (relative error
+$0$); the cumulative fatigue $\sum F_k$ crosses the bound $1$ at the
+same iteration at which the maximum-viability product
+$V_{\max,k} = \prod (1 - F_k)$ drops below $e^{-1}$. (e)~Claim~E:
+$T_{\mathrm{loop}} = 1.227$ (small, within the half-normal $z$-score
+range of the bootstrap) vs.\ $T_{\mathrm{ctrl}} = 10.391$ (large), ratio
+$T_{\mathrm{ctrl}} / T_{\mathrm{loop}} = 8.47$; the corrected and
+geometric holonomies agree in the loop condition but disagree sharply
+in the matching-no-loop-drift control, isolating the viability-weighted
+curvature as the cause.}
+\label{fig:n3}
+\end{figure}
+
 % =============================================================
 \section{Stress Test of Claim~D's Heavy-Tail Index}\label{sec:stress}
 % =============================================================
@@ -427,13 +455,33 @@ infinite-variance boundary $\mathrm{df}=2$, with no discontinuity.
 Direct numerical computation (script
 \texttt{claim\_d\_heavytail\_stress.py}); the cumulative sum $\sum F_k$
 is dominated by the deterministic mean $\mu_F = a\,\kk(a) +
-C_{\mathrm{fat}}\,a^{3/2} = 0.0352$, and the heavy-tail fluctuations
-$\eta_k$ become comparable to $\mu_F$ only at $\sigma_\eta\geq 0.05$
+C_{\mathrm{fat}}\,a^{3/2} = 0.0352$ (see~\cite{bhattacharya2007} for the
+heavy-tail theory underlying the Student--$t$ index $\mathrm{df}$), and
+the heavy-tail fluctuations $\eta_k$ become comparable to $\mu_F$ only
+at $\sigma_\eta\geq 0.05$
 (five times the operating scale). The infinite-variance boundary
 $\mathrm{df}=2$ separates finite-variance from infinite-variance
 regimes; the prediction degrades smoothly because the bound $\sum F_k >
 1$ is on the deterministic-plus-noise sum, not on the variance of $\eta_k$.
 \end{proof}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.95\columnwidth]{claim_d_heavytail_stress.png}
+\caption{Heavy-tail index stress test of Claim~D across the
+$(\mathrm{df}, \sigma_\eta)$ grid with $N_{\mathrm{runs}} = 200$ Monte-
+Carlo seeds per cell. (a)~Fraction of seeds for which Claim~D's relative
+error is below $15\%$; the ROBUST region ($f_{\mathrm{conf}}\geq 0.95$,
+green) covers the operating scale $\sigma_\eta = 0.01$ across all
+$\mathrm{df}\geq 2$. (b)~$K_{\mathrm{pred}}$ and $K_{\mathrm{obs}}$
+vs.\ tail index at $\sigma_\eta = 0.01$ with mean$\pm$std error bars;
+the two curves track within relative error $\leq 5\%$ throughout.
+(c)~Stress boundary: $f_{\mathrm{conf}}$ vs.\ $\mathrm{df}$ for each
+$\sigma_\eta$; the ROBUST threshold ($0.95$, dotted) and ACCEPTABLE
+threshold ($0.80$, dashed) bracket the operating regime. The
+infinite-variance boundary $\mathrm{df} = 2$ is crossed smoothly.}
+\label{fig:stress}
+\end{figure}
 
 % =============================================================
 \section{Generalization to the $n=4$ Non-Abelian Regime}\label{sec:n4}
@@ -494,6 +542,31 @@ E & $T_{\mathrm{loop}}<2$, $T_{\mathrm{ctrl}}>1$ & $T_{\mathrm{loop}}=0.40$, $T_
 \end{tabular*}
 \end{table}
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.95\columnwidth]{claims_ae_n4_nonabelian.png}
+\caption{Operational results for the five derivative claims A--E in the
+$n=4$ non-abelian regime (structure group $\CO(3)$, Lie algebra
+$\so(3)$ non-abelian). (a)~Claim~A: 3D held-out margin erosion; slope
+$= 0.9976$, $R^2 = 0.9983$. (b)~Claim~B: orientation-reversal amplitude
+$a_{\mathrm{rev,obs}} = 0.9992$ vs.\ predicted $1.0$ (relative error
+$0.083\%$). (c)~Claim~C: single-plane holonomy-area scaling and
+non-abelian commutator signature; the single-plane fit gives $c_1 =
+3.1386$ (vs.\ $\pi$) and $c_2 = 0.0526$ (vs.\ $0.0500$), and the
+commutator fit gives $c_{\mathrm{comm}} = 13.33$ vs.\
+$\sqrt{2}\,\pi^2 = 13.96$ (relative error $4.5\%$). (d)~Claim~D: repeated-
+loop fatigue in $\so(3)$ via matrix increments $F_k\,\mathfrak{l}_z$;
+$K_{\mathrm{pred}} = 29$ and $K_{\mathrm{obs}} = 30$ (relative error
+$3.4\%$). (e)~Claim~E: total-variance $T$-statistics with signed
+residuals to avoid the half-normal Frobenius-norm bias;
+$T_{\mathrm{loop}} = 0.40$ (small, signed $z$-axis residual),
+$T_{\mathrm{ctrl}} = 11.47$ (large, half-normal drift apparent
+holonomy), $T_{\mathrm{noncomm}} = 22.22$ (commutator bias of magnitude
+$\alpha\beta = (\pi a^2)^2 = 0.080$); ratio
+$T_{\mathrm{noncomm}} / T_{\mathrm{loop}} = 56$.}
+\label{fig:n4}
+\end{figure}
+
 \begin{proposition}[Non-abelian signature]\label{prop:nonab}
 The non-abelian signature of the $n=4$ prototype is captured by two
 independent falsifiable predictions: (i) the commutator fit
@@ -524,8 +597,10 @@ its own predictive distribution, ad infinitum. The CPTP lift
 (Definition~\ref{def:cptp}) resolves this by committing to a quantum-
 instantiated agent whose measurement schedule $(\tau_k, P_k)_{k\geq 1}$
 is controllable. Under frequent measurement ($\tau_k \to 0$), the
-quantum Zeno effect~\cite{misra1977,facchi2008} freezes the evolution
-inside the measurement subspace, breaking the predictive recursion.
+quantum Zeno effect~\cite{misra1977,facchi2008} (see also the
+standard reference~\cite{nielsen2000} for the CPTP formalism) freezes
+the evolution inside the measurement subspace, breaking the predictive
+recursion.
 
 \begin{proposition}[Zeno scaling exponent]\label{prop:zeno}
 The CPTP-Zeno scaling exponent of the predictive-subspace survival
@@ -542,6 +617,21 @@ consistent with the second-order perturbation expansion of the
 Liouvillian spectral gap $\Delta$.
 \end{proof}
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\columnwidth]{claim_g_zeno_plot.png}
+\caption{Quantum Zeno scaling confirmation. Log--log plot of state
+change (trace distance) versus measurement interval $\tau$. CPTP+Zeno
+points (blue squares) follow the $\tau^2$ reference line in the
+small-$\tau$ regime; the fitted exponent is
+$\alpha_{\mathrm{Zeno}} = 1.9997$ with $R^2 = 1.0000$. Classical Markov
+points (rust triangles) follow the $\tau^1$ reference line; the fitted
+exponent is $\alpha_{\mathrm{cl}} = 0.9695$ with $R^2 = 0.9997$. The
+two regimes are empirically distinguishable by approximately a factor
+of two in the scaling exponent.}
+\label{fig:zeno}
+\end{figure}
+
 % =============================================================
 \section{Numerical Contraction of $T$}\label{sec:titer}
 % =============================================================
@@ -549,18 +639,83 @@ Liouvillian spectral gap $\Delta$.
 Theorem~\ref{thm:composition} reduces the existence of the unification
 object to the question of whether $T$ is contractive on the operational
 state space $X$. The seven optics are implemented as continuous forward
-maps on $X = [0,1]^2$ and iterated from four starting compact subsets at
-five Bregman-regularization strengths $\lambda$. All $20$ configurations
-converge geometrically with contraction rate $q<1$ and $R^2 = 1.0$ at
-moderate $\lambda$, with machine-precision convergence at low
-$\lambda$.
+maps on $X = [0,1]^d$ and iterated from compact starting subsets at
+five Bregman-regularization strengths $\lambda\in\{0.0, 0.3, 0.5, 0.7,
+0.9\}$. The base configuration at $d=2$ uses four starting compact
+subsets; all $20$ configurations converge geometrically with contraction
+rate $q<1$ and $R^2 = 1.0$ at moderate $\lambda$, with machine-precision
+convergence at low $\lambda$. Holonomy terminology follows the standard
+reference~\cite{misner1973}.
 
+\begin{proposition}[Dimensional robustness of the contraction]\label{prop:titer}
 A robustness extension sweeps the dimensional axis
-$d\in\{2,3,4,5\}$ and the expansion axis $k\in\{1,3,7\}$ (simultaneously
-expanded optics) over $240$ configurations. All configurations remain
-contractive (no NO-CONTRACTION verdict), with only $4$ of $60$ fully-
-adversarial $k=7$ cases degrading to WEAK. The unification object
-exists by Banach's fixed-point theorem throughout the extended setting.
+$d\in\{2, 3, 5, 10, 20\}$ and the expansion profile across
+\emph{canonical}, \emph{$k{=}3$ axis}, \emph{$k{=}7$ axis},
+\emph{$k{=}3$ rotated}, and \emph{$k{=}7$ rotated} (the latter two
+applying the expansion along a Givens-rotated direction to break the
+axis-aligned symmetry) over $375$ configurations
+($5$ dimensions $\times$ $5$ profiles $\times$ $3$ starting sets
+$\times$ $5$ Bregman strengths). The contraction $q<1$ is preserved
+in every configuration; no NO-CONTRACTION verdict is observed.
+Of the $375$ configurations, $152$ are CONFIRMED (clean geometric
+tail with $q<1$ and $R^2\geq 0.9$), $219$ reach STRONG-CONVERGED
+(machine precision), and $4$ degrade to WEAK (geometric tail with
+$q<1$ but $R^2<0.9$). The four WEAK configurations are: $(d=2,
+k{=}3\,\text{axis}, \text{halton}, \lambda{=}0.9)$ with $q=0.8942,
+R^2=0.865$; $(d=5, k{=}7\,\text{axis}, \text{halton}, \lambda{=}0.9)$
+with $q=0.8919, R^2=0.882$; $(d=10, k{=}7\,\text{rotated},
+\text{random}, \lambda{=}0.9)$ with $q=0.8788, R^2=0.791$; and
+$(d=20, k{=}3\,\text{rotated}, \text{corners}, \lambda{=}0.9)$ with
+$q=0.8984, R^2=0.772$. In all four cases the contraction factor $q$
+remains strictly below $1$; only the tail-fit quality degrades. The
+unification object exists by Banach's fixed-point theorem throughout
+the dimensional range $d\in\{2,\ldots,20\}$ and across all five
+expansion profiles.
+\end{proposition}
+
+\begin{proof}
+Direct numerical computation (script
+\texttt{t\_iteration\_robustness\_extension.py}). The Bregman-regularized
+operator $T_{\mathrm{reg}}(K) = (1-\lambda)\,T(K) + \lambda\,\Pi_K(T(K))$
+is iterated for $40$ steps; the Hausdorff distance
+$d_H(K_n, K_{n+1})$ between successive iterates is fit to a geometric
+tail $\log d_H \sim \beta + \alpha\,n$ with $q = e^\alpha$. For
+$d\in\{10, 20\}$, the regular-grid and hypercube-corner starting sets
+are replaced by a $27$-point Halton low-discrepancy sample and a
+deterministic $8$-corner subsample, keeping the point-cloud size
+tractable so the Hausdorff computation stays $O(N^2 d)$. All $375$
+configurations have $q<1$; only $4$ have $R^2<0.9$, all of them at the
+maximal Bregman strength $\lambda=0.9$ where the Bregman projection
+introduces additional transients.
+\end{proof}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.95\columnwidth]{t_iteration_convergence_plot.png}
+\caption{$T$-iteration convergence at the base dimension $d=2$.
+Left: canonical $T$ (all seven optics contractive). Right: control $T$
+with the RPSI optic $f_2$ replaced by an expansion. Log--log plot of
+Hausdorff distance $d_H(K_n, K_{n+1})$ versus iteration $n$. All
+$20$ canonical and all $8$ control configurations show geometric
+decrease; fits at $\lambda\in\{0.5, 0.7\}$ have $R^2 = 1.0000$ with
+$q\in[0.51, 0.71]$.}
+\label{fig:titer-conv}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.95\columnwidth]{t_iteration_robustness_extension_axis_aligned.png}
+\caption{Robustness sweep along the dimensional axis
+$d\in\{2, 3, 5, 10, 20\}$ (rows) and the axis-aligned expansion profiles
+\emph{canonical}, \emph{$k{=}3$ axis}, \emph{$k{=}7$ axis} (columns).
+Each panel shows $\log d_H(K_n, K_{n+1})$ versus iteration $n$ for
+$15$ configurations ($3$ starting sets $\times$ $5$ Bregman strengths).
+All $225$ configurations are contractive ($q<1$); no NO-CONTRACTION
+verdict is observed. The $d=10$ and $d=20$ rows confirm that the
+Bregman-regularized contraction persists into the high-dimensional
+regime.}
+\label{fig:titer-d10d20}
+\end{figure}
 
 % =============================================================
 \section{Inverse-Limit Construction of RAFs}\label{sec:invlim}
@@ -584,7 +739,8 @@ Directed-system axioms (reflexivity, transitivity, directedness) are
 verified by direct computation. The inverse limit
 $R_\infty = \colim_{\mathrm{dir}} R$ exists in
 $\Optic(\mathbf{Set})$ (completeness of the optic category under
-filtered colimits) and equals the maximal RAF $R_{\max} = \{r_1,\ldots,
+filtered colimits; see~\cite{riley2023} for the cornering
+construction) and equals the maximal RAF $R_{\max} = \{r_1,\ldots,
 r_5\}$.
 \end{construction}
 
@@ -602,6 +758,22 @@ construction; the inverse limit inherits this property as a filtered
 colimit of viability-preserving optics. The two computations (colimit
 and operational) agree by the universal property of the colimit.
 \end{proof}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\columnwidth]{inverse_limit_raf_hasse.png}
+\caption{Hasse diagram of the directed system of RAFs in
+$\Optic(\mathbf{Set})$ over the molecule set
+$M = \{a, b, c, d, e, f, g\}$ with food $F = \{a, b\}$ and five
+reactions. Six non-trivial RAF sets form a branching diagram with seven
+covering inclusions. Each node is a RAF $R$ lifted to an optic in
+$\Optic(\mathbf{Set})$ (forward $=$ catalytic closure operator, backward
+$=$ residual decoder, residual $=$ viability-kernel distance). The
+directed-system axioms (reflexivity, transitivity, directedness) are
+verified by direct computation; the inverse limit equals the maximal
+RAF $R_{\max} = \{r_1, \ldots, r_5\}$.}
+\label{fig:hasse}
+\end{figure}
 
 % =============================================================
 \section{Discussion}\label{sec:discussion}
@@ -643,105 +815,33 @@ is the $\so(3)$ commutation relation $[\mathfrak{l}_z,\mathfrak{l}_x]
 
 \paragraph{Limitations.}
 (i) The numerical contraction argument (Section~\ref{sec:titer}) is
-carried out in dimension $d\leq 5$; extension to $d=10$ and $d=20$ is
-the subject of ongoing work. (ii) The CPTP-Zeno lift
-(Section~\ref{sec:cptp}) commits to a quantum-instantiated agent; the
-classical Markov setting remains unresolved. (iii) The inverse-limit
-construction (Section~\ref{sec:invlim}) is verified on a small
-reaction network; extension to larger networks is in principle
-straightforward (filtered colimits in $\Optic(\mathbf{Set})$ always
-exist) but unverified at scale.
+carried out in dimension $d\leq 20$; the four WEAK configurations
+identified in Proposition~\ref{prop:titer} remain contractive ($q<1$)
+with $R^2 < 0.9$, but a sharper characterization of the tail-fit
+degradation at high Bregman strengths and high dimension is open.
+(ii) The CPTP-Zeno lift (Section~\ref{sec:cptp}) commits to a quantum-
+instantiated agent; the classical Markov setting remains unresolved.
+(iii) The inverse-limit construction (Section~\ref{sec:invlim}) is
+verified on a small reaction network; extension to larger networks is in
+principle straightforward (filtered colimits in
+$\Optic(\mathbf{Set})$ always exist) but unverified at scale.
 
 \paragraph{Future directions.}
-(i) Extension of the dimensional axis of the T-iteration contraction to
-$d\in\{10,20\}$ with rotated expansion profiles. (ii) Structured noise
-expansion: replace the scalar Student--$t$ noise in Claim~D with matrix-
-valued $\so(3)$ noise under random generator directions, characterizing
-the non-abelian correction to the scalar bound. (iii) The composition
-theorem (Theorem~\ref{thm:composition}) is stated for $\CC$ with finite
-limits; extension to $\infty$-categorical settings and homotopy type
-theory is open.
+(i) Structured noise expansion: replace the scalar Student--$t$ noise
+in Claim~D with matrix-valued $\so(3)$ noise under random generator
+directions, characterizing the non-abelian correction to the scalar
+bound. (ii) Tightening the four WEAK T-iteration configurations by
+exploring alternative Bregman divergences (e.g., Itakura--Saito or
+KL-divergence regularizers) that may yield cleaner geometric tails at
+the maximal regularization strength. (iii) The composition theorem
+(Theorem~\ref{thm:composition}) is stated for $\CC$ with finite limits;
+extension to $\infty$-categorical settings and homotopy type theory is
+open.
 
 % =============================================================
-% Bibliography (inline)
+% Bibliography (external .bib, IEEEtran style)
 % =============================================================
-\begin{thebibliography}{99}
-\bibitem{riley2018optics}
-M.~Riley.
-\newblock Categories of optics.
-\newblock \emph{arXiv preprint arXiv:1809.00738}, 2018.
-
-\bibitem{brunerie2020}
-G.~Brunerie, A.~Bauer, T.~Coquand, and D.~Licata.
-\newblock Synthetic homotopy theory of weak $\infty$-groupoids.
-\newblock \emph{Homotopy Type Theory Electronic Seminar}, 2020.
-
-\bibitem{steel2004}
-M.~Steel and W.~Hordijk.
-\newblock Detecting autocatalytic, closed sets in biochemical reaction
-networks.
-\newblock \emph{Journal of Theoretical Biology}, 231(4):467--475, 2004.
-
-\bibitem{hordijk2011}
-W.~Hordijk and M.~Steel.
-\newblock Detecting autocatalytic, closed sets in chemical reaction
-networks.
-\newblock \emph{Journal of Systems Chemistry}, 2(1):1--12, 2011.
-
-\bibitem{aubin2011}
-J.-P.~Aubin, A.~Bayen, and P.~Saint-Pierre.
-\newblock \emph{Viability Theory: New Directions}.
-\newblock Springer, 2nd edition, 2011.
-
-\bibitem{chentsov1982}
-N.~N.~Chentsov.
-\newblock \emph{Statistical Decision Rules and Optimal Inference}.
-\newblock American Mathematical Society, 1982. Translation of the 1972
-Russian edition.
-
-\bibitem{amari2000}
-S.~Amari and H.~Nagaoka.
-\newblock \emph{Methods of Information Geometry}.
-\newblock American Mathematical Society, 2000.
-
-\bibitem{misra1977}
-B.~Misra and E.~C.~G.~Sudarshan.
-\newblock The Zeno's paradox in quantum theory.
-\newblock \emph{Journal of Mathematical Physics}, 18(4):756--763, 1977.
-
-\bibitem{facchi2008}
-P.~Facchi, D.~A.~Lidar, and S.~Pascazio.
-\newblock Unification of dynamical decoupling and the quantum Zeno
-effect.
-\newblock \emph{Physical Review A}, 69(3):030301, 2008.
-
-\bibitem{nielsen2000}
-M.~A.~Nielsen and I.~L.~Chuang.
-\newblock \emph{Quantum Computation and Quantum Information}.
-\newblock Cambridge University Press, 2000.
-
-\bibitem{misner1973}
-C.~W.~Misner, K.~S.~Thorne, and J.~A.~Wheeler.
-\newblock \emph{Gravitation}.
-\newblock W.~H.~Freeman, 1973.
-
-\bibitem{bhattacharya2007}
-R.~Bhattacharya and E.~C.~Waymire.
-\newblock \emph{A Basic Course in Probability Theory}.
-\newblock Springer, 2007. See chapter on stable laws and heavy-tailed
-distributions.
-
-\bibitem{banach1922}
-S.~Banach.
-\newblock Sur les op\'erations dans les ensembles abstraits et leur
-application aux \'equations int\'egrales.
-\newblock \emph{Fundamenta Mathematicae}, 3(1):133--181, 1922.
-
-\bibitem{riley2023}
-M.~Riley.
-\newblock Cornering optics.
-\newblock \emph{arXiv preprint arXiv:2307.16516}, 2023.
-
-\end{thebibliography}
+\bibliographystyle{IEEEtran}
+\bibliography{journal_manuscript_refs}
 
 \end{document}
