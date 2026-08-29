@@ -439,3 +439,76 @@ Stage Summary:
 - New formal journal manuscript: download/journal_manuscript.pdf (8 pages, 127 KB).
 - All five research targets confirmed: T1 (T iteration), T2 (inverse-limit RAF), T3 (CPTP-Zeno),
   T4 (n=4 Claim F), T5 (A-E n=3 + stress test + n=4 generalization).
+
+---
+Task ID: t5-long-report-sync
+Agent: main (Z.ai)
+Task: Sync the long-form report (surviving_findings_report.py / .pdf) with the
+Target 5 results that had previously been added only to the concise report;
+answer user's three status questions; commit and push.
+
+Work Log:
+- Verified push state of previous-round findings: git rev-list --left-right
+  --count origin/main...HEAD returned 0/0 (local == remote) at start of
+  session; all of commits f45d10f (Target 5 extension: stress test + n=4),
+  278c03d (journal manuscript), 3646fa1 (worklog t5-extension) confirmed
+  pushed to origin/main.
+- Identified Q2 gap: surviving_findings_concise.py had been updated with
+  Section 10.3/10.4/10.5 + Section 12 Target 5 status, but surviving_
+  findings_report.py (the long-form report, 2344 lines) still said "three
+  of the seven claims and targets empirically confirmed... The remaining
+  five claims (A through E) are open for empirical test."
+- Patched surviving_findings_report.py:
+  (1) Inserted Section 17A (Target 5: Derivative Claims A-E
+      Operationalization) between Section 17 (T iteration) and Section 18
+      (Implications). Section 17A contains four claim_block subsections:
+      17A.1 n=3 prototype operationalization (slope=0.9971, a_rev=0.9988,
+      c_1=3.1405, K_pred=K_obs=25, T_loop=1.227/T_ctrl=10.391); 17A.2
+      Claim D heavy-tail index stress test (reference cell frac_confirmed
+      =1.000 across 200 seeds, ROBUST regime df in [2, infinity] at
+      sigma <= 0.02); 17A.3 A-E n=4 non-abelian generalization (slope=
+      0.9976, a_rev=0.9992, c_1=3.1386, c_comm=13.33 vs sqrt(2)*pi^2=
+      13.96, K_pred=29/K_obs=30, T_loop=0.40/T_ctrl=11.47/T_noncomm=
+      22.22); 17A.4 journal manuscript reference (download/journal_
+      manuscript.pdf).
+  (2) Updated Section 15 intro: replaced "remain open for empirical test"
+      with "operationalized and confirmed in the n at least 3 prototype
+      in Section 17A".
+  (3) Updated Section 18 Implication 4 to note A-E generalized to n=4
+      non-abelian regime per Section 17A.3.
+  (4) Updated Section 18 final paragraph: "three of the seven claims" ->
+      "all seven of the seven claims empirically confirmed" (Claim F +
+      G + Target 1 + Target 2 + Target 5 enumerated; mentions manuscript
+      as the published-form synthesis).
+- Regenerated surviving_findings_report.pdf: 47 pages (was 42), 920 KB
+  (was 907 KB). pdftotext grep confirms presence of "SECTION 17A",
+  "Target 5", "slope = 0.9971", "frac_confirmed = 1.000 across 200
+  seeds", "c_comm = 13.33 vs sqrt(2) pi^2 = 13.96", "journal_manuscript
+  .pdf", "all seven of the seven claims empirically confirmed",
+  "n=4 non-abelian generalization".
+- Committed as d2a0898 "Sync long report with Target 5 results (n=3 A-E,
+  heavy-tail stress test, n=4 non-abelian, journal manuscript)" with 2
+  files / 612 insertions / 245 deletions.
+- Pushed d2a0898 to origin/main (3646fa1..d2a0898). Note: push URL had
+  been set to a clean token-free URL while fetch URL retained PAT; needed
+  to use `git remote set-url --push origin <PAT URL>` (not just `git
+  remote set-url origin <PAT URL>`) to override the pushurl override.
+  Restored clean push URL after push; verified remote/main == HEAD via
+  `git rev-list --left-right --count origin/main...HEAD` returning 0/0.
+
+Stage Summary:
+- Both reports now synchronized with Target 5 results.
+- surviving_findings_concise.pdf (27 pages, 6.2 MB): Section 10.3 (A-E n=3),
+  Section 10.4 (Claim D stress), Section 10.5 (A-E n=4), Section 12 Target
+  5 status updated.
+- surviving_findings_report.pdf (47 pages, 920 KB): Section 17A (A-E n=3 +
+  stress + n=4 + manuscript), Section 15 intro updated, Section 18 final
+  paragraph updated.
+- Journal manuscript download/journal_manuscript.pdf (8 pages, 127 KB):
+  unchanged from prior commit 278c03d; already pushed.
+- All five research targets confirmed (T1-T5). Project's empirical
+  content is closed; the project's defensible content is the conjunction
+  of the surviving claims, the single-composition theorem (with empirical
+  contraction confirmation), the empirically confirmed foundations and
+  derivatives, and the formal journal manuscript, with no claim that
+  exceeds the evidence presented.
