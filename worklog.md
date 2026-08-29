@@ -137,3 +137,25 @@ Stage Summary:
 - Two foundational claims (F: CO(n-1) structure group; G: CPTP+Zeno scaling) empirically confirmed.
 - Single composition theorem constructed: seven-fold composition of optics is well-defined, associative, unital; unification object exists iff Bregman-regularized contraction of T holds (checkable by numerical simulation).
 - Recommended next research target: numerical simulation of T iteration with Hausdorff-distance convergence measurement to verify the unification-object existence condition.
+
+---
+Task ID: summary-3
+Agent: main (Z.ai)
+Task: Build the numerical simulation (already done in summary-2), update surviving findings report (already done in summary-2), provide a concise version of the updated report removing all meta-commentary, commit and push.
+
+Work Log:
+- Verified state on disk: summary-2 deliverables present (v2 report at 40 pages, single_composition_theorem.pdf, claim_f and claim_g test scripts + results + plots); committed at 215a366; minor re-touches after commit (zero-line diffs).
+- Designed the concise version: 12 sections + cover + abstract, target ~12-15 pages dense layout (9pt body, 1.7cm margins, inline section headings instead of part-divider pages).
+- Stripped meta-commentary throughout: no "source transcript" references, no "ripgrep verification" statements, no "novel to this report" qualifications, no audit-process sections (Scope/Method, Verified Defects, Cross-Arc Pattern, Mathematical Breakdowns of source flaws, Joint Cross-Reference Defects all dropped).
+- Retained: Abstract, SAVGS framework, Algorithmic rate-distortion, Optic/lens unification, CPTP+Zeno, Bregman Noether, Endogenous structure group, Repeated-loop fatigue + calibration, Falsification hierarchy table, Synthesized theoretical statement, Foundational test results (with embedded plots), Single composition theorem, Research targets.
+- Wrote /home/z/my-project/scripts/surviving_findings_concise.py: reuses palette and helpers from v2 with denser styling; CoverPage + draw_cover full-bleed; section_heading inline helper replaces part_divider; same claim_block structure (Claim / Method / Evidence / Implication).
+- Bug: initial run produced blank page 1 because doc.onFirstPage was not wired to draw_cover. Fixed by adding `doc.onFirstPage = draw_cover; doc.onLaterPages = lambda canv, doc: None` before doc.build(story).
+- Generated /home/z/my-project/download/surviving_findings_concise.pdf: 15 pages (down from v2's 40), 401 KB (down from 446 KB), all fonts embedded, no content overflow.
+- pdf_qa.py: PASS with 2 non-blocking warnings (page 11 fill ratio 24% — section-end pattern; page 1 margin asymmetry 156pt — the full-bleed cover by design, also flagged as PASS in the same QA report).
+
+Stage Summary:
+- Final deliverable: /home/z/my-project/download/surviving_findings_concise.pdf (15 pages, 401 KB).
+- All surviving technical claims in claim-method-evidence-implication form, with embedded empirical plots and the composition theorem summary.
+- Removed: all meta-commentary about the audit process, source transcript comparisons, novelty qualifications.
+- Same cold academic palette and helper structure as the v2 comprehensive report, with denser typography (9pt body, 1.7cm margins, inline headings).
+- Script preserved at /home/z/my-project/scripts/surviving_findings_concise.py for iterative edits.
