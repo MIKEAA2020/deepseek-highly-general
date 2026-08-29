@@ -284,3 +284,49 @@ Stage Summary:
   * Target 4 (n ≥ 4 prototype, §10.1 via Claim F) — CONFIRMED; same-plane rotations commute (machine precision), distinct-plane rotations show nonzero holonomy
   * Target 5 (derivative claims A-E operationalization) — OPEN
 - Recommended next research target: Target 5 — operationalization of the derivative claims A through E in the n ≥ 3 prototype with the calibration protocol of Section 7. This is now the only open target. The binding prerequisite (n ≥ 3 prototype with calibration) is the same prototype used in Claims F and G; the falsifiable test is the per-claim table of Section 8.
+
+---
+Task ID: 4
+Agent: main (GLM)
+Task: Extend the T iteration robustness simulation along two further axes: (1) push the dimensional sweep to d=10 and d=20, (2) add a rotated (structured-noise) expansion profile to probe the WEAK tail more aggressively. Commit + push to MIKEAA2020/deepseek-highly-general.
+
+Work Log:
+- Read /home/z/my-project/scripts/t_iteration_robustness_simulation.py to understand the existing d=2..5 + k=0/1/3/7 axis-aligned construction.
+- Wrote /home/z/my-project/scripts/t_iteration_robustness_extension.py with two extensions:
+  * Axis 1 — Dimensional: extended DIMENSIONS from {2,3,4,5} to {2,3,5,10,20}. For d=10, d=20 the regular-grid starting set is replaced by a 27-point Halton low-discrepancy sequence (scipy.stats.qmc.Halton with seed=42) and the hypercube-corner starting set is replaced by a deterministic 8-corner subsample (RandomState(123).choice(2^d, size=8)). This caps N at 27 so Hausdorff stays O(N^2 * d) regardless of dimension.
+  * Axis 2 — Rotated expansion: the expansion optic's linear part is now R @ diag(1.15, alpha, ..., alpha) @ R^T where R is the product of consecutive Givens rotations in (k, k+1) planes at theta = pi/4 (build_rotation function). This distributes the expansion direction uniformly across all d coordinates, breaking axis-aligned symmetry that the Bregman projection could otherwise exploit. The fixed point c_i is preserved (because L @ c + (I - L) @ c = c for any L). Added two new profiles: k=3 rotated (f2, f4, f6 simultaneously rotated-expanded) and k=7 rotated (all optics rotated-expanded, fully adversarial).
+- Re-expressed make_optic with matrix form: f(p) = L @ p + bias + structured perturbation, where bias = (I - L) @ c and the structured perturbation is eps * sin(pi * p) with eps = 0.03. The matrix form unifies axis-aligned (L = diag(scales)) and rotated (L = R @ diag(...) @ R^T) cases.
+- Ran the script. Summary:
+  * Total: 375 configs (5 dims x 5 profiles x 3 starts x 5 lambdas).
+  * Verdicts: 371 contract (CONFIRMED or STRONG), 4 WEAK (q<1, R^2 in [0.77, 0.86]), 0 NO-CONTRACTION.
+  * Aggregate per profile (across all dimensions):
+    - canonical: 75/75 contract
+    - k=3 axis: 74/75 (1 WEAK at d=2 halton 27)
+    - k=7 axis: 74/75 (1 WEAK at d=5 halton 27)
+    - k=3 rotated: 74/75 (1 WEAK at d=20 corners 8)
+    - k=7 rotated: 74/75 (1 WEAK at d=10 random 27)
+  * Fitted q at lambda=0.9 stays in [0.898, 0.905] across d=2..20 — d-independent.
+- Generated three deliverables under /home/z/my-project/download/:
+  * t_iteration_robustness_extension_axis_aligned.png (6x3 grid: rows=d, cols=canonical/k=3 axis/k=7 axis)
+  * t_iteration_robustness_extension_rotated.png (6x2 grid: rows=d, cols=k=3 rotated/k=7 rotated)
+  * t_iteration_robustness_extension_results.csv (375-row summary)
+- Updated /home/z/my-project/scripts/surviving_findings_concise.py: inserted three new paragraphs (Extension: dimensional axis pushed to d=10/d=20; Extension: rotated structured-noise expansion profile; Implication extended) and two new embedded figures (Figure 11.6 axis-aligned extension plot, Figure 11.7 rotated extension plot) between the existing §11.5 (Figure 11.3) and §11.6 (Target 2 heading). The new paragraphs continue the §11.5 narrative rather than starting a new section, preserving the section numbering.
+- Regenerated /home/z/my-project/download/surviving_findings_concise.pdf: now 22 pages (was 19), 5.42 MB (was 2.51 MB due to two new large plots).
+- QA: pdftotext grep confirms the new paragraphs and Figures 11.6, 11.7 captions are present. VLM check on PDF pages 17-22: Figure 11.6 fully visible on page 18 (no clipping), Figure 11.7 fully visible on page 19 (no clipping), §11.6 heading and figures 11.4, 11.5 render cleanly on pages 19-21, §12 Research Targets body on page 22. All pages render cleanly.
+- Committed (git commit 12ffedf "Extend robustness sweep: d=10/20 dimensions + rotated expansion profile") with 6 files: scripts/t_iteration_robustness_extension.py (new), scripts/surviving_findings_concise.py (modified), download/t_iteration_robustness_extension_axis_aligned.png (new), download/t_iteration_robustness_extension_rotated.png (new), download/t_iteration_robustness_extension_results.csv (new), download/surviving_findings_concise.pdf (regenerated).
+- Pushed to https://github.com/MIKEAA2020/deepseek-highly-general.git main via embedded PAT URL (2017a64..12ffedf). Restored origin push URL to clean form (no PAT) after push.
+
+Stage Summary:
+- The T iteration robustness sweep is now extended along two further axes as requested: (1) dimensional axis pushed to d=10 and d=20, (2) rotated (structured-noise) expansion profile added with k=3 and k=7 simultaneously rotated-expanded variants.
+- Headline result: 371 of 375 configurations contract; 4 degrade to WEAK (q<1, R^2 in [0.77, 0.86]); 0 diverge. The rotated profile produces the same number of WEAK verdicts as the axis-aligned profile (1 each for k=3 and k=7), so rotating the expansion direction does not break the Bregman-regularized contraction. The fitted q at lambda=0.9 is essentially d-independent across d=2..20 (q in [0.898, 0.905]).
+- Final deliverables under /home/z/my-project/download/:
+  * surviving_findings_concise.pdf (v5, 22 pages, 5.42 MB) — §11.5 now includes the extension paragraphs and Figures 11.6, 11.7
+  * t_iteration_robustness_extension_axis_aligned.png (6x3 panel grid, 1.1 MB)
+  * t_iteration_robustness_extension_rotated.png (6x2 panel grid, 0.7 MB)
+  * t_iteration_robustness_extension_results.csv (375-row summary)
+- Scripts under /home/z/my-project/scripts/:
+  * t_iteration_robustness_extension.py (new, matrix-form optics + rotated expansion)
+  * surviving_findings_concise.py (updated with §11.5 extension paragraphs and Figures 11.6, 11.7)
+- Project confirmed empirical content (unchanged): four of five research targets confirmed (1, 2, 3, 4). Target 5 (derivative claims A-E operationalization) remains the only open target.
+- The robustness sweep now spans: 5 dimensions (d=2,3,5,10,20) x 5 profiles (canonical, k=3 axis, k=7 axis, k=3 rotated, k=7 rotated) x 3 starting sets x 5 lambdas = 375 configs. With the previous 240-config sweep (d=2..5, k=0/1/3/7 axis), the cumulative robustness evidence base is now 615 configurations, all of which contract or degrade gracefully to WEAK — none diverge.
+- Recommended next step: Target 5 — operationalization of the derivative claims A through E in the n>=3 prototype with the calibration protocol of Section 7. This is the only open research target. The binding prerequisite (n>=3 prototype) is already in place (Claims F and G use it); the falsifiable test is the per-claim table of Section 8.
