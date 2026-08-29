@@ -189,3 +189,45 @@ Stage Summary:
 - Empirical verdict: the Bregman-regularized contraction of T is CONFIRMED across 20 canonical configurations and 8 control configurations. The unification object (fixed point of T) exists by Banach's theorem. The single composition theorem is now an empirical theorem, not a definitional dispute.
 - Project's confirmed empirical content: Claim F (n>=4 structure group), Claim G (CPTP+Zeno scaling), Target 1 (T iteration contraction). Five derivative claims (A through E) remain open for test in the n>=3 prototype with foundations in place.
 - Recommended next research target: extension of the T iteration simulation to non-contraction optics (multiple simultaneous expansions) and to higher-dimensional base spaces, which would test the robustness of the contraction beyond the setting of Section 17.
+
+---
+Task ID: 2
+Agent: main (GLM)
+Task: Extend the T iteration simulation to non-contraction optics (multiple simultaneous expansions) and higher-dimensional base spaces (X = [0,1]^d for d >= 3) to test contraction robustness beyond the [0,1]^2 setting. Commit + push to MIKEAA2020/deepseek-highly-general.
+
+Work Log:
+- Read scripts/t_iteration_simulation.py (existing d=2 base-space script) and the relevant §11.3-11.4 / §12 Target 1 sections of scripts/surviving_findings_concise.py to understand the existing artifacts and the "remaining open problem" caveat to be closed.
+- Wrote /home/z/my-project/scripts/t_iteration_robustness_simulation.py implementing:
+  * d-dimensional optics (d in {2,3,4,5}) with per-coordinate contraction factor held d-independent (so the dimensional sweep isolates the ambient-dimension effect on the Bregman-regularized tail).
+  * Three expansion profiles: k=1 (only f_2 expanded), k=3 (f_2, f_4, f_6 expanded), k=7 (every optic expanded, fully adversarial). Expansion multiplies the first coordinate's linear factor by 1.15, keeping other coordinates contractive.
+  * 4 dimensions x 4 profiles (canonical + 3 expansion) x 3 starting sets (regular grid, random 27, hypercube corners) x 5 Bregman lambdas {0.0, 0.3, 0.5, 0.7, 0.9} = 240 configs.
+- Ran the script. Summary verdict counts:
+  * Canonical k=0: 60/60 contract (q ~ 0.90 at lambda=0.9; machine precision at low lambda); q essentially d-independent (0.9018 to 0.9025 across d=2..5).
+  * k=1: 60/60 contract (single expansion fully absorbed).
+  * k=3: 60/60 contract (three simultaneous expansions fully absorbed).
+  * k=7: 56/60 contract; 4 degrade to WEAK (q<1, R^2 in [0.67, 0.83]) but no divergence. No NO-CONTRACTION verdict across all 240 trials.
+- Generated three deliverables under /home/z/my-project/download/:
+  * t_iteration_robustness_convergence_plot.png (4x3 panel grid: rows=d=2..5, cols=k=1/3/7)
+  * t_iteration_robustness_trajectory_d3.png (d=3 collapse visualization, 7 3-D subplots showing K_n collapsing to the fixed point)
+  * t_iteration_robustness_results.csv (240-row summary with final_distance, fitted_q, r2, verdict)
+- Updated /home/z/my-project/scripts/surviving_findings_concise.py:
+  * Inserted new subsection §11.5 "Robustness of the contraction to higher dimensions and non-contraction optics" between §11.4 and §12, with three paragraphs (dimensional-axis result, expansion-axis result, implication) plus two embedded figures (Figure 11.2 convergence grid, Figure 11.3 3-D trajectory).
+  * Updated §12 Target 1 entry from "(CONFIRMED, §11.4)" + open-problem caveat to "(CONFIRMED, §11.4-11.5)" + explicit statement that the dimensional and expansion axes are now swept and the caveat is closed.
+- Regenerated /home/z/my-project/download/surviving_findings_concise.pdf: now 17 pages (was 15), 2.38 MB (up from 0.79 MB due to two new embedded plots).
+- QA: pdftotext grep confirms §11.5 heading, "k = 1/3/7", "NO-CONTRACTION", "240 robustness" all present in the rendered text. VLM check on PDF pages 15 (§11.4 + §11.5 start) and 16 (§11.5 figures + §12 heading): figures not clipped, no overlap with body text, no overflow.
+- Committed (git commit 446c817 "Extend T iteration robustness: d=2..5 + k=1/3/7 simultaneous expansions") with 6 files: scripts/t_iteration_robustness_simulation.py (new), scripts/surviving_findings_concise.py (modified), download/t_iteration_robustness_convergence_plot.png (new), download/t_iteration_robustness_trajectory_d3.png (new), download/t_iteration_robustness_results.csv (new), download/surviving_findings_concise.pdf (regenerated).
+- Pushed to https://github.com/MIKEAA2020/deepseek-highly-general.git main via embedded PAT URL (d79588b..446c817). Restored origin push URL to clean form (no PAT) after push.
+
+Stage Summary:
+- The Bregman-regularized contraction of T is now confirmed across 240 robustness trials spanning d=2..5 and k=0/1/3/7 simultaneous expansions. No configuration diverges; the worst degradation is WEAK (q<1 but R^2<0.9) in 4 of 60 fully-adversarial k=7 cases, all of which still contract.
+- The "remaining open problem" caveat in §12 Target 1 is closed: the contraction survives both the dimensional axis (up to d=5) and the expansion axis (up to k=7 simultaneously expanded optics).
+- Final deliverables under /home/z/my-project/download/:
+  * surviving_findings_concise.pdf (v3, 17 pages, 2.38 MB) — now includes §11.5 Robustness with Figures 11.2 and 11.3
+  * t_iteration_robustness_convergence_plot.png (4x3 panel grid, 1.15 MB)
+  * t_iteration_robustness_trajectory_d3.png (d=3 collapse, 0.50 MB)
+  * t_iteration_robustness_results.csv (240-row summary)
+- Scripts under /home/z/my-project/scripts/:
+  * surviving_findings_concise.py (updated with §11.5 and revised §12 Target 1)
+  * t_iteration_robustness_simulation.py (new, 240-config sweep)
+- Project confirmed empirical content: Claim F (n>=4 structure group), Claim G (CPTP+Zeno scaling), Target 1 (T iteration contraction) now with dimensional and expansion robustness. Five derivative claims (A through E) remain open.
+- Recommended next research target: close Target 2 (inverse-limit construction of the directed system of RAFs in Optic(C)) — the only currently-unaddressed theoretical construction target; the binding prerequisite (explicit directed-system transition maps satisfying the directed-system axioms) remains to be specified.
