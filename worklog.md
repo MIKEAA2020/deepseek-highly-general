@@ -83,3 +83,26 @@ Stage Summary:
 - 3 corrections made to existing joint-assessment material; the most consequential (Claim F mis-specification for n=3 due to co(2) abelian) changes the experimental plan: the n=3 prototype is insufficient to test the structure-group claim; n>=4 required.
 - New binding prerequisites added: (a) inverse-limit construction (research target); (b) single-composition-theorem formalization (research target); (c) n>=4 prototype extension (binding for Claim F); (d) quantum instantiation (binding for Claim G in non-ergodic regime).
 - Script preserved at /home/z/my-project/scripts/joint_assessment_pdf.py for iterative edits.
+
+---
+Task ID: summary-1
+Agent: main (Z.ai)
+Task: Produce comprehensive project report presenting surviving findings factually (claims, methods, evidence, implications), avoiding change-log/diary/comparative framing. Save to download/.
+
+Work Log:
+- Read PDF skill SKILL.md and report brief (already cached from prior tasks).
+- Read existing joint assessment script (joint_assessment_pdf.py) and audit script (audit_pdf.py) to extract surviving technical claims.
+- Read prior worklog (audit-1, joint-1, joint-2 addendum entries).
+- Designed outline of 17 sections: Cover, Abstract, Scope/Method, Verified Defects (4 acknowledged), Cross-Arc Structural Pattern, Specific Mathematical Breakdowns (6 surviving), Joint Cross-Reference Defects (6), SAVGS Framework, Algorithmic Rate-Distortion, Optic/Lens Category, CPTP Open Quantum Channel, Bregman Noether, Endogenous Structure Group, Repeated-Loop Fatigue + Calibration, Falsifiable Claim Hierarchy (7-claim table), Synthesized Theoretical Statement, Implications/Open Problems.
+- Generated cascade palette (cold, minimal, slate-blue + accent + rust secondary).
+- Wrote ReportLab script at /home/z/my-project/scripts/surviving_findings_report.py in chunks: header+cover+styles+Section 1; Sections 2-3; Sections 4-5; Sections 6-9; Sections 10-12; Sections 13-15 with table and final doc.build call.
+- Generated PDF: 34 pages, 94.5 KB, all fonts embedded, no content overflow, full-bleed cover.
+- pdf_qa.py: PASS with 5 non-blocking warnings (content fill ratio on end-of-section pages: 4, 11, 17, 19, 34 — same pattern as prior joint assessment PDF, acceptable).
+- Style: cold academic minimalist (slate-blue cover, accent rust rule, slate header fills), distinct from prior teal/plum audit documents. Uses claim-method-evidence-implication block helper for every technical claim.
+
+Stage Summary:
+- Final deliverable: /home/z/my-project/download/surviving_findings_report.pdf (34 pages, 94.5 KB).
+- Every surviving claim presented in claim-method-evidence-implication form.
+- No diary/change-log/comparative framing; no reference to mistakes, phantom, naive, or strawman arguments.
+- Joint thesis stated in its strongest defensible form (Section 14); 7-claim falsification hierarchy table with prerequisites and decisive tests (Section 13); 5 open research targets with binding prerequisites (Section 15).
+- Script preserved at /home/z/my-project/scripts/surviving_findings_report.py for iterative edits.
