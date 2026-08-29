@@ -1,0 +1,8 @@
+source,target,source_reactions,target_reactions,transition_type
+R_0,R_1,"r1, r2","r1, r2, r3",inclusion (optic morphism)
+R_0,R_2,"r1, r2","r1, r2, r5",inclusion (optic morphism)
+R_1,R_3,"r1, r2, r3","r1, r2, r3, r4",inclusion (optic morphism)
+R_1,R_4,"r1, r2, r3","r1, r2, r3, r5",inclusion (optic morphism)
+R_2,R_4,"r1, r2, r5","r1, r2, r3, r5",inclusion (optic morphism)
+R_3,R_5,"r1, r2, r3, r4","r1, r2, r3, r4, r5",inclusion (optic morphism)
+R_4,R_5,"r1, r2, r3, r5","r1, r2, r3, r4, r5",inclusion (optic morphism)
