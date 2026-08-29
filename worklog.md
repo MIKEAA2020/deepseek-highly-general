@@ -53,3 +53,33 @@ Stage Summary:
 - Extended 5-claim hierarchy to 7 claims (added F: CO(2) structure-group test, G: rate-distortion type test).
 - Joint thesis: Adaptive systems are endangered not by large changes, but by noncommuting sequences of individually manageable changes whose induced policy holonomy is aligned with vulnerable self-maintenance directions, bounded by algorithmic-rate-distortion-theoretic viability-weighted curvature on a CO(2)-structured stratified connection.
 - Scripts preserved at /home/z/my-project/scripts/joint_assessment_pdf.py for iterative edits.
+
+---
+Task ID: joint-2 (addendum)
+Agent: main (Z.ai)
+Task: Meta-review of joint assessment vs both source audits. Identify remaining points worth incorporating and any accidental content loss or condensation. Update PDF and push.
+
+Work Log:
+- Re-read my original audit (audit_pdf.py, 25 sections) and GPT audit (gpt_audit_highly_general.txt, 788 lines, 11 sections) and joint assessment (joint_assessment_pdf.py, 8 parts).
+- Cross-referenced each section: 13 items dropped from my audit (5 flaws, 3 inconsistencies, 5 upgrades); 2 dropped from GPT (7-hypothesis small-loop theorem statement; 7 specific experimental controls with criteria).
+- Found 3 corrections to existing joint-assessment material:
+  (1) CRITICAL: Claim F (CO(2) commuting-control) is mis-specified for n=3. co(2) = R ⊕ so(2) is a 2D ABELIAN Lie algebra (so(2) is 1D abelian). At n=3, ALL perturbations commute trivially, path-ordering is unnecessary, holonomy is path-independent up to homotopy. Non-trivial commuting-control test requires n>=4 (CO(3), so(3) non-abelian, dim 3).
+  (2) Wasserstein/Hutchinson/BA unification overstated; correct setting is optic/lens category, not Wasserstein space directly.
+  (3) CPTP framework is a non-trivial quantum lift, not a re-interpretation; carries its own testable predictions (Zeno scaling) and its own commitment (quantum instantiation of the agent).
+- Added new Part IX (Addendum: Recovered Material and Corrections) with 19 subsections:
+  9.1-9.5: Recovered flaws (RIIP/Phi undefined; Bridge Rung 6 categorical tautology; game theory definitional; WCIG double standard META-finding; honest-caveat vs theorem framing)
+  9.6-9.8: Recovered inconsistencies (4/pi vs 1/pi numerical; achievable R(D) bound never redeemed; inverse-limit aspiration without construction)
+  9.9-9.13: Recovered upgrades (endogenous G_C = Stab(C); RAF→curvature via entropy production Bakry-Emery; rigorous inverse limit via directed RAF system; single composition theorem replacing 7 bridge rungs; organizational invariance for hard problem)
+  9.14-9.15: Recovered from GPT (7-hypothesis small-loop theorem; 7 specific experimental controls with falsification criteria)
+  9.16-9.18: Corrections (Claim F mis-spec; Wasserstein/Hutchinson/BA overstated; CPTP non-trivial quantum lift)
+  9.19: Summary of changes to joint framework (recovered material, corrections, binding prerequisites added)
+- Revised addendum thesis (end of Part IX) explicitly notes: structure group is endogenously derived via stabilizer-of-cost; CO(2) at n=3 by derivation, non-abelian CO(n-1) at n>=4 required for commuting-control test; framework's own claims must be held to same falsifiability standard as competitor models (WCIG-double-standard remedy).
+- Regenerated PDF: 31 pages, 99.6 KB, all fonts embedded, pdf_qa.py PASS with 6 non-blocking warnings (cover full-bleed + section-end page padding by design).
+- Committed (c2ee395) and pushed to origin/main.
+
+Stage Summary:
+- Final deliverable: /home/z/my-project/download/joint_assessment_two_audits.pdf (31 pages, 99.6 KB).
+- 13 dropped items from Audit A and 2 from Audit B recovered into Part IX.
+- 3 corrections made to existing joint-assessment material; the most consequential (Claim F mis-specification for n=3 due to co(2) abelian) changes the experimental plan: the n=3 prototype is insufficient to test the structure-group claim; n>=4 required.
+- New binding prerequisites added: (a) inverse-limit construction (research target); (b) single-composition-theorem formalization (research target); (c) n>=4 prototype extension (binding for Claim F); (d) quantum instantiation (binding for Claim G in non-ergodic regime).
+- Script preserved at /home/z/my-project/scripts/joint_assessment_pdf.py for iterative edits.
