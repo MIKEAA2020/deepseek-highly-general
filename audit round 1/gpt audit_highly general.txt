@@ -1,1 +1,788 @@
+The deepest upgrade is not another geometric layer. It is to replace the claimed **curvature–survival equivalence**, which is generally false, with a precise theory of **viability-weighted holonomy in an endogenously self-maintaining system**.
+
+This preserves the strongest insight—noncommuting adaptation can consume viability margin—while closing the major mathematical and empirical gaps.
+
+# 1. Necessary corrections before extending the theory
+
+## 1.1 Curvature is not equivalent to survival
+
+The proposed theorem
+
+\[
+\text{survival under perturbation}
+\iff
+\text{bounded curvature}
+\]
+
+cannot hold in general.
+
+- A flat connection can transport an agent directly out of its viable set.
+- A highly curved connection can remain entirely inside a large viable region.
+- Curvature controls the discrepancy between transports around alternative or closed paths; it does not control the absolute trajectory along each path.
+- Endpoint holonomy does not guarantee that the agent remained viable during the loop.
+- A norm bound on curvature is usually sufficient only after combining it with loop area, viability margin, transport regularity, and disturbance bounds.
+
+The rigorous replacement should be:
+
+> **Curvature predicts adaptation hysteresis; viability margins determine whether that hysteresis is fatal.**
+
+That is both stronger scientifically and more defensible mathematically.
+
+---
+
+## 1.2 Fisher-minimal inequality projection is not automatically a connection
+
+Suppose the agent chooses a policy velocity \(v\) by minimizing Fisher cost subject to viability inequalities. The map
+
+\[
+\dot b\longmapsto v
+\]
+
+will generally be piecewise nonlinear because constraints enter and leave the active set. An Ehresmann connection, by contrast, requires a smoothly varying linear horizontal subspace.
+
+Therefore the framework has two regimes:
+
+1. **Constant active-set strata:** a genuine smooth connection can be defined.
+2. **Constraint-switching boundaries:** the dynamics form a stratified or hybrid projected system, not one globally smooth connection.
+
+Calling the whole object a smooth information-geometric connection would introduce a mathematical error. The correct object is a:
+
+> **stratified viability transport law**, carrying a smooth connection on each constant-rank active stratum and explicit transition rules between strata.
+
+---
+
+## 1.3 A fully observable POMDP is an MDP
+
+If the grid state is fully observable, use “MDP.” If observations are partial or noisy, use “POMDP.”
+
+More importantly, a finite grid is not naturally a differentiable base manifold. Differential curvature should therefore not be defined directly on grid squares in physical state space. Instead, define a continuous experimental-control manifold such as
+
+\[
+\Theta\subset \mathbb R^2,
+\]
+
+whose coordinates might be:
+
+- food scarcity,
+- hazard intensity,
+- sensor noise,
+- energy price,
+- repair latency.
+
+Plaquettes are then loops in \(\Theta\), while the agent acts inside the grid-world at each parameter value.
+
+---
+
+## 1.4 Hard-coded survival constraints do not establish autopoiesis
+
+An agent constrained by externally imposed conditions such as
+
+\[
+E>0,\qquad I=1
+\]
+
+is homeostatic, but not yet demonstrably autopoietic. Autopoiesis requires the system to maintain the mechanisms that maintain those constraints.
+
+The distinction is:
+
+- **Homeostasis:** the agent remains inside a prescribed viable set.
+- **Autopoiesis:** the agent regenerates the sensing, control, repair, and boundary-maintenance machinery required to remain there.
+
+This gap should be closed experimentally rather than rhetorically.
+
+---
+
+# 2. The upgraded mathematical object
+
+Call the revised object a **Stratified Autopoietic Viability-Geometric System**, or SAVGS.
+
+A SAVGS consists of
+
+\[
+\mathcal S=
+(\Theta,\mathcal P,g_F,\mathcal K,\mathcal T,\mathcal R,\Gamma).
+\]
+
+## 2.1 Experimental base space
+
+\[
+\Theta\subset\mathbb R^d
+\]
+
+is a manifold of controlled environmental conditions. A point \(\theta\in\Theta\) specifies an environment family, not an instantaneous grid location.
+
+This makes infinitesimal loops, area scaling, and curvature well-defined.
+
+---
+
+## 2.2 Policy fibers
+
+For each relevant state or observation \(s\), let
+
+\[
+p_s\in \operatorname{int}\Delta^{A-1}
+\]
+
+be the agent’s stochastic policy. The total policy space is a product of open simplices,
+
+\[
+\mathcal P
+=
+\prod_{s\in\mathcal S_{\mathrm{obs}}}
+\operatorname{int}\Delta^{A-1}.
+\]
+
+If all fibers are identical, the bundle \(\Theta\times\mathcal P\to\Theta\) is topologically trivial. This is not a defect: nontrivial holonomy can arise from a non-flat connection on a trivial bundle. The theory should not imply nontrivial bundle topology unless varying action supports or transition singularities actually produce it.
+
+---
+
+## 2.3 Fisher geometry without logit gauge errors
+
+On one simplex, the Fisher metric is
+
+\[
+g_F(u,v)
+=
+\sum_a \frac{u_a v_a}{p_a},
+\qquad
+\sum_a u_a=\sum_a v_a=0.
+\]
+
+For a state-weighted policy space,
+
+\[
+g_F(U,V)
+=
+\sum_s w_s
+\sum_a
+\frac{U_{sa}V_{sa}}{p_{sa}},
+\]
+
+where the weights \(w_s>0\) must be fixed in advance or defined by an independently specified reference distribution. Using the agent’s changing occupancy distribution without acknowledging it would make the metric itself path-dependent.
+
+The square-root embedding
+
+\[
+\psi_a=2\sqrt{p_a}
+\]
+
+maps the simplex into the positive orthant of a sphere of radius \(2\). The exact Fisher–Rao distance is therefore
+
+\[
+d_F(p,q)
+=
+2\arccos\!\left(\sum_a\sqrt{p_aq_a}\right).
+\]
+
+This avoids softmax gauge ambiguity. If logits are nevertheless used, impose a gauge such as
+
+\[
+\sum_a \ell_a=0,
+\]
+
+because \(\ell\) and \(\ell+c\mathbf 1\) represent the same policy and the full logit Fisher matrix is singular.
+
+---
+
+## 2.4 Viability and maintenance states
+
+Let the complete internal state be
+
+\[
+x=(p,z,r),
+\]
+
+where:
+
+- \(p\) is the policy,
+- \(z\) contains regulated quantities such as energy and integrity,
+- \(r\) contains repair and maintenance machinery.
+
+Define the viable set
+
+\[
+\mathcal K
+=
+\{(\theta,x):h_\alpha(\theta,x)\ge 0,\ 
+\alpha=1,\ldots,m\}.
+\]
+
+Use nonzero margins, for example
+
+\[
+E\ge E_{\min}>0,
+\qquad
+I\ge I_{\min},
+\qquad
+R_j\ge R_{j,\min},
+\]
+
+rather than merely \(E>0\). Strict inequalities do not define a closed safe set and are unsuitable for standard viability theorems.
+
+---
+
+# 3. A rigorous Fisher-minimal transport law
+
+On a constant active-set stratum, suppose the active viability constraints are represented locally by
+
+\[
+c(\theta,p)=0.
+\]
+
+Let
+
+\[
+J_p=D_pc,\qquad J_\theta=D_\theta c.
+\]
+
+For an environmental velocity \(\dot\theta\), define the policy velocity as the Fisher-minimal solution of
+
+\[
+J_pv+J_\theta\dot\theta=0
+\]
+
+that minimizes
+
+\[
+\frac12 v^\top G(p)v.
+\]
+
+If \(J_p\) has full row rank, the unique solution is
+
+\[
+v
+=
+-
+G^{-1}J_p^\top
+\left(
+J_pG^{-1}J_p^\top
+\right)^{-1}
+J_\theta\dot\theta.
+\]
+
+Thus
+
+\[
+\dot p=-A_i(\theta,p)\dot\theta^i,
+\]
+
+with
+
+\[
+A_i
+=
+G^{-1}J_p^\top
+\left(
+J_pG^{-1}J_p^\top
+\right)^{-1}
+\partial_i c.
+\]
+
+This is a genuine horizontal transport law on a smooth, constant-rank stratum.
+
+When inequality constraints switch activity, the theory must transition to a projected differential inclusion such as
+
+\[
+\dot p\in
+\arg\min_{v\in T_{\mathcal K}(\theta,p;\dot\theta)}
+\frac12\|v-v_0\|_{F,p}^2,
+\]
+
+where \(T_{\mathcal K}\) is the appropriate contingent cone. This part is viability dynamics, not ordinary smooth connection theory.
+
+---
+
+# 4. The central novelty: viability-weighted curvature
+
+Raw curvature magnitude is not the biologically relevant quantity. Curvature may point along a harmless policy direction. What matters is the component of holonomy that erodes a specific viability margin.
+
+For horizontal vector fields
+
+\[
+H_i=\partial_{\theta^i}-A_i,
+\]
+
+define the vertical curvature
+
+\[
+F_{ij}=[H_i,H_j]^{\mathrm{vert}}.
+\]
+
+In coordinates this contains both derivative and noncommutative terms,
+
+\[
+F_{ij}
+=
+\partial_iA_j-\partial_jA_i+[A_i,A_j],
+\]
+
+with the precise signs determined by the chosen horizontal-lift convention.
+
+For a viability function \(h_\alpha\), define its local curvature susceptibility by
+
+\[
+\kappa_\alpha(\theta,x;u,v)
+=
+\frac{
+\left[-D_ph_\alpha\!\left(F(u,v)\right)\right]_+
+}{
+h_\alpha(\theta,x)
+},
+\]
+
+whenever \(h_\alpha>0\).
+
+The aggregate index is
+
+\[
+\kappa_V(\theta,x)
+=
+\sup_{\substack{u,v\\ \|u\wedge v\|=1}}
+\max_\alpha
+\kappa_\alpha(\theta,x;u,v).
+\]
+
+This quantity has a direct interpretation:
+
+> \(\kappa_V\) is the worst fractional loss of viability margin per unit oriented environmental-loop area, to leading order.
+
+It is more meaningful than \(\|F\|\) alone because it contracts the geometric defect with experimentally specified survival covectors \(D h_\alpha\). The contraction is coordinate-independent when all objects are transformed consistently.
+
+This is the most substantial conceptual advance available to the framework.
+
+---
+
+# 5. A corrected theorem
+
+## Small-loop viability–holonomy theorem
+
+Let:
+
+1. \(\Theta\) be a smooth two-dimensional experimental manifold.
+2. \(\mathcal P\) be an interior policy simplex with Fisher metric.
+3. The active constraint rank be constant in a neighborhood of \((\theta_0,p_0)\).
+4. The Fisher-minimal horizontal lift be \(C^2\).
+5. \(h_\alpha(\theta,p,z,r)\) be \(C^2\).
+6. A square loop \(\gamma_\varepsilon\) of side length \(\varepsilon\) remain in that neighborhood.
+7. The non-policy states either return to their initial values or their residual changes are included explicitly in the expansion.
+
+Then parallel transport around the loop satisfies
+
+\[
+p_{\mathrm{end}}-p_0
+=
+\varepsilon^2F_{12}(\theta_0,p_0)
++
+O(\varepsilon^3),
+\]
+
+up to the orientation/sign convention for \(F\). Consequently,
+
+\[
+h_\alpha(x_{\mathrm{end}})
+-
+h_\alpha(x_0)
+=
+\varepsilon^2
+D_ph_\alpha
+\!\left(F_{12}\right)
++
+O(\varepsilon^3)
++
+\Delta_\alpha^{\mathrm{other}},
+\]
+
+where \(\Delta_\alpha^{\mathrm{other}}\) contains any non-returning energy, integrity, repair, or environmental components.
+
+If
+
+\[
+h_\alpha(x_0)
++
+\varepsilon^2D_ph_\alpha(F_{12})
+-
+C_\alpha\varepsilon^3
+-
+|\Delta_\alpha^{\mathrm{other}}|
+>0
+\]
+
+for every \(\alpha\), then the endpoint remains viable.
+
+### What this theorem does not claim
+
+It does not guarantee viability at every intermediate point. For pathwise survival one additionally needs either:
+
+- a positive viability tube around the entire horizontally lifted path, or
+- a Nagumo-type inward-pointing condition on \(\partial\mathcal K\), with robustness slack exceeding implementation disturbances.
+
+Thus:
+
+\[
+\boxed{
+\text{transport tangency controls immediate survival;}
+\quad
+\text{curvature controls path-dependent viability erosion.}
+}
+\]
+
+Curvature is neither necessary nor sufficient for survival by itself.
+
+---
+
+# 6. Repeated-loop fatigue: a genuinely new prediction
+
+The theory becomes more distinctive when loops are repeated.
+
+Let loop \(k\) have oriented area \(a_k\) and local viability-weighted curvature \(\kappa_{V,k}\). To leading order, repeated noncommuting adaptation consumes a fraction of available margin bounded by approximately
+
+\[
+\sum_{k=1}^{n} a_k\kappa_{V,k},
+\]
+
+plus higher-order, drift, and stochastic terms.
+
+A conservative sufficient condition is
+
+\[
+\sum_{k=1}^{n}
+\left(
+a_k\kappa_{V,k}
++
+C_k a_k^{3/2}
++
+\eta_k
+\right)
+<1,
+\]
+
+where \(\eta_k\) bounds estimation and implementation error in units of fractional viability margin.
+
+This yields a testable phenomenon:
+
+> An agent may survive every environmental transition in isolation yet fail after repeated closed cycles because noncommuting adaptations accumulate irreversible organizational drift.
+
+That is stronger and more novel than merely saying “large curvature causes death.” It predicts **geometric adaptation fatigue**.
+
+If reversed loops cancel the drift to leading order, the mechanism is geometric. If they do not, secular learning, resource depletion, or irreversible damage is dominating.
+
+---
+
+# 7. Closing the autopoiesis gap
+
+## 7.1 Endogenous maintenance graph
+
+Introduce a bipartite graph
+
+\[
+\Gamma=(\mathcal M,\mathcal R,\mathcal E),
+\]
+
+where:
+
+- \(\mathcal M\) contains maintained components: sensors, policy updater, boundary, energy converter, repair modules;
+- \(\mathcal R\) contains processes that produce, repair, or enable those components;
+- edges encode consumption, production, catalysis, and enablement.
+
+A minimal operational closure criterion is:
+
+1. Every indispensable component \(m\in\mathcal M_{\mathrm{ess}}\) degrades at a positive rate.
+2. Every such component is regenerated by at least one internal process.
+3. Every internal regeneration process is enabled by components belonging to the same organizational closure.
+4. External inputs may supply matter and free energy, but not preassembled replacements for indispensable internal organization.
+
+Graphically, the indispensable maintenance subgraph should lie in a productive strongly connected component. Graph closure alone is not sufficient, however; the associated fluxes must also support a feasible positive steady state.
+
+---
+
+## 7.2 Intervention-based closure test
+
+For each purportedly self-maintained component \(m_j\):
+
+1. Set its internal repair flux to zero.
+2. Keep external energy and raw-material supply unchanged.
+3. Observe whether the system loses the capacity to maintain other essential components.
+4. Restore the repair pathway and test recovery.
+
+A component is causally internal to organizational closure only if its intervention has the predicted downstream effect.
+
+This prevents “autopoiesis” from being satisfied by a simulator that silently repairs the agent from outside.
+
+---
+
+## 7.3 Closure-aware viability curvature
+
+The viability functions should include maintenance machinery:
+
+\[
+h_j^{\mathrm{repair}}=r_j-r_{j,\min}.
+\]
+
+Then curvature can be projected specifically onto maintenance vulnerabilities:
+
+\[
+\kappa_{\mathrm{closure}}
+=
+\sup_{\|u\wedge v\|=1}
+\max_{j\in\mathcal M_{\mathrm{ess}}}
+\frac{
+[-D h_j^{\mathrm{repair}}(F(u,v))]_+
+}{
+h_j^{\mathrm{repair}}
+}.
+\]
+
+This distinguishes:
+
+- harmless behavioral hysteresis,
+- metabolic viability erosion,
+- degradation of the machinery that makes future adaptation possible.
+
+Only the third is specifically autopoietic failure.
+
+---
+
+# 8. A falsification protocol that avoids circularity
+
+## 8.1 Experimental parameter plane
+
+Use two independently controllable environmental parameters,
+
+\[
+\theta=(\theta^1,\theta^2),
+\]
+
+for example:
+
+- \(\theta^1\): food scarcity,
+- \(\theta^2\): hazard intensity.
+
+At each \(\theta\), the agent operates in the same grid-world architecture.
+
+Run oriented loops
+
+\[
+\theta_0
+\to
+\theta_0+\varepsilon e_1
+\to
+\theta_0+\varepsilon(e_1+e_2)
+\to
+\theta_0+\varepsilon e_2
+\to
+\theta_0.
+\]
+
+Also run the reverse orientation.
+
+---
+
+## 8.2 Independent estimation and prediction
+
+Do not estimate curvature from the same closed-loop endpoint used to “validate” it.
+
+Split the experiment:
+
+### Calibration data
+
+Estimate local transport operators from independent open-edge perturbations:
+
+\[
+\theta\rightarrow\theta+\varepsilon e_i.
+\]
+
+Fit \(A_i\), constraint derivatives, and uncertainty intervals.
+
+### Held-out test data
+
+Compose the independently estimated edge transports to predict the policy after an unseen loop:
+
+\[
+\widehat U_\gamma
+=
+\widehat U_4\widehat U_3\widehat U_2\widehat U_1.
+\]
+
+Then compare this prediction with actual loop execution.
+
+This prevents tautological agreement.
+
+---
+
+## 8.3 Empirical holonomy
+
+Let \(p_0\) be the initial policy and \(p_\gamma\) the post-loop policy. Define the empirical holonomy in the Fisher tangent space by
+
+\[
+\widehat{\mathcal H}_{\mathrm{emp}}
+=
+\log^{F}_{p_0}(p_\gamma).
+\]
+
+Subtract a matched no-loop drift control:
+
+\[
+\widehat{\mathcal H}_{\mathrm{corr}}
+=
+\widehat{\mathcal H}_{\mathrm{emp}}
+-
+\widehat{\mathcal H}_{\mathrm{hold}}.
+\]
+
+The geometric prediction is
+
+\[
+\widehat{\mathcal H}_{\mathrm{geo}}
+=
+\varepsilon^2\widehat F_{12}
++
+O(\varepsilon^3).
+\]
+
+A natural discrepancy statistic is
+
+\[
+T
+=
+\frac{
+\left\|
+\widehat{\mathcal H}_{\mathrm{corr}}
+-
+\widehat{\mathcal H}_{\mathrm{geo}}
+\right\|_F
+}{
+\widehat{\sigma}_{\mathrm{total}}
+},
+\]
+
+with uncertainty obtained from independent repeated trials or a hierarchical bootstrap over stochastic trajectories.
+
+---
+
+# 9. Required controls and failure signatures
+
+A credible experiment should test all of the following.
+
+## 9.1 Orientation reversal
+
+For sufficiently small loops,
+
+\[
+\mathcal H(\gamma^{-1})
+=
+-\mathcal H(\gamma)+O(\varepsilon^3).
+\]
+
+Failure of sign reversal indicates ordinary drift, asymmetric damage, or model misspecification rather than local curvature.
+
+## 9.2 Area scaling
+
+For square side \(\varepsilon\),
+
+\[
+\|\mathcal H\|_F=O(\varepsilon^2).
+\]
+
+Test several loop sizes. A leading \(O(\varepsilon)\) effect indicates failure to close the loop, calibration bias, or unremoved secular learning.
+
+## 9.3 Commuting control
+
+Choose two perturbations expected to induce commuting updates. The predicted leading holonomy should be approximately zero.
+
+## 9.4 No-learning control
+
+Freeze policy updates while retaining energy expenditure and environment transitions. This measures physical depletion around the loop independently of adaptation holonomy.
+
+## 9.5 Equal-exposure permutation test
+
+Compare protocols with identical exposure durations and environmental marginals but different order:
+
+\[
+1\to2
+\quad\text{versus}\quad
+2\to1.
+\]
+
+A difference isolates noncommutativity from total exposure.
+
+## 9.6 Subdivision consistency
+
+A large loop prediction should agree, within finite-loop error, with the ordered composition of several smaller loops. This tests whether the local connection meaningfully predicts finite transport.
+
+## 9.7 Viability projection
+
+Do not test only whether the policy holonomy matches. Test whether
+
+\[
+D h_\alpha\bigl(
+\widehat{\mathcal H}_{\mathrm{corr}}
+\bigr)
+\]
+
+predicts the observed change in each held-out viability margin. Otherwise the geometry may be correct but biologically irrelevant.
+
+---
+
+# 10. Explicit falsification hierarchy
+
+The theory should be split into independently falsifiable claims.
+
+### Claim A: Local transport law
+
+Open-edge policy changes agree with Fisher-minimal constraint-preserving transport.
+
+**Falsified if:** another preregistered transport model consistently predicts held-out edge updates better.
+
+### Claim B: Holonomy law
+
+Held-out loop drift agrees with ordered geometric transport and shows orientation reversal and area scaling.
+
+**Falsified if:** corrected loop drift remains \(O(\varepsilon)\), fails orientation reversal, or lies outside predictive uncertainty.
+
+### Claim C: Viability relevance
+
+The contraction of holonomy with viability gradients predicts margin erosion better than raw Fisher displacement or exposure-only baselines.
+
+**Falsified if:** \(\kappa_V\) provides no out-of-sample predictive gain.
+
+### Claim D: Repeated-loop fatigue
+
+Repeated loops accumulate viability loss according to ordered local holonomy bounds.
+
+**Falsified if:** failure probability is explained entirely by cumulative resource expenditure, irrespective of loop orientation and order.
+
+### Claim E: Autopoietic closure
+
+Internal maintenance interventions produce the causal dependencies predicted by \(\Gamma\).
+
+**Falsified if:** indispensable modules are effectively restored by hidden external mechanisms, or if knockout effects do not follow the claimed closure graph.
+
+This modular structure ensures that failure of the grand interpretation does not obscure which mathematical component failed.
+
+---
+
+# 11. What would count as genuinely profound novelty?
+
+The strongest defensible novelty is the combination of four elements:
+
+1. **Stratified Fisher-minimal viability transport**, rather than an informally named connection.
+2. **Viability-weighted curvature**, rather than raw geometric curvature.
+3. **Repeated-loop geometric adaptation fatigue**, rather than a false curvature–survival equivalence.
+4. **Interventionally verified endogenous maintenance closure**, rather than hard-coded homeostasis relabeled as autopoiesis.
+
+Together, these support a precise thesis:
+
+> Adaptive systems are endangered not merely by large environmental changes, but by noncommuting sequences of individually manageable changes whose induced policy holonomy is aligned with vulnerable self-maintenance directions.
+
+That claim is mathematically meaningful, algorithmically implementable, and experimentally falsifiable.
+
+# Revised final verdict
+
+The project should no longer claim that survival is equivalent to bounded information-geometric curvature. Its rigorous result is narrower and more powerful:
+
+> On smooth constant-active-set strata, Fisher-minimal constraint-preserving adaptation defines a connection whose curvature predicts the leading-order policy hysteresis generated by closed environmental perturbations. Survival depends on whether that holonomy, together with along-path disturbances and resource costs, exhausts the system’s viability and self-maintenance margins.
+
+The decisive empirical test is therefore not merely whether empirical and theoretical holonomy agree. It is whether independently estimated, gauge-invariant, viability-weighted holonomy predicts held-out margin erosion, orientation reversal, area scaling, and repeated-loop failure after ordinary energetic depletion has been controlled.
+
+If those predictions fail, the geometric mechanism fails. If they hold—and if the agent demonstrably regenerates its own maintenance machinery—the framework would advance from metaphorical “algorithmic life” to a genuine experimental theory of path-dependent self-maintenance.
 
