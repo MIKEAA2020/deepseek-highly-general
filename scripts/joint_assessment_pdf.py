@@ -1390,6 +1390,516 @@ def build():
     )
     story.append(Paragraph(closing, style_quote))
 
+    story.append(PageBreak())
+
+    # =============================================================
+    # Part IX - Addendum: Recovered Material and Corrections
+    # =============================================================
+    story.append(part_divider(
+        "PART IX",
+        "Addendum: Recovered Material and Corrections",
+        "A line-level meta-review of both source audits against this joint "
+        "assessment surfaced 13 dropped items from Audit A, 2 from Audit B, "
+        "and 3 corrections to existing joint-assessment material. All are "
+        "incorporated here. The most consequential correction (Claim F "
+        "mis-specification) changes the experimental plan: the n=3 prototype "
+        "is insufficient to test the structure-group claim; n>=4 is required."
+    ))
+
+    # --- IX.1 Recovered flaws from Audit A ---
+    story.extend(section(
+        "9.1 Recovered Flaw 2 (Audit A) - RIIP existence theorem trivial; Phi undefined",
+        [
+            ("The consciousness arc (lines 428-1022) proposes Recursive Predictive "
+             "Self-Information (RPSI) as the formal definition of consciousness and "
+             "states an existence theorem for a TSRC that is an RPSI automaton with "
+             "positive integrated information. The integrated-information measure Phi "
+             "is never given a precise definition; the existence theorem therefore "
+             "reduces to a definitional choice (any TSRC can be declared RPSI by "
+             "defining Phi suitably). This is a separate flaw from the ergodicity "
+             "self-contradiction flagged in Part IV section 4.3: the ergodicity issue "
+             "is about the recurrence property of the underlying source; the Phi-"
+             "undefined issue is about the measurability of the integrated information. "
+             "The joint framework inherits the Phi-undefined gap: SAVGS's viability-"
+             "weighted curvature kappa_alpha presupposes a measurable viability "
+             "function h_alpha, which is the analog of Phi. The Part VI section 6.2 "
+             "derivation of kappa_alpha from algorithmic rate-distortion closes this "
+             "gap by giving h_alpha a precise Bregman-divergence type, but the "
+             "consciousness-arc version of Phi remains undefined."),
+        ]
+    ))
+
+    story.extend(section(
+        "9.2 Recovered Flaw 6 (Audit A) - Bridge Rung 6's Frobenius-algebra criterion is a categorical tautology",
+        [
+            ("Bridge Rung 6 of the seven-bridge-rung sequence (lines 4008-4017) proposes "
+             "that the framework's categorical structure satisfies a Frobenius-algebra "
+             "criterion. This criterion is satisfied by definition of Frobenius algebra "
+             "in any dagger-compact category with a monoid and comonoid satisfying the "
+             "Frobenius law; it adds no empirical content. The bridge is therefore a "
+             "categorical tautology rather than a substantive theorem. This is a "
+             "separate flaw from the rhetorical-bridge pattern flagged in Part IV "
+             "section 4.2: the IFS-vs-BA category error is about a type confusion "
+             "between two different fixed points; the Bridge Rung 6 tautology is about "
+             "a definitional triviality in the bridge itself."),
+        ]
+    ))
+
+    story.extend(section(
+        "9.3 Recovered Flaw 7 (Audit A) - Game theory arc's 'Viability implies RAF' is true by definition",
+        [
+            ("The game-theory arc (lines 4352-4414) closes by stating that viability "
+             "under evolutionary game dynamics implies RAF closure. The implication "
+             "holds by definition: the game-theoretic viability condition is constructed "
+             "to coincide with the RAF closure condition, so the implication is "
+             "tautological. This is the same rhetorical pattern as Bridge Rung 6 "
+             "(section 9.2) but in a different arc: a definitional closure presented "
+             "as a substantive theorem."),
+        ]
+    ))
+
+    story.extend(section(
+        "9.4 Recovered Flaw 8 (Audit A) - WCIG rejection vs bridge-rung acceptance double standard (META-finding)",
+        [
+            ("DeepSeek rejects the user's WCIG proposal (lines 3140-3188) as mathiness: "
+             "the Wasserstein curvature is misidentified, persistent cohomology's "
+             "self-filter is underspecified, the dagger-compact and constructor-theory "
+             "formalisms are juxtaposed without a translation functor. The rejection "
+             "is correct on its merits. However, DeepSeek subsequently accepts "
+             "structurally identical conceptual moves in its own bridge rungs and n=3 "
+             "construction: persistent cohomology of consciousness (Bridge Rung 3), "
+             "dagger-compact categories (Bridge Rung 6), qualia-as-holonomy "
+             "(Bridge Rung 4), and the principle of least counterfactual variance "
+             "(n=3 construction). The same evaluative standard that rejects the user's "
+             "moves as mathiness should reject DeepSeek's own moves; it does not."),
+            ("This META-finding is the most important recovered drop. It reveals that "
+             "the boundary between undefined terms and defined terms in the transcript "
+             "tracks who is speaking, not the terms themselves. The joint framework's "
+             "falsification hierarchy (Part VII) is itself vulnerable to this double "
+             "standard: if the framework's own claims (A-G) are evaluated more leniently "
+             "than competitor proposals, the hierarchy is rigged. The remedy is to "
+             "apply the same falsifiability criteria to competitor models (Bayesian "
+             "update models, free-energy-principle models, integrated-information "
+             "models) and to require that the joint framework outperforms them on "
+             "the same tests. This is now an explicit methodological commitment of "
+             "the joint framework."),
+        ],
+        quote=(
+            "The boundary between 'undefined terms' and 'defined terms' in the "
+            "transcript tracks who is speaking, not the terms themselves. "
+            "(Audit A, Flaw 8)"
+        )
+    ))
+
+    story.extend(section(
+        "9.5 Recovered Flaw 9 (Audit A) - 'Honest caveat' pattern contradicts 'Theorem' framing",
+        [
+            ("Each arc of the transcript opens with Theorem statements presented as if "
+             "novel, and closes with an honest caveat conceding that the synthesis is "
+             "merely a novel presentation of known components. The Theorem framing "
+             "and the honest caveat are in tension throughout: if the construction is "
+             "novel presentation of known components, the Theorem framing overstates "
+             "the contribution; if the Theorem framing is warranted, the honest "
+             "caveat understates it. The transcript never reconciles this tension. "
+             "The joint assessment's Final Verdict (Part VIII) resolves it by "
+             "restricting the theorem claims to the narrow SAVGS-based result and "
+             "conceding the broader unification claim as rhetorical. The recovery "
+             "here makes that resolution explicit."),
+        ]
+    ))
+
+    # --- IX.2 Recovered inconsistencies from Audit A ---
+    story.extend(section(
+        "9.6 Recovered Inconsistency 3 (Audit A) - Holonomy bound constant: 4/pi vs 1/pi",
+        [
+            ("The transcript states the Ambrose-Singer-type holonomy bound with "
+             "constant 4/pi in one iteration (around line 12284) and with constant "
+             "1/pi in a later iteration (around line 15250). This is a concrete "
+             "numerical contradiction across iterations of the same theorem. The "
+             "discrepancy is not acknowledged in the transcript. The correct bound "
+             "depends on the precise geometric setup (the area form, the loop shape, "
+             "and the normalization convention); the joint framework inherits the "
+             "obligation to specify the convention and report a single consistent "
+             "constant. This is now a binding requirement on any experimental "
+             "instantiation of Claim B (holonomy law)."),
+        ]
+    ))
+
+    story.extend(section(
+        "9.7 Recovered Inconsistency 6 (Audit A) - 'Achievable rate-distortion bound' never redeemed across 16,000 lines",
+        [
+            ("The rate-distortion arc (lines 1-427) promises to derive the achievability "
+             "of the rate-distortion bound R(D) for the TSRC encoding, but the "
+             "derivation is never delivered across the remaining 16,000 lines of the "
+             "transcript. The achievability is the constructive direction of the rate-"
+             "distortion theorem (showing that an encoder exists achieving R(D)); "
+             "without it, the bound is a lower bound only, and the connection to "
+             "actual TSRC encodings is unproved. The joint framework's adoption of "
+             "the algorithmic rate-distortion fix (Part IV section 4.1) redeems this "
+             "promise in a different framework: the algorithmic rate-distortion "
+             "function dist_D(x) is achievable by definition (the minimizing Turing "
+             "machine exists), so the achievability is automatic in the algorithmic "
+             "framework. This is one of the underappreciated benefits of the "
+             "algorithmic-rate-distortion move."),
+        ]
+    ))
+
+    story.extend(section(
+        "9.8 Recovered Inconsistency 8 (Audit A) - 'Inverse limit' aspiration without construction",
+        [
+            ("The transcript mentions an inverse limit of RAFs as the rigorous "
+             "formalization of the cross-scale self-reproduction property, but never "
+             "constructs the inverse limit. The inverse limit requires a directed "
+             "system of RAFs (one per scale) with bonding maps (the scale-reduction "
+             "maps). Without these data, the inverse limit is aspirational. The "
+             "joint framework inherits the obligation to either construct the "
+             "directed system or retract the inverse-limit claim. The Part VI section "
+             "6.3 formalization of the intervention-based closure test via the RAF "
+             "catalytic subgraph provides one component of the directed system (the "
+             "single-scale RAF with its catalytic closure); the multi-scale "
+             "directed-system construction remains open. The recommended status is: "
+             "treat the inverse-limit claim as a research target, not a theorem."),
+        ]
+    ))
+
+    # --- IX.3 Recovered upgrades from Audit A ---
+    story.extend(section(
+        "9.9 Recovered Upgrade 2 (Audit A) - Endogenous structure group G_C = Stabilizer(C)",
+        [
+            ("The joint assessment adopted the CO(2)-for-GL(2) correction (Part II "
+             "section 2.1) but dropped the deeper move: derive the structure group "
+             "endogenously as the stabilizer of the cost functional C. The stabilizer "
+             "Stab(C) = {g in GL(n, R) : C(gp) = C(p) for all p in P} is the largest "
+             "subgroup of GL(n, R) under which the cost is invariant. For the Fisher-"
+             "Rao metric on the (n-1)-simplex, Stab(C) = CO(n-1) = R+ x O(n-1). For "
+             "a Bregman-divergence cost on the same simplex, Stab(C) is the affine "
+             "group preserving the divergence, which is smaller. The endogenous "
+             "derivation has two consequences the joint assessment did not capture: "
+             "(i) the structure group is not a free parameter but is determined by "
+             "the cost; changing the cost (e.g., from Fisher-Rao to KL) changes the "
+             "structure group; (ii) the structure group can be empirically inferred "
+             "by testing which transformations preserve the cost. This makes the "
+             "structure-group claim (Claim F) testable in a new way: instead of "
+             "testing whether the structure group is CO(2), test whether the cost-"
+             "preserving transformations are exactly CO(2)."),
+        ]
+    ))
+
+    story.extend(section(
+        "9.10 Recovered Upgrade 4 (Audit A) - RAF -> average curvature bound via entropy production",
+        [
+            ("The joint assessment's Part VI section 6.2 derives kappa_alpha from "
+             "algorithmic rate-distortion, but does not derive the link from RAF "
+             "dynamics to average curvature. The recovered upgrade is to use the "
+             "Bakry-Emery entropy-production rate: for a Markov semigroup P_t with "
+             "stationary measure mu and invariant diffusion L, the entropy-production "
+             "rate d/dt Ent_mu(P_t f) is bounded above by (1/2) Integral |nabla f|^2 "
+             "and below by the Bakry-Emery criterion involving Ric + L. The criterion "
+             "gives an average-curvature bound for the Markov semigroup associated "
+             "with the RAF dynamics. This is a known rigorous link between Markov "
+             "dynamics and curvature that the transcript gestures at (line 5231) but "
+             "never develops. The joint framework can adopt it as a derived lower "
+             "bound on the average of kappa_V over the policy distribution, "
+             "complementing the pointwise bound of Part III section 3.2."),
+        ]
+    ))
+
+    story.extend(section(
+        "9.11 Recovered Upgrade 5 (Audit A) - Rigorous inverse limit via directed system of RAFs",
+        [
+            ("The recovered upgrade is to construct the inverse limit that Inconsistency "
+             "8 (section 9.8) names. The construction requires: (a) a directed set "
+             "of scales (e.g., the natural numbers with the usual order, where n "
+             "indexes the n-th reproduction generation); (b) for each scale n, a RAF "
+             "object (X_n, F_n, R_n, kappa_n); (c) bonding maps phi_{n+1, n}: "
+             "(X_{n+1}, F_{n+1}, R_{n+1}, kappa_{n+1}) -> (X_n, F_n, R_n, kappa_n) "
+             "that respect the catalytic closure (i.e., phi_{n+1, n} sends the "
+             "catalytic subgraph of the (n+1)-th RAF to a subgraph of the n-th). "
+             "The inverse limit is then the RAF (lim X_n, lim F_n, lim R_n, "
+             "lim kappa_n) with the universal property. The construction is "
+             "non-trivial because the catalytic closure must be preserved across "
+             "scales; the bonding maps must be RAF-homomorphisms, not just set "
+             "maps. The recommended status is: this is a research target whose "
+             "completion would resolve Inconsistency 8 and provide the cross-scale "
+             "self-reproduction property the transcript claims."),
+        ]
+    ))
+
+    story.extend(section(
+        "9.12 Recovered Upgrade 6 (Audit A) - Single composition theorem replacing 7 bridge rungs",
+        [
+            ("The transcript proposes 7 bridge rungs (lines 4000-4500) connecting the "
+             "RAF, TSRC, rate-distortion, automata, consciousness, fractal, and "
+             "symmetry arcs. Each bridge is a separate rhetorical move. The recovered "
+             "upgrade is to replace all 7 with a single composition theorem in a "
+             "2-category of domain bridges. The theorem would state: given the "
+             "domain bridges as 1-morphisms and the bridge-compatibility conditions "
+             "as 2-morphisms, the composition is associative up to coherent "
+             "2-isomorphism, and the resulting composite bridge is a domain bridge "
+             "from RAF to the n=3 Fisher-Rao construction. This collapses the 7 "
+             "rungs into one theorem whose proof reduces to verifying the "
+             "compatibility 2-morphisms. The Part VI section 6.1 placement of SAVGS "
+             "in a 2-categorical span framework is a partial realization; the "
+             "completion would formalize all 7 bridges as 1-morphisms and verify "
+             "their composition."),
+        ]
+    ))
+
+    story.extend(section(
+        "9.13 Recovered Upgrade 7 (Audit A) - Confront the hard problem via organizational invariance",
+        [
+            ("The consciousness arc (lines 428-1022) proposes RPSI as a formal "
+             "definition of consciousness but concedes that the hard problem "
+             "(why is there subjective experience at all?) is not addressed. The "
+             "recovered upgrade is to adopt an organizational-invariance principle: "
+             "any two systems with isomorphic organizational-closure graphs (in the "
+             "sense of Part VI section 6.3) have isomorphic subjective states, "
+             "whatever the physical substrate. This is a philosophical commitment, "
+             "not a theorem, but it makes the hard problem tractable: the question "
+             "becomes whether the organizational-closure graph of a TSRC under "
+             "the RAF formalism is rich enough to support isomorphic-invariant "
+             "subjective states. The answer is empirical (testable via the "
+             "intervention-based closure test, Claim E) and theoretical (requires "
+             "the RAF catalytic subgraph to have a non-trivial automorphism group). "
+             "The recommended status is: adopt organizational invariance as a "
+             "working hypothesis; test it via Claim E; if it fails, retract the "
+             "consciousness-arc claim."),
+        ]
+    ))
+
+    # --- IX.4 Recovered material from Audit B ---
+    story.extend(section(
+        "9.14 Recovered from Audit B section 5 - The small-loop viability-holonomy theorem with 7 hypotheses",
+        [
+            ("Audit B section 5 states a small-loop viability-holonomy theorem with "
+             "seven explicit hypotheses: (1) Theta is a smooth 2-dimensional "
+             "experimental manifold; (2) P is an interior policy simplex with Fisher "
+             "metric; (3) the active constraint rank is constant in a neighborhood "
+             "of (theta_0, p_0); (4) the Fisher-minimal horizontal lift is C^2; "
+             "(5) h_alpha(theta, p, z, r) is C^2; (6) a square loop gamma_epsilon "
+             "of side epsilon remains in that neighborhood; (7) the non-policy "
+             "states either return to their initial values or their residual changes "
+             "are included explicitly in the expansion. The conclusion: "
+             "p_end - p_0 = epsilon^2 F_{12}(theta_0, p_0) + O(epsilon^3), and "
+             "consequently h_alpha(x_end) - h_alpha(x_0) = epsilon^2 D_p h_alpha(F_{12}) "
+             "+ O(epsilon^3) + Delta_alpha^{other}."),
+            ("The joint assessment mentioned this theorem but did not list the 7 "
+             "hypotheses. The recovery matters because each hypothesis is itself "
+             "testable: hypothesis 3 (constant active-set rank) is the stratum "
+             "condition of Part V section 5.1; hypothesis 4 (C^2 horizontal lift) "
+             "is the BA-Frechet-differentiability condition of Part IV section 4.5; "
+             "hypothesis 6 (loop remains in neighborhood) is the small-loop "
+             "condition; hypothesis 7 (non-policy states return or are included) "
+             "is the pathwise-vs-endpoint viability condition of Part V section 5.2. "
+             "Failure of any hypothesis invalidates the theorem in that regime; the "
+             "falsification hierarchy's Claim B (holonomy law) should therefore be "
+             "accompanied by a pre-experimental verification that all 7 hypotheses "
+             "hold in the chosen regime."),
+        ]
+    ))
+
+    story.extend(section(
+        "9.15 Recovered from Audit B section 9 - The 7 specific experimental controls",
+        [
+            ("Audit B section 9 specifies 7 controls, each with a falsification "
+             "criterion: (9.1) Orientation reversal - for small loops, "
+             "H(gamma^{-1}) = -H(gamma) + O(epsilon^3); failure of sign reversal "
+             "indicates ordinary drift, asymmetric damage, or model "
+             "misspecification. (9.2) Area scaling - ||H||_F = O(epsilon^2) for "
+             "square side epsilon; an O(epsilon) effect indicates failure to close "
+             "the loop, calibration bias, or unremoved secular learning. (9.3) "
+             "Commuting control - choose two perturbations expected to induce "
+             "commuting updates; the predicted leading holonomy should be "
+             "approximately zero (subject to the correction of section 9.17 below). "
+             "(9.4) No-learning control - freeze policy updates while retaining "
+             "energy expenditure and environment transitions; this measures "
+             "physical depletion around the loop independently of adaptation "
+             "holonomy. (9.5) Equal-exposure permutation test - compare protocols "
+             "with identical exposure durations and environmental marginals but "
+             "different order (1->2 versus 2->1); a difference isolates "
+             "noncommutativity from total exposure. (9.6) Subdivision consistency "
+             "- a large loop prediction should agree, within finite-loop error, "
+             "with the ordered composition of several smaller loops; this tests "
+             "whether the local connection meaningfully predicts finite transport. "
+             "(9.7) Viability projection - test whether D h_alpha(H_corr) predicts "
+             "the observed change in each held-out viability margin; otherwise the "
+             "geometry may be correct but biologically irrelevant."),
+            ("The joint assessment mentioned these controls only generally in Part "
+             "III section 3.5. The recovery makes them operational requirements on "
+             "Claim B (controls 9.1, 9.2, 9.6), Claim C (controls 9.4, 9.7), "
+             "Claim D (control 9.5), and Claim F (control 9.3, subject to the "
+             "section 9.17 correction). Each control's failure signature is a "
+             "specified alternative explanation; the experimental report should "
+             "either rule out each alternative or concede the corresponding claim "
+             "is not supported in the observed regime."),
+        ]
+    ))
+
+    # --- IX.5 Corrections to existing joint-assessment material ---
+    story.append(Spacer(1, 12))
+    story.append(Paragraph("9.16 Correction 1 (CRITICAL) - Claim F (CO(2) commuting control) is mis-specified for n=3",
+                           style_h3_joint))
+    story.append(HRFlowable(width="100%", thickness=0.8, color=C_ACCENT_JOINT, spaceBefore=2, spaceAfter=8))
+    correct_F_paras = [
+        ("The joint assessment's Claim F (Part VII) proposes a commuting-control "
+         "experiment using perturbations whose CO(2) commutator vanishes. This is "
+         "mis-specified for the n=3 case (the 2-simplex). The structure group CO(2) "
+         "= R+ x O(2) has Lie algebra co(2) = R (dilatations, central) ⊕ so(2) "
+         "(rotations). Both summands are 1-dimensional and abelian; so(2) is "
+         "abelian because there is only one rotation generator in 2D. Therefore "
+         "co(2) is a 2-dimensional ABELIAN Lie algebra. In an abelian Lie algebra, "
+         "the curvature 2-form F = dA (the commutator term [A_i, A_j] vanishes), "
+         "the Bianchi identity is trivial, path-ordering is unnecessary, and "
+         "holonomy is path-independent up to homotopy. Two perturbations ALWAYS "
+         "commute at the Lie algebra level in 2D CO(2)."),
+        ("Consequence: in the n=3 case, the commuting-control experiment is "
+         "trivially passed regardless of the perturbations chosen. Claim F is "
+         "untestable on the n=3 prototype. The non-trivial test requires n >= 4 "
+         "(the 3-simplex, with structure group CO(3) = R+ x O(3), whose Lie algebra "
+         "R ⊕ so(3) has a non-abelian so(3) summand of dimension 3). For n >= 4, "
+         "the commutator [A_i, A_j] = A_i A_j - A_j A_i is generally non-zero, "
+         "path-ordering is necessary, and the commuting-control experiment "
+         "distinguishes abelian from non-abelian perturbation pairs."),
+        ("Revised Claim F: for n >= 4, the commuting-control experiment using "
+         "perturbations whose so(n-1) commutator vanishes (parallel rotation "
+         "components, in the higher-dimensional rotation subalgebra) produces zero "
+         "leading holonomy; non-parallel rotations produce non-zero leading "
+         "holonomy. In the n=3 case, the experiment is trivially passed because "
+         "co(2) is abelian; this should be reported as a known limitation, not as "
+         "evidence for the framework. The recommended next iteration must therefore "
+         "extend the prototype from n=3 to n >= 4 to test Claim F. This is a "
+         "substantive revision of the experimental plan."),
+    ]
+    for p in correct_F_paras:
+        story.append(Paragraph(p, style_body))
+
+    story.append(Spacer(1, 10))
+    story.append(Paragraph("9.17 Correction 2 - Wasserstein/Hutchinson/BA unification overstated",
+                           style_h3_joint))
+    story.append(HRFlowable(width="100%", thickness=0.8, color=C_ACCENT_JOINT, spaceBefore=2, spaceAfter=8))
+    correct_2_paras = [
+        ("The joint assessment's Part IV section 4.2 stated: 'the Hutchinson "
+         "operator on the Wasserstein space of probability measures is the proper "
+         "generalization of the IFS attractor; the Blahut-Arimoto iteration is its "
+         "special case for the Kullback-Leibler divergence.' This is too strong. "
+         "The Hutchinson operator acts on the metric-space of compact subsets; the "
+         "BA iteration acts on the probability simplex via a Markov kernel. The "
+         "Wasserstein-space formulation is one concrete realization of a Hutchinson-"
+         "type operator on probability measures, but it is not the general statement."),
+        ("The correct statement is: both the IFS attractor and the BA fixed point "
+         "are coalgebras in the optic/lens category. The IFS is a pure coalgebra "
+         "(no residual): the next-state map X -> X has no auxiliary state. The BA "
+         "iteration is a coalgebra with residual: the next-iteration map depends on "
+         "the current iterate (the state) and the BA multiplicative-update parameter "
+         "(the residual). The unification is at the level of the optic composition "
+         "law, not at the level of the underlying space. The Wasserstein-space "
+         "formulation is a special case where the residual is interpreted as a "
+         "transport-cost parameter."),
+        ("Consequence for the joint framework: the Part VI section 6.1 placement "
+         "of SAVGS in a 2-categorical span framework should explicitly invoke the "
+         "optic/lens category, not the Wasserstein space. The 2-categorical span "
+         "is a span of optics, with the boundary being an optic isomorphism class. "
+         "This is a refinement, not a retraction: the unification still holds, "
+         "but in the more abstract optic setting."),
+    ]
+    for p in correct_2_paras:
+        story.append(Paragraph(p, style_body))
+
+    story.append(Spacer(1, 10))
+    story.append(Paragraph("9.18 Correction 3 - CPTP framework is a non-trivial quantum lift",
+                           style_h3_joint))
+    story.append(HRFlowable(width="100%", thickness=0.8, color=C_ACCENT_JOINT, spaceBefore=2, spaceAfter=8))
+    correct_3_paras = [
+        ("The joint assessment's Part IV section 4.3 presented the CPTP-channel "
+         "resolution of the ergodicity self-contradiction as if it were a re-"
+         "interpretation of the existing framework. It is in fact a non-trivial "
+         "quantum lift. The agent's state becomes a density operator rho on a "
+         "Hilbert space H; the prediction becomes a CPTP map Phi: L(H) -> L(H); "
+         "the self-referential prediction is the channel composition Phi composed "
+         "with Phi-hat, where Phi-hat is the agent's internal model of Phi. The "
+         "RPSI definition becomes I(rho_out; rho-hat_in), the quantum mutual "
+         "information between the output state and the internal-model state. "
+         "This is a substantive theoretical commitment, not a notational change."),
+        ("Consequences for the joint framework: (i) the experimental protocol "
+         "must instantiate the agent as a quantum system (or a quantum simulator); "
+         "(ii) the viability function h_alpha must be extended to density operators, "
+         "e.g., as h_alpha(rho) = D_phi(rho, rho_star) for a Bregman divergence on "
+         "the quantum state space; (iii) the quantum Zeno effect (repeated "
+         "measurement stabilizing the predicted state) is the rigorous analog of "
+         "the self-referential prediction loop, but its empirical signature (the "
+         "Zeno time scaling) is distinct from any classical analog and is itself "
+         "testable; (iv) the joint framework's Claim G (algorithmic vs ensemble-"
+         "average R(D) predictive performance under non-ergodic conditions) is "
+         "sharper in the quantum setting because the CPTP framework natively "
+         "accommodates non-ergodicity via the Stinespring dilation theorem."),
+        ("The recommended status: treat the CPTP lift as a substantive upgrade "
+         "with its own testable predictions (Zeno scaling, quantum advantage on "
+         "Claim G), not as a re-interpretation. If the lift is rejected, the "
+         "ergodicity self-contradiction (Part IV section 4.3) remains unresolved "
+         "and the joint framework must find an alternative classical resolution."),
+    ]
+    for p in correct_3_paras:
+        story.append(Paragraph(p, style_body))
+
+    # --- IX.6 Summary of changes ---
+    story.append(Spacer(1, 14))
+    story.append(HRFlowable(width="100%", thickness=1.2, color=C_ACCENT_JOINT, spaceBefore=2, spaceAfter=10))
+    story.append(Paragraph("9.19 Summary of changes to the joint framework", style_h2))
+    summary_paras = [
+        ("Recovered material: 5 flaws (RIIP existence trivial; Bridge Rung 6 "
+         "categorical tautology; game-theory definitional; WCIG double standard; "
+         "honest-caveat vs theorem framing), 3 inconsistencies (4/pi vs 1/pi "
+         "numerical; achievable R(D) bound never redeemed; inverse-limit "
+         "aspiration without construction), 5 upgrades (endogenous structure group "
+         "G_C = Stab(C); RAF-to-curvature via entropy production; rigorous "
+         "inverse limit via directed RAF system; single composition theorem "
+         "replacing 7 bridge rungs; organizational invariance for the hard "
+         "problem), 2 from GPT (the 7-hypothesis small-loop theorem; the 7 "
+         "specific experimental controls)."),
+        ("Corrections: (1) CRITICAL - Claim F is mis-specified for n=3 because "
+         "co(2) is abelian; the non-trivial test requires n >= 4. This is a "
+         "substantive revision of the experimental plan: the next iteration must "
+         "extend the prototype beyond n=3. (2) The Wasserstein/Hutchinson/BA "
+         "unification is overstated; the correct setting is the optic/lens "
+         "category, not Wasserstein space directly. (3) The CPTP framework is a "
+         "non-trivial quantum lift, not a re-interpretation; it carries its own "
+         "testable predictions (Zeno scaling) and its own commitment (quantum "
+         "instantiation of the agent)."),
+        ("Binding prerequisites added: (a) the inverse-limit construction is "
+         "required to redeem Inconsistency 8 (research target, not theorem); "
+         "(b) the single-composition-theorem formalization is required to redeem "
+         "the 7-bridge-rung rhetorical pattern (research target, not theorem); "
+         "(c) the n >= 4 prototype extension is required to test Claim F "
+         "(binding prerequisite for the structure-group test); (d) the quantum "
+         "instantiation is required to test the CPTP-resolved ergodicity claim "
+         "(binding prerequisite for Claim G in the non-ergodic regime)."),
+    ]
+    for p in summary_paras:
+        story.append(Paragraph(p, style_body))
+
+    # Closing addendum note
+    story.append(Spacer(1, 10))
+    story.append(Paragraph(
+        "Addendum thesis (revised after meta-review):",
+        style_h3_joint
+    ))
+    addendum_closing = (
+        "Adaptive systems are endangered not merely by large environmental changes, "
+        "but by noncommuting sequences of individually manageable changes whose "
+        "induced policy holonomy is aligned with vulnerable self-maintenance "
+        "directions, and whose cumulative effect is bounded by the algorithmic-"
+        "rate-distortion-theoretic viability-weighted curvature on an endogenously-"
+        "derived structure group's stratified connection (CO(2) at n=3 by "
+        "stabilizer-of-cost derivation; non-abelian CO(n-1) at n>=4 required for "
+        "the commuting-control test). The test of this thesis is whether the seven "
+        "claims of Part VII survive independent experimental test, with the "
+        "addendum that Claim F requires an n>=4 prototype to be non-trivially "
+        "tested, and that the framework's own claims must be held to the same "
+        "falsifiability standard as competitor models (the WCIG-double-standard "
+        "remedy of section 9.4)."
+    )
+    story.append(Paragraph(addendum_closing, style_quote))
+
     # -----------------------------------------------------------------
     # Build
     # -----------------------------------------------------------------
