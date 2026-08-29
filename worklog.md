@@ -512,3 +512,99 @@ Stage Summary:
   contraction confirmation), the empirically confirmed foundations and
   derivatives, and the formal journal manuscript, with no claim that
   exceeds the evidence presented.
+
+---
+Task ID: t5-manuscript-extensions
+Agent: main (Z.ai)
+Task: Three manuscript extensions requested by the user: (a) embed
+figures into journal_manuscript.tex (the 5-panel A-E plots currently
+live only in the concise report); (b) extend the T-iteration contraction
+to d=10/d=20; (c) replace the inline bibliography with a proper .bib
+and IEEE/ACM bibliography style.
+
+Work Log:
+- (a) Figures: Added \usepackage{graphicx} + \graphicspath{{../download/}}
+  so the .tex sources (in scripts/) can include PNGs from download/
+  via relative paths. Inserted 7 \begin{figure}/\includegraphics blocks
+  in their respective sections:
+  * Fig.1 in §5 (n=3): claims_a_e_operationalization.png (5-panel)
+  * Fig.2 in §6 (stress): claim_d_heavytail_stress.png (3-panel heatmap)
+  * Fig.3 in §7 (n=4): claims_ae_n4_nonabelian.png (6-panel)
+  * Fig.4 in §8 (CPTP): claim_g_zeno_plot.png (Zeno scaling log-log)
+  * Fig.5 in §9 (T iteration): t_iteration_convergence_plot.png (d=2 base)
+  * Fig.6 in §9 (T iteration): t_iteration_robustness_extension_axis_
+    aligned.png (d in {2,3,5,10,20} x 3 axis-aligned profiles grid)
+  * Fig.7 in §10 (inverse-limit): inverse_limit_raf_hasse.png (Hasse
+    diagram of the directed system of RAFs)
+  Each figure has a full academic-style caption (5-8 sentences)
+  describing what each panel shows with the key numerical results.
+
+- (b) T-iteration d=10/d=20: Re-ran scripts/t_iteration_robustness_
+  extension.py. The script's DIMENSIONS = [2, 3, 5, 10, 20] already
+  covers d=10 and d=20 (Halton low-discrepancy starting sets with
+  N=27 points and deterministic 8-corner subsamples for d=10/d=20
+  to keep the Hausdorff computation O(N^2 * d) tractable). The
+  manuscript's §9 previously said "d in {2,3,4,5}" and "extension to
+  d=10/d=20 is ongoing work" — this was stale relative to the actual
+  script coverage. Patched §9 with a new Proposition prop:titer
+  stating the actual coverage (5 dims x 5 profiles x 3 starting sets
+  x 5 Bregman strengths = 375 configs) and enumerating the four WEAK
+  configurations explicitly:
+    * (d=2, k=3 axis, halton 27, lambda=0.9): q=0.8942, R^2=0.865
+    * (d=5, k=7 axis, halton 27, lambda=0.9): q=0.8919, R^2=0.882
+    * (d=10, k=7 rotated, random 27, lambda=0.9): q=0.8788, R^2=0.791
+    * (d=20, k=3 rotated, corners 8, lambda=0.9): q=0.8984, R^2=0.772
+  All 4 WEAK configs are contractive (q<1), only the tail-fit R^2
+  degrades. Updated Discussion Limitations (i) from "d<=5; extension
+  to d=10/d=20 is ongoing work" to "d<=20; sharper characterization of
+  tail-fit degradation at high Bregman strengths is open". Updated
+  Future directions (i) accordingly.
+
+- (c) Bibliography: Created scripts/journal_manuscript_refs.bib with
+  all 14 references in BibTeX format (Riley 2018, Brunerie 2020,
+  Steel 2004, Hordijk 2011, Aubin 2011, Chentsov 1982, Amari 2000,
+  Misra 1977, Facchi 2008, Nielsen 2000, Misner 1973, Bhattacharya
+  2007, Banach 1922, Riley 2023). Replaced the inline
+  \begin{thebibliography}{99} ... \end{thebibliography} block with
+  \bibliographystyle{IEEEtran} + \bibliography{journal_manuscript_
+  refs}. Tectonic auto-fetches IEEEtran.bst from CTAN on first run
+  (seen in the compile log: "note: downloading IEEEtran.bst").
+  Added inline \cite{...} commands throughout the prose for the 8
+  previously-uncited references (Aubin viability theory, Chentsov/Amari
+  Fisher-Rao, Nielsen CPTP, Misner Gravitation, Bhattacharya heavy
+  tails, Banach contraction, Riley cornering) so all 14 references
+  now appear in the bibliography. Final bibliography renders in IEEE
+  numbered format [1]-[14].
+
+- Compiled successfully via tectonic; 14 pages, 3.04 MB (was 8 pages,
+  127 KB before figures/bibliography). PDF QA: 13 of 14 references
+  found via "^\[[0-9]+\]" grep (the missing [12] Nielsen is wrapped
+  across two lines but present in the text — confirmed via separate
+  grep -i nielsen). All 7 figure captions present.
+
+- Note on tectonic warning: "internal consistency problem when
+  checking if journal_manuscript.bbl changed" + "TeX rerun seems
+  needed, but stopping at 6 passes" — this is a known tectonic quirk
+  when BibTeX's .bbl file is still stabilizing on the 6th pass. The
+  final PDF output is correct (all citations resolved, all references
+  numbered, all figures embedded). Tectonic's "stopping at 6 passes"
+  is a safety limit; the actual bibliography is fully resolved because
+  the warning appears AFTER the bbl is correctly written. Verified by
+  inspecting the PDF.
+
+- Committed as 6b0b789 with 3 files: scripts/journal_manuscript.tex
+  (modified), scripts/journal_manuscript_refs.bib (new),
+  download/journal_manuscript.pdf (regenerated). Pushed to
+  origin/main (808bef4..6b0b789). Restored clean push URL.
+
+Stage Summary:
+- Manuscript is now 14 pages with 7 embedded figures and a 14-entry
+  IEEE-style bibliography. All three requested extensions complete.
+- T-iteration contraction is now reported as tested up to d=20
+  (375 configs); the previous "d<=5, d=10/d=20 ongoing" wording was
+  stale and has been corrected in both §9 and the Discussion.
+- The .bib file (scripts/journal_manuscript_refs.bib) is a separate
+  artifact suitable for venue-specific re-styling (e.g., to switch
+  to ACM-Reference-Format for an ACM submission, change
+  \bibliographystyle{IEEEtran} to \bibliographystyle{ACM-Reference-
+  Format} and recompile).
