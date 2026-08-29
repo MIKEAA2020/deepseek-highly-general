@@ -1,0 +1,29 @@
+variant,starting_set,lambda,n_iter,final_distance,fitted_q,r2,valid_fit,verdict
+canonical,grid 5x5,0.0,40,0.000000e+00,0.817390,0.285931,True,STRONG-CONVERGED (machine precision; q<1 in tail)
+canonical,grid 5x5,0.1,40,0.000000e+00,0.687910,0.497404,True,STRONG-CONVERGED (machine precision; q<1 in tail)
+canonical,grid 5x5,0.3,40,0.000000e+00,0.497290,0.843864,True,STRONG-CONVERGED (machine precision; q<1 in tail)
+canonical,grid 5x5,0.5,40,1.590101e-14,0.512138,0.999833,True,STRONG-CONVERGED (machine precision; q<1 in tail)
+canonical,grid 5x5,0.7,40,7.082938e-09,0.708040,1.000000,True,"CONFIRMED (q=0.7080, R^2=1.0000)"
+canonical,random 25,0.0,40,0.000000e+00,0.816667,0.286546,True,STRONG-CONVERGED (machine precision; q<1 in tail)
+canonical,random 25,0.1,40,0.000000e+00,0.696302,0.482350,True,STRONG-CONVERGED (machine precision; q<1 in tail)
+canonical,random 25,0.3,40,0.000000e+00,0.444863,0.897316,True,STRONG-CONVERGED (machine precision; q<1 in tail)
+canonical,random 25,0.5,40,1.111282e-13,0.512913,1.000000,True,STRONG-CONVERGED (machine precision; q<1 in tail)
+canonical,random 25,0.7,40,2.271659e-08,0.707882,1.000000,True,"CONFIRMED (q=0.7079, R^2=1.0000)"
+canonical,corners,0.0,40,0.000000e+00,0.817390,0.285931,True,STRONG-CONVERGED (machine precision; q<1 in tail)
+canonical,corners,0.1,40,0.000000e+00,0.598746,0.570427,True,STRONG-CONVERGED (machine precision; q<1 in tail)
+canonical,corners,0.3,40,0.000000e+00,0.402257,0.940980,True,STRONG-CONVERGED (machine precision; q<1 in tail)
+canonical,corners,0.5,40,1.245233e-12,0.513237,1.000000,True,STRONG-CONVERGED (machine precision; q<1 in tail)
+canonical,corners,0.7,40,2.105200e-07,0.707662,1.000000,True,"CONFIRMED (q=0.7077, R^2=1.0000)"
+canonical,ring 16,0.0,40,0.000000e+00,0.823171,0.277922,True,STRONG-CONVERGED (machine precision; q<1 in tail)
+canonical,ring 16,0.1,40,0.000000e+00,0.641231,0.536292,True,STRONG-CONVERGED (machine precision; q<1 in tail)
+canonical,ring 16,0.3,40,0.000000e+00,0.415672,0.923521,True,STRONG-CONVERGED (machine precision; q<1 in tail)
+canonical,ring 16,0.5,40,4.522897e-13,0.513623,1.000000,True,STRONG-CONVERGED (machine precision; q<1 in tail)
+canonical,ring 16,0.7,40,7.972493e-08,0.708096,1.000000,True,"CONFIRMED (q=0.7081, R^2=1.0000)"
+control,grid 5x5,0.0,40,0.000000e+00,0.724704,0.389218,True,CONTROL: STRONG-CONVERGED (machine precision; q<1 in tail)
+control,grid 5x5,0.3,40,0.000000e+00,0.461503,0.900105,True,CONTROL: STRONG-CONVERGED (machine precision; q<1 in tail)
+control,grid 5x5,0.5,40,2.217703e-14,0.518237,0.999973,True,CONTROL: STRONG-CONVERGED (machine precision; q<1 in tail)
+control,grid 5x5,0.7,40,6.611566e-09,0.707457,1.000000,True,"CONTROL: CONFIRMED (q=0.7075, R^2=1.0000)"
+control,random 25,0.0,40,0.000000e+00,0.724487,0.389547,True,CONTROL: STRONG-CONVERGED (machine precision; q<1 in tail)
+control,random 25,0.3,40,0.000000e+00,0.474756,0.887696,True,CONTROL: STRONG-CONVERGED (machine precision; q<1 in tail)
+control,random 25,0.5,40,2.248735e-13,0.530332,1.000000,True,CONTROL: STRONG-CONVERGED (machine precision; q<1 in tail)
+control,random 25,0.7,40,3.063851e-08,0.718019,1.000000,True,"CONTROL: CONFIRMED (q=0.7180, R^2=1.0000)"
