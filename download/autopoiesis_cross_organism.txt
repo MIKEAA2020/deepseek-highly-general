@@ -1,0 +1,46 @@
+E11: CROSS-ORGANISM CLOSURE TEST (Qwen §8.5 deeper)
+==============================================================================
+Models tested (all FIXED, no engineering):
+  iJO1366: E. coli K-12 MG1655 (Orth 2011)
+  iAF1260: E. coli K-12 MG1655 (Feist 2010)
+  iMM904: S. cerevisiae (Mo 2009)
+
+Test set per model: 10 Network B + 40 random cytosolic = 50 mets
+Closure test (autopoiesis regeneration):
+  causally_internal = (baseline_prod > 1e-6)
+                  AND (knockout_prod  < 1e-6)
+                  AND (recovery_prod  > 1e-6)
+
+BASELINE FBA per model:
+  iJO1366: biomass flux = 0.982372
+  iAF1260: biomass flux = 0.736701
+  iMM904: biomass flux = 0.287866
+
+CLOSURE VERDICT per model:
+  iJO1366: 28/50 (56.0%) causally internal
+  iAF1260: 20/50 (40.0%) causally internal
+  iMM904: 20/50 (40.0%) causally internal
+
+CROSS-ORGANISM VERDICT (Network B orthologous mets):
+  iJO1366 vs iAF1260 (same org, diff reconstruction): 9/10 agree
+  iJO1366 vs iMM904  (E. coli vs S. cerevisiae):        7/10 agree
+  iAF1260 vs iMM904  (alt E. coli vs S. cerevisiae):    6/10 agree
+
+'METABOLIC ROBUST + ENZYME FRAGILE' universality:
+       model              n_prod=1             n_prod>=2
+     iJO1366  auto%=50.0% (11/22)  auto%=60.7% (17/28)
+     iAF1260  auto%=20.0% (4/20)  auto%=59.3% (16/27)
+      iMM904  auto%=28.6% (6/21)  auto%=58.3% (14/24)
+
+Per-metabolite Network B verdict table:
+            met_id         iJO1366         iAF1260          iMM904
+             g6p_c     AUTOPOIETIC     AUTOPOIETIC     HOMEOSTATIC
+             fdp_c     HOMEOSTATIC     AUTOPOIETIC     HOMEOSTATIC
+             pep_c     AUTOPOIETIC     AUTOPOIETIC     AUTOPOIETIC
+             pyr_c     AUTOPOIETIC     AUTOPOIETIC     AUTOPOIETIC
+           accoa_c     AUTOPOIETIC     AUTOPOIETIC     AUTOPOIETIC
+             cit_c     AUTOPOIETIC     AUTOPOIETIC     HOMEOSTATIC
+             akg_c     AUTOPOIETIC     AUTOPOIETIC     AUTOPOIETIC
+            succ_c     AUTOPOIETIC     AUTOPOIETIC     AUTOPOIETIC
+          mal__L_c     AUTOPOIETIC     AUTOPOIETIC     HOMEOSTATIC
+             oaa_c     AUTOPOIETIC     AUTOPOIETIC     AUTOPOIETIC
