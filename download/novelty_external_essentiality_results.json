@@ -1,0 +1,2961 @@
+{
+  "model": "iJO1366",
+  "n_genes_total": 1367,
+  "n_genes_FBA_essential": 208,
+  "n_genes_FBA_nonessential": 1159,
+  "n_metabolites_tested": 150,
+  "n_metabolites_valid": 150,
+  "FBA_vs_KEIO": {
+    "essential_subset_mapped": 24,
+    "nonessential_subset_mapped": 6,
+    "TP": 5,
+    "FP": 0,
+    "TN": 6,
+    "FN": 19,
+    "kappa": 0.09523809523809522,
+    "mcc": 0.223606797749979,
+    "f1": 0.3448275862068966,
+    "precision": 1.0,
+    "recall": 0.20833333333333334
+  },
+  "closure_vs_FBA_gene": {
+    "TP": 68,
+    "FP": 76,
+    "TN": 0,
+    "FN": 6,
+    "kappa": -0.08008429926238152,
+    "mcc": -0.20686418924693753,
+    "f1": 0.6238532110091742,
+    "precision": 0.4722222222222222,
+    "recall": 0.918918918918919
+  },
+  "closure_vs_FBA_gene_valid_only": {
+    "TP": 68,
+    "FP": 76,
+    "TN": 0,
+    "FN": 6,
+    "kappa": -0.08008429926238152,
+    "mcc": -0.20686418924693753,
+    "f1": 0.6238532110091742,
+    "precision": 0.4722222222222222,
+    "recall": 0.918918918918919
+  },
+  "rows": [
+    {
+      "metabolite": "citr__L_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 1,
+      "n_essential_gene_backups": 0,
+      "baseline_prod_flux": 0.29057772323013425,
+      "recovery_prod_flux": 0.2905777232301372
+    },
+    {
+      "metabolite": "3psme_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.3744005628946959,
+      "recovery_prod_flux": 0.37440056289469104
+    },
+    {
+      "metabolite": "zn2_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 2,
+      "n_nonessential_gene_backups": 1,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.0003349887881399003,
+      "recovery_prod_flux": 0.00033498878813989925
+    },
+    {
+      "metabolite": "indole_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 3,
+      "n_nonessential_gene_backups": 2,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.11168192190167948,
+      "recovery_prod_flux": 0.11168192190168096
+    },
+    {
+      "metabolite": "malACP_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.07645603344091544,
+      "recovery_prod_flux": 0.07645603344091502
+    },
+    {
+      "metabolite": "2mahmp_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.00021906891423811604,
+      "recovery_prod_flux": 0.0002190689142381172
+    },
+    {
+      "metabolite": "grdp_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.000273099363938101,
+      "recovery_prod_flux": 0.0002730993639381022
+    },
+    {
+      "metabolite": "fe3_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 6,
+      "n_nonessential_gene_backups": 4,
+      "n_essential_gene_backups": 2,
+      "baseline_prod_flux": 0.003835179556886112,
+      "recovery_prod_flux": 0.0038351795568861724
+    },
+    {
+      "metabolite": "ohpb_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.00021906891423811677,
+      "recovery_prod_flux": 0.0002190689142381177
+    },
+    {
+      "metabolite": "moadamp_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.0004793974446107668,
+      "recovery_prod_flux": 0.00047939744461076954
+    },
+    {
+      "metabolite": "argsuc_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.29057772323013925,
+      "recovery_prod_flux": 0.290577723230136
+    },
+    {
+      "metabolite": "iscu_2fe2s_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 2,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 2,
+      "baseline_prod_flux": 0.00028292308206537064,
+      "recovery_prod_flux": 0.00028292308206536983
+    },
+    {
+      "metabolite": "atp_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 4,
+      "n_nonessential_gene_backups": 4,
+      "n_essential_gene_backups": 0,
+      "baseline_prod_flux": 56.68062259236275,
+      "recovery_prod_flux": 55.815247399842306
+    },
+    {
+      "metabolite": "4ampm_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 3,
+      "n_nonessential_gene_backups": 1,
+      "n_essential_gene_backups": 2,
+      "baseline_prod_flux": 0.0002190689142381172,
+      "recovery_prod_flux": 0.0002190689142381142
+    },
+    {
+      "metabolite": "pap_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 3,
+      "n_nonessential_gene_backups": 1,
+      "n_essential_gene_backups": 2,
+      "baseline_prod_flux": 0.24350246596426212,
+      "recovery_prod_flux": 0.24350246596426078
+    },
+    {
+      "metabolite": "2me4p_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.002346886260604771,
+      "recovery_prod_flux": 0.0023468862606047646
+    },
+    {
+      "metabolite": "akg_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 9,
+      "n_nonessential_gene_backups": 4,
+      "n_essential_gene_backups": 5,
+      "baseline_prod_flux": 15.482493241182897,
+      "recovery_prod_flux": 15.482493241213916
+    },
+    {
+      "metabolite": "orn_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 2,
+      "n_nonessential_gene_backups": 1,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.2905777232301382,
+      "recovery_prod_flux": 0.29057772323013925
+    },
+    {
+      "metabolite": "dmlz_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.0008762756569524118,
+      "recovery_prod_flux": 0.0008762756569525271
+    },
+    {
+      "metabolite": "amp_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 86,
+      "n_nonessential_gene_backups": 63,
+      "n_essential_gene_backups": 23,
+      "baseline_prod_flux": 2.2345490967039887,
+      "recovery_prod_flux": 2.2345490967039754
+    },
+    {
+      "metabolite": "opmeACP_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 1.9647436254539755e-06,
+      "recovery_prod_flux": 1.964743625453965e-06
+    },
+    {
+      "metabolite": "3mop_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 2,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 2,
+      "baseline_prod_flux": 0.5708150007595137,
+      "recovery_prod_flux": 0.5708150007595187
+    },
+    {
+      "metabolite": "e4p_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 2,
+      "n_nonessential_gene_backups": 2,
+      "n_essential_gene_backups": 0,
+      "baseline_prod_flux": 12.67084016496939,
+      "recovery_prod_flux": 1.1667814054477554
+    },
+    {
+      "metabolite": "uamr_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.02729814793205738,
+      "recovery_prod_flux": 0.02729814793205718
+    },
+    {
+      "metabolite": "for_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 11,
+      "n_nonessential_gene_backups": 7,
+      "n_essential_gene_backups": 4,
+      "baseline_prod_flux": 0.0021906891423810696,
+      "recovery_prod_flux": 0.0021906891423816104
+    },
+    {
+      "metabolite": "3php_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 1,
+      "n_essential_gene_backups": 0,
+      "baseline_prod_flux": 1.6878842334026218,
+      "recovery_prod_flux": 1.6878842334026452
+    },
+    {
+      "metabolite": "3hbcoa_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 1,
+      "n_essential_gene_backups": 0,
+      "baseline_prod_flux": 0.3496064807132781,
+      "recovery_prod_flux": 0.3496064807132778
+    },
+    {
+      "metabolite": "moco_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.00011984936115269154,
+      "recovery_prod_flux": 0.00011984936115269213
+    },
+    {
+      "metabolite": "pimACP_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 1.964743625453954e-06,
+      "recovery_prod_flux": 1.964743625453969e-06
+    },
+    {
+      "metabolite": "r5p_c",
+      "closure_verdict": "HOMEOSTATIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 7,
+      "n_nonessential_gene_backups": 7,
+      "n_essential_gene_backups": 0,
+      "baseline_prod_flux": 0.9171079413484742,
+      "recovery_prod_flux": 0.0
+    },
+    {
+      "metabolite": "so4_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 3,
+      "n_nonessential_gene_backups": 3,
+      "n_essential_gene_backups": 0,
+      "baseline_prod_flux": 0.24776399488786802,
+      "recovery_prod_flux": 0.24776399488787176
+    },
+    {
+      "metabolite": "kdo_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.038226051976831724,
+      "recovery_prod_flux": 0.03822605197683232
+    },
+    {
+      "metabolite": "amob_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 1.9647436254539633e-06,
+      "recovery_prod_flux": 1.9647436254539624e-06
+    },
+    {
+      "metabolite": "4adcho_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.0006572067427146105,
+      "recovery_prod_flux": 0.0006572067427143719
+    },
+    {
+      "metabolite": "cit_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 3,
+      "n_nonessential_gene_backups": 2,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 4.8577766442263055,
+      "recovery_prod_flux": 4.857776644226242
+    },
+    {
+      "metabolite": "mlthf_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 2,
+      "n_nonessential_gene_backups": 2,
+      "n_essential_gene_backups": 0,
+      "baseline_prod_flux": 1.1494585224946032,
+      "recovery_prod_flux": 1.1494585224946199
+    },
+    {
+      "metabolite": "dpcoa_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.000565846164130201,
+      "recovery_prod_flux": 0.0005658461641308988
+    },
+    {
+      "metabolite": "glutrna_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.0035051026278098783,
+      "recovery_prod_flux": 0.0035051026278098752
+    },
+    {
+      "metabolite": "mal__L_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 5,
+      "n_nonessential_gene_backups": 5,
+      "n_essential_gene_backups": 0,
+      "baseline_prod_flux": 4.826656087570884,
+      "recovery_prod_flux": 4.826656087570996
+    },
+    {
+      "metabolite": "acg5sa_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.2905777232301383,
+      "recovery_prod_flux": 0.2905777232301408
+    },
+    {
+      "metabolite": "glu5sa_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 2,
+      "n_nonessential_gene_backups": 1,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.21715820106236208,
+      "recovery_prod_flux": 0.21715820106236403
+    },
+    {
+      "metabolite": "ps161_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.07388811352244692,
+      "recovery_prod_flux": 0.07388811352244783
+    },
+    {
+      "metabolite": "4hbz_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.00021906891423811598,
+      "recovery_prod_flux": 0.00021906891423811636
+    },
+    {
+      "metabolite": "xmp_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 3,
+      "n_nonessential_gene_backups": 3,
+      "n_essential_gene_backups": 0,
+      "baseline_prod_flux": 0.23941972871056805,
+      "recovery_prod_flux": 0.23941972871056674
+    },
+    {
+      "metabolite": "asn__L_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 4,
+      "n_nonessential_gene_backups": 4,
+      "n_essential_gene_backups": 0,
+      "baseline_prod_flux": 0.23680563731690152,
+      "recovery_prod_flux": 0.23680563731690066
+    },
+    {
+      "metabolite": "udcpdp_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 3,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 3,
+      "baseline_prod_flux": 0.01370310441572861,
+      "recovery_prod_flux": 0.013703104415728478
+    },
+    {
+      "metabolite": "dhgly_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.00021906891423811593,
+      "recovery_prod_flux": 0.0002190689142381179
+    },
+    {
+      "metabolite": "cpmp_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.00023969872230538247,
+      "recovery_prod_flux": 0.00023969872230538257
+    },
+    {
+      "metabolite": "3hmrsACP_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.07645210395366431,
+      "recovery_prod_flux": 0.0764521039536663
+    },
+    {
+      "metabolite": "hpmeACP_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 1.964743625453926e-06,
+      "recovery_prod_flux": 1.9647436254539455e-06
+    },
+    {
+      "metabolite": "suchms_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.15119782806861873,
+      "recovery_prod_flux": 0.15119782806861998
+    },
+    {
+      "metabolite": "uacgam_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.0928223478409448,
+      "recovery_prod_flux": 0.09282234784094685
+    },
+    {
+      "metabolite": "g3p_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 11,
+      "n_nonessential_gene_backups": 9,
+      "n_essential_gene_backups": 2,
+      "baseline_prod_flux": 17.44434106412628,
+      "recovery_prod_flux": 9.66015508639728
+    },
+    {
+      "metabolite": "3odcoa_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 1,
+      "n_essential_gene_backups": 0,
+      "baseline_prod_flux": 0.34960648071327627,
+      "recovery_prod_flux": 0.3496064807132716
+    },
+    {
+      "metabolite": "dhpt_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.0006572067427144262,
+      "recovery_prod_flux": 0.0006572067427143752
+    },
+    {
+      "metabolite": "nadp_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 76,
+      "n_nonessential_gene_backups": 33,
+      "n_essential_gene_backups": 43,
+      "baseline_prod_flux": 2.083392528251506,
+      "recovery_prod_flux": 2.083392528251508
+    },
+    {
+      "metabolite": "pram_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.4403363765931417,
+      "recovery_prod_flux": 0.44033637659310654
+    },
+    {
+      "metabolite": "uagmda_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.027298147932057138,
+      "recovery_prod_flux": 0.027298147932057145
+    },
+    {
+      "metabolite": "uaagmda_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.027298147932057138,
+      "recovery_prod_flux": 0.027298147932056826
+    },
+    {
+      "metabolite": "4ppcys_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.0005658461641302783,
+      "recovery_prod_flux": 0.0005658461641311408
+    },
+    {
+      "metabolite": "3hocoa_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 1,
+      "n_essential_gene_backups": 0,
+      "baseline_prod_flux": 0.3496064807132751,
+      "recovery_prod_flux": 0.34960648071328065
+    },
+    {
+      "metabolite": "4mop_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.44258895515969654,
+      "recovery_prod_flux": 0.4425889551596965
+    },
+    {
+      "metabolite": "accoa_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 8,
+      "n_nonessential_gene_backups": 8,
+      "n_essential_gene_backups": 0,
+      "baseline_prod_flux": 8.648330979147486,
+      "recovery_prod_flux": 8.076024737976194
+    },
+    {
+      "metabolite": "dnad_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.0022378429893865023,
+      "recovery_prod_flux": 0.002237842989395163
+    },
+    {
+      "metabolite": "ade_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 9,
+      "n_nonessential_gene_backups": 6,
+      "n_essential_gene_backups": 3,
+      "baseline_prod_flux": 0.000661136229965236,
+      "recovery_prod_flux": 0.0006611362299652557
+    },
+    {
+      "metabolite": "5aprbu_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.00043813782847620236,
+      "recovery_prod_flux": 0.0004381378284761817
+    },
+    {
+      "metabolite": "dhnpt_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 1,
+      "n_essential_gene_backups": 0,
+      "baseline_prod_flux": 0.0006572067427142224,
+      "recovery_prod_flux": 0.0006572067427143408
+    },
+    {
+      "metabolite": "mobd_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 1,
+      "n_essential_gene_backups": 0,
+      "baseline_prod_flux": 0.00012672596384177907,
+      "recovery_prod_flux": 0.00012672596384178162
+    },
+    {
+      "metabolite": "3ophb_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.00021906891423811427,
+      "recovery_prod_flux": 0.00021906891423811563
+    },
+    {
+      "metabolite": "utp_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 1,
+      "n_essential_gene_backups": 0,
+      "baseline_prod_flux": 0.41778603163196393,
+      "recovery_prod_flux": 0.41778603163196304
+    },
+    {
+      "metabolite": "8aonn_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 1.9647436254539256e-06,
+      "recovery_prod_flux": 1.964743625453955e-06
+    },
+    {
+      "metabolite": "kdolipid4_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.019113025988416056,
+      "recovery_prod_flux": 0.0191130259884165
+    },
+    {
+      "metabolite": "db4p_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.0008762756569525823,
+      "recovery_prod_flux": 0.0008762756569524991
+    },
+    {
+      "metabolite": "aspsa_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 1,
+      "n_essential_gene_backups": 0,
+      "baseline_prod_flux": 0.6858202865036518,
+      "recovery_prod_flux": 0.6858202865036451
+    },
+    {
+      "metabolite": "thmpp_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.00021906891423811766,
+      "recovery_prod_flux": 0.00021906891423811801
+    },
+    {
+      "metabolite": "ppp9_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 2,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 2,
+      "baseline_prod_flux": 0.00021906891423811764,
+      "recovery_prod_flux": 0.00021906891423811457
+    },
+    {
+      "metabolite": "mql8_c",
+      "closure_verdict": "HOMEOSTATIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 13,
+      "n_nonessential_gene_backups": 12,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 31.021723067218783,
+      "recovery_prod_flux": 0.0
+    },
+    {
+      "metabolite": "ugmda_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.02729814793205706,
+      "recovery_prod_flux": 0.027298147932057294
+    },
+    {
+      "metabolite": "s17bp_c",
+      "closure_verdict": "HOMEOSTATIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 1,
+      "n_essential_gene_backups": 0,
+      "baseline_prod_flux": 7.784185977729041,
+      "recovery_prod_flux": 0.0
+    },
+    {
+      "metabolite": "b2coa_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 2,
+      "n_nonessential_gene_backups": 2,
+      "n_essential_gene_backups": 0,
+      "baseline_prod_flux": 0.6992129614265452,
+      "recovery_prod_flux": 0.699212961426549
+    },
+    {
+      "metabolite": "r15bp_c",
+      "closure_verdict": "OFF_PATH",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 1,
+      "n_essential_gene_backups": 0,
+      "baseline_prod_flux": 0.0,
+      "recovery_prod_flux": 0.0
+    },
+    {
+      "metabolite": "fmn_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 12,
+      "n_nonessential_gene_backups": 11,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.00021906891423808798,
+      "recovery_prod_flux": 0.00021906891423808945
+    },
+    {
+      "metabolite": "10fthf_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 2,
+      "n_nonessential_gene_backups": 2,
+      "n_essential_gene_backups": 0,
+      "baseline_prod_flux": 0.9713309359238139,
+      "recovery_prod_flux": 0.9713309359239315
+    },
+    {
+      "metabolite": "3c3hmp_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 2,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 2,
+      "baseline_prod_flux": 0.8851779103194002,
+      "recovery_prod_flux": 0.8851779103194009
+    },
+    {
+      "metabolite": "q8h2_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 17,
+      "n_nonessential_gene_backups": 16,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 35.14953949465202,
+      "recovery_prod_flux": 35.14953949465209
+    },
+    {
+      "metabolite": "air_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.44033637659314245,
+      "recovery_prod_flux": 0.44033637659311786
+    },
+    {
+      "metabolite": "mpt_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.00023969872230538284,
+      "recovery_prod_flux": 0.00023969872230538772
+    },
+    {
+      "metabolite": "h2s_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 3,
+      "n_nonessential_gene_backups": 2,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.2435024659642611,
+      "recovery_prod_flux": 0.24350246596426064
+    },
+    {
+      "metabolite": "dhpmp_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 1,
+      "n_essential_gene_backups": 0,
+      "baseline_prod_flux": 0.0006572067427154403,
+      "recovery_prod_flux": 0.0006572067427141577
+    },
+    {
+      "metabolite": "cobalt2_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 2.4559295318174473e-05,
+      "recovery_prod_flux": 2.455929531817456e-05
+    },
+    {
+      "metabolite": "cdpdhdec9eg_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.07388811352244698,
+      "recovery_prod_flux": 0.07388811352244724
+    },
+    {
+      "metabolite": "iscu_4fe4s_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 1,
+      "n_essential_gene_backups": 0,
+      "baseline_prod_flux": 0.00025541667130901446,
+      "recovery_prod_flux": 0.00025541667130901007
+    },
+    {
+      "metabolite": "3ohcoa_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 1,
+      "n_essential_gene_backups": 0,
+      "baseline_prod_flux": 0.349606480713277,
+      "recovery_prod_flux": 0.34960648071327355
+    },
+    {
+      "metabolite": "3hhcoa_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 1,
+      "n_essential_gene_backups": 0,
+      "baseline_prod_flux": 0.3496064807132795,
+      "recovery_prod_flux": 0.3496064807132744
+    },
+    {
+      "metabolite": "hco3_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 1,
+      "n_essential_gene_backups": 0,
+      "baseline_prod_flux": 0.5165753058633756,
+      "recovery_prod_flux": 0.5165753058634212
+    },
+    {
+      "metabolite": "3htdcoa_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 1,
+      "n_essential_gene_backups": 0,
+      "baseline_prod_flux": 0.27315437675961435,
+      "recovery_prod_flux": 0.2731543767596119
+    },
+    {
+      "metabolite": "u3hga_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.03822605197683167,
+      "recovery_prod_flux": 0.038226051976832855
+    },
+    {
+      "metabolite": "prpp_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 3,
+      "n_nonessential_gene_backups": 2,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 1.242071625139459,
+      "recovery_prod_flux": 1.2420716251394819
+    },
+    {
+      "metabolite": "3dhq_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 2,
+      "n_nonessential_gene_backups": 1,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.3744005628946945,
+      "recovery_prod_flux": 0.3744005628946945
+    },
+    {
+      "metabolite": "adp_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 271,
+      "n_nonessential_gene_backups": 200,
+      "n_essential_gene_backups": 71,
+      "baseline_prod_flux": 50.67042016038272,
+      "recovery_prod_flux": 50.66909788792304
+    },
+    {
+      "metabolite": "2dhp_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.0005658461641310506,
+      "recovery_prod_flux": 0.0005658461641314732
+    },
+    {
+      "metabolite": "iscssh_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.001773181121972196,
+      "recovery_prod_flux": 0.001773181121972205
+    },
+    {
+      "metabolite": "lipidX_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.019113025988416087,
+      "recovery_prod_flux": 0.019113025988416
+    },
+    {
+      "metabolite": "histd_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.0930679407941275,
+      "recovery_prod_flux": 0.09306794079412914
+    },
+    {
+      "metabolite": "amet_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.0008821698878288143,
+      "recovery_prod_flux": 0.0008821698878288243
+    },
+    {
+      "metabolite": "3pg_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 2,
+      "n_nonessential_gene_backups": 2,
+      "n_essential_gene_backups": 0,
+      "baseline_prod_flux": 14.58689040118666,
+      "recovery_prod_flux": 14.586890401186862
+    },
+    {
+      "metabolite": "dgtp_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 2,
+      "n_nonessential_gene_backups": 2,
+      "n_essential_gene_backups": 0,
+      "baseline_prod_flux": 0.026540739264445338,
+      "recovery_prod_flux": 0.026540739264445036
+    },
+    {
+      "metabolite": "6hmhpt_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.0006572067427144089,
+      "recovery_prod_flux": 0.0006572067427144563
+    },
+    {
+      "metabolite": "nadh_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 58,
+      "n_nonessential_gene_backups": 49,
+      "n_essential_gene_backups": 9,
+      "baseline_prod_flux": 35.524817219578054,
+      "recovery_prod_flux": 35.52481721957804
+    },
+    {
+      "metabolite": "r1p_c",
+      "closure_verdict": "HOMEOSTATIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 5,
+      "n_nonessential_gene_backups": 5,
+      "n_essential_gene_backups": 0,
+      "baseline_prod_flux": 0.0006611362299652644,
+      "recovery_prod_flux": 0.0
+    },
+    {
+      "metabolite": "6pgl_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 1,
+      "n_essential_gene_backups": 0,
+      "baseline_prod_flux": 4.081934853516555,
+      "recovery_prod_flux": 4.081934853516565
+    },
+    {
+      "metabolite": "hisp_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.0930679407941279,
+      "recovery_prod_flux": 0.09306794079412814
+    },
+    {
+      "metabolite": "6pgc_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 2,
+      "n_nonessential_gene_backups": 2,
+      "n_essential_gene_backups": 0,
+      "baseline_prod_flux": 4.081934853516555,
+      "recovery_prod_flux": 4.081934853516564
+    },
+    {
+      "metabolite": "2ohph_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 2,
+      "n_nonessential_gene_backups": 2,
+      "n_essential_gene_backups": 0,
+      "baseline_prod_flux": 0.00021906891423811487,
+      "recovery_prod_flux": 0.00021906891423811617
+    },
+    {
+      "metabolite": "eig3p_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.09306794079412792,
+      "recovery_prod_flux": 0.09306794079412886
+    },
+    {
+      "metabolite": "skm5p_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 1,
+      "n_essential_gene_backups": 0,
+      "baseline_prod_flux": 0.37440056289469076,
+      "recovery_prod_flux": 0.37440056289469387
+    },
+    {
+      "metabolite": "cu2_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 5,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 5,
+      "baseline_prod_flux": 0.0009362003375288047,
+      "recovery_prod_flux": 0.0009362003375288202
+    },
+    {
+      "metabolite": "h2o2_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 10,
+      "n_nonessential_gene_backups": 9,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.003835179556886101,
+      "recovery_prod_flux": 0.0038351795568860795
+    },
+    {
+      "metabolite": "bmoco1gdp_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.00011984936115269243,
+      "recovery_prod_flux": 0.00011984936115269079
+    },
+    {
+      "metabolite": "iscs_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 5,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 5,
+      "baseline_prod_flux": 0.001236806112223258,
+      "recovery_prod_flux": 0.0012368061122232739
+    },
+    {
+      "metabolite": "glu__L_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 32,
+      "n_nonessential_gene_backups": 15,
+      "n_essential_gene_backups": 17,
+      "baseline_prod_flux": 6.668432207741381,
+      "recovery_prod_flux": 6.6684322077410485
+    },
+    {
+      "metabolite": "ara5p_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 1,
+      "n_essential_gene_backups": 0,
+      "baseline_prod_flux": 0.0382260519768326,
+      "recovery_prod_flux": 0.0382260519768323
+    },
+    {
+      "metabolite": "u3aga_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.038226051976832175,
+      "recovery_prod_flux": 0.03822605197683164
+    },
+    {
+      "metabolite": "ppi_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 142,
+      "n_nonessential_gene_backups": 89,
+      "n_essential_gene_backups": 53,
+      "baseline_prod_flux": 7.925480091165653,
+      "recovery_prod_flux": 6.779545336363267
+    },
+    {
+      "metabolite": "fum_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 9,
+      "n_nonessential_gene_backups": 6,
+      "n_essential_gene_backups": 3,
+      "baseline_prod_flux": 5.151619771361953,
+      "recovery_prod_flux": 4.826656087570856
+    },
+    {
+      "metabolite": "3oddcoa_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 1,
+      "n_essential_gene_backups": 0,
+      "baseline_prod_flux": 0.3496064807132748,
+      "recovery_prod_flux": 0.34960648071327366
+    },
+    {
+      "metabolite": "gtp_c",
+      "closure_verdict": "HOMEOSTATIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 2,
+      "n_nonessential_gene_backups": 2,
+      "n_essential_gene_backups": 0,
+      "baseline_prod_flux": 0.7766877144372905,
+      "recovery_prod_flux": 0.0
+    },
+    {
+      "metabolite": "phthr_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.00021906891423811484,
+      "recovery_prod_flux": 0.0002190689142381191
+    },
+    {
+      "metabolite": "hdd2coa_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 3,
+      "n_nonessential_gene_backups": 3,
+      "n_essential_gene_backups": 0,
+      "baseline_prod_flux": 0.5463087535192223,
+      "recovery_prod_flux": 0.5463087535192268
+    },
+    {
+      "metabolite": "mn2_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 2,
+      "n_nonessential_gene_backups": 1,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.000678818922594337,
+      "recovery_prod_flux": 0.0006788189225943409
+    },
+    {
+      "metabolite": "malcoa_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.07645799818454019,
+      "recovery_prod_flux": 0.07645799818454087
+    },
+    {
+      "metabolite": "3hhdcoa_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 1,
+      "n_essential_gene_backups": 0,
+      "baseline_prod_flux": 0.2731543767596131,
+      "recovery_prod_flux": 0.2731543767596127
+    },
+    {
+      "metabolite": "3ig3p_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.05584096095083915,
+      "recovery_prod_flux": 0.05584096095083944
+    },
+    {
+      "metabolite": "cmp_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 28,
+      "n_nonessential_gene_backups": 17,
+      "n_essential_gene_backups": 11,
+      "baseline_prod_flux": 0.1777159727813764,
+      "recovery_prod_flux": 0.17771597278137416
+    },
+    {
+      "metabolite": "ala__D_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 7,
+      "n_nonessential_gene_backups": 7,
+      "n_essential_gene_backups": 0,
+      "baseline_prod_flux": 0.054596295864114464,
+      "recovery_prod_flux": 0.054596295864114824
+    },
+    {
+      "metabolite": "dhptd_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.00044010257210170997,
+      "recovery_prod_flux": 0.0004401025721016847
+    },
+    {
+      "metabolite": "fadh2_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 12,
+      "n_nonessential_gene_backups": 11,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 4.293921651762483,
+      "recovery_prod_flux": 4.293921651756974
+    },
+    {
+      "metabolite": "rhcys_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.000440102572101683,
+      "recovery_prod_flux": 0.0004401025721016863
+    },
+    {
+      "metabolite": "prlp_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.09306794079412792,
+      "recovery_prod_flux": 0.09306794079412853
+    },
+    {
+      "metabolite": "kdo8p_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.03822605197683196,
+      "recovery_prod_flux": 0.03822605197683217
+    },
+    {
+      "metabolite": "5drib_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.0002210336578635549,
+      "recovery_prod_flux": 0.0002210336578635697
+    },
+    {
+      "metabolite": "gly_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 9,
+      "n_nonessential_gene_backups": 9,
+      "n_essential_gene_backups": 0,
+      "baseline_prod_flux": 1.0958166008466135,
+      "recovery_prod_flux": 1.0958166008465975
+    },
+    {
+      "metabolite": "34hpp_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 2,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 2,
+      "baseline_prod_flux": 0.2713684248040746,
+      "recovery_prod_flux": 0.2713684248040735
+    },
+    {
+      "metabolite": "pnto__R_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 2,
+      "n_nonessential_gene_backups": 1,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.000565846164130124,
+      "recovery_prod_flux": 0.000565846164131775
+    },
+    {
+      "metabolite": "cl_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 1,
+      "n_essential_gene_backups": 0,
+      "baseline_prod_flux": 0.002556622642621957,
+      "recovery_prod_flux": 0.0025566226426219684
+    },
+    {
+      "metabolite": "thdp_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.3644098415592594,
+      "recovery_prod_flux": 0.36440984155926165
+    },
+    {
+      "metabolite": "cbasp_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 2,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 2,
+      "baseline_prod_flux": 0.6499273675820406,
+      "recovery_prod_flux": 0.6499273675820447
+    },
+    {
+      "metabolite": "dctp_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "AUTOPOIETIC",
+      "n_producing_reactions": 2,
+      "n_nonessential_gene_backups": 2,
+      "n_essential_gene_backups": 0,
+      "baseline_prod_flux": 0.026540739264444734,
+      "recovery_prod_flux": 0.02654073926444467
+    },
+    {
+      "metabolite": "uppg3_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.00043813782847623164,
+      "recovery_prod_flux": 0.0004381378284762317
+    },
+    {
+      "metabolite": "cdpdhdecg_c",
+      "closure_verdict": "AUTOPOIETIC",
+      "gene_level_verdict": "HOMEOSTATIC",
+      "n_producing_reactions": 1,
+      "n_nonessential_gene_backups": 0,
+      "n_essential_gene_backups": 1,
+      "baseline_prod_flux": 0.06268907485735929,
+      "recovery_prod_flux": 0.06268907485735918
+    }
+  ],
+  "reaction_level_test": {
+    "n_reactions_sampled": 200,
+    "rows": [
+      {
+        "reaction": "ALAGLUE",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 1,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "LPLIPAL2A180",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 3,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "ATPPRT",
+        "fba_essential": true,
+        "closure_essential": true,
+        "n_produced": 2,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "UDPGALPpp",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 3,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "2AGPGAT120",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 3,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "PE161abcpp",
+        "fba_essential": true,
+        "closure_essential": true,
+        "n_produced": 4,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "GSNt2pp",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 2,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "2AGPE140tipp",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 1,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "ALAt4pp",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 2,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "ACt4pp",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 2,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "NTD4pp",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 2,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "PAPA141pp",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 2,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "INStex",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 1,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "ORPT",
+        "fba_essential": true,
+        "closure_essential": false,
+        "n_produced": 2,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "DTMPtex",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 1,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "PPPNt2rpp",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 2,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "EAR80x",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 2,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "THFAT",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 2,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "H2tpp",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 1,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "CU2tpp",
+        "fba_essential": true,
+        "closure_essential": false,
+        "n_produced": 1,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "XYLUtex",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 1,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "PLIPA1A141pp",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 2,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "ANHMK",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 3,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "NTPP10",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 3,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "CYSS",
+        "fba_essential": true,
+        "closure_essential": false,
+        "n_produced": 3,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "GGPTRCO",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 3,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "DURADx",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 3,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "MOAT",
+        "fba_essential": true,
+        "closure_essential": true,
+        "n_produced": 3,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "2DGULRGx",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 2,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "MECDPDH5",
+        "fba_essential": true,
+        "closure_essential": true,
+        "n_produced": 3,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "5MTRtex",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 1,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "3PEPTabcpp",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 4,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "CTECOAI7",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 1,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "UPLA4FNF",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 2,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "THRabcpp",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 4,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "PSERtex",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 1,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "OPMEACPS",
+        "fba_essential": true,
+        "closure_essential": true,
+        "n_produced": 3,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "DHCINDO",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 2,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "PGPP160pp",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 2,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "SADT2",
+        "fba_essential": true,
+        "closure_essential": true,
+        "n_produced": 4,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "42A12BOOXpp",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 3,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "PUNP2",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 2,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "APH180",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 3,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "ASNt2rpp",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 2,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "OHPBAT",
+        "fba_essential": true,
+        "closure_essential": true,
+        "n_produced": 2,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "DGSNt2pp",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 2,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "NADPHQR3",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 2,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "MTHFC",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 2,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "FUM",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 1,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "UM3PL",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 4,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "GUAtex",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 1,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "PYDXPP",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 2,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "HEXt2rpp",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 2,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "MLTGY3pp",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 1,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "EAR160y",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 2,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "LPLIPAL1G141pp",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 3,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "HCINNMt2rpp",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 2,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "AGM3Pt2pp",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 2,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "HYD1pp",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 2,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "LIPOCT",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 2,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "AM3PA",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 2,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "MPTSS",
+        "fba_essential": true,
+        "closure_essential": true,
+        "n_produced": 2,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "ACACt2pp",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 2,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "COLIPAPabctex",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 4,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "LIPAHT2ex",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 2,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "PROTRS",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 3,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "LPLIPAL2ATE181",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 2,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "DHORTS",
+        "fba_essential": true,
+        "closure_essential": false,
+        "n_produced": 2,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "LYSDC",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 2,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "ARGDCpp",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 2,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "TARTRtex",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 1,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "3PEPTtex",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 1,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "GLCRt2rpp",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 2,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "3OAR161",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 2,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "ADCS",
+        "fba_essential": true,
+        "closure_essential": true,
+        "n_produced": 2,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "PLIPA2E181pp",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 3,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "GALT1",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 3,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "MTHFR2",
+        "fba_essential": true,
+        "closure_essential": true,
+        "n_produced": 2,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "3OAR40",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 2,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "GLCTR1",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 3,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "PGPP120",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 2,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "MDDCP2pp",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 2,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "MNLptspp",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 2,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "SGSAD",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 3,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "G3PEabcpp",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 4,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "ABTA",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 2,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "THYMtex",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 1,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "SERt4pp",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 2,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "ABUTD",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 3,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "AOXSr2",
+        "fba_essential": true,
+        "closure_essential": true,
+        "n_produced": 3,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "ASPO4",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 3,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "PSSA181",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 3,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "DAGK160",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 3,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "DKGLCNR2y",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 2,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "PSCLYSt2pp",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 2,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "NH4tpp",
+        "fba_essential": true,
+        "closure_essential": false,
+        "n_produced": 1,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "N2Otpp",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 1,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "T2DECAI",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 1,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "CYStex",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 1,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "CLtex",
+        "fba_essential": true,
+        "closure_essential": true,
+        "n_produced": 1,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "GAM6Pt6_2pp",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 2,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "NOtpp",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 1,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "HPYRRx",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 2,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "PRASCSi",
+        "fba_essential": true,
+        "closure_essential": true,
+        "n_produced": 4,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "EAR141x",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 2,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "G2PPpp",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 2,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "GBBTNtex",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 1,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "ALATRS",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 3,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "MCPST",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 3,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "AGMH",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 2,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "R5Ptex",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 1,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "LPLIPAL2A160",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 3,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "EAR100y",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 2,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "CPPPGO2",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 4,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "GLDBRAN2",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 1,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "CYANST",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 3,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "PGPP141",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 2,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "DAAD",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 3,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "AACPS8",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 3,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "TMAOR1",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 3,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "OXDHCOAT",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 2,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "FECRMexs",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 1,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "F6Pt6_2pp",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 2,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "TRPAS2",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 3,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "DAMPtex",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 1,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "MLTGY2pp",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 2,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "MG2tex",
+        "fba_essential": true,
+        "closure_essential": true,
+        "n_produced": 1,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "PGPP140pp",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 2,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "ANPRT",
+        "fba_essential": true,
+        "closure_essential": true,
+        "n_produced": 2,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "LCTSt3ipp",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 2,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "MDDCP3pp",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 2,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "FACOAE100",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 3,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "FA120ACPHi",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 3,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "IPPMIa",
+        "fba_essential": true,
+        "closure_essential": true,
+        "n_produced": 2,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "APH141",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 3,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "PGP180abcpp",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 4,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "CYSDS",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 3,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "GLYALDtex",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 1,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "23DAPPAtex",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 1,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "G3PEtex",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 1,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "2AGPA140tipp",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 1,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "EAR160x",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 2,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "KDOCT2",
+        "fba_essential": true,
+        "closure_essential": true,
+        "n_produced": 2,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "AHCYSNS",
+        "fba_essential": true,
+        "closure_essential": true,
+        "n_produced": 2,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "GLNabcpp",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 4,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "LPLIPAL1A160pp",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 3,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "CFAS160G",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 3,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "PPNDH",
+        "fba_essential": true,
+        "closure_essential": false,
+        "n_produced": 3,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "GLCP2",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 1,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "2AGPG160tipp",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 1,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "DCYTtex",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 1,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "2AGPEAT140",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 3,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "ALLTNt2rpp",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 2,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "23PDE4pp",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 2,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "DGSNtex",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 1,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "EAR180y",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 2,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "MLTG3",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 2,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "LPLIPAL1A140pp",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 3,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "ASR",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 3,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "ALLK",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 3,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "AKGt2rpp",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 2,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "EAR141y",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 2,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "CYSDtex",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 1,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "AGPAT141",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 2,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "CU2abcpp",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 4,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "HYD3pp",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 2,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "GTPDPK",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 3,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "DAPAL",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 2,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "3OAS161",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 3,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "NTPP6",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 3,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "MACPD",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 2,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "RNTR3c2",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 3,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "DOXRBCNtpp",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 2,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "AM4PCP",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 2,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "DKGLCNR1",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 2,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "ACGAMT",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 2,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "SELCYSS",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 3,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "MDH",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 3,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "SCYSDS",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 2,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "CLt3_2pp",
+        "fba_essential": true,
+        "closure_essential": true,
+        "n_produced": 2,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "DIMPtex",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 1,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "ACtex",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 1,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "GAMptspp",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 2,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "SUCASPtpp",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 2,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "HEX7",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 3,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "MMCD",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 2,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "CU2tex",
+        "fba_essential": true,
+        "closure_essential": false,
+        "n_produced": 1,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "GLYCAt2rpp",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 2,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "DHMPTR",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 2,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "Kabcpp",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 4,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "PDE4",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 2,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "PYDXNtex",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 1,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "ACGS",
+        "fba_essential": true,
+        "closure_essential": true,
+        "n_produced": 3,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "POX",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 3,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "THRTRS",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 3,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "GTHRDabc2pp",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 4,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "CBPS",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 5,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "ADNK1",
+        "fba_essential": false,
+        "closure_essential": false,
+        "n_produced": 3,
+        "n_sole_producer": 0
+      },
+      {
+        "reaction": "XAND",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 3,
+        "n_sole_producer": 1
+      },
+      {
+        "reaction": "BUTCT",
+        "fba_essential": false,
+        "closure_essential": true,
+        "n_produced": 2,
+        "n_sole_producer": 1
+      }
+    ],
+    "confusion_matrix": {
+      "TP": 20,
+      "FP": 62,
+      "TN": 111,
+      "FN": 7
+    },
+    "kappa": 0.20561823624222897,
+    "mcc": 0.2656614820145346,
+    "f1": 0.36697247706422015,
+    "precision": 0.24390243902439024,
+    "recall": 0.7407407407407407
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "test_cases": 5,
+  "n_correct": 5,
+  "accuracy": 1.0,
+  "rows": [
+    {
+      "case": "control_contractible_disk",
+      "description": "contractible synthetic",
+      "n_points": 200,
+      "betti_0": 1,
+      "betti_1": 0,
+      "betti_2": 0,
+      "n_persistent_h1_finite": 0,
+      "expected": "CONTRACTIBLE",
+      "verdict": "CONTRACTIBLE",
+      "verdict_correct": true
+    },
+    {
+      "case": "control_S1_circle",
+      "description": "non-contractible S^1 (limit cycle signature)",
+      "n_points": 200,
+      "betti_0": 1,
+      "betti_1": 1,
+      "betti_2": 0,
+      "n_persistent_h1_finite": 1,
+      "expected": "NON-CONTRACTIBLE",
+      "verdict": "NON-CONTRACTIBLE",
+      "verdict_correct": true
+    },
+    {
+      "case": "control_torus_T2",
+      "description": "non-contractible T^2",
+      "n_points": 400,
+      "betti_0": 1,
+      "betti_1": 3,
+      "betti_2": 0,
+      "n_persistent_h1_finite": 3,
+      "expected": "NON-CONTRACTIBLE",
+      "verdict": "NON-CONTRACTIBLE",
+      "verdict_correct": true
+    },
+    {
+      "case": "network_K_AcCoA_recovery",
+      "description": "Network K Phase I PASS (contractible)",
+      "n_points": 300,
+      "betti_0": 1,
+      "betti_1": 0,
+      "betti_2": 0,
+      "n_persistent_h1_finite": 0,
+      "expected": "CONTRACTIBLE",
+      "verdict": "CONTRACTIBLE",
+      "verdict_correct": true
+    },
+    {
+      "case": "network_J_AcCoA_limit_cycle",
+      "description": "Network J Phase I FAIL (limit cycle)",
+      "n_points": 300,
+      "betti_0": 1,
+      "betti_1": 1,
+      "betti_2": 0,
+      "n_persistent_h1_finite": 1,
+      "expected": "NON-CONTRACTIBLE",
+      "verdict": "NON-CONTRACTIBLE",
+      "verdict_correct": true
+    }
+  ],
+  "method": "Persistent homology (ripser) on the trajectory point cloud. Contractibility criterion: betti_0 = 1 AND betti_1 = 0 AND betti_2 = 0 (at all persistence scales). Non-contractible shows up as betti_1 >= 1 persistent 1-hole (limit cycle signature).",
+  "elevation_vs_prior": "The prior Phase III test (Definition def:autopoiesis-phase3) used mean/max/min of the trajectory's deviation from the steady state within a tolerance epsilon. This is a WEAK test: it can pass for trajectories that are non-contractible but happen to have small deviation (e.g., a tight limit cycle around the steady state). The persistent-homology test is a HOMOTOPY-INVARIANT criterion that correctly distinguishes contractible (single connected component, no holes) from non-contractible (persistent 1-dimensional hole = limit cycle) trajectories."
+}
