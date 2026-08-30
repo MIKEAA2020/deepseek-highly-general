@@ -1,0 +1,752 @@
+{
+  "e10_total_genes": 92,
+  "e10_mapped_genes": 1,
+  "e10_unmapped_genes": 91,
+  "keio_map_size": 4213,
+  "iJO1366_gene_count": 1367,
+  "iJO1366_gene_set_loaded": true,
+  "summary_counts": {
+    "already_b_number_format": 5,
+    "b_number_recovered_from_keio": 72,
+    "no_match_in_keio": 14,
+    "would_map_to_iJO1366_NEW": 14
+  },
+  "unmapped_genes_per_gene": [
+    {
+      "gene": "ahpC",
+      "gene_lowercase": "ahpc",
+      "b_number_in_keio": "b0605",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "b0245",
+      "gene_lowercase": "b0245",
+      "b_number_in_keio": "",
+      "already_b_number_format": true,
+      "would_map_to_iJO1366": null,
+      "status_now": "ALREADY-B-NUMBER"
+    },
+    {
+      "gene": "b0753",
+      "gene_lowercase": "b0753",
+      "b_number_in_keio": "",
+      "already_b_number_format": true,
+      "would_map_to_iJO1366": null,
+      "status_now": "ALREADY-B-NUMBER"
+    },
+    {
+      "gene": "b1631",
+      "gene_lowercase": "b1631",
+      "b_number_in_keio": "",
+      "already_b_number_format": true,
+      "would_map_to_iJO1366": null,
+      "status_now": "ALREADY-B-NUMBER"
+    },
+    {
+      "gene": "b1758",
+      "gene_lowercase": "b1758",
+      "b_number_in_keio": "",
+      "already_b_number_format": true,
+      "would_map_to_iJO1366": null,
+      "status_now": "ALREADY-B-NUMBER"
+    },
+    {
+      "gene": "b2086",
+      "gene_lowercase": "b2086",
+      "b_number_in_keio": "",
+      "already_b_number_format": true,
+      "would_map_to_iJO1366": null,
+      "status_now": "ALREADY-B-NUMBER"
+    },
+    {
+      "gene": "bcp",
+      "gene_lowercase": "bcp",
+      "b_number_in_keio": "b2480",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": true,
+      "status_now": "MAPPED-NEW"
+    },
+    {
+      "gene": "bolA",
+      "gene_lowercase": "bola",
+      "b_number_in_keio": "b0435",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "caiC",
+      "gene_lowercase": "caic",
+      "b_number_in_keio": "b0037",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": true,
+      "status_now": "MAPPED-NEW"
+    },
+    {
+      "gene": "cheR",
+      "gene_lowercase": "cher",
+      "b_number_in_keio": "b1884",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "csiE",
+      "gene_lowercase": "csie",
+      "b_number_in_keio": "b2535",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "cspF",
+      "gene_lowercase": "cspf",
+      "b_number_in_keio": "b1558",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "cspI",
+      "gene_lowercase": "cspi",
+      "b_number_in_keio": "b1552",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "csrA",
+      "gene_lowercase": "csra",
+      "b_number_in_keio": "b2696",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "cutC",
+      "gene_lowercase": "cutc",
+      "b_number_in_keio": "b1874",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "degS",
+      "gene_lowercase": "degs",
+      "b_number_in_keio": "b3235",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "dnaJ",
+      "gene_lowercase": "dnaj",
+      "b_number_in_keio": "b0015",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "fhiA",
+      "gene_lowercase": "fhia",
+      "b_number_in_keio": "b0229",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "flgA",
+      "gene_lowercase": "flga",
+      "b_number_in_keio": "b1072",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "flgB",
+      "gene_lowercase": "flgb",
+      "b_number_in_keio": "b1073",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "flgC",
+      "gene_lowercase": "flgc",
+      "b_number_in_keio": "b1074",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "flgD",
+      "gene_lowercase": "flgd",
+      "b_number_in_keio": "b1075",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "flgE",
+      "gene_lowercase": "flge",
+      "b_number_in_keio": "b1076",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "flgG",
+      "gene_lowercase": "flgg",
+      "b_number_in_keio": "b1078",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "flgH",
+      "gene_lowercase": "flgh",
+      "b_number_in_keio": "b1079",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "flgJ",
+      "gene_lowercase": "flgj",
+      "b_number_in_keio": "b1081",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "flgK",
+      "gene_lowercase": "flgk",
+      "b_number_in_keio": "b1082",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "flhD",
+      "gene_lowercase": "flhd",
+      "b_number_in_keio": "b1892",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "fliA",
+      "gene_lowercase": "flia",
+      "b_number_in_keio": "b1922",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "fliD",
+      "gene_lowercase": "flid",
+      "b_number_in_keio": "b1924",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "fliE",
+      "gene_lowercase": "flie",
+      "b_number_in_keio": "b1937",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "fliM",
+      "gene_lowercase": "flim",
+      "b_number_in_keio": "b1945",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "fliS",
+      "gene_lowercase": "flis",
+      "b_number_in_keio": "b1925",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "ftsA",
+      "gene_lowercase": "ftsa",
+      "b_number_in_keio": "b0094",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "galT",
+      "gene_lowercase": "galt",
+      "b_number_in_keio": "b0758",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": true,
+      "status_now": "MAPPED-NEW"
+    },
+    {
+      "gene": "hdeA",
+      "gene_lowercase": "hdea",
+      "b_number_in_keio": "b3510",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "hdhA",
+      "gene_lowercase": "hdha",
+      "b_number_in_keio": "b1619",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "himD",
+      "gene_lowercase": "himd",
+      "b_number_in_keio": "",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": null,
+      "status_now": "NO-MATCH"
+    },
+    {
+      "gene": "hns",
+      "gene_lowercase": "hns",
+      "b_number_in_keio": "b1237",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "hslJ",
+      "gene_lowercase": "hslj",
+      "b_number_in_keio": "b1379",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "hslV",
+      "gene_lowercase": "hslv",
+      "b_number_in_keio": "b3932",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "htrE",
+      "gene_lowercase": "htre",
+      "b_number_in_keio": "b0139",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "lrhA",
+      "gene_lowercase": "lrha",
+      "b_number_in_keio": "b2289",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "motA",
+      "gene_lowercase": "mota",
+      "b_number_in_keio": "b1890",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "msrA",
+      "gene_lowercase": "msra",
+      "b_number_in_keio": "b4219",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": true,
+      "status_now": "MAPPED-NEW"
+    },
+    {
+      "gene": "mutH",
+      "gene_lowercase": "muth",
+      "b_number_in_keio": "b2831",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "mutL",
+      "gene_lowercase": "mutl",
+      "b_number_in_keio": "b4170",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "narJ",
+      "gene_lowercase": "narj",
+      "b_number_in_keio": "b1226",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": true,
+      "status_now": "MAPPED-NEW"
+    },
+    {
+      "gene": "otsB",
+      "gene_lowercase": "otsb",
+      "b_number_in_keio": "b1897",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": true,
+      "status_now": "MAPPED-NEW"
+    },
+    {
+      "gene": "phoH",
+      "gene_lowercase": "phoh",
+      "b_number_in_keio": "b1020",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "ppiA",
+      "gene_lowercase": "ppia",
+      "b_number_in_keio": "b3363",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "pqiB",
+      "gene_lowercase": "pqib",
+      "b_number_in_keio": "b0951",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "proV",
+      "gene_lowercase": "prov",
+      "b_number_in_keio": "b2677",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": true,
+      "status_now": "MAPPED-NEW"
+    },
+    {
+      "gene": "proW",
+      "gene_lowercase": "prow",
+      "b_number_in_keio": "b2678",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": true,
+      "status_now": "MAPPED-NEW"
+    },
+    {
+      "gene": "recF",
+      "gene_lowercase": "recf",
+      "b_number_in_keio": "b3700",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "rpoE",
+      "gene_lowercase": "rpoe",
+      "b_number_in_keio": "b2573",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "rpsV",
+      "gene_lowercase": "rpsv",
+      "b_number_in_keio": "",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": null,
+      "status_now": "NO-MATCH"
+    },
+    {
+      "gene": "sbmC",
+      "gene_lowercase": "sbmc",
+      "b_number_in_keio": "b2009",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "sodA",
+      "gene_lowercase": "soda",
+      "b_number_in_keio": "b3908",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": true,
+      "status_now": "MAPPED-NEW"
+    },
+    {
+      "gene": "stpA",
+      "gene_lowercase": "stpa",
+      "b_number_in_keio": "b2669",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "treA",
+      "gene_lowercase": "trea",
+      "b_number_in_keio": "b1197",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": true,
+      "status_now": "MAPPED-NEW"
+    },
+    {
+      "gene": "ugpC",
+      "gene_lowercase": "ugpc",
+      "b_number_in_keio": "b3450",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": true,
+      "status_now": "MAPPED-NEW"
+    },
+    {
+      "gene": "uvrB",
+      "gene_lowercase": "uvrb",
+      "b_number_in_keio": "b0779",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "yabH",
+      "gene_lowercase": "yabh",
+      "b_number_in_keio": "",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": null,
+      "status_now": "NO-MATCH"
+    },
+    {
+      "gene": "ybeV",
+      "gene_lowercase": "ybev",
+      "b_number_in_keio": "",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": null,
+      "status_now": "NO-MATCH"
+    },
+    {
+      "gene": "yceK",
+      "gene_lowercase": "ycek",
+      "b_number_in_keio": "b1050",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "ycgR",
+      "gene_lowercase": "ycgr",
+      "b_number_in_keio": "b1194",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "ychK",
+      "gene_lowercase": "ychk",
+      "b_number_in_keio": "",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": null,
+      "status_now": "NO-MATCH"
+    },
+    {
+      "gene": "ydaA",
+      "gene_lowercase": "ydaa",
+      "b_number_in_keio": "",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": null,
+      "status_now": "NO-MATCH"
+    },
+    {
+      "gene": "ydeB",
+      "gene_lowercase": "ydeb",
+      "b_number_in_keio": "",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": null,
+      "status_now": "NO-MATCH"
+    },
+    {
+      "gene": "ydgO",
+      "gene_lowercase": "ydgo",
+      "b_number_in_keio": "",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": null,
+      "status_now": "NO-MATCH"
+    },
+    {
+      "gene": "yeaA",
+      "gene_lowercase": "yeaa",
+      "b_number_in_keio": "b1778",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": true,
+      "status_now": "MAPPED-NEW"
+    },
+    {
+      "gene": "yeaG",
+      "gene_lowercase": "yeag",
+      "b_number_in_keio": "b1783",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "yedU",
+      "gene_lowercase": "yedu",
+      "b_number_in_keio": "",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": null,
+      "status_now": "NO-MATCH"
+    },
+    {
+      "gene": "yehX",
+      "gene_lowercase": "yehx",
+      "b_number_in_keio": "b2129",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": true,
+      "status_now": "MAPPED-NEW"
+    },
+    {
+      "gene": "yehY",
+      "gene_lowercase": "yehy",
+      "b_number_in_keio": "b2130",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": true,
+      "status_now": "MAPPED-NEW"
+    },
+    {
+      "gene": "yeiL",
+      "gene_lowercase": "yeil",
+      "b_number_in_keio": "b2163",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "ygaE",
+      "gene_lowercase": "ygae",
+      "b_number_in_keio": "",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": null,
+      "status_now": "NO-MATCH"
+    },
+    {
+      "gene": "ygaF",
+      "gene_lowercase": "ygaf",
+      "b_number_in_keio": "b2660",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "ygaM",
+      "gene_lowercase": "ygam",
+      "b_number_in_keio": "b2672",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "ygaU",
+      "gene_lowercase": "ygau",
+      "b_number_in_keio": "b2665",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "ygiX",
+      "gene_lowercase": "ygix",
+      "b_number_in_keio": "",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": null,
+      "status_now": "NO-MATCH"
+    },
+    {
+      "gene": "yhhA",
+      "gene_lowercase": "yhha",
+      "b_number_in_keio": "b3448",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "yhiO",
+      "gene_lowercase": "yhio",
+      "b_number_in_keio": "b3494",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "yhiW",
+      "gene_lowercase": "yhiw",
+      "b_number_in_keio": "",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": null,
+      "status_now": "NO-MATCH"
+    },
+    {
+      "gene": "yhiX",
+      "gene_lowercase": "yhix",
+      "b_number_in_keio": "",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": null,
+      "status_now": "NO-MATCH"
+    },
+    {
+      "gene": "yjeB",
+      "gene_lowercase": "yjeb",
+      "b_number_in_keio": "b4178",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "yjgB",
+      "gene_lowercase": "yjgb",
+      "b_number_in_keio": "b4269",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "yjgR",
+      "gene_lowercase": "yjgr",
+      "b_number_in_keio": "b4263",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    },
+    {
+      "gene": "ymdD",
+      "gene_lowercase": "ymdd",
+      "b_number_in_keio": "",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": null,
+      "status_now": "NO-MATCH"
+    },
+    {
+      "gene": "ymgA",
+      "gene_lowercase": "ymga",
+      "b_number_in_keio": "b1165",
+      "already_b_number_format": false,
+      "would_map_to_iJO1366": false,
+      "status_now": "B-NUMBER-RECOVERED"
+    }
+  ],
+  "mapped_genes_sanity": [
+    {
+      "gene": "b2097",
+      "b_number_in_keio": "b2097",
+      "in_iJO1366": true,
+      "mapping_status_in_E10": "MAPPED"
+    }
+  ]
+}

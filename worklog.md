@@ -284,3 +284,100 @@ Stage Summary:
   * Target 4 (n ≥ 4 prototype, §10.1 via Claim F) — CONFIRMED; same-plane rotations commute (machine precision), distinct-plane rotations show nonzero holonomy
   * Target 5 (derivative claims A-E operationalization) — OPEN
 - Recommended next research target: Target 5 — operationalization of the derivative claims A through E in the n ≥ 3 prototype with the calibration protocol of Section 7. This is now the only open target. The binding prerequisite (n ≥ 3 prototype with calibration) is the same prototype used in Claims F and G; the falsifiable test is the per-claim table of Section 8.
+
+---
+Task ID: verify-pre-impl
+Agent: main (Z.ai)
+Task: Pre-implementation verification of three refinements proposed by user:
+  (1) Full reference audit on local manuscript (catch dangling refs after v11 fix)
+  (2) b-number re-audit using Keio Sup Table 3 (MOESM5) to recover b-numbers
+      for any of the 91 E10-unmapped genes — could extend MAPPED set.
+  (3) Threshold sensitivity sweep on E10 time-level indicator mask
+      (τ ∈ {0.001, 0.01, 0.05, 0.10, 0.15, 0.20, 0.25}) on original medium.
+
+Work Log:
+- Located active project at /tmp/my-project/ (separate from /home/z/my-project/,
+  which is the bot's own git repo with /home/z/my-project/scripts/).
+- Read v10 κ_V script (/tmp/my-project/scripts/novelty_v10_indicator_weighted_kV_e18.py,
+  853 lines) and confirmed: mask is built TWO different ways depending on study:
+    * E12/E15/E16: gene-level mask via per-gene Δb (line 287, 467-468):
+        kV_new = kV_orig * (delta_b > 0.05 * b_wt).astype(float)
+    * E10: TIME-level mask (lines 380-391):
+        indicator_T = {t: float(Δb(t) > 0.05 * b_wt) for t in T1..T8}
+        df["kV_v10"] = df["kappa_V_predicted"] * df["indicator_T"]
+- Verified E10 conditions from novelty_real_time_series_e10.py:
+    Strain = E. coli K-12 W3110; mode = glucose-limited fed-batch
+    (NOT chemostat); medium = default iJO1366 M9+glucose (no amino acids
+    parameterized); temperature/pH not FBA parameters (biological convention
+    only); transcriptomic data = Lemuth 2008 microarray (same condition).
+- Confirmed manuscript local vs GitHub comparison: LOCAL IS AHEAD by 477 lines
+  (502,359 vs 476,403 bytes), primarily the v10 indicator-weighted κ_V definition
+  block (lines 1243-1293) and a 423-line v10/v11/v12 supplementary block
+  (lines 7526-7948). GitHub is pre-v10. The v11 patch successfully inserted
+  the def:ard-derived-kappa-V block to fix the earlier dangling ref.
+- Wrote three Python scripts at /home/z/my-project/scripts/:
+    audit_manuscript_refs.py        — pure-python regex-based ref audit
+    e10_threshold_sensitivity.py   — 7-point threshold sweep with plots
+    bnumber_reamudit_keio_e10.py    — Keio MOESM5 lookup + iJO1366 cross-ref
+- Installed cobrapy in /home/z/.venv (via `python -m pip install --break-system-packages
+  cobra`) to enable iJO1366 gene-set loading. Successfully loaded iJO1366:
+  1367 genes. Sanity check: b2097 (=fbaA) IS in the model.
+
+Stage Summary:
+- TASK 1 (ref audit): CLEAN. 0 dangling references across 705 ref-macro calls
+  (662 \ref + 43 \eqref; no \cref/\autoref used). 133 unused labels
+  (informational, not a bug). v11 fix to def:ard-derived-kappa-V is confirmed
+  effective. The audit script is reusable for future manuscript edits.
+  Outputs: /home/z/my-project/download/audit_manuscript_refs_local.{md,json}
+
+- TASK 2 (b-number re-audit): SUCCESS — 14 new genes recovered.
+  E10 unmapped total: 91 (not 77 as previously recalled).
+    * 5 already in b-number format (b0245, b0753, b1631, b1758, b2086) — NOT in
+      iJO1366's GPR (true unmapped).
+    * 72 b-numbers recovered from Keio Sup Table 3 (gene-name lookup).
+    * 14 of recovered b-numbers ARE in iJO1366 → would extend MAPPED set
+      from 1 (just b2097=fbaA) to 15. List:
+        bcp(b2480), caiC(b0037), galT(b0758), msrA(b4219), narJ(b1226),
+        otsB(b1897), proV(b2677), proW(b2678), sodA(b3908), treA(b1197),
+        ugpC(b3450), yeaA(b1778), yehX(b2129), yehY(b2130).
+      These are real metabolic/transport genes (galactose, trehalose,
+      carnitine, osmotic-stress, nitrate respiration, oxidative stress).
+    * 14 NO-MATCH in Keio (gene names not in 2006 master table — likely
+      renamed post-2006 or pseudogene): himD, rpsV, yabH, ybeV, ychK, ydaA,
+      ydeB, ydgO, yedU, ygaE, ygiX, yhiW, yhiX, ymdD.
+  This confirms the user's earlier recollection of "15 mapped metabolic genes"
+  was empirically correct (would be 15 after this re-audit, was 1 in the actual
+  E10 CSV). The E10 script could be patched to add a b-number fallback in its
+  gene-matching logic to realize this 1→15 expansion.
+  Outputs: /home/z/my-project/download/bnumber_reamudit_keio_e10.{csv,txt,json}
+
+- TASK 3 (threshold sensitivity): STRONG ROBUSTNESS for τ ∈ [0.001, 0.15].
+  The mask vector indicator_T(t) = 𝟙[Δb(t) > τ·b_wt] is INVARIANT across
+  this range — always (0,1,1,1,1,1,1,1) (drops T1 only). The Δb trajectory
+  has a single big jump from T1 (Δb=0) to T2 (Δb=0.080), so:
+    * At τ=0.05 (current v10): r_all_pairs = +0.2166 (Δ=+0.0008 vs orig +0.2158)
+    * At τ=0.001..0.15: r_all_pairs unchanged at +0.2166 (mask invariant)
+    * At τ=0.20, 0.25: mask also drops T2; r_all_pairs = +0.2232 (+0.0074)
+    * Per-gene max ALL 92: r = -0.0633 at ALL thresholds (mask has no effect
+      because T1's κ_V=0 anyway, and max-over-T picks a non-zero T)
+    * Per-gene max UNMAPPED-ONLY (n=91): NaN — mathematically undefined because
+      all 91 unmapped genes share the IDENTICAL global-biomass-deficit² κ_V
+      trajectory; after max-over-T, all 91 values are equal → constant vector
+      → Pearson/Spearman undefined. This is a structural feature, not a bug.
+  Recommendation: τ=0.05 is robust; no need to change. The threshold sweep
+  confirms the v10 indicator mask is well-behaved on the time level.
+  Outputs: /home/z/my-project/download/e10_threshold_sensitivity.{csv,txt,json,png}
+
+- All scripts and outputs are reproducible. The audit script can be re-run
+  after any manuscript edit. The b-number re-audit can be re-run if the E10
+  gene list changes. The threshold sweep can be re-run if E10 biomass
+  trajectory changes.
+
+Next-step recommendation (pending user sign-off):
+  Patch novelty_real_time_series_e10.py to add a b-number fallback in the
+  gene-matching loop: if `gene` is not directly in iJO1366's gene set, look
+  up its b-number via Keio Sup Table 3 (MOESM5) and try that b-number. This
+  would expand the MAPPED set from 1 → 15 and give 14 more genes gene-specific
+  κ_V trajectories (instead of the shared global biomass-deficit proxy). Then
+  re-run v10's E10 re-run section to see if the per-gene-max correlation
+  improves from -0.0633 with the richer MAPPED set.

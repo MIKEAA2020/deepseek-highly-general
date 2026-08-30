@@ -1,0 +1,111 @@
+b-number Re-audit: 91 UNMAPPED E10 genes vs Keio Sup Table 3 (MOESM5)
+======================================================================
+
+E10 total genes: 92
+E10 MAPPED (already): 1
+E10 UNMAPPED (this audit's target): 91
+Keio MOESM5 b-number map size: 4213
+iJO1366 gene set size: 1367
+
+Per-gene results (UNMAPPED):
+  gene           b_number     already_bnum   in_iJO1366   status                   
+  ahpC           b0605        False          no           B-NUMBER-RECOVERED       
+  b0245                       True           ?            ALREADY-B-NUMBER         
+  b0753                       True           ?            ALREADY-B-NUMBER         
+  b1631                       True           ?            ALREADY-B-NUMBER         
+  b1758                       True           ?            ALREADY-B-NUMBER         
+  b2086                       True           ?            ALREADY-B-NUMBER         
+  bcp            b2480        False          YES          MAPPED-NEW               
+  bolA           b0435        False          no           B-NUMBER-RECOVERED       
+  caiC           b0037        False          YES          MAPPED-NEW               
+  cheR           b1884        False          no           B-NUMBER-RECOVERED       
+  csiE           b2535        False          no           B-NUMBER-RECOVERED       
+  cspF           b1558        False          no           B-NUMBER-RECOVERED       
+  cspI           b1552        False          no           B-NUMBER-RECOVERED       
+  csrA           b2696        False          no           B-NUMBER-RECOVERED       
+  cutC           b1874        False          no           B-NUMBER-RECOVERED       
+  degS           b3235        False          no           B-NUMBER-RECOVERED       
+  dnaJ           b0015        False          no           B-NUMBER-RECOVERED       
+  fhiA           b0229        False          no           B-NUMBER-RECOVERED       
+  flgA           b1072        False          no           B-NUMBER-RECOVERED       
+  flgB           b1073        False          no           B-NUMBER-RECOVERED       
+  flgC           b1074        False          no           B-NUMBER-RECOVERED       
+  flgD           b1075        False          no           B-NUMBER-RECOVERED       
+  flgE           b1076        False          no           B-NUMBER-RECOVERED       
+  flgG           b1078        False          no           B-NUMBER-RECOVERED       
+  flgH           b1079        False          no           B-NUMBER-RECOVERED       
+  flgJ           b1081        False          no           B-NUMBER-RECOVERED       
+  flgK           b1082        False          no           B-NUMBER-RECOVERED       
+  flhD           b1892        False          no           B-NUMBER-RECOVERED       
+  fliA           b1922        False          no           B-NUMBER-RECOVERED       
+  fliD           b1924        False          no           B-NUMBER-RECOVERED       
+  fliE           b1937        False          no           B-NUMBER-RECOVERED       
+  fliM           b1945        False          no           B-NUMBER-RECOVERED       
+  fliS           b1925        False          no           B-NUMBER-RECOVERED       
+  ftsA           b0094        False          no           B-NUMBER-RECOVERED       
+  galT           b0758        False          YES          MAPPED-NEW               
+  hdeA           b3510        False          no           B-NUMBER-RECOVERED       
+  hdhA           b1619        False          no           B-NUMBER-RECOVERED       
+  himD                        False          ?            NO-MATCH                 
+  hns            b1237        False          no           B-NUMBER-RECOVERED       
+  hslJ           b1379        False          no           B-NUMBER-RECOVERED       
+  hslV           b3932        False          no           B-NUMBER-RECOVERED       
+  htrE           b0139        False          no           B-NUMBER-RECOVERED       
+  lrhA           b2289        False          no           B-NUMBER-RECOVERED       
+  motA           b1890        False          no           B-NUMBER-RECOVERED       
+  msrA           b4219        False          YES          MAPPED-NEW               
+  mutH           b2831        False          no           B-NUMBER-RECOVERED       
+  mutL           b4170        False          no           B-NUMBER-RECOVERED       
+  narJ           b1226        False          YES          MAPPED-NEW               
+  otsB           b1897        False          YES          MAPPED-NEW               
+  phoH           b1020        False          no           B-NUMBER-RECOVERED       
+  ppiA           b3363        False          no           B-NUMBER-RECOVERED       
+  pqiB           b0951        False          no           B-NUMBER-RECOVERED       
+  proV           b2677        False          YES          MAPPED-NEW               
+  proW           b2678        False          YES          MAPPED-NEW               
+  recF           b3700        False          no           B-NUMBER-RECOVERED       
+  rpoE           b2573        False          no           B-NUMBER-RECOVERED       
+  rpsV                        False          ?            NO-MATCH                 
+  sbmC           b2009        False          no           B-NUMBER-RECOVERED       
+  sodA           b3908        False          YES          MAPPED-NEW               
+  stpA           b2669        False          no           B-NUMBER-RECOVERED       
+  treA           b1197        False          YES          MAPPED-NEW               
+  ugpC           b3450        False          YES          MAPPED-NEW               
+  uvrB           b0779        False          no           B-NUMBER-RECOVERED       
+  yabH                        False          ?            NO-MATCH                 
+  ybeV                        False          ?            NO-MATCH                 
+  yceK           b1050        False          no           B-NUMBER-RECOVERED       
+  ycgR           b1194        False          no           B-NUMBER-RECOVERED       
+  ychK                        False          ?            NO-MATCH                 
+  ydaA                        False          ?            NO-MATCH                 
+  ydeB                        False          ?            NO-MATCH                 
+  ydgO                        False          ?            NO-MATCH                 
+  yeaA           b1778        False          YES          MAPPED-NEW               
+  yeaG           b1783        False          no           B-NUMBER-RECOVERED       
+  yedU                        False          ?            NO-MATCH                 
+  yehX           b2129        False          YES          MAPPED-NEW               
+  yehY           b2130        False          YES          MAPPED-NEW               
+  yeiL           b2163        False          no           B-NUMBER-RECOVERED       
+  ygaE                        False          ?            NO-MATCH                 
+  ygaF           b2660        False          no           B-NUMBER-RECOVERED       
+  ygaM           b2672        False          no           B-NUMBER-RECOVERED       
+  ygaU           b2665        False          no           B-NUMBER-RECOVERED       
+  ygiX                        False          ?            NO-MATCH                 
+  yhhA           b3448        False          no           B-NUMBER-RECOVERED       
+  yhiO           b3494        False          no           B-NUMBER-RECOVERED       
+  yhiW                        False          ?            NO-MATCH                 
+  yhiX                        False          ?            NO-MATCH                 
+  yjeB           b4178        False          no           B-NUMBER-RECOVERED       
+  yjgB           b4269        False          no           B-NUMBER-RECOVERED       
+  yjgR           b4263        False          no           B-NUMBER-RECOVERED       
+  ymdD                        False          ?            NO-MATCH                 
+  ymgA           b1165        False          no           B-NUMBER-RECOVERED       
+
+Summary counts:
+  already_b_number_format:  5
+  b_number_recovered:       72
+  no_match_in_keio:          14
+  would_map_to_iJO1366_NEW: 14
+
+MAPPED sanity:
+  gene=b2097      keio_b=b2097      in_iJO1366=YES
