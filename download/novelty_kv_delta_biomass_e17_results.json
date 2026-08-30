@@ -1,0 +1,171 @@
+{
+  "task": "E17 \u2014 \u03ba_V^(\u0394b) biomass-residual-weighted variant stability test",
+  "report_reference": "User follow-up to E16 (cross-rebuild validation)",
+  "hypothesis": "The biomass-residual-weighted variant \u03ba_V^(\u0394b) = \u03ba_V \u00b7 weight(\u0394b/b_wt) should give a SMALLER cross-rebuild gap |r_iML1515 \u2212 r_iJO1366| than the unweighted \u03ba_V.",
+  "models": {
+    "iJO1366": {
+      "source_csv": "novelty_keio_direct_e15.csv",
+      "n_binary": 1206
+    },
+    "iML1515": {
+      "source_csv": "novelty_keio_iml1515_e16.csv",
+      "n_binary": 1325
+    }
+  },
+  "variants": {
+    "original": "\u03ba_V (no weight \u2014 baseline)",
+    "linear": "\u03ba_V \u00b7 (1 + \u0394b/b_wt)  \u2014 gentle re-weighting toward essentials",
+    "quadratic": "\u03ba_V \u00b7 (1 + (\u0394b/b_wt)\u00b2)  \u2014 quadratic re-weighting",
+    "indicator": "\u03ba_V \u00b7 \ud835\udfd9[\u0394b > 0.05\u00b7b_wt]  \u2014 binary mask (manuscript proposal)"
+  },
+  "direct_validation": [
+    {
+      "variant": "original",
+      "metric": "pearson_r",
+      "iJO1366": 0.0846620156400626,
+      "iML1515": -0.01780771864037623,
+      "delta": -0.10246973428043882,
+      "abs_delta": 0.10246973428043882,
+      "p_iJO1366": 0.0032574619430043093,
+      "p_iML1515": 0.5172111492995829
+    },
+    {
+      "variant": "original",
+      "metric": "spearman_rho",
+      "iJO1366": 0.22811534998213434,
+      "iML1515": -0.0701515913895618,
+      "delta": -0.2982669413716961,
+      "abs_delta": 0.2982669413716961,
+      "p_iJO1366": 1.0606548284642114e-15,
+      "p_iML1515": 0.010640346025830675
+    },
+    {
+      "variant": "original",
+      "metric": "roc_auc",
+      "iJO1366": 0.7122783814698314,
+      "iML1515": 0.42778912599417623,
+      "delta": -0.2844892554756551,
+      "abs_delta": 0.2844892554756551
+    },
+    {
+      "variant": "linear",
+      "metric": "pearson_r",
+      "iJO1366": 0.13839560891015545,
+      "iML1515": 0.07882866561808471,
+      "delta": -0.05956694329207074,
+      "abs_delta": 0.05956694329207074,
+      "p_iJO1366": 1.4043669188922784e-06,
+      "p_iML1515": 0.00408959023333718
+    },
+    {
+      "variant": "linear",
+      "metric": "spearman_rho",
+      "iJO1366": 0.24168619061380847,
+      "iML1515": 0.08802896519893748,
+      "delta": -0.15365722541487098,
+      "abs_delta": 0.15365722541487098,
+      "p_iJO1366": 1.7253336415545222e-17,
+      "p_iML1515": 0.0013389090577554106
+    },
+    {
+      "variant": "linear",
+      "metric": "roc_auc",
+      "iJO1366": 0.7249463826136691,
+      "iML1515": 0.5906130934272096,
+      "delta": -0.13433328918645948,
+      "abs_delta": 0.13433328918645948
+    },
+    {
+      "variant": "quadratic",
+      "metric": "pearson_r",
+      "iJO1366": 0.1391358358579212,
+      "iML1515": 0.07807690731140436,
+      "delta": -0.06105892854651683,
+      "abs_delta": 0.06105892854651683,
+      "p_iJO1366": 1.2318731164445306e-06,
+      "p_iML1515": 0.004459276138478628
+    },
+    {
+      "variant": "quadratic",
+      "metric": "spearman_rho",
+      "iJO1366": 0.24297286639451393,
+      "iML1515": 0.085917908374827,
+      "delta": -0.15705495801968694,
+      "abs_delta": 0.15705495801968694,
+      "p_iJO1366": 1.1519132923566757e-17,
+      "p_iML1515": 0.0017462959832644739
+    },
+    {
+      "variant": "quadratic",
+      "metric": "roc_auc",
+      "iJO1366": 0.7261259651129541,
+      "iML1515": 0.5884400307126196,
+      "delta": -0.1376859344003345,
+      "abs_delta": 0.1376859344003345
+    },
+    {
+      "variant": "indicator",
+      "metric": "pearson_r",
+      "iJO1366": 0.3505421390674309,
+      "iML1515": 0.4657867493108324,
+      "delta": 0.11524461024340149,
+      "abs_delta": 0.11524461024340149,
+      "p_iJO1366": 3.434404002782183e-36,
+      "p_iML1515": 2.575072109403245e-72
+    },
+    {
+      "variant": "indicator",
+      "metric": "spearman_rho",
+      "iJO1366": 0.3285503768535193,
+      "iML1515": 0.461477945727198,
+      "delta": 0.13292756887367874,
+      "abs_delta": 0.13292756887367874,
+      "p_iJO1366": 9.498777132905878e-32,
+      "p_iML1515": 7.532155331470967e-71
+    },
+    {
+      "variant": "indicator",
+      "metric": "roc_auc",
+      "iJO1366": 0.7351658564483843,
+      "iML1515": 0.8343075897837079,
+      "delta": 0.09914173333532361,
+      "abs_delta": 0.09914173333532361
+    }
+  ],
+  "held_out_logistic_regression": [
+    {
+      "variant": "original",
+      "iJO1366": 0.7572437882035405,
+      "iML1515": 0.5587831286360698,
+      "delta": -0.19846065956747072,
+      "abs_delta": 0.19846065956747072
+    },
+    {
+      "variant": "linear",
+      "iJO1366": 0.7668095578312296,
+      "iML1515": 0.5780946994182288,
+      "delta": -0.18871485841300084,
+      "abs_delta": 0.18871485841300084
+    },
+    {
+      "variant": "quadratic",
+      "iJO1366": 0.7646661903627848,
+      "iML1515": 0.5761554621848739,
+      "delta": -0.18851072817791092,
+      "abs_delta": 0.18851072817791092
+    },
+    {
+      "variant": "indicator",
+      "iJO1366": 0.7718901325712471,
+      "iML1515": 0.751575630252101,
+      "delta": -0.02031450231914611,
+      "abs_delta": 0.02031450231914611
+    }
+  ],
+  "stability_summary": {
+    "best_pearson_r_variant": "linear",
+    "best_spearman_rho_variant": "indicator",
+    "best_roc_auc_variant": "indicator",
+    "best_held_out_variant": "indicator"
+  }
+}
