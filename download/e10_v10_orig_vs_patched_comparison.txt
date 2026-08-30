@@ -1,0 +1,32 @@
+v10 indicator-mask correlation comparison
+ORIGINAL = E10 with 1 MAPPED (b2097) + 91 GLOBAL
+PATCHED  = E10 with 15 MAPPED (1 + 14 via Keio fallback) + 77 GLOBAL
+v10 time-level mask: indicator_T = 1[Δb(t) > 0.05 * b_wt]; b_wt = 0.4847
+indicator_T vector (T1..T8): {'T1': 0, 'T2': 1, 'T3': 1, 'T4': 1, 'T5': 1, 'T6': 1, 'T7': 1, 'T8': 1}
+================================================================================
+
+metric                                                 ORIGINAL        PATCHED              Δ
+--------------------------------------------------------------------------------
+  n_genes                                              +92.0000       +92.0000        +0.0000
+  n_mapped                                              +1.0000       +15.0000       +14.0000
+  n_global                                             +91.0000       +77.0000       -14.0000
+  r_all_pairs_orig (no mask)                            +0.2158        +0.2189        +0.0031
+  r_all_pairs_v10 (with mask)                           +0.2166        +0.2182        +0.0015
+  rho_all_pairs_orig                                    +0.1776        +0.2283        +0.0506
+  rho_all_pairs_v10                                     +0.1779        +0.2289        +0.0510
+  r_per_gene_max_ALL_orig                               -0.0633        +0.0838        +0.1472
+  r_per_gene_max_ALL_v10                                -0.0633        +0.0838        +0.1472
+  rho_per_gene_max_ALL_orig                             -0.0948        +0.0350        +0.1297
+  rho_per_gene_max_ALL_v10                              -0.0948        +0.0350        +0.1297
+  r_per_gene_max_MAPPED_orig                               +nan        -0.1579           +nan
+  r_per_gene_max_MAPPED_v10                                +nan        -0.1579           +nan
+  r_per_gene_max_GLOBAL_orig                               +nan           +nan           +nan
+  r_per_gene_max_GLOBAL_v10                                +nan           +nan           +nan
+
+Note: per_gene_max_GLOBAL on ORIGINAL subset (n=91) returns NaN
+  because all 91 unmapped genes share the identical global-biomass-deficit^2
+  κ_V trajectory. After max-over-T, all 91 values are equal -> constant
+  vector -> Pearson/Spearman undefined.
+Note: per_gene_max_GLOBAL on PATCHED subset (n=77) may also be NaN
+  for the same reason (the remaining 77 genes still all share the global
+  biomass-deficit^2 κ_V trajectory).
