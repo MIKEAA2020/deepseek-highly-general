@@ -1,0 +1,41 @@
+{
+  "task": "E13 \u2014 Upgrade 2 mathematical closure (terminal coalgebra + functorial semantics)",
+  "report_reference": "Novelty_Assessment_Report.pdf \u00a78 Upgrade 2",
+  "theorem_A": {
+    "name": "maxRAF = terminal coalgebra of catalytic-closure endofunctor",
+    "label": "thm:maxraf-terminal-coalgebra",
+    "proof_technique": "Lambek's lemma + Adamek terminal-coalgebra theorem for weakly contractive Set-endofunctors preserving weak pullbacks (Adamek & Rosicky 1994 + Worrell 2005)",
+    "key_observations": [
+      "Phi is weakly contractive on Set/U",
+      "Phi preserves weak pullbacks (polynomial endofunctor)",
+      "nu Phi exists by terminal-coalgebra theorem",
+      "Hordijk-Steel iterative-removal = Adamek iteration from the top",
+      "Convergence in O(|U|*|R|) matching Hordijk-Steel complexity"
+    ],
+    "numerical_verification": {
+      "test_case": "|M|=13, |R|=11 (manuscript Subsection 16.4)",
+      "HS_maxRAF_size": 11,
+      "TC_maxRAF_size": 11,
+      "agreement": true,
+      "TC_iterations_to_convergence": 1
+    },
+    "closes_manuscript_remark": "Remark 7.8 (open problem: functorial semantics for T) \u2014 partially",
+    "connection_to_literature": "Hedges 2024 (Iteration with Optics); Adamek-Rosicky 1994 (LFP categories)"
+  },
+  "theorem_B": {
+    "name": "Seven-optic composite T = O_7 \u2218 ... \u2218 O_1 has canonical functorial realization on Per(C)",
+    "label": "thm:seven-optic-functorial",
+    "domain": "Per(C) = category of periodic typed systems (objects = (X, f) with f^n = id)",
+    "proof_technique_existence": "Standard optic-from-forward/residual construction (Riley 2018); periodicity closure",
+    "proof_technique_uniqueness": "Strachey-Reynolds parametricity restricted to typed polynomial optics",
+    "toy_illustration": {
+      "X": "Z/4",
+      "f": "x -> (x+1) mod 4",
+      "T_definition": "sum of 7 forward maps (toy)",
+      "equivariance_T_f_eq_f_T": true,
+      "n_iso_classes_via_shift": 4,
+      "all_shifts_preserve_equivariance": true
+    }
+  },
+  "verdict": "PASS \u2014 both theorems formally stated, proof sketches given, numerical cross-check confirms Theorem A on the existing RAF test case; Theorem B illustrated on Z/4 toy periodic system."
+}

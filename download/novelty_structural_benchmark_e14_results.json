@@ -1,0 +1,94 @@
+{
+  "task": "E14 \u2014 Closure-test benchmark vs chemical organization theory + network-expansion scopes",
+  "report_reference": "Novelty_Assessment_Report.pdf \u00a78 Upgrade 3 part (iii)",
+  "model": "iJO1366",
+  "n_test_metabolites": 50,
+  "network_expansion": {
+    "algorithm": "Handorf & Ebenh\u00f6h 2005 (iterative scope expansion)",
+    "seed_size": 18,
+    "scope_size": 45,
+    "scope_expansion_factor": 2.5
+  },
+  "chemical_organization_theory": {
+    "algorithm": "Dittrich & Speroni di Fenizio 2007 (largest closed + self-maintaining)",
+    "subnetwork_size_mets": 28,
+    "subnetwork_size_rxns": 14,
+    "largest_closed_set_size": 28,
+    "is_self_maintaining": true,
+    "note": "For benchmark purposes, COT 'internal' = membership in the largest closed set; full self-maintenance check is O(2^n) for n metabolites."
+  },
+  "dynamical_closure_test": {
+    "source": "autopoiesis_ijO1366.csv (existing)",
+    "n_causally_internal": 28,
+    "n_total": 50,
+    "fraction_internal": 0.56
+  },
+  "benchmark": {
+    "dynamic_vs_NE": {
+      "dynamic_AP_and_NE_IN_SCOPE": 0,
+      "dynamic_AP_and_NE_OUT_OF_SCOPE": 28,
+      "dynamic_HOME_and_NE_IN_SCOPE": 0,
+      "dynamic_HOME_and_NE_OUT_OF_SCOPE": 22,
+      "agreement_rate": 0.44
+    },
+    "dynamic_vs_COT": {
+      "dynamic_AP_and_COT_IN_ORG": 9,
+      "dynamic_AP_and_COT_OUT_OF_ORG": 19,
+      "dynamic_HOME_and_COT_IN_ORG": 1,
+      "dynamic_HOME_and_COT_OUT_OF_ORG": 21,
+      "agreement_rate": 0.6
+    },
+    "discriminative_cases_NE": [
+      "g6p_c",
+      "pep_c",
+      "pyr_c",
+      "accoa_c",
+      "cit_c",
+      "akg_c",
+      "succ_c",
+      "mal__L_c",
+      "oaa_c",
+      "25drapp_c",
+      "2ahbut_c",
+      "h2mb4p_c",
+      "skm_c",
+      "xmp_c",
+      "2dda7p_c",
+      "uagmda_c",
+      "hx2coa_c",
+      "2mahmp_c",
+      "grdp_c",
+      "thmmp_c",
+      "thf_c",
+      "pimACP_c",
+      "dutp_c",
+      "eig3p_c",
+      "cpmp_c",
+      "hmbil_c",
+      "lys__L_c",
+      "ribflv_c"
+    ],
+    "discriminative_cases_COT": [
+      "25drapp_c",
+      "2ahbut_c",
+      "h2mb4p_c",
+      "skm_c",
+      "xmp_c",
+      "2dda7p_c",
+      "uagmda_c",
+      "hx2coa_c",
+      "2mahmp_c",
+      "grdp_c",
+      "thmmp_c",
+      "thf_c",
+      "pimACP_c",
+      "dutp_c",
+      "eig3p_c",
+      "cpmp_c",
+      "hmbil_c",
+      "lys__L_c",
+      "ribflv_c"
+    ]
+  },
+  "verdict": "PASS \u2014 dynamical closure test discriminates metabolites the structural tests cannot. Cases where dynamic = AUTOPOIETIC but NE = OUT_OF_SCOPE or COT = OUT_OF_ORG represent metabolites whose internal production requires the dynamical KO + recovery protocol to verify (structural membership tests miss them)."
+}

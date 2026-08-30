@@ -1,0 +1,11 @@
+metric,value
+n_foods,13
+n_reactions_universe,11
+maxRAF_size_HS,11
+maxRAF_size_TC,11
+HS_TC_agreement,1
+TC_iterations_to_convergence,1
+iteration_sizes,11;11
+Theorem_B_per_C_size_n,4
+Theorem_B_equivariance_holds,1
+Theorem_B_n_iso_classes,4

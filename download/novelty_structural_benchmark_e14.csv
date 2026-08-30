@@ -1,0 +1,51 @@
+metabolite_id,metabolite_name,n_prod_rxns,verdict_dyn,verdict_ne,verdict_cot,dyn_internal,ne_internal,cot_internal
+g6p_c,D-Glucose 6-phosphate,8,AUTOPOIETIC,OUT_OF_SCOPE,IN_ORG,1,0,1
+fdp_c,"D-Fructose 1,6-bisphosphate",2,HOMEOSTATIC,OUT_OF_SCOPE,IN_ORG,0,0,1
+pep_c,Phosphoenolpyruvate,3,AUTOPOIETIC,OUT_OF_SCOPE,IN_ORG,1,0,1
+pyr_c,Pyruvate,53,AUTOPOIETIC,OUT_OF_SCOPE,IN_ORG,1,0,1
+accoa_c,Acetyl-CoA,8,AUTOPOIETIC,OUT_OF_SCOPE,IN_ORG,1,0,1
+cit_c,Citrate,3,AUTOPOIETIC,OUT_OF_SCOPE,IN_ORG,1,0,1
+akg_c,2-Oxoglutarate,9,AUTOPOIETIC,OUT_OF_SCOPE,IN_ORG,1,0,1
+succ_c,Succinate,16,AUTOPOIETIC,OUT_OF_SCOPE,IN_ORG,1,0,1
+mal__L_c,L-Malate,5,AUTOPOIETIC,OUT_OF_SCOPE,IN_ORG,1,0,1
+oaa_c,Oxaloacetate,9,AUTOPOIETIC,OUT_OF_SCOPE,IN_ORG,1,0,1
+25drapp_c,"2,5-Diamino-6-(ribosylamino)-4-(3H)-pyrimidinone 5'-phosphate",1,AUTOPOIETIC,OUT_OF_SCOPE,OUT_OF_ORG,1,0,0
+2ahbut_c,(S)-2-Aceto-2-hydroxybutanoate,1,AUTOPOIETIC,OUT_OF_SCOPE,OUT_OF_ORG,1,0,0
+h2mb4p_c,1-hydroxy-2-methyl-2-(E)-butenyl 4-diphosphate,1,AUTOPOIETIC,OUT_OF_SCOPE,OUT_OF_ORG,1,0,0
+skm_c,Shikimate,2,AUTOPOIETIC,OUT_OF_SCOPE,OUT_OF_ORG,1,0,0
+man6pglyc_c,2(alpha-D-Mannosyl-6-phosphate)-D-glycerate,1,HOMEOSTATIC,OUT_OF_SCOPE,OUT_OF_ORG,0,0,0
+xmp_c,Xanthosine 5'-phosphate,3,AUTOPOIETIC,OUT_OF_SCOPE,OUT_OF_ORG,1,0,0
+2dda7p_c,2-Dehydro-3-deoxy-D-arabino-heptonate 7-phosphate,1,AUTOPOIETIC,OUT_OF_SCOPE,OUT_OF_ORG,1,0,0
+uagmda_c,"Undecaprenyl-diphospho-N-acetylmuramoyl-L-alanyl-D-glutamyl-meso-2,6-diaminopimeloyl-D-alanyl-D-alanine",1,AUTOPOIETIC,OUT_OF_SCOPE,OUT_OF_ORG,1,0,0
+dhmpt_c,Dihydromonapterin,1,HOMEOSTATIC,OUT_OF_SCOPE,OUT_OF_ORG,0,0,0
+hx2coa_c,Trans-Hex-2-enoyl-CoA,2,AUTOPOIETIC,OUT_OF_SCOPE,OUT_OF_ORG,1,0,0
+sufse_c,SufSE sulfur acceptor complex,3,HOMEOSTATIC,OUT_OF_SCOPE,OUT_OF_ORG,0,0,0
+ppgpp_c,"Guanosine 3',5'-bis(diphosphate)",2,HOMEOSTATIC,OUT_OF_SCOPE,OUT_OF_ORG,0,0,0
+tdec2eACP_c,Trans-Dec-2-enoyl-[acyl-carrier protein],1,HOMEOSTATIC,OUT_OF_SCOPE,OUT_OF_ORG,0,0,0
+ttdcap_c,Tetradecanoyl-phosphate (n-C14:0),1,HOMEOSTATIC,OUT_OF_SCOPE,OUT_OF_ORG,0,0,0
+2mcacn_c,Cis-2-Methylaconitate,1,HOMEOSTATIC,OUT_OF_SCOPE,OUT_OF_ORG,0,0,0
+2mahmp_c,2-Methyl-4-amino-5-hydroxymethylpyrimidine diphosphate,1,AUTOPOIETIC,OUT_OF_SCOPE,OUT_OF_ORG,1,0,0
+pgp120_c,"Phosphatidylglycerophosphate (didodecanoyl, n-C12:0)",1,HOMEOSTATIC,OUT_OF_SCOPE,OUT_OF_ORG,0,0,0
+grdp_c,Geranyl diphosphate,1,AUTOPOIETIC,OUT_OF_SCOPE,OUT_OF_ORG,1,0,0
+ocdcaACP_c,Octadecanoyl-ACP (n-C18:0ACP),3,HOMEOSTATIC,OUT_OF_SCOPE,OUT_OF_ORG,0,0,0
+rml1p_c,L-Rhamnulose 1-phosphate,1,HOMEOSTATIC,OUT_OF_SCOPE,OUT_OF_ORG,0,0,0
+thmmp_c,Thiamin monophosphate,3,AUTOPOIETIC,OUT_OF_SCOPE,OUT_OF_ORG,1,0,0
+thf_c,"5,6,7,8-Tetrahydrofolate",8,AUTOPOIETIC,OUT_OF_SCOPE,OUT_OF_ORG,1,0,0
+kdo2lipid4p_c,KDO(2)-lipid IV(A) with palmitoleoyl,1,HOMEOSTATIC,OUT_OF_SCOPE,OUT_OF_ORG,0,0,0
+pimACP_c,Pimeloyl-[acyl-carrier protein],1,AUTOPOIETIC,OUT_OF_SCOPE,OUT_OF_ORG,1,0,0
+pa120_c,"1,2-didodecanoyl-sn-glycerol 3-phosphate",3,HOMEOSTATIC,OUT_OF_SCOPE,OUT_OF_ORG,0,0,0
+pa180_c,"1,2-dioctadecanoyl-sn-glycerol 3-phosphate",3,HOMEOSTATIC,OUT_OF_SCOPE,OUT_OF_ORG,0,0,0
+actACP_c,Acetoacetyl-ACP,2,HOMEOSTATIC,OUT_OF_SCOPE,OUT_OF_ORG,0,0,0
+dutp_c,DUTP C9H11N2O14P3,3,AUTOPOIETIC,OUT_OF_SCOPE,OUT_OF_ORG,1,0,0
+3hhexACP_c,(R)-3-Hydroxyhexanoyl-[acyl-carrier protein],1,HOMEOSTATIC,OUT_OF_SCOPE,OUT_OF_ORG,0,0,0
+frulys_c,Fructoselysine,2,HOMEOSTATIC,OUT_OF_SCOPE,OUT_OF_ORG,0,0,0
+ichor_c,Isochorismate,2,HOMEOSTATIC,OUT_OF_SCOPE,OUT_OF_ORG,0,0,0
+thm_c,Thiamin,1,HOMEOSTATIC,OUT_OF_SCOPE,OUT_OF_ORG,0,0,0
+eig3p_c,D-erythro-1-(Imidazol-4-yl)glycerol 3-phosphate,1,AUTOPOIETIC,OUT_OF_SCOPE,OUT_OF_ORG,1,0,0
+cpmp_c,Cyclic pyranopterin monophosphate,1,AUTOPOIETIC,OUT_OF_SCOPE,OUT_OF_ORG,1,0,0
+hmbil_c,Hydroxymethylbilane,1,AUTOPOIETIC,OUT_OF_SCOPE,OUT_OF_ORG,1,0,0
+unagamu_c,Undecaprenyl-diphospho-N-acetylglucosamine-N-acetylmannosaminuronate,1,HOMEOSTATIC,OUT_OF_SCOPE,OUT_OF_ORG,0,0,0
+chol_c,Choline C5H14NO,3,HOMEOSTATIC,OUT_OF_SCOPE,OUT_OF_ORG,0,0,0
+lys__L_c,L-Lysine,5,AUTOPOIETIC,OUT_OF_SCOPE,OUT_OF_ORG,1,0,0
+ribflv_c,Riboflavin C17H20N4O6,7,AUTOPOIETIC,OUT_OF_SCOPE,OUT_OF_ORG,1,0,0
+rib__D_c,D-Ribose,7,HOMEOSTATIC,OUT_OF_SCOPE,OUT_OF_ORG,0,0,0
