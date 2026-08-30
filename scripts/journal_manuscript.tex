@@ -1145,36 +1145,76 @@ must support a feasible positive steady state (a flux feasibility
 linear program on $\Gamma$ must admit a strictly positive solution).
 \end{definition}
 
-\begin{definition}[Autopoiesis closure test]
+\begin{definition}[Autopoiesis closure test --- dynamical closure with
+viability threshold]
 \label{def:autopoiesis}
-For each purportedly self-maintained component $m_j \in
-M_{\mathrm{ess}}$: (i) set its internal repair flux to zero; (ii) keep
-external energy and raw-material supply unchanged; (iii) apply the
-regeneration rules $R$ for a fixed number of steps $T$; (iv) observe
-whether $m_j$ reappears in the regenerated graph; (v) restore the
-repair pathway and test recovery. A component $m_j$ is
-\emph{causally internal} to the organizational closure iff its
-intervention produces the predicted downstream effect (loss of
-$m_j$ causes loss of components $m_{j'}$ whose enabling chain depends
-on $m_j$) and the restoration test produces recovery within $T$
-steps. The system is autopoietic iff every $m_j \in M_{\mathrm{ess}}$
-is causally internal; otherwise it is homeostatic with respect to the
-failing component.
+The SAVGS carries concentration dynamics $\dot x = N v(x) - D x +
+u_{\mathrm{food}}$ on the maintenance species $x \in \RR^{M}_{\geq 0}$
+(stoichiometry $N$, reaction rates $v$, degradation $D$, allowed
+external food input $u_{\mathrm{food}}$; cf.\
+Definition~\ref{def:closure-criteria}). Fix a strictly positive
+\emph{viability concentration threshold} $x_{\mathrm{thresh}} > 0$ and
+a recovery horizon $T$. For each purportedly self-maintained
+component $m_j \in M_{\mathrm{ess}}$:
+\begin{enumerate}[leftmargin=*,itemsep=2pt]
+\item[\emph{(i)} \emph{Knockout.}] Set the internal repair flux of
+$m_j$ to zero: $r_j := 0$. Keep the external food supply
+$u_{\mathrm{food}}$ unchanged (no preassembled replacement for $m_j$
+is supplied).
+\item[\emph{(ii)} \emph{Drift under dynamics.}] Integrate the
+concentration dynamics $\dot x = N v(x) - D x + u_{\mathrm{food}}$
+forward for $T$ steps from the pre-knockout steady state $x^*$.
+\item[\emph{(iii)} \emph{Recovery above threshold.}] Record the
+post-recovery concentration $\mathrm{rec}_{j}(T) := x_{j}(T)$. The
+component $m_j$ is \emph{recovered} iff
+$\mathrm{rec}_{j}(T) > x_{\mathrm{thresh}}$ (not merely nonzero ---
+the concentration must exceed the declared viability threshold, which
+removes the trivial reinsertion failure mode of binary node-reappearance
+tests).
+\item[\emph{(iv)} \emph{Downstream cascade.}] Every $m_{j'}$ whose
+enabling chain depends on $m_j$ must also drop below
+$x_{\mathrm{thresh}}$ during step~(ii) and recover above
+$x_{\mathrm{thresh}}$ in step~(iii) (predicted downstream effect).
+\item[\emph{(v)} \emph{Restoration control.}] Restore the repair
+pathway ($r_j := r_j^{\mathrm{pre-knockout}}$) and verify that all
+knocked-down and downstream concentrations return to $x^*$ within $T$
+steps (recovery control).
+\end{enumerate}
+A component $m_j$ is \emph{causally internal} to the organizational
+closure iff steps~(i)--(v) hold as stated. The system is
+\emph{autopoietic} iff every $m_j \in M_{\mathrm{ess}}$ is causally
+internal; otherwise it is \emph{homeostatic} with respect to the
+failing component. The default viability threshold used in the
+operational networks of Sections~\ref{sec:autopoiesis-real-networks}
+is $x_{\mathrm{thresh}} = 0.1$ in normalized concentration units; the
+threshold is a declared operational parameter, not a fitted one, and
+may be varied in robustness sweeps
+(Section~\ref{sec:autopoiesis-network-K-robust}).
 \end{definition}
 
-\begin{remark}[Why the test is non-circular]
+\begin{remark}[Why the test is non-circular and dynamical]
 The closure test of Definition~\ref{def:autopoiesis} prevents
 ``autopoiesis'' from being satisfied by a simulator that silently
 repairs the agent from outside: the external intervention in step~(i)
-is the only externally imposed change; the recovery in step~(v) must
-be produced by the endogenous regeneration rules $R$ alone. A
-homeostatic system that depends on a hidden external repair mechanism
-fails the test on step~(v): the removed component does not reappear
-within $T$ steps. The test is falsifiable: it predicts that removing a
-maintenance node from an autopoietic system causes the node (and its
-downstream dependents) to reappear within $T$ steps; a system for
-which this prediction fails for any $m_j \in M_{\mathrm{ess}}$ is
-classified homeostatic, not autopoietic.
+is the only externally imposed change; the recovery in step~(iii) must
+be produced by the endogenous regeneration rules $R$ alone, with
+concentrations crossing the declared viability threshold
+$x_{\mathrm{thresh}} > 0$ rather than merely registering a nonzero
+symbolic presence. A homeostatic system that depends on a hidden
+external repair mechanism fails the test on step~(iii): the knocked-down
+component's concentration does not exceed $x_{\mathrm{thresh}}$ within
+$T$ steps. The threshold requirement removes the principal circularity
+of the older node-reappearance formulation, where any nonzero
+reinsertion (including a trivial simulator-level reset) would pass.
+The test is falsifiable in three independent directions: (a) if a
+non-food maintenance node $m_j$ fails to recover above
+$x_{\mathrm{thresh}}$ in step~(iii), the system is homeostatic with
+respect to $m_j$; (b) if knockout of an essential catalytic hub does
+not cause the predicted downstream collapse in step~(iv), the
+maintenance graph $\Gamma$ is mis-specified; (c) if restoration of
+the repair pathway fails to recover $x^*$ in step~(v), the
+steady-state viability is unstable and the autopoiesis verdict is
+unreliable.
 \end{remark}
 
 \begin{definition}[Closure-aware viability curvature]
@@ -1872,15 +1912,25 @@ empirical contraction-rate question settled in
 Section~\ref{sec:titer}.
 \end{remark}
 
-\begin{theorem}[Composition]\label{thm:composition}
-Under Construction~\ref{con:seven}, the seven-fold composition
+\begin{theorem}[Composition as a typed endo-optic]\label{thm:composition}
+Under Construction~\ref{con:seven}, suppose typed interfaces
+$I_0, I_1, \ldots, I_7$ are introduced with an interface isomorphism
+$\sigma : I_7 \cong I_0$, and each $\OO_i : I_{i-1} \rightleftarrows I_i$
+is a well-typed optic. Then the seven-fold composition
 \begin{equation}\label{eq:comp}
-  T \;=\; \OO_7 \circ \OO_6 \circ \cdots \circ \OO_1
+  T \;=\; \sigma \circ \OO_7 \circ \OO_6 \circ \cdots \circ \OO_1
 \end{equation}
-is a well-defined endofunctor on $\Optic(\CC)$. The composition is
-associative and unital. The residual of $T$ is the product
-$\mathrm{Res}_1\times\cdots\times\mathrm{Res}_7$ in $\CC$. The fixed
-point of $T$, when it exists, is the \emph{unification object}.
+is a well-defined \emph{typed endo-optic} on $I_0$ (Remark~\ref{rem:typed-optic}).
+The composition is associative and unital. The residual of $T$ is the
+product $\mathrm{Res}_1 \times \cdots \times \mathrm{Res}_7$ in $\CC$.
+The fixed point of $T$, when it exists, is the \emph{unification object}.
+The stronger claim that $T$ descends to an endofunctor on the whole
+optic category $\Optic(\CC)$ requires explicit functorial semantics
+(object map, morphism map, identity and composition preservation) and is
+not established here; the operational fixed-point claim is instead
+realized through a realization functor $R$ from endo-optics to
+endomaps on a complete metric state space $S$ and proven under an
+explicit Lipschitz contraction bound (Proposition~\ref{prop:qbound}).
 \end{theorem}
 
 \begin{proof}[Proof]
@@ -2767,6 +2817,21 @@ linear fit of $\mathrm{std}(\delta H)$ versus $a$ yields:
 \begin{itemize}[leftmargin=1.2em,itemsep=1pt]
 \item Fitted exponent $\widehat\beta=1.479$ (theoretical: $3/2=1.500$;
   relative error $1.4\%$).
+\item \emph{Confidence interval on $\widehat\beta$}: a non-parametric
+  bootstrap of $B=10{,}000$ resamples of the $14$-point
+  $(a,\mathrm{std}(\delta H))$ curve (script
+  \texttt{levy\_bootstrap\_ci.py}) gives the $95\%$ CI
+  $\widehat\beta\in[1.471,\,1.493]$, with bootstrap standard error
+  $\mathrm{SE}_{\mathrm{boot}}(\widehat\beta)=0.0072$. The analytical
+  OLS $t$-interval on the slope (df $= 12$, $t_{0.975,12}=2.179$) is
+  $[1.471,\,1.487]$, in close agreement with the bootstrap. The
+  theoretical value $3/2=1.500$ lies \emph{just outside} the $95\%$
+  CI; this is the expected downward bias of the single-exponent fit
+  in the presence of the sub-leading analytic L\'evy-area term
+  $c_{2}\,a^{1}$ contributing at order $\sigma a$ to the standard
+  deviation (see the two-term fit below). The two-term fit cleanly
+  separates the contributions and recovers the theoretical $3/2$
+  component.
 \item Fitted coefficient $\widehat C=0.357$; the theoretical leading
   constant $\sqrt{\nu}/2=\sqrt{0.1}/2\approx 0.158$ captures the
   $X_{1}$ (It\^o) contribution alone, with the $2$--$3\times$
@@ -3082,6 +3147,33 @@ two regimes are empirically distinguishable by approximately a factor
 of two in the scaling exponent.}
 \label{fig:zeno}
 \end{figure}
+
+\begin{remark}[Why $R^2 = 1.0000$ on the Zeno curve is appropriate,
+not circular]
+\label{rem:zeno-r2}
+The Zeno simulation evolves a $2{\times}2$ density matrix under the
+unitary $U(\tau) = \exp(-i H\tau)$ for $H = (\omega/2)\sigma_x$, then
+applies the projective measurement $P = |0\rangle\!\rangle\langle\!0|$
+at intervals $\tau$ apart. The dynamics are deterministic unitary
+evolution at machine precision: there is no Monte-Carlo stochastic
+noise in the time evolution. The power-law scaling
+$\|P U(\tau)^N P \rho_0 - \rho_0\|_1 \sim \tau^2$ is the analytic
+expansion~\eqref{eq:zeno-scaling} of the survival probability, so the
+log-log fit recovers $R^2 = 1.0000$ to the precision of the floating-
+point unit. The $R^2 = 0.9997$ on the classical curve is correspondingly
+smaller because the classical chain is sampled stochastically: a finite-
+sample Markov-chain simulation accumulates sampling noise whose
+$\sqrt{N}$ decay is captured as a slightly worse $R^2$. The distinction
+between $R^2 = 1.0000$ (deterministic quantum) and $R^2 = 0.9997$
+(stochastic classical) is itself a falsifiable signature of the lift:
+the quantum curve is reproducible at the level of machine precision,
+while the classical curve carries the expected $\sqrt{N}$ sampling
+bandwidth. A non-deterministic ablation --- e.g.\ depolarizing noise
+on the unitary channel --- would reduce the quantum $R^2$ below
+$1.0000$ by the same mechanism, confirming that $R^2 = 1.0000$ is a
+property of the deterministic unitary regime rather than an artifact
+of the fit procedure.
+\end{remark}
 
 % =============================================================
 \section{Numerical Contraction of $T$}\label{sec:titer}
@@ -5487,6 +5579,35 @@ $G_C$-structured stratified connection. The lower bound is zero
 endangered by the policy holonomy).
 \end{proposition}
 
+\begin{remark}[The upper-bound language is justified by the
+smooth-envelope theorem]
+\label{rem:main-bound}
+The upper-bound language in Proposition~\ref{prop:main} (``the upper
+bound on vulnerability is the algorithmic-rate-distortion-theoretic
+viability-weighted curvature'') is not a conjectural bound; it is a
+theorem. The algorithmic viability curvature
+$\kappa_V^{\mathrm{alg}}$ is defined as the upper envelope
+$E(x) = \sup_{(\tau, \beta, D, L)} r_{\tau, \beta, D, L}(x)$ over the
+family of smooth finite-code surrogates of
+Definition~\ref{def:ard-surrogate}. Theorem~\ref{thm:smooth-envelope}
+proves that $E$ is locally Lipschitz, admits a Clarke subdifferential
+at every point of $K$, and is the smallest locally Lipschitz upper
+bound on every member of the surrogate family. The
+viability-weighted curvature
+$\kappa_V(\theta, x) = [-D h_\alpha]_+(\theta, x) / h_\alpha(\theta, x)$
+constructed from the smooth finite-code surrogate
+$h_\alpha = D_\phi \circ r_{\tau, \beta, D}$ is therefore bounded
+above by the algorithmic envelope $E$, and the leading-order
+hysteresis $\int_\Sigma F$ on a smooth stratum is bounded above by
+$\int_\Sigma \kappa_V \le \int_\Sigma \kappa_V^{\mathrm{alg}}$ on that
+stratum (Proposition~\ref{prop:main-sharp}). The lower bound
+$0$ (Proposition~\ref{prop:main}) is attained by the trivial
+flat-connection example. Hence the upper-bound language is
+theorem-justified, not aspirational; the conjectural strengthening to
+a global cross-stratum bound (Conjecture~\ref{conj:global-stratified-holonomy})
+is a separate, well-defined open problem.
+\end{remark}
+
 The defensible proposition, in its strongest form, is sharper than the
 thesis:
 
@@ -5588,11 +5709,18 @@ trivially attained when $\kk$ is identically zero.
 
 The single composition theorem (Theorem~\ref{thm:composition})
 consolidates seven arcs of prior domain-unification work into one
-endofunctor on $\Optic(\CC)$. The unification object becomes a fixed
-point of a well-defined endofunctor rather than a rhetorical construct;
-its existence reduces to a contraction-rate question
-(Section~\ref{sec:titer}), which is confirmed numerically across a
-$375$-configuration robustness grid. The seven-claim falsification
+well-defined \emph{typed endo-optic} on $I_0$ (Remark~\ref{rem:typed-optic}),
+with the operational fixed-point claim realized through an explicit
+realization functor $R$ from endo-optics to endomaps on a complete
+metric state space $S$ and proven under an explicit Lipschitz
+contraction bound (Proposition~\ref{prop:qbound}). The unification
+object becomes a fixed point of a well-defined realized update map
+rather than a rhetorical construct; its existence reduces to a
+contraction-rate question (Section~\ref{sec:titer}), which is confirmed
+numerically across a $375$-configuration robustness grid. The
+stronger categorical claim of an endofunctor on the whole optic
+category $\Optic(\CC)$ remains open and is the natural target of
+future functorial-semantics work. The seven-claim falsification
 hierarchy (Definition~\ref{def:hierarchy}) operationalizes the
 viability-weighted curvature $\kk$ as a falsifiable prediction at seven
 distinct levels, all confirmed within their stated tolerances in both
