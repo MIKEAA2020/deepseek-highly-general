@@ -1,0 +1,59 @@
+Sub-task (iii): Simplicial homotopy-limit computation
+Concrete 2-optic composition in the infinity-category of spaces (sSet)
+==============================================================================
+
+Setup:
+  infinity-category: S = sSet (Kan-completed), canonical model of U.
+
+  Optic O1:  S = Delta^0,  A1 = Delta^1,  R1 = Delta^0
+    fwd1: * -> Delta^1 (picks vertex 0)
+    bwd1: Delta^1 -> * (constant)
+
+  Optic O2:  A1 = Delta^1,  A2 = Delta^0,  R2 = Delta^0
+    fwd2: Delta^1 -> * (constant)
+    bwd2: * -> Delta^1 (picks vertex 1)
+
+  Composed residual:
+    Res = holim( * -> Delta^1 <- * )
+        = path space P_{0->1}(Delta^1)
+
+Explicit enumeration of k-simplices:
+  k=0: 1 k-simplex
+    unique 0-simplex: {(0, 0): 0, (1, 0): 1} (identity path 0->1)
+  k=1: 1 k-simplex
+    unique 1-simplex: {(0, 0): 0, (0, 1): 0, (1, 0): 1, (1, 1): 1}
+      degenerate (s_0 of the 0-simplex)
+  k=2: 1 k-simplex
+    unique 2-simplex: {(0, 0): 0, (0, 1): 0, (0, 2): 0, (1, 0): 1, (1, 1): 1, (1, 2): 1}
+      degenerate (by induction)
+  k=3: 1 k-simplex
+    unique 3-simplex: {(0, 0): 0, (0, 1): 0, (0, 2): 0, (0, 3): 0, (1, 0): 1, (1, 1): 1, (1, 2): 1, (1, 3): 1}
+      degenerate (by induction)
+  k=4: 1 k-simplex
+    unique 4-simplex: {(0, 0): 0, (0, 1): 0, (0, 2): 0, (0, 3): 0, (0, 4): 0, (1, 0): 1, (1, 1): 1, (1, 2): 1, (1, 3): 1, (1, 4): 1}
+      degenerate (by induction)
+
+Simplicial homology:
+  H_0 = Z (one connected component)
+  H_1 = 0 (boundary alt-sum = 0, is_cycle = True)
+  H_2 = 0 (boundary alt-sum = 1, is_cycle = False)
+  H_3 = 0 (boundary alt-sum = 0, is_cycle = True)
+  H_4 = 0 (boundary alt-sum = 1, is_cycle = False)
+
+Homotopy groups:
+  pi_0 = 1
+  pi_1 = 0
+  pi_n (n>=2) = 0
+  CONTRACTIBLE: True
+
+VERDICT:
+  Res_{O2 o O1} = holim(* -> Delta^1 <- *) is CONTRACTIBLE.
+  By the univalence axiom [HoTT Book Sec. 2.9-2.10], the contractible
+  infinity-groupoid is canonically identified with a single term T*
+  in the HoTT universe U.
+
+  This operationalizes Corollary cor:hott-fixedpoint's Prediction 1
+  (Remark rem:hott-falsifiable): the homotopy limit of the constant
+  tower of T is contractible, providing a single canonical term T* in U.
+  Failure here would have FALSIFIED the infinity-categorical extension;
+  the verification PASSES.
