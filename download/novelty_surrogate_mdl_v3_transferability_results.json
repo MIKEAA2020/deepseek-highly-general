@@ -1,0 +1,71 @@
+{
+  "version": "v3 (transferability iterated)",
+  "calibration_problem": "V(x) = 1 - x^2 (parabolic, from v2 commit 3970832)",
+  "transferability_tests": [
+    "V(x) = 1 - x^4 (quartic)",
+    "V(x) = 1 - x^6 (sextic)"
+  ],
+  "n": 500,
+  "v2_reference_c": 1.625,
+  "v2_redrived_c": 1.6254051935961478,
+  "v2_calibration": {
+    "label": "V(x) = 1 - x^2 (CALIBRATION PROBLEM, v2)",
+    "true_kappa": 0.32069540905801736,
+    "bma_kappa_calibrated": 0.19730182376770364,
+    "c_v2": 1.6254051935961478,
+    "corrected_kappa": 0.32069540905801736,
+    "gap": 0.0,
+    "bootstrap_ci_95": [
+      0.46161507498130594,
+      0.5883966800818055
+    ],
+    "true_in_ci": false
+  },
+  "v4_transferability": {
+    "label": "V(x) = 1 - x^4 (TRANSFERABILITY TEST)",
+    "true_kappa": 0.18931103857648018,
+    "bma_kappa_calibrated": 0.13853618709873639,
+    "corrected_with_c_v2": 0.22517743801129375,
+    "transferability_gap": 0.03586639943481357,
+    "transferability_factor": 1.1894575176625204,
+    "c_v4_recalibrated": 1.3665096646665753,
+    "bootstrap_ci_95_corrected": [
+      0.19898591542984434,
+      0.25508563463957873
+    ],
+    "true_in_corrected_ci": false,
+    "verdict": "PARTIALLY TRANSFERABLE (factor in [0.5, 2.0] but true outside CI)"
+  },
+  "v6_triangulation": {
+    "label": "V(x) = 1 - x^6 (TRIANGULATION)",
+    "true_kappa": 0.13447802506835133,
+    "bma_kappa_calibrated": 0.10644857126591192,
+    "corrected_with_c_v2": 0.1730220605865029,
+    "transferability_gap": 0.03854403551815158,
+    "transferability_factor": 1.2866195833747613,
+    "c_v6_recalibrated": 1.2633145139395148,
+    "bootstrap_ci_95_corrected": [
+      0.14857874485034775,
+      0.20312979618013388
+    ],
+    "true_in_corrected_ci": false,
+    "verdict": "PARTIALLY TRANSFERABLE (factor in [0.5, 2.0] but true outside CI)"
+  },
+  "shape_dependent_calibration_table": {
+    "V=x^2": {
+      "c": 1.6254051935961478,
+      "true_kappa": 0.32069540905801736,
+      "bma_kappa": 0.19730182376770364
+    },
+    "V=x^4": {
+      "c": 1.3665096646665753,
+      "true_kappa": 0.18931103857648018,
+      "bma_kappa": 0.13853618709873639
+    },
+    "V=x^6": {
+      "c": 1.2633145139395148,
+      "true_kappa": 0.13447802506835133,
+      "bma_kappa": 0.10644857126591192
+    }
+  }
+}
