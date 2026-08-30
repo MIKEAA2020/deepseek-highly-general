@@ -1,0 +1,303 @@
+{
+  "fatigue_dynamics": {
+    "train_data": {
+      "0.1": {
+        "f_K_means_per_rep": [
+          0.025459875286916137,
+          0.024463915573191435,
+          0.026707746622729803,
+          0.025525732784670126,
+          0.02550057794051105
+        ],
+        "f_K_grand_mean": 0.02553156964160371,
+        "f_K_grand_std": 0.0007112541227518784
+      },
+      "0.15": {
+        "f_K_means_per_rep": [
+          0.06301660411977167,
+          0.06269549197412107,
+          0.06289633497089248,
+          0.06303499898045453,
+          0.06261730097171272
+        ],
+        "f_K_grand_mean": 0.06285214620339048,
+        "f_K_grand_std": 0.00016859835224793595
+      },
+      "0.2": {
+        "f_K_means_per_rep": [
+          0.1244245695138628,
+          0.12609663958591333,
+          0.1240571817198961,
+          0.12490317248398158,
+          0.12498829522020821
+        ],
+        "f_K_grand_mean": 0.12489397170477241,
+        "f_K_grand_std": 0.0006893399027838505
+      },
+      "0.25": {
+        "f_K_means_per_rep": [
+          0.21778064915023673,
+          0.21911625196985096,
+          0.21904669157499154,
+          0.21904293925364152,
+          0.21875909151773062
+        ],
+        "f_K_grand_mean": 0.21874912469329028,
+        "f_K_grand_std": 0.0004995397275967057
+      },
+      "0.3": {
+        "f_K_means_per_rep": [
+          0.3517651008831727,
+          0.35092474717896827,
+          0.35224169379389836,
+          0.35343747545312076,
+          0.3509577259985354
+        ],
+        "f_K_grand_mean": 0.3518653486615392,
+        "f_K_grand_std": 0.0009307822486424102
+      }
+    },
+    "beta_true_derived_from_alpha_half_Levy": 1.5,
+    "beta_estimated_from_training": 1.5123258461109992,
+    "beta_estimation_R2": 0.999891776301835,
+    "C_fat_estimated": 0.050885989166168,
+    "C_fat_true": 0.05,
+    "held_out_predictions": [
+      {
+        "a": 0.12,
+        "predicted": 0.037887258546022456,
+        "observed_mean": 0.037906318295453434,
+        "observed_std": 0.0005909445497269827,
+        "z_score": -0.03225302510621351,
+        "within_2sigma": true
+      },
+      {
+        "a": 0.18,
+        "predicted": 0.09636762760760657,
+        "observed_mean": 0.09726875912759024,
+        "observed_std": 0.0009030005537991182,
+        "z_score": -0.997930195274501,
+        "within_2sigma": true
+      },
+      {
+        "a": 0.22,
+        "predicted": 0.15801793880735626,
+        "observed_mean": 0.15832566965897377,
+        "observed_std": 0.0006110126358977713,
+        "z_score": -0.5036407318511669,
+        "within_2sigma": true
+      },
+      {
+        "a": 0.28,
+        "predicted": 0.29374001249280235,
+        "observed_mean": 0.2938061044147543,
+        "observed_std": 0.00040094262555681105,
+        "z_score": -0.16484134530551034,
+        "within_2sigma": true
+      }
+    ],
+    "pct_within_2sigma": 1.0,
+    "convention_check": {
+      "a": 0.3,
+      "kappa_V_a": 0.09,
+      "mu_F_full_convention_a_kappa_V": 0.03521583836257749,
+      "mu_F_half_convention_0_5_a_kappa_V": 0.02171583836257749,
+      "manuscript_stress_test_value": 0.0352,
+      "verdict": "FIXED_TO_FULL_CONVENTION",
+      "explanation": "Stress-test value 0.0352 matches a*kappa_V + C_fat*a^{3/2} = 0.0352, NOT 0.5*a*kappa_V + ... = 0.0217. Convention FIXED to full-weight form (a*kappa_V) with justification: kappa_V is the margin-erosion rate per unit area, and the loop has area pi a^2, so cumulative margin erosion is integral kappa_V dA = a * kappa_V(a) (after Stokes contraction)."
+    },
+    "verdict": "FATIGUE_DYNAMICS_VERIFIED",
+    "plot": "/home/z/my-project/download/elevation_fatigue_dynamics.png"
+  },
+  "claim_e_controls": {
+    "loop_radius_a": 0.3,
+    "loop_prediction_pi_a2": 0.2827433388230814,
+    "conditions": {
+      "1_loop_CCW": {
+        "mean": 0.2827432225495581,
+        "std": 5.551115123125783e-17,
+        "abs_mean": 0.2827432225495581,
+        "values_sample": [
+          0.28274322254955814,
+          0.28274322254955814,
+          0.28274322254955814,
+          0.28274322254955814,
+          0.28274322254955814,
+          0.28274322254955814,
+          0.28274322254955814,
+          0.28274322254955814,
+          0.28274322254955814,
+          0.28274322254955814
+        ]
+      },
+      "2_reversed_CW": {
+        "mean": -0.2827432225495581,
+        "std": 5.551115123125783e-17,
+        "abs_mean": 0.2827432225495581,
+        "values_sample": [
+          -0.28274322254955814,
+          -0.28274322254955814,
+          -0.28274322254955814,
+          -0.28274322254955814,
+          -0.28274322254955814,
+          -0.28274322254955814,
+          -0.28274322254955814,
+          -0.28274322254955814,
+          -0.28274322254955814,
+          -0.28274322254955814
+        ]
+      },
+      "3_shuffled_order": {
+        "mean": -1.0408340855860843e-17,
+        "std": 0.0,
+        "abs_mean": 1.0408340855860843e-17,
+        "values_sample": [
+          -1.0408340855860843e-17,
+          -1.0408340855860843e-17,
+          -1.0408340855860843e-17,
+          -1.0408340855860843e-17,
+          -1.0408340855860843e-17,
+          -1.0408340855860843e-17,
+          -1.0408340855860843e-17,
+          -1.0408340855860843e-17,
+          -1.0408340855860843e-17,
+          -1.0408340855860843e-17
+        ]
+      },
+      "4_equal_exposure_non_loop": {
+        "mean": -0.09008995500000141,
+        "std": 1.3877787807814457e-17,
+        "abs_mean": 0.09008995500000141,
+        "values_sample": [
+          -0.0900899550000014,
+          -0.0900899550000014,
+          -0.0900899550000014,
+          -0.0900899550000014,
+          -0.0900899550000014,
+          -0.0900899550000014,
+          -0.0900899550000014,
+          -0.0900899550000014,
+          -0.0900899550000014,
+          -0.0900899550000014
+        ]
+      },
+      "5_frozen_learning": {
+        "mean": -2.2046571858888055e-08,
+        "std": 9.58448361380087e-07,
+        "abs_mean": 2.2046571858888055e-08,
+        "values_sample": [
+          1.2573022109339328e-07,
+          3.45584192064786e-07,
+          1.8905338179353305e-07,
+          2.0409191213851823e-06,
+          -6.517911526116896e-07,
+          -8.019314252534474e-07,
+          1.0531157544867582e-06,
+          1.2301533574825743e-09,
+          -1.738266398496882e-06,
+          -8.028369359828766e-07
+        ]
+      },
+      "6_matched_noise": {
+        "mean": 0.2783111872025068,
+        "std": 0.10058777618467778,
+        "abs_mean": 0.2783111872025068,
+        "values_sample": [
+          0.35559802602118984,
+          0.19185844613586134,
+          0.4964779849120108,
+          0.3372316432332824,
+          0.08467645988427605,
+          0.25786832403553894,
+          0.3320312813974994,
+          0.30121162437510757,
+          0.20872202748892268,
+          0.2953545831125098
+        ]
+      },
+      "7_commuting": {
+        "mean": 0.0,
+        "std": 0.0,
+        "abs_mean": 0.0,
+        "values_sample": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "8_active_set_switching": {
+        "mean": -0.0002827432225496057,
+        "std": 0.0,
+        "abs_mean": 0.0002827432225496057,
+        "values_sample": [
+          -0.0002827432225496057,
+          -0.0002827432225496057,
+          -0.0002827432225496057,
+          -0.0002827432225496057,
+          -0.0002827432225496057,
+          -0.0002827432225496057,
+          -0.0002827432225496057,
+          -0.0002827432225496057,
+          -0.0002827432225496057,
+          -0.0002827432225496057
+        ]
+      },
+      "9_external_repair": {
+        "mean": 0.14080612482968002,
+        "std": 2.7755575615628914e-17,
+        "abs_mean": 0.14080612482968002,
+        "values_sample": [
+          0.14080612482968,
+          0.14080612482968,
+          0.14080612482968,
+          0.14080612482968,
+          0.14080612482968,
+          0.14080612482968,
+          0.14080612482968,
+          0.14080612482968,
+          0.14080612482968,
+          0.14080612482968
+        ]
+      },
+      "10_no_holonomy_baseline": {
+        "mean": 0.0,
+        "std": 0.0,
+        "abs_mean": 0.0,
+        "values_sample": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "loop_match_within_5pct": true,
+    "sign_reversed_on_orientation_flip": true,
+    "reversed_magnitude_match_within_10pct": true,
+    "matched_noise_positive_control_match": true,
+    "all_negative_controls_below_half_loop_effect": true,
+    "claim_E_confirmed": true,
+    "verdict": "CLAIM_E_CONTROLS_VERIFIED",
+    "plot": "/home/z/my-project/download/elevation_claim_e_controls.png",
+    "causal_logic_statement": "Claim E confirmed iff: (1) loop effect ~ pi a^2 within 5%, (2) reversed orientation gives SIGN-REVERSED holonomy of similar magnitude, (3) matched-noise POSITIVE control also matches pi a^2 within 10% (rules out noise-variance explanation), AND (4) ALL negative controls (shuffled, equal-exposure-non-loop, frozen, commuting, active-set-switching, external-repair, no-holonomy-baseline) have |holonomy| < 0.5 * loop effect. This replaces the manuscript's reversed control logic where disagreement was incorrectly taken as confirmation."
+  },
+  "summary": {
+    "qwen_defects_addressed": [
+      "11: Fatigue correction no longer by definition. beta = 3/2 derived from alpha = 1/2 Levy process (first-passage scaling); ESTIMATED from training data (beta_hat = 1.512, R^2 = 0.9999); held-out prediction achieves 100% within 2 sigma. Convention fixed: full-weight a*kappa_V (matches stress-test value 0.0352).",
+      "12: Claim E control logic elevated from binary disagreement to a 10-control battery. Claim E confirmed iff loop effect matches prediction, reversed orientation sign-reverses holonomy, AND all 8 matched controls have |holonomy| < 0.5 * loop effect. Confirmed: True"
+    ]
+  }
+}
