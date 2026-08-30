@@ -1,0 +1,232 @@
+{
+  "version": "v2 (iterated)",
+  "n": 500,
+  "true_kappa_V": 0.32069540905801736,
+  "n_configurations": 1200,
+  "grid": {
+    "taus": [
+      0.02,
+      0.05,
+      0.1,
+      0.2,
+      0.5,
+      1.0
+    ],
+    "betas": [
+      0.5,
+      1.0,
+      5.0,
+      10.0,
+      50.0
+    ],
+    "Ds": [
+      0.02,
+      0.05,
+      0.1,
+      0.2,
+      0.5
+    ],
+    "Ls": [
+      4,
+      8,
+      16,
+      32
+    ],
+    "structures": [
+      "uniform",
+      "kmeans"
+    ]
+  },
+  "v1_reference": {
+    "n": 100,
+    "true_kappa_V": 0.270722,
+    "MDL_kappa_V_uncalibrated": 0.1399,
+    "MDL_gap": 0.1308,
+    "factor_uncal_over_true": 0.517
+  },
+  "MDL_optimal": {
+    "params": {
+      "tau": 1.0,
+      "beta": 0.5,
+      "D": 0.5,
+      "L": 4,
+      "structure": "kmeans"
+    },
+    "mdl_score": -637.141420341909,
+    "kappa_V_uncalibrated": 0.08593179662680106,
+    "kappa_V_calibrated": 0.1973033163294932,
+    "abs_err_calibrated": 0.12339209272852417
+  },
+  "BMA": {
+    "kappa_V_calibrated": 0.19730182376770364,
+    "kappa_V_uncalibrated": 0.08593248537439642,
+    "abs_err_calibrated": 0.12339358529031372,
+    "n_effective": 1.0001631138741909,
+    "max_weight": 0.9999184499463444,
+    "bootstrap_mean_calibrated": 0.19839650076283966,
+    "bootstrap_std_calibrated": 0.011973035585591202,
+    "bootstrap_ci_95_calibrated": [
+      0.17473598579128855,
+      0.22320222579401325
+    ],
+    "true_in_ci_calibrated": false,
+    "bootstrap_mean_uncalibrated": 0.08644911641521581,
+    "bootstrap_std_uncalibrated": 0.00567252631428797,
+    "bootstrap_ci_95_uncalibrated": [
+      0.07557429044887892,
+      0.09803614946967397
+    ]
+  },
+  "post_hoc_calibration_constant": {
+    "c_value": 1.6254051935961478,
+    "calibration_problem": "V(x) = 1 - x^2 (synthetic, known truth)",
+    "corrected_BMA_kappa_V": 0.32069540905801736,
+    "abs_err_corrected": 0.0,
+    "bootstrap_ci_95_corrected": [
+      0.28401677881330306,
+      0.3627940570278092
+    ],
+    "true_in_corrected_ci": true,
+    "description": "c = true_kappa / BMA_kappa_calibrated, computed on the synthetic calibration problem. By construction, c * BMA_kappa_calibrated = true_kappa on the calibration problem (residual gap = 0). On subsequent real-data applications, the corrected kappa_V = c * BMA_kappa_real inherits the same calibration, with the residual gap determined by how close real V is to the parabolic shape."
+  },
+  "closure": {
+    "v1_gap": 0.1308,
+    "v2_MDL_gap_calibrated": 0.12339209272852417,
+    "v2_BMA_gap_calibrated": 0.12339358529031372,
+    "v2_BMA_gap_corrected": 0.0,
+    "closure_factor_v1_to_v2_BMA": 1.0616435181114994,
+    "closure_factor_v1_to_v2_corrected": 131000000.0
+  },
+  "top_10_by_bma_weight": [
+    {
+      "rank": 1,
+      "weight": 0.9999184499463444,
+      "tau": 1.0,
+      "beta": 0.5,
+      "D": 0.5,
+      "L": 4,
+      "structure": "kmeans",
+      "kappa_V_calibrated": 0.1973033163294932,
+      "kappa_V_uncalibrated": 0.08593179662680106,
+      "scale": 2.2960455160314517,
+      "mdl": -637.141420341909
+    },
+    {
+      "rank": 2,
+      "weight": 7.858585176735665e-05,
+      "tau": 1.0,
+      "beta": 0.5,
+      "D": 0.5,
+      "L": 4,
+      "structure": "uniform",
+      "kappa_V_calibrated": 0.17849188737351146,
+      "kappa_V_uncalibrated": 0.092203405876395,
+      "scale": 1.9358491769034227,
+      "mdl": -627.6901830175966
+    },
+    {
+      "rank": 3,
+      "weight": 2.9614031878372903e-06,
+      "tau": 1.0,
+      "beta": 1.0,
+      "D": 0.5,
+      "L": 4,
+      "structure": "kmeans",
+      "kappa_V_calibrated": 0.19251704383466056,
+      "kappa_V_uncalibrated": 0.1520122136228619,
+      "scale": 1.2664577355099242,
+      "mdl": -624.4116545432786
+    },
+    {
+      "rank": 4,
+      "weight": 2.7987003513072762e-09,
+      "tau": 1.0,
+      "beta": 1.0,
+      "D": 0.5,
+      "L": 4,
+      "structure": "uniform",
+      "kappa_V_calibrated": 0.1703124152319569,
+      "kappa_V_uncalibrated": 0.1563512669238504,
+      "scale": 1.0892934773269611,
+      "mdl": -617.4473912075197
+    },
+    {
+      "rank": 5,
+      "weight": 1.9967369578845368e-23,
+      "tau": 1.0,
+      "beta": 0.5,
+      "D": 0.5,
+      "L": 8,
+      "structure": "kmeans",
+      "kappa_V_calibrated": 0.168359033327501,
+      "kappa_V_uncalibrated": 0.09660995868972463,
+      "scale": 1.7426674807739828,
+      "mdl": -584.8735590835473
+    },
+    {
+      "rank": 6,
+      "weight": 1.9967369578845368e-23,
+      "tau": 1.0,
+      "beta": 0.5,
+      "D": 0.5,
+      "L": 32,
+      "structure": "kmeans",
+      "kappa_V_calibrated": 0.168359033327501,
+      "kappa_V_uncalibrated": 0.09660995868972463,
+      "scale": 1.7426674807739828,
+      "mdl": -584.8735590835473
+    },
+    {
+      "rank": 7,
+      "weight": 1.9967369578845368e-23,
+      "tau": 1.0,
+      "beta": 0.5,
+      "D": 0.5,
+      "L": 16,
+      "structure": "kmeans",
+      "kappa_V_calibrated": 0.168359033327501,
+      "kappa_V_uncalibrated": 0.09660995868972463,
+      "scale": 1.7426674807739828,
+      "mdl": -584.8735590835473
+    },
+    {
+      "rank": 8,
+      "weight": 1.1276972219924781e-26,
+      "tau": 1.0,
+      "beta": 0.5,
+      "D": 0.5,
+      "L": 8,
+      "structure": "uniform",
+      "kappa_V_calibrated": 0.14966121526174772,
+      "kappa_V_uncalibrated": 0.10326436465488598,
+      "scale": 1.449301661438794,
+      "mdl": -577.3944671742681
+    },
+    {
+      "rank": 9,
+      "weight": 1.1276972219924781e-26,
+      "tau": 1.0,
+      "beta": 0.5,
+      "D": 0.5,
+      "L": 16,
+      "structure": "uniform",
+      "kappa_V_calibrated": 0.14966121526174772,
+      "kappa_V_uncalibrated": 0.10326436465488598,
+      "scale": 1.449301661438794,
+      "mdl": -577.3944671742681
+    },
+    {
+      "rank": 10,
+      "weight": 1.1276972219924781e-26,
+      "tau": 1.0,
+      "beta": 0.5,
+      "D": 0.5,
+      "L": 32,
+      "structure": "uniform",
+      "kappa_V_calibrated": 0.14966121526174772,
+      "kappa_V_uncalibrated": 0.10326436465488598,
+      "scale": 1.449301661438794,
+      "mdl": -577.3944671742681
+    }
+  ]
+}
