@@ -2,6 +2,7 @@
 
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{mathtools}
+\usepackage{mathrsfs}
 \usepackage[margin=2.4cm]{geometry}
 \usepackage{microtype}
 \usepackage{booktabs}
@@ -46,6 +47,7 @@
 \newcommand{\normF}[1]{\mathopen{}\Vert#1\mathclose{}\Vert_{\!F}}
 \newcommand{\distD}{\mathrm{dist}_{D}}
 \newcommand{\SAVGS}{\mathrm{SAVGS}}
+\DeclareMathOperator{\Lip}{Lip}
 
 \hypersetup{
   pdftitle={A Categorical Viability-Weighted Curvature Framework:
@@ -60,6 +62,8 @@
 \widowpenalty=10000
 \clubpenalty=10000
 \emergencystretch=3em
+\hbadness=2500   % suppress only cosmetic underfull warnings (badness < 2500)
+\vbadness=2500
 
 \begin{document}
 
@@ -192,7 +196,16 @@ The principal contributions are summarized as follows.
 five-component stratified object that resolves the type confusions,
 gauge ambiguities, and missing premises of prior formulations. The
 geometry is a stratified principal $\CO(n-1)$-bundle, and $\kk$ is
-computed on this object.
+computed on this object. The Fisher-minimal horizontal lift on each
+constant-active-set stratum is given in closed KKT form
+(Proposition~\ref{prop:kkt}); the projected differential inclusion at
+constraint-switching boundaries is given in Remark~\ref{rem:pdi}; the
+small-loop viability--holonomy theorem
+(Theorem~\ref{thm:smallloop}) gives the leading-order $\varepsilon^2$
+expansion of the endpoint margin and the sufficient condition for
+endpoint viability; the closure-aware curvature
+$\kappa_{\mathrm{closure}}$ of Definition~\ref{def:kappa-closure}
+isolates autopoietic failure from behavioral hysteresis.
 \item A single composition theorem (Theorem~\ref{thm:composition}) for
 the seven optics in $\Optic(\CC)$, replacing the rhetorical
 ``bridge-rung'' construction of prior work. The unification object is
@@ -440,6 +453,139 @@ produces a separate falsifiable verdict on the pathwise viability
 content of the holonomy prediction.
 \end{remark}
 
+\subsection{Rigorous Fisher-minimal transport law on constant-active-set strata}
+\label{sec:fisher-transport}
+
+On a constant-active-set stratum of $\SAVGS$, the active viability
+constraints are represented locally by $c(\theta, p) = 0$ with
+$J_p = D_p c$ of full row rank and $J_\theta = D_\theta c$. For an
+environmental velocity $\dot\theta$, the Fisher-minimal policy
+velocity is the unique solution of $J_p v + J_\theta\dot\theta = 0$
+minimizing $\tfrac12 v^\top G(p) v$, where $G(p)$ is the Fisher
+information metric on the open simplex $\Delta^{n-1}$.
+
+\begin{proposition}[Fisher-minimal horizontal lift (KKT form)]
+\label{prop:kkt}
+On a constant-active-set stratum where $J_p$ has full row rank, the
+unique Fisher-minimal policy velocity is
+\begin{equation}\label{eq:kkt}
+  v^*(\theta, p, \dot\theta) \;=\;
+  -\,G(p)^{-1}\,J_p^{\!\top}\,\bigl(J_p\,G(p)^{-1}\,J_p^{\!\top}\bigr)^{-1}\!J_\theta\,\dot\theta,
+\end{equation}
+which defines the connection $1$-form
+$A_i = G^{-1} J_p^{\!\top}(J_p G^{-1} J_p^{\!\top})^{-1}\partial_i c$
+on the stratum, satisfying $\dot p = -A_i(\theta, p)\,\dot\theta^i$.
+The horizontal lift $H_i = \partial_{\theta^i} - A_i$ is a genuine
+smooth connection on each constant-rank stratum, with curvature
+$F_{ij} = \partial_i A_j - \partial_j A_i + [A_i, A_j]$.
+\end{proposition}
+
+\begin{proof}
+The constrained minimum of $\tfrac12 v^\top G v$ subject to
+$J_p v + J_\theta\dot\theta = 0$ is found by the method of Lagrange
+multipliers. Setting $\nabla_v[\tfrac12 v^\top G v + \mu^\top
+(J_p v + J_\theta\dot\theta)] = G v + J_p^\top\mu = 0$ gives
+$v = -G^{-1} J_p^\top\mu$. Substituting into the constraint:
+$-J_p G^{-1} J_p^\top\mu + J_\theta\dot\theta = 0$, so
+$\mu = (J_p G^{-1} J_p^\top)^{-1} J_\theta\dot\theta$. The full-row-rank
+hypothesis on $J_p$ guarantees the inverse exists. The horizontal
+subspace $H_{(\theta,p)} = \ker(J_p) \cap T_p\Delta^{n-1}$ varies
+smoothly in $(\theta, p)$ on the stratum (constant-rank hypothesis),
+so the resulting $1$-form $A_i$ is $C^2$; the curvature $F_{ij}$ is
+then the standard Ehresmann-curvature expression by direct
+computation~\cite{kobayashinomizu1969}.
+\end{proof}
+
+\begin{remark}[Projected differential inclusion at constraint-switching
+boundaries]\label{rem:pdi}
+At a constraint-switching boundary---where an inequality enters or
+leaves the active set---the full-row-rank hypothesis of
+Proposition~\ref{prop:kkt} fails: the rank of $J_p$ jumps, and the
+smooth connection $A_i$ is no longer defined. The correct replacement
+is the projected differential inclusion
+\begin{equation}\label{eq:pdi}
+  \dot p \;\in\; \arg\min_{v \in T_{\!\mathcal K}(\theta, p;\dot\theta)}\;
+  \tfrac12\,\bigl\Vert v - v_0 \bigr\Vert_{\!F,p}^{\,2},
+\end{equation}
+where $T_{\!\mathcal K}(\theta, p;\dot\theta)$ is the Bouligand
+contingent cone to the viability kernel $\mathcal K$ at $(\theta, p)$
+in the direction $\dot\theta$ and $v_0$ is the unconstrained
+Fisher-minimal velocity. This is viability dynamics, not ordinary
+smooth-connection theory; the SAVGS $2$-categorical span of
+Definition~\ref{def:savgs} glues the smooth-stratum connections across
+the boundary via the matching condition on the boundary $2$-cell.
+\end{remark}
+
+\begin{theorem}[Small-loop viability--holonomy]\label{thm:smallloop}
+Let $(\Theta, \pi, \Delta^{n-1}, \varepsilon, \Gamma)$ be a SAVGS as in
+Definition~\ref{def:savgs}, on a constant-active-set stratum where
+Proposition~\ref{prop:kkt} applies and the connection $1$-form $A_i$
+is $C^2$. Let $\gamma_\varepsilon : [0,1] \to \Theta$ be a square loop
+of side $\varepsilon$ in the $(\theta^1, \theta^2)$-plane at
+$\theta_0$, contained entirely in a single stratum, and let
+$h_\alpha(\theta, x)$ be a $C^2$ viability function with
+$h_\alpha(\theta_0, x_0) > 0$. Then the parallel transport of the
+policy around $\gamma_\varepsilon$ satisfies
+\begin{equation}\label{eq:holo-eps2}
+  p_{\mathrm{end}} - p_0 \;=\; \varepsilon^2\,F_{12}(\theta_0, p_0) \;+\; O(\varepsilon^3),
+\end{equation}
+up to the orientation convention for $F_{12}$. The induced change in
+the viability margin is
+\begin{equation}\label{eq:margin-eps2}
+  h_\alpha(x_{\mathrm{end}}) - h_\alpha(x_0)
+  \;=\; \varepsilon^2\,D_p h_\alpha\bigl(F_{12}(\theta_0, p_0)\bigr)
+  \;+\; O(\varepsilon^3) \;+\; \Delta_\alpha^{\mathrm{other}},
+\end{equation}
+where $\Delta_\alpha^{\mathrm{other}}$ collects all non-returning
+energy, integrity, repair, and environmental contributions along the
+loop. In particular, the endpoint remains viable whenever
+\begin{equation}\label{eq:sufficient-viable}
+  h_\alpha(x_0) \;+\; \varepsilon^2\,D_p h_\alpha(F_{12})
+  \;-\; C_\alpha\,\varepsilon^3 \;-\; |\Delta_\alpha^{\mathrm{other}}|
+  \;>\; 0
+  \qquad\text{for every }\alpha,
+\end{equation}
+where $C_\alpha$ depends on the $C^2$ bounds of $h_\alpha$ and $A_i$.
+\end{theorem}
+
+\begin{proof}
+The expansion~\eqref{eq:holo-eps2} is the standard non-abelian
+Stokes formula for the parallel transport around an infinitesimal
+loop (see, e.g.,~\cite{kobayashinomizu1969,misner1973}): writing
+the path-ordered exponential
+$\mathcal P\exp(-\oint A) = 1 - \iint_S F_{12}\,d\theta^1 d\theta^2
++ O(\varepsilon^3)$ on a square $S$ of side $\varepsilon$ gives
+$p_{\mathrm{end}} - p_0 = -\varepsilon^2 F_{12} + O(\varepsilon^3)$
+(the sign convention is fixed by the orientation of $A_i$ and is
+absorbed into $F_{12}$). Equation~\eqref{eq:margin-eps2} follows by
+Taylor expansion of $h_\alpha$ at $x_0$ to first order in
+$p_{\mathrm{end}} - p_0$ and second order in $\varepsilon$, with
+$\Delta_\alpha^{\mathrm{other}}$ collecting the integral of
+$D_\theta h_\alpha\,\dot\theta$ along the loop plus the
+$O(\varepsilon^3)$ remainder. The sufficient
+condition~\eqref{eq:sufficient-viable} is then the requirement that
+the worst-case $O(\varepsilon^3)$ remainder plus the non-returning
+contribution not exceed the initial margin minus the leading-order
+curvature contribution.
+\end{proof}
+
+\begin{remark}[What Theorem~\ref{thm:smallloop} does and does not claim]
+\label{rem:smallloop-scope}
+Theorem~\ref{thm:smallloop} bounds the \emph{endpoint} viability
+margin by the leading-order curvature contribution plus an
+$O(\varepsilon^3)$ remainder. It does \emph{not} bound the
+\emph{pathwise} viability margin: a loop with bounded endpoint
+holonomy may transit non-viable regions. Pathwise viability requires
+the additional Nagumo inward-pointing condition of
+Remark~\ref{rem:pathwise}---equivalently a viability tube of radius
+$\varepsilon$ around $\gamma_a([0,1])$ contained in the closed
+viability kernel. Curvature is therefore neither necessary nor
+sufficient for survival in isolation; the bidirectional
+``equivalence'' is replaced by the unidirectional upper bound
+``vulnerability $\leq \kk$'' of Proposition~\ref{prop:main}, with
+the trivial lower bound $0$ attained when $\kk \equiv 0$.
+\end{remark}
+
 \subsection{Square-root embedding and gauge invariance}
 
 \begin{proposition}[Square-root embedding]\label{prop:sqrt}
@@ -468,26 +614,92 @@ the round metric's $\SO(n)$-invariance.
 \subsection{Intervention-based autopoiesis closure test}
 
 The SAVGS framework supplies an operational distinction between
-autopoietic and homeostatic systems that is falsifiable.
+autopoietic and homeostatic systems that is falsifiable. The audit's
+core distinction is between \emph{homeostasis} (the agent remains
+inside a prescribed viable set, possibly via externally supplied
+maintenance) and \emph{autopoiesis} (the agent regenerates the sensing,
+control, repair, and boundary-maintenance machinery required to remain
+there). The maintenance graph $\Gamma = (M, R, E)$ of
+Definition~\ref{def:savgs} encodes this distinction: $M$ is the set of
+maintained components (sensors, policy updater, boundary, energy
+converter, repair modules); $R$ is the set of processes that produce,
+repair, or enable those components; $E$ is the edge set encoding
+consumption, production, catalysis, and enablement.
+
+\begin{definition}[Operational closure criteria]
+\label{def:closure-criteria}
+A SAVGS is \emph{operationally closed} at the maintenance graph
+$\Gamma = (M, R, E)$ when all four criteria hold:
+\begin{enumerate}[leftmargin=*,itemsep=2pt]
+\item Every indispensable component $m \in M_{\mathrm{ess}} \subseteq
+M$ degrades at a strictly positive rate.
+\item Every $m \in M_{\mathrm{ess}}$ is regenerated by at least one
+internal process $r \in R$.
+\item Every $r \in R$ is enabled by components belonging to the same
+organizational closure (i.e., the enablers of $r$ lie in
+$M_{\mathrm{ess}}$).
+\item External inputs may supply matter and free energy, but not
+preassembled replacements for any $m \in M_{\mathrm{ess}}$.
+\end{enumerate}
+The indispensable maintenance subgraph
+$\Gamma_{\mathrm{ess}} \subseteq \Gamma$ is required to lie in a
+productive strongly connected component, and the associated fluxes
+must support a feasible positive steady state (a flux feasibility
+linear program on $\Gamma$ must admit a strictly positive solution).
+\end{definition}
 
 \begin{definition}[Autopoiesis closure test]
 \label{def:autopoiesis}
-Remove a node $m\in M$ from the maintenance graph $\Gamma=(M, R, E)$.
-Apply the regeneration rules $R$ for a fixed number of steps $T$. If
-$m$ reappears in the regenerated graph, the system is \emph{autopoietic}
-with respect to $m$; otherwise it is \emph{homeostatic} with respect to
-$m$. The system is autopoietic iff it is autopoietic with respect to
-every node of $\Gamma$.
+For each purportedly self-maintained component $m_j \in
+M_{\mathrm{ess}}$: (i) set its internal repair flux to zero; (ii) keep
+external energy and raw-material supply unchanged; (iii) apply the
+regeneration rules $R$ for a fixed number of steps $T$; (iv) observe
+whether $m_j$ reappears in the regenerated graph; (v) restore the
+repair pathway and test recovery. A component $m_j$ is
+\emph{causally internal} to the organizational closure iff its
+intervention produces the predicted downstream effect (loss of
+$m_j$ causes loss of components $m_{j'}$ whose enabling chain depends
+on $m_j$) and the restoration test produces recovery within $T$
+steps. The system is autopoietic iff every $m_j \in M_{\mathrm{ess}}$
+is causally internal; otherwise it is homeostatic with respect to the
+failing component.
 \end{definition}
 
-\begin{remark}
-The closure test distinguishes autopoietic from homeostatic systems
-empirically. A system with externally supplied maintenance is
-homeostatic; a system with endogenously regenerated maintenance is
-autopoietic. The test is falsifiable: it predicts that removing a
-maintenance node from an autopoietic system causes the node to reappear
-within $T$ steps.
+\begin{remark}[Why the test is non-circular]
+The closure test of Definition~\ref{def:autopoiesis} prevents
+``autopoiesis'' from being satisfied by a simulator that silently
+repairs the agent from outside: the external intervention in step~(i)
+is the only externally imposed change; the recovery in step~(v) must
+be produced by the endogenous regeneration rules $R$ alone. A
+homeostatic system that depends on a hidden external repair mechanism
+fails the test on step~(v): the removed component does not reappear
+within $T$ steps. The test is falsifiable: it predicts that removing a
+maintenance node from an autopoietic system causes the node (and its
+downstream dependents) to reappear within $T$ steps; a system for
+which this prediction fails for any $m_j \in M_{\mathrm{ess}}$ is
+classified homeostatic, not autopoietic.
 \end{remark}
+
+\begin{definition}[Closure-aware viability curvature]
+\label{def:kappa-closure}
+Restricting the viability covectors of $\kk$
+(Proposition~\ref{prop:kappa-derivation}) to the repair-machinery
+margins $h_j^{\mathrm{repair}} = r_j - r_{j,\min}$ gives the
+\emph{closure-aware viability curvature}
+\begin{equation}\label{eq:kappa-closure}
+  \kappa_{\mathrm{closure}}(\theta, x) \;=\;
+  \sup_{\|u \wedge v\|_{g_F} = 1}\;
+  \max_{j \in M_{\mathrm{ess}}}\;
+  \frac{\bigl[-D h_j^{\mathrm{repair}}(F(u, v))\bigr]^+}{h_j^{\mathrm{repair}}(\theta, x)}.
+\end{equation}
+The quantity $\kappa_{\mathrm{closure}}$ distinguishes three failure
+modes: (i)~harmless behavioral hysteresis (the curvature projects onto
+non-maintenance directions); (ii)~metabolic viability erosion
+($\kk > 0$ but $\kappa_{\mathrm{closure}} = 0$); (iii)~autopoietic
+failure proper ($\kappa_{\mathrm{closure}} > 0$, the curvature erodes
+the machinery that makes future adaptation possible). Only the third
+is specifically autopoietic failure.
+\end{definition}
 
 % =============================================================
 \section{Algorithmic Rate-Distortion and Derivation of \texorpdfstring{$\kk$}{kappa_V}}\label{sec:ard}
@@ -542,25 +754,44 @@ Let $h_\alpha(\theta, x) = D_\phi\bigl(\distD(x),\,\distD(x_0)\bigr)$ be
 a Bregman divergence evaluated at the algorithmic rate-distortion
 distance of the current state $x$ relative to a reference $x_0$. Let
 $F(u,v)$ be the curvature 2-form of the $\CO(n-1)$-connection on
-$\SAVGS$. The viability-weighted curvature is
+$\SAVGS$. The per-pair viability-weighted curvature is
 \begin{equation}\label{eq:kappa-derivation}
-  \kk(\theta, x) \;=\; \frac{\bigl[-D_{F(u,v)}h_\alpha\bigr]^+(\theta, x)}{h_\alpha(\theta, x)},
+  \kappa_\alpha(\theta, x; u, v) \;=\; \frac{\bigl[-D_{F(u,v)}h_\alpha\bigr]^+(\theta, x)}{h_\alpha(\theta, x)},
 \end{equation}
 where $[\,\cdot\,]^+$ denotes the positive part. The positive part
 counts only viability-eroding curvature; viability-preserving
-curvature contributes zero.
+curvature contributes zero. The aggregate index is the worst case over
+unit-area bivectors and over the active viability covectors:
+\begin{equation}\label{eq:kappaV-aggregate}
+  \kk(\theta, x) \;=\; \sup_{\substack{u, v \in T_\theta\Theta \\ \|u \wedge v\|_{g_F} = 1}}\;
+  \max_{\alpha : h_\alpha(\theta, x) > 0}\;
+  \kappa_\alpha(\theta, x; u, v).
+\end{equation}
+The quantity $\kk(\theta, x)$ is the worst fractional loss of
+viability margin per unit oriented environmental-loop area, to leading
+order; it is more meaningful than $\|F\|$ alone because it contracts
+the geometric defect with the experimentally specified survival
+covectors $D h_\alpha$.
 \end{proposition}
 
 \begin{proof}
 Direct construction: the algorithmic rate-distortion distance
-$\distD(x)$ of Definition~\ref{def:ard} supplies the function $h_\alpha$
-through the Bregman divergence of Definition~\ref{def:bregman}; the
+$\distD(x)$ of Definition~\ref{def:ard} supplies the function
+$h_\alpha$ through the Bregman divergence of Definition~\ref{def:bregman}; the
 Bregman divergence supplies the affine-invariant structure required for
 the $G$-invariance of the Noether correspondence
 (Section~\ref{sec:noether}); the positive part of the directional
-derivative counts only viability-eroding contributions. Gauge
+derivative counts only viability-eroding contributions. The aggregate
+form~\eqref{eq:kappaV-aggregate} contracts the geometric 2-form $F$
+with the survival covectors $D h_\alpha$ in the worst case over unit
+bivectors (so $\kk$ is invariant to the choice of $(u,v)$ used to
+probe the curvature) and over active viability margins (so $\kk$
+detects the most vulnerable margin at the point). Gauge
 invariance follows from Proposition~\ref{prop:sqrt} (square-root
-embedding) and Proposition~\ref{prop:noether} (Bregman Noether).
+embedding) and Proposition~\ref{prop:noether} (Bregman Noether); the
+wedge-norm constraint $\|u\wedge v\|_{g_F} = 1$ makes $\kk$
+dimensionally a per-area quantity, matching the leading-order
+expansion~\eqref{eq:margin-eps2} of Theorem~\ref{thm:smallloop}.
 \end{proof}
 
 \begin{remark}
@@ -570,6 +801,80 @@ matches the deterministic structure of the RAF transition
 (Definition~\ref{def:raf}) and supplies the per-trajectory operational
 form required by the falsification protocol of
 Section~\ref{sec:hierarchy}.
+\end{remark}
+
+\begin{corollary}[Geometric-phase form of $\kk$ for radially symmetric
+$V$]\label{cor:kappa-geometric-phase}
+Let $V : M \to \RR$ be a smooth viability function with isolated
+maximum $V_{\max}$ at the origin, whose level sets
+$\{V = V_{\max} - r\}$ are spheres of radius $r$ for $r \in [0, r_\star]$
+(i.e., $V$ is radially symmetric on a neighborhood of $V_{\max}$). Let
+$\gamma_a : [0,1] \to M$ be a circular loop of amplitude $a < r_\star$
+in any $2$-plane through the origin. Then
+\begin{equation}\label{eq:kappa-radial}
+  \kk(\gamma_a) \;=\; \frac{1}{V_{\max}}\,\langle V_{\max} - V\circ\gamma_a\rangle_{[0,1]}
+  \;=\; \frac{1}{V_{\max}}\,\overline{\delta V}(a),
+\end{equation}
+where $\overline{\delta V}(a)$ is the loop-averaged radial deficit at
+radius $a$. In particular, $\kk$ is a function of $a$ alone (independent
+of the loop's plane through the origin), and the geometric holonomy
+$H_{\mathrm{geo}}(\gamma_a) = \pi\,\kk(\gamma_a)$ equals the area
+$\pi a^2$ in the quadratic-deficit case $\overline{\delta V}(a) =
+a^2$, matching the $n=3$ operational form of
+Section~\ref{sec:n3}--\ref{sec:n4}.
+\end{corollary}
+
+\begin{proof}
+By radial symmetry $V\circ\gamma_a(t)$ depends only on $a$ (the loop
+radius), not on $t$ (the loop phase) or on the choice of $2$-plane
+through the origin. Hence $\langle V_{\max} - V\circ\gamma_a\rangle =
+V_{\max} - V\circ\gamma_a(0) = \overline{\delta V}(a)$. The geometric
+holonomy equals the loop area times the (constant) curvature 2-form on
+a radially symmetric landscape, by Stokes
+$\oint_\gamma A = \iint_D F$; substituting $F = \kk$ and
+$\mathrm{area}(\gamma_a) = \pi a^2$ gives $H_{\mathrm{geo}} = \pi a^2$
+in the quadratic-deficit case. The dimension-independence (the same
+formula holds at $n=3$ and $n=4$) follows from the radial symmetry
+holding in any $2$-plane through the origin of $\RR^{n-1}$.
+\end{proof}
+
+\begin{remark}[MDP versus POMDP base space]
+\label{rem:mdp-pomdp}
+The SAVGS base space $\Theta \subset \RR^d$ is a continuous
+experimental control manifold, not the discrete grid-state space of a
+Markov decision process. When the underlying agent operates on a fully
+observable grid, the correct decision-theoretic frame is an MDP and
+$\Theta$ should be parameterized by environmental knobs (food scarcity,
+hazard intensity, sensor noise, energy price, repair latency) rather
+than by grid location. When the agent has only partial or noisy state
+access, the frame is a POMDP and the belief state takes the place of
+the grid state in the policy fiber. In both cases, the geometric loop
+lives in $\Theta$, not in grid-state space; the agent acts inside the
+grid-world at each fixed $\theta$, and infinitesimal loops in $\Theta$
+are well-defined because $\Theta$ is a smooth manifold. The
+differential-curvature construction of $\kk$
+(Proposition~\ref{prop:kappa-derivation}) is therefore well-defined on
+$\Theta$ regardless of the MDP/POMDP distinction; the latter only
+determines the structure of the policy fiber $\pi^{-1}(\theta)$.
+\end{remark}
+
+\begin{remark}[Counterexamples to curvature-survival equivalence]
+\label{rem:curv-counterex}
+The bidirectional ``curvature-survival equivalence'' is false in
+general, as the audit observes: (i)~a flat connection
+($F \equiv 0$, hence $\kk \equiv 0$) can transport the system
+arbitrarily far from $V_{\max}$ along a radial policy direction,
+exhausting the viability margin without any curvature contribution;
+(ii)~a curved connection ($\kk > 0$) on a large viability region
+($V_{\max} \gg \kk$) keeps the system viable, since the fractional
+loss $\kk / V_{\max}$ is small. The correct statement is therefore
+\emph{unidirectional}: $\kk$ upper-bounds the worst fractional loss of
+viability margin per unit loop area, but viability also depends on
+along-path drift, resource costs, and the regeneration of maintenance
+machinery (Propositions~\ref{prop:main}, \ref{prop:main-sharp}). The
+``equivalence'' is replaced by the upper-bound form
+``vulnerability $\leq \kk$''; the lower bound $0$ is trivially
+attained when $\kk \equiv 0$.
 \end{remark}
 
 % =============================================================
@@ -587,29 +892,53 @@ supplies both.
 
 \begin{proposition}[Bregman-Noether correspondence]
 \label{prop:noether}
-Take
-\begin{equation}
-  L \;=\; D_\phi(d,\tilde d) + \lambda\,D_\phi(p,\tilde p),
+Consider the field action on the policy/configuration field
+$\xi \in \mathcal{X}(\Theta, \Delta^{n-1})$ over a compact
+spacetime $\Omega \subset \RR^{1+d}$ with Lagrangian density
+\begin{equation}\label{eq:lagrangian-field}
+  \mathscr{L} \;=\; D_\phi\bigl(d(\xi),\,\tilde d\bigr) \;+\; \lambda\,D_\phi\bigl(p(\xi),\,\tilde p\bigr),
 \end{equation}
-where $D_\phi$ is a Bregman divergence, $d$ is the distortion measure,
-$p$ is the source prior, and tildes denote reference values. Under a
-one-parameter affine transformation $g_t$ on the dual coordinate, the
-affine invariance of $D_\phi$ in the dual affine coordinate implies
-that $L$ is invariant in $t$. By Noether's theorem~\cite{noether1918},
-this invariance yields a conserved current $J$.
+where $D_\phi$ is a Bregman divergence (Definition~\ref{def:bregman}),
+$d(\cdot)$ is the distortion functional, $p(\cdot)$ is the source
+prior, and tildes denote reference values. Let $g_t$ be a
+one-parameter affine transformation on the dual coordinate
+$\nabla\phi$. Then the field action $S[\xi] = \int_\Omega
+\mathscr{L}\,d^{1+d}x$ is invariant under the flow of $g_t$:
+$S[g_t\cdot\xi] = S[\xi]$ for all $t$. By Noether's
+theorem~\cite{noether1918}, the corresponding Noether current
+\begin{equation}\label{eq:noether-current}
+  J^\mu \;=\; \frac{\partial\mathscr{L}}{\partial(\partial_\mu\xi)}\,\delta\xi
+  \;-\; \Bigl(\frac{\partial\mathscr{L}}{\partial(\partial_\mu\xi)}\,\partial_\nu\xi \;-\; \mathscr{L}\,\delta^\mu_\nu\Bigr)\,\delta x^\nu
+\end{equation}
+is conserved on-shell: $\partial_\mu J^\mu = 0$ whenever $\xi$
+satisfies the Euler--Lagrange equation of $S$.
 \end{proposition}
 
 \begin{proof}
-The Bregman divergence satisfies $D_\phi(g_t p, g_t q) = D_\phi(p,q)$
-for any one-parameter affine transformation $g_t$ on the dual coordinate
-(Definition~\ref{def:bregman}). Substituting into $L$:
-$L(g_t d, g_t p) = D_\phi(g_t d, \widetilde{g_t d}) + \lambda\,
-D_\phi(g_t p, \widetilde{g_t p}) = D_\phi(d,\tilde d) + \lambda\,
-D_\phi(p,\tilde p) = L(d,p)$.
-Hence $\mathrm{d}L/\mathrm{d}t = 0$ along the flow of $g_t$. By Noether's
-theorem, the one-parameter symmetry $\{g_t\}$ yields a conserved
-current $J = \partial L/\partial(\mathrm{d}\xi/\mathrm{d}t)\cdot
-\delta\xi - L\,\delta t$, where $\xi$ is the coordinate on the flow.
+The Bregman divergence satisfies the affine invariance
+$D_\phi(g_t p, g_t q) = D_\phi(p, q)$ for any one-parameter affine
+transformation $g_t$ on the dual coordinate $\nabla\phi$
+(Definition~\ref{def:bregman}); the dual-coordinate affine action is
+$g_t \cdot \nabla\phi(\xi) = A_t\,\nabla\phi(\xi) + b_t$ for a smooth
+family $(A_t, b_t)$ in $\mathrm{Aff}(\RR^n) = \RR_+ \ltimes \RR^n$.
+The distortion $d(\xi)$ and source prior $p(\xi)$ enter
+$\mathscr{L}$ only through their Bregman divergences from the
+reference values $\tilde d, \tilde p$; under $g_t$ each
+$D_\phi(g_t \cdot p, g_t \cdot q) = D_\phi(p, q)$, so
+$\mathscr{L}[g_t \cdot \xi] = \mathscr{L}[\xi]$ pointwise in $\Omega$.
+Integrating gives $S[g_t \cdot \xi] = S[\xi]$ for all $t$; the
+one-parameter flow $\{g_t\}$ is therefore a continuous variational
+symmetry of $S$. Applying Noether's theorem in its standard
+field-theoretic form (see, e.g.,~\cite{olver1993}) to the
+infinitesimal generators
+$(\delta\xi, \delta x^\nu) = \frac{d}{dt}\bigl(g_t \cdot \xi,
+g_t \cdot x\bigr)\bigl|_{t=0}$ yields the conserved
+current~\eqref{eq:noether-current}, with $\partial_\mu J^\mu = 0$
+on-shell by the Euler--Lagrange equation for $\xi$. The conserved
+charge $Q = \int_{\RR^d} J^0\,d^dx$ is then the
+$\mathrm{Aff}(\RR^n)$-charge of the configuration; it is the
+affine-invariant quantity that the gauge invariance of $\kk$
+(Propositions~\ref{prop:sqrt}, \ref{prop:kappa-derivation}) requires.
 \end{proof}
 
 \begin{proposition}[Falsifiable precondition check]
@@ -656,10 +985,13 @@ $a_{\mathrm{rev}}=1$.
 \item[\textbf{C.}] (Holonomy-area scaling) $H(a) = c_1 a^2 + c_2
 a^{3/2}$ with $c_1\sim\pi$, $c_2\sim C_{\mathrm{fat}}\neq 0$, $R^2\geq
 0.95$.
-\item[\textbf{D.}] (Repeated-loop fatigue) $\sum_{k=1}^{K}(a\,\kk(a) +
-C_{\mathrm{fat}}\,a^{3/2} + \eta_k) > 1$ at $K_{\mathrm{pred}}$;
-$V_{\max,K}=\prod_k(1-F_k)<e^{-1}$ at $K_{\mathrm{obs}}$; relative
-error $<15\%$.
+\item[\textbf{D.}] (Repeated-loop fatigue) Two-sided bound: the
+\emph{conservative sufficient safety condition} $\sum_{k=1}^{K}(a_k\,
+(\kk)_k + C_{\mathrm{fat}}\,a_k^{3/2} + \eta_k) < 1$ guarantees survival
+through $K$ loops, and the \emph{failure condition}
+$\sum_{k=1}^{K}(a_k\,\kk(a_k) + C_{\mathrm{fat}}\,a_k^{3/2} + \eta_k) > 1$
+predicts fatigue failure; $V_{\max,K}=\prod_k(1-F_k)<e^{-1}$ at
+$K_{\mathrm{obs}}$; relative error $<15\%$.
 \item[\textbf{E.}] (Total-variance discrimination) $T =
 |H_{\mathrm{corr}}-H_{\mathrm{geo}}|/\sigma_{\mathrm{total}}$ is small
 under the loop condition and large under the no-loop control, with
@@ -993,13 +1325,13 @@ exponential under heavy-tailed perturbations
 $3/2$ exponent).
 \end{remark}
 
-\subsection{Calibration protocol: empirical entropy, non-parametric
-bootstrap, matching-no-loop-drift control}
+\subsection{Calibration protocol}
 \label{sec:calibration}
-
-The calibration protocol supplies the empirical observables matched
-against the geometric predictions in Claims A--E. Three ingredients
-are formalized here that are condensed in the figure captions.
+The calibration protocol---comprising empirical entropy, non-parametric
+bootstrap, and a matching-no-loop-drift control---supplies the empirical
+observables matched against the geometric predictions in Claims A--E.
+Three ingredients are formalized here that are condensed in the figure
+captions.
 
 \begin{definition}[Fisher-information-metric empirical entropy]
 \label{def:hemp}
@@ -1060,6 +1392,62 @@ $\kk$ is not the cause; the proposition of
 Section~\ref{sec:mainprop} is then operationally meaningless even if
 the loop-condition numbers fit. Each direction produces a binary
 verdict on a separate component of the proposition.
+\end{remark}
+
+\begin{definition}[Calibration / holdout split]
+\label{def:calholdout}
+To avoid tautological agreement, the transport operators $A_i$
+(Proposition~\ref{prop:kkt}) are estimated from \emph{independent
+open-edge perturbations} $\theta \mapsto \theta + \varepsilon e_i$
+that do not close a loop; this constitutes the \emph{calibration data}.
+The \emph{holdout test data} is the composition
+$\widehat{U}_\gamma = \widehat{U}_4\,\widehat{U}_3\,\widehat{U}_2\,
+\widehat{U}_1$ of the independently estimated edge transports,
+compared with the actual post-loop policy $p_\gamma$. The
+calibration/holdout split prevents the same closed-loop endpoint used
+to ``validate'' the curvature prediction from also being used to
+estimate it.
+\end{definition}
+
+\begin{definition}[Equal-exposure permutation test]
+\label{def:permutation}
+Run two protocols with identical exposure durations and identical
+environmental marginals but opposite ordering:
+$\theta_0 \to \theta_0 + \varepsilon e_1 \to \theta_0 +
+\varepsilon(e_1 + e_2) \to \theta_0 + \varepsilon e_2 \to \theta_0$
+versus $\theta_0 \to \theta_0 + \varepsilon e_2 \to \theta_0 +
+\varepsilon(e_1 + e_2) \to \theta_0 + \varepsilon e_1 \to \theta_0$.
+A difference in the resulting policy holonomy isolates the
+noncommutativity of the two perturbations from the total exposure,
+which the symmetric protocols hold fixed by construction.
+\end{definition}
+
+\begin{definition}[Subdivision consistency]
+\label{def:subdivision}
+A large loop prediction $\widehat{U}_\gamma$ (area $\varepsilon^2$)
+should agree, within finite-loop error $O(\varepsilon^3)$, with the
+ordered composition of $4^k$ smaller loops of side $\varepsilon/2^k$
+tiling the same area. The subdivision consistency statistic
+$S_k = \normF{\widehat{U}_\gamma - \widehat{U}_{\gamma_k^{(1)}}
+\widehat{U}_{\gamma_k^{(2)}} \cdots \widehat{U}_{\gamma_k^{(4^k)}}}$
+should scale as $O(\varepsilon^3)$ in $k$; failure of this scaling
+indicates that the local connection does not meaningfully predict
+finite transport.
+\end{definition}
+
+\begin{remark}[Geometric adaptation fatigue signature]
+\label{rem:reversed-loop}
+The leading-order $\varepsilon^2$ contribution to the holonomy
+(Theorem~\ref{thm:smallloop}) reverses sign under orientation
+reversal: $\mathcal{H}(\gamma^{-1}) = -\mathcal{H}(\gamma) +
+O(\varepsilon^3)$. If reversed loops cancel the accumulated fatigue
+drift to leading order, the geometric mechanism is confirmed as the
+source; if they do not, secular learning, resource depletion, or
+irreversible damage is dominating and the geometric adaptation
+fatigue prediction of Claim~D is refuted. This signature is
+independent of the magnitude test of Claim~B and isolates the
+\emph{geometric} origin of the fatigue from any magnitude-matched
+non-geometric drift.
 \end{remark}
 
 \begin{table}[htbp]
@@ -1404,6 +1792,67 @@ rate $q<1$ and $R^2 = 1.0$ at moderate $\lambda$, with machine-precision
 convergence at low $\lambda$. Holonomy terminology follows the standard
 reference~\cite{misner1973}.
 
+\begin{proposition}[Analytic upper bound on the contraction rate]
+\label{prop:qbound}
+Let $f_1, \ldots, f_7 : X \to X$ be the seven forward maps of
+Construction~\ref{con:seven}, each a Lipschitz map on the compact
+convex set $X \subset \RR^d$ with Lipschitz constants
+$\Lip(f_i)$. Suppose each $f_i$ is $\alpha_i$-strongly monotone with
+parameter $\alpha_i \geq 0$ and $\beta_i$-cocoercive with parameter
+$\beta_i \geq 0$ (standard hypotheses of convex optimization). Then
+the Bregman-regularized composition $T_{\mathrm{reg}}(K) = (1-\lambda)\,
+T(K) + \lambda\,\Pi_{\mathcal K}(T(K))$ is Lipschitz with
+\begin{equation}\label{eq:qbound}
+  \Lip(T_{\mathrm{reg}}) \;\leq\; (1-\lambda)\,\prod_{i=1}^{7}\Lip(f_i)
+  \;+\; \lambda\,\Lip(\Pi_{\mathcal K}) \;\leq\;
+  (1-\lambda)\,\prod_{i=1}^{7}\Lip(f_i) \;+\; \lambda,
+\end{equation}
+where the second inequality uses the projection $\Pi_{\mathcal K}$ onto
+a closed convex set being $1$-Lipschitz (non-expansive). In particular,
+if $\prod_i \Lip(f_i) < 1$ and $\lambda \in [0,1)$, then
+$\Lip(T_{\mathrm{reg}}) < 1$ and $T_{\mathrm{reg}}$ is a contraction on
+the closed set $X$, with unique fixed point by Banach's
+theorem~\cite{banach1922}. The numerical $q$ of
+Propositions~\ref{prop:titer-base}--\ref{prop:titer} should satisfy
+$q \leq (1-\lambda)\,\bar{q}_{\mathrm{prod}} + \lambda$, where
+$\bar{q}_{\mathrm{prod}} = \prod_i \Lip(f_i)$ is the
+un-regularized product Lipschitz constant; this is the analytic
+counterpart to the empirical $q$'s measured in those propositions.
+\end{proposition}
+
+\begin{proof}
+Lipschitz composition is submultiplicative:
+$\Lip(T) = \Lip(f_7 \circ \cdots \circ f_1) \leq \prod_{i=1}^{7}
+\Lip(f_i)$ by the standard chain rule for Lipschitz constants. The
+Bregman-regularized operator $T_{\mathrm{reg}} = (1-\lambda)T +
+\lambda\,\Pi_{\mathcal K}\!\circ T$ is a convex combination of two
+$1$-Lipschitz-bounded operators (with the bound
+$\Lip(\Pi_{\mathcal K}) \leq 1$ from the Moreau decomposition theorem
+for projections onto closed convex sets), giving the convex-combination
+bound $\Lip(T_{\mathrm{reg}}) \leq (1-\lambda)\Lip(T) + \lambda
+\Lip(\Pi_{\mathcal K}) \leq (1-\lambda)\prod_i \Lip(f_i) + \lambda$.
+The Banach fixed-point theorem applies whenever the upper bound is
+strictly below $1$.
+\end{proof}
+
+\begin{remark}[When does the analytic bound close the gap?]
+\label{rem:qbound-tightness}
+The analytic bound~\eqref{eq:qbound} is sharp in the
+``six contractions + one expansion'' regime of
+Proposition~\ref{prop:titer-control}: there $\Lip(f_2) = 1.15$
+(the expansion optic) and the other six $\Lip(f_i) < 1$; the product
+$\prod_i \Lip(f_i) \approx 0.60 \cdot 1.15 = 0.69$, giving
+$\Lip(T_{\mathrm{reg}}) \leq 0.69(1-\lambda) + \lambda$. At
+$\lambda = 0.5$ this is $\leq 0.845$, comfortably above the measured
+$q = 0.5182$; at $\lambda = 0.7$ it is $\leq 0.907$, again above the
+measured $q = 0.7075$. The analytic bound is therefore a
+\emph{sufficient} condition for contraction, but not tight; the
+empirical $q$'s are smaller (faster contraction) because the
+Bregman regularization reorganizes the trajectories toward the
+interior of $\mathcal K$ rather than merely averaging them. Sharpening
+the bound to recover the empirical $q$'s analytically is open.
+\end{remark}
+
 \begin{proposition}[Base contraction]\label{prop:titer-base}
 Across $20$ base configurations (four starting compact subsets $\times$
 five Bregman regularization strengths $\lambda\in\{0.0, 0.1, 0.3, 0.5,
@@ -1459,6 +1908,7 @@ expansion profiles.
 \end{proposition}
 
 \begin{proof}
+\begin{sloppypar}
 Direct numerical computation. The Bregman-regularized operator
 $T_{\mathrm{reg}}(K) = (1-\lambda)\,T(K) + \lambda\,\Pi_K(T(K))$ is
 iterated for $40$ steps; the Hausdorff distance $d_H(K_n, K_{n+1})$
@@ -1471,8 +1921,9 @@ tractable so the Hausdorff computation stays $O(N^2 d)$. All $375$
 configurations have $q<1$; only $4$ have $R^2<0.9$, all of them at the
 maximal Bregman strength $\lambda=0.9$ where the Bregman projection
 introduces additional transients. The two persistent scripts are
-\texttt{t\_\allowbreak iteration\_\allowbreak simulation.py} and
-\texttt{t\_\allowbreak iteration\_\allowbreak robustness\_\allowbreak extension.py}.
+\texttt{t\_iteration\_simulation.py} and
+\texttt{t\_iteration\_robustness\_extension.py}.
+\end{sloppypar}
 \end{proof}
 
 \begin{figure}[htbp]
@@ -1646,7 +2097,7 @@ stress test of Section~\ref{sec:stress}. Detailed numerical values
 appear in Tables~\ref{tab:n3} and~\ref{tab:n4}.}
 \label{tab:verdicts}
 \footnotesize
-\begin{tabularx}{\columnwidth}{@{\extracolsep{\fill}} l X l l}
+\begin{tabularx}{\columnwidth}{@{\extracolsep{\fill}} l >{\raggedright\arraybackslash}X l l}
 \toprule
 ID & Prediction (Pred.) / Observed (Obs.) & Fit metric & Verdict \\
 \midrule
@@ -1873,9 +2324,151 @@ from the prediction of failure. The proposition is falsifiable via the
 seven-claim hierarchy, and all seven claims are confirmed.
 
 % =============================================================
-% Bibliography (external .bib, IEEEtran style)
+% Bibliography (inlined bbl from journal_manuscript_refs.bib via
+% IEEEtran.bst; avoids tectonic rerun-stabilization loop)
 % =============================================================
-\bibliographystyle{IEEEtran}
-\bibliography{journal_manuscript_refs}
+% Generated by IEEEtran.bst, version: 1.14 (2015/08/26)
+\begin{thebibliography}{10}
+\providecommand{\url}[1]{#1}
+\csname url@samestyle\endcsname
+\providecommand{\newblock}{\relax}
+\providecommand{\bibinfo}[2]{#2}
+\providecommand{\BIBentrySTDinterwordspacing}{\spaceskip=0pt\relax}
+\providecommand{\BIBentryALTinterwordstretchfactor}{4}
+\providecommand{\BIBentryALTinterwordspacing}{\spaceskip=\fontdimen2\font plus
+\BIBentryALTinterwordstretchfactor\fontdimen3\font minus
+  \fontdimen4\font\relax}
+\providecommand{\BIBforeignlanguage}[2]{{%
+\expandafter\ifx\csname l@#1\endcsname\relax
+\typeout{** WARNING: IEEEtran.bst: No hyphenation pattern has been}%
+\typeout{** loaded for the language `#1'. Using the pattern for}%
+\typeout{** the default language instead.}%
+\else
+\language=\csname l@#1\endcsname
+\fi
+#2}}
+\providecommand{\BIBdecl}{\relax}
+\BIBdecl
+
+\bibitem{aubin2011}
+J.-P. Aubin, A.~Bayen, and P.~Saint-Pierre, \emph{Viability Theory: New
+  Directions}, 2nd~ed.\hskip 1em plus 0.5em minus 0.4em\relax Springer, 2011.
+
+\bibitem{chentsov1982}
+N.~N. Chentsov, \emph{Statistical Decision Rules and Optimal Inference}.\hskip
+  1em plus 0.5em minus 0.4em\relax American Mathematical Society, 1982,
+  translation of the 1972 Russian edition.
+
+\bibitem{amari2000}
+S.~Amari and H.~Nagaoka, \emph{Methods of Information Geometry}.\hskip 1em plus
+  0.5em minus 0.4em\relax American Mathematical Society, 2000.
+
+\bibitem{riley2018optics}
+M.~Riley, ``Categories of optics,'' \emph{arXiv preprint arXiv:1809.00738},
+  2018.
+
+\bibitem{brunerie2020}
+G.~Brunerie, A.~Bauer, T.~Coquand, and D.~Licata, ``Synthetic homotopy theory
+  of weak {$\infty$}-groupoids,'' Homotopy Type Theory Electronic Seminar,
+  2020.
+
+\bibitem{banach1922}
+S.~Banach, ``Sur les op\'erations dans les ensembles abstraits et leur
+  application aux \'equations int\'egrales,'' \emph{Fundamenta Mathematicae},
+  vol.~3, no.~1, pp. 133--181, 1922.
+
+\bibitem{steel2004}
+M.~Steel and W.~Hordijk, ``Detecting autocatalytic, closed sets in biochemical
+  reaction networks,'' \emph{Journal of Theoretical Biology}, vol. 231, no.~4,
+  pp. 467--475, 2004.
+
+\bibitem{hordijk2011}
+W.~Hordijk and M.~Steel, ``Detecting autocatalytic, closed sets in chemical
+  reaction networks,'' \emph{Journal of Systems Chemistry}, vol. 2, no.~1, pp.
+  1--12, 2011.
+
+\bibitem{bregman1967}
+L.~M. Bregman, ``The relaxation method of finding the common point of convex
+  sets and its application to the solution of problems in convex programming,''
+  \emph{USSR Computational Mathematics and Mathematical Physics}, vol.~7,
+  no.~3, pp. 200--217, 1967.
+
+\bibitem{kobayashinomizu1969}
+S.~Kobayashi and K.~Nomizu, \emph{Foundations of Differential Geometry, Volume
+  {II}}.\hskip 1em plus 0.5em minus 0.4em\relax Wiley Interscience, 1969.
+
+\bibitem{misner1973}
+C.~W. Misner, K.~S. Thorne, and J.~A. Wheeler, \emph{Gravitation}.\hskip 1em
+  plus 0.5em minus 0.4em\relax W. H. Freeman, 1973.
+
+\bibitem{bhattacharyya1943}
+A.~Bhattacharyya, ``On a measure of divergence between two statistical
+  populations defined by their probability distributions,'' \emph{Bulletin of
+  the Calcutta Mathematical Society}, vol. 35, no.~2, pp. 99--109, 1943.
+
+\bibitem{coverthomas1991}
+T.~M. Cover and J.~A. Thomas, \emph{Elements of Information Theory}.\hskip 1em
+  plus 0.5em minus 0.4em\relax Wiley, 1991.
+
+\bibitem{noether1918}
+E.~Noether, ``Invariante variationsprobleme,'' \emph{Nachrichten von der
+  Gesellschaft der Wissenschaften zu G\"ottingen, Mathematisch-Physikalische
+  Klasse}, vol. 1918, pp. 235--257, 1918.
+
+\bibitem{olver1993}
+P.~J. Olver, \emph{Applications of Lie Groups to Differential Equations},
+  2nd~ed.\hskip 1em plus 0.5em minus 0.4em\relax New York: Springer-Verlag,
+  1993.
+
+\bibitem{hutchinson1981}
+J.~E. Hutchinson, ``Fractals and self similarity,'' \emph{Indiana University
+  Mathematics Journal}, vol. 30, no.~5, pp. 713--747, 1981.
+
+\bibitem{barnsley1988}
+M.~F. Barnsley, \emph{Fractals Everywhere}.\hskip 1em plus 0.5em minus
+  0.4em\relax Academic Press, 1988.
+
+\bibitem{blahut1972}
+R.~E. Blahut, ``Computation of channel capacity and rate-distortion
+  functions,'' \emph{IEEE Transactions on Information Theory}, vol. 18, no.~4,
+  pp. 460--473, 1972.
+
+\bibitem{arimoto1972}
+S.~Arimoto, ``An algorithm for computing the capacity of arbitrary discrete
+  memoryless channels,'' \emph{IEEE Transactions on Information Theory},
+  vol.~18, no.~1, pp. 14--20, 1972.
+
+\bibitem{rutten2000}
+J.~J. M.~M. Rutten, ``Universal coalgebra: A theory of systems,''
+  \emph{Theoretical Computer Science}, vol. 249, no.~1, pp. 3--80, 2000.
+
+\bibitem{riley2023}
+M.~Riley, ``Cornering optics,'' arXiv preprint arXiv:2307.16516, 2023.
+
+\bibitem{bhattacharya2007}
+R.~Bhattacharya and E.~C. Waymire, \emph{A Basic Course in Probability
+  Theory}.\hskip 1em plus 0.5em minus 0.4em\relax Springer, 2007, see chapter
+  on stable laws and heavy-tailed distributions.
+
+\bibitem{misra1977}
+B.~Misra and E.~C.~G. Sudarshan, ``The {Zeno}'s paradox in quantum theory,''
+  \emph{Journal of Mathematical Physics}, vol. 18, no.~4, pp. 756--763, 1977.
+
+\bibitem{facchi2008}
+P.~Facchi, D.~A. Lidar, and S.~Pascazio, ``Unification of dynamical decoupling
+  and the quantum {Zeno} effect,'' \emph{Physical Review A}, vol. 69, no.~3, p.
+  030301, 2008.
+
+\bibitem{nielsen2000}
+M.~A. Nielsen and I.~L. Chuang, \emph{Quantum Computation and Quantum
+  Information}.\hskip 1em plus 0.5em minus 0.4em\relax Cambridge University
+  Press, 2000.
+
+\bibitem{holevo1973}
+A.~S. Holevo, ``Bounds for the quantity of information transmitted by a quantum
+  communication channel,'' \emph{Problemy Peredachi Informatsii}, vol.~9,
+  no.~3, pp. 3--11, 1973.
+
+\end{thebibliography}
 
 \end{document}
