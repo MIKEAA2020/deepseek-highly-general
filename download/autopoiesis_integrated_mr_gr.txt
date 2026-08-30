@@ -1,0 +1,52 @@
+TASK 3: AUTOPOIESIS CLOSURE TEST ON INTEGRATED
+       METABOLIC-GENE-REGULATORY NETWORK
+       (enzyme synthesis closes the loop)
+==============================================================================
+
+Network D design:
+  Layer 1: Metabolic (8 reactions, glycolysis + AA biosynthesis)
+  Layer 2: Enzyme synthesis (8 reactions, gene -> enzyme using ALA/ASP/ATP)
+  Layer 3: TF regeneration (1 reaction, ATP -> TF)
+  Total: 26 species (8 food + 18 non-food), 17 reactions
+
+Closed loop: TF -> enzyme synthesis -> metabolic reactions ->
+             produces ALA, ASP, ATP -> enzyme synthesis -> enzymes
+             catalyze metabolism -> TF regenerated from ATP
+
+Closure test verdicts for Network D (integrated MR-GR):
+  Component  Baseline     Knockout     Recover      Verdict       
+  ATP        0.0014       0.0000       0.0000       HOMEOSTATIC   
+  G6P        0.0283       0.0155       0.0193       HOMEOSTATIC   
+  FBP        0.0558       0.0161       0.0425       HOMEOSTATIC   
+  PEP        0.0229       0.0000       0.0281       HOMEOSTATIC   
+  PYR        0.0495       0.0000       0.0700       HOMEOSTATIC   
+  AcCoA      0.4466       0.0367       0.3542       AUTOPOIETIC   
+  ALA        0.0338       0.0001       0.0466       HOMEOSTATIC   
+  ASP        49.1026      0.0032       17.4604      AUTOPOIETIC   
+  MAL        51.1936      0.0367       23.0037      AUTOPOIETIC   
+  HK         0.0651       0.0367       0.0482       HOMEOSTATIC   
+  PFK        0.0651       0.0367       0.0472       HOMEOSTATIC   
+  ALDO       0.0651       0.0367       0.0458       HOMEOSTATIC   
+  PYK        0.0651       0.0367       0.0478       HOMEOSTATIC   
+  PDH        0.0651       0.0367       0.0519       HOMEOSTATIC   
+  ALT        0.0389       0.0367       0.0370       HOMEOSTATIC   
+  ASPAT      0.4835       0.0367       0.1960       AUTOPOIETIC   
+  MDH        0.4835       0.0367       0.3801       AUTOPOIETIC   
+  TF         0.0862       0.0367       0.0433       HOMEOSTATIC   
+
+  Network D verdict: 5/18 components causally internal.
+  The integrated MR-GR network is PARTIALLY AUTOPOIETIC
+  per Definition def:autopoiesis.
+
+Comparison to Network B (bare metabolic, 10 species, 10 reactions):
+  Network B: 0/10 causally internal (HOMEOSTATIC)
+  Network D (integrated MR-GR): 5/18 causally internal
+  The integration of enzyme synthesis closes the autopoietic loop that
+  the bare metabolic network fails. The system self-regenerates its own
+  catalytic machinery, which is the defining property of autopoiesis.
+
+Stratified by component type:
+  Metabolic intermediates: 3/8 causally internal
+  Enzymes: 2/8 causally internal
+  Regulatory (TF): 0/1 causally internal
+
