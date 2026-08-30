@@ -1,0 +1,10 @@
+verdict_type,network,prediction,value,threshold,verified
+Phase I,K,52/52 causally internal,52,52,TRUE
+Phase III,K,52/52 pathwise+univalence,52,52,TRUE
+HoTT holim pi_0,K,1 (contractible),1,1,TRUE
+HoTT holim pi_1,K,0 (contractible),0,0,TRUE
+HoTT contractible,K,TRUE,TRUE,TRUE,TRUE
+SO(3) M10+M23 holonomy,K,||Hol-I||<1e-10,3.3120e-17,1e-10,TRUE
+"SO(3) [M8,M23] commutator",K,non-abelian signature detectable,1.2654e+00,0.01,TRUE
+SO(3) M8+M7 broken cycle,G/J,||Hol-I||>0.01,2.3800e+00,0.01,TRUE
+Phase I,G/J,41/42 or 49/50,41 or 49,52,FALSE

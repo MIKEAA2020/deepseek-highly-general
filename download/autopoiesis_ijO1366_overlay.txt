@@ -1,0 +1,97 @@
+TASK A: iJO1366 + ISOZYME-DAMPENER OVERLAY (Network-K-style)
+       6 dampener reactions: ALT3/4 (M11), ALT5/6 (M12), ASPAT3/4 (M17),
+       ALT7/8 (M19), ALDO3/4 (M21), ACS1/2 (M23)
+==============================================================================
+
+Bare iJO1366: 1805 mets, 2583 rxns
+Overlay iJO1366+dampener: 1805 mets, 2589 rxns
+Test set: 50 metabolites (10 Network B + 40 random cytosolic)
+Bare baseline biomass flux: 0.982372
+Overlay baseline biomass flux: 0.982629
+
+Dampener overlay reactions (6 new):
+  M11_ALT3        asp__L_c + pyr_c --> ala__L_c + oaa_c
+  M12_ALT5        akg_c + ala__L_c --> glu__L_c + pyr_c
+  M17_ASPAT3      glu__L_c + oaa_c --> asp__L_c + akg_c
+  M19_ALT7        glu__L_c + pyr_c <==> ala__L_c + akg_c
+  M21_ALDO3       fdp_c <==> dhap_c + g3p_c
+  M23_ACS1        ac_c + atp_c --> accoa_c + adp_c + pi_c
+
+VERDICT COMPARISON:
+  Bare iJO1366:                28/50 causally internal (56.0%)
+  iJO1366 + dampener overlay:  28/50 causally internal (56.0%)
+  Delta: +0
+
+Flipped HOMEOSTATIC -> AUTOPOIETIC (0):
+
+Flipped AUTOPOIETIC -> HOMEOSTATIC (0):
+
+Of the 10 Network B metabolites:
+  Bare iJO1366:  9/10 causally internal
+  Overlay:        9/10 causally internal
+
+Per-metabolite verdict table:
+            met_id   nBare        bare     knkBare     recBare       Vbare   nOv        ovBl       knkOv       recOv         Vov                 flipped
+             g6p_c       8   10.000000    0.000000   10.000000  AUTOPOIETIC     8   10.000000    0.000000   10.000000  AUTOPOIETIC                        
+             fdp_c       2    7.784186    0.000000    0.000000  HOMEOSTATIC     2    7.784933    0.000000    0.000000  HOMEOSTATIC                        
+             pep_c       3   14.586890    0.000000   14.586890  AUTOPOIETIC     3   14.589063    0.000000   14.589063  AUTOPOIETIC                        
+             pyr_c      53   11.488993    0.000000   11.073290  AUTOPOIETIC    54   11.075107    0.000000   11.075107  AUTOPOIETIC                        
+           accoa_c       8    8.648331    0.000000    8.076025  AUTOPOIETIC     9    8.650078    0.000000    8.078754  AUTOPOIETIC                        
+             cit_c       3    4.857777    0.000000    4.857777  AUTOPOIETIC     3    4.859095    0.000000    4.859095  AUTOPOIETIC                        
+             akg_c       9    7.081537    0.000000    7.081537  AUTOPOIETIC    11    7.081741    0.000000    7.081741  AUTOPOIETIC                        
+            succ_c      16    0.841229    0.000000    0.516265  AUTOPOIETIC    16    0.841449    0.000000    0.516400  AUTOPOIETIC                        
+          mal__L_c       5    4.826656    0.000000    4.826656  AUTOPOIETIC     5    4.826835    0.000000    4.826835  AUTOPOIETIC                        
+             oaa_c       9    7.733846    0.000000    7.733846  AUTOPOIETIC    10    8.305479    0.000000    7.734221  AUTOPOIETIC                        
+         25drapp_c       1    0.000438    0.000000    0.000438  AUTOPOIETIC     1    0.000438    0.000000    0.000438  AUTOPOIETIC                        
+          2ahbut_c       1    0.285408    0.000000    0.285408  AUTOPOIETIC     1    0.285482    0.000000    0.285482  AUTOPOIETIC                        
+          h2mb4p_c       1    0.002347    0.000000    0.002347  AUTOPOIETIC     1    0.002348    0.000000    0.002348  AUTOPOIETIC                        
+             skm_c       2    0.374401    0.000000    0.374401  AUTOPOIETIC     2    0.374499    0.000000    0.374499  AUTOPOIETIC                        
+       man6pglyc_c       1    0.000000    0.000000    0.000000  HOMEOSTATIC     1    0.000000    0.000000    0.000000  HOMEOSTATIC                        
+             xmp_c       3    0.239420    0.000000    0.239420  AUTOPOIETIC     3    0.239483    0.000000    0.239483  AUTOPOIETIC                        
+          2dda7p_c       1    0.374401    0.000000    0.374401  AUTOPOIETIC     1    0.374499    0.000000    0.374499  AUTOPOIETIC                        
+          uagmda_c       1    0.027298    0.000000    0.027298  AUTOPOIETIC     1    0.027305    0.000000    0.027305  AUTOPOIETIC                        
+           dhmpt_c       1    0.000000    0.000000    0.000000  HOMEOSTATIC     1    0.000000    0.000000    0.000000  HOMEOSTATIC                        
+          hx2coa_c       2    0.349606    0.000000    0.349606  AUTOPOIETIC     2    0.349698    0.000000    0.349698  AUTOPOIETIC                        
+           sufse_c       3    0.000000    0.000000    0.000000  HOMEOSTATIC     3    0.000000    0.000000    0.000000  HOMEOSTATIC                        
+           ppgpp_c       2    0.000000    0.000000    0.000000  HOMEOSTATIC     2    0.000000    0.000000    0.000000  HOMEOSTATIC                        
+       tdec2eACP_c       1    0.000000    0.000000    0.000000  HOMEOSTATIC     1    0.000000    0.000000    0.000000  HOMEOSTATIC                        
+          ttdcap_c       1    0.000000    0.000000    0.000000  HOMEOSTATIC     1    0.000000    0.000000    0.000000  HOMEOSTATIC                        
+          2mcacn_c       1    0.000000    0.000000    0.000000  HOMEOSTATIC     1    0.000000    0.000000    0.000000  HOMEOSTATIC                        
+          2mahmp_c       1    0.000219    0.000000    0.000219  AUTOPOIETIC     1    0.000219    0.000000    0.000219  AUTOPOIETIC                        
+          pgp120_c       1    0.000000    0.000000    0.000000  HOMEOSTATIC     1    0.000000    0.000000    0.000000  HOMEOSTATIC                        
+            grdp_c       1    0.000273    0.000000    0.000273  AUTOPOIETIC     1    0.000273    0.000000    0.000273  AUTOPOIETIC                        
+        ocdcaACP_c       3    0.000000    0.000000    0.000000  HOMEOSTATIC     3    0.000000    0.000000    0.000000  HOMEOSTATIC                        
+           rml1p_c       1    0.000000    0.000000    0.000000  HOMEOSTATIC     1    0.000000    0.000000    0.000000  HOMEOSTATIC                        
+           thmmp_c       3    0.000219    0.000000    0.000219  AUTOPOIETIC     3    0.000219    0.000000    0.000219  AUTOPOIETIC                        
+             thf_c       8    1.149678    0.000000    1.149678  AUTOPOIETIC     8    1.148281    0.000000    1.148281  AUTOPOIETIC                        
+     kdo2lipid4p_c       1    0.000000    0.000000    0.000000  HOMEOSTATIC     1    0.000000    0.000000    0.000000  HOMEOSTATIC                        
+          pimACP_c       1    0.000002    0.000000    0.000002  AUTOPOIETIC     1    0.000002    0.000000    0.000002  AUTOPOIETIC                        
+           pa120_c       3    0.000000    0.000000    0.000000  HOMEOSTATIC     3    0.000000    0.000000    0.000000  HOMEOSTATIC                        
+           pa180_c       3    0.000000    0.000000    0.000000  HOMEOSTATIC     3    0.000000    0.000000    0.000000  HOMEOSTATIC                        
+          actACP_c       2    0.000000    0.000000    0.000000  HOMEOSTATIC     2    0.000000    0.000000    0.000000  HOMEOSTATIC                        
+            dutp_c       3    0.025705    0.000000    0.025705  AUTOPOIETIC     3    0.025711    0.000000    0.025711  AUTOPOIETIC                        
+        3hhexACP_c       1    0.000000    0.000000    0.000000  HOMEOSTATIC     1    0.000000    0.000000    0.000000  HOMEOSTATIC                        
+          frulys_c       2    0.000000    0.000000    0.000000  HOMEOSTATIC     2    0.000000    0.000000    0.000000  HOMEOSTATIC                        
+           ichor_c       2    0.000000    0.000000    0.000000  HOMEOSTATIC     2    0.000000    0.000000    0.000000  HOMEOSTATIC                        
+             thm_c       1    0.000000    0.000000    0.000000  HOMEOSTATIC     1    0.000000    0.000000    0.000000  HOMEOSTATIC                        
+           eig3p_c       1    0.093068    0.000000    0.093068  AUTOPOIETIC     1    0.093092    0.000000    0.093092  AUTOPOIETIC                        
+            cpmp_c       1    0.000240    0.000000    0.000240  AUTOPOIETIC     1    0.000240    0.000000    0.000240  AUTOPOIETIC                        
+           hmbil_c       1    0.000438    0.000000    0.000438  AUTOPOIETIC     1    0.000438    0.000000    0.000438  AUTOPOIETIC                        
+         unagamu_c       1    0.000000    0.000000    0.000000  HOMEOSTATIC     1    0.000000    0.000000    0.000000  HOMEOSTATIC                        
+            chol_c       3    0.000000    0.000000    0.000000  HOMEOSTATIC     3    0.000000    0.000000    0.000000  HOMEOSTATIC                        
+          lys__L_c       5    0.337112    0.000000    0.337112  AUTOPOIETIC     5    0.337200    0.000000    0.337200  AUTOPOIETIC                        
+          ribflv_c       7    0.000438    0.000000    0.000438  AUTOPOIETIC     7    0.000438    0.000000    0.000438  AUTOPOIETIC                        
+          rib__D_c       7    0.000000    0.000000    0.000000  HOMEOSTATIC     7    0.000000    0.000000    0.000000  HOMEOSTATIC                        
+
+Stratified by n_producing_reactions (overlay):
+  n_prod = 1: 22 mets, bare 11/22, overlay 11/22
+  n_prod = 2: 7 mets, bare 2/7, overlay 2/7
+  n_prod = 3: 10 mets, bare 5/10, overlay 5/10
+  n_prod = 5: 2 mets, bare 2/2, overlay 2/2
+  n_prod = 7: 2 mets, bare 1/2, overlay 1/2
+  n_prod = 8: 2 mets, bare 3/2, overlay 2/2
+  n_prod = 9: 1 mets, bare 2/1, overlay 1/1
+  n_prod = 10: 1 mets, bare 0/1, overlay 1/1
+  n_prod = 11: 1 mets, bare 0/1, overlay 1/1
+  n_prod = 16: 1 mets, bare 1/1, overlay 1/1
+  n_prod = 54: 1 mets, bare 0/1, overlay 1/1
