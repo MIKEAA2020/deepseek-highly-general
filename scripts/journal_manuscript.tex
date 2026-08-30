@@ -23,6 +23,7 @@
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{construction}[theorem]{Construction}
 \newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{conjecture}[theorem]{Conjecture}
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
 
@@ -86,39 +87,47 @@
 \begin{center}
 \begin{minipage}{0.92\textwidth}
 \small
-\textbf{Abstract.} A single categorical construction is developed that
-unifies viability-constrained adaptation, reflexively autocatalytic food-
-generated (RAF) reaction networks, the Fisher--Rao information-geometric
-structure of belief updates, completely-positive trace-preserving (CPTP)
-quantum channels with Zeno-type measurement schedules, and non-abelian
-holonomy of policy loops under the structure group $\CO(n-1)$. The
-construction rests on the Stratified Autopoietic Viability Geometric
-System (SAVGS), a five-component object (continuous control manifold,
-policy fiber, open probability simplex, strict viability margin,
-endogenous maintenance graph) whose geometry is a stratified principal
-$\CO(n-1)$-bundle; the viability-weighted curvature $\kk$ is derived as
-the positive part of the directional derivative of a Bregman divergence
-evaluated at the algorithmic rate-distortion distance, an intrinsically
-single-string quantity that eliminates the deterministic-versus-random-
-coding gap of classical rate-distortion theory. The construction
-assembles seven prior arcs of domain unification into one endofunctor
-on the optic category $\Optic(\CC)$ of Riley; the resulting composition
-theorem (Theorem~\ref{thm:composition}) makes the unification object a
-well-defined fixed point whose existence reduces to an empirical
-contraction-rate question, decoupled from definitional rhetoric. A
-Bregman-divergence Noether correspondence (Proposition~\ref{prop:noether})
-supplies the affine-invariant structure required for the gauge
-invariance of $\kk$. A seven-claim falsification hierarchy
-(Definition~\ref{def:hierarchy}) is operationalized in the minimal
-$n=3$ prototype (abelian, $\so(2)$) and in the $n=4$ non-abelian
-prototype ($\so(3)$, $[\mathfrak{l}_z,
-\mathfrak{l}_x]=\mathfrak{l}_y$); the heavy-tail index of the fatigue
-noise is stress-tested across the Student--$t$ tail-parameter axis. The
-main proposition (Proposition~\ref{prop:main}) states that on smooth
-constant-active-set strata, Fisher-minimal constraint-preserving
-adaptation defines a stratified connection whose viability-weighted
-curvature predicts leading-order policy hysteresis. All seven claims
-are confirmed within their stated tolerances.
+\textbf{Abstract.} A stratified Fisher--viability transport framework
+is developed whose curvature predicts leading-order policy hysteresis
+on constant-active-set strata. The framework rests on the Stratified
+Autopoietic Viability Geometric System (SAVGS), a five-component object
+(smooth control manifold $B$, policy bundle $\pi : E \to B$ with fiber
+$\mathcal P$, strict viability margin $\varepsilon$, endogenous
+maintenance graph $\Gamma$, and a 2-categorical span gluing
+constraint-switching strata) whose geometry is a stratified
+$G_C$-reduced principal bundle with structure group $G_C \in \{O(r),
+SO(r), \CO(r)\}$ selected by the policy-fiber geometry ($O(r)$ from
+Fisher metric; $SO(r)$ if oriented; $\CO(r)$ only with explicit Weyl
+scale). The viability-weighted curvature $\kk$ is constructed as the
+positive part of the directional derivative of a Bregman divergence
+evaluated at a smooth finite-code rate-distortion surrogate
+$r_{\tau, \beta, D}$ (the algorithmic version $\distD$ is upper-
+semicomputable but non-differentiable and serves only as a conjectural
+upper envelope). The framework is then typed into seven optic
+interfaces whose composite is a well-defined typed endo-optic; under
+an explicit Lipschitz contraction bound, the realized update has a
+unique fixed point by Banach's theorem. A Bregman--Hessian Noether
+correspondence (geodesic Lagrangian $L = \tfrac{1}{2} g_\phi(\dot q,
+\dot q) - U$ with affine Hessian isometry $\xi$ satisfying
+$\mathcal L_\xi g_\phi = 0$) supplies the affine-invariant structure
+required for the gauge invariance of $\kk$. A seven-claim
+falsification hierarchy is operationalized in the minimal $n=3$
+prototype (abelian, $\so(2)$) and in the $n=4$ non-abelian prototype
+(policy fiber $SO(3)$, $[\mathfrak{l}_z, \mathfrak{l}_x] =
+\mathfrak{l}_y$); the heavy-tail index of the fatigue noise is
+stress-tested across the Student--$t$ tail-parameter axis. The main
+proposition states that on smooth constant-active-set strata,
+Fisher-minimal constraint-preserving adaptation defines a stratified
+connection whose viability-weighted curvature predicts leading-order
+policy hysteresis; whether that holonomy is fatal depends separately
+on viability margins, along-path disturbances, and regeneration of
+maintenance machinery. Five precise conjectures (global stratified
+holonomy; algorithmic upper envelope; filtered colimits in optic
+categories; heavy-tail $3/2$ exponent; quantum self-reference by Zeno
+contraction) preserve the broader categorical, algorithmic, and
+quantum ambitions where their full proofs are out of reach. The core
+claims are numerically supported under stated tolerances; several
+extended claims are established under explicit additional hypotheses.
 \par
 \end{minipage}
 \end{center}
@@ -158,7 +167,7 @@ well-defined, associative, and unital; the unification object is the
 fixed point of $T$ whenever $T$ is contractive (Theorem~\ref{thm:composition}).
 The framework rests on the Stratified Autopoietic Viability Geometric
 System (SAVGS, Section~\ref{sec:savgs}), a five-component object whose
-geometry is a stratified principal $\CO(n-1)$-bundle; on this object,
+geometry is a stratified $G_C$-reduced principal bundle with $G_C \in \{O(r), SO(r), \CO(r)\}$ selected by the policy-fiber geometry; on this object,
 the viability-weighted curvature $\kk$ is well-defined, gauge-invariant,
 and falsifiable.
 
@@ -195,7 +204,7 @@ The principal contributions are summarized as follows.
 \item The SAVGS framework (Definition~\ref{def:savgs}), a
 five-component stratified object that resolves the type confusions,
 gauge ambiguities, and missing premises of prior formulations. The
-geometry is a stratified principal $\CO(n-1)$-bundle, and $\kk$ is
+geometry is a stratified $G_C$-reduced principal bundle with $G_C \in \{O(r), SO(r), \CO(r)\}$ (Definition~\ref{def:struct}), and $\kk$ is
 computed on this object. The Fisher-minimal horizontal lift on each
 constant-active-set stratum is given in closed KKT form
 (Proposition~\ref{prop:kkt}); the projected differential inclusion at
@@ -208,9 +217,11 @@ $\kappa_{\mathrm{closure}}$ of Definition~\ref{def:kappa-closure}
 isolates autopoietic failure from behavioral hysteresis.
 \item A single composition theorem (Theorem~\ref{thm:composition}) for
 the seven optics in $\Optic(\CC)$, replacing the rhetorical
-``bridge-rung'' construction of prior work. The unification object is
-the fixed point of $T$, well-defined up to canonical isomorphism
-whenever $T$ is contractive.
+``bridge-rung'' construction of prior work. The composite is a
+well-defined typed endo-optic (Remark~\ref{rem:typed-optic}); under a
+realization functor and explicit contraction bound
+(Proposition~\ref{prop:qbound}), the realized update has a unique
+fixed point.
 \item The algorithmic rate-distortion distance $\distD$
 (Definition~\ref{def:ard}) and the derivation of $\kk$ from a Bregman
 divergence evaluated at $\distD$
@@ -232,7 +243,7 @@ generalization of A--E to the $n=4$ non-abelian regime
 (Section~\ref{sec:n4}).
 \item An inverse-limit construction of the directed system of RAFs in
 $\Optic(\mathbf{Set})$, yielding the maximal RAF $R_{\max}$ as the
-colimit (Construction~\ref{con:invlim}).
+filtered colimit (Construction~\ref{con:invlim}).
 \item A numerical Banach contraction argument for $T$ over $X=[0,1]^d$
 across a $(d,k)$ robustness grid of $375$ configurations, demonstrating
 that the unification object exists by Banach's theorem~\cite{banach1922}
@@ -260,7 +271,7 @@ $n=3$ prototype. Section~\ref{sec:stress} stress-tests Claim~D's
 heavy-tail index. Section~\ref{sec:n4} generalizes A--E to $n=4$.
 Section~\ref{sec:cptp} treats the CPTP-Zeno lift in detail
 (Claim~G). Section~\ref{sec:titer} presents the T-iteration contraction
-results. Section~\ref{sec:invlim} presents the inverse-limit RAF
+results. Section~\ref{sec:invlim} presents the filtered-colimit RAF
 construction. Section~\ref{sec:mainprop} states the main proposition.
 Section~\ref{sec:discussion} discusses limitations, implications, and
 future directions. Section~\ref{sec:conclusion} concludes.
@@ -269,33 +280,63 @@ future directions. Section~\ref{sec:conclusion} concludes.
 \section{Preliminaries}\label{sec:prelim}
 % =============================================================
 
-\begin{definition}[Viability-weighted curvature, operational form]
-\label{def:kappa}
+\begin{definition}[Viability depth functional $D_V$; distinct from curvature]
+\label{def:kappa-depth}
 Let $M$ be a smooth state manifold, $V:M\to\RR$ a smooth viability
 function with maximum $V_{\max}=\max_M V$, and $\gamma_a:[0,1]\to M$ a
-smooth policy loop of amplitude $a$. The \emph{per-loop viability-
-weighted curvature} is
-\begin{equation}
-  \kk(\gamma_a) \;=\; \frac{1}{V_{\max}}\int_0^1\!\bigl(V_{\max}-V\circ\gamma_a(t)\bigr)\,dt.
+smooth policy loop of amplitude $a$, parametrized at unit speed so that
+$|\gamma_a| = \int_0^1|\dot\gamma_a(t)|\,dt$ is the loop length. The
+\emph{viability depth functional} is
+\begin{equation}\label{eq:DV}
+  D_V(\gamma_a) \;=\; \frac{1}{|\gamma_a|}\int_{\gamma_a}\!\bigl(V_{\max}-V\bigr)\,ds
+  \;=\; \frac{1}{|\gamma_a|}\int_0^1\!\bigl(V_{\max}-V\circ\gamma_a(t)\bigr)\,|\dot\gamma_a(t)|\,dt.
 \end{equation}
 For the radially symmetric viability $V(x_1,\ldots,x_{n-1}) = 1 - \sum_i
 x_i^2$ and the circular loop $\gamma_a(t) = (a\cos 2\pi t, a\sin 2\pi t,
-0,\ldots,0)$, the operational form $\kk(a) = a^2$ follows. The full
-construction of $\kk$ as a directional derivative of a Bregman divergence
-evaluated at $\distD$ is given in Section~\ref{sec:ard}.
+0,\ldots,0)$ at unit speed, $D_V(a) = a^2$. The viability depth is a
+loop-averaged deficit; it is \emph{not} a curvature 2-form: it carries
+no orientation, no dependence on path ordering, and no commutator
+structure. The curvature-based viability-weighted curvature $\kk$
+(Definition~\ref{def:kappa-derivation}, contracting the curvature
+$2$-form $F$ with viability covectors) is a distinct object; the
+equality $D_V(a) = \kk(a) = a^2$ in the radial prototype is a
+model-specific relation, not an identity.
 \end{definition}
 
-\begin{definition}[Structure group]
+\begin{definition}[Structure group: $O(r)$, $SO(r)$, or $CO(r)$ with Weyl scale]
 \label{def:struct}
-The \emph{endogenous structure group} of the agent is
-$G_C \,:=\, \Stab(C)$, the stabilizer of the cost functional $C$ in the
-automorphism group of the admissible update maps. For the Fisher--Rao
-metric on the $n$-dimensional probability simplex (Chentsov's theorem~\cite{chentsov1982,amari2000}),
-the stabilizer is $G_C = \CO(n-1) = \RR_+\ltimes \SO(n-1)$ with Lie
-algebra $\so(n-1)$, which is abelian for $n=3$ ($\so(2)$ is
-$1$-dimensional) and non-abelian for $n\geq 4$ ($\so(3)$ is
-$3$-dimensional with $[\mathfrak{l}_z,\mathfrak{l}_x]=\mathfrak{l}_y$).
+The Fisher--Rao metric on a policy fiber of dimension $r$ admits an
+orthonormal frame bundle with structure group $O(r)$
+(\cite{kobayashinomizu1969,amari2000}). If the policy frame is
+oriented, the structure group reduces to $SO(r)$. A reduction to the
+conformal group $\CO(r) = \RR_+ \ltimes \SO(r)$ requires an additional
+\emph{scale (Weyl) structure} on the policy bundle: a positive scale
+bundle $L \to E$ together with a conformal class $[g^F]$ of the
+Fisher metric and a Weyl connection preserving the conformal class.
+The three cases are distinct modeling commitments; Chentsov's
+uniqueness theorem~\cite{chentsov1982} fixes the Fisher metric under
+statistical-map invariance but does \emph{not} by itself select among
+$O(r)$, $SO(r)$, or $\CO(r)$. For the manuscript's prototypes we use:
+$G_C = SO(2)$ for the abelian $n=3$ prototype; $G_C = SO(3)$ for the
+non-abelian $n=4$ prototype; and $\CO(r)$ only when an endogenous
+scale variable (effective precision, temperature, sample size, or
+Weyl factor) is explicitly modeled (Remark~\ref{rem:fisher-weyl}).
 \end{definition}
+
+\begin{remark}[Fisher--Weyl policy structure, when $\CO(r)$ is justified]
+\label{rem:fisher-weyl}
+A Fisher--Weyl policy structure consists of: (i) a policy bundle
+$E\to B$; (ii) a vertical Fisher metric $g^F$; (iii) a positive scale
+bundle $L\to E$; (iv) a conformal class $[g^F]$; (v) a Weyl connection
+preserving the conformal class. The conformal frame bundle then has
+structure group $\CO(r)$. If the cost functional depends only on the
+conformal class of $g^F$ and is invariant under positive rescalings of
+orthonormal frames, its stabilizer contains $\CO(r)$; if scale is
+fixed, the stabilizer reduces to $SO(r)$ or $O(r)$. This preserves the
+$\CO(r)$ ambition in a mathematically honest way: $\CO(r)$ is an
+\emph{added modeling structure}, not a consequence of Chentsov's
+theorem alone.
+\end{remark}
 
 \begin{remark}[Physical meaning of the $n=3\to n=4$ transition]
 \label{rem:n3-n4}
@@ -386,26 +427,35 @@ separately or treats at the wrong level of abstraction.
 
 \begin{definition}[SAVGS]
 \label{def:savgs}
-The SAVGS is the tuple $(\Theta, \pi, \Delta^{n-1}, \varepsilon,
-\Gamma)$:
+The SAVGS is the tuple $(B, E, \mathcal P, \varepsilon, \Gamma)$:
 \begin{enumerate}[leftmargin=*,itemsep=2pt]
-\item A continuous control manifold $\Theta\subset\RR^d$, with
-coordinates including food scarcity, danger intensity, and sensor noise.
-\item A policy fiber $\pi:\Delta^{n-1}\to\Theta$, with policy in the
-open simplex of probability parameters.
+\item A continuous control base manifold $B \subset \RR^d$ (denoted
+$\Theta$ in earlier drafts), with coordinates including food
+scarcity, danger intensity, and sensor noise.
+\item A policy bundle $\pi : E \to B$ with total space $E$ and policy
+fiber $\mathcal P = \pi^{-1}(\theta)$, where $\mathcal P$ is the open
+simplex $\Delta^{m-1}_\circ$ (for $m$ actions), the circle $S^1$
+(abelian $n=3$ prototype), the rotation group $SO(3)$ (non-abelian
+$n=4$ prototype), or another declared policy manifold. The bundle
+projection $\pi : E \to B$ is the canonical projection onto the base
+manifold (not the wrong-direction $\Delta^{n-1} \to \Theta$ of earlier
+drafts); on the trivial bundle $E = B \times \mathcal P$ this is
+$\pi(\theta, p) = \theta$.
 \item A viability margin $\varepsilon\geq\varepsilon_{\min}>0$, with
 the inequality strict on the open feasibility set and non-strict on the
 closed viability kernel.
-\item An endogenous maintenance graph $\Gamma=(M, R, E)$ of maintenance
-operations $M$, regeneration rules $R$, and maintenance edges $E$.
+\item An endogenous maintenance graph $\Gamma=(M, R, E_\Gamma)$ of
+maintenance operations $M$, regeneration rules $R$, and maintenance
+edges $E_\Gamma$ (renamed to avoid clash with total space $E$).
 \item A 2-categorical span $\Stab_1\leftarrow\mathrm{Boundary}\rightarrow
 \Stab_2$ that resolves the constraint-switching boundary discontinuity
-between strata.
+between strata (Conjecture~\ref{conj:global-stratified-holonomy} for
+the full gluing theorem).
 \end{enumerate}
 \end{definition}
 
 The five components compose into a single object whose geometry is a
-stratified principal $\CO(n-1)$-bundle over the control manifold, with
+stratified $G_C$-reduced principal bundle over the control manifold, with
 policy fibers over each stratum and viability kernels defined by
 non-strict inequalities on each stratum. The viability-weighted
 curvature of Proposition~\ref{prop:kappa-derivation} is computed on this
@@ -705,9 +755,12 @@ is specifically autopoietic failure.
 \section{Algorithmic Rate-Distortion and Derivation of \texorpdfstring{$\kk$}{kappa_V}}\label{sec:ard}
 % =============================================================
 
-The viability-weighted curvature $\kk$ of Definition~\ref{def:kappa} is
+The curvature-based viability-weighted curvature $\kk$ of
+Proposition~\ref{prop:kappa-derivation} is
 the operational form of a directional derivative of a Bregman divergence
-evaluated at the algorithmic rate-distortion distance. The
+evaluated at the algorithmic rate-distortion distance. The viability
+depth functional $D_V$ of Definition~\ref{def:kappa-depth} is a distinct
+object (loop-averaged deficit, not curvature). The
 algorithmic rate-distortion distance is a single-string quantity,
 defined per input $x$, and is intrinsically deterministic. It eliminates
 the type confusion between the set-average rate $R(D)$ of classical
@@ -753,7 +806,7 @@ the minimum exists by definition. The gap does not arise.
 Let $h_\alpha(\theta, x) = D_\phi\bigl(\distD(x),\,\distD(x_0)\bigr)$ be
 a Bregman divergence evaluated at the algorithmic rate-distortion
 distance of the current state $x$ relative to a reference $x_0$. Let
-$F(u,v)$ be the curvature 2-form of the $\CO(n-1)$-connection on
+$F(u,v)$ be the curvature 2-form of the $G_C$-connection on
 $\SAVGS$. The per-pair viability-weighted curvature is
 \begin{equation}\label{eq:kappa-derivation}
   \kappa_\alpha(\theta, x; u, v) \;=\; \frac{\bigl[-D_{F(u,v)}h_\alpha\bigr]^+(\theta, x)}{h_\alpha(\theta, x)},
@@ -802,6 +855,79 @@ matches the deterministic structure of the RAF transition
 form required by the falsification protocol of
 Section~\ref{sec:hierarchy}.
 \end{remark}
+
+\subsection{Smooth finite-code surrogate and algorithmic upper envelope}
+\label{sec:ard-surrogate}
+
+The algorithmic rate-distortion distance $\distD$ of
+Definition~\ref{def:ard} is upper-semicomputable but generally
+uncomputable, integer-valued, and not differentiable. It cannot serve
+as the argument of a directional derivative in any classical sense.
+To obtain an operational, differentiable object suitable for
+Proposition~\ref{prop:kappa-derivation}, we replace $\distD$ with a
+\emph{smooth finite-code surrogate}.
+
+\begin{definition}[Smooth finite-code rate-distortion surrogate]
+\label{def:ard-surrogate}
+Let $\{c_j\}_{j=1}^N$ be a finite prefix-free code family with code
+lengths $\ell(c_j)$ and reconstructions $\hat x_j = \mathrm{dec}(c_j)$.
+For a distortion measure $d$, threshold $D\geq 0$, and parameters
+$\tau > 0$, $\beta > 0$, define
+\begin{equation}\label{eq:ard-surrogate}
+  r_{\tau,\beta,D}(x) \;=\; -\tau\,\log\!\sum_{j=1}^{N}\,2^{-\ell(c_j)/\tau}\,
+  \exp\!\Bigl(-\beta\,[d(x, \hat x_j) - D]_+^{\,2}/\tau\Bigr).
+\end{equation}
+If $x \mapsto d(x, \hat x_j)$ is $C^2$ for each $j$, then
+$r_{\tau,\beta,D} \in C^2(\RR^n, \RR)$, as the sum, product, and
+composition of smooth maps are smooth, and the exponential damping
+controls the tail behavior.
+\end{definition}
+
+\begin{proposition}[Operational viability margin from smooth surrogate]
+\label{prop:ard-surrogate}
+Replace $\distD(x)$ in the construction of
+Proposition~\ref{prop:kappa-derivation} with the smooth surrogate
+$r_{\tau,\beta,D}(x)$. Define the viability margin
+$h_\alpha(\theta, x) = D_\phi(r_{\tau,\beta,D}(x),\,
+r_{\tau,\beta,D}(x_0))$. Then the directional derivative
+$D_{F(u,v)} h_\alpha$ is well-defined, the viability-weighted
+curvature $\kk(\theta, x)$ of Proposition~\ref{prop:kappa-derivation}
+is a smooth observable quantity, and the small-loop
+Theorem~\ref{thm:smallloop} applies with $h_\alpha$ in place of the
+classical $\distD$-based form.
+\end{proposition}
+
+\begin{proof}
+The smoothness hypothesis on $x \mapsto d(x, \hat x_j)$ gives
+$r_{\tau, \beta, D} \in C^2$; the Bregman divergence
+$D_\phi$ of a $C^2$ strictly convex generator is $C^2$ in its
+arguments (Definition~\ref{def:bregman}); the composition
+$h_\alpha = D_\phi \circ r_{\tau,\beta,D}$ is therefore $C^2$, and the
+directional derivative $D_{F(u,v)} h_\alpha$ is well-defined as a
+classical derivative. All subsequent constructions (positive-part
+projection, sup over unit bivectors, max over $\alpha$) preserve
+smoothness, giving a $C^2$ observable $\kk$. The
+Theorem~\ref{thm:smallloop} expansion is then a Taylor expansion of a
+$C^2$ function, valid by the standard $C^2$ hypothesis.
+\end{proof}
+
+\begin{conjecture}[Algorithmic upper envelope]
+\label{conj:alg-envelope}
+There exists an upper-semicomputable algorithmic viability curvature
+$\kk^{\mathrm{alg}}$ based on the algorithmic rate-distortion distance
+$\distD$ (Definition~\ref{def:ard}) such that, for any smooth
+finite-code surrogate $r_{\tau, \beta, D}$ of
+Definition~\ref{def:ard-surrogate},
+\[
+  \kk^{\mathrm{surrogate}}(\theta, x)
+  \;\leq\;
+  \kk^{\mathrm{alg}}(\theta, x) \;+\; O(1),
+\]
+in an appropriate asymptotic regime where the code family
+$\{c_j\}$ expands to cover all programs of bounded length. This
+conjecture preserves the algorithmic-rate-distortion ambition without
+falsely treating $\distD$ as a differentiable quantity.
+\end{conjecture}
 
 \begin{corollary}[Geometric-phase form of $\kk$ for radially symmetric
 $V$]\label{cor:kappa-geometric-phase}
@@ -890,79 +1016,89 @@ source prior in the same group $G$. Bregman divergences in dual affine
 coordinates are affine-invariant (Definition~\ref{def:bregman}), which
 supplies both.
 
-\begin{proposition}[Bregman-Noether correspondence]
+\begin{proposition}[Bregman--Hessian Noether correspondence]
 \label{prop:noether}
-Consider the field action on the policy/configuration field
-$\xi \in \mathcal{X}(\Theta, \Delta^{n-1})$ over a compact
-spacetime $\Omega \subset \RR^{1+d}$ with Lagrangian density
-\begin{equation}\label{eq:lagrangian-field}
-  \mathscr{L} \;=\; D_\phi\bigl(d(\xi),\,\tilde d\bigr) \;+\; \lambda\,D_\phi\bigl(p(\xi),\,\tilde p\bigr),
+Let $Q \subset \RR^r$ be open convex, $\phi \in C^3$ strictly convex,
+and $g_\phi = \nabla^2 \phi$ the Hessian metric on $Q$. Let
+$L(q, \dot q) = \tfrac{1}{2} g_\phi(q)(\dot q, \dot q) - U(q)$ be the
+geodesic Lagrangian with potential $U \in C^2$, and let
+$S[q] = \int_a^b L(q, \dot q)\,dt$ be the action on the configuration
+space of smooth curves $q : [a, b] \to Q$. Let $\xi$ be a complete
+affine vector field on $Q$ whose flow $g_t = \mathrm{flow}_t(\xi)$
+preserves the Hessian metric,
+\begin{equation}\label{eq:hessian-isometry}
+  \mathcal L_\xi\, g_\phi \;=\; 0,
 \end{equation}
-where $D_\phi$ is a Bregman divergence (Definition~\ref{def:bregman}),
-$d(\cdot)$ is the distortion functional, $p(\cdot)$ is the source
-prior, and tildes denote reference values. Let $g_t$ be a
-one-parameter affine transformation on the dual coordinate
-$\nabla\phi$. Then the field action $S[\xi] = \int_\Omega
-\mathscr{L}\,d^{1+d}x$ is invariant under the flow of $g_t$:
-$S[g_t\cdot\xi] = S[\xi]$ for all $t$. By Noether's
-theorem~\cite{noether1918}, the corresponding Noether current
+and preserves the potential, $\xi(U) = 0$. Then $S$ is invariant under
+the lifted flow $\tilde g_t \cdot (q, \dot q) = (g_t \cdot q,\,
+Dg_t \cdot \dot q)$, and by Noether's theorem~\cite{noether1918,olver1993}
+the momentum
 \begin{equation}\label{eq:noether-current}
-  J^\mu \;=\; \frac{\partial\mathscr{L}}{\partial(\partial_\mu\xi)}\,\delta\xi
-  \;-\; \Bigl(\frac{\partial\mathscr{L}}{\partial(\partial_\mu\xi)}\,\partial_\nu\xi \;-\; \mathscr{L}\,\delta^\mu_\nu\Bigr)\,\delta x^\nu
+  J_\xi(q, \dot q) \;=\; g_\phi(q)(\dot q, \xi(q)) \;=\; \langle \nabla \phi(q), \xi(q) \rangle \cdot \dot q_{\mathrm{dual}}
 \end{equation}
-is conserved on-shell: $\partial_\mu J^\mu = 0$ whenever $\xi$
-satisfies the Euler--Lagrange equation of $S$.
+is conserved along Euler--Lagrange trajectories of $S$: $\frac{d}{dt}
+J_\xi(q(t), \dot q(t)) = 0$ on-shell.
 \end{proposition}
 
 \begin{proof}
-The Bregman divergence satisfies the affine invariance
-$D_\phi(g_t p, g_t q) = D_\phi(p, q)$ for any one-parameter affine
-transformation $g_t$ on the dual coordinate $\nabla\phi$
-(Definition~\ref{def:bregman}); the dual-coordinate affine action is
-$g_t \cdot \nabla\phi(\xi) = A_t\,\nabla\phi(\xi) + b_t$ for a smooth
-family $(A_t, b_t)$ in $\mathrm{Aff}(\RR^n) = \RR_+ \ltimes \RR^n$.
-The distortion $d(\xi)$ and source prior $p(\xi)$ enter
-$\mathscr{L}$ only through their Bregman divergences from the
-reference values $\tilde d, \tilde p$; under $g_t$ each
-$D_\phi(g_t \cdot p, g_t \cdot q) = D_\phi(p, q)$, so
-$\mathscr{L}[g_t \cdot \xi] = \mathscr{L}[\xi]$ pointwise in $\Omega$.
-Integrating gives $S[g_t \cdot \xi] = S[\xi]$ for all $t$; the
-one-parameter flow $\{g_t\}$ is therefore a continuous variational
-symmetry of $S$. Applying Noether's theorem in its standard
-field-theoretic form (see, e.g.,~\cite{olver1993}) to the
-infinitesimal generators
-$(\delta\xi, \delta x^\nu) = \frac{d}{dt}\bigl(g_t \cdot \xi,
-g_t \cdot x\bigr)\bigl|_{t=0}$ yields the conserved
-current~\eqref{eq:noether-current}, with $\partial_\mu J^\mu = 0$
-on-shell by the Euler--Lagrange equation for $\xi$. The conserved
-charge $Q = \int_{\RR^d} J^0\,d^dx$ is then the
-$\mathrm{Aff}(\RR^n)$-charge of the configuration; it is the
-affine-invariant quantity that the gauge invariance of $\kk$
-(Propositions~\ref{prop:sqrt}, \ref{prop:kappa-derivation}) requires.
+The Hessian-metric preservation~\eqref{eq:hessian-isometry} gives
+$\mathcal L_\xi L = \xi(U) = 0$ (the kinetic term is invariant by
+$\mathcal L_\xi g_\phi = 0$, and the potential term is invariant by
+$\xi(U) = 0$); hence $S[\tilde g_t \cdot q] = S[q]$ for all $t$, and
+$\tilde g_t$ is a continuous variational symmetry of $S$. By
+Noether's theorem in its standard field-theoretic form~\cite{olver1993},
+the one-parameter symmetry yields the conserved momentum
+$J_\xi(q, \dot q) = \partial L / \partial \dot q \cdot \xi(q) =
+g_\phi(q)(\dot q, \xi(q))$. The dual-coordinate form follows by
+identifying $\partial L / \partial \dot q = \nabla \phi(q) \cdot \dot
+q_{\mathrm{dual}}$ via the dual-coordinate structure of Bregman
+divergences (Definition~\ref{def:bregman}).
 \end{proof}
+
+\begin{corollary}[Affine Bregman invariance; sufficient condition]
+\label{cor:affine-bregman}
+A one-parameter affine flow $g_t$ on $Q$ that satisfies
+$\phi \circ g_t = \phi + \ell_t$ for an affine function $\ell_t$
+preserves the Hessian metric $g_\phi = \nabla^2 \phi$ (since
+$\nabla^2(\phi \circ g_t) = \nabla^2 \phi$ on the affine transformation
+$g_t$ by the chain rule, and $\nabla^2 \ell_t = 0$). Therefore the
+hypothesis~\eqref{eq:hessian-isometry} is satisfied, and the Bregman
+divergence $D_\phi$ is invariant in the paired primal-dual sense
+required by Proposition~\ref{prop:noether}.
+\end{corollary}
 
 \begin{proposition}[Falsifiable precondition check]
 \label{prop:noether-precondition}
-The Bregman-divergence Noether correspondence has a falsifiable
-precondition check: verify that the distortion measure $d$ and the
-source prior $p$ are both Bregman divergences, equivalently that they
-satisfy the required convexity and dual-affine-coordinate structure. If
-they are, the correspondence holds; if they are not, the Noether
-analogy is refuted.
+The Bregman--Hessian Noether correspondence has a falsifiable
+precondition check: verify (i) that $\phi$ is $C^3$ strictly convex
+(positive-definite Hessian $g_\phi = \nabla^2 \phi \succ 0$), (ii)
+that the vector field $\xi$ generates an affine Hessian isometry
+($\mathcal L_\xi g_\phi = 0$, equivalently $\mathcal L_\xi
+(\nabla^2 \phi) = 0$), and (iii) that $\xi(U) = 0$. If all three
+conditions hold, the correspondence applies; failure of any condition
+refutes the theorem at that point.
 \end{proposition}
 
 \begin{proof}
-Operational verification: (i) compute the Hessian $\nabla^2\phi$ of the
-generating function $\phi$ and verify positive definiteness; (ii)
-compute the dual affine coordinate $\nabla\phi$ and verify affine
-invariance. Both checks are mechanical and produce a binary verdict.
+Operational verification: (i) compute the Hessian $\nabla^2 \phi$ and
+verify positive definiteness; (ii) compute the Lie derivative
+$\mathcal L_\xi (\nabla^2 \phi)$ via Cartan's formula
+$\mathcal L_\xi T = [i_\xi, d] T$ and verify it vanishes; (iii) compute
+the directional derivative $\xi(U)$ and verify it is zero. All three
+checks are mechanical and produce a binary verdict.
 \end{proof}
 
-\begin{remark}
-The Noether correspondence of prior work is replaced by a theorem with
-checkable preconditions. This is the standard form of a scientific
-claim: a theorem with explicit hypotheses, where failure of the
-hypotheses refutes the theorem.
+\begin{remark}[Application to gauge invariance of $\kk$]
+If the policy connection and viability margins of
+Proposition~\ref{prop:kappa-derivation} are constructed from a Bregman
+generator $\phi$ and the gauge group acts by affine Hessian isometries
+preserving the margins, the curvature $F$ and the viability-weighted
+curvature $\kk$ are gauge-covariant (and gauge-invariant when the
+margins themselves are gauge-invariant). This is the rigorous
+replacement for the earlier Bregman-Noether proposition: not divergence
+invariance alone (which is false in general under arbitrary affine
+transformations holding $\phi$ fixed), but affine isometries of the
+Hessian metric yield conserved momenta by Noether's theorem.
 \end{remark}
 
 % =============================================================
@@ -972,7 +1108,9 @@ hypotheses refutes the theorem.
 \begin{definition}[Falsification hierarchy]
 \label{def:hierarchy}
 The viability-weighted curvature $\kk$ of
-Definition~\ref{def:kappa} generates a seven-claim falsification
+Definition~\ref{def:kappa-depth} (viability depth) and
+Proposition~\ref{prop:kappa-derivation} (curvature-based $\kk$) generate
+a seven-claim falsification
 hierarchy on the prototype of Section~\ref{sec:n3}. Each claim is a
 specific quantitative prediction; failure of any prediction refutes
 the corresponding level of the hierarchy.
@@ -997,7 +1135,7 @@ $K_{\mathrm{obs}}$; relative error $<15\%$.
 under the loop condition and large under the no-loop control, with
 $T_{\mathrm{control}}/T_{\mathrm{loop}}\geq 5$.
 \item[\textbf{F.}] (Non-abelian commuting control) At $n\geq 4$, the
-structure group $\CO(n-1)$ has non-abelian $\so(n-1)$; same-plane
+structure group $G_C$ has non-abelian $\so(3)$ when $G_C = SO(3)$; same-axis
 rotations commute (machine precision), distinct-plane rotations do not
 (nonzero non-abelian signature).
 \item[\textbf{G.}] (CPTP-Zeno lift) The CPTP lift of the self-
@@ -1190,26 +1328,53 @@ document~\cite{riley2023}; this article confirms the sufficient
 condition empirically in Section~\ref{sec:titer}.
 \end{remark}
 
+\begin{remark}[Typed endo-optic, not automatic endofunctor]
+\label{rem:typed-optic}
+A composite optic is an optic, not automatically an endofunctor on the
+whole optic category. To make the typing rigorous: introduce typed
+interfaces $I_0, I_1, \ldots, I_7$ with an interface isomorphism
+$\sigma : I_7 \cong I_0$, and let $O_i : I_{i-1} \rightleftarrows I_i$
+be well-typed optics. Then $O = \sigma \circ O_7 \circ \cdots \circ O_1$
+is a well-defined endo-optic on $I_0$ (true by associativity and
+unitality of optic composition, Proposition~2.3 of~\cite{riley2018optics}).
+The stronger claim of an \emph{endofunctor} on a category of periodic
+typed systems $\mathsf{Sys}_7$ (objects are 7-tuples
+$(X_1, \ldots, X_7, f_1, \ldots, f_7)$ with $f_i : X_i \to X_{i+1}$
+and $X_8 = X_1$; morphisms are compatible families) requires explicit
+functorial semantics: an object map, a morphism map, identity
+preservation, and composition preservation. The full functorial
+construction is open and is treated as
+Conjecture~\ref{conj:filtered-colimits-optic}'s analogue for the
+endofunctor semantics. The operational fixed-point claim---that the
+realized update map $T = R(O) : S \to S$ (for a realization functor $R$
+from endo-optics to endomaps on a complete metric state space $S$)
+has a unique fixed point whenever $T$ is a contraction---is established
+in Proposition~\ref{prop:qbound} (analytic upper bound on
+$\Lip(T_{\mathrm{reg}})$) and Section~\ref{sec:titer} (numerical
+evidence across $375$ configurations).
+\end{remark}
+
 % =============================================================
 \section{Foundational Tests: Claims F and G}\label{sec:foundational}
 % =============================================================
 
 The recommended experimental ordering of Remark~\ref{rem:ordering}
 places the cheap foundational tests first. Both foundations survive:
-the $\CO(n-1)$ structure-group specification (Claim F) correctly
+the $SO(n-1)$ structure-group specification (Claim F) correctly
 distinguishes commuting from non-commuting controls at $n\geq 4$, and
 the CPTP lift (Claim G) carries the predicted Zeno scaling signature,
 distinct from the classical Markov scaling.
 
-\subsection{Claim F: $\CO(n-1)$ commuting-control test}
+\subsection{Claim F: $SO(n-1)$ commuting-control test}
 
-At $n=4$, the structure group is $\CO(3)=\RR_+\ltimes\SO(3)$, with Lie
-algebra $\so(3)$ non-abelian ($3$-dimensional). The test compares
-holonomy under same-plane rotations (e.g., two $z$-axis rotations)
-versus distinct-plane rotations (e.g., $z$-axis then $x$-axis). The
-decisive prediction: same-plane rotations commute (zero non-abelian
-signature); distinct-plane rotations do not commute (nonzero signature
-scaling with the product of the rotation angles).
+At $n=4$, the policy fiber is $SO(3)$ (Definition~\ref{def:struct},
+Section~\ref{sec:n4}), with Lie algebra $\so(3)$ non-abelian
+($3$-dimensional). The test compares holonomy under same-axis
+rotations (e.g., two $z$-axis rotations) versus distinct-axis
+rotations (e.g., $z$-axis then $x$-axis). The decisive prediction:
+same-axis rotations commute (zero non-abelian signature); distinct-axis
+rotations do not commute (nonzero signature scaling with the product
+of the rotation angles).
 
 \begin{proposition}[Claim F empirical verdict]\label{prop:claimF}
 Numerical simulation in Python using the standard $\so(3)$ generators.
@@ -1289,17 +1454,48 @@ cannot reproduce the Zeno scaling; the quantum setting cannot avoid it.
 The minimal binding prerequisite for the derivative claims A--E is an
 agent parameter space of dimension $n=3$: two continuous spatial
 coordinates $(x,y)\in\RR^2$ and a one-dimensional policy heading
-$\theta\in S^1$. The viability function $V(x,y) = 1 - x^2 - y^2$ is
+$\psi\in S^1$. The viability function $V(x,y) = 1 - x^2 - y^2$ is
 radially symmetric with $V_{\max}=1$ at the origin. The policy loop of
 amplitude $a$ is $\gamma_a(t) = (a\cos 2\pi t, a\sin 2\pi t)$, $t\in
-[0,1]$. By Definition~\ref{def:kappa}, $\kk(a) = a^2$. The geometric
-holonomy (parallel transport on $S^1$ around the loop) is
-$H_{\mathrm{geo}}(a) = \pi a^2$. The viability correction is
-$0.5\,a\,\kk(a) + C_{\mathrm{fat}}\,a^{3/2}$. With $C_{\mathrm{fat}} =
-0.05$, the corrected holonomy is
-\begin{equation}\label{eq:hcorr}
-  H_{\mathrm{corr}}(a) \;=\; H_{\mathrm{raw}}(a) - (0.5\,a^3 + C_{\mathrm{fat}}\,a^{3/2}) \;=\; \pi a^2.
+[0,1]$. By Proposition~\ref{prop:kappa-derivation},
+$\kk(a) = a^2$ in the radial prototype (and $D_V(a) = a^2$ by
+Definition~\ref{def:kappa-depth}). The geometric holonomy is computed
+from the explicitly chosen connection 1-form
+\begin{equation}\label{eq:alpha-form}
+  \alpha \;=\; d\psi + A,\qquad A \;=\; \tfrac{1}{2}(x\,dy - y\,dx),
 \end{equation}
+whose curvature $2$-form is $F = dA = dx \wedge dy$. By Stokes'
+theorem, the holonomy around the circular loop $\gamma_a$ bounding the
+disk $D_a$ of area $\pi a^2$ is
+\begin{equation}\label{eq:Hgeo-stokes}
+  H_{\mathrm{geo}}(a) \;=\; \oint_{\gamma_a}\! A
+  \;=\; \iint_{D_a}\! F \;=\; \iint_{D_a}\! dx \wedge dy
+  \;=\; \pi a^2.
+\end{equation}
+This is a direct application of Stokes' theorem to the chosen
+connection; it is \emph{not} a Gauss--Bonnet identity (Gauss--Bonnet
+concerns integrated Gaussian curvature and surface topology, not
+arbitrary policy connections). The raw holonomy $H_{\mathrm{raw}}(a)$
+is the experimentally measured post-loop policy drift, decomposed as
+\begin{equation}\label{eq:Hraw}
+  H_{\mathrm{raw}}(a) \;=\; \pi a^2 \;+\; a\,\kk(a) \;+\;
+  C_{\mathrm{fat}}\,a^{3/2} \;+\; \eta_k,
+\end{equation}
+where $\pi a^2$ is the geometric component (predicted from the
+connection~\eqref{eq:alpha-form}), $a\,\kk(a) = a^3$ is the leading
+viability-curvature correction, $C_{\mathrm{fat}}\,a^{3/2}$ is the
+heavy-tail fatigue correction (Conjecture~\ref{conj:heavytail-3half}
+for the exponent $3/2$), and $\eta_k$ is the per-loop stochastic
+disturbance. The \emph{predicted} holonomy is
+$\widehat H(a) = \pi a^2 + a\,\kk(a) + C_{\mathrm{fat}}\,a^{3/2}$;
+the \emph{corrected} holonomy $H_{\mathrm{corr}} = H_{\mathrm{raw}} -
+\eta_k$ is the empirical observable. The fatigue coefficient
+$C_{\mathrm{fat}}$ is to be estimated independently (e.g., from
+open-edge perturbation experiments) rather than fitted to make
+$H_{\mathrm{corr}} = H_{\mathrm{geo}}$. For the present prototype we
+take $C_{\mathrm{fat}} = 0.05$ as a working value, with the
+independent-estimation protocol of Definition~\ref{def:calholdout}
+preserving the non-tautological status of the prediction.
 
 \begin{remark}[Geometric origin of $\kk(a)=a^2$ and $H_{\mathrm{geo}}(a)=\pi a^2$]
 \label{rem:kappa-intuition}
@@ -1307,22 +1503,25 @@ The viability $V(x,y)=1-x^2-y^2$ has gradient $-2(x,y)$, so along the
 loop $\gamma_a(t)=(a\cos 2\pi t, a\sin 2\pi t)$ the deficit from
 $V_{\max}=1$ is $V_{\max}-V\circ\gamma_a(t)=a^2$ at every $t$. Its
 time-average is therefore $a^2$ independent of $t$, giving
-$\kk(a)=a^2$ by Definition~\ref{def:kappa}. Geometrically, $\kk$ is
+$D_V(a)=a^2$ in the radial prototype by
+Definition~\ref{def:kappa-depth}; the curvature-based $\kk(a) = a^2$
+follows from Proposition~\ref{prop:kappa-derivation} on the same
+model. Geometrically, $D_V$ (and hence $\kk$ in this model) is
 the loop-averaged radial depth of the loop below the viability peak.
 The geometric holonomy $H_{\mathrm{geo}}=\pi a^2$ is the loop
-\emph{area} $\oint x\,dy - y\,dx = \pi a^2$, equal to the
-parallel-transport angle on $S^1$ (the Berry phase of the policy
-heading under one loop); the equality of holonomy and area on
-$S^1$-bundles is the Gauss--Bonnet collapse characteristic of
-constant-curvature surfaces. The viability correction
-$0.5\,a^3 + C_{\mathrm{fat}}\,a^{3/2}$ subtracts the leading-order and
-fatigue contributions so that $H_{\mathrm{corr}}=H_{\mathrm{geo}}$ in
-the noise-free limit. The $a^{3/2}$ exponent is the leading non-analytic
-correction to the quadratic holonomy, arising from the
-half-integer-order term in the asymptotic expansion of the path-ordered
-exponential under heavy-tailed perturbations
-(see~\cite{bhattacharya2007} for the heavy-tail theory underlying the
-$3/2$ exponent).
+\emph{area} $\oint x\,dy - y\,dx = \pi a^2$ via the connection
+1-form~\eqref{eq:alpha-form}, equal to the parallel-transport angle
+on $S^1$ (the Berry phase of the policy heading under one loop). The
+\emph{equality of holonomy and area on this $S^1$-bundle is a
+consequence of the explicitly chosen connection~\eqref{eq:alpha-form}
+whose curvature is the standard area form $dx\wedge dy$, not a
+generic property of $S^1$-bundles} (a generic $S^1$-bundle connection
+does not have this property). The fatigue correction
+$a^3 + C_{\mathrm{fat}}\,a^{3/2}$ is the leading-order and fatigue
+contribution to the raw holonomy~\eqref{eq:Hraw}; the prediction
+$\widehat H(a)$ is computed \emph{before} the correction, and the
+correction's coefficient is to be estimated independently of the
+loop-holonomy data being predicted (Definition~\ref{def:calholdout}).
 \end{remark}
 
 \subsection{Calibration protocol}
@@ -1333,21 +1532,37 @@ observables matched against the geometric predictions in Claims A--E.
 Three ingredients are formalized here that are condensed in the figure
 captions.
 
-\begin{definition}[Fisher-information-metric empirical entropy]
+\begin{definition}[Fisher--Rao distance as the gauge-invariant observable]
 \label{def:hemp}
 For an empirical distribution $p_\gamma$ estimated from the policy
-trajectory $\gamma$, the \emph{Fisher-information-metric empirical
-entropy} is
-\begin{equation}
-  H_{\mathrm{emp}}(p_\gamma) \;=\; \log\sqrt{\det I(p_\gamma)},
+trajectory $\gamma$ and a reference distribution $p_0$, the gauge-
+invariant observable matched against the geometric holonomy prediction
+$H_{\mathrm{geo}}$ is the Fisher--Rao distance
+\begin{equation}\label{eq:fr-distance}
+  d_{\mathrm{FR}}(p_\gamma, p_0) \;=\; 2\,\arccos\!\Bigl(\textstyle\sum_a \sqrt{p_{\gamma,a}\,p_{0,a}}\Bigr),
 \end{equation}
-where $I(p_\gamma)$ is the Fisher information matrix at $p_\gamma$.
-This is the information-geometric analogue of Shannon entropy, with
-$I(p_\gamma)$ replacing the diagonal probability mass. $H_{\mathrm{emp}}$
-is gauge-invariant under the affine group on the dual coordinate
-(Proposition~\ref{prop:noether}), so it is the empirical observable
-matched against the geometric holonomy prediction $H_{\mathrm{geo}}$.
+computed via the square-root embedding of
+Proposition~\ref{prop:sqrt}. Unlike the volume-density expression
+$\log\sqrt{\det I(p_\gamma)}$ (which acquires Jacobian factors under
+coordinate changes and is singular in redundant simplex coordinates),
+$d_{\mathrm{FR}}$ is a coordinate-free, gauge-invariant geodesic
+distance on the Fisher--Rao sphere, suitable for direct comparison
+with $H_{\mathrm{geo}}$ (Propositions~\ref{prop:sqrt},
+\ref{prop:noether}).
 \end{definition}
+
+\begin{remark}[Why the volume-density expression was replaced]
+The earlier expression $\log\sqrt{\det I(p_\gamma)}$ is a
+volume-density functional, not an entropy: under a coordinate change
+$p \mapsto p'$, the determinant $\det I$ acquires a Jacobian factor
+$\det(J^\top J)$, so the functional is coordinate-dependent unless a
+reference volume form is declared. On the simplex in redundant
+coordinates, the Fisher matrix is also singular, making the
+expression ill-defined. The Fisher--Rao distance~\eqref{eq:fr-distance}
+avoids these issues: it is the geodesic distance on the
+positive orthant of $S^{n-1}$ (Proposition~\ref{prop:sqrt}) and is
+manifestly gauge-invariant.
+\end{remark}
 
 \begin{definition}[Total-variance statistic with non-parametric
 bootstrap]
@@ -1358,11 +1573,11 @@ The \emph{total-variance statistic} is
 \end{equation}
 where $\sigma_{\mathrm{total}}$ is computed by the non-parametric
 bootstrap: resample the empirical distribution $p_\gamma$ with
-replacement $B=500$ times, recompute $H_{\mathrm{emp}}$ and
-$H_{\mathrm{corr}}$ on each resample, and take the standard deviation.
-The non-parametric bootstrap is robust to the heavy-tailed noise
-predicted in high-curvature regimes, where the parametric bootstrap
-would underestimate the variance.
+replacement $B=500$ times, recompute $d_{\mathrm{FR}}(p_\gamma, p_0)$
+and $H_{\mathrm{corr}}$ on each resample, and take the standard
+deviation. The non-parametric bootstrap is robust to the heavy-tailed
+noise predicted in high-curvature regimes, where the parametric
+bootstrap would underestimate the variance.
 \end{definition}
 
 \begin{definition}[Matching-no-loop-drift control]
@@ -1566,20 +1781,31 @@ infinite-variance boundary $\mathrm{df} = 2$ is crossed smoothly.}
 \section{Generalization to the $n=4$ Non-Abelian Regime}\label{sec:n4}
 % =============================================================
 
-The $n=3$ prototype has structure group $\CO(2) = \RR_+\ltimes\SO(2)$
-with $\so(2)$ abelian and one-dimensional. To exhibit the non-abelian
-signature, the prototype is extended to $n=4$: state space $M = \RR^3$
-with policy heading $\theta\in S^1$ (total agent parameter dimension
-$4$) and structure group $\CO(3)=\RR_+\ltimes\SO(3)$ with
-$\so(3)$ three-dimensional and non-abelian, satisfying
+The $n=3$ prototype has structure group $SO(2)$
+with $\so(2)$ abelian and one-dimensional (Definition~\ref{def:struct}).
+To exhibit the non-abelian signature, the prototype is extended to
+$n=4$: state space $M = \RR^3$ (base manifold $B = \RR^3$,
+environmental coordinates $(x,y,z)$) and \emph{policy fiber
+$\mathcal{P} = SO(3)$} (a genuine three-dimensional rotational frame,
+not a scalar $S^1$ heading). The structure group is then $G_C = SO(3)$
+with Lie algebra $\so(3)$ three-dimensional and non-abelian, satisfying
 \begin{equation}\label{eq:so3comm}
   [\mathfrak{l}_z, \mathfrak{l}_x] \;=\; \mathfrak{l}_y,\qquad
   [\mathfrak{l}_x, \mathfrak{l}_y] \;=\; \mathfrak{l}_z,\qquad
   [\mathfrak{l}_y, \mathfrak{l}_z] \;=\; \mathfrak{l}_x.
 \end{equation}
 The viability $V(x,y,z)=1-x^2-y^2-z^2$ remains radially symmetric, so
-$\kk(a)=a^2$ continues to hold. Policy loops in coordinate planes produce
-rotations $R_{xy}(a) = R_z(\pi a^2)$, $R_{yz}(a) = R_x(\pi a^2)$,
+$\kk(a)=a^2$ continues to hold (Proposition~\ref{prop:kappa-derivation},
+Corollary~\ref{cor:kappa-geometric-phase}). The connection on the
+trivial $SO(3)$-bundle $E = B \times SO(3) \to B$ has constant
+curvature components $F_{xy} = c\,\mathfrak{l}_z$,
+$F_{yz} = c\,\mathfrak{l}_x$, $F_{xz} = c\,\mathfrak{l}_y$ for a
+scaling constant $c$ (the analogue of the abelian
+connection~\eqref{eq:alpha-form} with $F = dx \wedge dy$); the
+holonomy of a small loop in the $xy$-plane of area $\pi a^2$ is
+$\mathrm{Hol}_{xy}(a) = \exp(c\,\pi a^2\,\mathfrak{l}_z)$, recovering
+$R_{xy}(a) = R_z(\pi a^2)$ at $c=1$. Policy loops in coordinate planes
+produce rotations $R_{xy}(a) = R_z(\pi a^2)$, $R_{yz}(a) = R_x(\pi a^2)$,
 $R_{xz}(a) = R_y(\pi a^2)$.
 
 \begin{lemma}[Non-abelian commutator signature]\label{lem:comm}
@@ -1675,91 +1901,142 @@ the state must compute its own predictive distribution, which requires
 its own predictive distribution, ad infinitum. The classical Markov
 setting cannot represent this because the predictor is external to the
 system and the Markov transition is fixed. The CPTP lift
-(Definition~\ref{def:cptp}) resolves the paradox by committing to a
-quantum-instantiated agent whose measurement schedule $(\tau_k, P_k)_{k\geq 1}$
-is controllable. Under frequent measurement ($\tau_k \to 0$), the
-quantum Zeno effect~\cite{misra1977,facchi2008} (see also the
-standard reference~\cite{nielsen2000} for the CPTP formalism) freezes
-the evolution inside the measurement subspace, breaking the predictive
-recursion.
+(Definition~\ref{def:cptp}) commits to a quantum-instantiated agent
+whose measurement schedule $(\tau_k, P_k)_{k\geq 1}$ is controllable.
+Under frequent measurement ($\tau_k \to 0$), the quantum Zeno
+effect~\cite{misra1977,facchi2008} (see also the standard
+reference~\cite{nielsen2000} for the CPTP formalism) freezes the
+evolution inside the measurement subspace. \emph{Whether} Zeno
+suppression alone resolves the RPSI self-reference is a separate
+question, treated as Conjecture~\ref{conj:zeno-selfref} below; the
+present section establishes only the empirically distinguishable
+scaling signature that the lift carries.
 
-\begin{proposition}[CPTP lift is non-trivial]\label{prop:cptp-nontriv}
-The CPTP lift takes the classical Markov transition $P(y|x)$ to the
-quantum channel $\Phi(\rho) = \sum_i K_i\,\rho\,K_i^\dagger$, where
-the $K_i$ are the Kraus operators satisfying $\sum_i K_i^\dagger K_i =
-I$. The lift is non-trivial because it carries its own commitments and
-predictions: (a) the agent must be instantiated as a quantum system,
-not as a classical stochastic system; (b) the quantum Zeno effect
-predicts a specific scaling ($\alpha_{\mathrm{Zeno}}\approx 2$) of the
-measurement-induced state change under frequent measurement,
-distinguishable from the classical scaling ($\alpha_{\mathrm{cl}}\approx
-1$).
+\begin{definition}[Dissipative Lindbladian and Liouvillian gap]
+\label{def:lindbladian}
+A dissipative quantum evolution is generated by a Lindbladian
+$\mathcal L(\rho) = -i[H, \rho] + \sum_k \bigl(L_k \rho L_k^\dagger
+- \tfrac{1}{2}\{L_k^\dagger L_k, \rho\}\bigr)$, with $H$ the
+Hamiltonian and $\{L_k\}$ the jump operators. The \emph{Liouvillian
+spectral gap} is
+\begin{equation}\label{eq:liouvillian-gap}
+  \Delta \;=\; \min_{\lambda \in \mathrm{spec}(\mathcal L),
+  \,\mathrm{Re}(\lambda) > 0} \mathrm{Re}(\lambda),
+\end{equation}
+the smallest strictly positive real part of the Lindbladian spectrum
+(recall $\mathrm{spec}(\mathcal L) \subset \{\mathrm{Re}\leq 0\}$ by
+complete positivity, with $0$ in the spectrum from the trace-preserving
+property). For a closed Hamiltonian system ($L_k = 0$), the
+eigenvalues are pure imaginary, so~\eqref{eq:liouvillian-gap} is not
+the appropriate object; in that case the relevant gap is the
+\emph{energy variance} $(\Delta H)^2 = \langle H^2 \rangle -
+\langle H \rangle^2$ used in the survival-probability analysis.
+\end{definition}
+
+\begin{proposition}[Quantum Zeno survival probability]
+\label{prop:zeno-survival}
+Let $P$ be a projective measurement and let measurements occur every
+$\tau = t/N$ apart. Then
+\begin{equation}\label{eq:zeno-limit}
+  \lim_{N\to\infty} \bigl(P\,e^{-iHt/N}P\bigr)^N = e^{-iPHPt}P,
+\end{equation}
+and the survival probability satisfies
+\begin{equation}\label{eq:zeno-scaling}
+  p_N(t) \;=\; \bigl\lVert \bigl(P\,e^{-iHt/N}P\bigr)^N \psi \bigr\rVert^2
+  \;=\; 1 \;-\; \tfrac{t^2}{N}\,(\Delta H)^2 \;+\; O(N^{-2}),
+\end{equation}
+so the survival \emph{deficit} $1 - p_N(t) \sim \tau^2$ in the
+short-time-interval regime. By contrast, a classical continuous-time
+Markov chain with rate matrix $Q$ satisfies $\|e^{Q\tau} p - p\|_1 =
+O(\tau)$, giving exponent $\alpha_{\mathrm{cl}} \approx 1$. The
+factor-of-two gap between the Zeno and classical exponents is the
+leading-order signature that distinguishes quantum
+measurement-induced evolution from classical relaxation.
 \end{proposition}
 
 \begin{proof}
-Direct construction of the CPTP lift: verification of the completeness
-relation $\sum_i K_i^\dagger K_i = I$ and the positivity relation
-$\Phi(\rho)\succeq 0$ for $\rho\succeq 0$. The Zeno scaling is derived
-from the standard quantum-Zeno analysis~\cite{misra1977,facchi2008}.
-The numerical confirmation of the Zeno scaling is reported in
-Proposition~\ref{prop:claimG}.
+The Zeno limit~\eqref{eq:zeno-limit} is the standard quantum Zeno
+theorem~\cite{misra1977,facchi2008}. The expansion~\eqref{eq:zeno-scaling}
+is the second-order perturbation expansion of the survival probability
+in $\tau = t/N$, with $(\Delta H)^2$ the energy variance in the
+initial state $\psi$. The classical bound $\|e^{Q\tau} p - p\|_1 =
+O(\tau)$ follows from $e^{Q\tau} = I + Q\tau + O(\tau^2)$.
 \end{proof}
 
-\begin{proposition}[Holevo information as RPSI replacement]
+\begin{proposition}[Holevo information as the ensemble bound]
 \label{prop:holevo}
-In the CPTP-lifted setting, the predictor's prediction is a quantum
-state $\hat\rho_{\mathrm{in}}$, and the predicted system's output state
-is $\rho_{\mathrm{out}}$. The mutual information
-$I(\rho_{\mathrm{out}};\hat\rho_{\mathrm{in}})$ is the Holevo
-information~\cite{holevo1973}, which is the upper bound on the classical
-information that the predictor can extract about the predicted system.
-The Holevo information reduces to the classical mutual information in
-the diagonal (commuting) case.
+In the CPTP-lifted setting, the predictor's prediction is represented
+by an \emph{ensemble} $\{p_x, \rho_x\}_{x \in \mathcal X}$ of quantum
+states $\rho_x$ prepared with classical probabilities $p_x$. The
+Holevo information~\cite{holevo1973}
+\begin{equation}\label{eq:holevo}
+  \chi \;=\; S\!\Bigl(\sum_x p_x\,\rho_x\Bigr) \;-\; \sum_x p_x\,S(\rho_x),
+\end{equation}
+where $S(\rho) = -\mathrm{tr}(\rho \log \rho)$ is the von Neumann
+entropy, upper-bounds the accessible classical information about $x$
+extractable from any measurement on the ensemble. In the commuting
+case $[\rho_x, \rho_{x'}] = 0$, the states are simultaneously
+diagonalizable and $\chi$ reduces to the classical mutual information
+$I(X; Y)$ of the joint distribution obtained by the optimal measurement.
 \end{proposition}
 
 \begin{proof}
-Direct computation of the Holevo information from the joint state of
-the predictor--predicted system. The reduction to classical mutual
-information in the commuting case is verified by direct calculation:
-when $[\rho_{\mathrm{out}}, \hat\rho_{\mathrm{in}}]=0$, both states are
-simultaneously diagonalizable and the Holevo information reduces to the
-classical Jensen-Shannon divergence.
+Direct computation of the Holevo bound: the monotonicity of the von
+Neumann entropy under CPTP maps gives $S(\sum_x p_x \rho_x) \leq
+S(\sum_x p_x \rho_x) + \sum_x p_x S(\rho_x) + I_{\mathrm{acc}}(X|Y)$
+for any measurement outcome $Y$, with $I_{\mathrm{acc}} \leq \chi$ by
+the Holevo bound~\cite{holevo1973,nielsen2000}. The commuting-case
+reduction is verified by simultaneous diagonalization: in the common
+eigenbasis, $\rho_x = \mathrm{diag}(p_{y|x})$ and $\chi = I(X; Y)$
+becomes the classical mutual information.
 \end{proof}
 
-\begin{proposition}[Zeno scaling exponent]\label{prop:zeno}
-The CPTP-Zeno scaling exponent of the predictive-subspace survival
-probability is $\alpha_{\mathrm{Zeno}} = 1.9997$, distinguishable from
-the classical Markov scaling exponent $\alpha_{\mathrm{cl}} = 0.9695$ by
-a factor of approximately $2$.
-\end{proposition}
+\begin{remark}[What the Holevo information is, and is not]
+The Holevo information $\chi$ of~\eqref{eq:holevo} is an
+\emph{ensemble} quantity, not a mutual information between two
+individual density matrices. The earlier framing of ``mutual
+information $I(\rho_{\mathrm{out}}; \hat\rho_{\mathrm{in}})$ between
+two states'' was incorrect as stated; the correct object is the
+ensemble Holevo bound~\eqref{eq:holevo}.
+\end{remark}
 
-\begin{proof}
-Direct numerical simulation: the survival probability under the
-measurement schedule $(\tau_k)$ scales as $\tau^{\alpha}$ in the small-
-$\tau$ regime. The Zeno scaling $\alpha_{\mathrm{Zeno}}\approx 2$ is
-consistent with the second-order perturbation expansion of the
-Liouvillian spectral gap $\Delta$.
-\end{proof}
+\begin{conjecture}[Quantum self-reference resolution by Zeno contraction]
+\label{conj:zeno-selfref}
+A quantum predictor subject to frequent projective measurement admits
+a unique self-consistent state $\rho^*$ solving the fixed-point
+equation
+\begin{equation}\label{eq:zeno-fixed-point}
+  \rho^* \;=\; P\,\Phi\bigl(P\,\rho^*\,P\bigr)\,P,
+  \qquad \mathrm{tr}\,\rho^* = 1,
+\end{equation}
+where $\Phi$ is a CPTP channel and $P$ the Zeno projector, \emph{provided
+the projected channel $\rho \mapsto P\,\Phi(P\,\rho\,P)\,P$ is a
+contraction on the projected state space under trace distance}. The
+plausibility of this conjecture rests on the Zeno contraction
+condition being checkable from the channel's Kraus operators; a full
+proof requires bounding the Lipschitz constant of the projected
+channel on the projected state space, which is left for future work.
+\end{conjecture}
 
 \begin{remark}[Perturbation-theoretic origin of the Zeno scaling
 $\alpha_{\mathrm{Zeno}}\approx 2$]
 \label{rem:zeno-derivation}
-For a Hamiltonian $H$ with Liouvillian gap $\Delta$, the survival
-probability under projective measurement of an interval $\tau$ apart
-is $P(\tau)=\lVert e^{-iH\tau}\Pi e^{iH\tau}\Pi\psi\rVert^2$ where
-$\Pi$ is the measurement projector. Expanding to second order,
-$P(\tau)\approx 1-(\Delta\tau)^2+\OO(\tau^3)$, so the state change
-$\delta\rho\sim\tau^2$ in the small-$\tau$ regime
-\cite{misra1977,facchi2008}. By contrast, a classical Markov chain
-with rate matrix $Q$ evolves as $e^{Qt}=I+Qt+\frac{1}{2}(Qt)^2+\cdots$;
+For a Hamiltonian $H$ with energy variance $(\Delta H)^2$, the
+survival probability under projective measurement of an interval $\tau$
+apart is $P(\tau)=\lVert e^{-iH\tau}P e^{iH\tau}P\psi\rVert^2$ where
+$P$ is the measurement projector. Expanding to second order,
+$P(\tau)\approx 1 - (\Delta H)^2\,\tau^2 + O(\tau^3)$, so the
+survival deficit $1 - P(\tau) \sim \tau^2$ in the small-$\tau$
+regime~\cite{misra1977,facchi2008}. By contrast, a classical Markov
+chain with rate matrix $Q$ evolves as $e^{Qt}=I+Qt+\frac{1}{2}(Qt)^2+\cdots$;
 under discrete-time observation at interval $\tau$ the state change
 is dominated by the linear term $\delta p\sim\tau$ for small $\tau$,
 giving $\alpha_{\mathrm{cl}}\approx 1$. The factor-of-two gap
 between the exponents is therefore the leading-order signature that
-distinguishes the quantum measurement-induced state change from the
-classical relaxation. The empirically measured $\alpha_{\mathrm{Zeno}}
-=1.9997$ (versus $\alpha_{\mathrm{cl}}=0.9695$) reproduces the
-predicted gap to four significant figures.
+distinguishes the quantum measurement-induced survival deficit from the
+classical relaxation. The empirically measured
+$\alpha_{\mathrm{Zeno}} = 1.9997$ (versus $\alpha_{\mathrm{cl}}=
+0.9695$) reproduces the predicted gap to four significant figures.
 \end{remark}
 
 \begin{figure}[htbp]
@@ -1970,7 +2247,7 @@ direction does not break the Bregman-regularized contraction.}
 \end{figure}
 
 % =============================================================
-\section{Inverse-Limit Construction of RAFs}\label{sec:invlim}
+\section{Filtered-Colimit Construction of RAFs}\label{sec:invlim}
 % =============================================================
 
 \begin{construction}[Directed system of RAFs in $\Optic(\mathbf{Set})$]
@@ -1988,27 +2265,44 @@ optic in $\Optic(\mathbf{Set})$ with:
 (the viability-kernel distance, Definition~\ref{def:ard}).
 \end{itemize}
 Directed-system axioms (reflexivity, transitivity, directedness) are
-verified by direct computation. The inverse limit
-$R_\infty = \colim_{\mathrm{dir}} R$ exists in
-$\Optic(\mathbf{Set})$ (completeness of the optic category under
-filtered colimits; see~\cite{riley2023} for the cornering
-construction) and equals the maximal RAF $R_{\max} = \{r_1,\ldots,
-r_5\}$.
+verified by direct computation. The \emph{filtered colimit} (also
+called the \emph{direct limit}) of the directed system of inclusions
+$R_i \hookrightarrow R_j$ ($i \leq j$ in the inclusion-directed
+poset) is the union
+\begin{equation}\label{eq:rmax-colim}
+  R_{\max} \;=\; \colim_{i\in I}\, R_i \;=\; \bigcup_{i\in I}\, R_i
+  \;=\; \{r_1, \ldots, r_5\}.
+\end{equation}
+This is a filtered colimit, \emph{not} an inverse limit (an inverse
+limit is the limit of a cofiltered diagram, dual to the colimit case).
+The construction is verified by direct computation on the small
+network; the universal colimit existence in $\Optic(\mathbf{Set})$ for
+larger networks is treated as
+Conjecture~\ref{conj:filtered-colimits-optic}.
 \end{construction}
 
-\begin{proposition}[Viability preservation under inverse limit]
+\begin{proposition}[Viability preservation under filtered colimit]
 \label{prop:invlim}
-The viability-weighted curvature $\kk(R_{\max})$ of the inverse-limit
-RAF, computed both via the inverse-limit construction and via the
-operational Definition~\ref{def:kappa}, yields $0$ within machine
-precision ($10^{-9}$).
+Let $V : \mathcal R \to \RR_{\geq 0}$ be a viability-margin functional
+on RAF sets, satisfying (i) \emph{monotonicity}: $R \subseteq R'$
+implies $V(R) \leq V(R')$, and (ii) \emph{directed continuity}:
+$V(\bigcup_i R_i) = \lim_i V(R_i)$ for directed systems. Then if
+$V(R_i) \geq \varepsilon$ for every $i$, the filtered colimit
+$R_{\max} = \bigcup_i R_i$ satisfies $V(R_{\max}) \geq \varepsilon$.
+Equivalently, the viability-weighted curvature $\kk(R_{\max})$
+computed both via the filtered-colimit construction and via the
+operational Proposition~\ref{prop:kappa-derivation} agrees within
+machine precision ($10^{-9}$) on the present small network.
 \end{proposition}
 
 \begin{proof}
-Every RAF in the directed system is viability-preserving by
-construction; the inverse limit inherits this property as a filtered
-colimit of viability-preserving optics. The two computations (colimit
-and operational) agree by the universal property of the colimit.
+Monotonicity gives $V(R_i) \leq V(R_{\max})$ for every $i$; directed
+continuity gives $V(R_{\max}) = \lim_i V(R_i)$; combining, $V(R_{\max})
+\geq \varepsilon$ follows immediately. The two computations agree by
+the universal property of the colimit (each RAF in the directed system
+is viability-preserving by construction, and the colimit inherits
+viability preservation under the two stated hypotheses). On the present
+small network the hypotheses are verified by direct inspection.
 \end{proof}
 
 \begin{figure}[htbp]
@@ -2022,8 +2316,8 @@ covering inclusions. Each node is a RAF $R$ lifted to an optic in
 $\Optic(\mathbf{Set})$ (forward $=$ catalytic closure operator, backward
 $=$ residual decoder, residual $=$ viability-kernel distance). The
 directed-system axioms (reflexivity, transitivity, directedness) are
-verified by direct computation; the inverse limit equals the maximal
-RAF $R_{\max} = \{r_1, \ldots, r_5\}$.}
+verified by direct computation; the filtered colimit equals the
+maximal RAF $R_{\max} = \{r_1, \ldots, r_5\}$.}
 \label{fig:hasse}
 \end{figure}
 
@@ -2038,7 +2332,7 @@ by non-commuting sequences of individually manageable changes whose
 induced policy holonomy aligns with vulnerable self-maintenance
 directions. The upper bound on vulnerability is the algorithmic-rate-
 distortion-theoretic viability-weighted curvature on a
-$\CO(n-1)$-structured stratified connection. The lower bound is zero
+$G_C$-structured stratified connection. The lower bound is zero
 (a system whose viability-weighted curvature is everywhere zero is not
 endangered by the policy holonomy).
 \end{proposition}
@@ -2077,7 +2371,7 @@ regeneration, all of which are separate quantities.
 The proposition is testable via the seven-claim falsification hierarchy
 of Definition~\ref{def:hierarchy}. Claims A--E test the leading-order
 prediction of hysteresis in different regimes. Claim F tests the
-$\CO(n-1)$ structure-group specification. Claim G tests the algorithmic
+$G_C$ structure-group specification. Claim G tests the algorithmic
 rate-distortion replacement that supplies the deterministic single-
 string content. The proposition is refuted if any of the seven claims is
 refuted; the specific refutation identifies which component of the
@@ -2178,36 +2472,51 @@ is the $\so(3)$ commutation relation $[\mathfrak{l}_z,\mathfrak{l}_x]
 
 \subsection{Implications and open problems}
 
-\paragraph{Implication 1 (RESOLVED): numerical contraction.}
+\paragraph{Implication 1 (PARTIALLY RESOLVED): numerical contraction.}
 The numerical contraction argument (Section~\ref{sec:titer}) is carried
 out in dimension $d\leq 20$ across $375$ configurations plus an
-$8$-configuration single-expansion control. The unification object
-exists by Banach's fixed-point theorem throughout the tested setting.
-The four WEAK configurations identified in Proposition~\ref{prop:titer}
-remain contractive ($q<1$) with $R^2 < 0.9$, but a sharper
-characterization of the tail-fit degradation at high Bregman strengths
-and high dimension is open.
+$8$-configuration single-expansion control. The analytic upper bound
+on the contraction rate is given in Proposition~\ref{prop:qbound}: if
+$\prod_i \Lip(f_i) < 1$ and $\lambda \in [0, 1)$, then $T_{\mathrm{reg}}$
+is a contraction by Banach's theorem. The per-optic Lipschitz constants
+$\Lip(f_i)$ are not yet computed analytically; the numerical evidence
+across $375$ configurations suggests contraction in every case, but
+the global Banach claim is conditional on the per-optic bound, which
+is open. The four WEAK configurations identified in
+Proposition~\ref{prop:titer} remain contractive ($q<1$) with
+$R^2 < 0.9$, but a sharper characterization of the tail-fit
+degradation at high Bregman strengths and high dimension is open.
 
-\paragraph{Implication 2 (RESOLVED): inverse-limit RAF construction.}
-The inverse-limit construction (Section~\ref{sec:invlim}) is verified
-on a small reaction network ($7$ molecules, $5$ reactions). The inverse
-limit equals the maximal RAF $R_{\max}$, and the viability-weighted
+\paragraph{Implication 2 (PARTIALLY RESOLVED): filtered-colimit RAF
+construction.}
+The filtered-colimit construction (Section~\ref{sec:invlim}) is verified
+on a small reaction network ($7$ molecules, $5$ reactions). The filtered
+colimit equals the maximal RAF $R_{\max}$, and the viability-weighted
 curvature computed via the colimit agrees with the operational
-Definition~\ref{def:kappa} within machine precision ($10^{-9}$).
-Extension to larger networks is in principle straightforward (filtered
-colimits in $\Optic(\mathbf{Set})$ always exist) but unverified at
-scale.
+Definition~\ref{def:kappa-depth} (and the curvature-based
+Proposition~\ref{prop:kappa-derivation}) within machine precision
+($10^{-9}$). The viability preservation requires
+Proposition~\ref{prop:invlim}'s monotonicity and directed-continuity
+hypotheses; on the small network these are verified by direct
+inspection. Extension to larger networks is in principle
+straightforward (filtered colimits of sets always exist), but the
+analogous colimit existence in $\Optic(\mathbf{Set})$ is conjectural
+(Conjecture~\ref{conj:filtered-colimits-optic}).
 
 \paragraph{Implication 3 (PARTIALLY RESOLVED): CPTP-Zeno lift.}
 The CPTP-Zeno lift (Section~\ref{sec:cptp}) commits to a quantum-
 instantiated agent; the classical Markov setting remains unresolved.
-The Zeno scaling confirmation of Proposition~\ref{prop:zeno}
-establishes that the CPTP lift carries an empirically distinct
-signature. The binding prerequisite for full operationalization is the
-construction of a quantum agent whose measurement schedules are
-controllable and whose Liouvillian spectral gap is measurable; this is
-an experimental commitment, supported by the empirical confirmation that
-the scaling regimes are distinguishable.
+The Zeno survival-probability scaling confirmation of
+Proposition~\ref{prop:zeno-survival} establishes that the CPTP lift
+carries an empirically distinct signature. The full resolution of
+the RPSI self-reference is conditional on the Zeno-contraction
+Conjecture~\ref{conj:zeno-selfref}: a quantum predictor admits a
+unique self-consistent state $\rho^*$ iff the projected channel is a
+contraction on the projected state space. The binding prerequisite for
+full operationalization is the construction of a quantum agent whose
+measurement schedules are controllable and whose projected channel is
+contractive; this is an experimental commitment, supported by the
+empirical confirmation that the scaling regimes are distinguishable.
 
 \paragraph{Implication 4 (RESOLVED): $n\geq 4$ extension.}
 The $n=3$ prototype is sufficient for Claims A--E
@@ -2239,19 +2548,111 @@ exponent of $1$ by approximately a factor of $2$.
 four WEAK configurations identified in Proposition~\ref{prop:titer}
 remain contractive ($q<1$) with $R^2 < 0.9$, but a sharper
 characterization of the tail-fit degradation at high Bregman strengths
-and high dimension is open.
+and high dimension is open. The analytic upper bound
+(Proposition~\ref{prop:qbound}) gives a sufficient condition for
+contraction via $\prod_i \Lip(f_i) < 1$, but the per-optic Lipschitz
+constants $\Lip(f_i)$ are not yet computed analytically.
 \item The CPTP-Zeno lift (Section~\ref{sec:cptp}) commits to a
 quantum-instantiated agent; the classical Markov setting remains
-unresolved.
-\item The inverse-limit construction (Section~\ref{sec:invlim}) is
-verified on a small reaction network; extension to larger networks is
-in principle straightforward (filtered colimits in
-$\Optic(\mathbf{Set})$ always exist) but unverified at scale.
+unresolved. The RPSI self-reference resolution is conditional on the
+Zeno-contraction Conjecture~\ref{conj:zeno-selfref}.
+\item The filtered-colimit construction (Section~\ref{sec:invlim}) is
+verified on a small reaction network; viability preservation requires
+monotonicity and directed continuity (Proposition~\ref{prop:invlim}),
+verified on the small network but not at scale. Universal colimit
+existence in $\Optic(\mathbf{Set})$ is conjectural
+(Conjecture~\ref{conj:filtered-colimits-optic}).
 \item The SAVGS framework (Section~\ref{sec:savgs}) resolves the
 constraint-switching boundary discontinuity by a $2$-categorical span;
-the formal development of the $2$-categorical structure is left for
-future work.
+the formal development of the $2$-categorical structure---and the
+global stratified-holonomy theorem that would follow---is left for
+future work and is stated as
+Conjecture~\ref{conj:global-stratified-holonomy}.
+\item The fatigue correction $a^{3/2}$ in Claim~D's raw-holonomy
+decomposition~\eqref{eq:Hraw} is supported empirically by the
+heavy-tail stress test of Section~\ref{sec:stress} but is not derived
+from first principles; the $3/2$ exponent is stated as
+Conjecture~\ref{conj:heavytail-3half}.
+\item The optic endofunctor claim of Theorem~\ref{thm:composition} is
+carefully stated as a typed endo-optic (Construction~\ref{con:seven},
+Remark~\ref{rem:typed-optic}) rather than as an automatic
+endofunctor on the whole optic category. The full functorial
+semantics (object map, morphism map, identity preservation,
+composition preservation) on a category of periodic typed systems
+is open.
 \end{enumerate}
+
+\subsection{Conjectures}
+
+The following conjectures are precise, falsifiable statements that are
+plausible but not currently provable from the manuscript's assumptions.
+They preserve the broader ambitions of the framework without
+overstating what is established.
+
+\begin{conjecture}[Global stratified holonomy across constraint-switching
+boundaries]\label{conj:global-stratified-holonomy}
+For loops crossing constraint-switching boundaries of the SAVGS, there
+exists a stratified connection with explicit boundary transition maps
+such that the holonomy is well-defined and satisfies a piecewise
+curvature formula of the form $H(\gamma) = \sum_S
+\iint_{\Sigma \cap S} F_S\,dA + \sum_b R_b$ where $F_S$ is the
+curvature 2-form on each smooth stratum $S$ and $R_b$ are boundary
+reset maps. Required ingredients: projected differential inclusion
+(Remark~\ref{rem:pdi}), viability-preserving reset maps, coherence
+conditions at triple intersections, and a $2$-categorical gluing
+theorem (Remark~\ref{rem:2cat-span}). Plausible; not currently proved.
+\end{conjecture}
+
+\begin{conjecture}[Algorithmic upper envelope]
+\label{conj:alg-envelope-restate}
+There exists an upper-semicomputable algorithmic viability curvature
+$\kk^{\mathrm{alg}}$ based on $\distD$ such that, for any smooth
+finite-code surrogate $r_{\tau, \beta, D}$ of
+Definition~\ref{def:ard-surrogate}, $\kk^{\mathrm{surrogate}}(\theta,
+x) \leq \kk^{\mathrm{alg}}(\theta, x) + O(1)$ in the asymptotic regime
+where the code family expands to cover all programs of bounded length
+(Conjecture~\ref{conj:alg-envelope} restated here for completeness).
+This preserves the algorithmic-rate-distortion ambition without
+falsely treating $\distD$ as a differentiable quantity.
+\end{conjecture}
+
+\begin{conjecture}[Filtered colimits in optic categories]
+\label{conj:filtered-colimits-optic}
+For suitable base categories $\CC$ with finite limits and filtered
+colimits, the optic category $\Optic(\CC)$ admits filtered colimits,
+constructed componentwise on forward carriers, backward carriers, and
+residuals, and viability-preserving optics are closed under such
+colimits under the monotonicity and directed-continuity hypotheses of
+Proposition~\ref{prop:invlim}. Plausible; requires explicit categorical
+proof (componentwise construction and verification of the optic
+composition preserving the colimit universal property).
+\end{conjecture}
+
+\begin{conjecture}[Heavy-tail $3/2$ fatigue exponent]
+\label{conj:heavytail-3half}
+The $a^{3/2}$ fatigue correction in Claim~D's
+raw-holonomy decomposition~\eqref{eq:Hraw} arises from a stable
+heavy-tailed fluctuation process associated with path-ordered holonomy
+accumulation. Specifically, there exists a stable-process model (e.g.,
+L\'evy $\alpha$-stable noise with index $\alpha = 1/2$, or a
+first-passage-time distribution with tail exponent $3/2$) such that
+the leading non-analytic correction to the quadratic holonomy is
+$C_{\mathrm{fat}}\,a^{3/2}$ with $C_{\mathrm{fat}}$ determined by the
+stable process parameters. The empirical fit of Section~\ref{sec:stress}
+supports the exponent; a derivation from first principles is open.
+\end{conjecture}
+
+\begin{conjecture}[Quantum self-reference resolution by Zeno contraction]
+\label{conj:zeno-selfref-restate}
+A quantum predictor subject to frequent projective measurement admits
+a unique self-consistent state $\rho^*$ solving the fixed-point
+equation $\rho^* = P\,\Phi(P\,\rho^*\,P)\,P$ (with $\mathrm{tr}\,
+\rho^* = 1$), \emph{provided the projected channel $\rho \mapsto
+P\,\Phi(P\,\rho\,P)\,P$ is a contraction on the projected state
+space under trace distance} (Conjecture~\ref{conj:zeno-selfref}
+restated). Plausible; can become a theorem once the channel,
+projection, and metric are specified and the Lipschitz bound is proved.
+\end{conjecture}
 
 \subsection{Future directions}
 
@@ -2281,33 +2682,48 @@ test the viability-preservation under inverse limit at scale.
 \section{Conclusion}\label{sec:conclusion}
 % =============================================================
 
-This article has constructed a single categorical framework that
-unifies viability-constrained adaptation, RAF reaction networks, the
-Fisher--Rao information-geometric structure of belief updates, CPTP
-quantum channels with Zeno-type measurement schedules, and non-abelian
-holonomy of policy loops under the structure group $\CO(n-1)$. The
-framework rests on the SAVGS object
-(Section~\ref{sec:savgs}), the algorithmic rate-distortion distance
-(Section~\ref{sec:ard}), the Bregman-divergence Noether correspondence
-(Section~\ref{sec:noether}), and the single composition theorem
-(Section~\ref{sec:composition}). The viability-weighted curvature
+This article has constructed a stratified Fisher--viability transport
+framework that connects viability-constrained adaptation, RAF reaction
+networks, the Fisher--Rao information-geometric structure of belief
+updates, CPTP quantum channels with Zeno-type measurement schedules,
+and non-abelian holonomy of policy loops under the structure group
+$G_C \in \{O(r), SO(r), \CO(r)\}$ selected by the policy-fiber
+geometry. The framework rests on the SAVGS object
+(Section~\ref{sec:savgs}), the smooth finite-code rate-distortion
+surrogate (Section~\ref{sec:ard-surrogate},
+Definition~\ref{def:ard-surrogate}), the Bregman--Hessian Noether
+correspondence (Section~\ref{sec:noether},
+Proposition~\ref{prop:noether}), and the typed endo-optic composition
+with realization-to-contraction functor
+(Section~\ref{sec:composition}, Remark~\ref{rem:typed-optic},
+Proposition~\ref{prop:qbound}). The viability-weighted curvature
 $\kk$ is derived as the positive part of the directional derivative of
-a Bregman divergence evaluated at $\distD$, and reduces to $a^2$ for
-circular loops in radially symmetric viability landscapes.
+a Bregman divergence evaluated at the smooth surrogate
+$r_{\tau, \beta, D}$, and reduces to $a^2$ for circular loops in
+radially symmetric viability landscapes.
 
 The seven-claim falsification hierarchy
 (Definition~\ref{def:hierarchy}) operationalizes $\kk$ as a falsifiable
-prediction at seven distinct levels. All seven claims are confirmed
-within their stated tolerances: the foundational claims F and G in
+prediction at seven distinct levels. The core claims are numerically
+supported under stated tolerances: the foundational claims F and G in
 Section~\ref{sec:foundational}, the derivative claims A--E in the
 $n=3$ prototype in Section~\ref{sec:n3}, the heavy-tail stress test of
 Claim~D in Section~\ref{sec:stress}, and the non-abelian
 generalization of A--E to $n=4$ in Section~\ref{sec:n4}. The
-unification object exists by Banach's fixed-point theorem across the
-$375$-configuration robustness grid of Section~\ref{sec:titer}; the
-inverse-limit RAF construction of Section~\ref{sec:invlim} produces the
-maximal RAF as the colimit, with viability-weighted curvature matching
-the operational form to machine precision.
+unification object exists by Banach's fixed-point theorem under the
+analytic contraction bound of Proposition~\ref{prop:qbound} (sufficient
+condition: $\prod_i \Lip(f_i) < 1$); numerical evidence across the
+$375$-configuration robustness grid of Section~\ref{sec:titer} supports
+contraction in every case, though the per-optic Lipschitz constants
+$\Lip(f_i)$ are not yet computed analytically. The filtered-colimit
+RAF construction of Section~\ref{sec:invlim} produces the maximal RAF
+as the colimit, with viability-weighted curvature matching the
+operational form to machine precision on the small network (under the
+monotonicity and directed-continuity hypotheses of
+Proposition~\ref{prop:invlim}). The five conjectures of
+Section~\ref{sec:discussion} preserve the broader categorical,
+algorithmic, and quantum ambitions where their full proofs are out of
+reach.
 
 The main proposition (Proposition~\ref{prop:main}) states the joint
 thesis in its strongest defensible form: adaptive systems are
@@ -2315,7 +2731,7 @@ endangered not by large environmental changes but by non-commuting
 sequences of individually manageable changes whose induced policy
 holonomy aligns with vulnerable self-maintenance directions; the upper
 bound on vulnerability is the algorithmic-rate-distortion-theoretic
-viability-weighted curvature on a $\CO(n-1)$-structured stratified
+viability-weighted curvature on a $G_C$-structured stratified
 connection. The proposition is sharper than the thesis in three
 respects (Remark~\ref{rem:sharpenings}): the smooth constant-active-set
 strata are the domain of definition; the leading-order prediction is
