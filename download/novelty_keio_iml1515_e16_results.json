@@ -1,0 +1,275 @@
+{
+  "task": "E16 \u2014 Cross-rebuild validation of \u03ba_V on iML1515 (Monk 2017)",
+  "report_reference": "User follow-up to E15 (Novelty_Assessment_Report.pdf \u00a78 Upgrade 1)",
+  "hypothesis": "iML1515 has FEWER model-gaps than iJO1366 \u2192 \u03ba_V tracks model improvement across rebuilds",
+  "model": {
+    "name": "iML1515 (Monk et al. 2017 Nat Biotechnol 35:904-908)",
+    "source": "data/bigg_models/iML1515.json (copied verbatim from SBRG/iML1515_GP GitHub repo)",
+    "n_reactions": 2719,
+    "n_metabolites": 1919,
+    "n_genes": 1516,
+    "biomass_reaction": "Ec_biomass_iML1515_core_75p37M",
+    "wild_type_biomass_pFBA": 0.9259332133632957,
+    "essential_threshold_5pct": 0.04629666066816479,
+    "medium": "glucose+O2 minimal (10 mmol/gDW/h glucose + 20 mmol/gDW/h O2, with minerals)"
+  },
+  "n_genes_processed": 1516,
+  "n_essential_in_silico": 286,
+  "essential_fraction_in_silico": 0.18865435356200527,
+  "n_merged_to_keio": 1331,
+  "raw_keio_call_distribution": {
+    "E": 114,
+    "N": 1211,
+    "u": 6
+  },
+  "binary_subset": {
+    "n_total": 1325,
+    "n_essential_E": 114,
+    "n_non_essential_N": 1211,
+    "base_rate_essential": 0.0860377358490566
+  },
+  "direct_validation_iml1515": {
+    "pearson_r_log10_kV_keio_E": -0.01780771864037624,
+    "pearson_p_value": 0.5172111492995829,
+    "spearman_rho": -0.07015510625680997,
+    "spearman_p_value": 0.01063642568352766,
+    "point_biserial_r": -0.01780771864037624,
+    "bootstrap_95ci_low": -0.05847009313790682,
+    "bootstrap_95ci_high": 0.020023810953929952,
+    "n_bootstrap_resamples": 2000,
+    "roc_auc": 0.42778550422298517
+  },
+  "held_out_essentiality_prediction_iml1515": {
+    "test_size_fraction": 0.3,
+    "n_train": 927,
+    "n_train_essential": 80,
+    "n_test": 398,
+    "n_test_essential": 34,
+    "accuracy": 0.6432160804020101,
+    "sensitivity": 0.4411764705882353,
+    "specificity": 0.6620879120879121,
+    "precision": 0.10869565217391304,
+    "f1": 0.1744186046511628,
+    "mcc": 0.06064772107762663,
+    "roc_auc": 0.5586619263089851,
+    "confusion_matrix": {
+      "tp": 15,
+      "fp": 123,
+      "tn": 241,
+      "fn": 19
+    }
+  },
+  "precision_at_k_iml1515": {
+    "K=10": {
+      "precision": 0.0,
+      "base_rate": 0.0860377358490566,
+      "lift": 0.0,
+      "n_top_with_keio_E": 0
+    },
+    "K=25": {
+      "precision": 0.08,
+      "base_rate": 0.0860377358490566,
+      "lift": 0.9298245614035088,
+      "n_top_with_keio_E": 2
+    },
+    "K=50": {
+      "precision": 0.04,
+      "base_rate": 0.0860377358490566,
+      "lift": 0.4649122807017544,
+      "n_top_with_keio_E": 2
+    },
+    "K=100": {
+      "precision": 0.06,
+      "base_rate": 0.0860377358490566,
+      "lift": 0.6973684210526315,
+      "n_top_with_keio_E": 6
+    },
+    "K=200": {
+      "precision": 0.03,
+      "base_rate": 0.0860377358490566,
+      "lift": 0.34868421052631576,
+      "n_top_with_keio_E": 6
+    },
+    "K=500": {
+      "precision": 0.078,
+      "base_rate": 0.0860377358490566,
+      "lift": 0.906578947368421,
+      "n_top_with_keio_E": 39
+    }
+  },
+  "confidence_stratified_iml1515": {
+    "high_conf_Keio_E_and_PEC_E": {
+      "n": 69,
+      "median_log10_kV": 4.332060388761587,
+      "roc_auc_vs_Keio_N": 0.42289280628059217,
+      "pearson_r_vs_Keio_N": -0.02136058042431333,
+      "pearson_p_value": 0.44512959537907343
+    },
+    "low_conf_Keio_E_and_PEC_N": {
+      "n": 34,
+      "median_log10_kV": 4.312738297648746,
+      "roc_auc_vs_Keio_N": 0.44627677660659637
+    }
+  },
+  "model_gaps_iml1515_Keio_E_PEC_E_in_silico_N": {
+    "n": 13,
+    "top_15_by_kV": [
+      {
+        "bnum": "b2779",
+        "gene": "eno",
+        "kV": 50246.96282549949,
+        "COG_id": "COG0148"
+      },
+      {
+        "bnum": "b2925",
+        "gene": "fbaA",
+        "kV": 44557.729980499804,
+        "COG_id": "COG0191"
+      },
+      {
+        "bnum": "b3640",
+        "gene": "dut",
+        "kV": 38027.88819516987,
+        "COG_id": "COG0756"
+      },
+      {
+        "bnum": "b2563",
+        "gene": "acpS",
+        "kV": 29869.345229084953,
+        "COG_id": "COG0736"
+      },
+      {
+        "bnum": "b1207",
+        "gene": "prsA",
+        "kV": 27937.358112164355,
+        "COG_id": "COG0462"
+      },
+      {
+        "bnum": "b3650",
+        "gene": "spoT",
+        "kV": 24996.90318754795,
+        "COG_id": "COG0317"
+      },
+      {
+        "bnum": "b0954",
+        "gene": "fabA",
+        "kV": 12821.196095564777,
+        "COG_id": "COG0764"
+      },
+      {
+        "bnum": "b1912",
+        "gene": "pgsA",
+        "kV": 12820.465128913143,
+        "COG_id": "COG0558"
+      },
+      {
+        "bnum": "b0657",
+        "gene": "lnt",
+        "kV": 12820.465128913118,
+        "COG_id": "COG0815"
+      },
+      {
+        "bnum": "b2234",
+        "gene": "nrdA",
+        "kV": 7683.157970348717,
+        "COG_id": "COG0209"
+      },
+      {
+        "bnum": "b2235",
+        "gene": "nrdB",
+        "kV": 7683.157970348717,
+        "COG_id": "COG0208"
+      },
+      {
+        "bnum": "b2411",
+        "gene": "ligA",
+        "kV": 7520.159658889162,
+        "COG_id": "COG0272"
+      },
+      {
+        "bnum": "b0474",
+        "gene": "adk",
+        "kV": 1531.2084749794858,
+        "COG_id": "COG0563"
+      }
+    ]
+  },
+  "cross_rebuild_comparison": {
+    "iJO1366": {
+      "n_genes_total": 1367,
+      "n_merged": 1212,
+      "n_essential_in_silico": 269,
+      "pearson_r": 0.08466201564006262,
+      "spearman_rho": 0.2284394204156901,
+      "roc_auc": 0.7126000857878182,
+      "held_out_roc_auc": 0.7571247122330714,
+      "held_out_mcc": 0.08501915708921114,
+      "n_model_gap_candidates": 30,
+      "precision_at_k": {
+        "K=10": 0.3,
+        "K=25": 0.2,
+        "K=50": 0.16,
+        "K=100": 0.23,
+        "K=200": 0.245,
+        "K=500": 0.194
+      }
+    },
+    "iML1515": {
+      "n_genes_total": 1516,
+      "n_merged": 1331,
+      "n_essential_in_silico": 286,
+      "pearson_r": -0.01780771864037624,
+      "spearman_rho": -0.07015510625680997,
+      "roc_auc": 0.42778550422298517,
+      "held_out_roc_auc": 0.5586619263089851,
+      "held_out_mcc": 0.06064772107762663,
+      "n_model_gap_candidates": 13,
+      "precision_at_k": {
+        "K=10": 0.0,
+        "K=25": 0.08,
+        "K=50": 0.04,
+        "K=100": 0.06,
+        "K=200": 0.03,
+        "K=500": 0.078
+      }
+    },
+    "delta_gaps_iML1515_minus_iJO1366": -17,
+    "gaps_resolved_by_iML1515": [
+      "b0194",
+      "b0526",
+      "b0642",
+      "b0680",
+      "b0893",
+      "b0930",
+      "b1637",
+      "b1713",
+      "b1714",
+      "b1719",
+      "b1866",
+      "b1876",
+      "b2514",
+      "b3288",
+      "b3384",
+      "b3560",
+      "b4226",
+      "b4258"
+    ],
+    "gaps_new_in_iML1515": [
+      "b0474"
+    ],
+    "gaps_persistent_in_both": [
+      "b0657",
+      "b0954",
+      "b1207",
+      "b1912",
+      "b2234",
+      "b2235",
+      "b2411",
+      "b2563",
+      "b2779",
+      "b2925",
+      "b3640",
+      "b3650"
+    ]
+  }
+}
