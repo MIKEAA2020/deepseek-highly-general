@@ -1684,3 +1684,53 @@ Artifacts:
 - /home/z/my-project/scripts/journal_manuscript.tex (updated: +165 lines = 5801 total; new Subsection sec:autopoiesis-network-I, new Proposition prop:netI-verdict, new Remark rem:netI-discussion, new Figure fig:autopoiesis-network-I, updated Future Directions + Conclusion)
 - /home/z/my-project/scripts/journal_manuscript.pdf (recompiled, 73 pages, 5.46 MiB)
 - /home/z/my-project/download/journal_manuscript.pdf (synced)
+
+---
+Task ID: 5
+Agent: Super Z (main)
+Task: User request: "dampen the new FBP limit-cycle (e.g., a reversible FBP ⇌ DHAP/G3P aldolase isozyme pair with substrate-induced synthesis, or a fructose-bisphosphatase backup) to push Network I → 46/46 Phase I = 100%; or pivot to the larger RAF inverse-limit item (extending to |M| > 10)."
+
+Work Log:
+- Surveyed recent git history (commits bd0ba58 → 314e98f → 86062ed → 246da37 → 02e61eb), confirming Network I at 45/46 Phase I (97.8%) with FBP limit cycle as the lone Phase I failure (Phase III = 46/46 = 100% via pathwise + contractibility).
+- Read scripts/autopoiesis_network_I.py (1124 lines) and the manuscript's sec:autopoiesis-network-I / prop:netI-verdict / rem:netI-discussion / fig:autopoiesis-network-I block to understand Network I's design rationale (ALT7/8 reversible alanine-alphaKG transaminase dampener at k_cat=0.5, which broke the ALA limit cycle of Network H but left FBP oscillating).
+- Designed and implemented Network J = Network I + ALDO3/ALDO4 reversible FBP--DHAP/G3P aldolase isozymes (EC 4.1.2.13, with alpha-KG+GLU-based synthesis analogous to ASPAT3/4/ALT7/8). New species: DHAP, G3P (2 metabolic) + ALDO3, ALDO4 (2 enzymes) = 50 non-food total (vs Network I's 46). 6 new reactions: M21a/b (FBP→DHAP+G3P forward), M22a/b (DHAP+G3P→FBP reverse), E21a/b (synthesis).
+- Wrote scripts/autopoiesis_network_J.py (full closure-test script with Phase III pathwise + univalence-corrected verdict, mirroring Network I's structure).
+- Initial Network J (amp4x stoichiometry, k_cat=0.5): 48/50 Phase I (96.0%) — FBP frac improved 0.853→0.940 (still FAIL), but new PYR limit cycle (frac 0.530, FAIL). Phase III = 50/50 = 100% (FBP, PYR both PASS via pathwise+contractibility).
+- Wrote scripts/autopoiesis_network_J_sweep.py: swept 6 k_cat values × 4 M22-reverse stoichiometry modes (amp4x 4× amplification, amp2x 2× matching M19/M20 pattern, neutral no-amp, amp1x no-doubling). Best: amp2x k=1.0 gives 49/50 Phase I (FBP PASS, PYR PASS, lone AcCoA FAIL).
+- Wrote scripts/autopoiesis_network_J_diag.py and scripts/autopoiesis_network_J_accoa.py: traced AcCoA failure root cause = NAD+ depletion. At amp2x k=1.0, the M21/M22 dampener saturates the glycolysis backbone (PYR baseline=100, OAA baseline=100), causing M7 (OAA+NAD+→MAL+NADH, MDH) to over-fire and drain NAD+ to 0, blocking M8 PDH (which needs NAD+ to produce AcCoA).
+- Wrote scripts/autopoiesis_network_J_phaseIII.py: verified all "good" amp2x/amp4x configs (49/50 Phase I) have AcCoA Phase III frac=0.275 (BELOW 0.4 pathwise threshold) → Phase III FAIL → Network J Phase III = 49/50 = 98.0%, a regression vs Network I's 100%.
+- Wrote scripts/autopoiesis_network_J_v2_sweep.py: tried the alternative user-suggested FBPase one-way drain (FBP→G6P+Pi, EC 3.1.3.11). Best: 46/48 Phase I — worse than the reversible aldolase approach. The FBPase futile cycle (FBP→G6P→FBP via PFK) boosts glycolysis flux, saturating PYR and disturbing AcCoA the same way.
+- Conclusion: NEITHER suggested dampener achieves Phase I = 100% without regressing Phase III below 100%. The FBP-AcCoA coupling via PYR/NAD+ cofactor saturation is a fundamental obstacle. The user's "OR pivot to the larger RAF inverse-limit item" alternative is the right move.
+- Updated scripts/autopoiesis_network_J.py to use amp2x k_cat=1.0 (best Phase I config), with honest documentation of the AcCoA residual and the ACS1/ACS2 (EC 6.2.1.1) as the natural next cascade-breaking candidate for a future Network K.
+- PIVOTED to RAF inverse-limit |M| > 10 task. Wrote scripts/inverse_limit_raf_extended.py: extended RAF network to |M|=13 molecules, |R|=11 reactions (vs original |M|=7, |R|=5). The network features cross-branch catalysis (r6, r8, r10, r11 each use catalysts from two distinct upstream branches) to exercise a multi-layer branching Hasse diagram.
+- Ran scripts/inverse_limit_raf_extended.py: enumerated 16 non-trivial RAFs (vs original 6), 21 Hasse covering inclusions (vs original 7), verified directed-system axioms (reflexive, transitive, directed), verified inverse limit = R_max = {r1,...,r11}, verified R_max = union of all RAFs, verified falsifiable prediction kappa_alpha(R_max) via inverse-limit = kappa_alpha(R_max) operational §1.4 form = 0 to within 1e-9. All 16 RAF nodes have kappa_alpha=0 (viability-preserving at every node, not just at the colimit).
+- Updated scripts/journal_manuscript.tex:
+  * New Subsection sec:invlim-extended "Filtered-colimit construction at scale (|M| > 10): closing the larger-RAF future-direction item"
+  * New Construction con:invlim-extended (extended network |M|=13, |R|=11, with full reaction list and cross-branch catalysis explanation)
+  * New Proposition prop:invlim-extended (directed-system axioms hold, inverse limit = R_max, falsifiable prediction kappa_alpha(R_max)=0 matches operational form, all 16 RAFs viability-preserving)
+  * New Figure fig:hasse-extended (extended Hasse diagram PNG)
+  * Updated Future Directions: closed "Larger RAF networks" item with [CLOSED] marker and reference to Subsection sec:invlim-extended; updated FBP-dampening future-work item with honest documentation of the reversible-aldolase and FBPase exploration outcomes (both shift residual to AcCoA via NAD+ depletion), and identified ACS1/ACS2 (EC 6.2.1.1) as the natural next cascade-breaking candidate
+  * Updated Conclusion to mention the |M|=13, |R|=11 scale-up verification
+  * Updated Introduction item for the inverse-limit construction to mention the scale-up
+  * Updated Section outline in Intro to mention Subsection sec:invlim-extended
+- Recompiled scripts/journal_manuscript.pdf via tectonic (75 pages, 5.56 MiB), only Overfull/Underfull hbox warnings (no errors).
+- Synced scripts/journal_manuscript.pdf to download/journal_manuscript.pdf.
+
+Stage Summary:
+- Network J FBP-dampener attempt: explored thoroughly via 4-mode × 6-k_cat sweep + FBPase v2 sweep + targeted AcCoA trajectory diagnostics. None of the user-suggested dampener mechanisms achieves Phase I = 100% with Phase III = 100% simultaneously. The M21/M22 reversible aldolase creates amplification feedback that propagates to PYR (via M3→PEP→M4) and AcCoA (via NAD+ depletion when M7 over-fires on saturated OAA). The FBPase one-way drain creates a futile cycle with M2 PFK that boosts glycolysis flux and saturates PYR. The fundamental obstacle: FBP-PYR-AcCoA coupling via shared cofactors (NAD+, NH3) means any FBP dampener that disturbs the network equilibrium disturbs the whole glycolysis+TCA backbone. Documented as honest record in scripts/autopoiesis_network_J.py at amp2x k=1.0 (49/50 Phase I, 49/50 Phase III, FBP+PYR PASS but new AcCoA limit cycle; absolute count 49 > 45 strictly greater than Network I).
+- RAF inverse-limit |M| > 10 PIVOT: COMPLETE. Extended the network from |M|=7/|R|=5 to |M|=13/|R|=11. 16 non-trivial RAFs, 21 Hasse covering inclusions, directed-system axioms hold, inverse limit = R_max = {r1,...,r11}, falsifiable prediction kappa_alpha(R_max)=0 matches operational §1.4 form to within 1e-9, all 16 RAF nodes viability-preserving. Closes the "larger RAF networks" future-direction item from Section sec:discussion.
+- Manuscript updated with new sec:invlim-extended, con:invlim-extended, prop:invlim-extended, fig:hasse-extended; Future Directions + Conclusion + Introduction updated. PDF recompiled successfully (75 pages).
+- Produced artifacts:
+  - /home/z/my-project/scripts/autopoiesis_network_J.py (Network J: amp2x k=1.0, 49/50 Phase I, 49/50 Phase III, FBP dampener attempt)
+  - /home/z/my-project/scripts/autopoiesis_network_J_sweep.py (k_cat × stoich sweep)
+  - /home/z/my-project/scripts/autopoiesis_network_J_diag.py (lone Phase I failure diagnostic)
+  - /home/z/my-project/scripts/autopoiesis_network_J_accoa.py (AcCoA trajectory diagnostic)
+  - /home/z/my-project/scripts/autopoiesis_network_J_phaseIII.py (Phase III check for "good" configs)
+  - /home/z/my-project/scripts/autopoiesis_network_J_v2_sweep.py (FBPase one-way drain sweep)
+  - /home/z/my-project/scripts/inverse_limit_raf_extended.py (extended RAF, |M|=13, |R|=11)
+  - /home/z/my-project/download/autopoiesis_network_J.{csv,txt,png} (Network J outputs)
+  - /home/z/my-project/download/autopoiesis_network_J_sweep.csv (Network J sweep results)
+  - /home/z/my-project/download/inverse_limit_raf_extended_{results.csv,hasse_edges.csv,hasse.png,verification.png}
+  - /home/z/my-project/scripts/journal_manuscript.tex (updated: +110 lines = 5911 total; new Subsection sec:invlim-extended, new Construction con:invlim-extended, new Proposition prop:invlim-extended, new Figure fig:hasse-extended, updated Future Directions + Conclusion + Introduction)
+  - /home/z/my-project/scripts/journal_manuscript.pdf (recompiled, 75 pages, 5.56 MiB)
+  - /home/z/my-project/download/journal_manuscript.pdf (synced)

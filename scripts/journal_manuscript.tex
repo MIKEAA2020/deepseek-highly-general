@@ -260,7 +260,11 @@ generalization of A--E to the $n=4$ non-abelian regime
 (Section~\ref{sec:n4}).
 \item An inverse-limit construction of the directed system of RAFs in
 $\Optic(\mathbf{Set})$, yielding the maximal RAF $R_{\max}$ as the
-filtered colimit (Construction~\ref{con:invlim}).
+filtered colimit (Construction~\ref{con:invlim}). The construction is
+verified at scale $|M|=13$, $|R|=11$ in
+Subsection~\ref{sec:invlim-extended}
+(Proposition~\ref{prop:invlim-extended}), closing the
+``larger RAF networks'' future-direction item.
 \item A numerical Banach contraction argument for $T$ over $X=[0,1]^d$
 across a $(d,k)$ robustness grid of $375$ configurations, demonstrating
 that the unification object exists by Banach's theorem~\cite{banach1922}
@@ -377,7 +381,9 @@ results. Section~\ref{sec:invlim} presents the filtered-colimit RAF
 construction; the componentwise construction of filtered colimits in
 $\Optic(\mathbf{Set})$ (closing Conjecture~\ref{conj:filtered-colimits-optic})
 appears as Theorem~\ref{thm:filtered-colimits-optic} within the same
-section. Section~\ref{sec:autopoiesis-real-networks} operationalizes
+section, and Subsection~\ref{sec:invlim-extended} scales the
+construction to $|M|=13$, $|R|=11$ (Proposition~\ref{prop:invlim-extended}).
+Section~\ref{sec:autopoiesis-real-networks} operationalizes
 the autopoiesis closure test on two real biochemical networks.
 Section~\ref{sec:mainprop} states the main proposition.
 Section~\ref{sec:discussion} discusses limitations, implications, and
@@ -3468,6 +3474,123 @@ agrees with the colimit of the per-$i$ curvatures to machine precision,
 under the same hypotheses.
 \end{remark}
 
+\subsection{Filtered-colimit construction at scale ($|M| > 10$):
+closing the larger-RAF future-direction item}
+\label{sec:invlim-extended}
+
+The small Hordijk--Steel network of
+Construction~\ref{con:invlim} (with $|M|=7$ molecules and $|R|=5$
+reactions) admits exhaustive enumeration of all $2^{5}-1=31$
+non-empty subsets in milliseconds, producing $6$ non-trivial RAFs.
+This is the smallest non-trivial example that demonstrates the
+directed-system axioms and the viability-preservation match at the
+colimit. The future-direction item of Section~\ref{sec:discussion}
+had explicitly suggested extending ``to reaction networks with
+$|M|>10$ to test the viability-preservation under inverse limit at
+scale.'' The present subsection closes that item with an explicit
+scale-up to $|M|=13$ and $|R|=11$.
+
+\begin{construction}[Extended catalytic reaction network ($|M|=13$,
+$|R|=11$)]
+\label{con:invlim-extended}
+The extended network is over molecules
+$M=\{a,b,c,d,e,f,g,h,i,j,k,l,m\}$ with food $F=\{a,b\}$ and $11$
+reactions, designed so the RAF poset has a multi-layer branching
+structure with cross-branch catalysis (rather than just a linear
+chain):
+\begin{equation}\label{eq:extended-rxn}
+\begin{aligned}
+  r_1:&\;\; a+b \to c, &\text{cat.}&\;\{d,e\}, &
+  r_2:&\;\; a+c \to d, &\text{cat.}&\;\{c\}, \\
+  r_3:&\;\; b+d \to e, &\text{cat.}&\;\{c,d\}, &
+  r_4:&\;\; c+d \to f, &\text{cat.}&\;\{e\}, \\
+  r_5:&\;\; a+d \to g, &\text{cat.}&\;\{c\}, &
+  r_6:&\;\; f+g \to h, &\text{cat.}&\;\{c,e\}, \\
+  r_7:&\;\; b+f \to i, &\text{cat.}&\;\{d,g\}, &
+  r_8:&\;\; g+h \to j, &\text{cat.}&\;\{e,i\}, \\
+  r_9:&\;\; h+i \to k, &\text{cat.}&\;\{j,c\}, &
+  r_{10}:&\;\; j+k \to l, &\text{cat.}&\;\{f,g\}, \\
+  r_{11}:&\;\; k+l \to m, &\text{cat.}&\;\{h,i\}. & &
+\end{aligned}
+\end{equation}
+The cross-branch catalysis is essential: $r_6$ (producing $h$) uses
+$c$ and $e$ from two distinct upstream branches; $r_8$ (producing
+$j$) uses $i$ from the $r_7$ branch; $r_{10}$ (producing $l$) uses
+$f$ and $g$ from two distinct upstream branches. This branching
+structure forces the RAF poset to be non-trivial (multiple maximal
+RAFs are excluded because $R_{\max}=\{r_1,\ldots,r_{11}\}$ is itself
+a RAF; intermediate RAFs form a multi-layer Hasse diagram, not a
+linear chain).
+\end{construction}
+
+\begin{proposition}[Directed-system axioms and viability-preservation
+match at scale $|M|=13$]
+\label{prop:invlim-extended}
+Direct enumeration of all $2^{11}-1=2047$ non-empty subsets of the
+$11$-reaction set of Construction~\ref{con:invlim-extended} (script
+\texttt{inverse\_limit\_raf\_extended.py}) produces $16$ non-trivial
+RAFs, $21$ Hasse covering inclusions, and confirms:
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+\item \emph{Directed-system axioms}: reflexive, transitive, directed
+  (every pair of RAFs has an upper bound in the poset, namely
+  $R_i\cup R_j$ closure; the union of two RAFs is a RAF by the
+  closure of the enumeration).
+\item \emph{Inverse limit}: there is a unique maximal RAF
+  $R_{\max}=\{r_1,\ldots,r_{11}\}$ with $|R_{\max}|=11$, which
+  equals the union of all $16$ enumerated RAFs. The $15$ projection
+  arrows $R_{\max}\to R_i$ (for $i\ne\text{limit}$) are the
+  inclusions, witnessing the universal property of the limit in
+  $\Optic(\mathbf{Set})$.
+\item \emph{Falsifiable prediction}: $\kk(R_{\max})$ computed via the
+  filtered-colimit construction (the colimit's viability-weighted
+  curvature as the colimit of the per-$i$ curvatures, scaled by the
+  $h_\alpha$ at $R_{\max}$) equals $\kk(R_{\max})$ computed via the
+  operational Proposition~\ref{prop:kappa-derivation} form on the
+  maximal RAF's Bregman-projected structure. Both sides are zero to
+  within $10^{-9}$, with the match holding on the $|M|=13$,
+  $|R|=11$ extended network.
+\item \emph{Per-node viability preservation}: every one of the $16$
+  RAFs in the directed system has $\kk(R_i)=0$, confirming that
+  viability preservation (the defining property of a RAF: reflexively
+  autocatalytic and food-generated) is preserved at every node, not
+  just at the colimit.
+\end{enumerate}
+\end{proposition}
+
+\noindent\emph{Interpretation.} The match between the
+filtered-colimit computation and the operational form on a network
+roughly twice as large as the original (in both $|M|$ and $|R|$)
+confirms that the inverse-limit construction's viability-preservation
+property is not an artifact of the small Hordijk--Steel example. The
+falsifiable prediction $\kk(R_{\max})=0$ holds at scale, and the
+directed-system axioms---which fail generically for non-catalytic
+reaction networks---are verified to hold for this richer, multi-branch
+catalytic network. The extended network also exercises the
+cross-branch catalysis feature absent from the original: $r_6$, $r_8$,
+$r_{10}$, $r_{11}$ each require catalysts from two distinct upstream
+branches, demonstrating that the filtered-colimit construction handles
+genuinely branching RAF posets, not just linear chains.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.95\columnwidth]{inverse_limit_raf_extended_hasse.png}
+\caption{Hasse diagram of the directed system of RAFs in
+$\Optic(\mathbf{Set})$ over the extended molecule set
+$M=\{a,b,c,d,e,f,g,h,i,j,k,l,m\}$ ($|M|=13$) with food $F=\{a,b\}$ and
+$11$ reactions (Construction~\ref{con:invlim-extended}). Direct
+enumeration of all $2^{11}-1=2047$ non-empty subsets produces $16$
+non-trivial RAFs forming a multi-layer branching diagram with $21$
+covering inclusions. Each node is a RAF $R$ lifted to an optic in
+$\Optic(\mathbf{Set})$ (forward $=$ catalytic closure operator,
+backward $=$ residual decoder, residual $=$ viability-kernel distance).
+The directed-system axioms (reflexivity, transitivity, directedness)
+are verified by direct computation; the filtered colimit equals the
+maximal RAF $R_{\max}=\{r_1,\ldots,r_{11}\}$. Every RAF node is
+viability-preserving by construction, so $\kk=0$ throughout
+(Proposition~\ref{prop:invlim-extended}).}
+\label{fig:hasse-extended}
+\end{figure}
+
 % =============================================================
 \section{$\infty$-Categorical Extension via Homotopy Type Theory}\label{sec:hott}
 % =============================================================
@@ -5366,11 +5489,27 @@ the new lone Phase~I ``failure'' is FBP, a much weaker oscillation
 with fraction above threshold $0.853$, comfortably absorbed by the
 Phase~III closure test).
 Future work extends to fully $46/46$ autopoietic designs at Phase~I
-via additional cascade-breaking isozymes targeting the FBP limit cycle,
-and to integrated metabolic--signaling networks.
+via additional cascade-breaking isozymes targeting the FBP limit cycle
+(an exploration of the user-suggested reversible FBP$\leftrightarrow$DHAP/G3P
+aldolase isozyme pair with $\alpha$KG-based substrate-induced synthesis
+and the alternative fructose-bisphosphatase backup showed that both
+mechanisms shift the residual limit cycle to AcCoA via NAD$^+$ depletion
+when M7 over-fires on the saturated OAA pool, leaving the strict
+$100\%$ Phase~I closure goal unmet; an acetyl-CoA synthetase
+EC~6.2.1.1 backup providing AcCoA from Acetate+ATP+CoA, independent of
+M8 PDH's NAD$^+$ requirement, is the natural next cascade-breaking
+candidate), and to integrated metabolic--signaling networks.
 \item \emph{Larger RAF networks:} extend the inverse-limit construction
 of Section~\ref{sec:invlim} to reaction networks with $|M| > 10$ to
-test the viability-preservation under inverse limit at scale.
+test the viability-preservation under inverse limit at scale. \textbf{[CLOSED]}
+by Subsection~\ref{sec:invlim-extended}, Proposition~\ref{prop:invlim-extended}:
+the scale-up to $|M|=13$, $|R|=11$ produces $16$ non-trivial RAFs forming
+a multi-layer branching Hasse diagram with $21$ covering inclusions;
+directed-system axioms (reflexive, transitive, directed) are verified;
+the inverse limit equals the maximal RAF $R_{\max}=\{r_1,\ldots,r_{11}\}$;
+the falsifiable prediction $\kk(R_{\max})=0$ matches the operational
+\S1.4 form to within $10^{-9}$; and all $16$ RAF nodes are
+viability-preserving ($\kk(R_i)=0$ at every node).
 \end{enumerate}
 
 % =============================================================
@@ -5419,6 +5558,17 @@ network (under the monotonicity and directed-continuity hypotheses of
 Proposition~\ref{prop:invlim}); the universal filtered-colimit
 existence in $\Optic(\mathbf{Set})$ is closed by
 Theorem~\ref{thm:filtered-colimits-optic} (componentwise construction).
+The filtered-colimit construction is verified at scale
+$|M|=13$, $|R|=11$ in Subsection~\ref{sec:invlim-extended}
+(Proposition~\ref{prop:invlim-extended}): $16$ non-trivial RAFs form
+a multi-layer branching Hasse diagram with $21$ covering inclusions,
+directed-system axioms hold, the inverse limit equals the maximal
+RAF $R_{\max}=\{r_1,\ldots,r_{11}\}$, and the falsifiable prediction
+$\kk(R_{\max})=0$ matches the operational \S1.4 form to within
+$10^{-9}$, with $\kk(R_i)=0$ at every one of the $16$ RAF nodes
+(viability preservation is per-node, not just at the colimit). This
+closes the ``larger RAF networks'' future-direction item of
+Section~\ref{sec:discussion}.
 The fatigue correction $a^{3/2}$ in Claim~D's raw-holonomy
 decomposition is derived from a L\'evy $\alpha$-stable first-passage
 model in Theorem~\ref{thm:levy-3half} (Section~\ref{sec:levy-3half}),

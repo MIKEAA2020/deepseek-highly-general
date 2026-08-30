@@ -1,0 +1,105 @@
+NETWORK J -- extend Network I with ALDO3/ALDO4 isozymes
+       ALDO3/ALDO4 (reversible fructose-bisphosphate aldolase, EC 4.1.2.13, with alpha-KG+GLU-based
+       synthesis analogous to ASPAT3/4/ALT7/8) dampens the FBP limit-cycle of Network I
+       Reversible FBP <=> DHAP + G3P provides alternative FBP source
+==============================================================================
+
+Network J design (extension of Network I):
+  (1-11) [same as Network I]: isozymes + substrate induction + basal TF +
+         backup ATP (ACK) + anaplerotic PEPC + ALT3/ALT4 (ASP-PYR transaminase)
+         + ALT5/ALT6 (ala-alphaKG transaminase) + Glycogen + Polyphosphate storage
+         + ASPAT3/ASPAT4 (aspartate-alphaKG transaminase; AcCoA cascade dampener)
+         + ALT7/ALT8 (reversible alanine-alphaKG transaminase; ALA cascade dampener)
+  (12) ALDO3/ALDO4 (REVERSIBLE fructose-bisphosphate aldolase isozymes, EC 4.1.2.13,
+      with alpha-KG+GLU-based synthesis analogous to ASPAT3/4/ALT7/8):
+      M21: FBP -> DHAP + G3P (FORWARD direction; phase-delayed buffer split)
+      M22: DHAP + G3P -> FBP (REVERSE direction; alternative FBP source)
+      -> FBP-independent: ALDO3/4 synthesis uses alpha-KG + GLU (NOT FBP/DHAP/G3P)
+      -> Reversible M21+M22 form a fast-acting dampener of the FBP
+         oscillation in the FBP limit-cycle regime of Network I
+      -> k_cat=0.5 (LOW backup, matching ALT7/8's k_cat=0.5; TUNED to
+  Total: 61 species (11 food + 50 non-food), 82 reactions
+
+Closed loop (Network J): Network I + ALDO3/ALDO4 (alternative FBP source)
+             M21: FBP -> DHAP + G3P
+             M22: DHAP + G3P -> FBP
+             E21a/b: GLU + alpha-KG + ATP -> ALDO3/ALDO4
+
+Closure test verdicts for Network J (Phase I endpoint-only):
+  Component  Baseline     Knockout     Recover      Verdict       
+  G6P        0.0000       0.0000       7.9733       AUTOPOIETIC   
+  FBP        11.7491      0.0000       75.6492      AUTOPOIETIC   
+  PEP        81.2834      0.0000       100.0000     AUTOPOIETIC   
+  PYR        100.0000     0.0000       100.0000     AUTOPOIETIC   
+  AcCoA      0.0000       0.0000       0.0000       HOMEOSTATIC   
+  ALA        100.0000     0.0000       100.0000     AUTOPOIETIC   
+  ASP        0.0000       0.0000       100.0000     AUTOPOIETIC   
+  MAL        99.7500      0.0286       99.7500      AUTOPOIETIC   
+  GLU        100.0000     0.0000       100.0000     AUTOPOIETIC   
+  Glycogen   100.0000     0.0000       95.7580      AUTOPOIETIC   
+  PolyP      14.9537      0.0000       9.3269       AUTOPOIETIC   
+  DHAP       14.9212      0.0000       22.0303      AUTOPOIETIC   
+  G3P        14.9212      0.0000       22.0303      AUTOPOIETIC   
+  HK1        100.0000     0.0286       99.7500      AUTOPOIETIC   
+  HK2        100.0000     0.0286       99.7500      AUTOPOIETIC   
+  PFK1       100.0000     0.0286       57.8588      AUTOPOIETIC   
+  PFK2       100.0000     0.0286       57.8588      AUTOPOIETIC   
+  ALDO1      100.0000     0.0286       100.0000     AUTOPOIETIC   
+  ALDO2      100.0000     0.0286       100.0000     AUTOPOIETIC   
+  ALDO3      100.0000     0.0286       99.7500      AUTOPOIETIC   
+  ALDO4      100.0000     0.0286       99.7500      AUTOPOIETIC   
+  PYK1       100.0000     0.0286       99.7500      AUTOPOIETIC   
+  PYK2       100.0000     0.0286       99.7500      AUTOPOIETIC   
+  ALT1       100.0000     0.0286       100.0000     AUTOPOIETIC   
+  ALT2       100.0000     0.0286       100.0000     AUTOPOIETIC   
+  ALT3       100.0000     0.0286       99.7500      AUTOPOIETIC   
+  ALT4       100.0000     0.0286       99.7500      AUTOPOIETIC   
+  ALT5       100.0000     0.0286       99.7500      AUTOPOIETIC   
+  ALT6       100.0000     0.0286       99.7500      AUTOPOIETIC   
+  ASPAT1     100.0000     0.0286       46.2514      AUTOPOIETIC   
+  ASPAT2     100.0000     0.0286       46.2514      AUTOPOIETIC   
+  ASPAT3     100.0000     0.0286       99.7500      AUTOPOIETIC   
+  ASPAT4     100.0000     0.0286       99.7500      AUTOPOIETIC   
+  ALT7       100.0000     0.0286       99.7500      AUTOPOIETIC   
+  ALT8       100.0000     0.0286       99.7500      AUTOPOIETIC   
+  MDH1       100.0000     0.0286       16.3511      AUTOPOIETIC   
+  MDH2       100.0000     0.0286       16.3511      AUTOPOIETIC   
+  PDH1       100.0000     0.0286       100.0000     AUTOPOIETIC   
+  PDH2       100.0000     0.0286       100.0000     AUTOPOIETIC   
+  PEPC1      100.0000     0.0286       100.0000     AUTOPOIETIC   
+  PEPC2      100.0000     0.0286       100.0000     AUTOPOIETIC   
+  ACK1       100.0000     0.0286       100.0000     AUTOPOIETIC   
+  ACK2       100.0000     0.0286       100.0000     AUTOPOIETIC   
+  GLY1       100.0000     0.0286       99.7500      AUTOPOIETIC   
+  GLY2       100.0000     0.0286       99.7500      AUTOPOIETIC   
+  GLYP1      100.0000     0.0286       100.0000     AUTOPOIETIC   
+  GLYP2      100.0000     0.0286       100.0000     AUTOPOIETIC   
+  PPK1       100.0000     0.0286       100.0000     AUTOPOIETIC   
+  PPK2       100.0000     0.0286       100.0000     AUTOPOIETIC   
+  TF         100.0000     0.0286       100.0000     AUTOPOIETIC   
+
+  Network J Phase I verdict: 49/50 causally internal (98.0%).
+  Network J is PARTIALLY AUTOPOIETIC
+  per Definition def:autopoiesis (Phase I).
+
+Phase III (pathwise + univalence-corrected) verdicts for failing components:
+  AcCoA: Phase I=FAIL, pathwise=FAIL (frac above thresh=0.275, mean=3.592), contractible=FAIL -> Phase III=FAIL
+
+  Network J Phase III verdict: 49/50 = 98.0%
+
+Comparison:
+  Network B (bare metabolic, 10 species):              0/10  (0.0%)   HOMEOSTATIC
+  Network D (integrated MR-GR, Network D v1):           5/17  (29.4%)  PARTIALLY AUTOPOIETIC
+  Network E (fully autopoietic MR-GR with isozymes):  24/29  (82.8%)  PARTIALLY AUTOPOIETIC
+  Network F (Network E + ALT3/ALT4 ASP-PYR isozymes): 29/31  (93.5%)  PARTIALLY AUTOPOIETIC
+  Network G (Network F + ALT5/6 + storage):            41/42  (97.6%)  PARTIALLY AUTOPOIETIC (AcCoA limit cycle)
+  Network H (Network G + ASPAT3/4):                    43/44  (97.7%)  PARTIALLY AUTOPOIETIC (ALA limit cycle; Phase III = 44/44)
+  Network I (Network H + ALT7/8):                       45/46  (97.8%)  PARTIALLY AUTOPOIETIC (FBP limit cycle; Phase III = 46/46)
+  Network J (Network I + ALDO3/4):                      49/50  (98.0%)  PARTIALLY AUTOPOIETIC (Phase I)
+  Network J Phase III (pathwise+univalence):           49/50  (98.0%)
+
+Stratified by component type:
+  Metabolic intermediates (incl. GLU/Glycogen/PolyP/DHAP/G3P): 12/13 causally internal
+  Enzymes (incl. ALT5/6, ASPAT3/4, ALT7/8, ALDO3/4, GLY/GLYP/PPK): 36/36 causally internal
+  Regulatory (TF):                                    1/1 causally internal
+
