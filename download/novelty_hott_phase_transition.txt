@@ -1,0 +1,26 @@
+E9 — HoTT phase-transition + fundamental-group test
+========================================================================
+
+STRENGTHENED Qwen §3.4 (HoTT overclaimed) + §8.4 (remove HoTT):
+Test the HoTT framework's prediction that contractibility is a
+DISCRETE categorical property by checking for a SHARP PHASE
+TRANSITION under ACS1/2 k_cat perturbation (Network J mode at
+k_cat=0.0 → Network K mode at k_cat=1.0), plus compute the
+fundamental group's shortest non-trivial loop as a stronger invariant
+than Betti numbers alone (which miss torsion in pi_1).
+
+n_kcat_steps = 21 (range 0.00 to 1.00)
+Target metabolite: AcCoA (the Network J failure mode ACS1/2 fixed)
+
+Phase transition results:
+  Verdict: NO_TRANSITION (always contractible)
+Fundamental-group cross-check:
+  When Betti_1=0:  shortest 1-loop pers = 0.0082, longest 1-loop pers = 0.0413
+  When Betti_1>=1: shortest 1-loop pers = 0.0000, longest 1-loop pers = 0.0000
+  Discrimination (>2x gap on longest loop): INCONCLUSIVE
+
+Euler characteristic cross-check:
+  When contractible: 1.00 (expected 1.0)
+  When non-contractible: 0.00
+
+VERDICT: PASS

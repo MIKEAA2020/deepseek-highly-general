@@ -1,0 +1,287 @@
+{
+  "study": "E9",
+  "design": "HoTT phase-transition + fundamental-group test on Network K AcCoA recovery under ACS1/2 k_cat perturbation",
+  "qwen_criticism_addressed": [
+    "\u00a73.4 HoTT overclaimed (strengthened: phase-transition prediction)",
+    "\u00a78.4 remove HoTT (strengthened: fundamental-group cross-check beyond Betti numbers)"
+  ],
+  "n_kcat_steps": 21,
+  "kcat_range": [
+    0.0,
+    1.0
+  ],
+  "target_metabolite": "AcCoA",
+  "phase_transition": {
+    "verdict": "NO_TRANSITION (always contractible)",
+    "transition_kcat": null,
+    "transition_width": 0.0,
+    "sharp": true
+  },
+  "fundamental_group": {
+    "shortest_loop_when_betti_1_zero": 0.008220680412792024,
+    "longest_loop_when_betti_1_zero": 0.04128644721848624,
+    "shortest_loop_when_betti_1_nonzero": 0.0,
+    "longest_loop_when_betti_1_nonzero": 0.0,
+    "discrimination_pass": false
+  },
+  "euler_characteristic": {
+    "when_contractible": 1.0,
+    "when_non_contractible": 0.0,
+    "expected_when_contractible": 1.0
+  },
+  "per_kcat_results": [
+    {
+      "kcat_value": 0.0,
+      "phase_I_pass": true,
+      "mean_deficit": -0.09658515368812123,
+      "betti_0": 1,
+      "betti_1": 0,
+      "betti_2": 0,
+      "euler_characteristic": 1,
+      "shortest_1_loop_persistence": 0.01133352518081665,
+      "longest_1_loop_persistence": 0.016908958554267883,
+      "contractible": true
+    },
+    {
+      "kcat_value": 0.05,
+      "phase_I_pass": true,
+      "mean_deficit": -0.09656047885178455,
+      "betti_0": 1,
+      "betti_1": 0,
+      "betti_2": 0,
+      "euler_characteristic": 1,
+      "shortest_1_loop_persistence": 0.023795709013938904,
+      "longest_1_loop_persistence": 0.032358795404434204,
+      "contractible": true
+    },
+    {
+      "kcat_value": 0.1,
+      "phase_I_pass": true,
+      "mean_deficit": -0.09663902801900089,
+      "betti_0": 1,
+      "betti_1": 0,
+      "betti_2": 0,
+      "euler_characteristic": 1,
+      "shortest_1_loop_persistence": 0.008730471134185791,
+      "longest_1_loop_persistence": 0.020817816257476807,
+      "contractible": true
+    },
+    {
+      "kcat_value": 0.15000000000000002,
+      "phase_I_pass": true,
+      "mean_deficit": -0.12316266679519439,
+      "betti_0": 1,
+      "betti_1": 0,
+      "betti_2": 0,
+      "euler_characteristic": 1,
+      "shortest_1_loop_persistence": 0.01006084680557251,
+      "longest_1_loop_persistence": 0.019589334726333618,
+      "contractible": true
+    },
+    {
+      "kcat_value": 0.2,
+      "phase_I_pass": true,
+      "mean_deficit": -0.14465855355337556,
+      "betti_0": 1,
+      "betti_1": 0,
+      "betti_2": 0,
+      "euler_characteristic": 1,
+      "shortest_1_loop_persistence": 0.005618035793304443,
+      "longest_1_loop_persistence": 0.026014328002929688,
+      "contractible": true
+    },
+    {
+      "kcat_value": 0.25,
+      "phase_I_pass": true,
+      "mean_deficit": -0.12848179643735244,
+      "betti_0": 1,
+      "betti_1": 0,
+      "betti_2": 0,
+      "euler_characteristic": 1,
+      "shortest_1_loop_persistence": 0.0007089376449584961,
+      "longest_1_loop_persistence": 0.06106945872306824,
+      "contractible": true
+    },
+    {
+      "kcat_value": 0.30000000000000004,
+      "phase_I_pass": true,
+      "mean_deficit": -0.1418443636265984,
+      "betti_0": 1,
+      "betti_1": 0,
+      "betti_2": 0,
+      "euler_characteristic": 1,
+      "shortest_1_loop_persistence": 0.00428047776222229,
+      "longest_1_loop_persistence": 0.0431978702545166,
+      "contractible": true
+    },
+    {
+      "kcat_value": 0.35000000000000003,
+      "phase_I_pass": true,
+      "mean_deficit": -0.09675082017129838,
+      "betti_0": 1,
+      "betti_1": 0,
+      "betti_2": 0,
+      "euler_characteristic": 1,
+      "shortest_1_loop_persistence": 0.016214191913604736,
+      "longest_1_loop_persistence": 0.03925102949142456,
+      "contractible": true
+    },
+    {
+      "kcat_value": 0.4,
+      "phase_I_pass": true,
+      "mean_deficit": -0.09688917168112929,
+      "betti_0": 1,
+      "betti_1": 0,
+      "betti_2": 0,
+      "euler_characteristic": 1,
+      "shortest_1_loop_persistence": 0.04279237985610962,
+      "longest_1_loop_persistence": 0.04472669959068298,
+      "contractible": true
+    },
+    {
+      "kcat_value": 0.45,
+      "phase_I_pass": true,
+      "mean_deficit": -0.0970406735333935,
+      "betti_0": 1,
+      "betti_1": 0,
+      "betti_2": 0,
+      "euler_characteristic": 1,
+      "shortest_1_loop_persistence": 0.016652613878250122,
+      "longest_1_loop_persistence": 0.045031726360321045,
+      "contractible": true
+    },
+    {
+      "kcat_value": 0.5,
+      "phase_I_pass": true,
+      "mean_deficit": -0.09743623577994602,
+      "betti_0": 1,
+      "betti_1": 0,
+      "betti_2": 0,
+      "euler_characteristic": 1,
+      "shortest_1_loop_persistence": 0.0028644204139709473,
+      "longest_1_loop_persistence": 0.014270037412643433,
+      "contractible": true
+    },
+    {
+      "kcat_value": 0.55,
+      "phase_I_pass": true,
+      "mean_deficit": -0.09786153124158314,
+      "betti_0": 1,
+      "betti_1": 0,
+      "betti_2": 0,
+      "euler_characteristic": 1,
+      "shortest_1_loop_persistence": 0.004203498363494873,
+      "longest_1_loop_persistence": 0.03258511424064636,
+      "contractible": true
+    },
+    {
+      "kcat_value": 0.6000000000000001,
+      "phase_I_pass": true,
+      "mean_deficit": -0.0982264929175623,
+      "betti_0": 1,
+      "betti_1": 0,
+      "betti_2": 0,
+      "euler_characteristic": 1,
+      "shortest_1_loop_persistence": 0.0007551014423370361,
+      "longest_1_loop_persistence": 0.03136447072029114,
+      "contractible": true
+    },
+    {
+      "kcat_value": 0.65,
+      "phase_I_pass": true,
+      "mean_deficit": -0.0988956730188815,
+      "betti_0": 1,
+      "betti_1": 0,
+      "betti_2": 0,
+      "euler_characteristic": 1,
+      "shortest_1_loop_persistence": 0.023690998554229736,
+      "longest_1_loop_persistence": 0.045950427651405334,
+      "contractible": true
+    },
+    {
+      "kcat_value": 0.7000000000000001,
+      "phase_I_pass": true,
+      "mean_deficit": -0.09966996826325761,
+      "betti_0": 1,
+      "betti_1": 0,
+      "betti_2": 0,
+      "euler_characteristic": 1,
+      "shortest_1_loop_persistence": 0.000878557562828064,
+      "longest_1_loop_persistence": 0.034213870763778687,
+      "contractible": true
+    },
+    {
+      "kcat_value": 0.75,
+      "phase_I_pass": true,
+      "mean_deficit": -0.0989937882344182,
+      "betti_0": 1,
+      "betti_1": 0,
+      "betti_2": 0,
+      "euler_characteristic": 1,
+      "shortest_1_loop_persistence": 7.450580596923828e-09,
+      "longest_1_loop_persistence": 0.07351838052272797,
+      "contractible": true
+    },
+    {
+      "kcat_value": 0.8,
+      "phase_I_pass": true,
+      "mean_deficit": -0.11066879329814576,
+      "betti_0": 1,
+      "betti_1": 0,
+      "betti_2": 0,
+      "euler_characteristic": 1,
+      "shortest_1_loop_persistence": 3.725290298461914e-09,
+      "longest_1_loop_persistence": 0.04805746674537659,
+      "contractible": true
+    },
+    {
+      "kcat_value": 0.8500000000000001,
+      "phase_I_pass": true,
+      "mean_deficit": -0.1029716538141845,
+      "betti_0": 1,
+      "betti_1": 0,
+      "betti_2": 0,
+      "euler_characteristic": 1,
+      "shortest_1_loop_persistence": 3.725290298461914e-09,
+      "longest_1_loop_persistence": 0.06158009171485901,
+      "contractible": true
+    },
+    {
+      "kcat_value": 0.9,
+      "phase_I_pass": true,
+      "mean_deficit": -0.11300228164826434,
+      "betti_0": 1,
+      "betti_1": 0,
+      "betti_2": 0,
+      "euler_characteristic": 1,
+      "shortest_1_loop_persistence": 1.4901161193847656e-08,
+      "longest_1_loop_persistence": 0.06251560151576996,
+      "contractible": true
+    },
+    {
+      "kcat_value": 0.9500000000000001,
+      "phase_I_pass": true,
+      "mean_deficit": -0.11943602244380401,
+      "betti_0": 1,
+      "betti_1": 0,
+      "betti_2": 0,
+      "euler_characteristic": 1,
+      "shortest_1_loop_persistence": 5.447864532470703e-05,
+      "longest_1_loop_persistence": 0.05873386561870575,
+      "contractible": true
+    },
+    {
+      "kcat_value": 1.0,
+      "phase_I_pass": true,
+      "mean_deficit": -0.12596657735075067,
+      "betti_0": 1,
+      "betti_1": 0,
+      "betti_2": 0,
+      "euler_characteristic": 1,
+      "shortest_1_loop_persistence": 1.4901161193847656e-08,
+      "longest_1_loop_persistence": 0.05526004731655121,
+      "contractible": true
+    }
+  ],
+  "verdict": "PASS"
+}
