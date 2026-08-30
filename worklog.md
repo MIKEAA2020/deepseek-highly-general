@@ -1734,3 +1734,42 @@ Stage Summary:
   - /home/z/my-project/scripts/journal_manuscript.tex (updated: +110 lines = 5911 total; new Subsection sec:invlim-extended, new Construction con:invlim-extended, new Proposition prop:invlim-extended, new Figure fig:hasse-extended, updated Future Directions + Conclusion + Introduction)
   - /home/z/my-project/scripts/journal_manuscript.pdf (recompiled, 75 pages, 5.56 MiB)
   - /home/z/my-project/download/journal_manuscript.pdf (synced)
+
+---
+Task ID: netK-acs1-2
+Agent: main (super-z)
+Task: Implement Network K with ACS1/ACS2 (acetyl-CoA synthetase, EC 6.2.1.1, from Acetate+ATP+CoA, NAD+-INDEPENDENT) to break the AcCoA residual that blocked Network J's FBP dampener. Achieve Phase I = 100%.
+
+Work Log:
+- Read scripts/autopoiesis_network_J.py (1086 lines) to confirm Network J state: 49/50 = 98.0% Phase I, lone failure = AcCoA (limit cycle, recovery_final=0, Phase III also FAIL with frac above thresh=0.275 < 0.4). Confirmed the AcCoA blocker mechanism: M7 MDH over-fires on saturated OAA (driven by boosted M9 PEPC), draining NAD+; with NAD+ depleted, M8 PDH (PYR + NAD+ -> AcCoA + CO2) is BLOCKED, so AcCoA oscillates.
+- Read scripts/journal_manuscript.tex to locate insertion points: Network I subsection ends at line ~4987 (Figure fig:autopoiesis-network-I); Future-Directions item at lines 5681-5691 mentions the ACS1/2 candidate as "the natural next cascade-breaking candidate"; Conclusion at lines 5776-5829 mentions "nine real biochemical networks" through Network I.
+- Wrote scripts/autopoiesis_network_K.py (Network J + ACS1/ACS2):
+  * New species: ACS1, ACS2 (2 new enzymes; no new metabolic intermediates -- CoA/AMP/PPi kept implicit per the manuscript's simplification convention used in M10 ACK).
+  * Total: 63 species (11 food + 52 non-food), 86 reactions (82 Network J + M23a/M23b/E23a/E23b).
+  * M23a/M23b: Acetate + ATP -> AcCoA + ADP + Pi (ACS1/ACS2; EC 6.2.1.1 simplified, NAD+-INDEPENDENT).
+  * E23a/E23b: GLU + alpha-KG + ATP -> ACS1/ACS2 + ADP + 2 Pi (alpha-KG-based synthesis, analogous to E17a/b/E19a/b/E21a/b pattern).
+  * k_cat = 1.0 on M23 (matching ALDO3/4's k_cat=1.0 that was TUNED optimal in Network J for the analogous dampener role on FBP).
+- Ran scripts/autopoiesis_network_K.py: VERIFIED Network K = 52/52 = 100.0% Phase I (FULL AUTOPOIESIS at Phase I endpoint-only) AND 52/52 = 100.0% Phase III (pathwise + univalence-corrected). AcCoA: baseline = 7.16 (was 0.0 in Network J), recover_final = 1.66 (PASS, was 0.0 in Network J FAIL). The AcCoA residual limit cycle is DAMPENED. Monotone improvement: E(82.8%) -> F(93.5%) -> G(97.6%) -> H(97.7%) -> I(97.8%) -> J(98.0%) -> K(100.0%).
+- Updated scripts/journal_manuscript.tex:
+  * Added new \subsection{Network K: AcCoA residual dampening via NAD+-independent ACS1/ACS2 acetyl-CoA synthetase isozymes with alpha-KG-based synthesis} (label sec:autopoiesis-network-K), inserted between the Network I figure and the Main Proposition section.
+  * New equation eq:netK-M23 (M23 stoichiometry).
+  * New Proposition prop:netK-verdict (52/52 = 100% Phase I AND Phase III; strictly greater than Network J in both absolute count and fraction; FULL AUTOPOIESIS at Phase I; first in E->K lineage).
+  * New Remark rem:netK-discussion (Convergence of iterative cascade-breaking strategy; monotone improvement table E->K; the ACS1/2 step is mechanistically INDEPENDENT of the failing pathway -- bypasses NAD+ depletion rather than merely dampens; Phase I/Phase III divergence that began with AcCoA in Network G now fully ELIMINATED).
+  * New Figure fig:autopoiesis-network-K (4 panels: AcCoA cascade target, ACS1 new enzyme, NAD+ food cofactor trace showing the depletion bottleneck M23 bypasses, PYR substrate).
+  * Fixed one DAMPPENED -> DAMPENED typo; replaced two dangling \ref{sec:autopoiesis-network-J-extended} and \ref{sec:autopoiesis-network-J} refs with explicit "Network J, script autopoiesis_network_J.py" references (since Network J was documented via script + Future-Directions text, not a dedicated section).
+  * Updated Future-Directions item: appended [CLOSED] marker for the ACS1/2 cascade-breaking candidate, referencing sec:autopoiesis-network-K + prop:netK-verdict (52/52 = 100% Phase I and Phase III; iterative cascade-breaking strategy CONVERGED).
+  * Updated Conclusion: "nine real biochemical networks" -> "ten real biochemical networks"; added Networks J + K summary to the per-network list; added monotone improvement list E(82.8%) -> ... -> K(100.0%) and "FIRST FULL AUTOPOIESIS verdict in the E->K lineage" + "iterative cascade-breaking strategy has CONVERGED".
+- Rebuilt PDF via tectonic: 5.71 MiB, only pre-existing minor Overfull/Underfull hbox warnings (no new errors). The 134pt-overfull table row was fixed by shortening "Enzymes (incl.~ALT5/6, ASPAT3/4, ALT7/8, ALDO3/4, ACS1/2, GLY/GLYP/PPK)" -> "Enzymes (incl.~ALDO3/4, ACS1/2)".
+- Synced scripts/journal_manuscript.pdf to download/journal_manuscript.pdf.
+
+Stage Summary:
+- Network K = 52/52 = 100.0% Phase I (FULL AUTOPOIESIS at Phase I endpoint-only) AND 52/52 = 100.0% Phase III (pathwise + univalence-corrected). STRICTLY GREATER than Network J's 49/50 = 98.0% in BOTH absolute count (52 > 49) AND fraction (100.0% > 98.0%). AcCoA residual limit cycle of Network J is DAMPENED via the NAD+-independent M23 AcCoA source (Acetate + ATP -> AcCoA + ADP + Pi) catalyzed by the alpha-KG-synthesized ACS1/2 isozyme pair, which stays at high level during AcCoA knockout (synthesis uses alpha-KG + GLU, neither of which depends on AcCoA or NAD+). The iterative cascade-breaking strategy has CONVERGED: the Phase I/Phase III divergence that began with AcCoA in Network G has been fully ELIMINATED.
+- The ACS1/2 step is particularly clean: the alternative pathway (M23) is mechanistically INDEPENDENT of the failing pathway (M8) -- M8 needs NAD+ (depleted by M7 MDH over-firing on saturated OAA), M23 needs only Acetate (food) + ATP (food). The NAD+ bottleneck is BYPASSED rather than merely dampened.
+- Produced artifacts:
+  - /home/z/my-project/scripts/autopoiesis_network_K.py (Network K script: 63 species, 86 reactions, ACS1/ACS2 isozyme pair)
+  - /home/z/my-project/download/autopoiesis_network_K.csv (52-component per-component verdict table)
+  - /home/z/my-project/download/autopoiesis_network_K.png (4-panel figure: AcCoA / ACS1 / NAD+ / PYR)
+  - /home/z/my-project/download/autopoiesis_network_K.txt (full textual report)
+  - /home/z/my-project/scripts/journal_manuscript.tex (updated: new Subsection sec:autopoiesis-network-K, new Proposition prop:netK-verdict, new Remark rem:netK-discussion, new Figure fig:autopoiesis-network-K, new equation eq:netK-M23; updated Future Directions + Conclusion; ~190 new lines)
+  - /home/z/my-project/scripts/journal_manuscript.pdf (recompiled, 5.71 MiB)
+  - /home/z/my-project/download/journal_manuscript.pdf (synced)
