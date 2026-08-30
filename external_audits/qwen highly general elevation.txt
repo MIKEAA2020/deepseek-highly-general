@@ -1,0 +1,2495 @@
+# 1. Verification of the audit points
+
+## Overall verdict
+
+The audit is **correct on essentially every major mathematical objection**. The manuscript contains a real and publishable core:
+
+> On a smooth constant-active-set stratum, Fisher-minimal constraint-preserving adaptation can define a transport law whose curvature predicts leading-order policy holonomy/hysteresis; survival consequences require a separate viability-margin analysis.
+
+The manuscript currently overreaches by identifying several distinct objects:
+
+- an average viability deficit with curvature;
+- Chentsov’s theorem with a \(CO(n-1)\) structure group;
+- a policy simplex with a principal bundle;
+- a composite optic with an endofunctor;
+- numerical convergence with Banach contraction;
+- a filtered colimit with an inverse limit;
+- a node-reappearance test with autopoiesis;
+- Kolmogorov/algorithmic rate-distortion with a smooth differentiable observable;
+- a scalar divergence invariance with Noether’s theorem;
+- trace-distance scaling with Zeno survival-probability scaling.
+
+None of these problems requires abandoning the broad program. They require **typing the objects, constructing the missing bundles/functors/metrics, separating curvature from viability depth, and replacing tautological validations with independent predictions**.
+
+---
+
+## Point-by-point validation
+
+### 1. The defined \(\kappa_V\) is not curvature
+
+**Audit verdict: valid.**
+
+Manuscript evidence:
+
+- Definition 2.1 defines  
+  \[
+  \kappa_V(\gamma_a)
+  =
+  \frac{1}{1}\int_0^1 (V_{\max}-V\circ\gamma_a(t))\,dt,
+  \]
+  which is an average viability deficit.
+- Proposition 4.4 later defines \(\kappa_V\) as a positive directional derivative of a Bregman divergence evaluated at an algorithmic rate-distortion distance.
+- No equivalence is proved.
+
+Mathematical status:
+
+- The Definition 2.1 object has no orientation, no connection, no commutator, no 2-form structure, and is parametrization-dependent unless arclength or constant-speed parametrization is fixed.
+- A flat connection can have nonzero average viability deficit.
+- Therefore Definition 2.1 is not curvature.
+
+**Required repair:** introduce two separate objects:
+
+\[
+D_V(\gamma)
+=
+\frac{1}{|\gamma|}
+\int_\gamma
+(V_{\max}-V)\,ds,
+\]
+
+a loop-depth or viability-deficit functional; and
+
+\[
+\kappa_V(u,v)
+=
+\max_\alpha
+\frac{[-\,d m_\alpha(F(u,v))]_+}{m_\alpha},
+\]
+
+a viability-weighted curvature functional built from a genuine curvature 2-form \(F\) and viability-margin functions \(m_\alpha\).
+
+The radial example may satisfy \(D_V(a)=a^2\) and \(H_{\mathrm{geo}}(a)=\pi a^2\), but that is a model-specific relation, not a definition of curvature.
+
+---
+
+### 2. The Fisher stabilizer is incorrectly identified as \(CO(n-1)\)
+
+**Audit verdict: valid.**
+
+Manuscript evidence:
+
+- Definition 2.2 states that for the Fisher–Rao metric on the \(n\)-dimensional simplex, the stabilizer is  
+  \[
+  G_C=CO(n-1)=\mathbb R_+\ltimes SO(n-1).
+  \]
+- It attributes this to Chentsov’s theorem.
+
+Mathematical status:
+
+- Chentsov’s theorem gives uniqueness of the Fisher metric under statistical-map invariance.
+- It does not imply positive-scale invariance.
+- The Fisher metric is a Riemannian metric; its local orthonormal frame bundle has structure group \(O(n-1)\), or \(SO(n-1)\) after orientation.
+- A reduction to \(CO(n-1)\) requires an explicit conformal/scale structure.
+
+**Required repair:** state:
+
+\[
+G_{\mathrm{frame}}\subseteq O(r),
+\]
+
+for an \(r\)-dimensional policy fiber; if oriented,
+
+\[
+G_{\mathrm{frame}}\subseteq SO(r).
+\]
+
+If one adds an endogenous scale variable, e.g. effective precision, temperature, sample size, or Weyl factor, then one may define a conformal frame bundle with structure group
+
+\[
+CO(r)=\mathbb R_+\ltimes SO(r).
+\]
+
+But \(CO(r)\) must be a declared modeling structure, not a consequence of Chentsov alone.
+
+---
+
+### 3. The proposed principal bundle is not constructed
+
+**Audit verdict: valid.**
+
+Manuscript evidence:
+
+- Definition 3.1 gives a “policy fiber”  
+  \[
+  \pi:\Delta^{n-1}\to\Theta.
+  \]
+- This direction is wrong for a bundle over \(\Theta\). A bundle requires  
+  \[
+  \pi:E\to\Theta
+  \]
+  with fibers \(\pi^{-1}(\theta)\).
+
+Mathematical status:
+
+- A policy simplex is not automatically a principal \(CO(n-1)\)-space.
+- A principal \(G\)-bundle requires a free transitive \(G\)-action on each fiber.
+- The manuscript does not define total space, transition functions, or group action.
+
+**Required repair:** use one of the following explicit constructions.
+
+The simplest is a trivial policy bundle:
+
+\[
+E=\Theta\times \mathcal P,
+\qquad
+\pi(\theta,p)=\theta,
+\]
+
+where \(\mathcal P\) is the policy manifold, e.g. the open simplex \(\Delta^{m-1}_\circ\), \(S^1\), \(SO(3)\), or a reduced policy space.
+
+If a principal structure is desired, define either:
+
+1. the orthonormal frame bundle of the vertical Fisher metric:
+   \[
+   \operatorname{Fr}(E/\Theta)\to E,
+   \]
+   with structure group \(O(r)\) or \(SO(r)\);
+
+2. a conformal frame bundle with structure group \(CO(r)\), after introducing a scale bundle;
+
+3. or a trivial principal bundle
+   \[
+   P=\Theta\times G\to\Theta
+   \]
+   with explicit connection one-form.
+
+The last is often enough for prototype holonomy calculations.
+
+---
+
+### 4. “Stratified connection” is only locally established
+
+**Audit verdict: valid.**
+
+Manuscript evidence:
+
+- Remark 3.2 acknowledges that the connection breaks down at constraint-switching boundaries.
+- It says the formal 2-categorical gluing, coherence, and holonomy well-definedness are left for future work.
+- Nevertheless the abstract and main proposition speak of a stratified connection as though globally established.
+
+Mathematical status:
+
+- Fisher-minimal constrained updates are smooth only while the active constraint set and rank are constant.
+- At active-set switching, the dynamics become hybrid, projected, or a differential inclusion.
+- A 2-categorical span is not a proof of global holonomy unless the gluing maps, coherence cells, and boundary conditions are constructed.
+
+**Required repair:**
+
+State the main theorem only on constant-active-set strata. For global statements, either:
+
+1. construct a projected dynamical system or differential inclusion at switching boundaries;
+2. prove a stratified connection theorem with explicit transition maps;
+3. define holonomy through switching loops as a path-ordered composition of stratum holonomies and boundary reset maps;
+4. or explicitly exclude switching loops from the main theorem.
+
+The unfinished 2-categorical object should be presented as a proposed extension, not as an established framework.
+
+---
+
+### 5. Algorithmic rate-distortion is not a usable differentiable quantity
+
+**Audit verdict: valid.**
+
+Manuscript evidence:
+
+- Definition 4.1 defines
+  \[
+  \operatorname{dist}_D(x)
+  =
+  \min\{|p|:U(p)=\hat x,\ d(x,\hat x)\le D\}.
+  \]
+- Proposition 4.4 differentiates a Bregman divergence evaluated at this quantity.
+
+Mathematical status:
+
+- \(\operatorname{dist}_D(x)\) is a shortest-program length.
+- It is machine-dependent up to additive constants.
+- It is generally uncomputable.
+- It is integer-valued or discrete.
+- It is not a smooth state variable.
+- It cannot be inserted into a directional derivative without regularization or smoothing.
+
+The claim that it “eliminates the deterministic-versus-random coding gap” is only partly meaningful: it changes the object from ensemble rate-distortion to single-string description length, but it does not produce a differentiable operational curvature.
+
+**Required repair:** choose one of the following.
+
+#### Option A: finite-code description length
+
+Use a finite, computable code family and define
+
+\[
+L_D^N(x)
+=
+\min\{\ell(c): c\in C_N,\ \operatorname{dec}(c)=\hat x,\ d(x,\hat x)\le D\}.
+\]
+
+This is still discrete but computable.
+
+#### Option B: smooth surrogate
+
+Define a softened rate-distortion potential, for example
+
+\[
+r_{\tau,\beta,D}(x)
+=
+-\tau
+\log
+\sum_{c}
+2^{-\ell(c)/\tau}
+\exp\left(
+-\beta [d(x,\operatorname{dec}(c))-D]_+^2/\tau
+\right).
+\]
+
+For \(\tau>0\), under smooth decoder/distortion assumptions, this is \(C^2\) or smoother. Then define
+
+\[
+h_\alpha(\theta,x)
+=
+D_\phi(r_{\tau,\beta,D}(x),r_{\tau,\beta,D}(x_0)).
+\]
+
+Now Proposition 4.4-style curvature formulas are meaningful.
+
+#### Option C: keep Kolmogorov complexity theoretically
+
+Retain \(\operatorname{dist}_D\) only as an upper-semicomputable theoretical bound, not as an empirical single-trajectory differentiable observable.
+
+**Elevated path:** use Option B for operational theorems and Option C for asymptotic upper bounds. The algorithmic version becomes a conjectural upper envelope unless a smooth envelope theorem is proved.
+
+---
+
+### 6. The Bregman-Noether proposition is false as stated
+
+**Audit verdict: valid.**
+
+Manuscript evidence:
+
+- Proposition 5.1 claims that because a Bregman divergence is invariant under a one-parameter affine transformation, Noether’s theorem yields a conserved current.
+- The Lagrangian
+  \[
+  L=D_\phi(d,\tilde d)+\lambda D_\phi(p,\tilde p)
+  \]
+  has no configuration space, velocities, boundary conditions, or action integral.
+
+Mathematical status:
+
+- Noether’s theorem applies to differentiable actions on a configuration space with a Lagrangian depending on trajectories and velocities.
+- Invariance of a scalar divergence under coordinate transformation does not by itself create a conserved current.
+- Bregman divergences are not invariant under arbitrary affine transformations while holding the generator fixed; the generator must transform appropriately.
+
+**Required repair:** replace Proposition 5.1 with a genuine symmetry-momentum theorem.
+
+Let \(Q\subset\mathbb R^r\) be open convex, \(\phi\in C^3\) strictly convex, and
+
+\[
+g_\phi(q)=\nabla^2\phi(q)
+\]
+
+the Hessian metric. Consider the geodesic Lagrangian
+
+\[
+L(q,\dot q)
+=
+\frac12 g_\phi(q)(\dot q,\dot q)-U(q).
+\]
+
+Let \(\xi\) be a vector field generating affine transformations preserving the Hessian metric:
+
+\[
+\mathcal L_\xi g_\phi=0,
+\]
+
+and preserving the potential:
+
+\[
+\xi(U)=0.
+\]
+
+Then Noether’s theorem gives the conserved momentum
+
+\[
+J_\xi(q,\dot q)
+=
+g_\phi(q)(\dot q,\xi(q)).
+\]
+
+If the affine flow preserves \(\phi\) only up to an affine function,
+
+\[
+\phi\circ g_t=\phi+\ell_t,
+\]
+
+then the Bregman divergence is invariant in the appropriate paired sense, and the same symmetry argument applies to the Hessian metric.
+
+This supplies a valid replacement for the “Bregman-Noether correspondence”: not divergence invariance alone, but affine isometries of the Hessian metric yield conserved momenta.
+
+---
+
+### 7. The optic-category theorem is a category error
+
+**Audit verdict: valid.**
+
+Manuscript evidence:
+
+- Construction 7.1 lists seven optics \(O_1,\dots,O_7\).
+- Theorem 7.4 claims that their composition is an endofunctor
+  \[
+  T:\mathrm{Optic}(\mathcal C)\to\mathrm{Optic}(\mathcal C).
+  \]
+- The proof only proves associativity of optic composition.
+
+Mathematical status:
+
+- A composite optic is an optic, not automatically an endofunctor.
+- To define an endofunctor one needs an object map, morphism map, identity preservation, and composition preservation.
+- The compatibility condition \(A_i=M_{i+1}\) is not sufficient to define a functor on the entire optic category.
+- The table mixes sets, CPTP maps, metric tensors, residuals, and scalars without a common typing discipline.
+
+**Required repair:** separate three notions.
+
+#### Correct minimal theorem: composite endo-optic
+
+Let \(\mathcal I\) be a typed interface category with objects
+
+\[
+I_0,I_1,\dots,I_7,
+\]
+
+and an interface isomorphism
+
+\[
+\sigma:I_7\cong I_0.
+\]
+
+Let
+
+\[
+O_i:I_{i-1}\rightleftarrows I_i
+\]
+
+be typed optics. Then
+
+\[
+O
+=
+\sigma\circ O_7\circ\cdots\circ O_1
+\]
+
+is a well-defined endo-optic on \(I_0\).
+
+This is true by associativity and unitality of optic composition.
+
+#### Stronger valid theorem: endofunctor on a category of periodic systems
+
+Define a category \(\mathsf{Sys}_7\) of seven-periodic typed systems. An object is a tuple
+
+\[
+(X_1,\dots,X_7,f_1,\dots,f_7),
+\]
+
+where \(f_i:X_i\to X_{i+1}\), with \(X_8=X_1\). A morphism is a compatible family of maps.
+
+If each arc \(O_i\) is lifted to a functor
+
+\[
+F_i:\mathsf{Sys}_i\to\mathsf{Sys}_{i+1},
+\]
+
+then the composite
+
+\[
+\mathcal T=F_7\circ\cdots\circ F_1
+\]
+
+is an endofunctor on a suitably identified periodic category. Its fixed point, if it exists, is a coalgebra
+
+\[
+X\cong \mathcal T(X).
+\]
+
+This preserves the ambition but requires explicit functorial semantics.
+
+#### Operational fixed point theorem
+
+Alternatively, let \(R\) be a realization functor from endo-optics to endomaps on a complete metric space \(S\). If
+
+\[
+T=R(O):S\to S
+\]
+
+is a contraction, then \(T\) has a unique fixed point by Banach’s theorem.
+
+This is the clean way to keep the fixed-point claim without claiming that an optic is automatically an endofunctor.
+
+---
+
+### 8. The Banach argument does not establish a fixed point
+
+**Audit verdict: valid.**
+
+Manuscript evidence:
+
+- Section 13 reports numerical convergence of
+  \[
+  T_{\mathrm{reg}}(K)
+  =
+  (1-\lambda)T(K)+\lambda\Pi_K(T(K)).
+  \]
+- It concludes that “the unification object exists by Banach’s theorem.”
+- No global Lipschitz bound is proved.
+
+Mathematical status:
+
+- Observed geometric convergence is not a contraction proof.
+- \(R^2\) of a tail fit is not a Lipschitz constant.
+- \(\Pi_K\) depending on the current set \(K\) makes the operator definition suspect.
+- A fixed point of the regularized operator need not be a fixed point of the original operator.
+- Finite grids do not prove contraction on continuous spaces.
+
+**Required repair:** prove an explicit bound
+
+\[
+d(Tx,Ty)\le q d(x,y),
+\qquad q<1,
+\]
+
+on a complete metric space.
+
+A clean sufficient theorem is:
+
+Let \(X=[0,1]^d\) with Euclidean metric. Let
+
+\[
+f=f_7\circ\cdots\circ f_1:X\to X
+\]
+
+with each \(f_i\) Lipschitz and
+
+\[
+L=\prod_{i=1}^7 \operatorname{Lip}(f_i)<1.
+\]
+
+Let \(C\subset X\) be closed and convex, and let \(\Pi_C\) be the Euclidean projection. Define
+
+\[
+T_\lambda(x)
+=
+(1-\lambda)f(x)+\lambda \Pi_C(f(x)),
+\qquad
+0\le\lambda<1.
+\]
+
+Then
+
+\[
+\operatorname{Lip}(T_\lambda)\le L<1,
+\]
+
+because \(\Pi_C\) is nonexpansive. Therefore \(T_\lambda\) has a unique fixed point.
+
+If the manuscript cannot prove \(L<1\), it should say:
+
+> Numerical evidence suggests contraction of the regularized update, but Banach existence has not been proved.
+
+To elevate the claim, provide analytic Jacobian bounds or Lipschitz constants for each optic realization.
+
+---
+
+### 9. The prototype changes the meaning of \(n\)
+
+**Audit verdict: valid.**
+
+Manuscript evidence:
+
+- At \(n=3\), the policy simplex is said to be two-dimensional and the structure group \(SO(2)\).
+- Later the \(n=3\) agent has base coordinates \((x,y)\) and a scalar policy heading \(\theta\in S^1\).
+- At \(n=4\), the state space becomes \(\mathbb R^3\) but the policy heading remains \(\theta\in S^1\), while the structure group is declared \(SO(3)\).
+
+Mathematical status:
+
+- A scalar heading has structure group \(SO(2)\), not \(SO(3)\).
+- To get an \(SO(3)\) non-Abelian signature, the policy fiber must carry a three-dimensional rotational frame, e.g. \(SO(3)\), \(S^2\) with frame bundle, or a three-dimensional policy simplex after square-root embedding.
+
+**Required repair:** introduce separate notation.
+
+Use:
+
+- \(m\): number of policy actions; policy simplex dimension \(m-1\);
+- \(d\): environmental/base dimension;
+- \(r\): policy fiber dimension;
+- \(n\): total ambient state dimension, if needed, \(n=d+r\);
+- \(G\): structure group determined by the actual policy fiber geometry.
+
+For the non-Abelian prototype, choose one of:
+
+1. base \(B=\mathbb R^3\), policy fiber \(SO(3)\), structure group \(SO(3)\);
+2. base \(B=\mathbb R^3\), policy fiber \(S^2\), frame bundle \(SO(3)\);
+3. policy simplex \(\Delta^3_\circ\), square-root sphere \(S^3_+\), local frame group \(SO(3)\).
+
+Do not use a scalar \(S^1\) heading to claim \(SO(3)\).
+
+---
+
+### 10. Holonomy, area, curvature, and Gauss–Bonnet are conflated
+
+**Audit verdict: valid.**
+
+Manuscript evidence:
+
+- Remark 9.1 states that \(H_{\mathrm{geo}}(a)=\pi a^2\) is the loop area and calls the equality a “Gauss–Bonnet collapse.”
+- But no connection one-form is explicitly constructed.
+- Gauss–Bonnet concerns integrated Gaussian curvature and topology, not an arbitrary policy connection.
+
+Mathematical status:
+
+- The area law \(H=\pi a^2\) follows only if one specifies a connection whose curvature is the standard area form.
+- A generic \(S^1\)-bundle connection need not have this property.
+- Noncommutativity of \(SO(3)\) is not the same as base-space curvature; matrix commutators and curvature 2-forms must be related explicitly.
+
+**Required repair:** construct the connection.
+
+For the abelian prototype, take
+
+\[
+B=\mathbb R^2,
+\qquad
+P=S^1,
+\qquad
+E=B\times S^1.
+\]
+
+Let \(\psi\) be the policy heading. Define the connection one-form
+
+\[
+\alpha=d\psi + A,
+\]
+
+with
+
+\[
+A=\frac12(x\,dy-y\,dx).
+\]
+
+Then
+
+\[
+F=dA=dx\wedge dy.
+\]
+
+For the circle \(\gamma_a(t)=(a\cos 2\pi t,a\sin 2\pi t)\),
+
+\[
+\oint_{\gamma_a} A
+=
+\int_{D_a} dx\wedge dy
+=
+\pi a^2.
+\]
+
+Thus the holonomy angle is exactly \(\pi a^2\) for this chosen connection. This is not Gauss–Bonnet; it is Stokes’ theorem for an explicitly chosen connection.
+
+For the non-Abelian prototype, define a connection on a trivial \(SO(3)\)-bundle with constant curvature components, for example
+
+\[
+F_{xy}=L_z,
+\qquad
+F_{yz}=L_x,
+\qquad
+F_{xz}=L_y,
+\]
+
+scaled appropriately. Then small loops in the \(xy\)-plane produce holonomy
+
+\[
+\operatorname{Hol}_{xy}(a)
+=
+\exp(\pi a^2 L_z),
+\]
+
+and the commutator signature follows from the \(so(3)\) bracket.
+
+---
+
+### 11. The fatigue correction is inserted by definition
+
+**Audit verdict: valid.**
+
+Manuscript evidence:
+
+- Equation (10) defines
+  \[
+  H_{\mathrm{corr}}(a)
+  =
+  H_{\mathrm{raw}}(a)
+  -
+  (0.5a^3+C_{\mathrm{fat}}a^{3/2})
+  =
+  \pi a^2.
+  \]
+- The correction is chosen so that the corrected quantity equals the geometric prediction.
+- The stress-test section then uses
+  \[
+  \mu_F=a\kappa_V(a)+C_{\mathrm{fat}}a^{3/2}=0.0352,
+  \]
+  while Equation (10) uses \(0.5a\kappa_V(a)\).
+
+Numerical check at \(a=0.3\):
+
+\[
+\kappa_V(a)=a^2=0.09,
+\]
+
+\[
+a\kappa_V(a)=0.027,
+\]
+
+\[
+0.5a\kappa_V(a)=0.0135,
+\]
+
+\[
+C_{\mathrm{fat}}a^{3/2}=0.05(0.3)^{3/2}\approx 0.00822.
+\]
+
+Thus
+
+\[
+a\kappa_V+C_{\mathrm{fat}}a^{3/2}
+\approx 0.03522,
+\]
+
+but
+
+\[
+0.5a\kappa_V+C_{\mathrm{fat}}a^{3/2}
+\approx 0.02172.
+\]
+
+So the manuscript uses two different fatigue conventions.
+
+**Required repair:**
+
+1. Define raw holonomy before correction.
+2. Estimate fatigue parameters from independent data or derive them from a specified fatigue dynamics.
+3. Predict held-out loops without subtracting a fitted correction from the same loop.
+4. Fix the coefficient convention: either use \(a\kappa_V\) or \(0.5a\kappa_V\), not both.
+5. If the \(a^{3/2}\) exponent is not derived, replace it by an estimable exponent \(\beta\), or demote the \(3/2\) law to a conjecture.
+
+A defensible fatigue model could be
+
+\[
+f_{k+1}
+=
+f_k
++
+c_3 a^3
++
+c_\beta a^\beta
++
+\eta_k,
+\]
+
+with \(\beta\) derived or estimated separately. The corrected holonomy should then be a prediction, not a definition.
+
+---
+
+### 12. The control logic for Claim E is reversed
+
+**Audit verdict: valid.**
+
+Manuscript evidence:
+
+- Definition 9.4 says that if the no-loop control agrees with the geometric prediction, the loop result is a common-cause artifact.
+- If the no-loop control disagrees, the loop prediction is confirmed.
+
+Mathematical/statistical status:
+
+- A disagreement in the no-loop control only shows that loop and no-loop conditions differ.
+- It does not prove that curvature caused the difference.
+- Confounders include total exposure, noise variance, resource usage, time length, and non-commutativity unrelated to viability curvature.
+
+**Required repair:** use a proper causal design.
+
+Controls should include:
+
+1. reversed loop orientation;
+2. shuffled loop ordering;
+3. equal-exposure non-loop trajectory;
+4. frozen-learning control;
+5. matched-noise control;
+6. commuting perturbation control;
+7. active-set-switching loop;
+8. external-repair knockout;
+9. no-holonomy baseline connection;
+10. counterfactual transport prediction on unseen loops.
+
+The claim should be: curvature causes hysteresis if the observed loop effect exceeds all matched controls and scales with signed area/orientation as predicted.
+
+---
+
+### 13. The empirical entropy is not a valid gauge-invariant entropy
+
+**Audit verdict: valid.**
+
+Manuscript evidence:
+
+- Definition 9.2 defines
+  \[
+  H_{\mathrm{emp}}(p_\gamma)
+  =
+  \log\sqrt{\det I(p_\gamma)}.
+  \]
+
+Mathematical status:
+
+- This is a volume-density expression, not Shannon entropy.
+- Under coordinate changes, \(\det I\) acquires Jacobian factors.
+- On the simplex in redundant coordinates, the Fisher matrix is singular.
+- Gauge invariance does not follow from Bregman invariance.
+
+**Required repair:** use one of the following.
+
+#### Coordinate-free Fisher volume ratio
+
+Fix a reference measure \(\mu_0\). Define
+
+\[
+H_{\mathrm{emp}}(p)
+=
+\log
+\frac{d\mu_F}{d\mu_0}(p),
+\]
+
+where
+
+\[
+d\mu_F=\sqrt{\det I(p)}\,dp
+\]
+
+in local minimal coordinates. This is invariant if \(\mu_0\) is a declared reference measure transforming correctly.
+
+#### Fisher–Rao distance
+
+Use
+
+\[
+d_{FR}(p,p_0)
+=
+2\arccos\left(\sum_i \sqrt{p_i p_{0,i}}\right)
+\]
+
+as a gauge-invariant observable.
+
+#### Shannon entropy
+
+If an entropy is needed, use
+
+\[
+H(p)=-\sum_i p_i\log p_i,
+\]
+
+which is a well-defined function on the simplex.
+
+Do not call \(\log\sqrt{\det I(p)}\) an entropy without a reference measure and coordinate-free definition.
+
+---
+
+### 14. The quantum claims overreach
+
+**Audit verdict: valid, with nuance.**
+
+Manuscript evidence:
+
+- Definition 2.6 defines a Liouvillian gap as
+  \[
+  \Delta=\min_{\lambda\ne 0}\operatorname{Re}(\lambda).
+  \]
+- Section 8/12 uses a Hamiltonian \(H=(\omega/2)\sigma_x\).
+- It measures state change by trace distance and claims quadratic Zeno scaling.
+- Proposition 12.2 describes Holevo information as mutual information between two states.
+
+Mathematical status:
+
+- For a closed Hamiltonian system, nonzero Liouvillian eigenvalues are imaginary, so a real-part gap is not the right object.
+- The quantum Zeno theorem is usually about survival probability under repeated projection.
+- Trace distance between a state and its small-time unitary evolution often scales linearly in \(\tau\), while survival-probability deficit scales quadratically.
+- Holevo information is an ensemble quantity, not a mutual information between two individual density matrices.
+- A CPTP channel does not automatically resolve classical self-reference.
+
+**Required repair:**
+
+Use a dissipative Lindbladian if invoking a Liouvillian gap:
+
+\[
+\mathcal L(\rho)
+=
+-i[H,\rho]
++
+\sum_k
+\left(
+L_k\rho L_k^\dagger
+-
+\frac12\{L_k^\dagger L_k,\rho\}
+\right),
+\]
+
+and define
+
+\[
+\Delta
+=
+\min_{\lambda\ne 0}
+\{-\operatorname{Re}\lambda:\lambda\in\operatorname{spec}(\mathcal L)\}.
+\]
+
+For closed Hamiltonian Zeno scaling, use energy variance and survival probability.
+
+Let \(P\) be a projection and \(\tau=t/N\). Then
+
+\[
+\lim_{N\to\infty}
+\left(
+P e^{-iHt/N}P
+\right)^N
+=
+e^{-iPHPt}P.
+\]
+
+The survival probability satisfies
+
+\[
+p_N(t)
+=
+\left\|
+\left(
+P e^{-iHt/N}P
+\right)^N
+\psi
+\right\|^2
+=
+1-\frac{t^2}{N}(\Delta H)^2+O(N^{-2}).
+\]
+
+Thus the survival deficit scales quadratically in the short-time interval. Use survival deficit or infidelity, not trace distance, for the exponent test.
+
+For Holevo information, define an ensemble \(\{p_x,\rho_x\}\) and use
+
+\[
+\chi
+=
+S\left(\sum_x p_x\rho_x\right)
+-
+\sum_x p_x S(\rho_x).
+\]
+
+This bounds accessible classical information. In the commuting case it reduces to an ordinary classical information quantity after choosing the common eigenbasis, but it is not “mutual information between two states.”
+
+To make the self-reference claim rigorous, define a quantum fixed-point equation such as
+
+\[
+\rho=\Phi(\rho),
+\]
+
+or a Zeno-projected equation
+
+\[
+\rho=P\Phi(P\rho P)P,
+\]
+
+and prove contraction or compactness. Zeno suppression alone does not imply endogenous self-reference.
+
+---
+
+### 15. The RAF inverse-limit construction is misnamed and unsupported
+
+**Audit verdict: valid.**
+
+Manuscript evidence:
+
+- Construction 14.1 says “inverse-limit construction” but then writes
+  \[
+  R_\infty=\operatorname{colim}_{\mathrm{dir}}R.
+  \]
+- It claims filtered colimits always exist in \(\mathrm{Optic}(\mathrm{Set})\) without proof.
+- It claims viability preservation is inherited by the colimit without continuity assumptions.
+
+Mathematical status:
+
+- A filtered colimit is not an inverse limit.
+- The maximal RAF obtained by union of a directed system of RAFs is a filtered colimit/direct limit, not an inverse limit.
+- Colimits in an optic category require componentwise construction and compatibility.
+- Viability preservation under colimit requires monotonicity/continuity of the viability functional.
+
+**Required repair:**
+
+Rename the construction:
+
+\[
+R_{\max}
+=
+\operatorname{colim}_{i\in I} R_i
+=
+\bigcup_i R_i,
+\]
+
+for a directed poset of RAFs ordered by inclusion.
+
+If working in \(\mathrm{Optic}(\mathrm{Set})\), construct the colimit componentwise:
+
+- forward carriers: colimit of forward carriers;
+- backward carriers: limit or appropriate colimit depending on optic variance;
+- residuals: colimit of residual objects;
+- structure maps: induced by universal properties.
+
+Then prove viability preservation under explicit assumptions:
+
+If \(V(R)\) is monotone with respect to inclusion and continuous under directed unions, then
+
+\[
+V\left(\operatorname{colim}_i R_i\right)
+=
+\lim_i V(R_i).
+\]
+
+If \(V(R_i)\ge\varepsilon\) for all \(i\), then the colimit satisfies the same bound.
+
+Without monotonicity/continuity, the claim is false.
+
+---
+
+### 16. The autopoiesis test is too weak and partly circular
+
+**Audit verdict: valid.**
+
+Manuscript evidence:
+
+- Definition 3.5 says: remove a node \(m\), apply regeneration rules, and if \(m\) reappears, the system is autopoietic.
+
+Mathematical/biological status:
+
+- A node can reappear because of an external simulator rule, a hidden reset, or a trivial reinsertion operation.
+- RAF closure is not equivalent to autopoiesis.
+- Autopoiesis requires endogenous regeneration of processes, boundaries, and maintenance conditions.
+
+**Required repair:** replace the node-reappearance test with a dynamical closure test.
+
+Let \(\Gamma\) be a maintenance graph with production and degradation fluxes. Define concentration dynamics
+
+\[
+\dot x
+=
+N v(x)
+-
+D x
++
+u_{\mathrm{food}},
+\]
+
+where:
+
+- \(x\) are maintenance species;
+- \(N\) is the stoichiometric matrix;
+- \(v(x)\) are reaction rates;
+- \(D\) is degradation;
+- \(u_{\mathrm{food}}\) is allowed external food input only.
+
+A system is dynamically autopoietic with respect to \(\Gamma\) if:
+
+1. there exists a positive steady state \(x^*>0\);
+2. all essential maintenance fluxes are internally catalyzed;
+3. no external repair flux is required beyond food;
+4. knockouts of non-food maintenance components are repaired by internal fluxes;
+5. knockout of essential repair hubs causes predicted collapse;
+6. the maintenance subgraph contains a strongly connected or positively self-supporting core.
+
+This converts autopoiesis from a label into a testable dynamical property.
+
+---
+
+# 2. Rigorous elevation of the framework
+
+The following is a repair and elevation program. It keeps the broader ambition but replaces unsupported identifications with typed constructions.
+
+---
+
+## 2.1 Reset the notation
+
+Use the following notation consistently.
+
+- \(B\): environmental/control base manifold, dimension \(d\).
+- \(\mathcal P\): policy manifold, dimension \(r\).
+- \(E\to B\): policy bundle with fiber \(\mathcal P\).
+- \(m\): number of policy actions if \(\mathcal P=\Delta^{m-1}_\circ\).
+- \(h_\alpha:E\to\mathbb R\): viability constraint functions.
+- \(m_\alpha\): strict viability-margin functions.
+- \(A\): active constraint set.
+- \(S_A\): constant-active-set stratum.
+- \(g^F\): Fisher metric on policy fibers.
+- \(G\): structure group, determined by geometry, not overloaded \(n\).
+- \(F\): curvature 2-form of the policy connection.
+- \(D_V\): viability-depth functional.
+- \(\kappa_V\): viability-weighted curvature functional.
+- \(\Gamma\): maintenance graph.
+- \(\Phi\): quantum channel or CPTP map.
+- \(O_i\): typed optics.
+- \(T\): realized update map, not automatically an optic endofunctor.
+
+This alone resolves many type errors.
+
+---
+
+## 2.2 Stratified Fisher-viability bundle
+
+### Definition: stratified viability policy bundle
+
+A **stratified viability policy bundle** is a tuple
+
+\[
+\mathcal S
+=
+(B,\ E,\ h,\ \varepsilon,\ \Gamma),
+\]
+
+where:
+
+1. \(B\) is a smooth \(d\)-dimensional control manifold, possibly stratified.
+2. \(E\to B\) is a smooth fiber bundle with policy fiber \(\mathcal P\).
+3. \(h=(h_1,\dots,h_q):E\to\mathbb R^q\) are viability constraints.
+4. \(\varepsilon=(\varepsilon_1,\dots,\varepsilon_q)\) are strict margin thresholds.
+5. \(\Gamma\) is an endogenous maintenance graph with associated flux dynamics.
+
+Define the viable set
+
+\[
+K
+=
+\{e\in E: h_\alpha(e)\ge 0\}.
+\]
+
+Define the operational interior
+
+\[
+K_\varepsilon^\circ
+=
+\{e\in E: h_\alpha(e)\ge \varepsilon_\alpha>0\}.
+\]
+
+For each active set \(A\subseteq\{1,\dots,q\}\), define the stratum
+
+\[
+S_A
+=
+\{e\in E: h_\alpha(e)=0\text{ for }\alpha\in A,\ h_\alpha(e)>0\text{ for }\alpha\notin A\},
+\]
+
+with constant rank of the active constraint Jacobian.
+
+This is the correct replacement for the underspecified SAVGS.
+
+---
+
+## 2.3 Fisher-minimal constrained transport as a connection
+
+Assume the policy fiber \(\mathcal P\) carries the Fisher–Rao metric \(g^F\). For the open simplex \(\Delta^{m-1}_\circ\), use the square-root embedding
+
+\[
+\psi_i(p)=2\sqrt{p_i},
+\]
+
+so that
+
+\[
+d_{FR}(p,q)
+=
+2\arccos\left(\sum_i \sqrt{p_iq_i}\right).
+\]
+
+On a constant-active-set stratum \(S_A\), write local coordinates \((\theta,p)\), where \(\theta\in B\) and \(p\in\mathcal P\).
+
+Let active constraints be
+
+\[
+h_A(\theta,p)=0.
+\]
+
+Given a base velocity \(\dot\theta\), choose the vertical policy velocity \(\dot p\) minimizing Fisher kinetic energy
+
+\[
+\frac12 \dot p^\top G(p)\dot p
+\]
+
+subject to the linearized constraint
+
+\[
+J_p\dot p+J_\theta\dot\theta=0,
+\]
+
+where
+
+\[
+J_p=D_p h_A,
+\qquad
+J_\theta=D_\theta h_A,
+\]
+
+and \(G\) is the Fisher metric matrix.
+
+If
+
+\[
+M=J_pG^{-1}J_p^\top
+\]
+
+is invertible, the Fisher-minimal horizontal lift is
+
+\[
+\dot p
+=
+-G^{-1}J_p^\top
+\left(
+J_pG^{-1}J_p^\top
+\right)^{-1}
+J_\theta\dot\theta.
+\]
+
+This defines a smooth horizontal distribution on \(S_A\). Therefore it defines an Ehresmann connection.
+
+In local coordinates, the connection one-form may be written as
+
+\[
+\omega
+=
+dp
++
+G^{-1}J_p^\top
+\left(
+J_pG^{-1}J_p^\top
+\right)^{-1}
+J_\theta d\theta.
+\]
+
+Its curvature is
+
+\[
+\Omega
+=
+d\omega+\omega\wedge\omega,
+\]
+
+with the wedge term present only in non-Abelian frame formulations.
+
+### Theorem: local stratified connection
+
+On any constant-active-set stratum \(S_A\) where \(J_pG^{-1}J_p^\top\) is invertible and all maps are smooth, the Fisher-minimal constrained update defines a smooth Ehresmann connection.
+
+**Proof sketch.** The horizontal lift is the unique solution of a smooth equality-constrained quadratic minimization problem. Constant rank ensures smooth dependence on \((\theta,p)\). Therefore the horizontal distribution is smooth. The curvature follows from the standard definition.
+
+---
+
+## 2.4 Holonomy and leading-order hysteresis
+
+Let \(\gamma_a\subset S_A\) be a small contractible loop bounding a surface \(\Sigma_a\) of area \(O(a^2)\). Let \(\operatorname{Hol}_\gamma\) denote the policy holonomy induced by the connection.
+
+### Theorem: small-loop holonomy
+
+For a sufficiently small loop \(\gamma_a\),
+
+\[
+\operatorname{Hol}_{\gamma_a}
+=
+\mathcal P
+\exp
+\left(
+-\oint_{\gamma_a}\omega
+\right)
+=
+I
+-
+\int_{\Sigma_a}F
++
+O(a^3),
+\]
+
+in a local trivialization, where \(F\) is the curvature 2-form. In the Abelian case,
+
+\[
+\Delta\psi
+=
+-\int_{\Sigma_a}F
++
+O(a^3).
+\]
+
+This is the rigorous version of the manuscript’s leading-order hysteresis claim.
+
+### Corollary: leading-order policy hysteresis
+
+On smooth constant-active-set strata, Fisher-minimal constraint-preserving adaptation defines a transport law whose curvature predicts leading-order policy hysteresis around sufficiently small environmental loops.
+
+This is the strongest defensible core theorem.
+
+---
+
+## 2.5 Viability-weighted curvature as a margin-erosion functional
+
+We must separate three quantities.
+
+### 1. Viability depth
+
+For a loop \(\gamma\), define
+
+\[
+D_V(\gamma)
+=
+\frac{1}{|\gamma|}
+\int_\gamma
+(V_{\max}-V)\,ds.
+\]
+
+This is a loop-averaged viability deficit. It is not curvature.
+
+### 2. Geometric curvature
+
+Let \(F\) be the curvature 2-form of the policy connection.
+
+### 3. Viability-weighted curvature
+
+Let \(m_\alpha:E\to\mathbb R_{>0}\) be margin functions, for example
+
+\[
+m_\alpha=h_\alpha-\varepsilon_\alpha.
+\]
+
+Define
+
+\[
+\kappa_\alpha(u,v)
+=
+\frac{
+[-\,d m_\alpha(F(u,v))]_+
+}{
+m_\alpha
+},
+\]
+
+and
+
+\[
+\kappa_V(u,v)
+=
+\max_\alpha \kappa_\alpha(u,v)
+\]
+
+or a weighted sum
+
+\[
+\kappa_V(u,v)
+=
+\sum_\alpha w_\alpha \kappa_\alpha(u,v).
+\]
+
+This object has a clear interpretation:
+
+> fractional viability-margin erosion per unit environmental area induced by policy curvature.
+
+### Theorem: margin erosion from curvature
+
+For a small loop \(\gamma_a\) bounding \(\Sigma_a\),
+
+\[
+\Delta m_\alpha
+=
+-\int_{\Sigma_a} d m_\alpha(F)
++
+O(a^3),
+\]
+
+provided no active-set switching occurs. Therefore the positive fractional margin loss is bounded by
+
+\[
+\int_{\Sigma_a}\kappa_\alpha\,dA.
+\]
+
+Survival requires additionally that
+
+\[
+m_\alpha(0)
+-
+\int_{\Sigma_a} d m_\alpha(F)
+-
+\text{disturbances}
+>
+0
+\]
+
+for all relevant \(\alpha\).
+
+This separates:
+
+1. transport tangency;
+2. holonomy;
+3. survival.
+
+Only the second is primarily a curvature claim.
+
+---
+
+## 2.6 Radial prototype made rigorous
+
+Take
+
+\[
+B=\mathbb R^2,
+\qquad
+\mathcal P=S^1,
+\qquad
+E=B\times S^1.
+\]
+
+Let the policy heading be \(\psi\). Let the viability landscape be
+
+\[
+V(x,y)=1-x^2-y^2.
+\]
+
+Define the connection one-form
+
+\[
+\alpha=d\psi+A,
+\]
+
+with
+
+\[
+A=\frac12(x\,dy-y\,dx).
+\]
+
+Then
+
+\[
+F=dA=dx\wedge dy.
+\]
+
+For the circular loop
+
+\[
+\gamma_a(t)=(a\cos 2\pi t,a\sin 2\pi t),
+\]
+
+the holonomy angle is
+
+\[
+H_{\mathrm{geo}}(a)
+=
+\oint_{\gamma_a}A
+=
+\int_{D_a}dx\wedge dy
+=
+\pi a^2.
+\]
+
+The viability depth is
+
+\[
+D_V(\gamma_a)
+=
+\frac{1}{|\gamma_a|}
+\int_{\gamma_a}
+(1-V)\,ds
+=
+a^2.
+\]
+
+Therefore, in this specific model,
+
+\[
+H_{\mathrm{geo}}(a)
+=
+\pi D_V(\gamma_a).
+\]
+
+But this equality is a consequence of the chosen connection and radial viability landscape. It is not a general identity and should not be called curvature by definition.
+
+This repairs the prototype while preserving the \(a^2\) and \(\pi a^2\) scalings.
+
+---
+
+## 2.7 Non-Abelian prototype made rigorous
+
+To obtain an \(SO(3)\) signature, the policy fiber must be genuinely three-dimensional rotational.
+
+Let
+
+\[
+B=\mathbb R^3,
+\qquad
+\mathcal P=SO(3),
+\]
+
+or let \(\mathcal P\) be a 3D policy simplex with square-root fiber locally modeled on \(S^3_+\) and frame group \(SO(3)\).
+
+Define a connection on the trivial bundle \(B\times SO(3)\) with constant curvature components
+
+\[
+F_{xy}=cL_z,
+\qquad
+F_{yz}=cL_x,
+\qquad
+F_{xz}=cL_y,
+\]
+
+where \(L_x,L_y,L_z\) are the standard \(so(3)\) generators and \(c\) is a scaling constant.
+
+For a small loop in the \(xy\)-plane with area \(\pi a^2\),
+
+\[
+\operatorname{Hol}_{xy}(a)
+=
+\exp(c\pi a^2 L_z).
+\]
+
+For two small loops with rotations
+
+\[
+R_1=\exp(\alpha_1 L_i),
+\qquad
+R_2=\exp(\alpha_2 L_j),
+\]
+
+the small-angle commutator is
+
+\[
+[R_1,R_2]
+=
+\alpha_1\alpha_2[L_i,L_j]
++
+O(\alpha^3).
+\]
+
+For \(i\ne j\),
+
+\[
+\|[R_1,R_2]\|_F
+=
+\sqrt{2}\,\alpha_1\alpha_2,
+\]
+
+using the standard normalization of \(so(3)\).
+
+This gives a rigorous version of Claim F. It requires replacing the inconsistent scalar-heading \(n=4\) prototype with a genuine \(SO(3)\)-policy fiber.
+
+---
+
+## 2.8 Structure group: when \(SO(r)\), when \(CO(r)\)
+
+Let the policy fiber have dimension \(r\). The Fisher metric gives an orthonormal frame bundle with structure group
+
+\[
+O(r).
+\]
+
+If the policy frame is oriented, the group reduces to
+
+\[
+SO(r).
+\]
+
+If the system also contains an endogenous scale variable \(s>0\), for example effective precision, temperature, sample size, or a Weyl factor, then one may define a conformal frame bundle with structure group
+
+\[
+CO(r)=\mathbb R_+\ltimes SO(r).
+\]
+
+This should be stated as an additional structure.
+
+### Definition: Fisher–Weyl policy structure
+
+A Fisher–Weyl policy structure consists of:
+
+1. a policy bundle \(E\to B\);
+2. a vertical Fisher metric \(g^F\);
+3. a positive scale bundle \(L\to E\);
+4. a conformal class \([g^F]\);
+5. a Weyl connection preserving the conformal class.
+
+Then the conformal frame bundle has structure group \(CO(r)\).
+
+### Theorem: stabilizer of the conformal Fisher cost
+
+If the cost functional depends only on the conformal class of the Fisher metric and is invariant under positive rescalings of orthonormal frames, then its stabilizer contains
+
+\[
+CO(r).
+\]
+
+If scale is fixed, the stabilizer reduces to \(SO(r)\) or \(O(r)\).
+
+This preserves the \(CO(n-1)\) ambition in a mathematically honest way.
+
+---
+
+## 2.9 Algorithmic rate-distortion: rigorous replacement
+
+The original claim can be split into two levels.
+
+### Level 1: theoretical algorithmic bound
+
+Define
+
+\[
+\operatorname{dist}_D(x)
+=
+\min\{|p|:U(p)=\hat x,\ d(x,\hat x)\le D\}.
+\]
+
+Then:
+
+- \(\operatorname{dist}_D\) is upper-semicomputable;
+- it is monotone nonincreasing in \(D\);
+- it is bounded above by \(K(x)\);
+- it is not differentiable;
+- it is not a valid argument of a classical directional derivative.
+
+Thus it can serve as a theoretical upper bound but not as an empirical smooth observable.
+
+### Level 2: operational smooth surrogate
+
+Let \(\{c_j\}\) be a prefix-free finite code family with lengths \(\ell_j\) and reconstructions \(\hat x_j\). Define
+
+\[
+r_{\tau,\beta,D}(x)
+=
+-\tau
+\log
+\sum_j
+2^{-\ell_j/\tau}
+\exp
+\left(
+-\beta[d(x,\hat x_j)-D]_+^2/\tau
+\right).
+\]
+
+Assume \(x\mapsto d(x,\hat x_j)\) is \(C^2\). Then
+
+\[
+r_{\tau,\beta,D}\in C^2.
+\]
+
+Define
+
+\[
+h_\alpha(\theta,x)
+=
+D_\phi(r_{\tau,\beta,D}(x),r_{\tau,\beta,D}(x_0)).
+\]
+
+Then the directional derivative
+
+\[
+D F_{\theta,x} h_\alpha
+\]
+
+is well-defined, and the viability-weighted curvature formula becomes meaningful.
+
+### Elevated proposition
+
+Let \(F\) be the curvature 2-form of a smooth policy connection and let \(h_\alpha\) be constructed from a smooth rate-distortion surrogate. Then
+
+\[
+\kappa_V(\theta,x)
+=
+\frac{
+[-D_F h_\alpha]_+(\theta,x)
+}{
+h_\alpha(\theta,x)
+}
+\]
+
+is a well-defined viability-weighted curvature density.
+
+### Conjecture: algorithmic upper envelope
+
+There exists an upper-semicomputable algorithmic viability curvature \(\kappa_V^{\mathrm{alg}}\) based on \(\operatorname{dist}_D\) such that, for any smooth finite-code surrogate,
+
+\[
+\kappa_V^{\mathrm{surrogate}}
+\le
+\kappa_V^{\mathrm{alg}}
++
+O(1)
+\]
+
+in an appropriate asymptotic sense.
+
+This conjecture preserves the algorithmic ambition without pretending that Kolmogorov complexity is differentiable.
+
+---
+
+## 2.10 Correct Bregman-Noether upgrade
+
+Replace the false Bregman-Noether proposition with the following.
+
+### Proposition: Bregman-Hessian Noether correspondence
+
+Let \(\phi:Q\to\mathbb R\) be strictly convex \(C^3\), and let
+
+\[
+g_\phi=\nabla^2\phi.
+\]
+
+Let \(\xi\) be a complete affine vector field whose flow preserves the Hessian metric:
+
+\[
+\mathcal L_\xi g_\phi=0.
+\]
+
+Let \(U:Q\to\mathbb R\) satisfy
+
+\[
+\xi(U)=0.
+\]
+
+For the Lagrangian
+
+\[
+L(q,\dot q)
+=
+\frac12 g_\phi(q)(\dot q,\dot q)-U(q),
+\]
+
+the Noether current
+
+\[
+J_\xi(q,\dot q)
+=
+g_\phi(q)(\dot q,\xi(q))
+\]
+
+is conserved along Euler–Lagrange trajectories.
+
+### Corollary: affine Bregman invariance
+
+If a one-parameter affine flow satisfies
+
+\[
+\phi\circ g_t=\phi+\ell_t,
+\]
+
+with \(\ell_t\) affine, then the associated Bregman divergence is invariant in the paired primal-dual sense, and the Hessian metric is preserved. Therefore the Noether proposition applies.
+
+### Application to gauge invariance
+
+If the policy connection and viability margins are constructed from a Bregman generator \(\phi\), and the gauge group acts by affine Hessian isometries preserving the margins, then the curvature and viability-weighted curvature are gauge-covariant/invariant.
+
+This is a true replacement for Proposition 5.1.
+
+---
+
+## 2.11 Typed optics: preserving the unification ambition without category errors
+
+The manuscript’s seven-optic construction can be repaired in three layers.
+
+---
+
+### Layer 1: typed composite optic
+
+Let \(\mathcal C\) be a category with finite products. Let \(\mathrm{Optic}(\mathcal C)\) be the category/bicategory of optics.
+
+Introduce interfaces
+
+\[
+I_0,I_1,\dots,I_7,
+\]
+
+with
+
+\[
+I_7\cong I_0.
+\]
+
+Let
+
+\[
+O_i:I_{i-1}\rightleftarrows I_i
+\]
+
+be well-typed optics.
+
+Then
+
+\[
+O
+=
+\sigma\circ O_7\circ\cdots\circ O_1
+\]
+
+is an endo-optic on \(I_0\).
+
+This is the correct version of Theorem 7.4 at the optic level.
+
+---
+
+### Layer 2: endofunctor on a category of periodic systems
+
+Define a category \(\mathsf{Sys}_7\) whose objects are seven-periodic typed systems
+
+\[
+X=(X_1,\dots,X_7,f_1,\dots,f_7),
+\]
+
+with
+
+\[
+f_i:X_i\to X_{i+1},
+\qquad
+X_8=X_1.
+\]
+
+Suppose each arc is represented by a functor
+
+\[
+F_i:\mathsf{Sys}_i\to\mathsf{Sys}_{i+1}.
+\]
+
+Then
+
+\[
+\mathcal T=F_7\circ\cdots\circ F_1
+\]
+
+is an endofunctor on the identified periodic category.
+
+A unification object is a coalgebra/fixed point
+
+\[
+X\cong \mathcal T(X).
+\]
+
+This is the categorically honest version of the manuscript’s endofunctor claim.
+
+---
+
+### Layer 3: realized contraction map
+
+Let \(S\) be a complete metric state space and let
+
+\[
+R:\mathrm{EndOptic}(I_0)\to \mathrm{End}(S)
+\]
+
+be a realization functor. Define
+
+\[
+T=R(O):S\to S.
+\]
+
+If \(T\) is a contraction, then Banach’s theorem gives a unique fixed point.
+
+This is the operational version of the unification object.
+
+---
+
+## 2.12 Banach fixed point: rigorous sufficient conditions
+
+Let \(S\) be a complete metric space. Let \(T:S\to S\). To claim Banach existence, prove:
+
+\[
+d(Tx,Ty)\le q d(x,y),
+\qquad q<1.
+\]
+
+A practical sufficient condition for the prototype is:
+
+Let \(X=[0,1]^d\), and let each realized optic map \(f_i:X\to X\) be Lipschitz with constant \(L_i\). Let
+
+\[
+f=f_7\circ\cdots\circ f_1,
+\qquad
+L=\prod_i L_i.
+\]
+
+If \(L<1\), then \(f\) is a contraction.
+
+If a viability projection \(\Pi_C\) onto a fixed closed convex set \(C\subset X\) is used, then \(\Pi_C\) is nonexpansive, so
+
+\[
+\operatorname{Lip}(\Pi_C\circ f)\le L.
+\]
+
+Thus
+
+\[
+T_\lambda(x)=(1-\lambda)f(x)+\lambda \Pi_C(f(x))
+\]
+
+is also \(L\)-Lipschitz and therefore contractive if \(L<1\).
+
+### What the numerical section should claim
+
+If analytic \(L_i\) are not proved, the section should say:
+
+> We observe geometric convergence across 375 configurations, providing numerical evidence that the regularized update may be contractive. This is not a Banach proof unless Lipschitz constants are bounded independently.
+
+To elevate it, compute or bound Jacobian norms for each realized optic.
+
+---
+
+## 2.13 RAF construction: direct limit, not inverse limit
+
+Let \((R_i)_{i\in I}\) be a directed system of RAF sets ordered by inclusion.
+
+Then the maximal RAF is
+
+\[
+R_{\max}
+=
+\bigcup_{i\in I}R_i
+=
+\operatorname{colim}_{i\in I}R_i.
+\]
+
+This is a filtered colimit/direct limit.
+
+### Theorem: viability preservation under directed RAF colimits
+
+Let \(V(R)\) be a viability-margin functional on RAF sets. Assume:
+
+1. monotonicity:
+   \[
+   R\subseteq R'
+   \implies
+   V(R)\le V(R')
+   \]
+   or the appropriate monotonicity direction for the chosen viability measure;
+2. directed continuity:
+   \[
+   V\left(\bigcup_i R_i\right)
+   =
+   \lim_i V(R_i).
+   \]
+
+If \(V(R_i)\ge\varepsilon\) for all \(i\), then
+
+\[
+V(R_{\max})\ge\varepsilon.
+\]
+
+For finite reaction networks, this is straightforward. For infinite networks, the continuity assumption is essential.
+
+### Optic lift
+
+If each RAF \(R_i\) is lifted to an optic in \(\mathrm{Optic}(\mathrm{Set})\), and the transition maps are compatible inclusions, then the colimit can be constructed componentwise, provided the relevant forward/backward maps admit colimits. This should be stated as a proposition with explicit compatibility hypotheses, not as a universal fact.
+
+---
+
+## 2.14 Autopoiesis as dynamical closure
+
+Replace the node-reappearance test with a flux-based closure test.
+
+Let:
+
+- \(x\in\mathbb R^M_{\ge0}\) be maintenance species concentrations;
+- \(v\in\mathbb R^R_{\ge0}\) be reaction fluxes;
+- \(N\) be the stoichiometric matrix;
+- \(D\) be degradation;
+- \(u_{\mathrm{food}}\) be allowed food input.
+
+Dynamics:
+
+\[
+\dot x
+=
+Nv(x)-Dx+u_{\mathrm{food}}.
+\]
+
+### Definition: dynamical autopoietic closure
+
+The maintenance network is autopoietic if there exist \(x^*>0\) and \(v^*\ge0\) such that:
+
+1. steady viability:
+   \[
+   Nv^*-Dx^*+u_{\mathrm{food}}\ge0;
+   \]
+2. all essential maintenance reactions are catalyzed by food-generated or internally generated species;
+3. no external repair flux is used except food;
+4. for each non-food maintenance node \(m\), removal followed by internal dynamics permits recovery above a viability threshold;
+5. knockout of essential catalytic hubs causes collapse.
+
+This is stronger than RAF closure and closer to autopoiesis.
+
+### Operational test
+
+Use flux-balance or dynamical simulation:
+
+1. compute maximal RAF;
+2. solve for positive steady flux;
+3. remove node \(m\);
+4. simulate degradation and internal repair;
+5. classify recovery/collapse;
+6. compare against external-repair controls.
+
+This makes autopoiesis experimentally falsifiable.
+
+---
+
+## 2.15 Quantum CPTP-Zeno lift: rigorous version
+
+### Replace Hamiltonian Liouvillian gap with the correct object
+
+If the dynamics are closed,
+
+\[
+\dot\rho=-i[H,\rho],
+\]
+
+use energy gaps and survival probability.
+
+If the dynamics are dissipative,
+
+\[
+\dot\rho=\mathcal L(\rho),
+\]
+
+with Lindbladian \(\mathcal L\), define the Liouvillian gap as
+
+\[
+\Delta
+=
+\min_{\lambda\ne0}
+\{-\operatorname{Re}\lambda:\lambda\in\operatorname{spec}(\mathcal L)\}.
+\]
+
+### Zeno theorem
+
+Let \(P\) be a projection and let measurements occur every \(\tau=t/N\). Then
+
+\[
+\lim_{N\to\infty}
+\left(
+Pe^{-iHt/N}P
+\right)^N
+=
+e^{-iPHPt}P.
+\]
+
+The survival probability satisfies
+
+\[
+p_N(t)
+=
+\left\|
+\left(
+Pe^{-iHt/N}P
+\right)^N\psi
+\right\|^2
+=
+1-\frac{t^2}{N}(\Delta H)^2+O(N^{-2}).
+\]
+
+Thus the survival deficit scales quadratically in the short-time interval.
+
+The classical continuous-time Markov benchmark satisfies
+
+\[
+\|e^{Q\tau}p-p\|_1=O(\tau).
+\]
+
+Therefore the exponent distinction should be tested using survival deficit or infidelity, not trace distance alone.
+
+### Holevo information
+
+For an ensemble \(\{p_x,\rho_x\}\), define
+
+\[
+\chi
+=
+S\left(\sum_xp_x\rho_x\right)
+-
+\sum_xp_xS(\rho_x).
+\]
+
+This bounds the accessible classical information. It is not a mutual information between two individual states.
+
+### Self-reference resolution
+
+To make the RPSI quantum resolution rigorous, define a fixed-point problem.
+
+For example, let \(\Phi\) be a CPTP channel and require
+
+\[
+\rho=\Phi(\rho).
+\]
+
+If \(\Phi\) is a strict contraction in trace distance, then a unique fixed point exists.
+
+With Zeno projection \(P\), require
+
+\[
+\rho=P\Phi(P\rho P)P,
+\qquad
+\operatorname{tr}\rho=1.
+\]
+
+If the projected channel is a contraction on the projected state space, then the self-reference problem has a unique solution.
+
+This preserves the quantum ambition but removes the claim that CPTP plus Zeno automatically resolves self-reference.
+
+---
+
+# 3. Revised main proposition
+
+The strongest defensible and elevated version of the manuscript’s main claim is:
+
+> **Revised Main Proposition.**  
+> Let \(E\to B\) be a Fisher-metric policy bundle over a smooth constant-active-set viability stratum. Suppose the active constraints have constant rank and the Fisher-minimal constrained update defines a smooth Ehresmann connection. Then the curvature of this connection predicts the leading-order policy holonomy around sufficiently small environmental loops. The leading-order viability-margin erosion is given by the contraction of the curvature 2-form with viability-margin covectors. Whether the induced holonomy is fatal depends separately on viability margins, along-path disturbances, fatigue dynamics, and endogenous maintenance capacity.
+
+This is stronger than the original in precision and weaker only in removing false identifications.
+
+A further elevated version including scale and categorical structure is:
+
+> **Extended Main Proposition.**  
+> If the policy bundle is equipped with a Fisher–Weyl scale structure, the relevant structure group is \(CO(r)\). If the seven domain arcs are realized as typed optics with compatible interfaces, their composite defines an endo-optic; under a realization functor and an explicit contraction bound, the realized update has a unique fixed point. If the RAF diagram is directed and viability is monotone-continuous, the maximal RAF is the filtered colimit and preserves viability. If the quantum predictor channel is contractive under Zeno projection, the self-referential predictor admits a unique self-consistent state.
+
+This keeps the broad unification ambition but makes each component independently rigorous.
+
+---
+
+# 4. Revised falsification hierarchy
+
+The seven claims should be rewritten as follows.
+
+---
+
+## Claim A: held-out margin erosion
+
+**Original idea:** \(\kappa_V\) predicts margin erosion with slope \(1\).
+
+**Revised version:**
+
+Let \(\Delta m_{\mathrm{obs}}\) be held-out margin loss and let
+
+\[
+\widehat{\Delta m}
+=
+\int_{\Sigma}
+[-dm(F)]_+
+\]
+
+be the curvature-predicted loss. Fit
+
+\[
+\Delta m_{\mathrm{obs}}
+=
+\beta \widehat{\Delta m}+\epsilon.
+\]
+
+Prediction:
+
+\[
+\beta\approx 1,
+\qquad
+R^2\ge0.9,
+\]
+
+with confidence intervals and preregistered tolerance.
+
+---
+
+## Claim B: orientation/area threshold
+
+**Original idea:** orientation reversal at \(a=1\).
+
+**Revised version:**
+
+If the connection gives
+
+\[
+H(a)=\pi a^2,
+\]
+
+then any orientation threshold must be defined explicitly. For example, if the policy heading is modulo \(2\pi\), then the first wrap occurs at
+
+\[
+\pi a^2=2\pi
+\implies
+a=\sqrt{2}.
+\]
+
+If the manuscript defines reversal at \(|H|=\pi\), then \(a=1\), but that must be declared as an operational threshold, not a topological necessity.
+
+---
+
+## Claim C: holonomy-area scaling with fatigue
+
+**Original idea:**
+
+\[
+H(a)=c_1a^2+c_2a^{3/2}.
+\]
+
+**Revised version:**
+
+Use
+
+\[
+H_{\mathrm{raw}}(a)
+=
+c_2a^2+c_\beta a^\beta+\epsilon(a),
+\]
+
+where \(\beta=3/2\) only if derived from an explicit heavy-tail/fatigue model. Otherwise estimate \(\beta\) and report it.
+
+If \(\beta=3/2\) is retained, provide a derivation from a specified stable process, first-passage model, or singular perturbation expansion.
+
+---
+
+## Claim D: repeated-loop fatigue
+
+**Original idea:** cumulative fatigue crosses a threshold at predicted \(K\).
+
+**Revised version:**
+
+Define fatigue dynamics independently:
+
+\[
+f_{k+1}
+=
+f_k+\mu_F(a)+\eta_k.
+\]
+
+Estimate \(\mu_F\) and the noise law from training data. Predict \(K_{\mathrm{pred}}\) on held-out loops.
+
+Do not choose \(C_{\mathrm{fat}}\) so that the corrected holonomy equals the geometric prediction.
+
+---
+
+## Claim E: causal discrimination
+
+**Original idea:** no-loop control disagreement confirms loop curvature.
+
+**Revised version:**
+
+Claim confirmation only if:
+
+1. loop condition exceeds matched-no-loop exposure;
+2. reversed orientation reverses signed holonomy;
+3. shuffled order reduces the area-scaling signature;
+4. frozen-learning control removes learning-induced drift;
+5. commuting perturbations do not produce the non-Abelian signature;
+6. curvature predicts unseen loops, not merely fits observed loops.
+
+The statistic should be preregistered and bootstrapped with coordinate-free observables.
+
+---
+
+## Claim F: non-Abelian commuting control
+
+**Original idea:** \(SO(3)\) signature at \(n\ge4\).
+
+**Revised version:**
+
+Use a genuine \(SO(3)\) policy fiber or frame bundle.
+
+Predict:
+
+- same-axis rotations commute to machine precision;
+- distinct-axis rotations produce commutator magnitude
+  \[
+  \|[R_1,R_2]\|_F
+  =
+  \sqrt{2}\alpha_1\alpha_2+O(\alpha^3);
+  \]
+- the commutator orientation follows
+  \[
+  [L_z,L_x]=L_y.
+  \]
+
+This is a clean mathematical claim and is easily testable.
+
+---
+
+## Claim G: CPTP-Zeno lift
+
+**Original idea:** Zeno exponent \(\alpha_{\mathrm{Zeno}}\approx2\), classical \(\alpha_{\mathrm{cl}}\approx1\).
+
+**Revised version:**
+
+Measure survival-probability deficit or infidelity, not trace distance alone.
+
+Predict:
+
+\[
+1-p_{\mathrm{Zeno}}(\tau)
+=
+O(\tau^2),
+\]
+
+while classical Markov state change satisfies
+
+\[
+\|p(\tau)-p(0)\|_1
+=
+O(\tau).
+\]
+
+If a Lindbladian is used, report its spectral gap. If a Hamiltonian is used, report energy variance.
+
+---
+
+# 5. What must be demoted to conjecture
+
+Some claims are plausible but not currently provable from the manuscript’s assumptions. They should be demoted to precise conjectures rather than deleted.
+
+---
+
+## Conjecture 1: global stratified holonomy
+
+For loops crossing constraint-switching boundaries, there exists a stratified connection with boundary transition maps such that holonomy is well-defined and satisfies a piecewise curvature formula.
+
+Required ingredients:
+
+- projected differential inclusion;
+- viability-preserving reset maps;
+- coherence conditions at triple intersections;
+- a 2-categorical gluing theorem.
+
+This is plausible but not proved.
+
+---
+
+## Conjecture 2: algorithmic curvature envelope
+
+There exists an upper-semicomputable algorithmic viability curvature based on \(\operatorname{dist}_D\) that bounds all finite-code smooth surrogate curvatures up to machine-dependent constants.
+
+This preserves the algorithmic-rate-distortion ambition without falsely differentiating Kolmogorov complexity.
+
+---
+
+## Conjecture 3: universal filtered colimits in optic categories
+
+For suitable base categories \(\mathcal C\), the optic category \(\mathrm{Optic}(\mathcal C)\) admits filtered colimits constructed componentwise, and viability-preserving optics are closed under such colimits under monotonicity/continuity assumptions.
+
+This is plausible but requires explicit categorical proof.
+
+---
+
+## Conjecture 4: heavy-tail \(3/2\) correction
+
+The \(a^{3/2}\) fatigue correction arises from a stable heavy-tailed fluctuation process associated with path-ordered holonomy accumulation.
+
+At present this is not derived from the Student-\(t\) assumption alone. Either derive it from a precise stable-process model or estimate the exponent.
+
+---
+
+## Conjecture 5: quantum self-reference resolution by Zeno contraction
+
+A quantum predictor subject to frequent projective measurement admits a unique self-consistent state if the projected CPTP channel is a contraction.
+
+This is highly plausible and can become a theorem once the channel, projection, and metric are specified.
+
+---
+
+# 6. Section-by-section manuscript changes
+
+To make the paper defensible and stronger, I recommend the following concrete edits.
+
+---
+
+## Abstract
+
+Replace:
+
+> “a single categorical construction … unifies …”
+
+with:
+
+> “We develop a stratified Fisher-viability transport framework whose curvature predicts leading-order policy hysteresis on constant-active-set strata. We then show how this core can be typed into optic interfaces, lifted to quantum Zeno channels, and related to RAF colimits and maintenance closure. Categorical unification is presented through explicit interface functors/realization maps rather than as an unsupported endofunctor.”
+
+Remove:
+
+> “all seven claims are confirmed”
+
+unless independent validation is supplied. Prefer:
+
+> “the core claims are numerically supported under stated tolerances; several extended claims are established under explicit additional hypotheses.”
+
+---
+
+## Definition 2.1
+
+Replace the current \(\kappa_V\) with \(D_V\), the loop-depth functional. State clearly that it is not curvature.
+
+Add a new definition of curvature-based \(\kappa_V\) using \(F\) and margin covectors.
+
+---
+
+## Definition 2.2
+
+Remove:
+
+> “Chentsov’s theorem gives \(CO(n-1)\).”
+
+Replace with:
+
+> “The Fisher metric gives an \(O(r)\) or \(SO(r)\) frame structure. A \(CO(r)\) structure arises only after adding an explicit scale/Weyl component.”
+
+---
+
+## Definition 3.1
+
+Replace
+
+\[
+\pi:\Delta^{n-1}\to\Theta
+\]
+
+with
+
+\[
+\pi:E\to B,
+\]
+
+where \(E\) is a policy bundle with fiber \(\mathcal P\).
+
+Define strata, margins, active sets, and transition maps explicitly.
+
+---
+
+## Section 4
+
+Replace algorithmic \(\operatorname{dist}_D\) in the operational curvature formula with a smooth finite-code surrogate.
+
+Move Kolmogorov complexity to a theoretical upper-bound subsection.
+
+---
+
+## Section 5
+
+Replace Proposition 5.1 with the Bregman-Hessian Noether theorem.
+
+Remove the claim that invariance of a scalar Bregman divergence alone yields a conserved current.
+
+---
+
+## Section 7
+
+Replace Theorem 7.4 with:
+
+1. typed composite endo-optic theorem;
+2. optional endofunctor on a category of periodic typed systems;
+3. realization functor and contraction theorem.
+
+Remove the phrase “endofunctor on \(\mathrm{Optic}(\mathcal C)\)” unless the full functor data are supplied.
+
+---
+
+## Section 9
+
+Fix the fatigue convention.
+
+Either use
+
+\[
+\mu_F=a\kappa_V+C_{\mathrm{fat}}a^{3/2}
+\]
+
+or
+
+\[
+\mu_F=0.5a\kappa_V+C_{\mathrm{fat}}a^{3/2},
+\]
+
+but not both.
+
+Define raw, corrected, and predicted holonomies separately.
+
+Do not define \(H_{\mathrm{corr}}\) to equal \(H_{\mathrm{geo}}\).
+
+---
+
+## Section 10
+
+Either derive the \(3/2\) exponent or estimate \(\beta\).
+
+Report confidence intervals over seeds, not only point estimates.
+
+Avoid \(R^2=1.0000\) as evidence unless the simulation is genuinely stochastic and uncertainty is propagated.
+
+---
+
+## Section 11
+
+Replace the scalar-heading \(n=4\) prototype with an explicit \(SO(3)\) policy fiber.
+
+Define the non-Abelian connection and curvature explicitly.
+
+---
+
+## Section 12
+
+Use survival probability or infidelity for Zeno scaling.
+
+Define the Liouvillian gap correctly.
+
+Define Holevo information as an ensemble quantity.
+
+State the quantum self-reference fixed-point condition explicitly.
+
+---
+
+## Section 13
+
+Either prove Lipschitz contraction or demote to numerical evidence.
+
+Replace \(\Pi_K\) depending on \(K\) with projection onto a fixed viability set \(C\), or give a rigorous definition of the set-valued operator and prove it is well-defined and contractive.
+
+---
+
+## Section 14
+
+Rename inverse limit to filtered colimit/direct limit.
+
+Prove viability preservation under monotonicity and continuity assumptions.
+
+Remove the claim that filtered colimits always exist in \(\mathrm{Optic}(\mathrm{Set})\) unless proved.
+
+---
+
+## Section 15
+
+The revised main proposition should match the mathematically established core.
+
+Keep the stronger “upper bound” language only if a bound theorem is proved. Otherwise state it as a conjectural upper bound.
+
+---
+
+# 7. Final assessment
+
+The audit is essentially correct. The manuscript currently tries to make one object carry too many incompatible roles. The right move is not to abandon the ambition but to **factor the framework into typed layers with explicit interfaces**.
+
+The strongest upgraded architecture is:
+
+1. **Stratified Fisher-viability bundle** — rigorous geometry on constant-active-set strata.
+2. **Connection and curvature** — genuine holonomy theorem.
+3. **Viability-margin contraction** — separates hysteresis from fatality.
+4. **Fisher-Weyl scale structure** — justifies \(CO(r)\) if scale is included.
+5. **Smooth finite-code rate-distortion** — operationalizes algorithmic ideas without differentiating Kolmogorov complexity.
+6. **Bregman-Hessian Noether theorem** — replaces the false Noether proposition.
+7. **Typed optic composition plus realization functor** — preserves categorical unification without category errors.
+8. **Explicit Banach contraction conditions** — turns numerical fixed-point evidence into a theorem when Lipschitz bounds are supplied.
+9. **Filtered colimit of RAFs** — corrects inverse-limit misuse.
+10. **Dynamical autopoiesis closure** — replaces weak node-reappearance test.
+11. **Rigorous Zeno/CPTP fixed-point formulation** — preserves quantum ambition without overreach.
+
+With these changes, the paper can honestly claim a broad, falsifiable, mathematically coherent framework rather than an overextended set of analogies.
