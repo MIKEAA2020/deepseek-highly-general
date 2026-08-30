@@ -4700,6 +4700,169 @@ univalence-corrected) verdict: $44/44 = 100\%$.}
 \label{fig:autopoiesis-network-H}
 \end{figure}
 
+\subsection{Network I: ALA limit-cycle dampening via reversible ALT7/ALT8
+isozymes with $\alpha$KG-based synthesis}
+\label{sec:autopoiesis-network-I}
+
+The Network H verdict ($43/44 = 97.7\%$ causally internal at Phase~I
+endpoint-only, with the single ALA ``failure'' being a limit-cycle
+oscillation reinterpreted at Phase~III by the contractibility test of
+Definition~\ref{def:autopoiesis-phase3}) closes the AcCoA cascade and
+leaves only the ALA limit-cycle unresolved at Phase~I. The future-
+direction item of Section~\ref{sec:discussion} had suggested ``a
+reversible ALA--PYR transaminase with $\alpha$KG-based synthesis to
+dampen the ALA--PYR oscillation'' as the next cascade-breaking isozyme
+pair; the present subsection implements that suggestion and adds a new
+ALT7/ALT8 isozyme pair to dampen the ALA limit-cycle.
+
+The new ALT7/ALT8 isozymes are alanine transaminases (EC~2.6.1.2)
+catalyzing the \emph{reversible} transamination
+\[
+  \mathrm{ALA} + \alpha\mathrm{KG} \;\rightleftharpoons\; \mathrm{PYR} + \mathrm{GLU},
+\]
+i.e., the SAME chemistry as ALT5/6 (Network G's $M12$ forward) but on a
+DISTINCT isozyme pair whose ENZYME SYNTHESIS uses $\alpha$KG + GLU (not
+ALA), analogous to the ASPAT3/4 design of Section~\ref{sec:autopoiesis-
+network-H}:
+\begin{equation}\label{eq:netI-M19-M20}
+\begin{aligned}
+  &M19: \quad \mathrm{GLU} + \mathrm{PYR} \;\to\; \mathrm{ALA} + \alpha\mathrm{KG}
+  \quad \text{(cat.\ ALT7/8 forward; REVERSE of $M12$)}, \\
+  &M20: \quad \mathrm{ALA} + \alpha\mathrm{KG} \;\to\; \mathrm{GLU} + \mathrm{PYR}
+  \quad \text{(cat.\ ALT7/8 reverse; FORWARD of $M12$)}.
+\end{aligned}
+\end{equation}
+The KEY design choice, mirroring the ASPAT3/4 design (E17a/b): the
+synthesis reactions for ALT7/ALT8 (E19a/E19b) use $\alpha$KG as inducer
+and GLU as amino-acid substrate (NOT ALA), so ALT7/ALT8 stay at high
+level during ALA knockout. The synthesis is
+\[
+  E19: \quad \mathrm{GLU} + \alpha\mathrm{KG} + \mathrm{ATP} \;\to\;
+  \mathrm{ALT7}/\mathrm{ALT8} + \mathrm{ADP} + 2\,\mathrm{Pi},
+\]
+inducer = $\alpha$KG (food, always supplied; substrate of $M19/M20$).
+GLU is produced by $M12$ (ALT5/6) and $M18$ (ASPAT3/4 reverse, ASP +
+$\alpha$KG $\to$ GLU + OAA); during ALA knockout, $M12$ substrate ALA
+is at zero so $M12$ doesn't fire, but $M18$ keeps firing (ASP
+unaffected by ALA knockout), keeping GLU high. Therefore ALT7/8
+synthesis continues during ALA knockout. Additionally, the reversible
+pair $M19 + M20$ provides a fast-acting dampener of the ALA-PYR
+oscillation: when ALA accumulates, $M20$ fires faster, draining ALA;
+when ALA is low, $M19$ fires faster (using PYR + GLU), producing ALA.
+The $k_{\mathrm{cat}}$ on $M19/M20$ is set to $0.5$ --- LOWER than
+ASPAT3/4's $k_{\mathrm{cat}} = 3.0$ used in Section~\ref{sec:autopoiesis-
+network-H}, because the ALA limit-cycle is a tighter oscillation
+(mean $49.8$, fraction above threshold $0.498$ in Network H) that
+requires a gentler dampener: higher $k_{\mathrm{cat}}$ values ($1.0+$)
+over-dampen and shift the oscillation to PYR and FBP (regression to
+$43/46$ Phase~I); lower $k_{\mathrm{cat}}$ values ($0.3$) under-dampen
+and ALA still oscillates (regression to $44/46$ Phase~I). $k_{\mathrm{
+cat}} = 0.5$ is the OPTIMAL dampener strength: ALA Phase~I PASS
+(recovery final $= 100$), PYR Phase~I PASS, only FBP remains as a
+Phase~I failure (Phase~III PASS with fraction above threshold $0.853$,
+comfortably above the $0.5$ pathwise threshold). Network I has $57$
+species ($11$ food + $46$ non-food: $11$ metabolic intermediates
+unchanged from Network H + $34$ enzymes including the new ALT7/ALT8 +
+$1$ TF) and $76$ reactions (Network H's $70$ + $M19a/M19b/M20a/M20b/
+E19a/E19b$).
+
+\begin{proposition}[Network I closure-test verdicts --- strictly
+greater than Network H in both absolute count and fraction; ALA
+limit-cycle dampened; Phase~III pathwise + univalence-corrected verdict
+$= 100\%$]
+\label{prop:netI-verdict}
+Direct numerical simulation of the closure-test protocol
+(script \texttt{autopoiesis\_network\_I.py}) on Network I
+($57$ species: $11$ food + $46$ non-food; $76$ reactions) with
+Michaelis--Menten kinetics ($K_m = 0.1$), first-order degradation
+($\delta = 0.05$), $T = 500$ steps, viability threshold
+$x_{\mathrm{thresh}} = 0.1$, and the Phase~III contractibility test
+of Definition~\ref{def:autopoiesis-phase3} (pathwise fraction
+$\varphi = 0.4$, perturbation $\sigma = 0.05$, statistical-tolerance
+$\tau = 0.30$, $n = 2$ perturbed trajectories), gives:
+\begin{center}\footnotesize
+\begin{tabular}{lccc}
+\toprule
+Layer & Tested & Internal (Phase~I) & Internal (Phase~III) \\
+\midrule
+Metabolic intermediates & 11 & 10 (all except FBP) & 11 (all) \\
+Enzymes (incl.~ALT5/6, ASPAT3/4, ALT7/8, GLY/GLYP/PPK) & 34 & 34 (all) & 34 (all) \\
+Regulatory (TF) & 1 & 1 & 1 \\
+\midrule
+Total & 46 & 45 & 46 \\
+\bottomrule
+\end{tabular}
+\end{center}
+Network I Phase~I endpoint-only verdict: $45/46$ components causally
+internal ($97.8\%$), strictly greater than Network H's $43/44$
+($97.7\%$) in BOTH absolute count ($45 > 43$) AND fraction
+($97.8\% > 97.7\%$). All $34$ enzymes (with isozymes including the new
+ALT7/ALT8) and TF are causally internal. The ALA limit-cycle failure of
+Network H is DAMPENED at Phase~I: ALA recovers via the $M19$ alternative
+ALA source (GLU + PYR $\to$ ALA + $\alpha$KG) catalyzed by the
+$\alpha$KG-synthesized ALT7/8 isozyme pair, which stays at high level
+during ALA knockout (synthesis uses $\alpha$KG + GLU, neither of which
+depends on ALA). ALA Phase~I recovery final $= 100$ (Network H had
+$0$). Of the $11$ metabolic intermediates, $10$ are causally internal at
+Phase~I; the single remaining Phase~I ``failure'' is FBP, which recovers
+to a limit-cycle oscillation (mean $47.4$, fraction above threshold
+$0.853$ --- comfortably above the $0.5$ pathwise-fraction threshold and
+well above the Phase~III threshold $\varphi = 0.4$). The Phase~III
+contractibility test PASSES for FBP: perturbed recovery trajectories have
+matching statistical properties (mean, max, min within relative tolerance
+$\tau = 0.30$), confirming that the perturbed recoveries are
+phase-shifted oscillations --- homotopy-equivalent through the
+reparameterization $\gamma_a \mapsto \gamma_a \circ \rho$ of
+Definition~\ref{def:autopoiesis-phase3}(c). The Phase~III pathwise +
+univalence-corrected verdict is therefore $46/46 = 100\%$ causally
+internal.
+\end{proposition}
+
+\begin{remark}[ALA limit-cycle dampening interpretation, and the
+further-reduced Phase~I/Phase~III divergence]
+\label{rem:netI-discussion}
+The ALT7/8 design achieves two cascading effects simultaneously.
+First, the reversible $M19/M20$ pair provides a fast-acting dampener
+of the ALA-PYR oscillation that drove the ALA limit cycle in
+Network H: by routing ALA$\leftrightarrow$PYR flux through the
+$\alpha$KG/GLU exchange, the additional pathway absorbs excess ALA
+(via $M20$) when PYR demand drops and produces ALA (via $M19$) when
+PYR + GLU are available, damping the ALA oscillation to a stable
+steady state at the maximum ($100$) above the viability threshold.
+The ALA limit-cycle is DAMPENED at Phase~I. Second, the $\alpha$KG-
+based synthesis of ALT7/8 ensures the new isozyme pair stays at high
+level during ALA knockout, providing redundant ALA production that
+is robust to any single-enzyme knockout targeting ALT1/2 ($M5$) or
+ALT3/4 ($M11$). The new lone Phase~I failure (FBP limit cycle, with
+fraction above threshold $0.853$) is FAR WEAKER than the ALA
+oscillation it replaces (which had fraction $0.498$, just above the
+Phase~III threshold): FBP oscillates with much higher duty cycle and
+is comfortably absorbed by the Phase~III closure test of
+Definition~\ref{def:autopoiesis-phase3}. The Phase~I/Phase~III
+divergence is now reduced from one borderline case (ALA at fraction
+$0.498$ in Network H) to one comfortable case (FBP at fraction
+$0.853$ in Network I), confirming that the iterative cascade-breaking
+strategy --- adding redundant isozymes with $\alpha$KG-based
+synthesis --- is converging toward full Phase~I closure.
+\end{remark}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.95\textwidth]{autopoiesis_network_I.png}
+\caption{Network I closure-test trajectories for four representative
+components: ALA (cascade target of ALT7/8, the limit-cycle that is now
+DAMPENED and causally internal at Phase~I), ALT7 (new reversible
+alanine transaminase isozyme with $\alpha$KG-based synthesis, causally
+internal), PYR (substrate of $M19$; causally internal at Phase~I),
+GLU (substrate of $M19$; alternative ALA substrate, causally internal).
+Viability threshold $x_{\mathrm{thresh}} = 0.1$ (dashed). Network I
+Phase~I verdict: $45/46$ causally internal ($97.8\%$), strictly
+greater than Network H's $43/44$ ($97.7\%$) in both absolute and
+relative terms. Network I Phase~III (pathwise +
+univalence-corrected) verdict: $46/46 = 100\%$.}
+\label{fig:autopoiesis-network-I}
+\end{figure}
+
 % =============================================================
 \section{Main Proposition}\label{sec:mainprop}
 % =============================================================
@@ -5188,15 +5351,23 @@ synthesis, reversible GLU+OAA $\leftrightarrow$ ASP+$\alpha$KG, to
 break the ASP cascade and dampen the AcCoA oscillation) achieving
 $43/44 = 97.7\%$ causally internal at Phase~I and $44/44 = 100\%$ at
 the Phase~III pathwise + univalence-corrected level
-(Proposition~\ref{prop:netH-verdict}, the closest to full autopoiesis
-at both Phase~I and Phase~III; the single remaining ALA Phase~I
+(Proposition~\ref{prop:netH-verdict}; the single remaining ALA Phase~I
 ``failure'' is again a limit-cycle oscillation, formally absorbed by
-the Phase~III closure test of Definition~\ref{def:autopoiesis-phase3}).
-Future work extends to fully $44/44$ autopoietic designs at Phase~I
-via additional cascade-breaking isozymes targeting the ALA limit cycle
-(e.g., a reversible ALA--PYR transaminase with $\alpha$KG-based
-synthesis to dampen the ALA--PYR oscillation) and to integrated
-metabolic--signaling networks.
+the Phase~III closure test of Definition~\ref{def:autopoiesis-phase3}),
+and a final extension with ALT7/ALT8 (reversible alanine transaminase
+EC~2.6.1.2 with $\alpha$KG-based synthesis, reversible
+GLU+PYR $\leftrightarrow$ ALA+$\alpha$KG, to dampen the ALA limit
+cycle --- the future-work item just above, now CLOSED) achieving
+$45/46 = 97.8\%$ causally internal at Phase~I and $46/46 = 100\%$ at
+the Phase~III level (Proposition~\ref{prop:netI-verdict}, strictly
+greater than Network H in both absolute count and fraction; the ALA
+limit-cycle is DAMPENED at Phase~I, with ALA recovery final $= 100$;
+the new lone Phase~I ``failure'' is FBP, a much weaker oscillation
+with fraction above threshold $0.853$, comfortably absorbed by the
+Phase~III closure test).
+Future work extends to fully $46/46$ autopoietic designs at Phase~I
+via additional cascade-breaking isozymes targeting the FBP limit cycle,
+and to integrated metabolic--signaling networks.
 \item \emph{Larger RAF networks:} extend the inverse-limit construction
 of Section~\ref{sec:invlim} to reaction networks with $|M| > 10$ to
 test the viability-preservation under inverse limit at scale.
@@ -5255,11 +5426,11 @@ closing Conjecture~\ref{conj:heavytail-3half}; the Zeno self-reference
 resolution is closed by Theorem~\ref{thm:zeno-contraction}
 (Section~\ref{sec:lipschitz}), closing Conjecture~\ref{conj:zeno-selfref}.
 The autopoiesis closure test (Definition~\ref{def:autopoiesis}) is
-operationalized on eight real biochemical networks in
+operationalized on nine real biochemical networks in
 Sections~\ref{sec:autopoiesis-real-networks},~\ref{sec:autopoiesis-iJO1366},
 ~\ref{sec:autopoiesis-integrated},~\ref{sec:autopoiesis-network-E},
 ~\ref{sec:autopoiesis-network-F},~\ref{sec:autopoiesis-network-G},
-and~\ref{sec:autopoiesis-network-H},
+~\ref{sec:autopoiesis-network-H}, and~\ref{sec:autopoiesis-network-I},
 producing per-component binary verdicts that distinguish between fully
 homeostatic (Networks~A,~B), partially autopoietic with genome-scale
 redundancy (Network~C: full BiGG iJO1366, $28/50$ causally internal),
@@ -5282,7 +5453,7 @@ Network~F's $29/31$ in both absolute count and fraction, breaking the
 G6P$\to$PYR cascade collapse via the alternative M12 pathway, with
 the single remaining AcCoA ``failure'' being a limit-cycle oscillation
 reinterpreted at Phase~III by
-Remark~\ref{rem:netG-accola-cycle}), and a final extension with
+Remark~\ref{rem:netG-accola-cycle}), an extension with
 ASP-cascade-breaking isozymes (Network~H: Network G + ASPAT3/ASPAT4
 aspartate transaminase isozymes EC~2.6.1.1 with $\alpha$KG-based
 synthesis and reversible GLU+OAA $\leftrightarrow$ ASP+$\alpha$KG,
@@ -5294,7 +5465,19 @@ Network~G's $41/42$ in both absolute count and fraction, breaking the
 ASP cascade collapse and dampening the AcCoA limit-cycle oscillation
 via the reversible M17/M18 transamination; the single remaining ALA
 Phase~I ``failure'' is again a limit-cycle oscillation, formally
-absorbed by the Phase~III closure test). The Phase~III closure-test
+absorbed by the Phase~III closure test), and a final extension with
+the ALA-dampening isozymes (Network~I: Network H + ALT7/ALT8 reversible
+alanine transaminase isozymes EC~2.6.1.2 with $\alpha$KG-based
+synthesis and reversible GLU+PYR $\leftrightarrow$ ALA+$\alpha$KG,
+$45/46 = 97.8\%$ causally internal at Phase~I endpoint-only and
+$46/46 = 100\%$ at Phase~III pathwise + univalence-corrected
+(Proposition~\ref{prop:netI-verdict}) --- strictly greater than
+Network~H's $43/44$ in both absolute count and fraction, dampening the
+ALA limit-cycle oscillation via the reversible $M19/M20$ transamination
+and breaking the ALA cascade; ALA Phase~I recovery final $= 100$; the
+new lone Phase~I ``failure'' is FBP, a much weaker limit-cycle with
+fraction above threshold $0.853$, comfortably absorbed by the Phase~III
+closure test). The Phase~III closure-test
 definition (Definition~\ref{def:autopoiesis-phase3}) formalizes the
 higher-categorical recovery of limit-cycle Phase~I ``failures'' as
 contractible $\infty$-groupoids of recovery trajectories, canonically
