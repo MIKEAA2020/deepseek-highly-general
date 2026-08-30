@@ -1,0 +1,4916 @@
+{
+  "version": "v3 dep_ratio across E-J (universality test)",
+  "methodology": "v2 single-reaction-KO dependency-ratio analysis (commit 07e6d85) applied to networks E, F, G, H, I, J + K (loaded from v2 commit)",
+  "summary_table": [
+    {
+      "network": "E",
+      "n_species": 39,
+      "n_reactions": 42,
+      "n_metabolic": 8,
+      "n_enzyme": 20,
+      "n_regulatory": 1,
+      "metabolic_robust": 1,
+      "metabolic_robust_frac": 0.16666666666666666,
+      "enzyme_robust": 0,
+      "enzyme_robust_frac": 0.0,
+      "regulatory_robust": 0,
+      "metabolic_mean_dep": 0.7079645982714774,
+      "enzyme_mean_dep": 0.7139432636696383
+    },
+    {
+      "network": "F",
+      "n_species": 41,
+      "n_reactions": 46,
+      "n_metabolic": 8,
+      "n_enzyme": 22,
+      "n_regulatory": 1,
+      "metabolic_robust": 3,
+      "metabolic_robust_frac": 0.6,
+      "enzyme_robust": 0,
+      "enzyme_robust_frac": 0.0,
+      "regulatory_robust": 0,
+      "metabolic_mean_dep": 0.04857606069772191,
+      "enzyme_mean_dep": 0.7139432636696387
+    },
+    {
+      "network": "G",
+      "n_species": 53,
+      "n_reactions": 64,
+      "n_metabolic": 11,
+      "n_enzyme": 30,
+      "n_regulatory": 1,
+      "metabolic_robust": 5,
+      "metabolic_robust_frac": 0.5,
+      "enzyme_robust": 0,
+      "enzyme_robust_frac": 0.0,
+      "regulatory_robust": 0,
+      "metabolic_mean_dep": 0.4499248548133214,
+      "enzyme_mean_dep": 0.7139432636696383
+    },
+    {
+      "network": "H",
+      "n_species": 55,
+      "n_reactions": 70,
+      "n_metabolic": 11,
+      "n_enzyme": 32,
+      "n_regulatory": 1,
+      "metabolic_robust": 5,
+      "metabolic_robust_frac": 0.5,
+      "enzyme_robust": 0,
+      "enzyme_robust_frac": 0.0,
+      "regulatory_robust": 0,
+      "metabolic_mean_dep": 0.44992485481331934,
+      "enzyme_mean_dep": 0.7139432636696386
+    },
+    {
+      "network": "I",
+      "n_species": 57,
+      "n_reactions": 76,
+      "n_metabolic": 11,
+      "n_enzyme": 34,
+      "n_regulatory": 1,
+      "metabolic_robust": 5,
+      "metabolic_robust_frac": 0.5,
+      "enzyme_robust": 0,
+      "enzyme_robust_frac": 0.0,
+      "regulatory_robust": 0,
+      "metabolic_mean_dep": 0.4499248548133187,
+      "enzyme_mean_dep": 0.7139432636696386
+    },
+    {
+      "network": "J",
+      "n_species": 61,
+      "n_reactions": 82,
+      "n_metabolic": 13,
+      "n_enzyme": 36,
+      "n_regulatory": 1,
+      "metabolic_robust": 6,
+      "metabolic_robust_frac": 0.6,
+      "enzyme_robust": 0,
+      "enzyme_robust_frac": 0.0,
+      "regulatory_robust": 0,
+      "metabolic_mean_dep": 0.43045287634885476,
+      "enzyme_mean_dep": 0.7139432636696386
+    },
+    {
+      "network": "K",
+      "n_species": 63,
+      "n_reactions": 86,
+      "n_metabolic": 13,
+      "n_enzyme": 38,
+      "n_regulatory": 1,
+      "metabolic_robust": 6,
+      "metabolic_robust_frac": 0.46153846153846156,
+      "enzyme_robust": 0,
+      "enzyme_robust_frac": 0.0,
+      "regulatory_robust": 0,
+      "metabolic_mean_dep": 0.528456918858558,
+      "enzyme_mean_dep": 0.7139432636696386
+    }
+  ],
+  "universality_test": {
+    "n_networks_with_metabolic_robust_above_30pct": 6,
+    "n_networks_with_zero_enzyme_robust": 7,
+    "n_total_networks": 7,
+    "metabolic_mean_dep_across_lineage": 0.43788928837379587,
+    "metabolic_std_dep_across_lineage": 0.18252116227749005,
+    "enzyme_mean_dep_across_lineage": 0.7139432636696386,
+    "enzyme_std_dep_across_lineage": 1.2588745812754728e-16,
+    "enzyme_metabolic_gap": 0.2760539752958427,
+    "verdict": "UNIVERSAL -- metabolic-robust + enzyme-fragile profile is a STRUCTURAL PROPERTY of the isozyme-dampener architecture across the E->K lineage"
+  },
+  "per_network": {
+    "E": {
+      "n_species": 39,
+      "n_reactions": 42,
+      "n_food": 10,
+      "n_non_food": 29,
+      "comp_types": {
+        "metabolic": [
+          "ALA",
+          "ASP",
+          "AcCoA",
+          "FBP",
+          "G6P",
+          "MAL",
+          "PEP",
+          "PYR"
+        ],
+        "enzyme": [
+          "ACK1",
+          "ACK2",
+          "ALDO1",
+          "ALDO2",
+          "ALT1",
+          "ALT2",
+          "ASPAT1",
+          "ASPAT2",
+          "HK1",
+          "HK2",
+          "MDH1",
+          "MDH2",
+          "PDH1",
+          "PDH2",
+          "PEPC1",
+          "PEPC2",
+          "PFK1",
+          "PFK2",
+          "PYK1",
+          "PYK2"
+        ],
+        "regulatory": [
+          "TF"
+        ]
+      },
+      "baseline_final_lite": {
+        "G6P": 10.633547390635886,
+        "FBP": 23.4563340107255,
+        "PEP": 38.23662614326077,
+        "PYR": 30.468526929880834,
+        "AcCoA": 5.328843733036281,
+        "ALA": 0.0,
+        "ASP": 0.0,
+        "MAL": 99.2518734375,
+        "TF": 100.0
+      },
+      "comp_rows": [
+        {
+          "component": "G6P",
+          "n_producers": 2,
+          "producers": [
+            "M1a",
+            "M1b"
+          ],
+          "max_dep_ratio": 1.0,
+          "max_dep_ratio_recovery": 1.0,
+          "r_argmax": "M1a",
+          "baseline_conc": 10.633547390635886,
+          "dep_per_r": {
+            "M1a": 1.0,
+            "M1b": 1.0
+          },
+          "dep_rec_per_r": {
+            "M1a": 1.0,
+            "M1b": 1.0
+          }
+        },
+        {
+          "component": "FBP",
+          "n_producers": 2,
+          "producers": [
+            "M2a",
+            "M2b"
+          ],
+          "max_dep_ratio": 1.0,
+          "max_dep_ratio_recovery": -0.33030311827387365,
+          "r_argmax": "M2a",
+          "baseline_conc": 23.4563340107255,
+          "dep_per_r": {
+            "M2a": 1.0,
+            "M2b": 1.0
+          },
+          "dep_rec_per_r": {
+            "M2a": -0.33030311827387365,
+            "M2b": -0.33030311827387365
+          }
+        },
+        {
+          "component": "PEP",
+          "n_producers": 2,
+          "producers": [
+            "M3a",
+            "M3b"
+          ],
+          "max_dep_ratio": 0.618733028054222,
+          "max_dep_ratio_recovery": -0.8194957660202198,
+          "r_argmax": "M3a",
+          "baseline_conc": 38.23662614326077,
+          "dep_per_r": {
+            "M3a": 0.618733028054222,
+            "M3b": 0.618733028054222
+          },
+          "dep_rec_per_r": {
+            "M3a": -0.8194957660202198,
+            "M3b": -0.8194957660202198
+          }
+        },
+        {
+          "component": "PYR",
+          "n_producers": 2,
+          "producers": [
+            "M4a",
+            "M4b"
+          ],
+          "max_dep_ratio": 0.6340733742705433,
+          "max_dep_ratio_recovery": 1.0,
+          "r_argmax": "M4a",
+          "baseline_conc": 30.468526929880834,
+          "dep_per_r": {
+            "M4a": 0.6340733742705433,
+            "M4b": 0.6340733742705433
+          },
+          "dep_rec_per_r": {
+            "M4a": 1.0,
+            "M4b": 1.0
+          }
+        },
+        {
+          "component": "AcCoA",
+          "n_producers": 2,
+          "producers": [
+            "M8a",
+            "M8b"
+          ],
+          "max_dep_ratio": 1.0,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "M8a",
+          "baseline_conc": 5.328843733036281,
+          "dep_per_r": {
+            "M8a": 1.0,
+            "M8b": 1.0
+          },
+          "dep_rec_per_r": {
+            "M8a": 0.0,
+            "M8b": 0.0
+          }
+        },
+        {
+          "component": "MAL",
+          "n_producers": 2,
+          "producers": [
+            "M7a",
+            "M7b"
+          ],
+          "max_dep_ratio": -0.0050188126959002,
+          "max_dep_ratio_recovery": -0.0050188126959002,
+          "r_argmax": "M7a",
+          "baseline_conc": 99.2518734375,
+          "dep_per_r": {
+            "M7a": -0.0050188126959002,
+            "M7b": -0.0050188126959002
+          },
+          "dep_rec_per_r": {
+            "M7a": -0.0050188126959002,
+            "M7b": -0.0050188126959002
+          }
+        },
+        {
+          "component": "HK1",
+          "n_producers": 1,
+          "producers": [
+            "E1a"
+          ],
+          "max_dep_ratio": 0.7139432636696386,
+          "max_dep_ratio_recovery": 0.012437656054785152,
+          "r_argmax": "E1a",
+          "baseline_conc": 99.00374375390625,
+          "dep_per_r": {
+            "E1a": 0.7139432636696386
+          },
+          "dep_rec_per_r": {
+            "E1a": 0.012437656054785152
+          }
+        },
+        {
+          "component": "HK2",
+          "n_producers": 1,
+          "producers": [
+            "E1b"
+          ],
+          "max_dep_ratio": 0.7139432636696386,
+          "max_dep_ratio_recovery": 0.012437656054785152,
+          "r_argmax": "E1b",
+          "baseline_conc": 99.00374375390625,
+          "dep_per_r": {
+            "E1b": 0.7139432636696386
+          },
+          "dep_rec_per_r": {
+            "E1b": 0.012437656054785152
+          }
+        },
+        {
+          "component": "PFK1",
+          "n_producers": 1,
+          "producers": [
+            "E2a"
+          ],
+          "max_dep_ratio": 0.7139432636696386,
+          "max_dep_ratio_recovery": -0.002506265664160357,
+          "r_argmax": "E2a",
+          "baseline_conc": 99.00374375390625,
+          "dep_per_r": {
+            "E2a": 0.7139432636696386
+          },
+          "dep_rec_per_r": {
+            "E2a": -0.002506265664160357
+          }
+        },
+        {
+          "component": "PFK2",
+          "n_producers": 1,
+          "producers": [
+            "E2b"
+          ],
+          "max_dep_ratio": 0.7139432636696386,
+          "max_dep_ratio_recovery": -0.002506265664160357,
+          "r_argmax": "E2b",
+          "baseline_conc": 99.00374375390625,
+          "dep_per_r": {
+            "E2b": 0.7139432636696386
+          },
+          "dep_rec_per_r": {
+            "E2b": -0.002506265664160357
+          }
+        },
+        {
+          "component": "ALDO1",
+          "n_producers": 1,
+          "producers": [
+            "E3a"
+          ],
+          "max_dep_ratio": 0.7139432636696386,
+          "max_dep_ratio_recovery": -0.002506265664160357,
+          "r_argmax": "E3a",
+          "baseline_conc": 99.00374375390625,
+          "dep_per_r": {
+            "E3a": 0.7139432636696386
+          },
+          "dep_rec_per_r": {
+            "E3a": -0.002506265664160357
+          }
+        },
+        {
+          "component": "ALDO2",
+          "n_producers": 1,
+          "producers": [
+            "E3b"
+          ],
+          "max_dep_ratio": 0.7139432636696386,
+          "max_dep_ratio_recovery": -0.002506265664160357,
+          "r_argmax": "E3b",
+          "baseline_conc": 99.00374375390625,
+          "dep_per_r": {
+            "E3b": 0.7139432636696386
+          },
+          "dep_rec_per_r": {
+            "E3b": -0.002506265664160357
+          }
+        },
+        {
+          "component": "PYK1",
+          "n_producers": 1,
+          "producers": [
+            "E4a"
+          ],
+          "max_dep_ratio": 0.7139432636696386,
+          "max_dep_ratio_recovery": -0.002506265664160357,
+          "r_argmax": "E4a",
+          "baseline_conc": 99.00374375390625,
+          "dep_per_r": {
+            "E4a": 0.7139432636696386
+          },
+          "dep_rec_per_r": {
+            "E4a": -0.002506265664160357
+          }
+        },
+        {
+          "component": "PYK2",
+          "n_producers": 1,
+          "producers": [
+            "E4b"
+          ],
+          "max_dep_ratio": 0.7139432636696386,
+          "max_dep_ratio_recovery": -0.002506265664160357,
+          "r_argmax": "E4b",
+          "baseline_conc": 99.00374375390625,
+          "dep_per_r": {
+            "E4b": 0.7139432636696386
+          },
+          "dep_rec_per_r": {
+            "E4b": -0.002506265664160357
+          }
+        },
+        {
+          "component": "ALT1",
+          "n_producers": 1,
+          "producers": [
+            "E5a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0025,
+          "r_argmax": "E5a",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "E5a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E5a": 0.0025
+          }
+        },
+        {
+          "component": "ALT2",
+          "n_producers": 1,
+          "producers": [
+            "E5b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0025,
+          "r_argmax": "E5b",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "E5b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E5b": 0.0025
+          }
+        },
+        {
+          "component": "ASPAT1",
+          "n_producers": 1,
+          "producers": [
+            "E6a"
+          ],
+          "max_dep_ratio": 0.7139432636696386,
+          "max_dep_ratio_recovery": -0.002506265664160407,
+          "r_argmax": "E6a",
+          "baseline_conc": 99.500625,
+          "dep_per_r": {
+            "E6a": 0.7139432636696386
+          },
+          "dep_rec_per_r": {
+            "E6a": -0.002506265664160407
+          }
+        },
+        {
+          "component": "ASPAT2",
+          "n_producers": 1,
+          "producers": [
+            "E6b"
+          ],
+          "max_dep_ratio": 0.7139432636696386,
+          "max_dep_ratio_recovery": -0.002506265664160407,
+          "r_argmax": "E6b",
+          "baseline_conc": 99.500625,
+          "dep_per_r": {
+            "E6b": 0.7139432636696386
+          },
+          "dep_rec_per_r": {
+            "E6b": -0.002506265664160407
+          }
+        },
+        {
+          "component": "MDH1",
+          "n_producers": 1,
+          "producers": [
+            "E7a"
+          ],
+          "max_dep_ratio": 0.7139432636696386,
+          "max_dep_ratio_recovery": -0.002506265664160407,
+          "r_argmax": "E7a",
+          "baseline_conc": 99.500625,
+          "dep_per_r": {
+            "E7a": 0.7139432636696386
+          },
+          "dep_rec_per_r": {
+            "E7a": -0.002506265664160407
+          }
+        },
+        {
+          "component": "MDH2",
+          "n_producers": 1,
+          "producers": [
+            "E7b"
+          ],
+          "max_dep_ratio": 0.7139432636696386,
+          "max_dep_ratio_recovery": -0.002506265664160407,
+          "r_argmax": "E7b",
+          "baseline_conc": 99.500625,
+          "dep_per_r": {
+            "E7b": 0.7139432636696386
+          },
+          "dep_rec_per_r": {
+            "E7b": -0.002506265664160407
+          }
+        },
+        {
+          "component": "PDH1",
+          "n_producers": 1,
+          "producers": [
+            "E8a"
+          ],
+          "max_dep_ratio": 0.7139432636696386,
+          "max_dep_ratio_recovery": -0.007537656837995145,
+          "r_argmax": "E8a",
+          "baseline_conc": 99.00374375390625,
+          "dep_per_r": {
+            "E8a": 0.7139432636696386
+          },
+          "dep_rec_per_r": {
+            "E8a": -0.007537656837995145
+          }
+        },
+        {
+          "component": "PDH2",
+          "n_producers": 1,
+          "producers": [
+            "E8b"
+          ],
+          "max_dep_ratio": 0.7139432636696386,
+          "max_dep_ratio_recovery": -0.007537656837995145,
+          "r_argmax": "E8b",
+          "baseline_conc": 99.00374375390625,
+          "dep_per_r": {
+            "E8b": 0.7139432636696386
+          },
+          "dep_rec_per_r": {
+            "E8b": -0.007537656837995145
+          }
+        },
+        {
+          "component": "PEPC1",
+          "n_producers": 1,
+          "producers": [
+            "E9a"
+          ],
+          "max_dep_ratio": 0.7139432636696386,
+          "max_dep_ratio_recovery": -0.005018812695900157,
+          "r_argmax": "E9a",
+          "baseline_conc": 99.500625,
+          "dep_per_r": {
+            "E9a": 0.7139432636696386
+          },
+          "dep_rec_per_r": {
+            "E9a": -0.005018812695900157
+          }
+        },
+        {
+          "component": "PEPC2",
+          "n_producers": 1,
+          "producers": [
+            "E9b"
+          ],
+          "max_dep_ratio": 0.7139432636696386,
+          "max_dep_ratio_recovery": -0.005018812695900157,
+          "r_argmax": "E9b",
+          "baseline_conc": 99.500625,
+          "dep_per_r": {
+            "E9b": 0.7139432636696386
+          },
+          "dep_rec_per_r": {
+            "E9b": -0.005018812695900157
+          }
+        },
+        {
+          "component": "ACK1",
+          "n_producers": 1,
+          "producers": [
+            "E10a"
+          ],
+          "max_dep_ratio": 0.7139432636696386,
+          "max_dep_ratio_recovery": -0.010062813872676837,
+          "r_argmax": "E10a",
+          "baseline_conc": 99.00374375390625,
+          "dep_per_r": {
+            "E10a": 0.7139432636696386
+          },
+          "dep_rec_per_r": {
+            "E10a": -0.010062813872676837
+          }
+        },
+        {
+          "component": "ACK2",
+          "n_producers": 1,
+          "producers": [
+            "E10b"
+          ],
+          "max_dep_ratio": 0.7139432636696386,
+          "max_dep_ratio_recovery": -0.010062813872676837,
+          "r_argmax": "E10b",
+          "baseline_conc": 99.00374375390625,
+          "dep_per_r": {
+            "E10b": 0.7139432636696386
+          },
+          "dep_rec_per_r": {
+            "E10b": -0.010062813872676837
+          }
+        },
+        {
+          "component": "TF",
+          "n_producers": 2,
+          "producers": [
+            "G_const",
+            "G_auto"
+          ],
+          "max_dep_ratio": 0.6661398808764273,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "G_auto",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "G_const": 0.0,
+            "G_auto": 0.6661398808764273
+          },
+          "dep_rec_per_r": {
+            "G_const": 0.0,
+            "G_auto": 0.0
+          }
+        }
+      ],
+      "stratified_at_0.5": {
+        "metabolic": {
+          "n_total": 6,
+          "n_robust": 1,
+          "n_fragile": 5,
+          "frac_robust": 0.16666666666666666,
+          "mean_max_dep": 0.7079645982714774,
+          "median_max_dep": 0.8170366871352717
+        },
+        "enzyme": {
+          "n_total": 20,
+          "n_robust": 0,
+          "n_fragile": 20,
+          "frac_robust": 0.0,
+          "mean_max_dep": 0.7139432636696383,
+          "median_max_dep": 0.7139432636696386
+        },
+        "regulatory": {
+          "n_total": 1,
+          "n_robust": 0,
+          "n_fragile": 1,
+          "frac_robust": 0.0,
+          "mean_max_dep": 0.6661398808764273,
+          "median_max_dep": 0.6661398808764273
+        }
+      }
+    },
+    "F": {
+      "n_species": 41,
+      "n_reactions": 46,
+      "n_food": 10,
+      "n_non_food": 31,
+      "comp_types": {
+        "metabolic": [
+          "ALA",
+          "ASP",
+          "AcCoA",
+          "FBP",
+          "G6P",
+          "MAL",
+          "PEP",
+          "PYR"
+        ],
+        "enzyme": [
+          "ACK1",
+          "ACK2",
+          "ALDO1",
+          "ALDO2",
+          "ALT1",
+          "ALT2",
+          "ALT3",
+          "ALT4",
+          "ASPAT1",
+          "ASPAT2",
+          "HK1",
+          "HK2",
+          "MDH1",
+          "MDH2",
+          "PDH1",
+          "PDH2",
+          "PEPC1",
+          "PEPC2",
+          "PFK1",
+          "PFK2",
+          "PYK1",
+          "PYK2"
+        ],
+        "regulatory": [
+          "TF"
+        ]
+      },
+      "baseline_final_lite": {
+        "G6P": 13.219168408515777,
+        "FBP": 0.0,
+        "PEP": 0.0,
+        "PYR": 0.0,
+        "AcCoA": 13.150634560532424,
+        "ALA": 100.0,
+        "ASP": 44.313518476966586,
+        "MAL": 100.0,
+        "TF": 100.0
+      },
+      "comp_rows": [
+        {
+          "component": "G6P",
+          "n_producers": 2,
+          "producers": [
+            "M1a",
+            "M1b"
+          ],
+          "max_dep_ratio": 0.999528013644559,
+          "max_dep_ratio_recovery": 0.6001386630047147,
+          "r_argmax": "M1a",
+          "baseline_conc": 13.219168408515777,
+          "dep_per_r": {
+            "M1a": 0.999528013644559,
+            "M1b": 0.999528013644559
+          },
+          "dep_rec_per_r": {
+            "M1a": 0.6001386630047147,
+            "M1b": 0.6001386630047147
+          }
+        },
+        {
+          "component": "AcCoA",
+          "n_producers": 2,
+          "producers": [
+            "M8a",
+            "M8b"
+          ],
+          "max_dep_ratio": 0.5,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "M8a",
+          "baseline_conc": 13.150634560532424,
+          "dep_per_r": {
+            "M8a": 0.5,
+            "M8b": 0.5
+          },
+          "dep_rec_per_r": {
+            "M8a": 0.0,
+            "M8b": 0.0
+          }
+        },
+        {
+          "component": "ALA",
+          "n_producers": 4,
+          "producers": [
+            "M5a",
+            "M5b",
+            "M11a",
+            "M11b"
+          ],
+          "max_dep_ratio": 0.0,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "M5a",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "M5a": 0.0,
+            "M5b": 0.0,
+            "M11a": 0.0,
+            "M11b": 0.0
+          },
+          "dep_rec_per_r": {
+            "M5a": 0.0,
+            "M5b": 0.0,
+            "M11a": 0.0,
+            "M11b": 0.0
+          }
+        },
+        {
+          "component": "ASP",
+          "n_producers": 2,
+          "producers": [
+            "M6a",
+            "M6b"
+          ],
+          "max_dep_ratio": -1.2566477101559494,
+          "max_dep_ratio_recovery": -1.2566477101559494,
+          "r_argmax": "M6a",
+          "baseline_conc": 44.313518476966586,
+          "dep_per_r": {
+            "M6a": -1.2566477101559494,
+            "M6b": -1.2566477101559494
+          },
+          "dep_rec_per_r": {
+            "M6a": -1.2566477101559494,
+            "M6b": -1.2566477101559494
+          }
+        },
+        {
+          "component": "MAL",
+          "n_producers": 2,
+          "producers": [
+            "M7a",
+            "M7b"
+          ],
+          "max_dep_ratio": 0.0,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "M7a",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "M7a": 0.0,
+            "M7b": 0.0
+          },
+          "dep_rec_per_r": {
+            "M7a": 0.0,
+            "M7b": 0.0
+          }
+        },
+        {
+          "component": "HK1",
+          "n_producers": 1,
+          "producers": [
+            "E1a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E1a",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "E1a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E1a": 0.0
+          }
+        },
+        {
+          "component": "HK2",
+          "n_producers": 1,
+          "producers": [
+            "E1b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E1b",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "E1b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E1b": 0.0
+          }
+        },
+        {
+          "component": "PFK1",
+          "n_producers": 1,
+          "producers": [
+            "E2a"
+          ],
+          "max_dep_ratio": 0.7139432636696386,
+          "max_dep_ratio_recovery": 0.0025000000000000434,
+          "r_argmax": "E2a",
+          "baseline_conc": 99.500625,
+          "dep_per_r": {
+            "E2a": 0.7139432636696386
+          },
+          "dep_rec_per_r": {
+            "E2a": 0.0025000000000000434
+          }
+        },
+        {
+          "component": "PFK2",
+          "n_producers": 1,
+          "producers": [
+            "E2b"
+          ],
+          "max_dep_ratio": 0.7139432636696386,
+          "max_dep_ratio_recovery": 0.0025000000000000434,
+          "r_argmax": "E2b",
+          "baseline_conc": 99.500625,
+          "dep_per_r": {
+            "E2b": 0.7139432636696386
+          },
+          "dep_rec_per_r": {
+            "E2b": 0.0025000000000000434
+          }
+        },
+        {
+          "component": "ALDO1",
+          "n_producers": 1,
+          "producers": [
+            "E3a"
+          ],
+          "max_dep_ratio": 0.7139432636696386,
+          "max_dep_ratio_recovery": 0.0025000000000000434,
+          "r_argmax": "E3a",
+          "baseline_conc": 99.500625,
+          "dep_per_r": {
+            "E3a": 0.7139432636696386
+          },
+          "dep_rec_per_r": {
+            "E3a": 0.0025000000000000434
+          }
+        },
+        {
+          "component": "ALDO2",
+          "n_producers": 1,
+          "producers": [
+            "E3b"
+          ],
+          "max_dep_ratio": 0.7139432636696386,
+          "max_dep_ratio_recovery": 0.0025000000000000434,
+          "r_argmax": "E3b",
+          "baseline_conc": 99.500625,
+          "dep_per_r": {
+            "E3b": 0.7139432636696386
+          },
+          "dep_rec_per_r": {
+            "E3b": 0.0025000000000000434
+          }
+        },
+        {
+          "component": "PYK1",
+          "n_producers": 1,
+          "producers": [
+            "E4a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0025,
+          "r_argmax": "E4a",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "E4a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E4a": 0.0025
+          }
+        },
+        {
+          "component": "PYK2",
+          "n_producers": 1,
+          "producers": [
+            "E4b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0025,
+          "r_argmax": "E4b",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "E4b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E4b": 0.0025
+          }
+        },
+        {
+          "component": "ALT1",
+          "n_producers": 1,
+          "producers": [
+            "E5a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E5a",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "E5a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E5a": 0.0
+          }
+        },
+        {
+          "component": "ALT2",
+          "n_producers": 1,
+          "producers": [
+            "E5b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E5b",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "E5b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E5b": 0.0
+          }
+        },
+        {
+          "component": "ALT3",
+          "n_producers": 1,
+          "producers": [
+            "E11a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E11a",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "E11a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E11a": 0.0
+          }
+        },
+        {
+          "component": "ALT4",
+          "n_producers": 1,
+          "producers": [
+            "E11b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E11b",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "E11b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E11b": 0.0
+          }
+        },
+        {
+          "component": "ASPAT1",
+          "n_producers": 1,
+          "producers": [
+            "E6a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.25646970209376546,
+          "r_argmax": "E6a",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "E6a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E6a": 0.25646970209376546
+          }
+        },
+        {
+          "component": "ASPAT2",
+          "n_producers": 1,
+          "producers": [
+            "E6b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.25646970209376546,
+          "r_argmax": "E6b",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "E6b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E6b": 0.25646970209376546
+          }
+        },
+        {
+          "component": "MDH1",
+          "n_producers": 1,
+          "producers": [
+            "E7a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E7a",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "E7a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E7a": 0.0
+          }
+        },
+        {
+          "component": "MDH2",
+          "n_producers": 1,
+          "producers": [
+            "E7b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E7b",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "E7b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E7b": 0.0
+          }
+        },
+        {
+          "component": "PDH1",
+          "n_producers": 1,
+          "producers": [
+            "E8a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E8a",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "E8a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E8a": 0.0
+          }
+        },
+        {
+          "component": "PDH2",
+          "n_producers": 1,
+          "producers": [
+            "E8b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E8b",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "E8b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E8b": 0.0
+          }
+        },
+        {
+          "component": "PEPC1",
+          "n_producers": 1,
+          "producers": [
+            "E9a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0025,
+          "r_argmax": "E9a",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "E9a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E9a": 0.0025
+          }
+        },
+        {
+          "component": "PEPC2",
+          "n_producers": 1,
+          "producers": [
+            "E9b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0025,
+          "r_argmax": "E9b",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "E9b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E9b": 0.0025
+          }
+        },
+        {
+          "component": "ACK1",
+          "n_producers": 1,
+          "producers": [
+            "E10a"
+          ],
+          "max_dep_ratio": 0.7139432636696386,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E10a",
+          "baseline_conc": 99.500625,
+          "dep_per_r": {
+            "E10a": 0.7139432636696386
+          },
+          "dep_rec_per_r": {
+            "E10a": 0.0
+          }
+        },
+        {
+          "component": "ACK2",
+          "n_producers": 1,
+          "producers": [
+            "E10b"
+          ],
+          "max_dep_ratio": 0.7139432636696386,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E10b",
+          "baseline_conc": 99.500625,
+          "dep_per_r": {
+            "E10b": 0.7139432636696386
+          },
+          "dep_rec_per_r": {
+            "E10b": 0.0
+          }
+        },
+        {
+          "component": "TF",
+          "n_producers": 2,
+          "producers": [
+            "G_const",
+            "G_auto"
+          ],
+          "max_dep_ratio": 0.6718155884205568,
+          "max_dep_ratio_recovery": 0.0025,
+          "r_argmax": "G_auto",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "G_const": 0.0,
+            "G_auto": 0.6718155884205568
+          },
+          "dep_rec_per_r": {
+            "G_const": 0.0,
+            "G_auto": 0.0025
+          }
+        }
+      ],
+      "stratified_at_0.5": {
+        "metabolic": {
+          "n_total": 5,
+          "n_robust": 3,
+          "n_fragile": 2,
+          "frac_robust": 0.6,
+          "mean_max_dep": 0.04857606069772191,
+          "median_max_dep": 0.0
+        },
+        "enzyme": {
+          "n_total": 22,
+          "n_robust": 0,
+          "n_fragile": 22,
+          "frac_robust": 0.0,
+          "mean_max_dep": 0.7139432636696387,
+          "median_max_dep": 0.7139432636696387
+        },
+        "regulatory": {
+          "n_total": 1,
+          "n_robust": 0,
+          "n_fragile": 1,
+          "frac_robust": 0.0,
+          "mean_max_dep": 0.6718155884205568,
+          "median_max_dep": 0.6718155884205568
+        }
+      }
+    },
+    "G": {
+      "n_species": 53,
+      "n_reactions": 64,
+      "n_food": 11,
+      "n_non_food": 42,
+      "comp_types": {
+        "metabolic": [
+          "ALA",
+          "ASP",
+          "AcCoA",
+          "FBP",
+          "G6P",
+          "GLU",
+          "Glycogen",
+          "MAL",
+          "PEP",
+          "PYR",
+          "PolyP"
+        ],
+        "enzyme": [
+          "ACK1",
+          "ACK2",
+          "ALDO1",
+          "ALDO2",
+          "ALT1",
+          "ALT2",
+          "ALT3",
+          "ALT4",
+          "ALT5",
+          "ALT6",
+          "ASPAT1",
+          "ASPAT2",
+          "GLY1",
+          "GLY2",
+          "GLYP1",
+          "GLYP2",
+          "HK1",
+          "HK2",
+          "MDH1",
+          "MDH2",
+          "PDH1",
+          "PDH2",
+          "PEPC1",
+          "PEPC2",
+          "PFK1",
+          "PFK2",
+          "PPK1",
+          "PPK2",
+          "PYK1",
+          "PYK2"
+        ],
+        "regulatory": [
+          "TF"
+        ]
+      },
+      "baseline_final_lite": {
+        "G6P": 7.984023968039954,
+        "FBP": 14.606174021670594,
+        "PEP": 59.49905742651788,
+        "PYR": 0.0,
+        "AcCoA": 13.320013320013324,
+        "ALA": 100.0,
+        "ASP": 100.0,
+        "MAL": 100.0,
+        "GLU": 99.75,
+        "Glycogen": 95.75798801598002,
+        "PolyP": 7.523998295024331,
+        "TF": 99.75
+      },
+      "comp_rows": [
+        {
+          "component": "G6P",
+          "n_producers": 4,
+          "producers": [
+            "M1a",
+            "M1b",
+            "M14a",
+            "M14b"
+          ],
+          "max_dep_ratio": 0.5,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "M14a",
+          "baseline_conc": 7.984023968039954,
+          "dep_per_r": {
+            "M1a": 0.0,
+            "M1b": 0.0,
+            "M14a": 0.5,
+            "M14b": 0.5
+          },
+          "dep_rec_per_r": {
+            "M1a": 0.0,
+            "M1b": 0.0,
+            "M14a": 0.0,
+            "M14b": 0.0
+          }
+        },
+        {
+          "component": "FBP",
+          "n_producers": 2,
+          "producers": [
+            "M2a",
+            "M2b"
+          ],
+          "max_dep_ratio": 1.0,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "M2a",
+          "baseline_conc": 14.606174021670594,
+          "dep_per_r": {
+            "M2a": 1.0,
+            "M2b": 1.0
+          },
+          "dep_rec_per_r": {
+            "M2a": 0.0,
+            "M2b": 0.0
+          }
+        },
+        {
+          "component": "PEP",
+          "n_producers": 2,
+          "producers": [
+            "M3a",
+            "M3b"
+          ],
+          "max_dep_ratio": 0.4992485481332142,
+          "max_dep_ratio_recovery": -0.05495730275220155,
+          "r_argmax": "M3a",
+          "baseline_conc": 59.49905742651788,
+          "dep_per_r": {
+            "M3a": 0.4992485481332142,
+            "M3b": 0.4992485481332142
+          },
+          "dep_rec_per_r": {
+            "M3a": -0.05495730275220155,
+            "M3b": -0.05495730275220155
+          }
+        },
+        {
+          "component": "AcCoA",
+          "n_producers": 2,
+          "producers": [
+            "M8a",
+            "M8b"
+          ],
+          "max_dep_ratio": 0.5,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "M8a",
+          "baseline_conc": 13.320013320013324,
+          "dep_per_r": {
+            "M8a": 0.5,
+            "M8b": 0.5
+          },
+          "dep_rec_per_r": {
+            "M8a": 0.0,
+            "M8b": 0.0
+          }
+        },
+        {
+          "component": "ALA",
+          "n_producers": 4,
+          "producers": [
+            "M5a",
+            "M5b",
+            "M11a",
+            "M11b"
+          ],
+          "max_dep_ratio": 0.0,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "M5a",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "M5a": 0.0,
+            "M5b": 0.0,
+            "M11a": 0.0,
+            "M11b": 0.0
+          },
+          "dep_rec_per_r": {
+            "M5a": 0.0,
+            "M5b": 0.0,
+            "M11a": 0.0,
+            "M11b": 0.0
+          }
+        },
+        {
+          "component": "ASP",
+          "n_producers": 2,
+          "producers": [
+            "M6a",
+            "M6b"
+          ],
+          "max_dep_ratio": 0.0,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "M6a",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "M6a": 0.0,
+            "M6b": 0.0
+          },
+          "dep_rec_per_r": {
+            "M6a": 0.0,
+            "M6b": 0.0
+          }
+        },
+        {
+          "component": "MAL",
+          "n_producers": 2,
+          "producers": [
+            "M7a",
+            "M7b"
+          ],
+          "max_dep_ratio": 0.0,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "M7a",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "M7a": 0.0,
+            "M7b": 0.0
+          },
+          "dep_rec_per_r": {
+            "M7a": 0.0,
+            "M7b": 0.0
+          }
+        },
+        {
+          "component": "GLU",
+          "n_producers": 2,
+          "producers": [
+            "M12a",
+            "M12b"
+          ],
+          "max_dep_ratio": 0.0,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "M12a",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "M12a": 0.0,
+            "M12b": 0.0
+          },
+          "dep_rec_per_r": {
+            "M12a": 0.0,
+            "M12b": 0.0
+          }
+        },
+        {
+          "component": "Glycogen",
+          "n_producers": 2,
+          "producers": [
+            "M13a",
+            "M13b"
+          ],
+          "max_dep_ratio": 1.0,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "M13a",
+          "baseline_conc": 95.75798801598002,
+          "dep_per_r": {
+            "M13a": 1.0,
+            "M13b": 1.0
+          },
+          "dep_rec_per_r": {
+            "M13a": 0.0,
+            "M13b": 0.0
+          }
+        },
+        {
+          "component": "PolyP",
+          "n_producers": 2,
+          "producers": [
+            "M15a",
+            "M15b"
+          ],
+          "max_dep_ratio": 1.0,
+          "max_dep_ratio_recovery": 0.04450221961561716,
+          "r_argmax": "M15a",
+          "baseline_conc": 7.523998295024331,
+          "dep_per_r": {
+            "M15a": 1.0,
+            "M15b": 1.0
+          },
+          "dep_rec_per_r": {
+            "M15a": 0.04450221961561716,
+            "M15b": 0.04450221961561716
+          }
+        },
+        {
+          "component": "HK1",
+          "n_producers": 1,
+          "producers": [
+            "E1a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E1a",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E1a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E1a": 0.0
+          }
+        },
+        {
+          "component": "HK2",
+          "n_producers": 1,
+          "producers": [
+            "E1b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E1b",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E1b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E1b": 0.0
+          }
+        },
+        {
+          "component": "PFK1",
+          "n_producers": 1,
+          "producers": [
+            "E2a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E2a",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E2a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E2a": 0.0
+          }
+        },
+        {
+          "component": "PFK2",
+          "n_producers": 1,
+          "producers": [
+            "E2b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E2b",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E2b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E2b": 0.0
+          }
+        },
+        {
+          "component": "ALDO1",
+          "n_producers": 1,
+          "producers": [
+            "E3a"
+          ],
+          "max_dep_ratio": 0.7139432636696386,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E3a",
+          "baseline_conc": 99.2518734375,
+          "dep_per_r": {
+            "E3a": 0.7139432636696386
+          },
+          "dep_rec_per_r": {
+            "E3a": 0.0
+          }
+        },
+        {
+          "component": "ALDO2",
+          "n_producers": 1,
+          "producers": [
+            "E3b"
+          ],
+          "max_dep_ratio": 0.7139432636696386,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E3b",
+          "baseline_conc": 99.2518734375,
+          "dep_per_r": {
+            "E3b": 0.7139432636696386
+          },
+          "dep_rec_per_r": {
+            "E3b": 0.0
+          }
+        },
+        {
+          "component": "PYK1",
+          "n_producers": 1,
+          "producers": [
+            "E4a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E4a",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E4a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E4a": 0.0
+          }
+        },
+        {
+          "component": "PYK2",
+          "n_producers": 1,
+          "producers": [
+            "E4b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E4b",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E4b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E4b": 0.0
+          }
+        },
+        {
+          "component": "ALT1",
+          "n_producers": 1,
+          "producers": [
+            "E5a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E5a",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E5a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E5a": 0.0
+          }
+        },
+        {
+          "component": "ALT2",
+          "n_producers": 1,
+          "producers": [
+            "E5b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E5b",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E5b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E5b": 0.0
+          }
+        },
+        {
+          "component": "ALT3",
+          "n_producers": 1,
+          "producers": [
+            "E11a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E11a",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E11a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E11a": 0.0
+          }
+        },
+        {
+          "component": "ALT4",
+          "n_producers": 1,
+          "producers": [
+            "E11b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E11b",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E11b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E11b": 0.0
+          }
+        },
+        {
+          "component": "ALT5",
+          "n_producers": 1,
+          "producers": [
+            "E12a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E12a",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E12a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E12a": 0.0
+          }
+        },
+        {
+          "component": "ALT6",
+          "n_producers": 1,
+          "producers": [
+            "E12b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E12b",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E12b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E12b": 0.0
+          }
+        },
+        {
+          "component": "ASPAT1",
+          "n_producers": 1,
+          "producers": [
+            "E6a"
+          ],
+          "max_dep_ratio": 0.7139432636696388,
+          "max_dep_ratio_recovery": 0.12489610479586746,
+          "r_argmax": "E6a",
+          "baseline_conc": 73.28193199614212,
+          "dep_per_r": {
+            "E6a": 0.7139432636696388
+          },
+          "dep_rec_per_r": {
+            "E6a": 0.12489610479586746
+          }
+        },
+        {
+          "component": "ASPAT2",
+          "n_producers": 1,
+          "producers": [
+            "E6b"
+          ],
+          "max_dep_ratio": 0.7139432636696388,
+          "max_dep_ratio_recovery": 0.12489610479586746,
+          "r_argmax": "E6b",
+          "baseline_conc": 73.28193199614212,
+          "dep_per_r": {
+            "E6b": 0.7139432636696388
+          },
+          "dep_rec_per_r": {
+            "E6b": 0.12489610479586746
+          }
+        },
+        {
+          "component": "MDH1",
+          "n_producers": 1,
+          "producers": [
+            "E7a"
+          ],
+          "max_dep_ratio": 0.7139432636696388,
+          "max_dep_ratio_recovery": 0.19194470026282012,
+          "r_argmax": "E7a",
+          "baseline_conc": 73.28193199614212,
+          "dep_per_r": {
+            "E7a": 0.7139432636696388
+          },
+          "dep_rec_per_r": {
+            "E7a": 0.19194470026282012
+          }
+        },
+        {
+          "component": "MDH2",
+          "n_producers": 1,
+          "producers": [
+            "E7b"
+          ],
+          "max_dep_ratio": 0.7139432636696388,
+          "max_dep_ratio_recovery": 0.19194470026282012,
+          "r_argmax": "E7b",
+          "baseline_conc": 73.28193199614212,
+          "dep_per_r": {
+            "E7b": 0.7139432636696388
+          },
+          "dep_rec_per_r": {
+            "E7b": 0.19194470026282012
+          }
+        },
+        {
+          "component": "PDH1",
+          "n_producers": 1,
+          "producers": [
+            "E8a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E8a",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E8a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E8a": 0.0
+          }
+        },
+        {
+          "component": "PDH2",
+          "n_producers": 1,
+          "producers": [
+            "E8b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E8b",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E8b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E8b": 0.0
+          }
+        },
+        {
+          "component": "PEPC1",
+          "n_producers": 1,
+          "producers": [
+            "E9a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E9a",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E9a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E9a": 0.0
+          }
+        },
+        {
+          "component": "PEPC2",
+          "n_producers": 1,
+          "producers": [
+            "E9b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E9b",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E9b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E9b": 0.0
+          }
+        },
+        {
+          "component": "ACK1",
+          "n_producers": 1,
+          "producers": [
+            "E10a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E10a",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E10a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E10a": 0.0
+          }
+        },
+        {
+          "component": "ACK2",
+          "n_producers": 1,
+          "producers": [
+            "E10b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E10b",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E10b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E10b": 0.0
+          }
+        },
+        {
+          "component": "GLY1",
+          "n_producers": 1,
+          "producers": [
+            "E13a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E13a",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E13a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E13a": 0.0
+          }
+        },
+        {
+          "component": "GLY2",
+          "n_producers": 1,
+          "producers": [
+            "E13b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E13b",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E13b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E13b": 0.0
+          }
+        },
+        {
+          "component": "GLYP1",
+          "n_producers": 1,
+          "producers": [
+            "E14a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E14a",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E14a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E14a": 0.0
+          }
+        },
+        {
+          "component": "GLYP2",
+          "n_producers": 1,
+          "producers": [
+            "E14b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E14b",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E14b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E14b": 0.0
+          }
+        },
+        {
+          "component": "PPK1",
+          "n_producers": 1,
+          "producers": [
+            "E15a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E15a",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E15a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E15a": 0.0
+          }
+        },
+        {
+          "component": "PPK2",
+          "n_producers": 1,
+          "producers": [
+            "E15b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E15b",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E15b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E15b": 0.0
+          }
+        },
+        {
+          "component": "TF",
+          "n_producers": 2,
+          "producers": [
+            "G_const",
+            "G_auto"
+          ],
+          "max_dep_ratio": 0.6484625988558015,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "G_auto",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "G_const": 0.0,
+            "G_auto": 0.6484625988558015
+          },
+          "dep_rec_per_r": {
+            "G_const": 0.0,
+            "G_auto": 0.0
+          }
+        }
+      ],
+      "stratified_at_0.5": {
+        "metabolic": {
+          "n_total": 10,
+          "n_robust": 5,
+          "n_fragile": 5,
+          "frac_robust": 0.5,
+          "mean_max_dep": 0.4499248548133214,
+          "median_max_dep": 0.4996242740666071
+        },
+        "enzyme": {
+          "n_total": 30,
+          "n_robust": 0,
+          "n_fragile": 30,
+          "frac_robust": 0.0,
+          "mean_max_dep": 0.7139432636696383,
+          "median_max_dep": 0.7139432636696387
+        },
+        "regulatory": {
+          "n_total": 1,
+          "n_robust": 0,
+          "n_fragile": 1,
+          "frac_robust": 0.0,
+          "mean_max_dep": 0.6484625988558015,
+          "median_max_dep": 0.6484625988558015
+        }
+      }
+    },
+    "H": {
+      "n_species": 55,
+      "n_reactions": 70,
+      "n_food": 11,
+      "n_non_food": 44,
+      "comp_types": {
+        "metabolic": [
+          "ALA",
+          "ASP",
+          "AcCoA",
+          "FBP",
+          "G6P",
+          "GLU",
+          "Glycogen",
+          "MAL",
+          "PEP",
+          "PYR",
+          "PolyP"
+        ],
+        "enzyme": [
+          "ACK1",
+          "ACK2",
+          "ALDO1",
+          "ALDO2",
+          "ALT1",
+          "ALT2",
+          "ALT3",
+          "ALT4",
+          "ALT5",
+          "ALT6",
+          "ASPAT1",
+          "ASPAT2",
+          "ASPAT3",
+          "ASPAT4",
+          "GLY1",
+          "GLY2",
+          "GLYP1",
+          "GLYP2",
+          "HK1",
+          "HK2",
+          "MDH1",
+          "MDH2",
+          "PDH1",
+          "PDH2",
+          "PEPC1",
+          "PEPC2",
+          "PFK1",
+          "PFK2",
+          "PPK1",
+          "PPK2",
+          "PYK1",
+          "PYK2"
+        ],
+        "regulatory": [
+          "TF"
+        ]
+      },
+      "baseline_final_lite": {
+        "G6P": 7.984023968039954,
+        "FBP": 14.606174021670594,
+        "PEP": 59.49905742651788,
+        "PYR": 0.0,
+        "AcCoA": 13.320013320013324,
+        "ALA": 100.0,
+        "ASP": 100.0,
+        "MAL": 100.0,
+        "GLU": 69.80991011985017,
+        "Glycogen": 95.75798801598002,
+        "PolyP": 7.523934995398241,
+        "TF": 99.75
+      },
+      "comp_rows": [
+        {
+          "component": "G6P",
+          "n_producers": 4,
+          "producers": [
+            "M1a",
+            "M1b",
+            "M14a",
+            "M14b"
+          ],
+          "max_dep_ratio": 0.5,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "M14a",
+          "baseline_conc": 7.984023968039954,
+          "dep_per_r": {
+            "M1a": 0.0,
+            "M1b": 0.0,
+            "M14a": 0.5,
+            "M14b": 0.5
+          },
+          "dep_rec_per_r": {
+            "M1a": 0.0,
+            "M1b": 0.0,
+            "M14a": 0.0,
+            "M14b": 0.0
+          }
+        },
+        {
+          "component": "FBP",
+          "n_producers": 2,
+          "producers": [
+            "M2a",
+            "M2b"
+          ],
+          "max_dep_ratio": 1.0,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "M2a",
+          "baseline_conc": 14.606174021670594,
+          "dep_per_r": {
+            "M2a": 1.0,
+            "M2b": 1.0
+          },
+          "dep_rec_per_r": {
+            "M2a": 0.0,
+            "M2b": 0.0
+          }
+        },
+        {
+          "component": "PEP",
+          "n_producers": 2,
+          "producers": [
+            "M3a",
+            "M3b"
+          ],
+          "max_dep_ratio": 0.4992485481331939,
+          "max_dep_ratio_recovery": -0.05495730275329581,
+          "r_argmax": "M3a",
+          "baseline_conc": 59.49905742651788,
+          "dep_per_r": {
+            "M3a": 0.4992485481331939,
+            "M3b": 0.4992485481331939
+          },
+          "dep_rec_per_r": {
+            "M3a": -0.05495730275329581,
+            "M3b": -0.05495730275329581
+          }
+        },
+        {
+          "component": "AcCoA",
+          "n_producers": 2,
+          "producers": [
+            "M8a",
+            "M8b"
+          ],
+          "max_dep_ratio": 0.5,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "M8a",
+          "baseline_conc": 13.320013320013324,
+          "dep_per_r": {
+            "M8a": 0.5,
+            "M8b": 0.5
+          },
+          "dep_rec_per_r": {
+            "M8a": 0.0,
+            "M8b": 0.0
+          }
+        },
+        {
+          "component": "ALA",
+          "n_producers": 4,
+          "producers": [
+            "M5a",
+            "M5b",
+            "M11a",
+            "M11b"
+          ],
+          "max_dep_ratio": 0.0,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "M5a",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "M5a": 0.0,
+            "M5b": 0.0,
+            "M11a": 0.0,
+            "M11b": 0.0
+          },
+          "dep_rec_per_r": {
+            "M5a": 0.0,
+            "M5b": 0.0,
+            "M11a": 0.0,
+            "M11b": 0.0
+          }
+        },
+        {
+          "component": "ASP",
+          "n_producers": 4,
+          "producers": [
+            "M6a",
+            "M6b",
+            "M17a",
+            "M17b"
+          ],
+          "max_dep_ratio": 0.0,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "M6a",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "M6a": 0.0,
+            "M6b": 0.0,
+            "M17a": 0.0,
+            "M17b": 0.0
+          },
+          "dep_rec_per_r": {
+            "M6a": 0.0,
+            "M6b": 0.0,
+            "M17a": 0.0,
+            "M17b": 0.0
+          }
+        },
+        {
+          "component": "MAL",
+          "n_producers": 2,
+          "producers": [
+            "M7a",
+            "M7b"
+          ],
+          "max_dep_ratio": 0.0,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "M7a",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "M7a": 0.0,
+            "M7b": 0.0
+          },
+          "dep_rec_per_r": {
+            "M7a": 0.0,
+            "M7b": 0.0
+          }
+        },
+        {
+          "component": "GLU",
+          "n_producers": 4,
+          "producers": [
+            "M12a",
+            "M12b",
+            "M18a",
+            "M18b"
+          ],
+          "max_dep_ratio": 0.0,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "M12a",
+          "baseline_conc": 69.80991011985017,
+          "dep_per_r": {
+            "M12a": 0.0,
+            "M12b": 0.0,
+            "M18a": 0.0,
+            "M18b": 0.0
+          },
+          "dep_rec_per_r": {
+            "M12a": 0.0,
+            "M12b": 0.0,
+            "M18a": 0.0,
+            "M18b": 0.0
+          }
+        },
+        {
+          "component": "Glycogen",
+          "n_producers": 2,
+          "producers": [
+            "M13a",
+            "M13b"
+          ],
+          "max_dep_ratio": 1.0,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "M13a",
+          "baseline_conc": 95.75798801598002,
+          "dep_per_r": {
+            "M13a": 1.0,
+            "M13b": 1.0
+          },
+          "dep_rec_per_r": {
+            "M13a": 0.0,
+            "M13b": 0.0
+          }
+        },
+        {
+          "component": "PolyP",
+          "n_producers": 2,
+          "producers": [
+            "M15a",
+            "M15b"
+          ],
+          "max_dep_ratio": 1.0,
+          "max_dep_ratio_recovery": 0.04449418091615136,
+          "r_argmax": "M15a",
+          "baseline_conc": 7.523934995398241,
+          "dep_per_r": {
+            "M15a": 1.0,
+            "M15b": 1.0
+          },
+          "dep_rec_per_r": {
+            "M15a": 0.04449418091615136,
+            "M15b": 0.04449418091615136
+          }
+        },
+        {
+          "component": "HK1",
+          "n_producers": 1,
+          "producers": [
+            "E1a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E1a",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E1a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E1a": 0.0
+          }
+        },
+        {
+          "component": "HK2",
+          "n_producers": 1,
+          "producers": [
+            "E1b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E1b",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E1b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E1b": 0.0
+          }
+        },
+        {
+          "component": "PFK1",
+          "n_producers": 1,
+          "producers": [
+            "E2a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E2a",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E2a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E2a": 0.0
+          }
+        },
+        {
+          "component": "PFK2",
+          "n_producers": 1,
+          "producers": [
+            "E2b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E2b",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E2b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E2b": 0.0
+          }
+        },
+        {
+          "component": "ALDO1",
+          "n_producers": 1,
+          "producers": [
+            "E3a"
+          ],
+          "max_dep_ratio": 0.7139432636696386,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E3a",
+          "baseline_conc": 99.2518734375,
+          "dep_per_r": {
+            "E3a": 0.7139432636696386
+          },
+          "dep_rec_per_r": {
+            "E3a": 0.0
+          }
+        },
+        {
+          "component": "ALDO2",
+          "n_producers": 1,
+          "producers": [
+            "E3b"
+          ],
+          "max_dep_ratio": 0.7139432636696386,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E3b",
+          "baseline_conc": 99.2518734375,
+          "dep_per_r": {
+            "E3b": 0.7139432636696386
+          },
+          "dep_rec_per_r": {
+            "E3b": 0.0
+          }
+        },
+        {
+          "component": "PYK1",
+          "n_producers": 1,
+          "producers": [
+            "E4a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E4a",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E4a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E4a": 0.0
+          }
+        },
+        {
+          "component": "PYK2",
+          "n_producers": 1,
+          "producers": [
+            "E4b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E4b",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E4b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E4b": 0.0
+          }
+        },
+        {
+          "component": "ALT1",
+          "n_producers": 1,
+          "producers": [
+            "E5a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E5a",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E5a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E5a": 0.0
+          }
+        },
+        {
+          "component": "ALT2",
+          "n_producers": 1,
+          "producers": [
+            "E5b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E5b",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E5b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E5b": 0.0
+          }
+        },
+        {
+          "component": "ALT3",
+          "n_producers": 1,
+          "producers": [
+            "E11a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E11a",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E11a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E11a": 0.0
+          }
+        },
+        {
+          "component": "ALT4",
+          "n_producers": 1,
+          "producers": [
+            "E11b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E11b",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E11b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E11b": 0.0
+          }
+        },
+        {
+          "component": "ALT5",
+          "n_producers": 1,
+          "producers": [
+            "E12a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E12a",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E12a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E12a": 0.0
+          }
+        },
+        {
+          "component": "ALT6",
+          "n_producers": 1,
+          "producers": [
+            "E12b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E12b",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E12b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E12b": 0.0
+          }
+        },
+        {
+          "component": "ASPAT1",
+          "n_producers": 1,
+          "producers": [
+            "E6a"
+          ],
+          "max_dep_ratio": 0.7139432636696383,
+          "max_dep_ratio_recovery": 0.2915542211075296,
+          "r_argmax": "E6a",
+          "baseline_conc": 63.18736256778467,
+          "dep_per_r": {
+            "E6a": 0.7139432636696383
+          },
+          "dep_rec_per_r": {
+            "E6a": 0.2915542211075296
+          }
+        },
+        {
+          "component": "ASPAT2",
+          "n_producers": 1,
+          "producers": [
+            "E6b"
+          ],
+          "max_dep_ratio": 0.7139432636696383,
+          "max_dep_ratio_recovery": 0.2915542211075296,
+          "r_argmax": "E6b",
+          "baseline_conc": 63.18736256778467,
+          "dep_per_r": {
+            "E6b": 0.7139432636696383
+          },
+          "dep_rec_per_r": {
+            "E6b": 0.2915542211075296
+          }
+        },
+        {
+          "component": "ASPAT3",
+          "n_producers": 1,
+          "producers": [
+            "E17a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E17a",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E17a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E17a": 0.0
+          }
+        },
+        {
+          "component": "ASPAT4",
+          "n_producers": 1,
+          "producers": [
+            "E17b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E17b",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E17b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E17b": 0.0
+          }
+        },
+        {
+          "component": "MDH1",
+          "n_producers": 1,
+          "producers": [
+            "E7a"
+          ],
+          "max_dep_ratio": 0.7139432636696383,
+          "max_dep_ratio_recovery": 0.3019469908783775,
+          "r_argmax": "E7a",
+          "baseline_conc": 63.18736256778467,
+          "dep_per_r": {
+            "E7a": 0.7139432636696383
+          },
+          "dep_rec_per_r": {
+            "E7a": 0.3019469908783775
+          }
+        },
+        {
+          "component": "MDH2",
+          "n_producers": 1,
+          "producers": [
+            "E7b"
+          ],
+          "max_dep_ratio": 0.7139432636696383,
+          "max_dep_ratio_recovery": 0.3019469908783775,
+          "r_argmax": "E7b",
+          "baseline_conc": 63.18736256778467,
+          "dep_per_r": {
+            "E7b": 0.7139432636696383
+          },
+          "dep_rec_per_r": {
+            "E7b": 0.3019469908783775
+          }
+        },
+        {
+          "component": "PDH1",
+          "n_producers": 1,
+          "producers": [
+            "E8a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E8a",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E8a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E8a": 0.0
+          }
+        },
+        {
+          "component": "PDH2",
+          "n_producers": 1,
+          "producers": [
+            "E8b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E8b",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E8b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E8b": 0.0
+          }
+        },
+        {
+          "component": "PEPC1",
+          "n_producers": 1,
+          "producers": [
+            "E9a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E9a",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E9a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E9a": 0.0
+          }
+        },
+        {
+          "component": "PEPC2",
+          "n_producers": 1,
+          "producers": [
+            "E9b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E9b",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E9b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E9b": 0.0
+          }
+        },
+        {
+          "component": "ACK1",
+          "n_producers": 1,
+          "producers": [
+            "E10a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E10a",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E10a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E10a": 0.0
+          }
+        },
+        {
+          "component": "ACK2",
+          "n_producers": 1,
+          "producers": [
+            "E10b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E10b",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E10b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E10b": 0.0
+          }
+        },
+        {
+          "component": "GLY1",
+          "n_producers": 1,
+          "producers": [
+            "E13a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E13a",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E13a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E13a": 0.0
+          }
+        },
+        {
+          "component": "GLY2",
+          "n_producers": 1,
+          "producers": [
+            "E13b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E13b",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E13b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E13b": 0.0
+          }
+        },
+        {
+          "component": "GLYP1",
+          "n_producers": 1,
+          "producers": [
+            "E14a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E14a",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E14a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E14a": 0.0
+          }
+        },
+        {
+          "component": "GLYP2",
+          "n_producers": 1,
+          "producers": [
+            "E14b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E14b",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E14b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E14b": 0.0
+          }
+        },
+        {
+          "component": "PPK1",
+          "n_producers": 1,
+          "producers": [
+            "E15a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E15a",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E15a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E15a": 0.0
+          }
+        },
+        {
+          "component": "PPK2",
+          "n_producers": 1,
+          "producers": [
+            "E15b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E15b",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E15b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E15b": 0.0
+          }
+        },
+        {
+          "component": "TF",
+          "n_producers": 2,
+          "producers": [
+            "G_const",
+            "G_auto"
+          ],
+          "max_dep_ratio": 0.652222755878326,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "G_auto",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "G_const": 0.0,
+            "G_auto": 0.652222755878326
+          },
+          "dep_rec_per_r": {
+            "G_const": 0.0,
+            "G_auto": 0.0
+          }
+        }
+      ],
+      "stratified_at_0.5": {
+        "metabolic": {
+          "n_total": 10,
+          "n_robust": 5,
+          "n_fragile": 5,
+          "frac_robust": 0.5,
+          "mean_max_dep": 0.44992485481331934,
+          "median_max_dep": 0.49962427406659693
+        },
+        "enzyme": {
+          "n_total": 32,
+          "n_robust": 0,
+          "n_fragile": 32,
+          "frac_robust": 0.0,
+          "mean_max_dep": 0.7139432636696386,
+          "median_max_dep": 0.7139432636696387
+        },
+        "regulatory": {
+          "n_total": 1,
+          "n_robust": 0,
+          "n_fragile": 1,
+          "frac_robust": 0.0,
+          "mean_max_dep": 0.652222755878326,
+          "median_max_dep": 0.652222755878326
+        }
+      }
+    },
+    "I": {
+      "n_species": 57,
+      "n_reactions": 76,
+      "n_food": 11,
+      "n_non_food": 46,
+      "comp_types": {
+        "metabolic": [
+          "ALA",
+          "ASP",
+          "AcCoA",
+          "FBP",
+          "G6P",
+          "GLU",
+          "Glycogen",
+          "MAL",
+          "PEP",
+          "PYR",
+          "PolyP"
+        ],
+        "enzyme": [
+          "ACK1",
+          "ACK2",
+          "ALDO1",
+          "ALDO2",
+          "ALT1",
+          "ALT2",
+          "ALT3",
+          "ALT4",
+          "ALT5",
+          "ALT6",
+          "ALT7",
+          "ALT8",
+          "ASPAT1",
+          "ASPAT2",
+          "ASPAT3",
+          "ASPAT4",
+          "GLY1",
+          "GLY2",
+          "GLYP1",
+          "GLYP2",
+          "HK1",
+          "HK2",
+          "MDH1",
+          "MDH2",
+          "PDH1",
+          "PDH2",
+          "PEPC1",
+          "PEPC2",
+          "PFK1",
+          "PFK2",
+          "PPK1",
+          "PPK2",
+          "PYK1",
+          "PYK2"
+        ],
+        "regulatory": [
+          "TF"
+        ]
+      },
+      "baseline_final_lite": {
+        "G6P": 7.984023968039954,
+        "FBP": 14.606174021670594,
+        "PEP": 59.49905742651788,
+        "PYR": 0.0,
+        "AcCoA": 13.320013320013324,
+        "ALA": 100.0,
+        "ASP": 100.0,
+        "MAL": 100.0,
+        "GLU": 64.8198951398252,
+        "Glycogen": 95.75798801598002,
+        "PolyP": 7.5239130101876075,
+        "TF": 99.75
+      },
+      "comp_rows": [
+        {
+          "component": "G6P",
+          "n_producers": 4,
+          "producers": [
+            "M1a",
+            "M1b",
+            "M14a",
+            "M14b"
+          ],
+          "max_dep_ratio": 0.5,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "M14a",
+          "baseline_conc": 7.984023968039954,
+          "dep_per_r": {
+            "M1a": 0.0,
+            "M1b": 0.0,
+            "M14a": 0.5,
+            "M14b": 0.5
+          },
+          "dep_rec_per_r": {
+            "M1a": 0.0,
+            "M1b": 0.0,
+            "M14a": 0.0,
+            "M14b": 0.0
+          }
+        },
+        {
+          "component": "FBP",
+          "n_producers": 2,
+          "producers": [
+            "M2a",
+            "M2b"
+          ],
+          "max_dep_ratio": 1.0,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "M2a",
+          "baseline_conc": 14.606174021670594,
+          "dep_per_r": {
+            "M2a": 1.0,
+            "M2b": 1.0
+          },
+          "dep_rec_per_r": {
+            "M2a": 0.0,
+            "M2b": 0.0
+          }
+        },
+        {
+          "component": "PEP",
+          "n_producers": 2,
+          "producers": [
+            "M3a",
+            "M3b"
+          ],
+          "max_dep_ratio": 0.49924854813318686,
+          "max_dep_ratio_recovery": -0.054957303347389165,
+          "r_argmax": "M3a",
+          "baseline_conc": 59.49905742651788,
+          "dep_per_r": {
+            "M3a": 0.49924854813318686,
+            "M3b": 0.49924854813318686
+          },
+          "dep_rec_per_r": {
+            "M3a": -0.054957303347389165,
+            "M3b": -0.054957303347389165
+          }
+        },
+        {
+          "component": "AcCoA",
+          "n_producers": 2,
+          "producers": [
+            "M8a",
+            "M8b"
+          ],
+          "max_dep_ratio": 0.5,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "M8a",
+          "baseline_conc": 13.320013320013324,
+          "dep_per_r": {
+            "M8a": 0.5,
+            "M8b": 0.5
+          },
+          "dep_rec_per_r": {
+            "M8a": 0.0,
+            "M8b": 0.0
+          }
+        },
+        {
+          "component": "ALA",
+          "n_producers": 6,
+          "producers": [
+            "M5a",
+            "M5b",
+            "M11a",
+            "M11b",
+            "M19a",
+            "M19b"
+          ],
+          "max_dep_ratio": 0.0,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "M5a",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "M5a": 0.0,
+            "M5b": 0.0,
+            "M11a": 0.0,
+            "M11b": 0.0,
+            "M19a": 0.0,
+            "M19b": 0.0
+          },
+          "dep_rec_per_r": {
+            "M5a": 0.0,
+            "M5b": 0.0,
+            "M11a": 0.0,
+            "M11b": 0.0,
+            "M19a": 0.0,
+            "M19b": 0.0
+          }
+        },
+        {
+          "component": "ASP",
+          "n_producers": 4,
+          "producers": [
+            "M6a",
+            "M6b",
+            "M17a",
+            "M17b"
+          ],
+          "max_dep_ratio": 0.0,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "M6a",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "M6a": 0.0,
+            "M6b": 0.0,
+            "M17a": 0.0,
+            "M17b": 0.0
+          },
+          "dep_rec_per_r": {
+            "M6a": 0.0,
+            "M6b": 0.0,
+            "M17a": 0.0,
+            "M17b": 0.0
+          }
+        },
+        {
+          "component": "MAL",
+          "n_producers": 2,
+          "producers": [
+            "M7a",
+            "M7b"
+          ],
+          "max_dep_ratio": 0.0,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "M7a",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "M7a": 0.0,
+            "M7b": 0.0
+          },
+          "dep_rec_per_r": {
+            "M7a": 0.0,
+            "M7b": 0.0
+          }
+        },
+        {
+          "component": "GLU",
+          "n_producers": 6,
+          "producers": [
+            "M12a",
+            "M12b",
+            "M18a",
+            "M18b",
+            "M20a",
+            "M20b"
+          ],
+          "max_dep_ratio": 0.0,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "M12a",
+          "baseline_conc": 64.8198951398252,
+          "dep_per_r": {
+            "M12a": 0.0,
+            "M12b": 0.0,
+            "M18a": 0.0,
+            "M18b": 0.0,
+            "M20a": 0.0,
+            "M20b": 0.0
+          },
+          "dep_rec_per_r": {
+            "M12a": 0.0,
+            "M12b": 0.0,
+            "M18a": 0.0,
+            "M18b": 0.0,
+            "M20a": 0.0,
+            "M20b": 0.0
+          }
+        },
+        {
+          "component": "Glycogen",
+          "n_producers": 2,
+          "producers": [
+            "M13a",
+            "M13b"
+          ],
+          "max_dep_ratio": 1.0,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "M13a",
+          "baseline_conc": 95.75798801598002,
+          "dep_per_r": {
+            "M13a": 1.0,
+            "M13b": 1.0
+          },
+          "dep_rec_per_r": {
+            "M13a": 0.0,
+            "M13b": 0.0
+          }
+        },
+        {
+          "component": "PolyP",
+          "n_producers": 2,
+          "producers": [
+            "M15a",
+            "M15b"
+          ],
+          "max_dep_ratio": 1.0,
+          "max_dep_ratio_recovery": 0.04449138888537356,
+          "r_argmax": "M15a",
+          "baseline_conc": 7.5239130101876075,
+          "dep_per_r": {
+            "M15a": 1.0,
+            "M15b": 1.0
+          },
+          "dep_rec_per_r": {
+            "M15a": 0.04449138888537356,
+            "M15b": 0.04449138888537356
+          }
+        },
+        {
+          "component": "HK1",
+          "n_producers": 1,
+          "producers": [
+            "E1a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E1a",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E1a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E1a": 0.0
+          }
+        },
+        {
+          "component": "HK2",
+          "n_producers": 1,
+          "producers": [
+            "E1b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E1b",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E1b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E1b": 0.0
+          }
+        },
+        {
+          "component": "PFK1",
+          "n_producers": 1,
+          "producers": [
+            "E2a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E2a",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E2a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E2a": 0.0
+          }
+        },
+        {
+          "component": "PFK2",
+          "n_producers": 1,
+          "producers": [
+            "E2b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E2b",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E2b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E2b": 0.0
+          }
+        },
+        {
+          "component": "ALDO1",
+          "n_producers": 1,
+          "producers": [
+            "E3a"
+          ],
+          "max_dep_ratio": 0.7139432636696386,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E3a",
+          "baseline_conc": 99.2518734375,
+          "dep_per_r": {
+            "E3a": 0.7139432636696386
+          },
+          "dep_rec_per_r": {
+            "E3a": 0.0
+          }
+        },
+        {
+          "component": "ALDO2",
+          "n_producers": 1,
+          "producers": [
+            "E3b"
+          ],
+          "max_dep_ratio": 0.7139432636696386,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E3b",
+          "baseline_conc": 99.2518734375,
+          "dep_per_r": {
+            "E3b": 0.7139432636696386
+          },
+          "dep_rec_per_r": {
+            "E3b": 0.0
+          }
+        },
+        {
+          "component": "PYK1",
+          "n_producers": 1,
+          "producers": [
+            "E4a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E4a",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E4a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E4a": 0.0
+          }
+        },
+        {
+          "component": "PYK2",
+          "n_producers": 1,
+          "producers": [
+            "E4b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E4b",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E4b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E4b": 0.0
+          }
+        },
+        {
+          "component": "ALT1",
+          "n_producers": 1,
+          "producers": [
+            "E5a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E5a",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E5a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E5a": 0.0
+          }
+        },
+        {
+          "component": "ALT2",
+          "n_producers": 1,
+          "producers": [
+            "E5b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E5b",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E5b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E5b": 0.0
+          }
+        },
+        {
+          "component": "ALT3",
+          "n_producers": 1,
+          "producers": [
+            "E11a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E11a",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E11a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E11a": 0.0
+          }
+        },
+        {
+          "component": "ALT4",
+          "n_producers": 1,
+          "producers": [
+            "E11b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E11b",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E11b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E11b": 0.0
+          }
+        },
+        {
+          "component": "ALT5",
+          "n_producers": 1,
+          "producers": [
+            "E12a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E12a",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E12a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E12a": 0.0
+          }
+        },
+        {
+          "component": "ALT6",
+          "n_producers": 1,
+          "producers": [
+            "E12b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E12b",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E12b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E12b": 0.0
+          }
+        },
+        {
+          "component": "ASPAT1",
+          "n_producers": 1,
+          "producers": [
+            "E6a"
+          ],
+          "max_dep_ratio": 0.7139432636696388,
+          "max_dep_ratio_recovery": 0.27118392439570466,
+          "r_argmax": "E6a",
+          "baseline_conc": 58.90925899301221,
+          "dep_per_r": {
+            "E6a": 0.7139432636696388
+          },
+          "dep_rec_per_r": {
+            "E6a": 0.27118392439570466
+          }
+        },
+        {
+          "component": "ASPAT2",
+          "n_producers": 1,
+          "producers": [
+            "E6b"
+          ],
+          "max_dep_ratio": 0.7139432636696388,
+          "max_dep_ratio_recovery": 0.27118392439570466,
+          "r_argmax": "E6b",
+          "baseline_conc": 58.90925899301221,
+          "dep_per_r": {
+            "E6b": 0.7139432636696388
+          },
+          "dep_rec_per_r": {
+            "E6b": 0.27118392439570466
+          }
+        },
+        {
+          "component": "ASPAT3",
+          "n_producers": 1,
+          "producers": [
+            "E17a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E17a",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E17a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E17a": 0.0
+          }
+        },
+        {
+          "component": "ASPAT4",
+          "n_producers": 1,
+          "producers": [
+            "E17b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E17b",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E17b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E17b": 0.0
+          }
+        },
+        {
+          "component": "ALT7",
+          "n_producers": 1,
+          "producers": [
+            "E19a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E19a",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E19a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E19a": 0.0
+          }
+        },
+        {
+          "component": "ALT8",
+          "n_producers": 1,
+          "producers": [
+            "E19b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E19b",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E19b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E19b": 0.0
+          }
+        },
+        {
+          "component": "MDH1",
+          "n_producers": 1,
+          "producers": [
+            "E7a"
+          ],
+          "max_dep_ratio": 0.7139432636696388,
+          "max_dep_ratio_recovery": 0.1915586197371233,
+          "r_argmax": "E7a",
+          "baseline_conc": 58.90925899301221,
+          "dep_per_r": {
+            "E7a": 0.7139432636696388
+          },
+          "dep_rec_per_r": {
+            "E7a": 0.1915586197371233
+          }
+        },
+        {
+          "component": "MDH2",
+          "n_producers": 1,
+          "producers": [
+            "E7b"
+          ],
+          "max_dep_ratio": 0.7139432636696388,
+          "max_dep_ratio_recovery": 0.1915586197371233,
+          "r_argmax": "E7b",
+          "baseline_conc": 58.90925899301221,
+          "dep_per_r": {
+            "E7b": 0.7139432636696388
+          },
+          "dep_rec_per_r": {
+            "E7b": 0.1915586197371233
+          }
+        },
+        {
+          "component": "PDH1",
+          "n_producers": 1,
+          "producers": [
+            "E8a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E8a",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E8a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E8a": 0.0
+          }
+        },
+        {
+          "component": "PDH2",
+          "n_producers": 1,
+          "producers": [
+            "E8b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E8b",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E8b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E8b": 0.0
+          }
+        },
+        {
+          "component": "PEPC1",
+          "n_producers": 1,
+          "producers": [
+            "E9a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E9a",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E9a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E9a": 0.0
+          }
+        },
+        {
+          "component": "PEPC2",
+          "n_producers": 1,
+          "producers": [
+            "E9b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E9b",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E9b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E9b": 0.0
+          }
+        },
+        {
+          "component": "ACK1",
+          "n_producers": 1,
+          "producers": [
+            "E10a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E10a",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E10a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E10a": 0.0
+          }
+        },
+        {
+          "component": "ACK2",
+          "n_producers": 1,
+          "producers": [
+            "E10b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E10b",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E10b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E10b": 0.0
+          }
+        },
+        {
+          "component": "GLY1",
+          "n_producers": 1,
+          "producers": [
+            "E13a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E13a",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E13a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E13a": 0.0
+          }
+        },
+        {
+          "component": "GLY2",
+          "n_producers": 1,
+          "producers": [
+            "E13b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E13b",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E13b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E13b": 0.0
+          }
+        },
+        {
+          "component": "GLYP1",
+          "n_producers": 1,
+          "producers": [
+            "E14a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E14a",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E14a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E14a": 0.0
+          }
+        },
+        {
+          "component": "GLYP2",
+          "n_producers": 1,
+          "producers": [
+            "E14b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E14b",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E14b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E14b": 0.0
+          }
+        },
+        {
+          "component": "PPK1",
+          "n_producers": 1,
+          "producers": [
+            "E15a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E15a",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E15a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E15a": 0.0
+          }
+        },
+        {
+          "component": "PPK2",
+          "n_producers": 1,
+          "producers": [
+            "E15b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E15b",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "E15b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E15b": 0.0
+          }
+        },
+        {
+          "component": "TF",
+          "n_producers": 2,
+          "producers": [
+            "G_const",
+            "G_auto"
+          ],
+          "max_dep_ratio": 0.6558757002215183,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "G_auto",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "G_const": 0.0,
+            "G_auto": 0.6558757002215183
+          },
+          "dep_rec_per_r": {
+            "G_const": 0.0,
+            "G_auto": 0.0
+          }
+        }
+      ],
+      "stratified_at_0.5": {
+        "metabolic": {
+          "n_total": 10,
+          "n_robust": 5,
+          "n_fragile": 5,
+          "frac_robust": 0.5,
+          "mean_max_dep": 0.4499248548133187,
+          "median_max_dep": 0.49962427406659343
+        },
+        "enzyme": {
+          "n_total": 34,
+          "n_robust": 0,
+          "n_fragile": 34,
+          "frac_robust": 0.0,
+          "mean_max_dep": 0.7139432636696386,
+          "median_max_dep": 0.7139432636696387
+        },
+        "regulatory": {
+          "n_total": 1,
+          "n_robust": 0,
+          "n_fragile": 1,
+          "frac_robust": 0.0,
+          "mean_max_dep": 0.6558757002215183,
+          "median_max_dep": 0.6558757002215183
+        }
+      }
+    },
+    "J": {
+      "n_species": 61,
+      "n_reactions": 82,
+      "n_food": 11,
+      "n_non_food": 50,
+      "comp_types": {
+        "metabolic": [
+          "ALA",
+          "ASP",
+          "AcCoA",
+          "DHAP",
+          "FBP",
+          "G3P",
+          "G6P",
+          "GLU",
+          "Glycogen",
+          "MAL",
+          "PEP",
+          "PYR",
+          "PolyP"
+        ],
+        "enzyme": [
+          "ACK1",
+          "ACK2",
+          "ALDO1",
+          "ALDO2",
+          "ALDO3",
+          "ALDO4",
+          "ALT1",
+          "ALT2",
+          "ALT3",
+          "ALT4",
+          "ALT5",
+          "ALT6",
+          "ALT7",
+          "ALT8",
+          "ASPAT1",
+          "ASPAT2",
+          "ASPAT3",
+          "ASPAT4",
+          "GLY1",
+          "GLY2",
+          "GLYP1",
+          "GLYP2",
+          "HK1",
+          "HK2",
+          "MDH1",
+          "MDH2",
+          "PDH1",
+          "PDH2",
+          "PEPC1",
+          "PEPC2",
+          "PFK1",
+          "PFK2",
+          "PPK1",
+          "PPK2",
+          "PYK1",
+          "PYK2"
+        ],
+        "regulatory": [
+          "TF"
+        ]
+      },
+      "baseline_final_lite": {
+        "G6P": 0.0,
+        "FBP": 11.596152304130268,
+        "PEP": 81.22882073653885,
+        "PYR": 100.0,
+        "AcCoA": 0.0,
+        "ALA": 100.0,
+        "ASP": 0.0,
+        "MAL": 99.75,
+        "GLU": 100.0,
+        "Glycogen": 100.0,
+        "PolyP": 15.517671995921331,
+        "DHAP": 14.46683230625515,
+        "G3P": 14.46683230625515,
+        "TF": 100.0
+      },
+      "comp_rows": [
+        {
+          "component": "FBP",
+          "n_producers": 4,
+          "producers": [
+            "M2a",
+            "M2b",
+            "M22a",
+            "M22b"
+          ],
+          "max_dep_ratio": 1.0,
+          "max_dep_ratio_recovery": -0.02248582979050595,
+          "r_argmax": "M2a",
+          "baseline_conc": 11.596152304130268,
+          "dep_per_r": {
+            "M2a": 1.0,
+            "M2b": 1.0,
+            "M22a": 0.9758019929628378,
+            "M22b": 0.9758019929628378
+          },
+          "dep_rec_per_r": {
+            "M2a": -0.02248582979050595,
+            "M2b": -0.02248582979050595,
+            "M22a": -0.4554811983325223,
+            "M22b": -0.4554811983325223
+          }
+        },
+        {
+          "component": "PEP",
+          "n_producers": 2,
+          "producers": [
+            "M3a",
+            "M3b"
+          ],
+          "max_dep_ratio": 1.0,
+          "max_dep_ratio_recovery": -0.007164655187965727,
+          "r_argmax": "M3a",
+          "baseline_conc": 81.22882073653885,
+          "dep_per_r": {
+            "M3a": 1.0,
+            "M3b": 1.0
+          },
+          "dep_rec_per_r": {
+            "M3a": -0.007164655187965727,
+            "M3b": -0.007164655187965727
+          }
+        },
+        {
+          "component": "PYR",
+          "n_producers": 6,
+          "producers": [
+            "M4a",
+            "M4b",
+            "M12a",
+            "M12b",
+            "M20a",
+            "M20b"
+          ],
+          "max_dep_ratio": 0.0,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "M4a",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "M4a": 0.0,
+            "M4b": 0.0,
+            "M12a": 0.0,
+            "M12b": 0.0,
+            "M20a": 0.0,
+            "M20b": 0.0
+          },
+          "dep_rec_per_r": {
+            "M4a": 0.0,
+            "M4b": 0.0,
+            "M12a": 0.0,
+            "M12b": 0.0,
+            "M20a": 0.0,
+            "M20b": 0.0
+          }
+        },
+        {
+          "component": "ALA",
+          "n_producers": 6,
+          "producers": [
+            "M5a",
+            "M5b",
+            "M11a",
+            "M11b",
+            "M19a",
+            "M19b"
+          ],
+          "max_dep_ratio": 1.0,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "M5a",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "M5a": 1.0,
+            "M5b": 1.0,
+            "M11a": 1.0,
+            "M11b": 1.0,
+            "M19a": 0.0,
+            "M19b": 0.0
+          },
+          "dep_rec_per_r": {
+            "M5a": 0.0,
+            "M5b": 0.0,
+            "M11a": 0.0,
+            "M11b": 0.0,
+            "M19a": 0.0,
+            "M19b": 0.0
+          }
+        },
+        {
+          "component": "MAL",
+          "n_producers": 2,
+          "producers": [
+            "M7a",
+            "M7b"
+          ],
+          "max_dep_ratio": 0.0,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "M7a",
+          "baseline_conc": 99.75,
+          "dep_per_r": {
+            "M7a": 0.0,
+            "M7b": 0.0
+          },
+          "dep_rec_per_r": {
+            "M7a": 0.0,
+            "M7b": 0.0
+          }
+        },
+        {
+          "component": "GLU",
+          "n_producers": 6,
+          "producers": [
+            "M12a",
+            "M12b",
+            "M18a",
+            "M18b",
+            "M20a",
+            "M20b"
+          ],
+          "max_dep_ratio": 0.0,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "M12a",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "M12a": 0.0,
+            "M12b": 0.0,
+            "M18a": 0.0,
+            "M18b": 0.0,
+            "M20a": 0.0,
+            "M20b": 0.0
+          },
+          "dep_rec_per_r": {
+            "M12a": 0.0,
+            "M12b": 0.0,
+            "M18a": 0.0,
+            "M18b": 0.0,
+            "M20a": 0.0,
+            "M20b": 0.0
+          }
+        },
+        {
+          "component": "Glycogen",
+          "n_producers": 2,
+          "producers": [
+            "M13a",
+            "M13b"
+          ],
+          "max_dep_ratio": 0.0,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "M13a",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "M13a": 0.0,
+            "M13b": 0.0
+          },
+          "dep_rec_per_r": {
+            "M13a": 0.0,
+            "M13b": 0.0
+          }
+        },
+        {
+          "component": "PolyP",
+          "n_producers": 2,
+          "producers": [
+            "M15a",
+            "M15b"
+          ],
+          "max_dep_ratio": 0.6790505423303664,
+          "max_dep_ratio_recovery": 0.0654860641558109,
+          "r_argmax": "M15a",
+          "baseline_conc": 15.517671995921331,
+          "dep_per_r": {
+            "M15a": 0.6790505423303664,
+            "M15b": 0.6790505423303664
+          },
+          "dep_rec_per_r": {
+            "M15a": 0.0654860641558109,
+            "M15b": 0.0654860641558109
+          }
+        },
+        {
+          "component": "DHAP",
+          "n_producers": 2,
+          "producers": [
+            "M21a",
+            "M21b"
+          ],
+          "max_dep_ratio": 0.31273911057909043,
+          "max_dep_ratio_recovery": -0.004350523205331055,
+          "r_argmax": "M21a",
+          "baseline_conc": 14.46683230625515,
+          "dep_per_r": {
+            "M21a": 0.31273911057909043,
+            "M21b": 0.31273911057909043
+          },
+          "dep_rec_per_r": {
+            "M21a": -0.004350523205331055,
+            "M21b": -0.004350523205331055
+          }
+        },
+        {
+          "component": "G3P",
+          "n_producers": 2,
+          "producers": [
+            "M21a",
+            "M21b"
+          ],
+          "max_dep_ratio": 0.31273911057909043,
+          "max_dep_ratio_recovery": -0.004350523205331055,
+          "r_argmax": "M21a",
+          "baseline_conc": 14.46683230625515,
+          "dep_per_r": {
+            "M21a": 0.31273911057909043,
+            "M21b": 0.31273911057909043
+          },
+          "dep_rec_per_r": {
+            "M21a": -0.004350523205331055,
+            "M21b": -0.004350523205331055
+          }
+        },
+        {
+          "component": "HK1",
+          "n_producers": 1,
+          "producers": [
+            "E1a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E1a",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "E1a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E1a": 0.0
+          }
+        },
+        {
+          "component": "HK2",
+          "n_producers": 1,
+          "producers": [
+            "E1b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E1b",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "E1b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E1b": 0.0
+          }
+        },
+        {
+          "component": "PFK1",
+          "n_producers": 1,
+          "producers": [
+            "E2a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E2a",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "E2a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E2a": 0.0
+          }
+        },
+        {
+          "component": "PFK2",
+          "n_producers": 1,
+          "producers": [
+            "E2b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E2b",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "E2b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E2b": 0.0
+          }
+        },
+        {
+          "component": "ALDO1",
+          "n_producers": 1,
+          "producers": [
+            "E3a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E3a",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "E3a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E3a": 0.0
+          }
+        },
+        {
+          "component": "ALDO2",
+          "n_producers": 1,
+          "producers": [
+            "E3b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E3b",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "E3b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E3b": 0.0
+          }
+        },
+        {
+          "component": "ALDO3",
+          "n_producers": 1,
+          "producers": [
+            "E21a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E21a",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "E21a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E21a": 0.0
+          }
+        },
+        {
+          "component": "ALDO4",
+          "n_producers": 1,
+          "producers": [
+            "E21b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E21b",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "E21b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E21b": 0.0
+          }
+        },
+        {
+          "component": "PYK1",
+          "n_producers": 1,
+          "producers": [
+            "E4a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E4a",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "E4a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E4a": 0.0
+          }
+        },
+        {
+          "component": "PYK2",
+          "n_producers": 1,
+          "producers": [
+            "E4b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E4b",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "E4b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E4b": 0.0
+          }
+        },
+        {
+          "component": "ALT1",
+          "n_producers": 1,
+          "producers": [
+            "E5a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E5a",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "E5a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E5a": 0.0
+          }
+        },
+        {
+          "component": "ALT2",
+          "n_producers": 1,
+          "producers": [
+            "E5b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E5b",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "E5b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E5b": 0.0
+          }
+        },
+        {
+          "component": "ALT3",
+          "n_producers": 1,
+          "producers": [
+            "E11a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E11a",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "E11a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E11a": 0.0
+          }
+        },
+        {
+          "component": "ALT4",
+          "n_producers": 1,
+          "producers": [
+            "E11b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E11b",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "E11b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E11b": 0.0
+          }
+        },
+        {
+          "component": "ALT5",
+          "n_producers": 1,
+          "producers": [
+            "E12a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E12a",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "E12a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E12a": 0.0
+          }
+        },
+        {
+          "component": "ALT6",
+          "n_producers": 1,
+          "producers": [
+            "E12b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E12b",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "E12b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E12b": 0.0
+          }
+        },
+        {
+          "component": "ASPAT1",
+          "n_producers": 1,
+          "producers": [
+            "E6a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E6a",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "E6a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E6a": 0.0
+          }
+        },
+        {
+          "component": "ASPAT2",
+          "n_producers": 1,
+          "producers": [
+            "E6b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E6b",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "E6b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E6b": 0.0
+          }
+        },
+        {
+          "component": "ASPAT3",
+          "n_producers": 1,
+          "producers": [
+            "E17a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E17a",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "E17a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E17a": 0.0
+          }
+        },
+        {
+          "component": "ASPAT4",
+          "n_producers": 1,
+          "producers": [
+            "E17b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E17b",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "E17b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E17b": 0.0
+          }
+        },
+        {
+          "component": "ALT7",
+          "n_producers": 1,
+          "producers": [
+            "E19a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E19a",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "E19a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E19a": 0.0
+          }
+        },
+        {
+          "component": "ALT8",
+          "n_producers": 1,
+          "producers": [
+            "E19b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E19b",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "E19b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E19b": 0.0
+          }
+        },
+        {
+          "component": "MDH1",
+          "n_producers": 1,
+          "producers": [
+            "E7a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E7a",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "E7a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E7a": 0.0
+          }
+        },
+        {
+          "component": "MDH2",
+          "n_producers": 1,
+          "producers": [
+            "E7b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E7b",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "E7b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E7b": 0.0
+          }
+        },
+        {
+          "component": "PDH1",
+          "n_producers": 1,
+          "producers": [
+            "E8a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E8a",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "E8a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E8a": 0.0
+          }
+        },
+        {
+          "component": "PDH2",
+          "n_producers": 1,
+          "producers": [
+            "E8b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E8b",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "E8b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E8b": 0.0
+          }
+        },
+        {
+          "component": "PEPC1",
+          "n_producers": 1,
+          "producers": [
+            "E9a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E9a",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "E9a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E9a": 0.0
+          }
+        },
+        {
+          "component": "PEPC2",
+          "n_producers": 1,
+          "producers": [
+            "E9b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E9b",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "E9b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E9b": 0.0
+          }
+        },
+        {
+          "component": "ACK1",
+          "n_producers": 1,
+          "producers": [
+            "E10a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E10a",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "E10a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E10a": 0.0
+          }
+        },
+        {
+          "component": "ACK2",
+          "n_producers": 1,
+          "producers": [
+            "E10b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E10b",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "E10b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E10b": 0.0
+          }
+        },
+        {
+          "component": "GLY1",
+          "n_producers": 1,
+          "producers": [
+            "E13a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E13a",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "E13a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E13a": 0.0
+          }
+        },
+        {
+          "component": "GLY2",
+          "n_producers": 1,
+          "producers": [
+            "E13b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E13b",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "E13b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E13b": 0.0
+          }
+        },
+        {
+          "component": "GLYP1",
+          "n_producers": 1,
+          "producers": [
+            "E14a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E14a",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "E14a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E14a": 0.0
+          }
+        },
+        {
+          "component": "GLYP2",
+          "n_producers": 1,
+          "producers": [
+            "E14b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E14b",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "E14b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E14b": 0.0
+          }
+        },
+        {
+          "component": "PPK1",
+          "n_producers": 1,
+          "producers": [
+            "E15a"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E15a",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "E15a": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E15a": 0.0
+          }
+        },
+        {
+          "component": "PPK2",
+          "n_producers": 1,
+          "producers": [
+            "E15b"
+          ],
+          "max_dep_ratio": 0.7139432636696387,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "E15b",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "E15b": 0.7139432636696387
+          },
+          "dep_rec_per_r": {
+            "E15b": 0.0
+          }
+        },
+        {
+          "component": "TF",
+          "n_producers": 2,
+          "producers": [
+            "G_const",
+            "G_auto"
+          ],
+          "max_dep_ratio": 0.6370576087235045,
+          "max_dep_ratio_recovery": 0.0,
+          "r_argmax": "G_auto",
+          "baseline_conc": 100.0,
+          "dep_per_r": {
+            "G_const": 0.0,
+            "G_auto": 0.6370576087235045
+          },
+          "dep_rec_per_r": {
+            "G_const": 0.0,
+            "G_auto": 0.0
+          }
+        }
+      ],
+      "stratified_at_0.5": {
+        "metabolic": {
+          "n_total": 10,
+          "n_robust": 6,
+          "n_fragile": 4,
+          "frac_robust": 0.6,
+          "mean_max_dep": 0.43045287634885476,
+          "median_max_dep": 0.31273911057909043
+        },
+        "enzyme": {
+          "n_total": 36,
+          "n_robust": 0,
+          "n_fragile": 36,
+          "frac_robust": 0.0,
+          "mean_max_dep": 0.7139432636696386,
+          "median_max_dep": 0.7139432636696387
+        },
+        "regulatory": {
+          "n_total": 1,
+          "n_robust": 0,
+          "n_fragile": 1,
+          "frac_robust": 0.0,
+          "mean_max_dep": 0.6370576087235045,
+          "median_max_dep": 0.6370576087235045
+        }
+      }
+    }
+  }
+}
