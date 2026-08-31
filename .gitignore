@@ -1,3 +1,12 @@
 skills/
 node_modules/
 tool-results/
+.ipynb_checkpoints/
+
+# Raw external-data archives & large expression matrices.
+# Provenance + sha256 checksums in data/m3d/README.md; re-download per instructions there.
+data/m3d/E_coli_v4_Build_6.tar.gz
+data/m3d/E_coli_v4_Build_6/*.tab
+data/precise.tar.gz
+data/precise/data/log_tpm*.csv
+data/precise/modulons.pdf
