@@ -1,1 +1,68 @@
+## The repaired object: one functional, three slot-fillings
 
+The audit's deepest finding — three disjoint objects named κ_V — is repairable, but only if the repair is done at the level of a **parameterized family**, not by pretending the three uses were secretly equal. The correct move is a weak-formal unification: define one functional with three slots, show the three κ_V's are three slot instantiations, and prove *relation theorems* between the instantiations (inequalities and limits), not identities.
+
+### Definition (central object)
+
+Let $B$ be a stratified base space (the SAVGS base), $\mathfrak{d}$ a divergence generator on it (a strictly convex potential $\varphi$ giving a Bregman generator, or equivalently its Hessian metric on strata), and define a **comparison** $c = (x \to y)$ between two states, together with a domain $\Lambda$ of 2-planes at $x$ (or, degenerately, coordinate directions / trajectory tangents). Set:
+
+$$
+\kappa[\mathfrak{d},\, c,\, \Lambda] \;:=\; \sup_{\Pi \in \Lambda}\; \operatorname{tr}\!\big(\nabla^2 \varphi\big|_{\Pi}\big)^{+} \;\cdot\; \frac{D_\varphi(x,y)}{\tfrac12\,\mathrm{dist}^2(x,y)}
+$$
+
+—or, in the infinitesimal case $y = x$, simply the first factor. The repaired object is the **optimum-displacement curvature family** $\kappa[-,-,-]$. The second factor is the comparison-level (value) term; the first is the curvature-level term. The old Remark 20.2 unit error consisted precisely of conflating these two factors; the repair makes the distinction structural.
+
+### The instantiation table
+
+| Old name | Slots | New controlled name |
+|---|---|---|
+| Prop 4.4 (geometric) | $\mathfrak{d} = r_{\tau,\beta}$ surrogate; $c$ infinitesimal; $\Lambda$ = all unit bivectors | $\kappa^{\Lambda^2}$ |
+| Def 3.21 (FBA statistic) | $\mathfrak{d}$ = surrogate restricted to flux polytope; $c$ = wildtype→knockout optimum; $\Lambda$ = singleton coordinate plane, **restricted to the essentiality-masked subspace** | $\kappa^{ko}_r$ |
+| E10/E22 (time-course) | $\mathfrak{d}$ quadratic; $c$ = $v(T_1) \to v(t)$; $\Lambda$ = trajectory tangent | $\kappa^{t}$ |
+
+Two things fall out immediately:
+
+**The essentiality indicator is not part of the object's value — it is a restriction of the domain $\Lambda$.** This dissolves the type error in Def 3.21: the indicator-masked statistic is $\kappa$ with $\Lambda$ intersected with the span of masked coordinates, a legal slot operation, not a new object.
+
+**The "no bare κ" rule:** the symbol κ appears in the paper only either (a) denoting the family, or (b) with an instantiation decoration. A short notation-generation table in §2 enforces this mechanically.
+
+## The embedding, as requested
+
+The user's option-1 requirement — "model → SAVGS base, flux → tangent, biomass deficit → distance" — gets a concrete answer:
+
+- **Model → base.** A metabolic model $(S, \mathrm{lb}, \mathrm{ub}, z)$ maps to the fibered flux polytope: base $B = \Theta$ = knockout/parameter simplex (which also repairs the Thm 3.14 tuple drift: $B := \Theta := \Delta^{n-1}$, named once), fiber $E_\theta = \{v : Sv = 0, \ \mathrm{lb}\le v\le \mathrm{ub}, \ v_{ko}=0\}$. Strata = active-bound sets; knockouts = face restrictions.
+- **Reaction flux → tangent data.** The connection $\Gamma$ is rerouting itself: $\Gamma(\partial_{\theta_r}) = \partial v^*/\partial \theta_r$, the sensitivity of the optimum to the knockout. The discrete statistic $\Delta v$ is a finite-difference sample of a connection coefficient. The essentiality mask selects a subbundle. So $\kappa^{ko}_r$ is a **norm of a sampled connection coefficient on a masked subbundle** — and $\kappa^{\Lambda^2}$ is the **curvature form** of the associated Hessian metric. The glue between threads G and B stops being a naming convention and becomes the discrete-connection ↔ curvature relationship.
+- **Biomass deficit → distance.** Deficit is the value-level difference of the surrogate: $r_{\tau,\beta}(\theta_{ko}) - r_{\tau,\beta}(\theta_{wt})$. The surrogate $r_{\tau,\beta}$ is the Bregman generator $\varphi$ of $\mathfrak{d}$. This gives thread A its first *necessary* job: since the barrier surrogate is strictly convex for $\tau > 0$, the optimum $v^*(\theta)$ is unique and differentiable — which discharges the well-definedness of the comparison pair that FBA notoriously lacks. Thread A is no longer an approximation to someone else's ideal object; it supplies the hypothesis that makes the unification well-defined.
+
+## The four relation theorems, honestly labeled
+
+| # | Statement | Status |
+|---|---|---|
+| R1 | **Monotonicity:** $\Lambda_1 \subseteq \Lambda_2 \Rightarrow \kappa[\cdot,\cdot,\Lambda_1] \le \kappa[\cdot,\cdot,\Lambda_2]$. Hence $\kappa^{ko}_r, \kappa^{t} \le \kappa^{\Lambda^2}$ once the embedding is fixed. | Trivial *after definition* — but this is the first true sentence connecting the empirical flagship to the abstract's object. |
+| R2 | **Infinitesimal limit:** for $y \to x$, $\kappa^t / \|t - T_1\|^2 \to$ the curvature form along the trajectory tangent (standard Taylor of Bregman divergence, $D_\varphi(x,y) = \tfrac12\langle y-x, \nabla^2\varphi(\xi)(y-x)\rangle$). | Classical; proof is a citation. |
+| R3 | **One-direction sample:** under the embedding, knockout $r$ maps to the coordinate plane $\Pi_r$; $\kappa^{ko}_r = \kappa[\mathfrak{d}, \theta_{wt}\to\theta_{ko}, \{\Pi_r\}] \le \kappa^{\Lambda^2}$. All content in the embedding definition; the inequality is then free. | Provable once ℐ is stated; requires R2-level care only. |
+| R4 | **Discrete→continuum (conditional):** if (H1) the surrogate is primitive — $\tau$ is a *parameter of the object*, never driven to 0 (which kills Lemma 4.10's vacuity by design); (H2) uniqueness of surrogate optima (discharged by strict convexity); (H3) Hausdorff control of polytope refinement — then $\kappa^{ko} \to \kappa[\cdot,\cdot,\{\Pi_r\}]$ with explicit error $C_1\tau + C_2 \cdot \mathrm{mesh}$. | Conditional theorem. H1, H2 discharged; H3 stated as hypothesis, provable for polytopes via standard sensitivity of barrier optima. |
+
+The old broken envelope chain is thereby *replaced by its honest content*: sensitivity bounds for smoothed optima via the implicit mapping theorem applied to barrier stationarity, with Lipschitz constants from Hessian bounds. E must be redefined at the second-variation level so that units match — the bound becomes " deficit $\le \nabla r \cdot \Delta + \tfrac12 E \|\Delta\|^2$," a second-order Taylor inequality, which is what Remark 20.2 was groping for.
+
+## What this forces on the five threads
+
+| Thread | Consequence of the repair |
+|---|---|
+| **G** | All instances live on one tuple $(B, E, P, \varepsilon, \Gamma)$ with $B := \Delta^{n-1}$. $\kappa^{\Lambda^2}$ is the curvature of the surrogate Hessian metric on strata. Thms 3.4–3.5, 3.14 get their object and survive. |
+| **A** | $r_{\tau,\beta}$ is the generator $\varphi$ of $\mathfrak{d}$, full stop. Lemma 4.10 dies (no $\tau \to 0$ claims). Thm 4.11(e): replace "sup over a c.e. family indexed by a continuum" with attainment at strata vertices (finite) or an explicit grid-$+\varepsilon$ statement. |
+| **C** | The realization functor $R$ faces a forced fork: either define it — a Realization is only a functor on the category of **residual-assigned optics** (optic + chosen residual section) into $\mathrm{Endo}(M)$, and this must be proven — or delete Remarks 7.7–7.8 and demote all $R$-dependent propositions (15.x) to a conjecture section. Also: pick Riley's coend presentation as the sole formalism; the triple $(M, C, R)$ of Def 2.5 is rebranded as *pre-optic data*, with the equivalence to the coend presentation stated as a lemma (that *is* Riley's Prop 2.3's content, cited correctly for once). |
+| **D** | Thm 8.2 is restructured as Hypothesis (Lipschitz profile of the seven *realized* optics) ⇒ Conclusion (contraction), with the numeric table as verification of the hypothesis. If $R$ is not defined, this thread currently has no object — which is why the fork in C is forced. $\kappa^t$ finds its home here: it is squared displacement along contraction orbits. §12's Lévy exponent either attaches to fluctuations of $\kappa^t$ or is deleted. |
+| **B** | RAF closure now has a real role: it determines the *domain* of $\kappa^{ko}$ (feasible knockout set), and the essentiality predicate can be closure-dependent. E13 Thm A: replace the false "deflationary" with the true "inflationary; polynomial closure by Knaster–Tarski on a finite lattice of polynomial height." E13 Thm B: parametricity is the wrong tool; the correct uniqueness statement is **uniqueness up to natural isomorphism of a left adjoint** — restate it as such. |
+
+## The dead statements, decided
+
+- **Cor 4.14:** delete. The proof asserts the conclusion by substitution; no restatement survives.
+- **Cor 17.3:** false under univalence (the type of contractible ∞-groupoids is itself contractible — that is a theorem, and it carries no classification content). If classification is load-bearing, restate as the loop–deloop equivalence for *pointed connected* ∞-groupoids; otherwise delete.
+- **Remark 20.2:** replaced by the second-order inequality above; unit error repaired by construction.
+
+## The success criterion
+
+The abstract's main proposition must be restated to quantify over the family: "the optimum-displacement curvature κ[·,·,·], instantiated as $\kappa^{\Lambda^2}$ (theory) and sampled one-directionally as $\kappa^{ko}$ (experiment), satisfies R1–R4." The moment the theoretical object touches the empirical object through R1 and R3, the single deepest coherence defect closes.
+
+One warning: **strong-form unification — "the FBA statistic *is* a discretization of the geometric object" as an unconditional theorem — is probably not provable within this manuscript's scope and should not be claimed.** R4 is conditional, and H3 is the kind of hypothesis that takes a paper of its own to discharge in generality. The repair presented here is the weak unification that actually holds: one family, three instantiations, four relation theorems with labeled epistemic status, and a renaming protocol that makes silent conflation structurally impossible. If R3's embedding fails on inspection, fall back to the renaming-only option per thread B — but the weak unification above should be attempted first, because it is the only version under which threads A, B, and G each become *necessary* rather than decorative.
