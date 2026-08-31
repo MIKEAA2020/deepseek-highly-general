@@ -7979,7 +7979,16 @@ i.e., $\Delta = +0.211$ above unmasked and $\Delta = +0.045$ above v12).
 \textbf{consolidated} by v13; the Keio b-number fallback raises the
 sign-flipped correlation by an additional $+0.045$ beyond the gene-level
 mask alone and establishes $+0.1472$ as the saturation point of the
-b-number-refinement arc on the E10 time-series dataset.
+b-number-refinement arc on the E10 time-series dataset. \textbf{Honest
+limitation:} at $n=92$ genes neither the v12 nor the v13 per-gene Pearson
+$r$ is individually significant at $\alpha=0.05$ under the Fisher-z
+transform (95\% CI for v12: $[-0.10, +0.30]$; for v13: $[-0.06, +0.34]$;
+both intervals include zero, two-tailed $p \approx 0.33$ and $0.16$
+respectively); the consolidation verdict therefore rests on the monotone
+trend across three $\kappa_V$ variants (unmasked $-0.0633 \,\to\,$
+gene-mask $+0.1024 \,\to\,$ b-number fallback $+0.1472$) rather than on
+a single-variant significance test, and a permutation null would not be
+expected to reach $\alpha=0.05$ at this sample size.
 
 \section{Main Proposition}\label{sec:mainprop}
 % =============================================================
