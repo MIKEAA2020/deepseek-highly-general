@@ -1,0 +1,351 @@
+## Repaired central object: a realized perturbation divergence
+
+The manuscript should not define a more abstract \(\kappa_V\) broad enough to hide all three existing quantities. That would reproduce the same defect at a higher level.
+
+Instead, define one typed object—the **realized perturbation divergence**—and derive geometric curvature, FBA rerouting, and temporal change from it by explicitly named evaluation operators.
+
+### Definition
+
+A **realization datum** is a tuple
+\[
+\mathfrak R=
+(B,E,\pi,s,Y,a,\phi,W,m,N),
+\]
+where:
+
+- \(B\) is a stratified space of perturbation conditions;
+- \(\pi:E\to B\) is the state bundle;
+- \(s:B\to E\) is a selected response section;
+- \(Y\) is an observable vector space;
+- \(a:E\to Y\) is the observation map;
+- \(\phi:Y\to\mathbb R\) is a convex \(C^2\) potential;
+- \(W\) is an optional positive semidefinite reaction weight;
+- \(m:B\times B\to[0,1]\) is a mask;
+- \(N:B\times B\to(0,\infty)\) is a normalization.
+
+Write
+\[
+y(x)=a(s(x)).
+\]
+The central object is
+\[
+\boxed{
+\Delta_{\mathfrak R}(x\mid x_0)
+=
+\frac{m(x,x_0)}{N(x,x_0)}
+D_{\phi,W}\bigl(y(x),y(x_0)\bigr),
+}
+\]
+where
+\[
+D_{\phi,W}(y,y_0)
+=
+\phi_W(y)-\phi_W(y_0)
+-\langle \nabla\phi_W(y_0),y-y_0\rangle .
+\]
+
+For the quadratic potential
+\[
+\phi_W(y)=\frac12 y^\top Wy,
+\]
+this becomes
+\[
+\Delta_{\mathfrak R}(x\mid x_0)
+=
+\frac{m(x,x_0)}{2N(x,x_0)}
+\|y(x)-y(x_0)\|_W^2.
+\]
+
+This is the common object. It measures response divergence from a reference state. It is not automatically a curvature.
+
+---
+
+## The three current quantities
+
+### 1. FBA flux rerouting is a discrete response divergence
+
+Let \(p\in B_{\mathrm{FBA}}\) encode environmental, bound, knockout, or objective perturbations. Define
+\[
+F(p)=
+\{v\in\mathbb R^R:
+Sv=0,\ \ell(p)\le v\le u(p)\}.
+\]
+
+To obtain a single-valued response section, replace arbitrary LP-optimum selection by a regularized optimum, for example
+\[
+v_\beta(p)
+=
+\arg\max_{v\in F(p)}
+\left(c^\top v-\frac{\beta}{2}\|v\|^2\right),
+\qquad \beta>0.
+\]
+Then set
+\[
+s_{\mathrm{FBA}}(p)=(p,v_\beta(p)),
+\qquad
+a_{\mathrm{FBA}}(p,v)=v.
+\]
+
+With
+\[
+W=\operatorname{diag}(w_r),\qquad
+m(p,0)=I_{\mathrm{ess}}(p),
+\]
+the FBA statistic is
+\[
+\boxed{
+\Delta^{\mathrm{FBA}}(p\mid 0)
+=
+\frac{I_{\mathrm{ess}}(p)}
+{2N_{\mathrm{FBA}}(p,0)}
+\sum_r w_r
+\bigl(v_{\beta,r}(p)-v_{\beta,r}(0)\bigr)^2.
+}
+\]
+
+The manuscript should use its actual existing normalizer in place of \(N_{\mathrm{FBA}}\). The important point is that the essentiality indicator is part of the realization datum, not part of the definition of geometric curvature.
+
+This quantity should no longer be called \(\kappa_V\). A suitable notation is
+\[
+\Delta_V^{\mathrm{FBA}}
+\quad\text{or}\quad
+R_V^{\mathrm{FBA}}.
+\]
+
+---
+
+### 2. Time-course squared flux change is a temporal response divergence
+
+Let
+\[
+\gamma:I\to B,\qquad t\mapsto\gamma(t)
+\]
+be the experimental or inferred time-course. With \(T_1\) as reference,
+\[
+\boxed{
+\Delta_r^{\mathrm{time}}(t\mid T_1)
+=
+\frac{w_r}{2N_t}
+\bigl(v_r(t)-v_r(T_1)\bigr)^2.
+}
+\]
+
+The aggregate version is
+\[
+\Delta^{\mathrm{time}}(t\mid T_1)
+=
+\frac{1}{2N_t}
+\sum_r w_r
+\bigl(v_r(t)-v_r(T_1)\bigr)^2.
+\]
+
+Thus E10/E22 and E24–E27 concern a pullback of \(\Delta_{\mathfrak R}\) along the trajectory \(\gamma\). They do not directly measure sectional curvature.
+
+---
+
+### 3. Geometric \(\kappa\) is a derived local operator
+
+Reserve \(\kappa\) for the geometric quantity. If the existing construction takes a positive part, contracts over normalized bivectors, and uses a Bregman divergence of the smooth surrogate, define it as
+\[
+\boxed{
+\kappa^{\mathrm{geo}}_{\mathfrak R}(x)
+=
+\sup_{\substack{\xi\wedge\eta\in\Lambda^2T_xB\\
+\|\xi\wedge\eta\|=1}}
+\left[
+\operatorname{Curv}_x
+\Delta_{\mathfrak R}(\xi,\eta)
+\right]_+ .
+}
+\]
+
+Here \(\operatorname{Curv}_x\) must be defined explicitly as either:
+
+1. a contraction of the curvature tensor of the GC-connection;
+2. an infinitesimal holonomy operator; or
+3. a specified second-variation operator for the surrogate divergence.
+
+These are not interchangeable. The manuscript must choose one and state the corresponding type and normalization.
+
+The notation should therefore be:
+
+\[
+\kappa^{\mathrm{geo}}
+\quad\text{for curvature,}
+\]
+\[
+\Delta^{\mathrm{FBA}}
+\quad\text{for knockout rerouting,}
+\]
+and
+\[
+\Delta^{\mathrm{time}}
+\quad\text{for temporal deviation.}
+\]
+
+They share the same realized divergence, but only the first is a curvature contraction.
+
+---
+
+## Precise FBA-to-SAVGS mapping
+
+The formal embedding should be stated as follows.
+
+| FBA object | Geometric object |
+|---|---|
+| Perturbation parameters \(p\) | Point of the base \(B_{\mathrm{FBA}}\) |
+| Active LP basis or active constraint set | Stratum of \(B_{\mathrm{FBA}}\) |
+| Feasible flux vectors \(F(p)\) | Fiber \(E_p\) |
+| Regularized optimum \(v_\beta(p)\) | Response section \(s(p)\) |
+| Flux vector \(v_\beta(p)\) | Observable \(a(s(p))\in Y=\mathbb R^R\) |
+| Infinitesimal flux response | \(dv_{\beta,p}(\xi)\in\mathbb R^R\) |
+| Finite flux rerouting | Secant \(v_\beta(q)-v_\beta(p)\) |
+| Biomass \(\mu(p)=c^\top v_\beta(p)\) | Scalar observable on \(B\) |
+| GC parallel transport | Must be constructed from FBA sensitivity data; it is not supplied by FBA automatically |
+
+On an active-set stratum, \(v_\beta\) is smooth under the usual regularity assumptions. A tangent perturbation \(\xi\in T_pB\) maps to reaction-flux tangent data by
+\[
+\xi\longmapsto dv_{\beta,p}(\xi).
+\]
+
+The quadratic divergence induces the pullback semimetric
+\[
+g_p^{\mathrm{FBA}}(\xi,\zeta)
+=
+\left\langle
+dv_{\beta,p}(\xi),
+W\,dv_{\beta,p}(\zeta)
+\right\rangle.
+\]
+
+If degeneracy must be excluded, use
+\[
+g_p(\xi,\zeta)
+=
+\langle dv_{\beta,p}(\xi),Wdv_{\beta,p}(\zeta)\rangle
++\lambda\langle\xi,\zeta\rangle_{G},
+\qquad \lambda>0.
+\]
+
+### Biomass deficit is not itself a metric
+
+Define the normalized biomass deficit relative to wild type by
+\[
+\delta_\mu(p\mid 0)
+=
+\frac{[\mu(0)-\mu(p)]_+}{|\mu(0)|+\varepsilon}.
+\]
+
+This is a directed deficit or distance-to-reference observable. It is not a metric on \(B\): it is generally asymmetric and cannot distinguish perturbations with equal biomass.
+
+If a genuine base-space distance is required, define, for example,
+\[
+d_B(p,q)^2
+=
+\|p-q\|_G^2
++
+\lambda_\mu
+\left(
+\frac{\mu(p)-\mu(q)}{\mu_*}
+\right)^2.
+\]
+
+The biomass deficit may then be used as a component of \(d_B\), a normalization \(N\), or a mask, but it should not silently be called “the distance.”
+
+---
+
+## What can actually be proved
+
+### Proposition: FBA rerouting approximates the induced local response metric
+
+Suppose \(p\) lies in a fixed active-set stratum, \(v_\beta\) is \(C^2\) near \(p\), and \(\phi\) is \(C^3\). Then for \(\xi\in T_pB\),
+\[
+D_\phi
+\bigl(v_\beta(p+h\xi),v_\beta(p)\bigr)
+=
+\frac{h^2}{2}
+\left\langle
+dv_{\beta,p}(\xi),
+\nabla^2\phi(v_\beta(p))
+dv_{\beta,p}(\xi)
+\right\rangle
++O(h^3).
+\]
+
+For the weighted quadratic potential,
+\[
+\frac{2}{h^2}
+\Delta^{\mathrm{FBA}}(p+h\xi\mid p)
+\longrightarrow
+\|dv_{\beta,p}(\xi)\|_W^2,
+\]
+provided the mask is constant and the normalization has a finite nonzero limit.
+
+Therefore the present FBA statistic is a consistent finite-difference proxy for a **local response metric or energy**.
+
+It is not, from this result alone, a proxy for curvature.
+
+---
+
+## What is needed for a genuine curvature theorem
+
+A curvature contraction depends on two independent tangent directions and, for connection curvature, on transport around a loop. A single wild-type/knockout comparison supplies only one secant.
+
+To estimate geometric curvature, the FBA design must contain at least the four perturbation conditions
+\[
+p,\qquad
+p+h\xi,\qquad
+p+k\eta,\qquad
+p+h\xi+k\eta.
+\]
+
+If \(P_{h,k}^{\xi,\eta}\) denotes transport around the corresponding perturbation plaquette, then
+\[
+\frac{P_{h,k}^{\xi,\eta}-I}{hk}
+\longrightarrow
+R_p(\xi,\eta)
+\]
+as \(h,k\to0\), under the usual smoothness assumptions.
+
+A valid discrete curvature estimator would consequently have the form
+\[
+\widehat\kappa_{h,k}^{\mathrm{FBA}}(p)
+=
+\sup_{\|\xi\wedge\eta\|=1}
+\left[
+\mathcal C\!\left(
+\frac{P_{h,k}^{\xi,\eta}-I}{hk}
+\right)
+\right]_+,
+\]
+with the contraction \(\mathcal C\) matching the definition of
+\(\kappa^{\mathrm{geo}}\).
+
+This yields the desired bridge theorem:
+
+> **Discrete realization theorem.**  
+> On a fixed smooth active-set stratum, assuming the FBA sensitivity transport realizes the GC-connection and the mask is locally constant,
+> \[
+> \widehat\kappa_{h,k}^{\mathrm{FBA}}(p)
+> \longrightarrow
+> \kappa^{\mathrm{geo}}(p)
+> \]
+> as \(h,k\to0\).
+
+Without the transport construction and paired perturbations, this theorem cannot be claimed.
+
+A one-dimensional time-course likewise cannot identify sectional curvature by itself. It validates response divergence along a trajectory, not curvature over a two-plane.
+
+---
+
+## Required manuscript-level conclusion
+
+The coherent claim should be:
+
+> A common realized Bregman divergence quantifies perturbation-induced response change. Its FBA and time-course realizations are finite response divergences. The geometric quantity \(\kappa^{\mathrm{geo}}\) is a local two-directional curvature operator derived from that divergence. Under a regularized FBA embedding and an explicitly constructed sensitivity transport, a four-condition FBA plaquette estimator converges to \(\kappa^{\mathrm{geo}}\).
+
+If the empirical design cannot be expanded to paired perturbations, the paper should make the weaker but honest claim:
+
+> The FBA and transcriptomic analyses validate the response-divergence layer, not the geometric curvature theorem.
+
+That is the repaired object and the precise limit of the unification. The existing three quantities should not continue to share the bare name \(\kappa_V\).
