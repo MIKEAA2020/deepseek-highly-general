@@ -1,0 +1,20 @@
+MAPPED-only (n=15) per-gene-max Pearson r = -0.1579 (p=0.5741)
+MAPPED-only (n=15) per-gene-max Spearman ρ = -0.1238 (p=0.6602)
+95% CI: [-0.6200, +0.3855]
+
+ gene b_number                                 reactions  via_keio_fallback  max_kappa_V  max_abs_log2_FC
+b2097    b2097                                   ['FBA']              False     9.490142             0.44
+  bcp    b2480                              ['THIORDXi']               True     0.000000             0.55
+ caiC    b0037       ['CTBTCAL2', 'CRNCAL2', 'CRNDCAL2']               True     0.000000             0.83
+ galT    b0758                                  ['UGLT']               True     0.000000             0.56
+ msrA    b4219                              ['METSOXR1']               True     0.000000             0.41
+ narJ    b1226                    ['NO3R1pp', 'NO3R2pp']               True     0.000000             0.77
+ otsB    b1897                                ['TRE6PP']               True     0.000000             0.32
+ proV    b2677     ['PROabcpp', 'CTBTabcpp', 'CRNabcpp']               True     0.000000             1.14
+ proW    b2678     ['PROabcpp', 'CTBTabcpp', 'CRNabcpp']               True     0.000000             0.48
+ sodA    b3908                                 ['SPODM']               True     0.000000             0.24
+ treA    b1197                                ['TREHpp']               True     0.000000             0.36
+ ugpC    b3450 ['G3PSabcpp', 'GLYC2Pabcpp', 'G3PEabcpp']               True     0.000000             0.56
+ yeaA    b1778                              ['METSOXR2']               True     0.000000             0.93
+ yehX    b2129                 ['CHLabcpp', 'GLYBabcpp']               True     0.000000             0.42
+ yehY    b2130                 ['CHLabcpp', 'GLYBabcpp']               True     0.000000             0.73

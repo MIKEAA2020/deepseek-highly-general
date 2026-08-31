@@ -1,0 +1,148 @@
+{
+  "n_mapped": 15,
+  "pearson_r": -0.1579159053375389,
+  "pearson_p": 0.5740526080221551,
+  "spearman_rho": -0.1238285254115413,
+  "spearman_p": 0.6601698274141021,
+  "ci_95": [
+    -0.620022379420655,
+    0.38553454376488605
+  ],
+  "genes": [
+    {
+      "gene": "b2097",
+      "b_number": "b2097",
+      "max_kappa_V": 9.490141723290312,
+      "max_abs_log2_FC": 0.44,
+      "n_timepoints": 8,
+      "reactions": "['FBA']",
+      "via_keio_fallback": false
+    },
+    {
+      "gene": "bcp",
+      "b_number": "b2480",
+      "max_kappa_V": 0.0,
+      "max_abs_log2_FC": 0.55,
+      "n_timepoints": 8,
+      "reactions": "['THIORDXi']",
+      "via_keio_fallback": true
+    },
+    {
+      "gene": "caiC",
+      "b_number": "b0037",
+      "max_kappa_V": 0.0,
+      "max_abs_log2_FC": 0.83,
+      "n_timepoints": 8,
+      "reactions": "['CTBTCAL2', 'CRNCAL2', 'CRNDCAL2']",
+      "via_keio_fallback": true
+    },
+    {
+      "gene": "galT",
+      "b_number": "b0758",
+      "max_kappa_V": 0.0,
+      "max_abs_log2_FC": 0.56,
+      "n_timepoints": 8,
+      "reactions": "['UGLT']",
+      "via_keio_fallback": true
+    },
+    {
+      "gene": "msrA",
+      "b_number": "b4219",
+      "max_kappa_V": 0.0,
+      "max_abs_log2_FC": 0.41,
+      "n_timepoints": 8,
+      "reactions": "['METSOXR1']",
+      "via_keio_fallback": true
+    },
+    {
+      "gene": "narJ",
+      "b_number": "b1226",
+      "max_kappa_V": 0.0,
+      "max_abs_log2_FC": 0.77,
+      "n_timepoints": 8,
+      "reactions": "['NO3R1pp', 'NO3R2pp']",
+      "via_keio_fallback": true
+    },
+    {
+      "gene": "otsB",
+      "b_number": "b1897",
+      "max_kappa_V": 0.0,
+      "max_abs_log2_FC": 0.32,
+      "n_timepoints": 8,
+      "reactions": "['TRE6PP']",
+      "via_keio_fallback": true
+    },
+    {
+      "gene": "proV",
+      "b_number": "b2677",
+      "max_kappa_V": 0.0,
+      "max_abs_log2_FC": 1.14,
+      "n_timepoints": 8,
+      "reactions": "['PROabcpp', 'CTBTabcpp', 'CRNabcpp']",
+      "via_keio_fallback": true
+    },
+    {
+      "gene": "proW",
+      "b_number": "b2678",
+      "max_kappa_V": 0.0,
+      "max_abs_log2_FC": 0.48,
+      "n_timepoints": 8,
+      "reactions": "['PROabcpp', 'CTBTabcpp', 'CRNabcpp']",
+      "via_keio_fallback": true
+    },
+    {
+      "gene": "sodA",
+      "b_number": "b3908",
+      "max_kappa_V": 0.0,
+      "max_abs_log2_FC": 0.24,
+      "n_timepoints": 8,
+      "reactions": "['SPODM']",
+      "via_keio_fallback": true
+    },
+    {
+      "gene": "treA",
+      "b_number": "b1197",
+      "max_kappa_V": 0.0,
+      "max_abs_log2_FC": 0.36,
+      "n_timepoints": 8,
+      "reactions": "['TREHpp']",
+      "via_keio_fallback": true
+    },
+    {
+      "gene": "ugpC",
+      "b_number": "b3450",
+      "max_kappa_V": 0.0,
+      "max_abs_log2_FC": 0.56,
+      "n_timepoints": 8,
+      "reactions": "['G3PSabcpp', 'GLYC2Pabcpp', 'G3PEabcpp']",
+      "via_keio_fallback": true
+    },
+    {
+      "gene": "yeaA",
+      "b_number": "b1778",
+      "max_kappa_V": 0.0,
+      "max_abs_log2_FC": 0.93,
+      "n_timepoints": 8,
+      "reactions": "['METSOXR2']",
+      "via_keio_fallback": true
+    },
+    {
+      "gene": "yehX",
+      "b_number": "b2129",
+      "max_kappa_V": 0.0,
+      "max_abs_log2_FC": 0.42,
+      "n_timepoints": 8,
+      "reactions": "['CHLabcpp', 'GLYBabcpp']",
+      "via_keio_fallback": true
+    },
+    {
+      "gene": "yehY",
+      "b_number": "b2130",
+      "max_kappa_V": 0.0,
+      "max_abs_log2_FC": 0.73,
+      "n_timepoints": 8,
+      "reactions": "['CHLabcpp', 'GLYBabcpp']",
+      "via_keio_fallback": true
+    }
+  ]
+}
