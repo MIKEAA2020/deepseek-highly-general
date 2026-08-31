@@ -3886,3 +3886,134 @@ Stage Summary:
   scripts/v21_patch_mechanical.py, scripts/verify_e12_e16_biomass_
   units.py, download/verify_e12_e16_biomass_units.json,
   scripts/v21_render_qa.py; commit + push follows.
+---
+Task ID: joint-3rd-wave
+Agent: main (Super Z)
+Task: Evaluate and verify the six new "unifying object" audits in
+external_audits/unifying object/ (DeepSeek, GLM, GPT, Kimi, Muse, Opus;
+1,058 lines); do not take claims at face value; produce a joint
+assessment that strengthens/augments/corrects/completes weaker
+suggestions; DO NOT touch the v21 manuscript (frozen baseline; from
+here on major rewrites are new documents journal_manuscript_v2, v3,
+...); always commit and push.
+
+Work Log:
+- Pulled origin/main (ddbb384..5b57f8d): the six audits landed in
+  external_audits/unifying object/ (deepseek recommendations.txt 188;
+  glm.txt 194; gpt sol 351; kimi k3max 68; muse spark 1.2 90; opus 5
+  167 lines).
+- Read all six audits in full. All target the kappa_V unification
+  problem: three objects share the name (geometric Prop 4.4; Def 3.21
+  indicator-weighted FBA sum; E10/E22 time-course squared flux
+  change), and each audit proposes a different repair (typed renaming
+  + Theorem U; slot family + R1-R4; curvature datum + mixed
+  difference; realized divergence + plaquette; D1-D6 + T1-T7;
+  editorial reconstruction).
+- RE-VERIFICATION (no-claims-at-face-value rule), against the frozen
+  v21 (tex 10,830 lines; PDF 134 pp; audits themselves reviewed the
+  131-pp v20): 118 checkable claims -> 111 VERIFIED, 8 corrected or
+  stale. Key line-level confirmations: E24-E27 uses the TIME-COURSE
+  object (E24 design text: "The E22 panel's per-gene kappa_V values
+  (baseline glucose-decline trajectory, unchanged from E22)");
+  abstract's proposition is about the geometric object -> the deepest
+  coherence defect is real. Cor 4.14 Stokes-substitution incoherent
+  (re-derived); Lemma 4.10 vacuous as tau->0 AND GLM's softmax repair
+  identity grad r = beta*sum pi_j grad q_j independently re-derived
+  CORRECT (outer -tau cancels the 1/tau); Thm 4.11(e) has TWO continua
+  (parameters AND directions - second one not flagged by any audit;
+  closed by countable-dense-subset lemma in Part V); Remark 20.2
+  kappa_V <= E unit error confirmed; E13 Thm A "r in U" vs "r in S"
+  confirmed; E13 Thm B parametricity misuse confirmed; Cor 17.3
+  contentless; Thm 3.5 "crossing once" vs own numerics n_cross = 2
+  confirmed; Thm 3.14 tuple drift confirmed; Prop 3.16 radius-2
+  finding verified by fresh geodesic computation (binary simplex
+  integral = pi = radius-2); Remark 2.4 CO(2) label error (O(n-1)
+  stabilizer) confirmed; Prop 16.2/16.7(3-4) 0=0 category error
+  confirmed; dist_D-on-RAF-set type error located at THREE sites
+  (Table 1 O1 residual, RAF-optic def, Sec 16 composite - sharper
+  than the audits' "Def 3.21"); "Bregman-regularized" T_reg is the
+  Krasnoselskii-Mann averaged form (structural identification
+  confirmed); 0.92^6*1.15 = 0.6973 arithmetic verified; Thm 8.2
+  proven for generic resnet blocks not the seven optics; network
+  counts four/four/two/two/ten persist; Table 4 "Nine studies" + 3
+  false update claims persist; "no open conjectures remain" vs two
+  open items persists; style layer ("the user" x6 cs, Qwen x34,
+  07e6d85 x5, COLOMBOS x3) persists; authorship statement tension
+  persists.
+- AUDIT ERRORS FOUND (Part III of the deliverable, 8 items): kimi R2
+  mislabel (the infinitesimal limit of the time-course statistic is
+  the Hessian-metric ENERGY, not curvature - aligns kimi with
+  gpt/opus); muse mask-as-stratum-crossing imprecise (the actual mask
+  selects nonzero single-KO biomass deficit; non-essential KOs can
+  cross strata); opus's "Def 3.21 is the mixed difference" is
+  aspirational not descriptive (single-KO squared displacement as
+  written; epistasis requires Route C2 recompute); GLM's 0.802
+  enlarged-box arithmetic not derivable (f_2 = 1.15x does not map
+  [0,1.15]^d into itself) - the KM identification is the sound part;
+  GLM's Lemma-4.10 repair constant needs max_j sup_K [d-D]_+ not
+  diam K + D; GLM's "Def 2.6" citation slip; deepseek's broken-key
+  item STALE (fixed in v21); GLM's Levy-CI direction reversed (theory
+  value outside fitted CI; manuscript discloses once - the defect is
+  the inconsistent 1.4% framing at 3 sites).
+- TRIANGULATION (Part IV): 7 convergences - 6/6 typed renaming; 5/6
+  the FBA active-set/mpLP critical-region stratification as the
+  bridge substrate (with opus's corollary: curvature is singular,
+  supported on basis-change loci - the paper's invisible thesis);
+  4/6 the energy-level transfer theorem is the provable glue; C4
+  curvature needs two directions (plaquette/double-KO/second
+  difference); C5 shared repair list; 6/6 strong-form unification not
+  provable in scope; C7 delete-vs-demote (GLM vs deepseek) - the one
+  real disagreement, adjudicated in Part V.
+- SYNTHESIS (Part V): 4-layer architecture. Layer 0 notation protocol
+  (muse migration checklist + kimi no-bare-kappa + gpt naming table,
+  typed-citation fixes, tuple freeze). Layer 1 central object
+  factored: opus's curvature datum (X, A, Phi) with the mixed
+  difference as the combinatorial DEFINITION (only candidate that
+  type-checks RAF, recovers Prop 4.4 as Proposition G, makes FBA =
+  epistasis), kimi's slot family as smooth organization, gpt's
+  realization datum as wrapper, GLM's h-margin as the viability
+  instantiation; mask adjudicated (positive part + deficit
+  sparsification correct; stratum-crossing conditional;
+  Lambda-restriction = declared redefinition). Layer 2 provable
+  transfers now: T-energy (gpt proposition = muse U part 1 = kimi R2
+  corrected) + T-bound (kimi R1/R3). Layer 3 three new measurements:
+  M1 opus Route C1 second differences on EXISTING time courses (data
+  availability verified: GSE64021 6 points, M3D 4+ref, E10/E22
+  T1-T8); M2 gpt plaquette with regularized optima; M3 opus Route C2
+  double-KO epistasis - AUGMENTED: executable in silico now (cobrapy
+  + quadratic regularization), converting "the experiment the theory
+  predicts" into a runnable study. Layer 4 theorem tiers R/D/E
+  resolving delete-vs-demote (repair 9 items in place; demote Section
+  17 to companion with Poincare absorption, Thm B to conjecture,
+  Claims A-E to calibration, Cor 4.14 to appendix; excise
+  P0-editorial items + "no open conjectures" + version framing).
+- IMPLEMENTATION (Part VI): v2 protocol recorded (v21 frozen; major
+  rewrites are new documents journal_manuscript_v2.tex, v3, ...; even
+  errata go to v2); 9-step sequence with the strategic decision
+  (single article vs main+companions) as step 0; risks R1-R3 with
+  muse/kimi fallbacks; GLM's 6-12 month total consistent.
+- Deliverable built per pdf skill (report route, cascade palette,
+  Template 03 academic cover via html2poster.js, TocDocTemplate +
+  multiBuild, install_font_fallback): fixed mid-word verdict-cell
+  wrap (VERIFI/ED) by column-width + font measurement; fixed cover
+  page-size normalization (0.3pt tolerance); cover_validate PASS;
+  pdf_qa PASS (13/13); font.check 0 issues; toc.check pass; 15 pages;
+  verdicts 40 VERIFIED + 2 CORRECTED render intact; last-page fill
+  93%.
+
+Stage Summary:
+- Deliverable: download/joint_assessment_unifying_object.pdf (15 pp)
+  + download/joint_assessment_unifying_object_cover.html (cover
+  source) + scripts/joint_assessment_unifying_object_pdf.py,
+  scripts/ja3_cover.html, scripts/ja3_merge.py.
+- The v21 manuscript is UNTOUCHED (frozen baseline; verified by git
+  status - only new files added).
+- All six audits adopted with corrections: GLM = structural backbone
+  (39/41 verified), GPT = formalization backbone (15/15), Kimi =
+  constructive backbone (R2 corrected), Muse = tactical backbone
+  (drop-in checklist), Opus = empirical backbone (Routes C1/C2 +
+  invisible-thesis corollary), DeepSeek = editorial backbone (1 stale
+  item).
+- Next actions specified in the assessment: strategic decision ->
+  journal_manuscript_v2 Layer 0 pass -> M1 second differences in
+  parallel -> Table 9 sequence.
