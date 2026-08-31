@@ -1,0 +1,313 @@
+{
+ "study": "E24_option_a_expression_coverage",
+ "arms": {
+  "A_panel": {
+   "label": "A-panel: log10 kappa_V vs max|log2FC| carbon exhaustion (M3D)",
+   "n": 433,
+   "pearson_r": 0.3739,
+   "pearson_p": 8.176722988556612e-16,
+   "spearman_r": 0.3991,
+   "spearman_p": 5.5564684654552105e-18,
+   "perm_p_mc": 1e-05,
+   "boot_ci95": [
+    0.2986,
+    0.4464
+   ]
+  },
+  "A_panel_sensitivity": {
+   "single_stationary_135min": {
+    "label": "single contrast stationary_135min",
+    "n": 433,
+    "pearson_r": -0.0218,
+    "pearson_p": 0.6504977257053042,
+    "spearman_r": -0.0408,
+    "spearman_p": 0.3967509771963874,
+    "perm_p_mc": 0.64976,
+    "boot_ci95": [
+     -0.1095,
+     0.0627
+    ]
+   },
+   "single_stationary_330min": {
+    "label": "single contrast stationary_330min",
+    "n": 433,
+    "pearson_r": 0.2633,
+    "pearson_p": 2.669549475705385e-08,
+    "spearman_r": 0.282,
+    "spearman_p": 2.338327014762531e-09,
+    "perm_p_mc": 1e-05,
+    "boot_ci95": [
+     0.1901,
+     0.3381
+    ]
+   },
+   "single_stationary_480min": {
+    "label": "single contrast stationary_480min",
+    "n": 433,
+    "pearson_r": 0.3984,
+    "pearson_p": 6.301702207168142e-18,
+    "spearman_r": 0.4083,
+    "spearman_p": 8.033296504955202e-19,
+    "perm_p_mc": 1e-05,
+    "boot_ci95": [
+     0.3235,
+     0.4695
+    ]
+   },
+   "single_stationary_720min": {
+    "label": "single contrast stationary_720min",
+    "n": 433,
+    "pearson_r": 0.353,
+    "pearson_p": 3.781038349316288e-14,
+    "spearman_r": 0.3824,
+    "spearman_p": 1.5872579603780922e-16,
+    "perm_p_mc": 1e-05,
+    "boot_ci95": [
+     0.2742,
+     0.4284
+    ]
+   },
+   "single_lateLog": {
+    "label": "single contrast lateLog",
+    "n": 433,
+    "pearson_r": 0.0499,
+    "pearson_p": 0.3003821394092583,
+    "spearman_r": 0.0937,
+    "spearman_p": 0.0512860683836678,
+    "perm_p_mc": 0.30002,
+    "boot_ci95": [
+     -0.0461,
+     0.1452
+    ]
+   },
+   "mean_stationary": {
+    "label": "mean |FC| over stationary points",
+    "n": 433,
+    "pearson_r": 0.3336,
+    "pearson_p": 1.0208369098147336e-12,
+    "spearman_r": 0.3637,
+    "spearman_p": 5.5064118350424304e-15,
+    "perm_p_mc": 1e-05,
+    "boot_ci95": [
+     0.2573,
+     0.4078
+    ]
+   },
+   "max_incl_lateLog": {
+    "label": "max |FC| incl. lateLog",
+    "n": 433,
+    "pearson_r": 0.3737,
+    "pearson_p": 8.536256685984116e-16,
+    "spearman_r": 0.399,
+    "spearman_p": 5.663325829279621e-18,
+    "perm_p_mc": 1e-05,
+    "boot_ci95": [
+     0.2985,
+     0.4459
+    ]
+   },
+   "hu_glycerol_stat": {
+    "label": "HU M9+glycerol stat-vs-exp (Oberto lab)",
+    "n": 433,
+    "pearson_r": 0.1112,
+    "pearson_p": 0.020674156013995477,
+    "spearman_r": 0.0658,
+    "spearman_p": 0.17143820181078637,
+    "perm_p_mc": 0.01962,
+    "boot_ci95": [
+     0.033,
+     0.1892
+    ]
+   },
+   "biofilm_noGlucose": {
+    "label": "biofilm noGlucose-vs-glucose",
+    "n": 433,
+    "pearson_r": 0.1748,
+    "pearson_p": 0.00025756420240125575,
+    "spearman_r": 0.1585,
+    "spearman_p": 0.000937709259067193,
+    "perm_p_mc": 0.00027,
+    "boot_ci95": [
+     0.082,
+     0.2612
+    ]
+   },
+   "excl_b2097": {
+    "label": "excluding b2097",
+    "n": 432,
+    "pearson_r": 0.3729,
+    "pearson_p": 1.065794276366411e-15,
+    "spearman_r": 0.3971,
+    "spearman_p": 9.118519951081788e-18,
+    "perm_p_mc": 1e-05,
+    "boot_ci95": [
+     0.2961,
+     0.4459
+    ]
+   }
+  },
+  "A_panel_deciles": {
+   "top_decile_mean_fc": 1.9226806122448978,
+   "bottom_decile_mean_fc": 0.886629659574468,
+   "mannwhitney_p_one_sided": 9.023525799466368e-08
+  },
+  "A_panel_gpr_strata": {
+   "complex-and": {
+    "label": "GPR class complex-and",
+    "n": 76,
+    "pearson_r": 0.6043,
+    "pearson_p": 7.45357802214909e-09,
+    "spearman_r": 0.6398,
+    "spearman_p": 4.906233299092548e-10,
+    "perm_p_mc": 1e-05,
+    "boot_ci95": [
+     0.4584,
+     0.7303
+    ]
+   },
+   "isozyme-or": {
+    "label": "GPR class isozyme-or",
+    "n": 108,
+    "pearson_r": 0.1731,
+    "pearson_p": 0.07318779367590415,
+    "spearman_r": 0.1606,
+    "spearman_p": 0.09693285937044518,
+    "perm_p_mc": 0.07499,
+    "boot_ci95": [
+     0.0125,
+     0.3266
+    ]
+   },
+   "mixed": {
+    "label": "GPR class mixed",
+    "n": 52,
+    "pearson_r": 0.5283,
+    "pearson_p": 5.691324269247048e-05,
+    "spearman_r": 0.6631,
+    "spearman_p": 8.515323436984072e-08,
+    "perm_p_mc": 4e-05,
+    "boot_ci95": [
+     0.3684,
+     0.6814
+    ]
+   },
+   "single": {
+    "label": "GPR class single",
+    "n": 197,
+    "pearson_r": 0.3387,
+    "pearson_p": 1.1259248947486896e-06,
+    "spearman_r": 0.3889,
+    "spearman_p": 1.626012118375108e-08,
+    "perm_p_mc": 1e-05,
+    "boot_ci95": [
+     0.2096,
+     0.4554
+    ]
+   }
+  },
+  "A_panel_confound_control": {
+   "r_kv_vs_reflevel": 0.2912,
+   "p_kv_vs_reflevel": 6.582565149772651e-10,
+   "r_fc_vs_reflevel": 0.6792,
+   "p_fc_vs_reflevel": 7.145788613688394e-60,
+   "partial_r_kv_fc_given_reflevel": 0.2508,
+   "partial_p": 1.2284799492478527e-07
+  },
+  "A_replicate_precise": {
+   "label": "A-replicate: PRECISE WT carbon switches (RNA-seq)",
+   "n": 433,
+   "pearson_r": -0.0543,
+   "pearson_p": 0.2597147994287767,
+   "spearman_r": 0.0776,
+   "spearman_p": 0.10699349197974649,
+   "perm_p_mc": 0.25989,
+   "boot_ci95": [
+    -0.1441,
+    0.0384
+   ]
+  },
+  "A_matched": {
+   "label": "A-matched: E23 matched-condition kappa_V vs MATCHED expression FC",
+   "n": 6,
+   "pearson_r": 0.5608,
+   "pearson_p": 0.24698009685674993,
+   "spearman_r": 0.3189,
+   "spearman_p": 0.5379005604702051,
+   "perm_p_mc": 0.26629,
+   "boot_ci95": [
+    -0.9832,
+    0.9996
+   ],
+   "genes": [
+    "proV",
+    "proW",
+    "ugpC",
+    "narJ",
+    "galT",
+    "b2097"
+   ],
+   "treA_note": "no matched trehalose expression data in M3D or PRECISE; excluded"
+  },
+  "A_matched_sensitivity": {
+   "label": "A-matched sensitivity: ugpC FC from PRECISE",
+   "n": 6,
+   "pearson_r": 0.54,
+   "pearson_p": 0.2687673423671245,
+   "spearman_r": 0.3189,
+   "spearman_p": 0.5379005604702051,
+   "perm_p_mc": 0.28596,
+   "boot_ci95": [
+    -0.9832,
+    0.9991
+   ]
+  },
+  "A_burden_oxidative": {
+   "reported_not_correlated": true,
+   "rows": [
+    {
+     "gene": "sodA",
+     "b_number": "b1646",
+     "kv_burden": 0.04,
+     "fc_paraquat": 2.5297429170394645
+    },
+    {
+     "gene": "bcp",
+     "b_number": "b2480",
+     "kv_burden": 0.0144,
+     "fc_paraquat": 1.0208656556760705
+    },
+    {
+     "gene": "msrA",
+     "b_number": "b3602",
+     "kv_burden": 0.0016,
+     "fc_paraquat": 0.5948341764363807
+    }
+   ],
+   "note": "burden-class kappa_V is assumption-dependent (v16 endogeneity criterion); PRECISE paraquat FC reported structurally only"
+  },
+  "A_zero_control": {
+   "n_zero_kappa_genes": 930,
+   "n_panel": 433,
+   "panel_mean_max_fc": 1.318367919168591,
+   "zero_mean_max_fc": 0.9036053913978495,
+   "panel_median": 1.0915099999999995,
+   "zero_median": 0.679357,
+   "mannwhitney_p_one_sided_panel_gt_zero": 7.753249726649747e-22
+  }
+ },
+ "CD_combination": {
+  "lemuth_genes": 92,
+  "lemuth_bnumber_mapped": 74,
+  "E22_panel": 435,
+  "lemuth_intersect_panel": [
+   "b2097"
+  ],
+  "conclusion": "combining Option C's panel with Option D's genes on Lemuth data cannot increase n beyond 7 (only b2097 is shared); the binding constraint is expression coverage, resolved here by M3D/PRECISE instead"
+ },
+ "artifacts": {
+  "csv": "novelty_v17_option_a_e24.csv",
+  "txt": "novelty_v17_option_a_e24.txt",
+  "png": "novelty_v17_option_a_e24.png",
+  "json": "novelty_v17_option_a_e24_results.json"
+ }
+}

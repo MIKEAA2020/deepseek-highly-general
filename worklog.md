@@ -3433,3 +3433,107 @@ Stage Summary:
   transport is never FBA-optimal vs symport without transporter KOs;
   (iv) b2097's FBA reaction is active in every carbon condition
   (kappa_V 8.9–11.2), a cross-condition robustness signal.
+---
+Task ID: v17-option-a-expression-coverage
+Agent: Super Z (main)
+Task: (1) Commit and push all previous turns (v14b/v15/v16 were
+unpushed). (2) Evaluate, verify and implement the user's five
+recommendations on the v16 round: honest n=7 wording, Option C as
+larger n / C+D combination, Option A (COLOMBOS/M3D expression data),
+no condition over-iteration, explicit burden-vs-endogenous
+circularity statement.
+
+Work Log:
+- PUSHED the 3 unpushed commits (v14b b35556f, v15 29dd852, v16
+  d5693de) to github.com/MIKEAA2020/deepseek-highly-general main
+  with the provided PAT; verified 0 unpushed afterwards.
+- VERIFIED recommendation 2 from data: the E22 panel (435 genes,
+  non-zero kappa_V) intersects the Lemuth series in exactly ONE gene
+  (b2097; 74/92 Lemuth genes map to b-numbers via the M3D symbol
+  table) -> combining C+D on local data cannot raise n beyond 7;
+  expression coverage binds, not gene supply. Documented in the
+  manuscript (new v17 subsection) and results JSON.
+- OPTION A DATA OBTAINED (despite dead hosts): COLOMBOS and
+  precise-db.org.uk hang/DNS-dead, but M3D is ALIVE at m3d.mssm.edu
+  -> downloaded E_coli_v4_Build_6.tar.gz (117,091,420 bytes, gzip
+  verified; 907 arrays x 4,297 gene probes, log2, structured
+  metadata); PRECISE from github.com/SBRG/precise-db (278 RNA-seq
+  samples, MG1655, per-sample carbon/nitrogen/electron-acceptor
+  metadata). Provenance + sha256 in data/m3d/README.md; big matrices
+  not committed (GitHub 100MB limit), metadata committed.
+- WROTE scripts/novelty_v17_option_a_e24.py (Study E24): four
+  exploration scripts resolved the design (matched contrasts:
+  Blattner/Allen WT_MOPS carbon-source-foraging series with 5-rep
+  log-phase glucose reference + stationary t=135/330/480/720;
+  WT_MOPS_proline/glycerol; M9_WT anaerobic vs aerobic; PRECISE
+  ica__no3_anaero/thm_gal, crp__wt_glyc, oxidative__wt_pq). Vectorized
+  MC permutation (1e5) + bootstrap after the loop version timed out.
+- E24 RESULTS: [A-panel] PRIMARY n=433: Pearson r(log10 kappa_V,
+  max|log2FC| carbon exhaustion) = +0.3739 (p = 8.2e-16, Spearman
+  +0.3991, CI [0.299, 0.446], perm p < 1e-4). Signal grows with
+  exhaustion depth (t135 -0.02 NS, t330 +0.26, t480 +0.40, t720
+  +0.35); robust to mean metric (+0.334), lateLog (+0.374), excl
+  b2097 (+0.373), two second-lab contrasts (HU glycerol stat +0.111
+  p=0.020; biofilm glucose-removal +0.175 p=2.7e-4); deciles 1.923
+  vs 0.887 (MWU p=9.0e-8); GPR strata complex-and +0.604 / mixed
+  +0.528 / single +0.339 / isozyme-or +0.173. CONFOUND CONTROL:
+  reference expression level correlates with both (r=+0.291 /
+  +0.679); partial r controlling level = +0.251 (p=1.2e-7) -> honest
+  note that ~1/3 of the raw association is level-mediated.
+- [A-replicate] PRECISE cross-platform carbon-SWITCH arm: r = -0.054
+  (NS; Spearman +0.078) -> HONEST DISSOCIATION: the association is
+  not a generic "high-kappa genes respond to anything carbon"
+  artifact; platform-vs-class ambiguity stated openly.
+- [A-matched] E23 replication with MATCHED expression (replaces the
+  Lemuth cross-condition FC): r = +0.561 at n=6 (vs E23's +0.571 at
+  n=7; ugpC-via-PRECISE sensitivity +0.540; treA has no matched
+  trehalose data anywhere -> excluded honestly). [A-burden] sodA/
+  bcp/msrA respond to paraquat (2.53/1.02/0.59) - reported
+  structurally only. [A-zero] 930 zero-kappa genes respond less
+  (0.904 vs 1.318 mean, MWU p=7.8e-22).
+- V16 TEXT REVIEW (user's required pre-final check), 5 patches via
+  scripts/v17_patch_manuscript.py: P1 v15 forward-pointer now names
+  v17; P2 E10 remark states "not statistically significant
+  (permutation p = 0.18)" + v17 resolution; P3 the burden exclusion
+  now says CIRCULAR explicitly ("the echo of an assumption against
+  the very data used to evaluate it") and notes it is a boundary
+  condition, not post-hoc; P4 primary result adds "supports the
+  trend without establishing it at alpha = 0.05"; P5 verdict
+  rewritten in the user's requested honest-limitation style
+  (r=+0.571, n=7, sign-stable, NOT significant, p=0.18, CI includes
+  zero, supports but does not establish at alpha=0.05, coverage
+  missing -> v17 obtains it).
+- P6: inserted sec:novelty-v17 (E24) subsection (~130 lines): data
+  acquisition, C+D evaluation, design + 5 verification checks
+  ([A-src]/[A-map]/[A-contrast]/[A-def]/[A-zero]), primary +
+  sensitivities + confound control, PRECISE dissociation,
+  matched-expression replication, burden check, verdict ("decided in
+  the affirmative within the carbon-exhaustion class"), artifacts.
+- QA: ref audit 0 dangling; braces 6365/6366 (the +1 imbalance is
+  the pre-existing git baseline); begin/end 436/436; version chain
+  v10 -> v11 -> v12 -> v13 -> v14b -> v15 -> v16 -> v17; tectonic
+  compile SUCCESS (6.20 MiB; only pre-existing overfull warnings +
+  one cosmetic underfull); key phrases verified in the rendered PDF
+  (incl. the ff-ligature "affirmative" false-miss). PDF copied to
+  download/journal_manuscript.pdf + mirrored to /tmp/my-project.
+
+Stage Summary:
+- The kappa_V -> transcript-response hypothesis is now DECIDED at
+  genome-panel scale within the carbon-exhaustion class: r = +0.374,
+  n = 433, p ~ 1e-15 (partial r = +0.251 controlling expression
+  level), consistent with every lineage estimate (E10 +0.08..+0.10,
+  E23 +0.571 at n=7, matched-expression replication +0.561 at n=6),
+  and bounded by an honest negative (PRECISE carbon-switching NS) --
+  not a generic-responsiveness artifact, though platform-vs-class
+  remains open.
+- All five user recommendations implemented: honest v16 wording (5
+  patches), C+D combination evaluated and documented (adds only
+  b2097; coverage binds), Option A executed with real downloaded
+  data (M3D + PRECISE), NO new FBA conditions iterated, burden/
+  endogenous circularity now explicit.
+- New deliverables: 6 scripts, download/novelty_v17_option_a_e24
+  {csv,txt,png,results.json}, updated manuscript (+v17 subsection,
+  compiled 6.20 MiB PDF), data provenance README with checksums.
+- Constraint honored: no condition over-iteration -- E24 uses the
+  E22/E23 kappa_V artifacts UNCHANGED; only the expression side was
+  extended.
