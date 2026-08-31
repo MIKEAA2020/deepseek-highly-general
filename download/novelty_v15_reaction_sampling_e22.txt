@@ -1,0 +1,159 @@
+==============================================================================
+v15 / Study E22: REACTION-BASED SAMPLING (Option C)
+==============================================================================
+
+iJO1366: 2583 reactions, 1367 genes, 1805 metabolites
+Biomass T1..T8: [0.4847, 0.405, 0.3254, 0.2557, 0.186, 0.1363, 0.1064, 0.0865]
+
+Active reactions (|v|>1e-09 at any T): 438/2583 (17.0%)
+Reactions with non-zero kappa_V: 437
+Global kappa_V (biomass deficit)^2, max = 0.158543 (E10 stored: 0.158543)
+
+[C-map] Active reactions with >=1 GPR gene: 404/438
+[C-map] GPR complexity classes over active reactions: single=254, isozyme-or=96, complex-and=36, no-gpr=34, mixed=18
+
+[C-map] GPR spot-checks (rule string vs cobra gene set):
+  FBA       class=isozyme-or  cobra_genes=3 rule_unique_genes=3 OK
+            rule: b1773 or b2097 or b2925
+  ATPS4rpp  class=mixed       cobra_genes=9 rule_unique_genes=9 OK
+            rule: (b3734 and b3732 and b3731 and b3733 and b3735 and b3737 and b3736 and b3738 and b3739) or
+  PDH       class=complex-and cobra_genes=3 rule_unique_genes=3 OK
+            rule: b0115 and b0114 and b0116
+  GLCptspp  class=mixed       cobra_genes=8 rule_unique_genes=8 OK
+            rule: (b2415 and b2417 and b1101 and b2416) or (b2415 and b2417 and b1621 and b2416) or (b2415 a
+[C-map] gene->reaction->gene symmetry: 0 failures on 50 sampled genes (120 gene-reaction pairs)
+
+Gene panel (>=1 active reaction): 435 genes (31.8% of 1367 model genes)
+kappa_V panel (kappa_V variation > 0): 435/435 (100.0%)
+  zero-variation excluded: 0 (genes whose only active reactions carry constant flux)
+
+[C-def] Consistency with the E10/v13 kappa_V values:
+  b2097  (b2097 ) kappa_max =   9.490142 (expected   9.490142) OK
+  bcp    (b2480 ) kappa_max =   0.000000 (expected   0.000000) OK
+  caiC   (b0037 ) kappa_max =   0.000000 (expected   0.000000) OK
+  galT   (b0758 ) kappa_max =   0.000000 (expected   0.000000) OK
+  msrA   (b4219 ) kappa_max =   0.000000 (expected   0.000000) OK
+  narJ   (b1226 ) kappa_max =   0.000000 (expected   0.000000) OK
+  otsB   (b1897 ) kappa_max =   0.000000 (expected   0.000000) OK
+  proV   (b2677 ) kappa_max =   0.000000 (expected   0.000000) OK
+  proW   (b2678 ) kappa_max =   0.000000 (expected   0.000000) OK
+  sodA   (b3908 ) kappa_max =   0.000000 (expected   0.000000) OK
+  treA   (b1197 ) kappa_max =   0.000000 (expected   0.000000) OK
+  ugpC   (b3450 ) kappa_max =   0.000000 (expected   0.000000) OK
+  yeaA   (b1778 ) kappa_max =   0.000000 (expected   0.000000) OK
+  yehX   (b2129 ) kappa_max =   0.000000 (expected   0.000000) OK
+  yehY   (b2130 ) kappa_max =   0.000000 (expected   0.000000) OK
+  global kappa_V max = 0.158543 (expected 0.158543) OK
+  per-gene Pearson r reproduced: unmasked -0.0633 (exp -0.0633), v12 +0.1024 (exp +0.1024), v13 +0.0838 (exp +0.0838)
+[C-def] overall: ALL CONSISTENT
+
+[C-dist] Panel size: 435 genes vs original 15 MAPPED
+[C-dist] Overlap with the 15 MAPPED b-numbers: ['b2097'] (1/15)
+[C-dist] Distinct genes (panel minus the 15): 434
+[C-dist] Lemuth genes with recovered Keio b-numbers (any): 73/92
+[C-dist]   whose b-numbers are in iJO1366: 15/92 (the MAPPED-15 of v13)
+[C-dist] Panel ∩ Lemuth-in-iJO1366: ['b2097']
+[C-dist]   of which with non-zero kappa_V: ['b2097']
+
+[C-var] kappa_V-panel (n=435) max-kappa_V distribution:
+  min=6.342e-13, median=6.041e-03, mean=2.378e+01, max=4.666e+02
+  all genes have variance > 0: True
+  variance quantiles (50/90/99%): 4.950e-06, 3.473e+01, 2.954e+04
+  note: s0001 (the spontaneous pseudo-gene) is in the panel via porin/diffusion reactions; excluding it: 434 genes
+
+[A] E10-lineage correlation (kappa_V vs |log2 FC|) on the panel:
+  n = 1 overlap gene(s) with non-zero kappa_V (b2097/fbaA: kappa_max=9.4901, |log2 FC|max=0.44)
+  -> the per-gene Pearson r is NOT COMPUTABLE at meaningful n on
+     local data: the Lemuth panel and the active-reaction gene set
+     are nearly disjoint (structural, not fixable by remapping).
+     Extending the correlation requires either (i) an expression
+     compendium covering the panel (Option A, deferred) or (ii)
+     condition swaps that activate the 14 zero-kappa genes
+     (Option D, next round).
+  Negative control (v14b): the MAPPED-15 route gives 14/15 zeros; a
+     correlation over that set is the zero-dominated failure mode.
+
+[B] kappa_V distribution over the panel (n=435):
+  quantiles (25/50/75/90/95/99%): [0.0, 0.006, 0.1513, 16.0, 157.4182, 466.63]
+  lognormal fit on log10 kappa: mu=-3.0440, sigma=3.4343 (KS stat=0.0961, p=0.0006019)
+  top 1% of genes (4) hold 18.0% of total kappa_V
+  top 5% of genes (22) hold 76.5% of total kappa_V
+  top 10% of genes (44) hold 97.4% of total kappa_V
+  Gini coefficient of kappa_V concentration: 0.9315
+  Hill tail index (m=50): alpha ~= 0.427 (heavy tail: alpha < 2 (infinite variance))
+
+[B] Top-20 panel genes by max kappa_V:
+  gene     name        kappa_max  subsystem (max-kappa rxn)
+  b3731    b3731        466.6300  Oxidative Phosphorylation
+  b3732    b3732        466.6300  Oxidative Phosphorylation
+  b3733    b3733        466.6300  Oxidative Phosphorylation
+  b3734    b3734        466.6300  Oxidative Phosphorylation
+  b3735    b3735        466.6300  Oxidative Phosphorylation
+  b3736    b3736        466.6300  Oxidative Phosphorylation
+  b3737    b3737        466.6300  Oxidative Phosphorylation
+  b3738    b3738        466.6300  Oxidative Phosphorylation
+  b3739    b3739        466.6300  Oxidative Phosphorylation
+  b0875    b0875        330.1951  Transport, Inner Membrane
+  s0001    s0001        330.1951  Transport, Inner Membrane
+  b0241    b0241        330.1951  Transport, Outer Membrane Porin
+  b0929    b0929        330.1951  Transport, Outer Membrane Porin
+  b0957    b0957        330.1951  Transport, Outer Membrane Porin
+  b1319    b1319        330.1951  Transport, Outer Membrane Porin
+  b1377    b1377        330.1951  Transport, Outer Membrane Porin
+  b2215    b2215        330.1951  Transport, Outer Membrane Porin
+  b3875    b3875        330.1951  Transport, Outer Membrane Porin
+  b0429    b0429        185.1893  Oxidative Phosphorylation
+  b0430    b0430        185.1893  Oxidative Phosphorylation
+
+[C] Top-15 subsystems by total kappa_V (of 33 active subsystems):
+                             subsystem  total_kappa_V  n_active_rxns  n_genes
+             Oxidative Phosphorylation     802.379991              6       34
+                          (unassigned)     483.325405             25        0
+       Transport, Outer Membrane Porin     467.166862             19        8
+             Transport, Inner Membrane     404.803287             10       13
+            Glycolysis/Gluconeogenesis     193.650271             10       18
+Inorganic Ion Transport and Metabolism      64.979291             15       24
+                     Citric Acid Cycle      23.692963              9       13
+             Transport, Outer Membrane      16.000000              1        4
+                  Glutamate Metabolism      12.114286              2        3
+             Pentose Phosphate Pathway      10.913264              8       11
+           Alternate Carbon Metabolism       4.897411              6        9
+         Glycine and Serine Metabolism       1.601388              4        4
+      Alanine and Aspartate Metabolism       1.528389              4        6
+                 Anaplerotic Reactions       1.388489              2        3
+                  Histidine Metabolism       0.833112             10        9
+
+[D] GPR complexity classes over ACTIVE reactions (the genome-scale
+    extension of the v12 isozyme-cover finding):
+  single       n= 254  median kappa=0.0005  mean=1.0998  max=58.6077
+  isozyme-or   n=  96  median kappa=0.0201  mean=9.3760  max=330.1951
+  complex-and  n=  36  median kappa=0.0006  mean=9.6184  max=185.1893
+  mixed        n=  18  median kappa=0.0010  mean=26.8228  max=466.6300
+  no-gpr       n=  34  median kappa=0.0000  mean=14.2639  max=330.1951
+  -> 96/438 active reactions have isozyme (OR) GPRs:
+     single-gene KO cannot disable them (v12's structural finding, now
+     quantified at 21.9% of the active set).
+
+[E] E10 direction test re-verification on reaction-level kappa_V:
+  gltA   UP      kv=  3.3903 +PASS (Lemuth 2008 body: gltA UP at carbon limitation (TCA influx enhanced))
+  gnd    DOWN    kv=  2.9526 +PASS (Lemuth 2008 body: gnd mRNA REDUCED (PPP down))
+  zwf    STABLE  kv=  2.9526 -FAIL (Lemuth 2008 body: zwf NOT differentially expressed)
+  aceE   UP      kv=  9.6248 +PASS (PDH upregulated at low mu (TCA needs AcCoA from glucose))
+  pgi    DOWN    kv=  5.2060 +PASS (GPI flux downregulated as glucose uptake drops)
+  pfkA   DOWN    kv=  9.4901 +PASS (PFK flux downregulated as glucose uptake drops)
+  pykF   DOWN    kv=  0.0763 +PASS (PYK flux downregulated as glucose uptake drops)
+  tktA   DOWN    kv=  0.2442 +PASS (TKT flux downregulated (PPP down at carbon limit))
+  fbaA   DOWN    kv=  9.4901 +PASS (FBA flux downregulated as glycolysis drops)
+  tpiA   DOWN    kv=  9.1466 +PASS (TPI flux downregulated)
+  gapA   DOWN    kv= 41.8455 +PASS (GAPD flux downregulated)
+  pgk    DOWN    kv= 41.8455 +PASS (PGK flux downregulated)
+  eno    DOWN    kv= 33.4625 +PASS (ENO flux downregulated)
+  mdh    STABLE  kv=  3.3416 -FAIL (MDH flux roughly stable (anaplerotic))
+  icd    STABLE  kv=  3.3903 -FAIL (ICDH flux roughly stable)
+  ackA   DOWN    kv=  0.0000 -FAIL (ACKr flux drops (acetate switch at low mu))
+  pta    DOWN    kv=  0.0000 -FAIL (PTAr flux drops)
+  acs    UP      kv=  0.0000 -FAIL (ACCS up (high-affinity AcCoA synthetase at low glucose))
+  ppsA   UP      kv=  0.0000 -FAIL (PPS up (gluconeogenic at low glucose))
+  pck    UP      kv=  1.3885 +PASS (PCK up (gluconeogenic at low glucose))
+  ppc    DOWN    kv=  1.3885 +PASS (PPC down (anaplerotic reduced))
+  direction test: 14/21 = 66.7% (E10 original: 14/21 = 66.7% with 21 predictions)

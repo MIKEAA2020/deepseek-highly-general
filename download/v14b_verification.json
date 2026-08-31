@@ -1,0 +1,216 @@
+{
+  "C1": {
+    "n_mapped": 15,
+    "n_zero_kappa": 14,
+    "nonzero_genes": [
+      "fbaA"
+    ],
+    "zero_genes_have_zero_flux_reactions": true
+  },
+  "C2": {
+    "total_reactions": 2583,
+    "active_any_T": 438,
+    "active_T1": 438,
+    "kappa_V_nonzero": 437,
+    "pct_active_any": 17.0
+  },
+  "C3": {
+    "r_full_n15": -0.1579159053375389,
+    "p_full": 0.5740526080221551,
+    "n_identical_zero_x": 14,
+    "x_variance_after_dropping_outlier": 0.0,
+    "pearson_undefined_after_dropping_outlier": true,
+    "outlier_gene": "fbaA (b2097): x=log10(9.49)=+0.977, y=0.44 (below mean of zeros 0.59)"
+  },
+  "C4": {
+    "FBA": 3.933426774319768,
+    "THIORDXi": 0.0,
+    "METSOXR1": 0.0,
+    "METSOXR2": 0.0,
+    "SPODM": 0.0,
+    "TREHpp": 0.0,
+    "TRE6PP": 0.0,
+    "UGLT": 0.0,
+    "NO3R1pp": 0.0,
+    "NO3R2pp": 0.0,
+    "G3PSabcpp": 0.0,
+    "CRNCAL2": 0.0,
+    "CTBTCAL2": 0.0,
+    "PROabcpp": 0.0
+  },
+  "verdicts": {
+    "C1_pass": true,
+    "C2_pass": true,
+    "C3_pass": true,
+    "C4_pass": true
+  },
+  "mapped15_rows": [
+    {
+      "gene": "fbaA",
+      "b_number": "b2097",
+      "reactions": [
+        "FBA"
+      ],
+      "max_kappa_V": 9.490141723290312,
+      "max_abs_flux_any_T": 3.933426774319768,
+      "all_rxn_fluxes_zero": false
+    },
+    {
+      "gene": "bcp",
+      "b_number": "b2480",
+      "reactions": [
+        "THIORDXi"
+      ],
+      "max_kappa_V": 0.0,
+      "max_abs_flux_any_T": 0.0,
+      "all_rxn_fluxes_zero": true
+    },
+    {
+      "gene": "caiC",
+      "b_number": "b0037",
+      "reactions": [
+        "CTBTCAL2",
+        "CRNDCAL2",
+        "CRNCAL2"
+      ],
+      "max_kappa_V": 0.0,
+      "max_abs_flux_any_T": 0.0,
+      "all_rxn_fluxes_zero": true
+    },
+    {
+      "gene": "galT",
+      "b_number": "b0758",
+      "reactions": [
+        "UGLT"
+      ],
+      "max_kappa_V": 0.0,
+      "max_abs_flux_any_T": 0.0,
+      "all_rxn_fluxes_zero": true
+    },
+    {
+      "gene": "msrA",
+      "b_number": "b4219",
+      "reactions": [
+        "METSOXR1"
+      ],
+      "max_kappa_V": 0.0,
+      "max_abs_flux_any_T": 0.0,
+      "all_rxn_fluxes_zero": true
+    },
+    {
+      "gene": "narJ",
+      "b_number": "b1226",
+      "reactions": [
+        "NO3R2pp",
+        "NO3R1pp"
+      ],
+      "max_kappa_V": 0.0,
+      "max_abs_flux_any_T": 0.0,
+      "all_rxn_fluxes_zero": true
+    },
+    {
+      "gene": "otsB",
+      "b_number": "b1897",
+      "reactions": [
+        "TRE6PP"
+      ],
+      "max_kappa_V": 0.0,
+      "max_abs_flux_any_T": 0.0,
+      "all_rxn_fluxes_zero": true
+    },
+    {
+      "gene": "proV",
+      "b_number": "b2677",
+      "reactions": [
+        "CRNabcpp",
+        "CRNDabcpp",
+        "PROabcpp",
+        "CTBTabcpp"
+      ],
+      "max_kappa_V": 0.0,
+      "max_abs_flux_any_T": 0.0,
+      "all_rxn_fluxes_zero": true
+    },
+    {
+      "gene": "proW",
+      "b_number": "b2678",
+      "reactions": [
+        "CRNabcpp",
+        "CRNDabcpp",
+        "PROabcpp",
+        "CTBTabcpp"
+      ],
+      "max_kappa_V": 0.0,
+      "max_abs_flux_any_T": 0.0,
+      "all_rxn_fluxes_zero": true
+    },
+    {
+      "gene": "sodA",
+      "b_number": "b3908",
+      "reactions": [
+        "SPODM"
+      ],
+      "max_kappa_V": 0.0,
+      "max_abs_flux_any_T": 0.0,
+      "all_rxn_fluxes_zero": true
+    },
+    {
+      "gene": "treA",
+      "b_number": "b1197",
+      "reactions": [
+        "TREHpp"
+      ],
+      "max_kappa_V": 0.0,
+      "max_abs_flux_any_T": 0.0,
+      "all_rxn_fluxes_zero": true
+    },
+    {
+      "gene": "ugpC",
+      "b_number": "b3450",
+      "reactions": [
+        "G3PGabcpp",
+        "G3PCabcpp",
+        "G3PEabcpp",
+        "GLYC2Pabcpp",
+        "GLYC3Pabcpp",
+        "G3PIabcpp",
+        "G3PSabcpp"
+      ],
+      "max_kappa_V": 0.0,
+      "max_abs_flux_any_T": 0.0,
+      "all_rxn_fluxes_zero": true
+    },
+    {
+      "gene": "yeaA",
+      "b_number": "b1778",
+      "reactions": [
+        "METSOXR2"
+      ],
+      "max_kappa_V": 0.0,
+      "max_abs_flux_any_T": 0.0,
+      "all_rxn_fluxes_zero": true
+    },
+    {
+      "gene": "yehX",
+      "b_number": "b2129",
+      "reactions": [
+        "CHLabcpp",
+        "GLYBabcpp"
+      ],
+      "max_kappa_V": 0.0,
+      "max_abs_flux_any_T": 0.0,
+      "all_rxn_fluxes_zero": true
+    },
+    {
+      "gene": "yehY",
+      "b_number": "b2130",
+      "reactions": [
+        "CHLabcpp",
+        "GLYBabcpp"
+      ],
+      "max_kappa_V": 0.0,
+      "max_abs_flux_any_T": 0.0,
+      "all_rxn_fluxes_zero": true
+    }
+  ]
+}

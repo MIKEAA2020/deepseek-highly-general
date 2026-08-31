@@ -1,8 +1,8 @@
 {
   "manuscript": "/tmp/my-project/scripts/journal_manuscript.tex",
-  "total_labels": 324,
-  "total_ref_keys": 705,
-  "total_ref_calls": 705,
+  "total_labels": 325,
+  "total_ref_keys": 709,
+  "total_ref_calls": 709,
   "dangling": [],
   "unused_labels": [
     {
@@ -32,7 +32,7 @@
     {
       "label": "conj:alg-envelope-restate",
       "lines": [
-        8448
+        8553
       ]
     },
     {
@@ -482,19 +482,13 @@
     {
       "label": "rem:curv-equiv",
       "lines": [
-        8071
+        8176
       ]
     },
     {
       "label": "rem:e19-three-follow-ups",
       "lines": [
-        7703
-      ]
-    },
-    {
-      "label": "rem:e20-three-follow-ups",
-      "lines": [
-        7845
+        7741
       ]
     },
     {
@@ -512,7 +506,7 @@
     {
       "label": "rem:elevation-summary-table-v6",
       "lines": [
-        7001
+        7039
       ]
     },
     {
@@ -554,13 +548,13 @@
     {
       "label": "rem:main-bound",
       "lines": [
-        7966
+        8071
       ]
     },
     {
       "label": "rem:main-falsifiable",
       "lines": [
-        8023
+        8128
       ]
     },
     {
@@ -698,13 +692,13 @@
     {
       "label": "sec:authorship",
       "lines": [
-        9015
+        9120
       ]
     },
     {
       "label": "sec:data-code",
       "lines": [
-        8967
+        9072
       ]
     },
     {
@@ -716,13 +710,13 @@
     {
       "label": "sec:future-directions",
       "lines": [
-        8527
+        8632
       ]
     },
     {
       "label": "sec:gem-limitations",
       "lines": [
-        8294
+        8399
       ]
     },
     {
@@ -764,13 +758,7 @@
     {
       "label": "sec:novelty-v11",
       "lines": [
-        7690
-      ]
-    },
-    {
-      "label": "sec:novelty-v12",
-      "lines": [
-        7833
+        7728
       ]
     },
     {
@@ -788,25 +776,25 @@
     {
       "label": "tab:gem-limitations",
       "lines": [
-        8342
+        8447
       ]
     },
     {
       "label": "tab:verdicts",
       "lines": [
-        8045
+        8150
       ]
     },
     {
       "label": "thm:seven-optic-functorial-informal",
       "lines": [
-        6882
+        6920
       ]
     }
   ],
   "multi_defined": [],
   "ref_macro_usage": {
-    "ref": 662,
+    "ref": 666,
     "eqref": 43
   },
   "prefix_buckets_dangling": {}

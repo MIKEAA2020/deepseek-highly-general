@@ -6681,17 +6681,27 @@ weakly-positive $[+0.08, +0.10]$ band:
   $p \approx 0.43$ at $n=92$.
 \end{itemize}
 Neither variant is individually significant at $\alpha=0.05$ at
-$n=92$, but the sign-flip \emph{consistency} across two
-methodologically distinct refinement paths (binary zeroing via mask
-vs.\ per-gene heterogeneous $\kappa_V$ via Keio GPR mapping)
-strengthens the original E10 verdict from WEAK-TO-MODERATE to
-WEAK-TO-MODERATE-WITH-CONFIRMED-SIGN-FLIP. The original $91/92$
+$n=92$, but the sign-flip \emph{consistency} across two routes that
+remove the same global-proxy artifact (binary $\Delta b = 0$ zeroing
+via the v12 mask vs.\ reaction-inactivity zeroing via the v13 GPR
+mapping; the v14b audit, \S\ref{sec:novelty-v14b}, shows both routes
+assign $\kappa_V = 0$ to the same $14$ metabolic genes and differ only
+at $b2097$) strengthens the original E10 verdict from WEAK-TO-MODERATE
+to WEAK-TO-MODERATE-WITH-CONFIRMED-SIGN-FLIP. The original $91/92$
 global-proxy dominance (the structural cause of the depressed Pearson
 $r$) is also reduced by the v13 patch to $77/92$ (i.e., $15/92$ MAPPED
-via GPR after Keio fallback). A counterintuitive MAPPED-only finding
-($n=15$, $r = -0.158$) suggests heavy-flux-perturbation metabolic genes
-are regulated at the protein level rather than transcriptionally; this
-warrants follow-up on a metabolic-gene-only expression compendium.
+via GPR after Keio fallback). A MAPPED-only subset analysis ($n=15$,
+$r = -0.158$) initially read as evidence of protein-level regulation of
+heavy-flux-perturbation metabolic genes was shown by the v14b audit to
+be a degenerate artifact --- $14$ identical zero-$\kappa_V$ genes plus
+the single outlier $b2097$, whose removal leaves the Pearson $r$
+formally undefined --- and is \emph{retracted}
+(\S\ref{sec:novelty-v14b}). The v15 round (\S\ref{sec:novelty-v15})
+then inverts the mapping direction --- sampling genes \emph{from} the
+$438$ active reactions rather than mapping the Lemuth panel
+\emph{into} the model --- and confirms that the disjointness is
+structural: the Lemuth panel and the active-reaction gene set share
+exactly one gene ($b2097$).
 \end{remark}
 
 \begin{remark}[Task E11: cross-organism closure test on iAF1260 +
@@ -7999,57 +8009,277 @@ anaerobic-only, or conditionally-inactive transporters), while the
 $77$ genes absent from iJO1366 (mostly flagella/chemotaxis, plus $14$
 with no b-number entry in the Baba 2006 supplementary) retained the
 global biomass-deficit curvature as a homogeneous $\kappa_V$ fallback.
-The v13 round (Study E21, ``E10 v2 --- Keio b-number fallback'') replaces
-that homogeneous fallback with a per-gene heterogeneous signal: the $77$
-previously-unmapped gene symbols are re-mapped against the Tomoya Baba
-2006 Keio supplementary table MOESM5 (which tabulates ECK number, gene
-symbol, JW ID, and b-number for the full Keio collection), and each
-recovered b-number is used to compute a per-gene $\kappa_V$ via the
-iJO1366 reaction whose gene-protein-reaction (GPR) rule most overlaps the
-recovered b-number, or, where no GPR match exists (the flagella and
-chemotaxis genes that iJO1366 explicitly excludes), via a reaction-level
-proxy drawn from the gene's curated functional annotation in EcoCyc.
-Re-running the E10 per-gene Pearson regression with this Keio-fallback
-$\kappa_V$ yields $r = +0.0838$ (95\% CI $[-0.12, +0.28]$, $n=92$,
-two-tailed $p \approx 0.43$ under the Fisher-z transform), an
-\emph{independent} sign flip from the unmasked $-0.0633$ ($\Delta =
-+0.147$ above the unmasked baseline, with the same positive sign as
-v12). Whereas the v12 mask is a binary filter that \emph{zeroes} the
-$\kappa_V$ of the 15 non-perturbing metabolic genes, the v13 patch
-\emph{replaces} their zero with per-gene heterogeneous $\kappa_V$ values
-drawn from their actual iJO1366 GPR reactions (e.g., $b2480 \to$ THIORDXi
-peroxide stress, $b4219 \to$ METSOXR1 methionine sulfoxide, $b3908 \to$
-SPODM superoxide dismutase, $b1197 \to$ TREHpp trehalose hydrolysis,
-$b1897 \to$ TRE6PP trehalose-6-phosphate synthase, $b0758 \to$ UGLT
-galactose metabolism, $b1226 \to$ NO3R1pp/NO3R2pp nitrate respiration,
-$b3450 \to$ G3PSabcpp glycerol-3-phosphate transport). The v13 $r$ is
-slightly \emph{below} the v12 $r$ ($\Delta = -0.019$ versus v12); this is
-biologically interpretable because the heterogeneous per-gene $\kappa_V$
-values of the 14 newly-mapped metabolic genes introduce modest noise
-relative to v12's clean binary zeroing. \textbf{Verdict:} the v12
-STRENGTHENED verdict on E10 is \textbf{independently confirmed} by v13;
-the Keio b-number fallback provides an alternative, biologically richer
-pathway to the same sign-flip conclusion as v12, with both variants
-placing $r$ in the same $[+0.08, +0.10]$ weakly-positive band well above
-the unmasked $-0.0633$ baseline. \textbf{Counterintuitive MAPPED-only
-finding:} restricting to the $n=15$ MAPPED metabolic genes alone, the
-per-gene-max Pearson $r$ is \emph{negative} ($-0.158$, $n=15$; 95\% CI
-$[-0.62, +0.39]$, two-tailed $p \approx 0.58$), consistent with the
-interpretation that metabolic genes with the largest flux perturbations
-are tightly regulated at the protein level (less transcriptional
-compensation needed), while small-perturbation metabolic genes rely more
-on transcriptional response --- a real biological signal that warrants
-follow-up on a metabolic-gene-only expression compendium. \textbf{Honest
-limitation:} at $n=92$ genes neither the v12 nor the v13 per-gene Pearson
-$r$ is individually significant at $\alpha=0.05$ under the Fisher-z
-transform (95\% CI for v12: $[-0.10, +0.30]$, $p \approx 0.33$; for v13:
-$[-0.12, +0.28]$, $p \approx 0.43$; both intervals include zero); the
-consolidation verdict therefore rests on the sign-flip consistency
-across two methodologically distinct $\kappa_V$-refinement paths
-(unmasked $-0.0633 \,\to\,$ gene-mask $+0.1024$; unmasked $-0.0633 \,\to\,$
-b-number fallback $+0.0838$) rather than on a single-variant
-significance test, and a permutation null would not be expected to reach
-$\alpha=0.05$ at this sample size.
+The v13 round (Study E21, ``E10 v2 --- Keio b-number fallback'') tightens
+the gene-to-reaction mapping: the $77$ previously-unmapped gene symbols
+are re-mapped against the Tomoya Baba 2006 Keio supplementary table
+MOESM5 (which tabulates ECK number, gene symbol, JW ID, and b-number for
+the full Keio collection); $14$ of them recover b-numbers present in
+iJO1366 (bcp/b2480, caiC/b0037, galT/b0758, msrA/b4219, narJ/b1226,
+otsB/b1897, proV/b2677, proW/b2678, sodA/b3908, treA/b1197, ugpC/b3450,
+yeaA/b1778, yehX/b2129, yehY/b2130), expanding the MAPPED set from $1$
+to $15$ and shrinking the GLOBAL proxy set from $91$ to $77$. Each
+recovered b-number's per-gene $\kappa_V$ is computed exactly as for the
+original direct match --- the max over the $\kappa_V$ of the iJO1366
+reactions in its GPR rule --- while genes with no iJO1366 b-number
+retain the global biomass-deficit proxy. Re-running the E10 per-gene
+Pearson regression with this Keio-fallback $\kappa_V$ yields $r =
++0.0838$ (95\% CI $[-0.12, +0.28]$, $n=92$, two-tailed $p \approx
+0.43$ under the Fisher-z transform), a sign flip from the unmasked
+$-0.0633$ ($\Delta = +0.147$) with the same positive sign as v12.
+
+\medskip
+\emph{v14b audit finding (correction).} A first-principles re-derivation
+of the v13 pipeline (fresh cobrapy FBA at the published Lemuth/Ishii
+physiology values, fresh GPR lookup, fresh Keio MOESM5 parsing; scripts
+\texttt{v14b\_verify\_claims.py} and
+\texttt{v14b\_reconstruct\_kappa.py}, which reproduce the stored
+unmasked/v12/v13 $r$ values of $-0.0633/+0.1024/+0.0838$ exactly) shows
+that the sign flip is \textbf{not} driven by per-gene
+\emph{heterogeneous} $\kappa_V$ values, as this paragraph previously
+claimed, and the previously-quoted EcoCyc annotation proxy for
+GPR-unmatched genes does not exist in the pipeline. Under
+glucose-limited aerobic FBA only $438$ of iJO1366's $2583$ reactions
+($17.0\%$) carry non-zero flux, and every reaction in the GPR rules of
+the $14$ newly-mapped genes is among the $2145$ inactive ones:
+THIORDXi, METSOXR1, METSOXR2, SPODM, TREHpp, TRE6PP, UGLT,
+NO3R1pp/NO3R2pp, the carnitine/betaine transporters of caiC, proV and
+proW, and the glycerol-3-phosphate transporters of ugpC all carry
+exactly zero flux at every one of T1--T8, so their $\kappa_V$ is $0$ at
+every time point --- the same end-state the v12 mask produces by binary
+zeroing, reached by an independent route (reaction inactivity rather
+than $\Delta b = 0$ isozyme logic). The two rounds differ at exactly
+one gene, $b2097$/$\mathit{fbaA}$: v12 zeroes its $\kappa_V$ (per-gene
+max $\Delta b = 0$ under single-gene KO, GPR ``b1773 or b2097 or
+b2925''), whereas v13 retains its genuine reaction-derived $\kappa_V$
+(max $= 9.49$ from the FBA reaction, which does carry flux); the
+$-0.019$ difference between the v12 and v13 $r$ values is attributable
+entirely to this single gene. \textbf{Verdict (corrected):} v12 and v13
+are \emph{structural corroboration} rather than \emph{methodological
+independence}: both remove the spurious non-zero global-proxy
+$\kappa_V$ that the unmasked E10 assigned to Lemuth metabolic genes
+whose reactions do not respond under the Lemuth condition, they agree
+on that removal for $14$ of the $15$ mapped genes, and they differ only
+on whether $b2097$'s genuine reaction-derived $\kappa_V$ is retained.
+\textbf{Retraction of the ``counterintuitive MAPPED-only finding'':}
+restricting to the $n=15$ MAPPED metabolic genes gives a per-gene-max
+Pearson $r$ of $-0.158$ ($n=15$; 95\% CI $[-0.62, +0.39]$, two-tailed
+$p \approx 0.58$), but this number is a degenerate small-sample
+artifact, not a biological signal: $14$ of the $15$ genes have
+identically zero $\kappa_V$ (log$_{10}$-clipped to $-12$) and the
+single remaining gene ($b2097$) sits at high $\kappa_V$ with
+below-average $|\log_2 \mathrm{FC}|$ ($0.44$ versus mean $0.59$ of the
+fourteen zeros); removing that one point leaves zero variance in $x$,
+so the Pearson $r$ is formally undefined on the remaining $14$. The
+earlier interpretation of this $r = -0.158$ as evidence of protein-level
+regulation of heavy-flux-perturbation metabolic genes is
+\emph{retracted}; it rested on the false premise of heterogeneous
+$\kappa_V$ within the MAPPED set. \textbf{Honest limitation:} at $n=92$
+genes neither the v12 nor the v13 per-gene Pearson $r$ is individually
+significant at $\alpha=0.05$ under the Fisher-z transform (95\% CI for
+v12: $[-0.10, +0.30]$, $p \approx 0.33$; for v13: $[-0.12, +0.28]$,
+$p \approx 0.43$; both intervals include zero); the sign-flip verdict
+therefore rests on the consistent removal of the same global-proxy
+artifact across two masking routes (unmasked $-0.0633 \,\to\,$
+gene-mask $+0.1024$; unmasked $-0.0633 \,\to\,$ b-number fallback
+$+0.0838$) rather than on a single-variant significance test, and a
+permutation null would not be expected to reach $\alpha=0.05$ at this
+sample size. The structural cause of the depressed Pearson $r$ --- the
+$77/92$ global-proxy dominance --- is unaffected by this correction;
+the v15 round (\S\ref{sec:novelty-v15}) addresses it head-on by
+sampling genes \emph{from the active-reaction set} instead of mapping
+Lemuth genes \emph{into} it.
+
+% =============================================================
+\subsection{v14b correction round: audit of the v13 MAPPED set
+(E10 v2)}\label{sec:novelty-v14b}
+% =============================================================
+
+The v14b round is a \emph{correction} round, not a new elevation. A
+first-principles re-derivation of the v13 pipeline --- fresh cobrapy
+FBA at the published Lemuth/Ishii physiology values ($q_{glc}$
+declining $5.0 \to 1.0$ mmol/gDW/h, $q_{O2}$ $22.0 \to 5.0$), fresh
+GPR lookup, fresh Keio MOESM5 parsing; scripts
+\texttt{v14b\_verify\_claims.py} (claim-by-claim audit) and
+\texttt{v14b\_reconstruct\_kappa.py} (full $\kappa_V$ reconstruction)
+--- reproduced the stored unmasked/v12/v13 per-gene Pearson $r$ values
+($-0.0633$, $+0.1024$, $+0.0838$) to four decimal places and then
+audited the $n=15$ MAPPED set. The audit found that the v13 narrative
+contained two false statements (a nonexistent EcoCyc proxy in the
+method description, and the ``per-gene heterogeneous $\kappa_V$'' /
+``real biological signal'' interpretation of the result), which are
+corrected in \S\ref{sec:novelty-v13} above. The verified facts are:
+\begin{enumerate}\itemsep0pt
+\item \textbf{Inactive-reaction bottleneck.} Only $438$ of iJO1366's
+  $2583$ reactions ($17.0\%$) carry non-zero flux under the Lemuth
+  glucose-limited aerobic FBA condition; $437$ of these have non-zero
+  $\kappa_V$ over T1--T8. All reactions in the GPR rules of the $14$
+  newly-mapped metabolic genes (bcp, caiC, galT, msrA, narJ, otsB,
+  proV, proW, sodA, treA, ugpC, yeaA, yehX, yehY) are among the
+  $2145$ inactive reactions, so their $\kappa_V$ is exactly $0$ at
+  every time point.
+\item \textbf{v12/v13 equivalence up to one gene.} The v12 masked and
+  v13 patched per-gene $\kappa_V$ vectors over the $92$ Lemuth genes
+  differ at exactly one gene: $b2097$ ($\mathit{fbaA}$; $0$ under v12,
+  $9.49$ under v13). The $-0.019$ difference between the v12 and v13
+  $r$ values is attributable entirely to this single gene.
+\item \textbf{MAPPED-only degeneracy.} The $n=15$ MAPPED-only Pearson
+  $r = -0.158$ is a small-sample artifact: $14$ identical
+  zero-$\kappa_V$ genes plus one outlier ($b2097$: high $\kappa_V$,
+  below-average $|\log_2 \mathrm{FC}|$). Dropping the outlier leaves
+  zero variance in the predictor, so the Pearson $r$ is undefined on
+  the remaining $14$; no biological signal can be extracted from this
+  subset. The protein-level-regulation interpretation is retracted.
+\end{enumerate}
+\noindent The v12 and v13 rounds therefore constitute
+\emph{structural corroboration} (two routes to the same
+global-proxy-artifact removal) rather than \emph{methodological
+independence}, and the honest characterization of E10 after v14b is:
+the per-gene $\kappa_V$ signal over the Lemuth $92$-gene panel is
+weakly positive after artifact removal ($r \in [+0.08, +0.10]$,
+individually non-significant at $n=92$), with the dominant residual
+limitation being the $77/92$ global-proxy fraction and the $17.0\%$
+active-reaction coverage of the condition itself. Both limitations
+motivate the v15 reaction-based sampling round
+(\S\ref{sec:novelty-v15}), which inverts the mapping direction ---
+sampling genes \emph{from} the $438$ active reactions rather than
+mapping the Lemuth panel \emph{into} the full reaction set --- and
+asks whether per-gene $\kappa_V$ heterogeneity across the
+active-reaction gene set carries transcript-level signal.
+
+\textbf{Artifacts.} Scripts: \texttt{v14b\_verify\_claims.py},
+\texttt{v14b\_reconstruct\_kappa.py},
+\texttt{v14b\_restore\_lemuth\_data.py} (rebuilds the Lemuth JSON
+input from the archived v1-backup CSV; the JSON is bit-exact against
+the archived per-time-point $\log_2$ values). Outputs:
+\texttt{v14b\_verification.\{txt,json\}},
+\texttt{v14b\_mapped15\_firstprinciples.json},
+\texttt{v14b\_mapped15\_audit.\{csv,txt,json\}} (Phase-1 audit),
+\texttt{v14b\_options\_evaluation.md} (options A--D evaluation with
+the internet-access verification table). The audit verdicts: C1
+(14/15 zero-$\kappa_V$) CONFIRMED, C2 (438/2583 active) CONFIRMED,
+C3 (outlier artifact) CONFIRMED, C4 (named reactions inactive)
+CONFIRMED.
+
+% =============================================================
+\subsection{v15 reaction-based sampling: genes from the active-reaction
+set (E22)}\label{sec:novelty-v15}
+% =============================================================
+
+The v15 round (Study E22, ``reaction-based sampling''; script
+\texttt{novelty\_v15\_reaction\_sampling\_e22.py}) implements the Option~C
+design approved after the v14b audit: it \emph{inverts} the E10 mapping
+direction. Instead of mapping the $92$ Lemuth genes into iJO1366 ---
+which the v14b audit showed fails structurally ($14/15$ mapped genes
+have zero-flux reactions) --- E22 samples genes \emph{from} the
+active-reaction set: fresh cobrapy FBA at the identical E10 physiology
+($q_{glc}$ $5.0 \to 1.0$ mmol/gDW/h, $q_{O_2}$ $22.0 \to 5.0$),
+reaction-level $\kappa_V(r,t) = (v_r(t) - v_r(\mathrm{T1}))^2$ with the
+identical E10/v13 definition, and per-gene
+$\kappa_V(g,t) = \max_r \kappa_V(r,t)$ over all reactions $r$ of gene
+$g$ in its GPR rules.
+
+\emph{Verification (four checks, all passed).}
+\begin{enumerate}\itemsep0pt
+\item \textbf{GPR mapping correctness} {[C-map]}: the
+  active-reaction$\,\to\,$gene map is taken from cobra's authoritative
+  \texttt{reaction.genes}, spot-checked against the raw GPR rule
+  strings on four reactions spanning all complexity classes (FBA:
+  ``b1773 or b2097 or b2925''; ATPS4rpp: nested 2-complex OR;
+  PDH: ``b0115 and b0114 and b0116''; GLCptspp: 3-complex OR), with
+  set-equality between rule-string gene tokens and cobra's gene set,
+  and a bidirectional gene$\leftrightarrow$reaction symmetry check on
+  $50$ sampled genes ($0$ failures over $120$ gene-reaction pairs).
+\item \textbf{$\kappa_V$ definition consistency} {[C-def]}: the fresh
+  re-derivation reproduces the stored E10/v13 values exactly --- all
+  $15$ MAPPED-gene $\kappa_V$ maxima ($b2097 = 9.490142$; the other
+  $14$ exactly $0$), the global biomass-deficit $\kappa_V$ maximum
+  ($0.158543$), and the unmasked/v12/v13 per-gene Pearson $r$
+  ($-0.0633$, $+0.1024$, $+0.0838$) to four decimals.
+\item \textbf{Distinctness} {[C-dist]}: the new panel shares exactly
+  $1$ of the $15$ MAPPED b-numbers ($b2097$) and exactly $1$ gene with
+  the Lemuth $92$ ($b2097$); $434$ of $435$ panel genes are distinct
+  from the original $15$.
+\item \textbf{Non-zero variation} {[C-var]}: \emph{every} panel gene
+  has $\kappa_V$ variation $> 0$ over T1--T8 ($435/435$; the
+  zero-dominated failure mode of the MAPPED-15 route is excluded by
+  construction).
+\end{enumerate}
+
+\emph{Panel construction.} Of iJO1366's $2583$ reactions, $438$
+($17.0\%$) carry non-zero flux under the Lemuth condition and $437$
+have non-zero $\kappa_V$; $404$ of the active reactions carry GPR
+gene assignments, giving a gene panel of $435$ genes ($31.8\%$ of the
+model's $1367$ genes; $434$ excluding the spontaneous pseudo-gene
+\texttt{s0001}). Of the $92$ Lemuth genes, $73$ recover Keio b-numbers
+by exact/case-insensitive symbol matching, $15$ of those b-numbers are
+in iJO1366 (the MAPPED-15 of v13), and exactly one of those ($b2097$)
+has flux-carrying reactions --- so the E10-lineage per-gene Pearson
+regression \emph{cannot} be extended to the panel on local data: the
+Lemuth expression panel and the active-reaction gene set are
+structurally disjoint. This is the honest central finding of E22: the
+correlation is blocked by \emph{expression coverage}, not by mapping.
+Extending it requires either an expression compendium over the panel
+(COLOMBOS/M3D, Option~A, deferred) or condition swaps that activate
+the $14$ zero-$\kappa_V$ genes (Option~D, the natural next round).
+
+\emph{Distributional structure of the panel.} The per-gene
+$\kappa_V$ maximum over the panel is extremely concentrated: Gini
+$0.932$; the top $1\%$ of genes ($4$ genes) hold $18.0\%$ of total
+$\kappa_V$, the top $5\%$ ($22$ genes) hold $76.5\%$, and the top
+$10\%$ ($44$ genes) hold $97.4\%$; a Hill tail-index estimate gives
+$\alpha \approx 0.43$ ($m = 50$), and a lognormal fit on
+$\log_{10}\kappa_V$ is rejected (KS $p = 6.0 \times 10^{-4}$,
+$\hat\mu = -3.04$, $\hat\sigma = 3.43$). The curvature is dominated by
+the ATP-synthase GPR complex of ATPS4rpp ($b3731$--$b3739$,
+$\kappa_V^{\max} = 466.63$), the water-transport porin/diffusion
+system (H2Otpp and cognates, $\kappa_V^{\max} = 330.20$), and the
+cytochrome-$bo_3$ oxidase pair ($b0429$/$b0430$, $185.19$):
+as $q_{O_2}$ declines $5.5$-fold over T1--T8, the
+oxidative-phosphorylation and associated transport fluxes carry
+almost all of the perturbation curvature. By subsystem, the leading
+$\kappa_V$ carriers are oxidative phosphorylation ($802.4$),
+outer-membrane porins ($467.2$), inner-membrbrane transport
+($404.8$), and glycolysis/gluconeogenesis ($193.7$).
+
+\emph{GPR complexity (genome-scale extension of the v12 isozyme
+finding).} Over the $438$ active reactions the GPR classes are:
+single-gene $254$, isozyme (pure OR) $96$, enzyme complex (pure AND)
+$36$, mixed nested $18$, no-GPR $34$. Thus $96/438 = 21.9\%$ of
+active reactions \emph{cannot} be disabled by any single-gene
+knockout --- the genome-scale quantification of the isozyme-cover
+mechanism that made $b2097$'s single-KO $\Delta b = 0$ in v12 ---
+and the mixed nested rules (e.g.\ ATPS4rpp, GLCptspp) carry the
+highest mean $\kappa_V$ ($26.8$), so the most heavily perturbed
+reactions are precisely those whose GPR structure makes
+single-gene deletion least informative.
+
+\emph{Direction-test re-verification.} The E10 direction test
+($21$ published predictions; UP/DOWN genes require
+$\kappa_V > 0.01$, STABLE genes require $\kappa_V < 0.01$) reproduces
+the stored E10 result \emph{exactly}: $14/21 = 66.7\%$ pass, with
+identical per-gene $\kappa_V$ values (e.g.\ $\mathit{gapA} = 41.85$,
+$\mathit{eno} = 33.46$, $\mathit{gltA} = 3.39$) --- a final
+consistency check that the v15 reaction-level $\kappa_V$ is the same
+quantity as the E10 one.
+
+\textbf{Verdict:} E22 does not strengthen or weaken the E10
+correlation verdict (per-gene $r \in [+0.08, +0.10]$ after artifact
+removal, individually non-significant at $n=92$); it replaces the
+failed gene-mapping route with a sound panel construction, proves
+the Lemuth$\,\cap\,$panel disjointness is structural, quantifies the
+$\kappa_V$ concentration structure over the panel (Gini $0.93$,
+top-$10\%$ carry $97.4\%$), and delivers the
+reaction$\,\to\,$gene map that both remaining options require.
+The $435$-gene panel with full $\kappa_V$ trajectories is exported
+for either downstream route.
+
+\textbf{Artifacts.} Script:
+\texttt{novelty\_v15\_reaction\_sampling\_e22.py} ($\sim$$560$ lines).
+Outputs:
+\texttt{novelty\_v15\_reaction\_sampling\_e22.\{csv,txt,png,results.json\}}
+in \texttt{download/} (the CSV is the full panel: gene, name, active
+reactions, GPR class, subsystem, $\kappa_V$ T1--T8, variance, and
+Lemuth/MAPPED-15 membership flags).
 
 \section{Main Proposition}\label{sec:mainprop}
 % =============================================================

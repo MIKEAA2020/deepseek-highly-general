@@ -3191,3 +3191,153 @@ Next-step recommendation:
   compendium (COLOMBOS or M3D) where every gene maps to an iJO1366
   reaction, removing the 77-gene global-proxy dominance that still
   depresses the per-gene Pearson r at v12 (+0.1024) and v13 (+0.0838).
+
+---
+Task ID: v14b-fix-and-v15-option-c
+Agent: main (Z.ai)
+Task: User approved (1) the critical v14b manuscript fix (remove false
+statements from the v13 narrative) and (2) Option C — reaction-based
+sampling (Study E22 / v15). Both were implemented, with verification
+before and after each.
+
+Work Log:
+- ENVIRONMENT RESTORATION: cobrapy and /tmp/lemuth_ts_clean.json had
+  been lost from the environment (/tmp resets). Installed cobra 0.32.1
+  into /home/z/.venv; downloaded iJO1366 from BIGG (2583 rxns, 1367
+  genes) and cached locally at data/bigg_models/iJO1366.json;
+  reconstructed /tmp/lemuth_ts_clean.json from the archived v1-backup
+  E10 CSV (92 genes x 8 timepoints, bit-exact cross-check vs the
+  patched CSV: 0/736 mismatches). Script:
+  scripts/v14b_restore_lemuth_data.py.
+- VERIFICATION (before the fix): scripts/v14b_verify_claims.py re-ran
+  the FBA from first principles and confirmed all four audit claims:
+  C1 = 14/15 MAPPED genes have kappa_V = 0 at all 8 timepoints (only
+  b2097/fbaA non-zero, max 9.490142 — exact match); C2 = 438/2583
+  (17.0%) reactions active under the Lemuth condition; C3 = the
+  MAPPED-only r = -0.1579 is an outlier artifact (14 identical zeros
+  + b2097; removing b2097 leaves zero x-variance, Pearson undefined);
+  C4 = all audit-named reactions (THIORDXi, METSOXR1/2, SPODM, TREHpp,
+  TRE6PP, UGLT, NO3R1pp/2pp, G3PSabcpp, CRNCAL2, CTBTCAL2, PROabcpp)
+  carry zero flux; FBA is the only active one.
+- DISCOVERED during verification: the /tmp patched E10 CSV had again
+  reverted to the original 1-MAPPED version (periodic /tmp resets).
+  Built scripts/v14b_reconstruct_kappa.py, which reconstructs the
+  unmasked/v12/v13 per-gene kappa_V vectors entirely from first
+  principles (fresh FBA + GPR + Keio MOESM5). It reproduces unmasked
+  r = -0.0633, v12 r = +0.1024, v13 r = +0.0838 to 4 decimals and
+  proves the v12 and v13 kappa_V vectors differ at EXACTLY ONE gene
+  (b2097: 0 under v12, 9.49 under v13) — the structural fact behind
+  the manuscript correction.
+- v14b MANUSCRIPT FIX (scripts/v14b_patch_manuscript.py, 3 patches):
+  P1 rewrote the v13 paragraph (sec:novelty-v13): removed the false
+  "per-gene heterogeneous kappa_V" claim and the nonexistent "EcoCyc
+  annotation proxy" method description; replaced with the verified
+  narrative (14/15 GPR reactions inactive -> kappa_V = 0, same
+  end-state as v12 mask; v12/v13 differ only at b2097; verdict
+  reframed from "independently confirmed" to "structural
+  corroboration"; RETRACTED the "counterintuitive MAPPED-only finding
+  = protein-level regulation" interpretation as a degenerate
+  small-sample artifact).
+  P2 fixed the two echoes in the E10 Results follow-ups paragraph
+  (sign-flip consistency wording + retraction sentence).
+  P3 inserted the new subsection sec:novelty-v14b (correction-round
+  record: three verified findings + artifacts + audit verdicts
+  C1–C4 all CONFIRMED).
+  One patcher bug (broken idempotency check on P3) duplicated the
+  v14b subsection once; removed via scripts/v14b_dedupe_subsection.py
+  and the patcher's P3 check was hardened. Final state: 1 subsection,
+  1 label, 0 false-statement markers.
+- OPTION C IMPLEMENTATION (Study E22 / v15):
+  scripts/novelty_v15_reaction_sampling_e22.py (~560 lines). Inverts
+  the mapping direction: samples genes FROM the 438 active reactions
+  via cobra's authoritative reaction.genes GPR map; per-gene
+  kappa_V(g,t) = max over the gene's reactions (E10-identical
+  aggregation).
+  All four user-requested cautions verified IN-SCRIPT:
+  [C-map] GPR spot-checks on FBA/ATPS4rpp/PDH/GLCptspp (rule-string
+  token SET == cobra gene set — fixed a first-draft token-count bug
+  where nested rules repeat genes) + 0/120 symmetry failures on 50
+  sampled genes.
+  [C-def] all 15 MAPPED kappa values, global kappa 0.158543, and the
+  three r values reproduce exactly.
+  [C-dist] panel = 435 genes; overlap with the 15 MAPPED = {b2097}
+  only (434 distinct); Lemuth∩panel = {b2097}.
+  [C-var] 435/435 = 100% of panel genes have non-zero kappa_V
+  variation (the zero-dominated failure mode is excluded by
+  construction).
+  Results: 404/438 active reactions carry GPR genes -> 435-gene panel
+  (31.8% of 1367; 434 excluding spontaneous s0001). kappa_V
+  distribution extremely concentrated: Gini 0.932, top 1%/5%/10% of
+  genes hold 18.0%/76.5%/97.4% of total kappa_V, Hill alpha ~ 0.43,
+  lognormal rejected (KS p = 6.0e-4). Top carriers: ATPS4rpp complex
+  b3731–b3739 (466.63), H2O-transport porin/diffusion system
+  (330.20), cydAB bo3-oxidase b0429/b0430 (185.19). Top subsystems:
+  oxidative phosphorylation (802.4), porins (467.2), inner-membrane
+  transport (404.8), glycolysis (193.7). GPR classes over active
+  reactions: single 254, isozyme-OR 96 (21.9% — genome-scale
+  quantification of the v12 isozyme-cover finding), complex-AND 36,
+  mixed 18, no-GPR 34; mixed rules carry the highest mean kappa
+  (26.8). Direction test re-verified with E10's EXACT 21-prediction
+  list (first draft had a reconstructed 23-entry list — corrected):
+  14/21 = 66.7% pass, per-gene kappa values identical to stored E10.
+  E10-lineage correlation on the panel: Lemuth ∩ panel = 1 gene
+  (b2097) -> per-gene Pearson NOT COMPUTABLE at meaningful n on
+  local data — the honest central finding: the block is expression
+  COVERAGE, not mapping. Extending requires Option A (compendium,
+  deferred) or Option D (condition swaps, next round).
+  Outputs: download/novelty_v15_reaction_sampling_e22.{csv,txt,png,
+  results.json} (CSV = full 435-gene panel with kappa trajectories,
+  GPR class, subsystem, Lemuth/MAPPED15 flags).
+- v15 MANUSCRIPT UPDATE (scripts/v15_patch_manuscript.py): P1 added
+  the forward-pointer sentence in the E10 Results follow-ups
+  paragraph (structural disjointness, Lemuth ∩ panel = b2097); P2
+  inserted the new subsection sec:novelty-v15 (E22) with the four
+  verification checks, panel construction, distributional structure,
+  GPR-complexity analysis, direction-test re-verification, honest
+  verdict ("does not strengthen or weaken the E10 verdict; it
+  replaces the failed gene-mapping route with a sound panel
+  construction and proves the disjointness is structural"), and
+  artifacts. This resolves the 2 forward references to
+  sec:novelty-v15 that the v14b text had left dangling.
+- FINAL QA: reference audit (scripts/audit_manuscript_refs.py) ->
+  0 dangling references; brace/begin-end balances unchanged from the
+  git baseline; version subsection chain now v10 -> v11 -> v12 ->
+  v13 -> v14b -> v15; tectonic compile SUCCESS (6.18 MiB PDF, only
+  pre-existing warning: citation orth2011comprehensive missing from
+  the .bib, present in the git baseline too — out of scope). Fresh
+  PDF copied to download/journal_manuscript.pdf and mirrored to
+  /tmp/my-project/scripts/.
+
+Stage Summary:
+- v14b fix COMPLETE: the manuscript no longer contains the false
+  "per-gene heterogeneous kappa_V" / "EcoCyc proxy" statements; the
+  r = -0.158 protein-level-regulation interpretation is formally
+  retracted as a degenerate artifact; the v13 narrative now states
+  the verified facts (14/15 zero-flux reactions; v12/v13 differ only
+  at b2097; structural corroboration, not methodological
+  independence).
+- Option C (v15/E22) COMPLETE with all four user cautions verified:
+  correct GPR mapping (spot-checks + symmetry), kappa_V consistent
+  with E10/v13 definitions (exact reproduction of all stored
+  values), gene set truly distinct from the original 15 (434/435),
+  and 100% non-zero kappa_V variation across the 435-gene panel.
+- Key structural findings for the record: (i) the E10 correlation is
+  blocked by expression coverage, not gene mapping (Lemuth ∩
+  active-reaction genes = 1 gene); (ii) kappa_V is extremely
+  concentrated over the panel (Gini 0.93; top 10% of genes carry
+  97.4%); (iii) 21.9% of active reactions have isozyme OR-GPRs and
+  cannot be disabled by single-gene KO (v12's mechanism, quantified);
+  (iv) the most perturbed reactions (ATPS4rpp, GLCptspp) are exactly
+  those with mixed nested GPRs.
+- Deliverables: 7 new scripts (v14b_restore_lemuth_data,
+  v14b_verify_claims, v14b_reconstruct_kappa, v14b_patch_manuscript,
+  v14b_dedupe_subsection, novelty_v15_reaction_sampling_e22,
+  v15_patch_manuscript), v15 outputs (csv/txt/png/json), v14b
+  verification outputs, updated manuscript (+v14b and +v15
+  subsections, compiled PDF), restored iJO1366 model cache and
+  Lemuth JSON.
+- Next step (per user's decision): Option D (multi-condition FBA
+  swaps: anaerobic+NO3 for narJ, glycerol for ugpC, oxidative stress
+  for bcp/msrA/yeaA/sodA, osmotic for proV/proW/otsB/treA) — the
+  435-gene panel and reaction->gene map from E22 are the required
+  foundation and are now in place.
