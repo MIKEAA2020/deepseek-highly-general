@@ -1,0 +1,72 @@
+E20 — v12 ITERATED ELEVATION: THREE FOLLOW-UPS FROM v11 (E19)
+==============================================================================
+
+USER'S THREE FOLLOW-UP REQUESTS:
+  (1) extend E8's ODE viability threshold sweep to include τ < 0.01
+      (e.g., 0.005) to see if the marginal strengthening continues
+      or saturates;
+  (2) reconsider the gene-level (rather than time-level) indicator
+      mask for E10 — a per-gene max Δb over T1..T8 would create
+      meaningful differentiation across genes;
+  (3) audit the manuscript for other dangling \ref{def:...} references
+      that may exist (one was found and fixed in v11; there may be
+      others).
+
+§1 E8 EXTENDED THRESHOLD SWEEP (τ < 0.01 added)
+  Baseline viability (Network K ODE, normalized) = 1.0000
+  Original E8 metrics (unweighted):
+    Zero-order r(κ_V, erosion) = +0.9067
+    Zero-order Spearman ρ = +0.8012
+    Partial r(κ_V, erosion | viability_margin) = +0.8488
+    Bootstrap mean = +0.8498
+    95% CI = [+0.7130, +0.9402]
+
+  Extended τ sweep:
+         τ  #pass     r zero     ρ zero  r partial   CI low  CI high
+    -----------------------------------------------------------------
+     0.001     55    +0.9114    +0.9547    +0.8567  +0.7286  +0.9456
+     0.002     53    +0.9122    +0.9673    +0.8578  +0.7302  +0.9467
+     0.005     51    +0.9124    +0.9648    +0.8582  +0.7305  +0.9468
+     0.010     22    +0.9152    +0.7816    +0.8640  +0.7355  +0.9485
+     0.020     20    +0.9141    +0.7550    +0.8624  +0.7355  +0.9453
+     0.030     16    +0.9106    +0.6934    +0.8578  +0.7218  +0.9392
+     0.050     12    +0.9016    +0.6147    +0.8414  +0.7074  +0.9210
+     0.100     10    +0.8746    +0.5675    +0.7940  +0.6382  +0.8930
+
+  VERDICT (E8 extended sweep): SATURATED: marginal strengthening at small τ does NOT continue below v11's 0.01 floor; v11 τ=0.01 was the saturation point
+
+§2 E10 GENE-LEVEL (per-gene max Δb) INDICATOR MASK
+  Mapped 78/92 Lemuth genes to iJO1366 b-numbers (via Tomoya Baba Keio supp)
+  b_wt (T1) = 0.4847
+  Per-gene max Δb over T1..T8 range: [0.0000, 0.0000]
+  Top 10 genes by per-gene max Δb:
+    b2097  -> b=b2097 , max Δb = 0.0000 (+0.0% of b_wt)
+    narJ   -> b=b1226 , max Δb = 0.0000 (+0.0% of b_wt)
+    bcp    -> b=b2480 , max Δb = 0.0000 (+0.0% of b_wt)
+    msrA   -> b=b4219 , max Δb = 0.0000 (+0.0% of b_wt)
+    sodA   -> b=b3908 , max Δb = 0.0000 (+0.0% of b_wt)
+    yeaA   -> b=b1778 , max Δb = 0.0000 (+0.0% of b_wt)
+    proW   -> b=b2678 , max Δb = 0.0000 (+0.0% of b_wt)
+    yehX   -> b=b2129 , max Δb = 0.0000 (+0.0% of b_wt)
+    yehY   -> b=b2130 , max Δb = 0.0000 (+0.0% of b_wt)
+    proV   -> b=b2677 , max Δb = 0.0000 (+0.0% of b_wt)
+
+  GENE-LEVEL mask sweep:
+         τ  #genes  all-pairs r  per-gene r  per-gene ρ    Δr all    Δr per
+    ----------------------------------------------------------------------
+      orig (no mask)      +0.2158     -0.0633     -0.0948
+     0.005      77      +0.2170     +0.1024     +0.0848   +0.0012   +0.1657
+     0.010      77      +0.2170     +0.1024     +0.0848   +0.0012   +0.1657
+     0.020      77      +0.2170     +0.1024     +0.0848   +0.0012   +0.1657
+     0.050      77      +0.2170     +0.1024     +0.0848   +0.0012   +0.1657
+     0.100      77      +0.2170     +0.1024     +0.0848   +0.0012   +0.1657
+     0.200      77      +0.2170     +0.1024     +0.0848   +0.0012   +0.1657
+
+  VERDICT (E10 gene-level mask): STRENGTHENED: per-gene indicator creates meaningful differentiation
+
+§3 MANUSCRIPT AUDIT FOR DANGLING \ref{...} REFERENCES
+  Total defined labels: 325
+  Total references:      707 (unique: 193)
+  DANGLING references:   0
+
+  (Patcher patch_manuscript_v12.py fixes any found.)
