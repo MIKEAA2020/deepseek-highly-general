@@ -3779,3 +3779,26 @@ Stage Summary:
   v20.
 - Manuscript version chain now v10 -> ... -> v20; this commit pushed
   to github.com/MIKEAA2020/deepseek-highly-general main.
+
+---
+Task ID: joint-3 (2nd wave)
+Agent: main (Z.ai)
+Task: Read the 3 new audits in external_audits/2nd wave/ (GLM, DeepSeek, Line_Level_Review_Report.pdf) at line level; independently verify every audit claim against the v20 manuscript (tex + PDF + result JSONs + scripts); refute/correct audit errors; provide joint assessment strengthening weaker suggestions before implementation; commit and push.
+
+Work Log:
+- Pulled origin/main: 3 new commits added external_audits/2nd wave/ (glm audit highly general.txt 52 lines; deepseek highly general audit.txt 366 lines; Line_Level_Review_Report.pdf 19 pp, 81 findings).
+- Read all three audits in full (PDF text-extracted to external_audits/2nd wave/Line_Level_Review_Report_extracted.txt).
+- Verification layer 1 (LaTeX source, 10,670 lines): citation-coverage audit via cite/bibitem set arithmetic -> 12 never-cited refs (audits said 11; missed breen1990bitorseurs), 6 false "Cited in §X" annotations (VV/Hirota/Segura/Kirchhoff/Becker/Bravetti), 1 broken key orth2011comprehensive -> renders "[?]". Confirmed: EC 2.7.4.1 double-assignment (L4770 vs L4776), -0.018 vs -0.008 (L7429/7543 vs 1321/7730/7741), network counts 2/4/2/4/10 (L135/329/426/4285/9518/10006), 52/52 vs limitations denial, definition shopping quote (L7637-7641), label leakage quote (L7589-90), AUC 0.428 "WRONG direction" (L7463), patch script names (L8046-47), raw tomoya baba supp (L7137), §1.4 and §7 dangling refs, "3...E10,E12,E15 and E16", Table 4 E1-E9 only vs 3 false "updated" claims, SAVGS 5-tuple vs 5-item mismatch, §21.5 "plausible but not currently provable" preamble vs [CLOSED] entries (new precise finding), "no open conjectures remain" vs 2 open statements.
+- Verification layer 2 (PDF, 131 pp): span-level coordinates confirmed Def 3.18 step labels (ii)-(v) begin at x<0 (physically clipped; "Drift/Recovery/Downstream/Restoration" absent from text layer); Table 6 cells end mid-word ("growt" x3, "regulat" x1) at x≈435; Figure 7 caption CO(3) vs main-text SO(3). Full-text counts: "the user"=6 (audit said 9), Qwen=34, commit 07e6d85=5, COLOMBOS=3.
+- Verification layer 3 (render/VLM, 4x zoom): Def 3.18 clipping render-verified (step numbers missing, first words cut mid-word); DeepSeek's "stray Q" REFUTED — correctly rendered ∏ product symbol, extraction-layer artifact only (audit error).
+- Verification layer 4 (result JSONs): E16 ground truth iML1515 Pearson = -0.0178 -> -0.018 correct, -0.008 wrong (3 sites), gap 0.103 correct; E15 values all confirmed (0.0847/0.2284/0.7126/0.245); nprod>=5 stratum = 10/11 in CSV vs 9/10 in manuscript (new discrepancy).
+- Verification layer 5 (code reading): autopoiesis_ijO1366.py knocks out ALL producers (matches text) -> REFUTES Editorial audit's §18.4 "text vs code" claim; replaced with sharper protocol-degeneracy finding (verdict ⟺ baseline_prod > 1e-6; knockout/recovery vacuous; generalizes to E2). novelty_structural_benchmark_e14.py seed = 18 extracellular mets only; all-reactants rule + cofactor blocking -> NE scope collapses to 45 mets (GLM's artifact suspicion confirmed and completed).
+- Math re-derivations: [d-D]²+ is C¹ not C² at d=D; Lemma 4.10 denominator →0 as τ→0; Theorem 4.11 discrete-enumerable vs continuum; Cor 4.14 πa⁴ vs πa² + V_max dropped; matching condition O3 BCH-as-exact; Thm 3.5 "crossing once" impossible + O(1) in ε² expansion; E13 Φ(S)⊆S false; realization functor R ×6 never defined; Prop 18.26 contractible⟺Phase I by construction; DeepSeek #12 CPTP algebra CORRECT (pk/2ⁿ·P/k = (p/2ⁿ)P, k cancels).
+- Wrote scripts/joint_assessment_2nd_wave_pdf.py (ReportLab, 3-accent palette teal/plum/amber per audit): cover + Exec Summary + Part I (audits & 5-layer method) + Part II (verification ledger: 5 category tables, 60+ graded rows) + Part III (audit errors: 2 refuted, 4 corrected) + Part IV (triangulation + reliability scorecard) + Part V (6 strengthened/completed findings) + Part VI (P0-P5 unified repair plan, 32 items with edit sites and efforts) + Part VII (joint verdict).
+- Fixed cover title overflow (x1=598.5>595.28) by 3-line split; pdf_qa PASS with non-blocking warnings (English-quote CJK-rule false positives; cover asymmetry by design).
+
+Stage Summary:
+- Deliverable: download/joint_assessment_2nd_wave.pdf (20 pp, all fonts embedded, no empty pages, no overflow).
+- 90+ audit findings VERIFIED with line-level evidence; 4 audit claims refuted/corrected (§18.4 mechanism; stray-Q extraction artifact; 11->12 count; 9->6 user sites); 1 numeric ground truth settled (-0.018); 2 new discrepancies found (nprod 10/11 vs 9/10; §21.5 preamble vs [CLOSED]).
+- Unified P0-P5 repair plan ready for implementation: P0 = 10 mechanical fixes (afternoon); P1 = 5 bookkeeping; P2 = 5 framing rewrites; P3 = 3 provenance excisions; P4 = 9 math/methodological repairs; P5 = strategic 3-paper split.
+- All three audits adopted with corrections: Editorial = strategic backbone, DeepSeek = tactical backbone, GLM = structural backbone (3-κ_V naming divorce completed as κ_geom/κ_flux/time-course).
