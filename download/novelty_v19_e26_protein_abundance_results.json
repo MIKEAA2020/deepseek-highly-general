@@ -1,0 +1,298 @@
+{
+  "study": "E26_protein_abundance",
+  "arms": {
+    "paxdb-kappaV-baseline": {
+      "label": "log10 kappa_V vs log10 PaxDB ppm",
+      "n": 429,
+      "pearson_r": 0.3340377896182212,
+      "pearson_p": 1.215740106302423e-12,
+      "spearman_r": 0.4046592902525422,
+      "spearman_p": 2.4729557045968493e-18,
+      "perm_p_mc": 4.999750012499375e-05,
+      "boot_ci95": [
+        0.23904667062953913,
+        0.42563632796853657
+      ]
+    },
+    "transfc-kappaV-on-protein-subset": {
+      "label": "transcript max|FC| on the protein subset",
+      "n": 169,
+      "pearson_r": 0.20364095017169795,
+      "pearson_p": 0.007917441118607756,
+      "spearman_r": 0.27141762233080474,
+      "spearman_p": 0.0003576832921525297,
+      "perm_p_mc": 0.008349582520873956,
+      "boot_ci95": [
+        0.04614177681445491,
+        0.36316675712832014
+      ]
+    },
+    "m3dtfc-kappaV-on-protein-subset": {
+      "label": "E24 M3D metric on the protein subset",
+      "n": 169,
+      "pearson_r": 0.42009184226047047,
+      "pearson_p": 1.3008793568061916e-08,
+      "spearman_r": 0.4618811548627595,
+      "spearman_p": 2.599416289219937e-10,
+      "perm_p_mc": 4.999750012499375e-05,
+      "boot_ci95": [
+        0.297070711026309,
+        0.5393989429048541
+      ]
+    },
+    "protfc-kappaV": {
+      "label": "log10 kappa_V vs protein max|log2FC|",
+      "n": 169,
+      "pearson_r": 0.007646541603920608,
+      "pearson_p": 0.9214013034511995,
+      "spearman_r": -0.00849222033813668,
+      "spearman_p": 0.9127412941346725,
+      "perm_p_mc": 0.9235038248087596,
+      "boot_ci95": [
+        -0.13117485808588997,
+        0.13614795887493128
+      ]
+    },
+    "protfc-4h-only": {
+      "label": "protein 4h |FC|",
+      "n": 169,
+      "pearson_r": 0.03168759712297921,
+      "pearson_p": 0.6825512598991359,
+      "spearman_r": 0.054846611932532756,
+      "spearman_p": 0.47879154060731244,
+      "perm_p_mc": 0.6821658917054148,
+      "boot_ci95": [
+        -0.0911409718534147,
+        0.14670215586426383
+      ]
+    },
+    "protfc-min6peptides": {
+      "label": "protein max|FC|, >=6 peptides (n=150)",
+      "n": 150,
+      "pearson_r": 0.006622917510932844,
+      "pearson_p": 0.9358903627293929,
+      "spearman_r": -0.007258995785347692,
+      "spearman_p": 0.9297482270239888,
+      "perm_p_mc": 0.9342532873356332,
+      "boot_ci95": [
+        -0.140251048735308,
+        0.14380785194612725
+      ]
+    },
+    "coupling-T-P-overall": {
+      "label": "max|dT| vs max|dP| (all genes)",
+      "n": 799,
+      "pearson_r": 0.019832379434345494,
+      "pearson_p": 0.5756355795237281,
+      "spearman_r": -0.01637940066432264,
+      "spearman_p": 0.6438691145810596,
+      "perm_p_mc": 0.575521223938803,
+      "boot_ci95": [
+        -0.059294745007122104,
+        0.09634708335339132
+      ]
+    }
+  },
+  "paxdb_confound": {
+    "n": 428,
+    "r_mRNAlevel_vs_proteinAbundance": 0.6322901066754433,
+    "p_mRNAlevel_vs_proteinAbundance": 3.656124225761062e-49,
+    "partial_kappaT_given_mRNA": {
+      "pearson_r": 0.24370374602371422,
+      "pearson_p": 3.3220476196713617e-07,
+      "n": 428
+    },
+    "partial_kappaT_given_mRNA_and_protein": {
+      "pearson_r": 0.22950877946793174,
+      "pearson_p": 1.5991507861682242e-06,
+      "n": 428
+    }
+  },
+  "paxdb_strata": {
+    "low-abundance": {
+      "label": "E24 metric in low-abundance tertile",
+      "n": 143,
+      "pearson_r": 0.2574505435462668,
+      "pearson_p": 0.0019083374522738455,
+      "spearman_r": 0.15175750037072955,
+      "spearman_p": 0.07040089152071946,
+      "perm_p_mc": 0.0018499075046247689,
+      "boot_ci95": [
+        0.06863306699098452,
+        0.4158658312488285
+      ]
+    },
+    "mid-abundance": {
+      "label": "E24 metric in mid-abundance tertile",
+      "n": 142,
+      "pearson_r": 0.3649659179271989,
+      "pearson_p": 7.982281864345379e-06,
+      "spearman_r": 0.3782031580082268,
+      "spearman_p": 3.4751505799052548e-06,
+      "perm_p_mc": 4.999750012499375e-05,
+      "boot_ci95": [
+        0.21396040238974837,
+        0.49784640303163474
+      ]
+    },
+    "high-abundance": {
+      "label": "E24 metric in high-abundance tertile",
+      "n": 143,
+      "pearson_r": 0.20518388613066885,
+      "pearson_p": 0.013958783060967222,
+      "spearman_r": 0.18642429808333502,
+      "spearman_p": 0.025792246048620543,
+      "perm_p_mc": 0.01319934003299835,
+      "boot_ci95": [
+        0.0658726326459451,
+        0.3383175649694275
+      ]
+    }
+  },
+  "magnitudes_protein_subset": {
+    "mean_max_abs_dT": 5.287361878750417,
+    "mean_max_abs_dP": 1.255067841455096,
+    "ratio": 0.23737127706335678
+  },
+  "tp_coupling_by_kappa": {
+    "low-kappa": {
+      "label": "signed dT vs dP, low-kappa",
+      "n": 224,
+      "pearson_r": 0.08817230514062682,
+      "pearson_p": 0.18856992820000024,
+      "spearman_r": 0.03643521208162001,
+      "spearman_p": 0.5875143281779069,
+      "perm_p_mc": 0.18784060796960153,
+      "boot_ci95": [
+        -0.07532451462253476,
+        0.24617890197787248
+      ]
+    },
+    "low-kappa_impl_ratio": {
+      "n_genes": 56,
+      "mean_ratio": 0.26087835644293106,
+      "median_ratio": 0.2264959294311817
+    },
+    "mid-kappa": {
+      "label": "signed dT vs dP, mid-kappa",
+      "n": 224,
+      "pearson_r": 0.16439708771407943,
+      "pearson_p": 0.013759217334073745,
+      "spearman_r": 0.14361895890177362,
+      "spearman_p": 0.03166476961981793,
+      "perm_p_mc": 0.013649317534123294,
+      "boot_ci95": [
+        0.021960760129079677,
+        0.2988953194678566
+      ]
+    },
+    "mid-kappa_impl_ratio": {
+      "n_genes": 56,
+      "mean_ratio": 0.3220845577697159,
+      "median_ratio": 0.2168083431974132
+    },
+    "high-kappa": {
+      "label": "signed dT vs dP, high-kappa",
+      "n": 228,
+      "pearson_r": 0.2119797812942384,
+      "pearson_p": 0.0012823400002725238,
+      "spearman_r": 0.19934137871665678,
+      "spearman_p": 0.0024957887898806315,
+      "perm_p_mc": 0.0010499475026248687,
+      "boot_ci95": [
+        0.08632136416566125,
+        0.3360523929300877
+      ]
+    },
+    "high-kappa_impl_ratio": {
+      "n_genes": 57,
+      "mean_ratio": 0.23471082853214115,
+      "median_ratio": 0.19885626170648524
+    },
+    "protfc-low-kappa": {
+      "label": "protein max|FC| in low-kappa",
+      "n": 56,
+      "pearson_r": 0.02813449900145125,
+      "pearson_p": 0.8369226001465463,
+      "spearman_r": 0.006598170219243904,
+      "spearman_p": 0.9615066146320271,
+      "perm_p_mc": 0.8370581470926454,
+      "boot_ci95": [
+        -0.2635737590143722,
+        0.30645160766697427
+      ]
+    },
+    "transfc-low-kappa": {
+      "label": "transcript max|FC| in low-kappa",
+      "n": 56,
+      "pearson_r": -0.1511945015650653,
+      "pearson_p": 0.26599786588846963,
+      "spearman_r": -0.04043094524987273,
+      "spearman_p": 0.7673412174294253,
+      "perm_p_mc": 0.2663866806659667,
+      "boot_ci95": [
+        -0.4285841464518223,
+        0.2012015679989464
+      ]
+    },
+    "protfc-mid-kappa": {
+      "label": "protein max|FC| in mid-kappa",
+      "n": 56,
+      "pearson_r": 0.08429808170382944,
+      "pearson_p": 0.5367717006688174,
+      "spearman_r": 0.08278769987893125,
+      "spearman_p": 0.5441189761350942,
+      "perm_p_mc": 0.5356732163391831,
+      "boot_ci95": [
+        -0.18337622705456186,
+        0.3196321325023102
+      ]
+    },
+    "transfc-mid-kappa": {
+      "label": "transcript max|FC| in mid-kappa",
+      "n": 56,
+      "pearson_r": 0.40363632434621927,
+      "pearson_p": 0.002036786808354349,
+      "spearman_r": 0.36984683039742616,
+      "spearman_p": 0.005024099747337998,
+      "perm_p_mc": 0.002599870006499675,
+      "boot_ci95": [
+        0.17235651321404127,
+        0.590378360363897
+      ]
+    },
+    "protfc-high-kappa": {
+      "label": "protein max|FC| in high-kappa",
+      "n": 57,
+      "pearson_r": -0.4267331339914718,
+      "pearson_p": 0.000932230133483342,
+      "spearman_r": -0.3245089312934193,
+      "spearman_p": 0.013787266437378749,
+      "perm_p_mc": 0.00119994000299985,
+      "boot_ci95": [
+        -0.6268515876993911,
+        -0.17728051565007433
+      ]
+    },
+    "transfc-high-kappa": {
+      "label": "transcript max|FC| in high-kappa",
+      "n": 57,
+      "pearson_r": -0.0035348019845283353,
+      "pearson_p": 0.9791807726539664,
+      "spearman_r": -0.02986163268286521,
+      "spearman_p": 0.8254780780091472,
+      "perm_p_mc": 0.9808009599520024,
+      "boot_ci95": [
+        -0.24358938266808255,
+        0.23265708138184982
+      ]
+    }
+  },
+  "implementation_ratio_test": {
+    "high_mean": 0.23471082853214115,
+    "low_mean": 0.26087835644293106,
+    "n_high": 57,
+    "n_low": 56,
+    "mannwhitney_p_one_sided_high_gt_low": 0.7749201328769273
+  }
+}

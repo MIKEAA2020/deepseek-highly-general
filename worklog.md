@@ -3537,3 +3537,129 @@ Stage Summary:
 - Constraint honored: no condition over-iteration -- E24 uses the
   E22/E23 kappa_V artifacts UNCHANGED; only the expression side was
   extended.
+
+---
+Task ID: v18-round
+Agent: main (Super Z)
+Task: (1) always commit+push (incl. previous unpushed turns); (2)
+evaluate, verify and implement the user's v17-review recommendations:
+v17 wording (correlational-not-causal, platform-vs-class ambiguity
+acknowledged, partial-corr explanation), abstract/intro update,
+platform-vs-class resolution via new data, protein-abundance follow-up.
+
+Work Log:
+- PUSHED the unpushed auto-commit; the 117MB M3D tarball exceeded
+  GitHub's 100MB limit, so rewrote the unpushed commit (soft reset +
+  .gitignore) to keep only provenance/metadata (14.8MB); pushed
+  33c4606; verified 0 unpushed.
+- E25 DATA OBTAINED: GEO GSE64021 (Su lab UNCC; MG1655 MOPS+/-glucose
+  M-C carbon starvation, M-P phosphorus starvation, HS heat shock,
+  1/2/4/6h; directional RNA-seq + tandem-MS PeptideRaw; 22 samples,
+  sha256 in data/gse64021/README.md; cited by accession, no journal
+  record) + PaxDB 511145 integrated proteome (v6.1, 3,759 rows with
+  b-numbers, for v19). Download scripts persisted
+  (e25_download_data.py with retry + gzip-magic verification).
+- E25 ANALYSIS (novelty_v18_e25_platform_class.py): completed the
+  2x2 platform x class matrix. [S2 RNA-seq x depletion PRIMARY]
+  max-metric r=+0.191 (n=241, p=2.9e-3, Spearman +0.248, perm p
+  0.003); starvation-depth gradient +0.03/+0.15/+0.21 at 1/2/4h,
+  6h washout (-0.02); robust to PE-merge, mean metric (+0.139),
+  pseudocount 0.5 (+0.140), TPM>=1 filter (+0.313, n=97); deciles
+  5.93 vs 5.06 (MWU p=0.057); zero-kappa control 5.10 vs 3.22
+  (p=1.5e-30). [S1 microarray x switch] glycerol +0.191, acetate
+  +0.158, proline +0.165, MAX +0.196 -- attenuated positive.
+  [COMMON-SET 2x2 n=240] array-depletion +0.431, array-switch
+  +0.184, RNA-seq-depletion +0.187, RNA-seq-switch(PRECISE) -0.058;
+  ALL FOUR Fisher-z significant: class effect on array (p=0.0028)
+  and RNA-seq (p=0.0073); platform effect in depletion (p=0.0031)
+  and switch (p=0.0081) -> E24 dissociation OVER-DETERMINED (both
+  factors), not pure class specificity, not platform artifact.
+  [STRESS CONTROLS] M3D 10-min heat/acid/cipro |FC| r = +0.295/
+  +0.303/+0.284; GSE heat +0.322/+0.393/+0.445; phosphorus MAX
+  +0.039 NS (4h transient +0.195); SIGNED always negative under
+  acute stress (-0.19..-0.31) -> association tracks growth-state
+  transition severity, not carbon identity.
+- V18 PATCHES (v18_patch_manuscript.py, 6/6 applied): P1 partial-corr
+  does/does-not (linear-only, confounders remain); P2 dissociation
+  bounds-without-isolating + forward pointer; P3 verdict
+  correlational-not-causal + v18 resolution pointer; P4-P5 history
+  trail pointers; P6 inserted sec:novelty-v18 (~150 lines).
+- QA: tectonic compile SUCCESS (6.22 MiB; new warnings only
+  pre-existing \texttt overfulls); braces 6458/6459 (pre-existing
+  +1 baseline); begin/end 439/439; version chain v10..v18; ref
+  audit 0 dangling (724 calls); key phrases verified in PDF
+  (ff-ligature and hyphenation false-misses resolved). PDF copied
+  to download/ and mirrored.
+- COMMITTED + PUSHED ffc2634 (v18 round).
+
+Stage Summary:
+- The E24 platform-vs-class ambiguity is RESOLVED with a two-factor
+  answer: the association is platform-robust (RNA-seq depletion
+  replicates, with starvation-depth gradient) AND has both class
+  (depletion>switch on both platforms) and platform (microarray
+  ~2x amplification) components in the dissociation.
+- Specificity revised: tracks growth-state-transition severity
+  (heat/acid/cipro comparable; phosphorus null on max metric;
+  signed direction consistently negative under acute stress).
+- Manuscript v18 subsection + honest v17 wording fixes integrated.
+- NEXT (v19 round): PaxDB + GSE64021 PeptideRaw protein-abundance
+  mechanistic test (Recommendation 4) + abstract/intro/conclusion
+  framing update (Recommendation 2).
+
+---
+Task ID: v19-round
+Agent: main (Super Z)
+Task: v19 round -- (1) E26 protein-abundance mechanistic test
+(Recommendation 4: PaxDB + proteomics); (2) abstract/introduction/
+conclusion reframing to reflect the E24/E25 genome-scale result
+(Recommendation 2); (3) commit and push.
+
+Work Log:
+- E26 ANALYSIS (novelty_v19_e26_protein_abundance.py): [P-paxdb]
+  kappa_V correlates with baseline protein abundance (r=+0.334,
+  n=429, p=1.2e-12; mRNA-protein r=+0.632) but abundance does NOT
+  mediate the kappa->transcript association (partial +0.244 given
+  mRNA -> +0.230 given mRNA+protein); association present in ALL
+  PaxDb abundance tertiles (low +0.258 / mid +0.365 / high +0.205).
+  [P-protfc] THE DECISIVE TEST: on the SAME 169 panel genes with
+  matched GSE64021 proteomics, transcript association PRESENT (E25
+  metric +0.204 p=0.008; E24 metric +0.420 p=1.3e-8) while protein
+  association ABSENT (r=+0.008 NS; 4h-only +0.032; >=6 peptides
+  +0.007 n=150). [P-tp] transcript-protein coupling rises with
+  kappa tertile (+0.088 NS -> +0.164 p=0.014 -> +0.212 p=0.0013);
+  within the top tertile protein |FC| DECREASES with kappa
+  (r=-0.427, p=9.3e-4) while transcript has no within-stratum
+  gradient (-0.004) -> most sensitive genes have the most STABLE
+  proteins (post-translational buffering); |dP|/|dT| flat across
+  strata (MWU p=0.78). Honest caveats: n=169 detectable-protein
+  bias, single-shot spectral counts attenuate toward 0, PaxDb is a
+  multi-condition average.
+- V19 PATCHES (v19_patch_manuscript.py, 5/5 applied): P1 abstract
+  biology passage (r=+0.374/partial +0.251/RNA-seq replication
+  +0.187, growth-state severity framing, null controls, protein
+  decoupling, explicitly correlational); P2 new intro contribution
+  item (E24-E26); P3 sec:novelty-v19 subsection (~120 lines);
+  P4 conclusion biology paragraph; P5 data-availability external
+  compendia provenance (M3D/PRECISE/GSE64021/PaxDb).
+- QA: tectonic compile SUCCESS (6.53 MB); braces 6518/6519
+  (pre-existing +1 baseline); begin/end 439/439; version chain
+  v10..v19; ref audit 0 dangling; all key phrases verified in the
+  rendered PDF (ligature/hyphenation false-misses resolved; one
+  28pt artifact-paragraph overfull consistent with the existing
+  v16-v18 style). PDF copied to download/ + mirrored.
+- COMMIT + PUSH (this commit).
+
+Stage Summary:
+- MECHANISM: kappa_V predicts the transcriptional REPORTING of
+  metabolic stress (regulatory layer), not protein-level capacity
+  change; the v14b-retracted buffering hypothesis is rejected in
+  its naive transcript form but confirmed in refined protein form
+  (no kappa gradient in protein FC; top-tertile proteins most
+  stable; high-kappa transcripts couple tightest to what protein
+  change does occur).
+- FRAMING: abstract, introduction (new contribution item), and
+  conclusion now reflect the genome-scale result with the
+  user-mandated honest scope (correlational; carbon/growth-state
+  class; platform robustness; protein-layer decoupling).
+- Manuscript version chain now v10 -> ... -> v19; all rounds
+  pushed to github.com/MIKEAA2020/deepseek-highly-general main.
