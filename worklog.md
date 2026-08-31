@@ -3802,3 +3802,87 @@ Stage Summary:
 - 90+ audit findings VERIFIED with line-level evidence; 4 audit claims refuted/corrected (§18.4 mechanism; stray-Q extraction artifact; 11->12 count; 9->6 user sites); 1 numeric ground truth settled (-0.018); 2 new discrepancies found (nprod 10/11 vs 9/10; §21.5 preamble vs [CLOSED]).
 - Unified P0-P5 repair plan ready for implementation: P0 = 10 mechanical fixes (afternoon); P1 = 5 bookkeeping; P2 = 5 framing rewrites; P3 = 3 provenance excisions; P4 = 9 math/methodological repairs; P5 = strategic 3-paper split.
 - All three audits adopted with corrections: Editorial = strategic backbone, DeepSeek = tactical backbone, GLM = structural backbone (3-κ_V naming divorce completed as κ_geom/κ_flux/time-course).
+
+---
+Task ID: v21-round
+Agent: main (Super Z)
+Task: Execute the user-directed P0/P1 subset of the second-wave joint
+assessment repair plan: P0-mechanical + P1-clipping immediately;
+P0-editorial (citation annotations, uncited refs) and P2-P5 HELD
+pending the in-place-vs-deconstruction decision; verify every claim
+before implementing; commit and push.
+
+Work Log:
+- RE-VERIFICATION BEFORE IMPLEMENTATION (user's standing "no claims at
+  face value" rule): all 9 P0-mechanical items independently
+  re-checked against source, deposited JSONs/CSVs, BiGG model files,
+  IUBMB nomenclature, or fresh computation. Three items upgraded:
+  (a) the "biomass-units" framing of 15.444 vs 0.9259 is WRONG -- a
+  fresh cobrapy re-run of both scripts' exact media
+  (scripts/verify_e12_e16_biomass_units.py) shows a MEDIUM artifact:
+  both scripts list the trehalose exchange EX_tre_e among "minerals",
+  but E12 re-opens it at -1000 (uptake -337 -> obj 15.445, tre-only
+  15.439, glucose-only 0.982) while E16 re-opens it at -10 (uptake
+  -6.4 -> 0.925933 exactly reproduced; glucose-only 0.8218); the
+  honest notes now state the verified mechanism and flag the P4
+  corrected-medium re-run. (b) "verify 2.6.1.12": VERIFIED CORRECT
+  (IUBMB 2.6.1.12 = alanine--oxo-acid transaminase; ASP+PYR<->ALA+OAA
+  is its reaction with (2-oxo acid, amino acid)=(OAA, ASP)); PPK EC
+  2.7.4.1 also verified correct and retained; only glycogen
+  phosphorylase 2.7.4.1 -> 2.4.1.1 changed (iJO1366 GLCP2 annotation
+  confirms). (c) E25: +0.191 (n=241) is the primary full-panel
+  max-metric (p=2.857e-3) and +0.187 the 240-gene common-set value
+  (JSON matrix_2x2_common_set r=0.18686); four summary sites had
+  mispaired them; fixed to +0.191 and an explicit reconciliation note
+  added in the v18 subsection.
+- NEW dependent defect found and fixed (audits missed it): "rises by a
+  factor of ~56" was computed from the wrong -0.008; with -0.0178 the
+  factor is ~26 (same magnitude-ratio convention as E12's 2.54).
+- Applicability-matrix coherence completed: "only 3" -> 4 (E10, E12,
+  E15, E16); "remaining 10" -> 12 (the itemized list); headers
+  E1--E14 -> E1--E16; tally re-labeled 14 evaluation slots (16
+  studies, E6/E7 folded, E15+E16 paired); "13 if counted separately"
+  -> 12.
+- nprod>=5 stratum corrected 9/10 (90%) -> 10/11 (91%) per the
+  deposited CSV (11 metabolites, 10 internal; only rib__D_c fails).
+- P1 render defects re-verified in the v20 PDF before fixing: Def 3.18
+  step labels physically off-page (spans at x0=-3.1/-0.4); Table 6
+  last column to x1=597.2 > 595.3pt page width, cutting "growt" x3
+  and "regulat". Fixes: enumerate restructured with
+  label=\textit{(\roman*)} and titles as body text (all step
+  cross-references intact); Table 6 -> \small tabularx with ragged
+  X columns (no cell text changed).
+- v21_patch_mechanical.py: 29 asserted exact-match replacements, all
+  applied (backup kept in git history); two post-pass typesetting
+  refinements (allowbreak in the new \texttt filenames; one reworded
+  tally line) to keep the warning set clean.
+- New subsection sec:novelty-v21 ("v21 mechanical-integrity round")
+  documents the corrections ledger, the medium-audit finding, and the
+  explicit deferral of P0-editorial + P2-P5 pending the strategic
+  decision.
+- QA: tectonic compile SUCCESS (6.25 MiB, 134 pp); warning multiset vs
+  v20 baseline: -2 (Table 6's 104.86pt overfull and Def 3.18's
+  badness-2818 underfull REMOVED), +0 new; ref audit 0 dangling (741
+  calls / 333 labels) and 0 broken cite keys; braces 6646/6647
+  (pre-existing +1 offset); begin/end 440/440; v21_render_qa.py 30/30
+  PASS (cite key renders, -0.018 x3, gap 0.103, factor ~26, EC
+  2.4.1.1 + retained PPK/2.6.1.12, Fig.7 caption SO(3), authorship
+  pointer withdrawn, invlim -> Proposition 4.4 form, matrix 4/12,
+  nprod 10/11, +0.191 x4 + reconciliation, Def 3.18 five labels
+  on-page x0>=73, Table 6 "growth rate"/"(regulatory)" complete and
+  within the text block, v17..v21 chain, bookmarks).
+
+Stage Summary:
+- P0-mechanical + P1 executed exactly as the user sequenced them; the
+  two weak audit suggestions were strengthened before implementation
+  (medium artifact, not units; 2.6.1.12 verified, not changed) and one
+  dependent numerical claim (~56 -> ~26) was corrected beyond the
+  audit list.
+- P0-editorial (6 false "Cited in SX" annotations, 12 uncited refs)
+  and P2-P5 remain HELD until the in-place-vs-deconstruction decision,
+  as directed; the trehalose medium artifact is now documented and
+  scheduled as the P4 methodological re-run.
+- Deliverables: download/journal_manuscript.pdf (v21, 134 pp),
+  scripts/v21_patch_mechanical.py, scripts/verify_e12_e16_biomass_
+  units.py, download/verify_e12_e16_biomass_units.json,
+  scripts/v21_render_qa.py; commit + push follows.

@@ -150,7 +150,7 @@ correlates with the magnitude of the transcriptional response to
 carbon exhaustion across the metabolic network ($r = +0.374$,
 $n = 433$, $p \approx 10^{-15}$; partial $r = +0.251$ controlling
 expression level; replicated on an independent RNA-seq platform
-under carbon starvation, $r = +0.187$, $n = 241$), an association
+under carbon starvation, $r = +0.191$, $n = 241$), an association
 that scales with growth-state-transition severity rather than
 carbon identity, is bounded by null controls (balanced growth on
 alternative carbon sources; phosphorus limitation), and does not
@@ -352,7 +352,7 @@ correlates with the magnitude of the transcriptional response to
 carbon exhaustion in the M3D compendium ($r = +0.374$, $n = 433$,
 $p \approx 10^{-15}$; partial $r = +0.251$ controlling expression
 level), replicates on an independent RNA-seq platform under carbon
-starvation (GSE64021, $r = +0.187$, $n = 241$, starvation-depth
+starvation (GSE64021, $r = +0.191$, $n = 241$, starvation-depth
 gradient), is bounded by null controls under carbon-source switching
 and phosphorus limitation, and does not extend to protein
 fold-changes on the matched proteome ($r \approx +0.01$ on the
@@ -1196,26 +1196,26 @@ Definition~\ref{def:closure-criteria}). Fix a strictly positive
 \emph{viability concentration threshold} $x_{\mathrm{thresh}} > 0$ and
 a recovery horizon $T$. For each purportedly self-maintained
 component $m_j \in M_{\mathrm{ess}}$:
-\begin{enumerate}[leftmargin=*,itemsep=2pt]
-\item[\emph{(i)} \emph{Knockout.}] Set the internal repair flux of
+\begin{enumerate}[label=\textit{(\roman*)},leftmargin=*,itemsep=2pt]
+\item \emph{Knockout.} Set the internal repair flux of
 $m_j$ to zero: $r_j := 0$. Keep the external food supply
 $u_{\mathrm{food}}$ unchanged (no preassembled replacement for $m_j$
 is supplied).
-\item[\emph{(ii)} \emph{Drift under dynamics.}] Integrate the
+\item \emph{Drift under dynamics.} Integrate the
 concentration dynamics $\dot x = N v(x) - D x + u_{\mathrm{food}}$
 forward for $T$ steps from the pre-knockout steady state $x^*$.
-\item[\emph{(iii)} \emph{Recovery above threshold.}] Record the
+\item \emph{Recovery above threshold.} Record the
 post-recovery concentration $\mathrm{rec}_{j}(T) := x_{j}(T)$. The
 component $m_j$ is \emph{recovered} iff
 $\mathrm{rec}_{j}(T) > x_{\mathrm{thresh}}$ (not merely nonzero ---
 the concentration must exceed the declared viability threshold, which
 removes the trivial reinsertion failure mode of binary node-reappearance
 tests).
-\item[\emph{(iv)} \emph{Downstream cascade.}] Every $m_{j'}$ whose
+\item \emph{Downstream cascade.} Every $m_{j'}$ whose
 enabling chain depends on $m_j$ must also drop below
 $x_{\mathrm{thresh}}$ during step~(ii) and recover above
 $x_{\mathrm{thresh}}$ in step~(iii) (predicted downstream effect).
-\item[\emph{(v)} \emph{Restoration control.}] Restore the repair
+\item \emph{Restoration control.} Restore the repair
 pathway ($r_j := r_j^{\mathrm{pre-knockout}}$) and verify that all
 knocked-down and downstream concentrations return to $x^*$ within $T$
 steps (recovery control).
@@ -1296,7 +1296,7 @@ where $\Delta R(g) = \{r : |v_r(\mathrm{KO}) - v_r(\mathrm{WT})| > 10^{-6}\}$
 is the set of reactions with nontrivial flux change under KO of $g$,
 $\Delta b(g) = b_{wt} - b_{KO}(g)$ is the biomass deficit, and
 $\tau = 0.05$ is the standard essentiality threshold
-\cite{orth2011comprehensive}. The indicator $\mathbb{1}[\cdot]$ zeroes
+\cite{orth2011}. The indicator $\mathbb{1}[\cdot]$ zeroes
 $\kappa_V$ for KOs that do NOT reduce biomass by more than $\tau\,b_{wt}$,
 restricting the curvature to the sub-population of KOs that actually impact
 viability.
@@ -1318,7 +1318,7 @@ indicator-weighted variant from v9 refinement to v10 main definition
 previously the weakest under the unweighted definition: E12's calibration
 $r(\log_{10}\kappa_V, \Delta b)$ jumped from $+0.370$ to $+0.938$ (factor
 $2.54$); iML1515's direct correlation with raw Keio essentiality flipped
-sign from $-0.008$ to $+0.466$ (the denser network's flux-rerouting noise
+sign from $-0.018$ to $+0.466$ (the denser network's flux-rerouting noise
 was producing a slightly negative correlation; the indicator mask zeroes
 this noise and direction-of-effect is restored). Study E19 (v11) extended
 the indicator mask to E8 (Network K ODE viability erosion): marginal
@@ -3036,7 +3036,7 @@ E & $T_{\mathrm{loop}}<2$, $T_{\mathrm{ctrl}}>1$ & $T_{\mathrm{loop}}=0.40$, $T_
 \centering
 \includegraphics[width=0.95\columnwidth]{claims_ae_n4_nonabelian.png}
 \caption{Operational results for the five derivative claims A--E in the
-$n=4$ non-abelian regime (structure group $\CO(3)$, Lie algebra
+$n=4$ non-abelian regime (structure group $SO(3)$, Lie algebra
 $\so(3)$ non-abelian). (a)~Claim~A: 3D held-out margin erosion; slope
 $= 0.9976$, $R^2 = 0.9983$. (b)~Claim~B: orientation-reversal amplitude
 $a_{\mathrm{rev,obs}} = 0.9992$ vs.\ predicted $1.0$ (relative error
@@ -4358,7 +4358,7 @@ Random cytosolic metabolites & $40$ & $19$ ($48\%$) \\
 \end{center}
 Stratified by the number of producing reactions $n_{\mathrm{prod}}$:
 metabolites with $n_{\mathrm{prod}} \geq 5$ are causally internal in
-$9/10$ cases ($90\%$); metabolites with $n_{\mathrm{prod}} \leq 3$ are
+$10/11$ cases ($91\%$); metabolites with $n_{\mathrm{prod}} \leq 3$ are
 causally internal in $18/39$ cases ($46\%$). The full iJO1366 model is
 \textbf{PARTIALLY AUTOPOIETIC}: $28/50$ components are causally internal,
 a substantial improvement over Network B's $0/10$, but the system is
@@ -4767,7 +4767,7 @@ $k_{\mathrm{cat}} = 15$). The new $\alpha$KG enters as a food source
 (the TCA cycle provides external $\alpha$KG), and the GLU product is
 a new metabolic intermediate.
 \item \emph{Glycogen storage} (GLY1/GLY2 synthase EC 2.4.1.11 and
-GLYP1/GLYP2 phosphorylase EC 2.7.4.1): M13 stores G6P as glycogen
+GLYP1/GLYP2 phosphorylase EC 2.4.1.1): M13 stores G6P as glycogen
 ($k_{\mathrm{cat}} = 1.5$), M14 releases G6P from glycogen
 ($k_{\mathrm{cat}} = 0.4$). During G6P knockout, Glycogen stays at
 baseline (M13 has G6P as substrate, M14 is removed since G6P is a
@@ -6751,7 +6751,7 @@ $p = 0.18$). The v17 round (\S\ref{sec:novelty-v17}) then supplies
 the missing expression coverage externally and finds
 $r = +0.374$ at $n = 433$ ($p \approx 10^{-15}$), and the v18
 round (\S\ref{sec:novelty-v18}) shows the association replicates on
-the RNA-seq platform under carbon depletion ($r = +0.187$ at
+the RNA-seq platform under carbon depletion ($r = +0.191$ at
 $n = 241$, $p = 2.9 \times 10^{-3}$) with both a platform and a
 class component in the original dissociation.
 \end{remark}
@@ -6869,9 +6869,11 @@ itself.
 
 For every gene $g$ in iJO1366 ($n = 1367$ genes), Study~E12 computes:
 \begin{itemize}
-\item Wild-type biomass flux $b_{\mathrm{wt}} = 15.444$~h$^{-1}$
-  (FBA on glucose minimal medium, $10$~mmol/gDW/h glucose $+$
-  $20$~mmol/gDW/h O$_2$ uptake, with minerals).
+\item Wild-type biomass flux $b_{\mathrm{wt}} = 15.444$ (FBA objective
+  value; the medium was \emph{intended} as glucose minimal ---
+  $10$~mmol/gDW/h glucose $+$ $20$~mmol/gDW/h O$_2$ uptake, with
+  minerals --- but the v21 medium-audit note below shows this value is
+  a trehalose artifact, not a glucose-minimal growth rate).
 \item Gene-KO biomass flux $b_{\mathrm{KO}}(g)$, computed by setting
   the lower and upper bounds of all reactions whose GPR contains $g$
   to zero and re-solving FBA.
@@ -6885,6 +6887,38 @@ For every gene $g$ in iJO1366 ($n = 1367$ genes), Study~E12 computes:
   $b_{\mathrm{KO}}(g) < 0.05 \cdot b_{\mathrm{wt}}$ (the standard
   $5\%$-threshold used by Orth et al. 2011).
 \end{itemize}
+
+\noindent\emph{v21 medium-audit note (the $15.444$ vs $0.9259$
+question).} Both wild-type optima were re-computed on the deposited
+model files by the script
+\texttt{verify\_e12\_\allowbreak e16\_\allowbreak biomass\_\allowbreak units.py}
+(output \texttt{verify\_e12\_\allowbreak e16\_\allowbreak biomass\_\allowbreak units.json}).
+The re-run shows that the E12 wild-type objective value $15.444$ is
+an artifact of the
+medium construction, not of the biomass stoichiometry and not a unit
+conversion: the E12 script's ``minerals'' re-open list includes the
+trehalose exchange \texttt{EX\_tre\_e} at $-1000$~mmol/gDW/h, and
+the optimizer grows on unlimited trehalose (uptake
+$-337$~mmol/gDW/h at the optimum; closing \texttt{EX\_tre\_e}
+alone gives $0.982$~h$^{-1}$, the canonical iJO1366 glucose-minimal
+optimum of Orth et al. 2011). The nominally identical E16 protocol
+for iML1515 re-opens the same exchange at only
+$-10$~mmol/gDW/h (effective uptake $-6.4$), giving
+$0.9259$~h$^{-1}$ against a glucose-only optimum of
+$0.822$~h$^{-1}$. The two wild-type values are therefore neither
+mutually comparable growth rates nor a stoichiometry effect, and both
+were mislabeled ``glucose minimal'' in earlier versions of this
+remark and of Remark~\ref{rem:e16-iml1515-cross-rebuild}.
+Essentiality calls use the relative $5\%$-of-WT threshold
+\emph{within} each model, which is invariant to the absolute scale
+of $b_{\mathrm{wt}}$; however, the identity of the available carbon
+sources does enter every KO solution, so the E12/E15/E16
+essentiality sets, $\kappa_V$ values, and calibration statistics
+inherit the medium asymmetry. A corrected glucose-only re-run of
+E12/E15 (and the E16 comparison on the same corrected medium) is
+scheduled as a methodological repair (joint-assessment plan, item
+P4); the deposited E12/E15/E16 results are reported unaltered and
+flagged here rather than silently recomputed.
 
 Results:
 \begin{itemize}
@@ -7342,10 +7376,17 @@ medium ($10$ mmol/gDW/h glucose, $20$ mmol/gDW/h O$_2$, minerals);
 single-gene-deletion sweep over all $1516$ genes; $\kappa_V(g) =
 \sum_r (v_r(\mathrm{KO}) - v_r(\mathrm{WT}))^2$ over reactions with
 $|\Delta v_r| > 10^{-6}$; essentiality threshold $5\%$ of WT biomass.
-Wild-type FBA biomass $= 0.9259$ h$^{-1}$ (iML1515 uses different
-biomass stoichiometry than iJO1366's $15.444$ h$^{-1}$, but both are
-on the same glucose+O$_2$ minimal medium and the essentiality
-threshold is taken relative to WT, so cross-model comparison is valid).
+Wild-type FBA biomass $= 0.9259$ h$^{-1}$ (v21 medium-audit
+correction: this is \emph{not} the same medium as E12's, and the
+difference from E12's $15.444$ is not a biomass-stoichiometry effect
+--- the two scripts re-open the accidentally included trehalose
+exchange \texttt{EX\_tre\_e} at $-10$ vs $-1000$~mmol/gDW/h
+respectively; the glucose+O$_2$-only optima are $0.822$~h$^{-1}$ for
+iML1515 and $0.982$~h$^{-1}$ for iJO1366, see the E12 medium-audit
+note and \texttt{verify\_e12\_e16\_biomass\_units.py}; the
+essentiality threshold is taken relative to WT within each model, so
+the cross-model essentiality comparison is unaffected by the absolute
+values).
 $n_{\mathrm{ess}} = 286/1516 = 18.87\%$ essential in-silico (iJO1366:
 $21.14\%$).
 
@@ -7655,11 +7696,11 @@ that actually impact viability, removing the flux-rerouting noise that
 decouples $\kappa_V$ from essentiality on denser metabolic models
 (cf.\ E16 on iML1515).
 
-\textbf{Applicability matrix (E1--E14).} Of the 14 earlier studies,
-only \textbf{3 compute $\kappa_V$ from FBA gene-KO biomass}:
+\textbf{Applicability matrix (E1--E16).} Of the 16 earlier studies,
+only \textbf{4 compute $\kappa_V$ from FBA gene-KO biomass}:
 E10 (iJO1366 time-series), E12 (iJO1366 Keio validation),
 E15 (iJO1366 direct raw-Keio) and E16 (iML1515 direct raw-Keio).
-The remaining \textbf{10 studies are N/A} because their $\kappa_V$ is
+The remaining \textbf{12 studies are N/A} because their $\kappa_V$ is
 \emph{not} biomass-based:
 \begin{itemize}\itemsep0pt
 \item E1 (synthetic Stokes problem $V=1-x^2-y^2$ on $n=3$ prototype):
@@ -7727,7 +7768,7 @@ mask is applied to both iJO1366 and iML1515:
 metric & iJO1366 orig & iJO1366 v10 & iML1515 orig & iML1515 v10 \\
 \midrule
 Pearson $r(\log_{10}\kappa_V, \text{Keio-E})$
-   & $+0.085$ & $+0.351$ & $-0.008$ & $+0.466$ \\
+   & $+0.085$ & $+0.351$ & $-0.018$ & $+0.466$ \\
 Spearman $\rho$
    & $+0.228$ & $+0.329$ & $-0.070$ & $+0.462$ \\
 ROC AUC
@@ -7738,14 +7779,14 @@ Held-out 70/30 logistic AUC
 \end{tabular}
 \end{center}
 
-The iML1515 Pearson $r$ \emph{flips sign} from $-0.008$ to $+0.466$:
+The iML1515 Pearson $r$ \emph{flips sign} from $-0.018$ to $+0.466$:
 under the original $\kappa_V$ the denser iML1515 network's
 flux-rerouting noise produces a \emph{slightly negative} correlation
 with raw Keio essentiality; under the indicator-weighted definition
 this noise is zeroed and the correlation becomes strongly positive,
 matching the iJO1366 direction. Cross-rebuild stability $|\Delta|$
 improves on $3$ of $4$ metrics:
-$|\Delta r_{\text{Pearson}}| \, 0.093 \to 0.115$ (worse, but both
+$|\Delta r_{\text{Pearson}}| \, 0.103 \to 0.115$ (worse, but both
 correlations are now strongly positive);
 $|\Delta \rho_{\text{Spearman}}| \, 0.299 \to 0.133$ ($-56\%$);
 $|\Delta \text{AUC}_{\text{ROC}}| \, 0.285 \to 0.099$ ($-65\%$);
@@ -7757,7 +7798,7 @@ variant from v9 refinement to v10 main $\kappa_V$ definition
 \emph{strengthens} the two biomass-based studies whose findings were
 previously the weakest under the unweighted definition: E12's
 calibration $r$ jumps by a factor of $2.5$, and iML1515's direct
-correlation flips sign and rises by a factor of $\sim 56$.
+correlation flips sign and rises by a factor of $\sim 26$.
 The indicator mask zeroes the flux-rerouting noise of non-essential
 KOs that was decoupling $\kappa_V$ from essentiality on the denser
 iML1515 model, restoring both the direction-of-effect and the
@@ -7774,11 +7815,12 @@ time-point indicator mask is essentially a no-op because the
 baseline T1 had $\kappa_V = 0$ anyway; the per-gene-max rankings
 are unchanged.
 
-\textbf{Net v10 tally on E1--E14}: of the $14$ earlier studies,
-$2$ are STRENGTHENED (E12, E15$+$E16), $1$ is MIXED (E10), $0$ are
+\textbf{Net v10 tally on E1--E16}: of the $14$ evaluation slots
+($16$ studies, with E6/E7 folded and E15$+$E16 paired), $2$ are
+STRENGTHENED (E12, E15$+$E16), $1$ is MIXED (E10), $0$ are
 UNCHANGED or REGRESSED, and $11$ are N/A (no FBA biomass $\Delta b$:
 E1, E2, E3, E4, E5, E6, E7, E8, E9, E11, E13, E14 -- counting E6/E7
-as folded-into-E2/E5 verdicts gives $11$ distinct N/A slots, or $13$
+as folded-into-E2/E5 verdicts gives $11$ distinct N/A slots, or $12$
 if counted separately). Deliverables:
 \texttt{download/novelty\_v10\_indicator\_weighted\_kV\_e18.\{csv,
 txt, png, results.json\}}.
@@ -8792,7 +8834,14 @@ E24 exhaustion value. [S2-seq-depletion] On the RNA-seq platform
 (the platform of the null), carbon \emph{depletion} reproduces the
 association: max-metric $r = +0.191$ at $n = 241$
 ($p = 2.9 \times 10^{-3}$; Spearman $+0.248$; permutation
-$p = 0.003$; CI $[0.069, 0.315]$). The per-time course deepens with
+$p = 0.003$; CI $[0.069, 0.315]$). (The $+0.187$ that also appears
+in the round-level summaries of this study is the \emph{same}
+association recomputed on the $240$-gene set common to both platforms
+--- the ``common-set matrix'' below --- and is quoted there at its
+own $n = 240$; the two values differ only through the gene-set
+restriction, not through any re-analysis. The v21 round reconciles
+the four summary-level citations that had paired $+0.187$ with
+$n = 241$ to the primary full-panel value.) The per-time course deepens with
 starvation exactly as the E24 exhaustion course did --- $r =
 +0.03$ (1~h, NS), $+0.15$ ($p = 0.019$), $+0.21$ ($p = 1.3 \times
 10^{-3}$) at $4$~h --- before washing out at $6$~h ($-0.02$, NS;
@@ -9180,6 +9229,116 @@ replication.\{csv,png,txt,results.json\}} in \texttt{download/}
 fold-changes by class, the E24/E25 transcript metrics, and the
 E26 spectral-count metric).
 
+\subsection{v21 mechanical-integrity round: second-wave audit
+corrections (P0/P1)}\label{sec:novelty-v21}
+
+The second wave of external audits (three line-level reviews of the
+v20 manuscript; joint assessment in
+\texttt{download/joint\_assessment\_2nd\_wave.pdf}) produced a
+prioritized repair plan whose tiers were separated by risk. This
+round implements the \textbf{P0-mechanical} tier (unambiguous
+correctness defects whose corrections remain valid under any later
+structural decision) and the \textbf{P1-typesetting} tier (rendering
+defects), and deliberately \emph{defers} the P0-editorial tier (six
+false ``Cited in~\S X'' annotations; twelve uncited bibliography
+entries) together with the P2--P5 tiers until the strategic
+in-place-vs-deconstruction decision is made, so that no
+citation-annotation or bibliography work is later undone by a
+three-way split. Every claim was re-verified against the deposited
+source, scripts, and result files before implementation; where the
+audits' framing did not survive verification, the verified mechanism
+was implemented instead (items 2, 7, and 9 below).
+
+\textbf{Corrections applied.}
+\begin{enumerate}\itemsep0pt
+\item Broken citation key \texttt{orth2011comprehensive} (rendered
+``{[?]}'' in v20) corrected to the deposited key \texttt{orth2011}.
+\item Stale E16 numbers: iML1515 original Pearson $r$ corrected from
+$-0.008$ to $-0.018$ at three sites (deposited E16 result:
+$-0.0178$); the cross-rebuild Pearson gap $0.093$ corrected to
+$0.103$; and the dependent headline ``rises by a factor of
+$\sim 56$'' corrected to $\sim 26$ --- a dependent-claim defect the
+audits had not flagged ($0.466/0.0178 = 26.2$, the same
+magnitude-ratio convention as E12's ``factor $2.54$'').
+\item Glycogen phosphorylase EC corrected from $2.7.4.1$ to
+$2.4.1.1$ (the iJO1366 \texttt{GLCP2} annotation). The co-occurring
+polyphosphate kinase EC $2.7.4.1$ was verified correct against IUBMB
+(ATP-polyphosphate phosphotransferase) and retained; the
+aspartate--pyruvate transaminase EC $2.6.1.12$ (alanine--oxo-acid
+transaminase, IUBMB) was verified correct and retained.
+\item Figure~7 caption: structure group $\CO(3)$ corrected to
+$SO(3)$ --- Section~\ref{sec:n4} defines $G_C = SO(3)$ for the $n=4$
+regime, the figure's numerics are pure $SO(3)$ rotations, and the
+$CO(3)$ conformal group is the \emph{different} third verification
+regime of the Remark in Section~\ref{sec:savgs}.
+\item Dangling pointers: the Authorship statement's ``\S 7
+research-integrity notes'' (Section~\ref{sec:composition} is the
+composition theorem; no such notes exist anywhere in the manuscript)
+was withdrawn and reworded truthfully; the two ``operational \S1.4
+form'' references (the Introduction has no subsections) now point to
+the operational Proposition~\ref{prop:kappa-derivation} form that the
+inverse-limit section itself cites.
+\item Applicability matrix arithmetic: ``only $3$ compute $\kappa_V$
+from FBA gene-KO biomass'' corrected to $4$ (E10, E12, E15, E16);
+``the remaining $10$'' corrected to $12$ (the itemized list contains
+twelve studies); the matrix and tally headers extended from E1--E14
+to E1--E16; the tally re-labeled as $14$ \emph{evaluation slots}
+($16$ studies; E6/E7 folded, E15$+$E16 paired); and ``$13$ if
+counted separately'' corrected to $12$.
+\item The $n_{\mathrm{prod}} \geq 5$ closure-test stratum corrected
+from $9/10$ ($90\%$) to $10/11$ ($91\%$): the deposited
+\texttt{autopoiesis\_ijO1366.csv} contains $11$ metabolites with
+five or more producing reactions, of which $10$ are causally internal
+(the single failure, ribose-D, has $n_{\mathrm{prod}} = 7$); the
+totals $28/50$ and $18/39$ are unaffected.
+\item E25 reconciliation: the primary RNA-seq carbon-depletion
+replication is the full-panel max-metric $r = +0.191$ at $n = 241$
+($p = 2.9 \times 10^{-3}$), while $+0.187$ is the same association
+on the $240$-gene set common to both platforms; four summary-level
+citations (abstract, introduction, E24 remark, conclusion) had paired
+$+0.187$ with $n = 241$ and are corrected to the primary value, with
+an explicit reconciliation note added in
+Section~\ref{sec:novelty-v18}.
+\item Biomass $15.444$ vs $0.9259$: the audits framed this as a
+units issue; re-running the deposited models
+(\texttt{verify\_e12\_e16\_biomass\_units.py}) shows it is a
+\emph{medium-construction artifact} --- both scripts list the
+trehalose exchange \texttt{EX\_tre\_e} among the ``minerals'',
+re-opened at $-1000$ (E12, unlimited-trehalose growth, uptake
+$-337$) vs $-10$ (E16, uptake $-6.4$) --- with glucose-only optima
+$0.982$ (iJO1366) and $0.822$ (iML1515). Honest medium-audit notes
+were added at the E12 and E16 sites; the essentiality comparisons
+(relative thresholds) are unaffected, and the full corrected-medium
+re-run is scheduled as the P4 methodological repair.
+\item P1, Definition~\ref{def:autopoiesis}: the five step labels
+were physically clipped off the left page edge in the v20 render
+(label spans began at $x < 0$; ``Drift/Recovery/Downstream/
+Restoration'' absent from the text layer). The enumerate was
+restructured so the step tags $(i)$--$(v)$ are proper labels and the
+step titles begin the item bodies; all step cross-references remain
+valid.
+\item P1, Table~\ref{tab:gem-limitations}: the natural-width
+five-column tabular overflowed the page edge (last column ending at
+$x \approx 597$ on a $595$-pt page), cutting ``growth rate'' to
+``growt'' (three cells) and ``(regulatory)'' to ``(regulat''. The
+table is now a width-constrained \texttt{tabularx} with wrapped
+\texttt{X} columns; no cell text was changed.
+\end{enumerate}
+
+\textbf{Honest scope note.} This round changes no analysis, no
+deposited result, and no verdict; it corrects transcription,
+labeling, counting, and rendering defects, adds two verified
+provenance notes, and documents one newly discovered methodological
+caveat (the trehalose medium asymmetry) without recomputing the
+affected studies. The P0-editorial and P2--P5 tiers remain open and
+are sequenced after the strategic decision, per the joint
+assessment's plan. Verification artifacts:
+\texttt{scripts/verify\_e12\_e16\_biomass\_units.py} (cobrapy
+re-run of both wild-type media),
+\texttt{download/verify\_e12\_e16\_biomass\_units.json},
+\texttt{scripts/v21\_patch\_mechanical.py} (this patch, with
+asserted exact-match replacements), and the joint assessment PDF.
+
 \section{Main Proposition}\label{sec:mainprop}
 % =============================================================
 
@@ -9547,7 +9706,8 @@ successor (the planned next E.~coli K-12 reconstruction).
 
 \begin{table}[h]
 \centering
-\begin{tabular}{lllll}
+\small
+\begin{tabularx}{\columnwidth}{@{}lll>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \hline
 bnum & gene & $\kappa_V$ (iML1515) & gap class & likely missing term \\
 \hline
@@ -9564,7 +9724,7 @@ b2234 & \emph{nrdA} & $7.68 \times 10^3$ & DNA precursor (RNR $\alpha$)     & dN
 b2235 & \emph{nrdB} & $7.68 \times 10^3$ & DNA precursor (RNR $\beta$)      & dNTP pool consumption at growth rate \\
 b2411 & \emph{ligA} & $7.52 \times 10^3$ & DNA replication (NAD-dep DNA ligase) & DNA-ligation ATP/NAD cost \\
 \hline
-\end{tabular}
+\end{tabularx}
 \caption{The $12$ persistent model-gap candidates --- genes that both
 the raw Keio screen AND the PEC database call essential, but BOTH
 iJO1366 AND iML1515 in-silico essentiality miss. The $\kappa_V$ values
@@ -9895,7 +10055,7 @@ a multi-layer branching Hasse diagram with $21$ covering inclusions;
 directed-system axioms (reflexive, transitive, directed) are verified;
 the inverse limit equals the maximal RAF $R_{\max}=\{r_1,\ldots,r_{11}\}$;
 the falsifiable prediction $\kk(R_{\max})=0$ matches the operational
-\S1.4 form to within $10^{-9}$; and all $16$ RAF nodes are
+Proposition~\ref{prop:kappa-derivation} form to within $10^{-9}$; and all $16$ RAF nodes are
 viability-preserving ($\kk(R_i)=0$ at every node).
 \item \emph{Real metabolic time-series data} (Qwen \S 8.2): CLOSED
   by Study~E10
@@ -9991,7 +10151,7 @@ $|M|=13$, $|R|=11$ in Subsection~\ref{sec:invlim-extended}
 a multi-layer branching Hasse diagram with $21$ covering inclusions,
 directed-system axioms hold, the inverse limit equals the maximal
 RAF $R_{\max}=\{r_1,\ldots,r_{11}\}$, and the falsifiable prediction
-$\kk(R_{\max})=0$ matches the operational \S1.4 form to within
+$\kk(R_{\max})=0$ matches the operational Proposition~\ref{prop:kappa-derivation} form to within
 $10^{-9}$, with $\kk(R_i)=0$ at every one of the $16$ RAF nodes
 (viability preservation is per-node, not just at the colimit). This
 closes the ``larger RAF networks'' future-direction item of
@@ -10195,7 +10355,7 @@ $435$-gene panel's $\kk$ values correlate with the magnitude of the
 transcriptional response to carbon exhaustion across two expression
 platforms (M3D microarray $r = +0.374$ at $n = 433$,
 $p \approx 10^{-15}$, partial $r = +0.251$; GSE64021 RNA-seq
-$r = +0.187$ at $n = 241$), with the association scaling with
+$r = +0.191$ at $n = 241$), with the association scaling with
 growth-state-transition severity rather than carbon identity,
 bounded by null controls (carbon-source switching, phosphorus
 limitation), and decoupled from protein fold-changes on the
@@ -10304,8 +10464,8 @@ claims. All numerical experiments were executed by the author using
 the scripts deposited in the project repository and are reproducible
 from the deposited code. All citations were verified against primary
 sources; references that did not contain the claimed content were
-corrected (see the manuscript's \S 7 research-integrity notes for
-specific corrections applied to the bibliography in the v6 revision).
+corrected directly in the bibliography in the v6 revision (the
+corrected entries themselves are the record of those corrections).
 
 \begin{thebibliography}{10}
 \providecommand{\url}[1]{#1}
