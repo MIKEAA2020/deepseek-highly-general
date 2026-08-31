@@ -1,8 +1,8 @@
 {
   "manuscript": "/tmp/my-project/scripts/journal_manuscript.tex",
-  "total_labels": 328,
-  "total_ref_keys": 717,
-  "total_ref_calls": 717,
+  "total_labels": 330,
+  "total_ref_keys": 724,
+  "total_ref_calls": 724,
   "dangling": [],
   "unused_labels": [
     {
@@ -32,7 +32,7 @@
     {
       "label": "conj:alg-envelope-restate",
       "lines": [
-        8969
+        9343
       ]
     },
     {
@@ -482,13 +482,13 @@
     {
       "label": "rem:curv-equiv",
       "lines": [
-        8592
+        8966
       ]
     },
     {
       "label": "rem:e19-three-follow-ups",
       "lines": [
-        7756
+        7764
       ]
     },
     {
@@ -506,7 +506,7 @@
     {
       "label": "rem:elevation-summary-table-v6",
       "lines": [
-        7054
+        7062
       ]
     },
     {
@@ -548,13 +548,13 @@
     {
       "label": "rem:main-bound",
       "lines": [
-        8487
+        8861
       ]
     },
     {
       "label": "rem:main-falsifiable",
       "lines": [
-        8544
+        8918
       ]
     },
     {
@@ -692,13 +692,13 @@
     {
       "label": "sec:authorship",
       "lines": [
-        9536
+        9910
       ]
     },
     {
       "label": "sec:data-code",
       "lines": [
-        9488
+        9862
       ]
     },
     {
@@ -710,13 +710,13 @@
     {
       "label": "sec:future-directions",
       "lines": [
-        9048
+        9422
       ]
     },
     {
       "label": "sec:gem-limitations",
       "lines": [
-        8815
+        9189
       ]
     },
     {
@@ -758,7 +758,7 @@
     {
       "label": "sec:novelty-v11",
       "lines": [
-        7743
+        7751
       ]
     },
     {
@@ -776,25 +776,25 @@
     {
       "label": "tab:gem-limitations",
       "lines": [
-        8863
+        9237
       ]
     },
     {
       "label": "tab:verdicts",
       "lines": [
-        8566
+        8940
       ]
     },
     {
       "label": "thm:seven-optic-functorial-informal",
       "lines": [
-        6935
+        6943
       ]
     }
   ],
   "multi_defined": [],
   "ref_macro_usage": {
-    "ref": 674,
+    "ref": 681,
     "eqref": 43
   },
   "prefix_buckets_dangling": {}
