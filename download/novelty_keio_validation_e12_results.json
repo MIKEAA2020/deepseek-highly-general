@@ -1,0 +1,76 @@
+{
+  "task": "E12 \u2014 Keio-collection growth-phenotype validation of \u03ba_V",
+  "report_reference": "Novelty_Assessment_Report.pdf \u00a78 Upgrade 1 (biology channel)",
+  "model": "iJO1366 (E. coli K-12 MG1655)",
+  "external_anchor": {
+    "keio_collection": "Baba et al. 2006 Mol Syst Biol 2:2006.0011",
+    "iJO1366_validation": "Orth et al. 2011 Mol Syst Biol 7:535 PMID 21846834",
+    "iJO1366_vs_keio_accuracy_on_glucose_minimal": 0.934
+  },
+  "n_genes_processed": 1367,
+  "n_essential": 289,
+  "essential_fraction": 0.21141185076810534,
+  "essential_threshold_5pct_of_wt": 0.7722120751888271,
+  "wild_type_biomass": 15.44424150377654,
+  "calibration": {
+    "pearson_r_log_kV_delta_b": 0.3695373760180408,
+    "pearson_p_value": 1.7532025863349008e-45,
+    "spearman_rho_kV_delta_b": 0.3900298539133473,
+    "spearman_p_value": 6.737769743846957e-51,
+    "partial_r_given_n_gpr_rxns": 0.3637459143457679,
+    "partial_p_value": 5.068726059579054e-44,
+    "bootstrap_95ci_low": 0.3510204273909911,
+    "bootstrap_95ci_high": 0.3888952792141017,
+    "n_bootstrap_resamples": 1000
+  },
+  "held_out_essentiality_prediction": {
+    "test_size_fraction": 0.3,
+    "n_test": 411,
+    "n_test_essential": 87,
+    "accuracy": 0.9075425790754258,
+    "sensitivity": 0.7586206896551724,
+    "specificity": 0.9475308641975309,
+    "precision": 0.7951807228915663,
+    "f1": 0.7764705882352941,
+    "mcc": 0.718545183275479,
+    "roc_auc": 0.9532070384560807,
+    "confusion_matrix": {
+      "tn": 307,
+      "fp": 17,
+      "fn": 21,
+      "tp": 66
+    }
+  },
+  "precision_at_k": {
+    "K=10": {
+      "precision": 0.7,
+      "base_rate": 0.21141185076810534,
+      "lift": 3.311072664359861
+    },
+    "K=25": {
+      "precision": 0.48,
+      "base_rate": 0.21141185076810534,
+      "lift": 2.270449826989619
+    },
+    "K=50": {
+      "precision": 0.44,
+      "base_rate": 0.21141185076810534,
+      "lift": 2.0812456747404844
+    },
+    "K=100": {
+      "precision": 0.68,
+      "base_rate": 0.21141185076810534,
+      "lift": 3.2164705882352944
+    },
+    "K=200": {
+      "precision": 0.805,
+      "base_rate": 0.21141185076810534,
+      "lift": 3.807733564013841
+    },
+    "K=500": {
+      "precision": 0.578,
+      "base_rate": 0.21141185076810534,
+      "lift": 2.734
+    }
+  }
+}

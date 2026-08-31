@@ -1,0 +1,4 @@
+shape,true_kappa,bma_kappa,c_local,corrected_with_c_v2,transferability_gap,transferability_factor,ci_lo_corrected,ci_hi_corrected,true_in_corrected_ci,verdict
+V=x^2 (synthetic),0.320695,0.197302,1.6254,0.320615,0.000000,1.0000,N/A,N/A,CLOSED BY CONSTRUCTION
+V_FBA glucose (REAL),0.506532,-0.220786,2.2942,-0.358777,0.865309,0.7083,-0.463694,-0.263523,"PARTIALLY TRANSFERABLE (factor in [0.5, 2.0], true outside CI)"
+V_FBA O2 (REAL),0.302280,-0.160716,1.8808,-0.261163,0.563443,0.8640,-0.332959,-0.194643,"PARTIALLY TRANSFERABLE (factor in [0.5, 2.0], true outside CI)"

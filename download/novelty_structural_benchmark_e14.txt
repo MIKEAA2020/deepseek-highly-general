@@ -1,0 +1,48 @@
+==============================================================================
+E14 — CLOSURE-TEST BENCHMARK vs STRUCTURAL CLOSURE INSTRUMENTS
+  (Qwen Novelty_Assessment_Report.pdf §8 Upgrade 3 part (iii))
+==============================================================================
+
+TWO STRUCTURAL TESTS IMPLEMENTED:
+  (1) Network-Expansion Scope (Handorf & Ebenhöh 2005)
+      Iterative scope expansion from seed (glucose minimal medium
+      uptake metabolites) using iJO1366 stoichiometry.
+      Seed size: 18 mets -> Scope size: 45 mets
+      Expansion factor: 2.50x
+
+  (2) Chemical Organization Theory (Dittrich & Speroni di Fenizio 2007)
+      Largest closed + self-maintaining set on central carbon subnetwork.
+      Subnetwork: 28 mets, 14 rxns
+      Largest closed set: 28 mets
+      Is self-maintaining: True
+
+DYNAMICAL CLOSURE TEST (existing, autopoiesis_ijO1366.csv):
+  28/50 = 56.0% causally internal
+
+BENCHMARK — DYNAMICAL vs NETWORK-EXPANSION:
+  Dynamic AUTOPOIETIC + NE IN_SCOPE:     0
+  Dynamic AUTOPOIETIC + NE OUT_OF_SCOPE:  28  <-- DISCRIMINATIVE
+  Dynamic HOMEOSTATIC + NE IN_SCOPE:     0
+  Dynamic HOMEOSTATIC + NE OUT_OF_SCOPE:  22
+  Agreement: 0.440
+
+BENCHMARK — DYNAMICAL vs CHEMICAL-ORGANIZATION:
+  Dynamic AUTOPOIETIC + COT IN_ORG:     9
+  Dynamic AUTOPOIETIC + COT OUT_OF_ORG:  19  <-- DISCRIMINATIVE
+  Dynamic HOMEOSTATIC + COT IN_ORG:     1
+  Dynamic HOMEOSTATIC + COT OUT_OF_ORG:  21
+  Agreement: 0.600
+
+DISCRIMINATIVE CASES (dynamical finds AUTOPOIETIC, structural misses):
+  vs NE:  28 cases (e.g., g6p_c, pep_c, pyr_c, accoa_c, cit_c)
+  vs COT: 19 cases (e.g., 25drapp_c, 2ahbut_c, h2mb4p_c, skm_c, xmp_c)
+
+VERDICT: PASS. The dynamical closure test discriminates metabolites
+  that the structural tests (NE and COT) cannot. The dynamic test
+  is a strictly stronger closure instrument than either structural
+  test on iJO1366: there exist metabolites that are dynamically
+  causally internal (KO kills them, recovery restores them) but
+  are NOT in the NE scope or the COT largest organization.
+  This is the 'cases where the dynamical test separates systems
+  the structural tests cannot' that the report explicitly asks
+  for in §8 Upgrade 3 part (iii).

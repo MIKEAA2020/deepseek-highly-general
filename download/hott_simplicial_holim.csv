@@ -1,0 +1,6 @@
+dimension_k,n_k_simplices,n_k_minus_1_simplices,boundary_alt_sum,is_cycle,H_k
+0,1,0,0,True,Z
+1,1,1,0,True,0
+2,1,1,1,False,0
+3,1,1,0,True,0
+4,1,1,1,False,0

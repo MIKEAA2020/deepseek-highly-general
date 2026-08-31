@@ -1,0 +1,213 @@
+{
+  "task": "E15 \u2014 DIRECT \u03ba_V vs RAW Baba 2006 Keio essentiality",
+  "report_reference": "Novelty_Assessment_Report.pdf \u00a78 Upgrade 1 (biology channel)",
+  "data_provenance": {
+    "keio_raw_essentiality": "Baba et al. 2006 MSB 2:2006.0011, Sup Table 7 (raw tomoya baba supp/44320_2006_BFMSB4100050_MOESM9_ESM.xls)",
+    "keio_raw_PEC_MG_Tn5_cross_val": "Baba et al. 2006, Sup Table 6 (raw tomoya baba supp/44320_2006_BFMSB4100050_MOESM8_ESM.xls)",
+    "kV_source": "E12 pre-computed \u03ba_V / \u0394_b (download/novelty_keio_validation_e12.csv), itself derived from iJO1366 (BiGG) via cobrapy pFBA on glucose+O2 minimal medium",
+    "bnumber_match": "Blattner b-numbers; same convention in iJO1366 GPR and Baba 2006 Sup Tables 6+7"
+  },
+  "n_E12_genes": 1367,
+  "n_merged": 1212,
+  "coverage_fraction": 0.8866130212143379,
+  "raw_keio_call_distribution": {
+    "E": 130,
+    "N": 1076,
+    "u": 6
+  },
+  "binary_subset": {
+    "n_total": 1206,
+    "n_essential_E": 130,
+    "n_non_essential_N": 1076,
+    "base_rate_essential": 0.1077943615257048
+  },
+  "direct_validation": {
+    "pearson_r_log10_kV_keio_E": 0.08466201564006262,
+    "pearson_p_value": 0.0032574619430043093,
+    "spearman_rho": 0.2284394204156901,
+    "spearman_p_value": 9.641994322700718e-16,
+    "point_biserial_r": 0.08466201564006262,
+    "bootstrap_95ci_low": 0.02713495836590963,
+    "bootstrap_95ci_high": 0.1397429682528241,
+    "n_bootstrap_resamples": 2000,
+    "roc_auc": 0.7126000857878182
+  },
+  "held_out_essentiality_prediction": {
+    "test_size_fraction": 0.3,
+    "n_train": 844,
+    "n_train_essential": 91,
+    "n_test": 362,
+    "n_test_essential": 39,
+    "accuracy": 0.2596685082872928,
+    "sensitivity": 0.9230769230769231,
+    "specificity": 0.17956656346749225,
+    "precision": 0.11960132890365449,
+    "f1": 0.21176470588235294,
+    "mcc": 0.08501915708921114,
+    "roc_auc": 0.7571247122330714,
+    "confusion_matrix": {
+      "tp": 36,
+      "fp": 265,
+      "tn": 58,
+      "fn": 3
+    }
+  },
+  "precision_at_k": {
+    "K=10": {
+      "precision": 0.3,
+      "base_rate": 0.1077943615257048,
+      "lift": 2.7830769230769232,
+      "n_top_with_keio_E": 3
+    },
+    "K=25": {
+      "precision": 0.2,
+      "base_rate": 0.1077943615257048,
+      "lift": 1.8553846153846156,
+      "n_top_with_keio_E": 5
+    },
+    "K=50": {
+      "precision": 0.16,
+      "base_rate": 0.1077943615257048,
+      "lift": 1.4843076923076923,
+      "n_top_with_keio_E": 8
+    },
+    "K=100": {
+      "precision": 0.23,
+      "base_rate": 0.1077943615257048,
+      "lift": 2.133692307692308,
+      "n_top_with_keio_E": 23
+    },
+    "K=200": {
+      "precision": 0.245,
+      "base_rate": 0.1077943615257048,
+      "lift": 2.272846153846154,
+      "n_top_with_keio_E": 49
+    },
+    "K=500": {
+      "precision": 0.194,
+      "base_rate": 0.1077943615257048,
+      "lift": 1.799723076923077,
+      "n_top_with_keio_E": 97
+    }
+  },
+  "confidence_stratified": {
+    "high_conf_Keio_E_and_PEC_E": {
+      "n": 84,
+      "median_log10_kV": 6.323663638426051,
+      "roc_auc_vs_Keio_N": 0.6723867056116126,
+      "pearson_r_vs_Keio_N": 0.0308875808236844,
+      "pearson_p_value": 0.29320820562479477
+    },
+    "low_conf_Keio_E_and_PEC_N": {
+      "n": 35,
+      "median_log10_kV": 6.436082737681168,
+      "roc_auc_vs_Keio_N": 0.7499734466277217
+    },
+    "Keio_N_median_log10_kV": 6.177899076168233
+  },
+  "transitivity_gap": {
+    "old_transitive_r_proxy": 0.34558,
+    "old_transitive_r_components": {
+      "r_kV_in_silico_E": 0.37,
+      "orth_2011_accuracy": 0.934
+    },
+    "new_direct_r": 0.08466201564006262,
+    "gap_signed": -0.2609179843599374,
+    "interpretation": "direct measurement replaces cited\u00d7cited transitive proxy"
+  },
+  "model_gaps_Keio_E_PEC_E_iJO1366_in_silico_N": {
+    "n": 30,
+    "top_15_by_kV": [
+      {
+        "bnum": "b2779",
+        "gene": "eno",
+        "kV": 12343265.238897378,
+        "COG_id": "COG0148"
+      },
+      {
+        "bnum": "b3650",
+        "gene": "spoT",
+        "kV": 1733620.405758813,
+        "COG_id": "COG0317"
+      },
+      {
+        "bnum": "b2925",
+        "gene": "fbaA",
+        "kV": 1733613.443674978,
+        "COG_id": "COG0191"
+      },
+      {
+        "bnum": "b3288",
+        "gene": "fmt",
+        "kV": 1733613.4436749176,
+        "COG_id": "COG0223"
+      },
+      {
+        "bnum": "b3560",
+        "gene": "glyQ",
+        "kV": 1733542.1032113854,
+        "COG_id": "COG0752"
+      },
+      {
+        "bnum": "b0680",
+        "gene": "glnS",
+        "kV": 1733542.103211382,
+        "COG_id": "COG0008"
+      },
+      {
+        "bnum": "b2411",
+        "gene": "ligA",
+        "kV": 1506478.8772775307,
+        "COG_id": "COG0272"
+      },
+      {
+        "bnum": "b2514",
+        "gene": "hisS",
+        "kV": 1506281.75247529,
+        "COG_id": "COG0124"
+      },
+      {
+        "bnum": "b0642",
+        "gene": "leuS",
+        "kV": 1506281.7524752894,
+        "COG_id": "COG0495"
+      },
+      {
+        "bnum": "b3640",
+        "gene": "dut",
+        "kV": 1385775.7723267854,
+        "COG_id": "COG0756"
+      },
+      {
+        "bnum": "b2563",
+        "gene": "acpS",
+        "kV": 1385667.6173864,
+        "COG_id": "COG0736"
+      },
+      {
+        "bnum": "b0657",
+        "gene": "lnt",
+        "kV": 1385580.4192738335,
+        "COG_id": "COG0815"
+      },
+      {
+        "bnum": "b1876",
+        "gene": "argS",
+        "kV": 1385580.419226389,
+        "COG_id": "COG0018"
+      },
+      {
+        "bnum": "b0526",
+        "gene": "cysS",
+        "kV": 1385580.419226383,
+        "COG_id": "COG0215"
+      },
+      {
+        "bnum": "b0930",
+        "gene": "asnS",
+        "kV": 1385580.4192263817,
+        "COG_id": "COG0017"
+      }
+    ]
+  }
+}

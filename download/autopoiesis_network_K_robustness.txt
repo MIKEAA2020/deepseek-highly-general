@@ -1,0 +1,61 @@
+TASK B: NETWORK K PERTURBATION ROBUSTNESS SWEEP
+       (noisy food supply; stress-test the 100% Phase I verdict)
+==============================================================================
+
+Sweep grid: 4 sigmas x 3 food_concs = 12 configurations
+  sigma  (noise amplitude on food_conc): [0.0, 0.1, 0.5, 1.0]
+  food_conc:                            [5.0, 10.0, 20.0]
+  T = 300 timesteps per simulation
+
+Phase I % (rows=sigma, cols=food_conc):
+   sigma\\fc     5.0    10.0    20.0
+        0.00    59.6    98.1    94.2
+        0.10    94.2    98.1    98.1
+        0.50   100.0   100.0   100.0
+        1.00   100.0    98.1    98.1
+
+Phase III % (rows=sigma, cols=food_conc):
+   sigma\\fc     5.0    10.0    20.0
+        0.00    61.5   100.0    96.2
+        0.10    96.2   100.0   100.0
+        0.50   100.0   100.0   100.0
+        1.00   100.0   100.0   100.0
+
+Per-config verdicts:
+  sigma=0.00, food_conc=  5.0: Phase I = 31/52 (59.6%), Phase III = 32/52 (61.5%)
+  sigma=0.00, food_conc= 10.0: Phase I = 51/52 (98.1%), Phase III = 52/52 (100.0%)
+  sigma=0.00, food_conc= 20.0: Phase I = 49/52 (94.2%), Phase III = 50/52 (96.2%)
+  sigma=0.10, food_conc=  5.0: Phase I = 49/52 (94.2%), Phase III = 50/52 (96.2%)
+  sigma=0.10, food_conc= 10.0: Phase I = 51/52 (98.1%), Phase III = 52/52 (100.0%)
+  sigma=0.10, food_conc= 20.0: Phase I = 51/52 (98.1%), Phase III = 52/52 (100.0%)
+  sigma=0.50, food_conc=  5.0: Phase I = 52/52 (100.0%), Phase III = 52/52 (100.0%)
+  sigma=0.50, food_conc= 10.0: Phase I = 52/52 (100.0%), Phase III = 52/52 (100.0%)
+  sigma=0.50, food_conc= 20.0: Phase I = 52/52 (100.0%), Phase III = 52/52 (100.0%)
+  sigma=1.00, food_conc=  5.0: Phase I = 52/52 (100.0%), Phase III = 52/52 (100.0%)
+  sigma=1.00, food_conc= 10.0: Phase I = 51/52 (98.1%), Phase III = 52/52 (100.0%)
+  sigma=1.00, food_conc= 20.0: Phase I = 51/52 (98.1%), Phase III = 52/52 (100.0%)
+
+Per-component robustness (sorted by Phase I fragility, top 15):
+  component   Phase I pass  Phase III pass
+  PYR               6/12               12/12
+  ALA              10/12               12/12
+  HK2              10/12               10/12
+  PYK2             10/12               10/12
+  HK1              11/12               11/12
+  PFK1             11/12               11/12
+  PFK2             11/12               11/12
+  ALDO1            11/12               11/12
+  ALDO2            11/12               11/12
+  PYK1             11/12               11/12
+  ALT1             11/12               11/12
+  ALT2             11/12               11/12
+  MDH1             11/12               11/12
+  MDH2             11/12               11/12
+  PDH1             11/12               11/12
+
+Components passing ALL 12 configs at Phase I: 28/52
+Components passing ALL 12 configs at Phase III: 30/52
+
+Nominal config (sigma=0, food_conc=10) Phase I = 98.1% (expected 100.0%)
+Hardest config Phase I: 59.6% (sigma=0.00, food_conc=5.0)
+Hardest config Phase III: 61.5% (sigma=0.00, food_conc=5.0)

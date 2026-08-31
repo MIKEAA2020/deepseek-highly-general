@@ -1,0 +1,100 @@
+TASK 2: AUTOPOIESIS CLOSURE TEST ON FULL BiGG iJO1366 MODEL
+       (Orth et al. 2011; 1805 metabolites, 2583 reactions)
+==============================================================================
+
+Model: iJO1366 (1805 metabolites, 2583 reactions)
+Food metabolites (taken up by exchange): 324
+Cytosolic non-food metabolites (M_ess): 1039
+Test set: 50 metabolites (10 from Network B + 40 random)
+Baseline biomass flux: 0.982372
+Viability threshold: 0.098237 (biomass > 0.1 * baseline)
+Flux threshold: 1e-06
+
+Per-metabolite verdicts:
+         metabolite_id  n_prod   baseline_prod      knock_prod        rec_prod         verdict
+                 g6p_c       8       10.000000        0.000000       10.000000     AUTOPOIETIC
+                 fdp_c       2        7.784186        0.000000        0.000000     HOMEOSTATIC
+                 pep_c       3       14.586890        0.000000       14.586890     AUTOPOIETIC
+                 pyr_c      53       11.488993        0.000000       11.073290     AUTOPOIETIC
+               accoa_c       8        8.648331        0.000000        8.076025     AUTOPOIETIC
+                 cit_c       3        4.857777        0.000000        4.857777     AUTOPOIETIC
+                 akg_c       9        7.081537        0.000000        7.081537     AUTOPOIETIC
+                succ_c      16        0.841229        0.000000        0.516265     AUTOPOIETIC
+              mal__L_c       5        4.826656        0.000000        4.826656     AUTOPOIETIC
+                 oaa_c       9        7.733846        0.000000        7.733846     AUTOPOIETIC
+             25drapp_c       1        0.000438        0.000000        0.000438     AUTOPOIETIC
+              2ahbut_c       1        0.285408        0.000000        0.285408     AUTOPOIETIC
+              h2mb4p_c       1        0.002347        0.000000        0.002347     AUTOPOIETIC
+                 skm_c       2        0.374401        0.000000        0.374401     AUTOPOIETIC
+           man6pglyc_c       1        0.000000        0.000000        0.000000     HOMEOSTATIC
+                 xmp_c       3        0.239420        0.000000        0.239420     AUTOPOIETIC
+              2dda7p_c       1        0.374401        0.000000        0.374401     AUTOPOIETIC
+              uagmda_c       1        0.027298        0.000000        0.027298     AUTOPOIETIC
+               dhmpt_c       1        0.000000        0.000000        0.000000     HOMEOSTATIC
+              hx2coa_c       2        0.349606        0.000000        0.349606     AUTOPOIETIC
+               sufse_c       3        0.000000        0.000000        0.000000     HOMEOSTATIC
+               ppgpp_c       2        0.000000        0.000000        0.000000     HOMEOSTATIC
+           tdec2eACP_c       1        0.000000        0.000000        0.000000     HOMEOSTATIC
+              ttdcap_c       1        0.000000        0.000000        0.000000     HOMEOSTATIC
+              2mcacn_c       1        0.000000        0.000000        0.000000     HOMEOSTATIC
+              2mahmp_c       1        0.000219        0.000000        0.000219     AUTOPOIETIC
+              pgp120_c       1        0.000000        0.000000        0.000000     HOMEOSTATIC
+                grdp_c       1        0.000273        0.000000        0.000273     AUTOPOIETIC
+            ocdcaACP_c       3        0.000000        0.000000        0.000000     HOMEOSTATIC
+               rml1p_c       1        0.000000        0.000000        0.000000     HOMEOSTATIC
+               thmmp_c       3        0.000219        0.000000        0.000219     AUTOPOIETIC
+                 thf_c       8        1.149678        0.000000        1.149678     AUTOPOIETIC
+         kdo2lipid4p_c       1        0.000000        0.000000        0.000000     HOMEOSTATIC
+              pimACP_c       1        0.000002        0.000000        0.000002     AUTOPOIETIC
+               pa120_c       3        0.000000        0.000000        0.000000     HOMEOSTATIC
+               pa180_c       3        0.000000        0.000000        0.000000     HOMEOSTATIC
+              actACP_c       2        0.000000        0.000000        0.000000     HOMEOSTATIC
+                dutp_c       3        0.025705        0.000000        0.025705     AUTOPOIETIC
+            3hhexACP_c       1        0.000000        0.000000        0.000000     HOMEOSTATIC
+              frulys_c       2        0.000000        0.000000        0.000000     HOMEOSTATIC
+               ichor_c       2        0.000000        0.000000        0.000000     HOMEOSTATIC
+                 thm_c       1        0.000000        0.000000        0.000000     HOMEOSTATIC
+               eig3p_c       1        0.093068        0.000000        0.093068     AUTOPOIETIC
+                cpmp_c       1        0.000240        0.000000        0.000240     AUTOPOIETIC
+               hmbil_c       1        0.000438        0.000000        0.000438     AUTOPOIETIC
+             unagamu_c       1        0.000000        0.000000        0.000000     HOMEOSTATIC
+                chol_c       3        0.000000        0.000000        0.000000     HOMEOSTATIC
+              lys__L_c       5        0.337112        0.000000        0.337112     AUTOPOIETIC
+              ribflv_c       7        0.000438        0.000000        0.000438     AUTOPOIETIC
+              rib__D_c       7        0.000000        0.000000        0.000000     HOMEOSTATIC
+
+VERDICT (test set of 50):
+  AUTOPOIETIC (causally internal): 28/50 (56.00%)
+  HOMEOSTATIC: 22/50
+
+Stratified by number of producing reactions:
+  n_prod = 1: 22 metabolites, 11/22 causally internal
+  n_prod = 2: 7 metabolites, 2/7 causally internal
+  n_prod = 3: 10 metabolites, 5/10 causally internal
+  n_prod = 5: 2 metabolites, 2/2 causally internal
+  n_prod = 7: 2 metabolites, 1/2 causally internal
+  n_prod = 8: 3 metabolites, 3/3 causally internal
+  n_prod = 9: 2 metabolites, 2/2 causally internal
+  n_prod = 16: 1 metabolites, 1/1 causally internal
+  n_prod = 53: 1 metabolites, 1/1 causally internal
+
+Comparison to Network B (10-species core-metabolic subnetwork):
+  Network B: 0/10 causally internal (HOMEOSTATIC)
+  Full iJO1366 (test set of 50): 28/50 causally internal
+  Of the 10 Network B metabolites tested at genome scale: 9/10 causally internal
+
+INTERPRETATION:
+  The full iJO1366 model shows substantially more causally internal
+  components than the small 10-species Network B subnetwork. This is
+  because genome-scale metabolism has built-in REDUNDANCY: most
+  metabolites have multiple producing reactions (isozymes, alternative
+  pathways), so knocking out one set of producing reactions leaves
+  alternative routes that still produce the metabolite. The system is
+  thus more autopoietic at genome scale than at the core-metabolic
+  subnetwork scale, where the redundancy is absent.
+
+  However, the system is still NOT fully autopoietic: the components
+  that fail the test are those whose production depends on enzyme
+  catalysts that are themselves not modeled in the metabolic network.
+  The integrated metabolic-gene-regulatory network (Task 3) addresses
+  this by adding enzyme-synthesis reactions that close the loop.

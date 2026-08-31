@@ -1,0 +1,56 @@
+{
+  "smooth_rate_distortion": {
+    "r_at_x0": 1.4153113214004212,
+    "r_at_x_test": 1.2714522511016293,
+    "h_alpha_at_x_test": 0.010347716053616368,
+    "grad_at_test_point": [
+      7.052448630640029,
+      6.6847604139885775
+    ],
+    "directional_derivative_converged": -1.3836570206655618,
+    "directional_derivative_rel_tail_variance": 0.005246448710497113,
+    "dist_D_values_at_grid": [
+      2.0,
+      3.0,
+      3.0,
+      4.0
+    ],
+    "r_values_at_grid": [
+      1.3384606267391321,
+      2.0792943462226496,
+      2.0775681899094396,
+      1.3835131011507913
+    ],
+    "verdict": "SMOOTH_RATE_DISTORTION_VERIFIED",
+    "plot": "/home/z/my-project/download/elevation_smooth_rate_distortion.png",
+    "conjecture_statement": "Conjecture (algorithmic upper envelope): There exists an upper-semicomputable kappa_V^alg based on dist_D that satisfies kappa_V^alg >= kappa_V^surrogate - C for every smooth finite-code surrogate, where C depends on the code family."
+  },
+  "bregman_hessian_noether": {
+    "killing_field_test_at_q": {
+      "q_test": [
+        0.7,
+        1.3
+      ],
+      "max_abs_Killing_violation": 1.1102341268554028e-11,
+      "relative_to_norm_g": 7.85054079804181e-12
+    },
+    "J_xi_initial_symmetric": -0.7000000000000001,
+    "J_xi_max_deviation_symmetric": 1.1343659345186552e-10,
+    "J_xi_relative_deviation_symmetric": 1.6205227635957636e-10,
+    "J_xi_initial_broken": -0.7000000000000001,
+    "J_xi_max_deviation_broken": 11.438274381178891,
+    "J_xi_relative_deviation_broken": 16.340391973089357,
+    "verdict": "BREGMAN_HESSIAN_NOETHER_VERIFIED",
+    "plot": "/home/z/my-project/download/elevation_bregman_hessian_noether.png",
+    "theorem_statement": "Bregman-Hessian Noether Theorem (replaces false Prop 5.1): Let phi: Q -> R strictly convex C^3, g_phi = grad^2 phi. Let xi be a complete affine vector field whose flow preserves g_phi (Killing) and U. For L(q, q_dot) = (1/2) g_phi(q)(q_dot, q_dot) - U(q), the Noether current J_xi(q, q_dot) = g_phi(q)(q_dot, xi(q)) is conserved along Euler-Lagrange trajectories. Concrete instance: phi = (1/2)||q||^2 (Bregman divergence = squared Euclidean), xi = rotation, U = (1/2)||q||^2, J_xi = q_1 q_dot_2 - q_2 q_dot_1 (angular momentum), conserved by SHO."
+  },
+  "summary": {
+    "qwen_defects_addressed": [
+      "5: Smooth finite-code surrogate r_{tau,beta,D} is C^2 under smooth decoder/distortion; directional derivative of h_alpha = D_phi(r, r0) is well-defined at non-reference test points. Kolmogorov dist_D retained only as upper-semicomputable upper bound (Conjecture).",
+      "6: False Prop 5.1 (Bregman-divergence invariance -> Noether current) REPLACED by Bregman-Hessian Noether theorem. Concrete instance: phi = (1/2)||q||^2, g_phi = I, xi = rotation, U = (1/2)||q||^2, J_xi = q_1 q_dot_2 - q_2 q_dot_1 (angular momentum), conserved by SHO. Verified: rel. deviation 1.62e-10 under symmetric U vs 1.63e+01 under broken U (control)."
+    ],
+    "demoted_to_conjecture": [
+      "Algorithmic upper envelope: kappa_V^alg (based on dist_D) upper-bounds kappa_V^surrogate (based on r_{tau,beta,D}) up to a code-family-dependent constant C. NOT proved; requires a smooth envelope theorem for Kolmogorov complexity (Qwen Conjecture 2)."
+    ]
+  }
+}

@@ -1,0 +1,55 @@
+E8 — kappa_V baseline battery on REAL Network K KO trajectories
+========================================================================
+
+STRENGTHENED Qwen §3.2 (self-referential) + §8.3 (baselines):
+Apply E1's baseline battery to REAL Network K single-reaction-KO
+data (not just synthetic n=3 prototype loops).
+
+n_experiments = 86 single-reaction-KO experiments (all Network K reactions)
+Reactions with erosion > 1e-4: 57/86
+Viability function: normalized sum of 14 essential metabolic intermediates (REAL biological V, NOT synthetic 1-x^2-y^2)
+
+ZERO-ORDER correlations (predictor vs recovery_margin_erosion):
+  r(kappa_V, erosion)               = +0.9067
+  r(raw_F                         , erosion) = +0.5691
+  r(fisher_dist                   , erosion) = +0.3453
+  r(viability_margin              , erosion) = +0.6034
+  r(constraint_violation_rate     , erosion) = +0.0000
+  r(natural_grad                  , erosion) = +0.3716
+  r(random_curvature              , erosion) = +0.0527
+
+PARTIAL r(kappa_V, erosion | baseline):
+  r(kappa_V, erosion | raw_F                    ) = +0.8767
+  r(kappa_V, erosion | fisher_dist              ) = +0.9010
+  r(kappa_V, erosion | viability_margin         ) = +0.8488
+  r(kappa_V, erosion | constraint_violation_rate) = +0.9067
+  r(kappa_V, erosion | natural_grad             ) = +0.8969
+  r(kappa_V, erosion | random_curvature         ) = +0.9064
+
+PARTIAL r(baseline, erosion | kappa_V):
+  r(raw_F                    , erosion | kappa_V) = +0.3478
+  r(fisher_dist              , erosion | kappa_V) = +0.2627
+  r(viability_margin         , erosion | kappa_V) = +0.0388
+  r(constraint_violation_rate, erosion | kappa_V) = +0.0000
+  r(natural_grad             , erosion | kappa_V) = +0.2301
+  r(random_curvature         , erosion | kappa_V) = +0.0030
+
+BOOTSTRAP 95% CI on partial r(kappa_V, erosion | viability_margin):
+  mean = +0.8478, CI = [+0.7212, +0.9490] (B=200)
+
+Top-5 erosive reactions:
+  M2a       erosion=0.1853  kappa_V=0.1263  margin=0.1853
+  M2b       erosion=0.1853  kappa_V=0.1263  margin=0.1853
+  E2a       erosion=0.1510  kappa_V=0.0697  margin=0.1864
+  E2b       erosion=0.1510  kappa_V=0.0697  margin=0.1864
+  M21a      erosion=0.1415  kappa_V=0.1160  margin=0.1813
+
+Bottom-5 (least erosive):
+  E17a      erosion=0.0000  kappa_V=0.0072  margin=0.0374
+  E17b      erosion=0.0000  kappa_V=0.0072  margin=0.0374
+  E23a      erosion=0.0000  kappa_V=0.0093  margin=0.0233
+  E23b      erosion=0.0000  kappa_V=0.0093  margin=0.0233
+  G_auto    erosion=0.0000  kappa_V=0.0003  margin=0.3675
+
+VERDICT: PASS
+  (threshold: partial r(kappa_V, erosion | viability_margin) > 0.3 with > 5 erosive reactions)

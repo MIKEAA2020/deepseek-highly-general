@@ -1,0 +1,38 @@
+{
+  "gauge_invariant_entropy": {
+    "H_emp_baseline": 0.2435545485743376,
+    "H_emp_isometry_invariance": 3.3306690738754696e-16,
+    "H_emp_chartA_drop_p3": 0.2435545485743376,
+    "H_emp_chartB_drop_p0": 0.24355454857433725,
+    "H_emp_chart_invariance": 3.3306690738754696e-16,
+    "d_FR_baseline": 0.4760145195369721,
+    "d_FR_isometry_invariance": 8.881784197001252e-16,
+    "verdict": "GAUGE_INVARIANT_ENTROPY_VERIFIED",
+    "plot": "/home/z/my-project/download/elevation_gauge_invariant_entropy.png"
+  },
+  "quantum_elevation": {
+    "lindbladian_gap_Delta": 0.25000000000000006,
+    "lindbladian_eigenvalues": [
+      "0j",
+      "(-0.25000000000000006+2j)",
+      "(-0.25000000000000006-2j)",
+      "(-0.5000000000000001+0j)"
+    ],
+    "lindbladian_steady_state_deviation": 3.1695276464947532e-06,
+    "holevo_chi": 0.6008760366529928,
+    "classical_bound": 1.0,
+    "holevo_bound_holds": true,
+    "amplitude_damping_contraction_q": 0.7713624310270754,
+    "contraction_holds": true,
+    "unprojected_fixed_point_deviation": 1.3722721641265621e-16,
+    "zeno_projected_fixed_point_deviation": 0.0,
+    "verdict": "QUANTUM_ELEVATION_VERIFIED",
+    "plot": "/home/z/my-project/download/elevation_quantum.png"
+  },
+  "summary": {
+    "qwen_defects_addressed": [
+      "13: log sqrt(det I(p)) REPLACED by (a) Fisher volume ratio H_emp = log(d mu_F / d mu_0) (chart-invariance 3.33e-16, isometry-invariance 3.33e-16) and (b) Fisher-Rao distance d_FR (isometry-invariance 8.88e-16).",
+      "14: Quantum elevation. (a) Dissipative Lindbladian with H = sigma_z/2 and L_0 = sqrt(gamma) sigma_-, spectral gap Delta = 0.2500 > 0, steady state |0><0| (deviation 3.17e-06); (b) Holevo chi = 0.6009 bits <= classical bound 1.0000 (holds: True); (c) Amplitude damping is a strict contraction in trace distance with q = 0.771 < 1, fixed point |0><0| by Banach (unprojected dev 1.37e-16, Zeno-projected dev 0.00e+00)."
+    ]
+  }
+}

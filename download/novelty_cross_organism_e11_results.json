@@ -1,0 +1,85 @@
+{
+  "task": "E11 cross-organism closure test (Qwen \u00a78.5 deeper)",
+  "models": {
+    "iJO1366": {
+      "label": "E. coli K-12 MG1655 (Orth 2011)",
+      "n_mets": 1805,
+      "n_rxns": 2583,
+      "n_genes": 1367,
+      "biomass_flux": 0.9823718127269633,
+      "test_set_size": 50,
+      "n_causally_internal": 28,
+      "pct_causally_internal": 56.0
+    },
+    "iAF1260": {
+      "label": "E. coli K-12 MG1655 (Feist 2010)",
+      "n_mets": 1668,
+      "n_rxns": 2382,
+      "n_genes": 1261,
+      "biomass_flux": 0.7367009388648948,
+      "test_set_size": 50,
+      "n_causally_internal": 20,
+      "pct_causally_internal": 40.0
+    },
+    "iMM904": {
+      "label": "S. cerevisiae (Mo 2009)",
+      "n_mets": 1226,
+      "n_rxns": 1577,
+      "n_genes": 905,
+      "biomass_flux": 0.2878657037040186,
+      "test_set_size": 50,
+      "n_causally_internal": 20,
+      "pct_causally_internal": 40.0
+    }
+  },
+  "cross_organism_agreement_network_B": {
+    "iJO1366_vs_iAF1260": "9/10",
+    "iJO1366_vs_iMM904": "7/10",
+    "iAF1260_vs_iMM904": "6/10"
+  },
+  "universal_signature": {
+    "iJO1366": {
+      "n_prod_1": {
+        "A": 11,
+        "H": 11,
+        "total": 22,
+        "pct_auto": 50.0
+      },
+      "n_prod_2plus": {
+        "A": 17,
+        "H": 11,
+        "total": 28,
+        "pct_auto": 60.714285714285715
+      }
+    },
+    "iAF1260": {
+      "n_prod_1": {
+        "A": 4,
+        "H": 16,
+        "total": 20,
+        "pct_auto": 20.0
+      },
+      "n_prod_2plus": {
+        "A": 16,
+        "H": 11,
+        "total": 27,
+        "pct_auto": 59.25925925925926
+      }
+    },
+    "iMM904": {
+      "n_prod_1": {
+        "A": 6,
+        "H": 15,
+        "total": 21,
+        "pct_auto": 28.571428571428573
+      },
+      "n_prod_2plus": {
+        "A": 14,
+        "H": 10,
+        "total": 24,
+        "pct_auto": 58.333333333333336
+      }
+    }
+  },
+  "verdict_summary": "Cross-organism generalization: iJO1366 28/50 (56.0%) vs iAF1260 20/50 (40.0%) vs iMM904 20/50 (40.0%). Network B orthologs: iJO1366 vs iMM904 7/10 agree."
+}

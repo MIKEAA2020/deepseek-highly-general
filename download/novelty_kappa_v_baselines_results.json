@@ -1,0 +1,164 @@
+{
+  "configs": 49,
+  "predictors": {
+    "kappa_V (manuscript)": {
+      "log_log_slope": 1.0534416473543315,
+      "R2_log_log": 0.9693382328766746,
+      "mean_rel_err": 0.5900265217344791,
+      "verdict": "PASS"
+    },
+    "raw_curvature ||F|| (Stokes)": {
+      "log_log_slope": 1.041833760102285,
+      "R2_log_log": 0.5660582189368354,
+      "mean_rel_err": 11.001591276317898,
+      "verdict": "FAIL"
+    },
+    "Fisher_distance": {
+      "log_log_slope": -0.8571947546032177,
+      "R2_log_log": 2.220446049250313e-16,
+      "mean_rel_err": 884.0327513336943,
+      "verdict": "FAIL"
+    },
+    "viability_margin": {
+      "log_log_slope": 1.0593496095397743,
+      "R2_log_log": 0.9695750311120283,
+      "mean_rel_err": 0.47940027493662374,
+      "verdict": "PASS"
+    },
+    "constraint_violation_rate": {
+      "slope": NaN,
+      "R2": NaN,
+      "mean_rel_err": NaN,
+      "verdict": "INSUFFICIENT_DATA"
+    },
+    "natural_gradient norm": {
+      "log_log_slope": 1.709482508830613,
+      "R2_log_log": 0.9821842393267798,
+      "mean_rel_err": 2.9461757968024522,
+      "verdict": "FAIL"
+    },
+    "random_curvature_control": {
+      "log_log_slope": 11.126422260254031,
+      "R2_log_log": 0.014267624954612868,
+      "mean_rel_err": 278.9704458974721,
+      "verdict": "FAIL"
+    }
+  },
+  "per_group_kappa_V": {
+    "circle|V_quad (manuscript baseline)": {
+      "slope": 1.008299320770006,
+      "R2": 0.9992835467957619
+    },
+    "square|V_quad (non-circular shape)": {
+      "slope": 0.9796952192622123,
+      "R2": 0.998788485029918
+    },
+    "triangle|V_quad (non-circular shape)": {
+      "slope": 1.0201617194678865,
+      "R2": 0.9968649842370332
+    },
+    "ellipse|V_quad (non-circular shape)": {
+      "slope": 1.0114329430422189,
+      "R2": 0.9960922197811057
+    },
+    "circle|V_quartic (NON-quadratic V)": {
+      "slope": 1.2175563736716795,
+      "R2": 0.9921711580086485
+    },
+    "circle|V_gaussian (NON-quadratic V)": {
+      "slope": 0.8141524328492711,
+      "R2": 0.9924070509077033
+    },
+    "circle|V_rational (NON-quadratic V)": {
+      "slope": 0.7915856951669441,
+      "R2": 0.991467464511563
+    }
+  },
+  "shape_discrimination_test": {
+    "fixed_amplitude": 0.3,
+    "rows": [
+      {
+        "shape": "circle",
+        "kappa_V": 0.08999999999999997,
+        "viability_margin": 0.09000000000000008,
+        "raw_curvature": 0.2827149525839495,
+        "natural_gradient": 0.6000000000008695,
+        "erosion": 0.2782309905914856
+      },
+      {
+        "shape": "square",
+        "kappa_V": 0.1209523809523809,
+        "viability_margin": 0.17999999999999994,
+        "raw_curvature": 0.36,
+        "natural_gradient": 0.6912089073856387,
+        "erosion": 0.3594622028245659
+      },
+      {
+        "shape": "triangle",
+        "kappa_V": 0.04553571428571428,
+        "viability_margin": 0.09000000000000008,
+        "raw_curvature": 0.11691342951089921,
+        "natural_gradient": 0.41626053267329777,
+        "erosion": 0.1383540760293167
+      },
+      {
+        "shape": "ellipse(0.5a,0.25a)",
+        "kappa_V": 0.014062499999999988,
+        "viability_margin": 0.022499999999999964,
+        "raw_curvature": 0.03533936907299369,
+        "natural_gradient": 0.2312946637785107,
+        "erosion": 0.04293568963313203
+      },
+      {
+        "shape": "ellipse(a,a/2)",
+        "kappa_V": 0.05624999999999998,
+        "viability_margin": 0.08999999999999997,
+        "raw_curvature": 0.14135747629197476,
+        "natural_gradient": 0.4625893275575893,
+        "erosion": 0.16868427099730163
+      },
+      {
+        "shape": "ellipse(a,a/5)",
+        "kappa_V": 0.046799999999999994,
+        "viability_margin": 0.08999999999999997,
+        "raw_curvature": 0.0565429905167899,
+        "natural_gradient": 0.40126229316907397,
+        "erosion": 0.14006718844225358
+      },
+      {
+        "shape": "ellipse(a,a/10)",
+        "kappa_V": 0.04544999999999999,
+        "viability_margin": 0.08999999999999997,
+        "raw_curvature": 0.02827149525839495,
+        "natural_gradient": 0.3880809476170765,
+        "erosion": 0.14281140601401243
+      }
+    ],
+    "pearson_correlations": {
+      "kappa_V": {
+        "pearson_r": 0.9992546425902766,
+        "verdict": "PASS"
+      },
+      "viability_margin": {
+        "pearson_r": 0.8838813229656265,
+        "verdict": "PASS"
+      },
+      "raw_curvature": {
+        "pearson_r": 0.9445292296121931,
+        "verdict": "PASS"
+      },
+      "natural_gradient": {
+        "pearson_r": 0.9911585516472948,
+        "verdict": "PASS"
+      },
+      "kappa_V | viability_margin (partial r)": {
+        "pearson_r": 0.9976260863172663,
+        "verdict": "PASS"
+      },
+      "viability_margin | kappa_V (partial r)": {
+        "pearson_r": -0.5512270259166479,
+        "verdict": "PASS"
+      }
+    }
+  }
+}

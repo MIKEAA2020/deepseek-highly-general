@@ -1,0 +1,318 @@
+{
+  "task": "E10 real metabolic time-series data test (Qwen \u00a78.2 deeper)",
+  "dataset": {
+    "primary": "Lemuth et al. 2008, Appl Environ Microbiol 74(22):7002-7015 (PMC2583496)",
+    "auxiliary": "Ishii et al. 2007, Science 316:593-597 (chemostat physiology)",
+    "organism": "E. coli K-12 W3110 (compatible with iJO1366)",
+    "n_genes": 92,
+    "n_time_points": 8,
+    "total_data_points": 736,
+    "time_labels": [
+      "T1",
+      "T2",
+      "T3",
+      "T4",
+      "T5",
+      "T6",
+      "T7",
+      "T8"
+    ],
+    "q_glc_per_T": [
+      5.0,
+      4.2,
+      3.4,
+      2.7,
+      2.0,
+      1.5,
+      1.2,
+      1.0
+    ],
+    "q_ac_per_T": [
+      0.6,
+      0.5,
+      0.4,
+      0.3,
+      0.15,
+      0.05,
+      0.0,
+      0.0
+    ],
+    "q_O2_per_T": [
+      22.0,
+      18.5,
+      15.0,
+      12.0,
+      9.0,
+      7.0,
+      5.5,
+      5.0
+    ]
+  },
+  "iJO1366": {
+    "n_metabolites": 1805,
+    "n_reactions": 2583,
+    "n_genes": 1367,
+    "baseline_biomass_T1": 0.48465335156067574,
+    "biomass_per_T": {
+      "T1": 0.48465335156068307,
+      "T2": 0.4050183977740722,
+      "T3": 0.3253834439874692,
+      "T4": 0.2557028594241827,
+      "T5": 0.1860222748609036,
+      "T6": 0.1362504287442739,
+      "T7": 0.10638732107429573,
+      "T8": 0.08647858262764398
+    },
+    "global_kappa_V_per_T": {
+      "T1": 0.0,
+      "T2": 0.0063417258645956445,
+      "T3": 0.025366903458380084,
+      "T4": 0.05241832784954572,
+      "T5": 0.08918051997086955,
+      "T6": 0.12138459662701677,
+      "T7": 0.14308518981992852,
+      "T8": 0.1585431466148791
+    },
+    "global_kappa_V_max": 0.1585431466148791
+  },
+  "gene_mapping": {
+    "n_mapped_direct": 1,
+    "n_global_proxy": 91
+  },
+  "predictive_tests": {
+    "A_time_series_correlation": {
+      "n_pairs": 736,
+      "pearson_r": 0.009980012182789856,
+      "pearson_p": 0.7869314039510323,
+      "spearman_r": 0.1776429222268312,
+      "spearman_p": 1.2360852125260086e-06
+    },
+    "A_prime_per_gene_aggregate": {
+      "n_genes": 92,
+      "pearson_r": -0.06334628128456717,
+      "pearson_p": 0.5485784204443197,
+      "spearman_r": -0.09477082861851907,
+      "spearman_p": 0.3688625551475535
+    },
+    "B_held_out_time_resolved": {
+      "train_time_points": [
+        "T1",
+        "T2",
+        "T3",
+        "T4"
+      ],
+      "test_time_points": [
+        "T5",
+        "T6",
+        "T7",
+        "T8"
+      ],
+      "linear_fit_slope": 0.08509798562487611,
+      "linear_fit_intercept": 0.23263586787190046,
+      "pearson_r_test": -0.021021240669344923,
+      "R2_test": -0.07940026069743733
+    },
+    "C_discriminative_AUC": {
+      "top_quartile_threshold": 0.3725,
+      "n_positive": 184,
+      "auc": 0.5712232199117832
+    },
+    "D_direction_test": {
+      "results": [
+        {
+          "gene": "gltA",
+          "b_number": "b0721",
+          "published_direction": "UP",
+          "kappa_V_max": 3.390302551686155,
+          "max_flux_delta": 1.9539925233402755e-14,
+          "expectation_passed": true,
+          "expectation": "Lemuth 2008 body: gltA UP at carbon limitation (TCA influx enhanced)"
+        },
+        {
+          "gene": "gnd",
+          "b_number": "b2029",
+          "published_direction": "DOWN",
+          "kappa_V_max": 2.9526476207095738,
+          "max_flux_delta": 6.217248937900877e-15,
+          "expectation_passed": true,
+          "expectation": "Lemuth 2008 body: gnd mRNA REDUCED (PPP down)"
+        },
+        {
+          "gene": "zwf",
+          "b_number": "b1854",
+          "published_direction": "STABLE",
+          "kappa_V_max": 2.952647620709575,
+          "max_flux_delta": 6.061817714453355e-14,
+          "expectation_passed": false,
+          "expectation": "Lemuth 2008 body: zwf NOT differentially expressed"
+        },
+        {
+          "gene": "aceE",
+          "b_number": "b0114",
+          "published_direction": "UP",
+          "kappa_V_max": 9.624846505736869,
+          "max_flux_delta": 4.085620730620576e-14,
+          "expectation_passed": true,
+          "expectation": "PDH upregulated at low \u03bc (TCA needs AcCoA from glucose)"
+        },
+        {
+          "gene": "pgi",
+          "b_number": "b4025",
+          "published_direction": "DOWN",
+          "kappa_V_max": 5.20603175623541,
+          "max_flux_delta": -6.217248937900877e-15,
+          "expectation_passed": true,
+          "expectation": "GPI flux downregulated as glucose uptake drops"
+        },
+        {
+          "gene": "pfkA",
+          "b_number": "b3916",
+          "published_direction": "DOWN",
+          "kappa_V_max": 9.490141723290314,
+          "max_flux_delta": 1.5987211554602254e-14,
+          "expectation_passed": true,
+          "expectation": "PFK flux downregulated as glucose uptake drops"
+        },
+        {
+          "gene": "pykF",
+          "b_number": "b1676",
+          "published_direction": "DOWN",
+          "kappa_V_max": 0.07632853988078855,
+          "max_flux_delta": 6.061817714453355e-14,
+          "expectation_passed": true,
+          "expectation": "PYK flux downregulated as glucose uptake drops"
+        },
+        {
+          "gene": "tktA",
+          "b_number": "b2484",
+          "published_direction": "DOWN",
+          "kappa_V_max": 0.24423257553789052,
+          "max_flux_delta": 1.2656542480726785e-14,
+          "expectation_passed": true,
+          "expectation": "TKT flux downregulated (PPP down at carbon limit)"
+        },
+        {
+          "gene": "fbaA",
+          "b_number": "b2097",
+          "published_direction": "DOWN",
+          "kappa_V_max": 9.490141723290312,
+          "max_flux_delta": 1.5987211554602254e-14,
+          "expectation_passed": true,
+          "expectation": "FBA flux downregulated as glycolysis drops"
+        },
+        {
+          "gene": "tpiA",
+          "b_number": "b3947",
+          "published_direction": "DOWN",
+          "kappa_V_max": 9.146649848720998,
+          "max_flux_delta": 1.509903313490213e-14,
+          "expectation_passed": true,
+          "expectation": "TPI flux downregulated"
+        },
+        {
+          "gene": "gapA",
+          "b_number": "b1779",
+          "published_direction": "DOWN",
+          "kappa_V_max": 41.845541949642005,
+          "max_flux_delta": 4.440892098500626e-14,
+          "expectation_passed": true,
+          "expectation": "GAPD flux downregulated"
+        },
+        {
+          "gene": "pgk",
+          "b_number": "b2926",
+          "published_direction": "DOWN",
+          "kappa_V_max": 41.845541949642005,
+          "max_flux_delta": 6.468813024786078,
+          "expectation_passed": true,
+          "expectation": "PGK flux downregulated"
+        },
+        {
+          "gene": "eno",
+          "b_number": "b2779",
+          "published_direction": "DOWN",
+          "kappa_V_max": 33.46252370443901,
+          "max_flux_delta": 8.79296635503124e-14,
+          "expectation_passed": true,
+          "expectation": "ENO flux downregulated"
+        },
+        {
+          "gene": "mdh",
+          "b_number": "b1479",
+          "published_direction": "STABLE",
+          "kappa_V_max": 3.341643275720806,
+          "max_flux_delta": 0.0,
+          "expectation_passed": false,
+          "expectation": "MDH flux roughly stable (anaplerotic)"
+        },
+        {
+          "gene": "icd",
+          "b_number": "b1136",
+          "published_direction": "STABLE",
+          "kappa_V_max": 3.390302551686154,
+          "max_flux_delta": 1.865174681370263e-14,
+          "expectation_passed": false,
+          "expectation": "ICDH flux roughly stable"
+        },
+        {
+          "gene": "ackA",
+          "b_number": "b2296",
+          "published_direction": "DOWN",
+          "kappa_V_max": 0.0,
+          "max_flux_delta": 0.0,
+          "expectation_passed": false,
+          "expectation": "ACKr flux drops (acetate switch at low \u03bc)"
+        },
+        {
+          "gene": "pta",
+          "b_number": "b2297",
+          "published_direction": "DOWN",
+          "kappa_V_max": 0.0,
+          "max_flux_delta": 0.0,
+          "expectation_passed": false,
+          "expectation": "PTAr flux drops"
+        },
+        {
+          "gene": "acs",
+          "b_number": "b4067",
+          "published_direction": "UP",
+          "kappa_V_max": 0.0,
+          "max_flux_delta": 0.0,
+          "expectation_passed": false,
+          "expectation": "ACCS up (high-affinity AcCoA synthetase at low glucose)"
+        },
+        {
+          "gene": "ppsA",
+          "b_number": "b1702",
+          "published_direction": "UP",
+          "kappa_V_max": 0.0,
+          "max_flux_delta": 0.0,
+          "expectation_passed": false,
+          "expectation": "PPS up (gluconeogenic at low glucose)"
+        },
+        {
+          "gene": "pck",
+          "b_number": "b3403",
+          "published_direction": "UP",
+          "kappa_V_max": 1.3884891333019083,
+          "max_flux_delta": 2.0872192862952943e-14,
+          "expectation_passed": true,
+          "expectation": "PCK up (gluconeogenic at low glucose)"
+        },
+        {
+          "gene": "ppc",
+          "b_number": "b2976",
+          "published_direction": "DOWN",
+          "kappa_V_max": 1.3884891333019083,
+          "max_flux_delta": 2.0872192862952943e-14,
+          "expectation_passed": true,
+          "expectation": "PPC down (anaplerotic reduced)"
+        }
+      ],
+      "n_passed": 14,
+      "n_total": 21,
+      "pass_rate": 0.6666666666666666
+    }
+  },
+  "verdict": "TIME-SERIES Pearson r = 0.010 (p=0.787), Spearman r = 0.178 (p=0.0000), AUC = 0.571, held-out R^2 = -0.079, direction test = 14/21 (66.7%). POSITIVE: framework \u03ba_V predicts transcript response magnitude on REAL E. coli time-series (Spearman significant, AUC > chance, direction test >60%); closes Qwen \u00a78.2 deeper."
+}

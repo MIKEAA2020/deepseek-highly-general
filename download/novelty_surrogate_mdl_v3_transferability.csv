@@ -1,0 +1,4 @@
+shape,true_kappa,bma_kappa,c_shape_local,corrected_with_c_v2,transferability_gap,transferability_factor,ci_lo_corrected,ci_hi_corrected,true_in_corrected_ci,verdict
+V=x^2,0.320695,0.197302,1.6254,0.320695,0.000000,1.0000,0.461615,0.588397,False,CLOSED BY CONSTRUCTION (calibration problem)
+V=x^4,0.189311,0.138536,1.3665,0.225177,0.035866,1.1895,0.198986,0.255086,False,"PARTIALLY TRANSFERABLE (factor in [0.5, 2.0] but true outside CI)"
+V=x^6,0.134478,0.106449,1.2633,0.173022,0.038544,1.2866,0.148579,0.203130,False,"PARTIALLY TRANSFERABLE (factor in [0.5, 2.0] but true outside CI)"

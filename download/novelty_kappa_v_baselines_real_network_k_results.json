@@ -1,0 +1,108 @@
+{
+  "study": "E8",
+  "design": "kappa_V baseline battery on REAL Network K single-reaction-KO trajectories",
+  "qwen_criticism_addressed": [
+    "\u00a73.2 self-referential (strengthened: real data, not synthetic)",
+    "\u00a78.3 baselines (strengthened: applied to real data)"
+  ],
+  "n_reactions_KO": 86,
+  "n_reactions_with_erosion_gt_1e-4": 57,
+  "viability_function": "normalized sum of 14 essential metabolic intermediates (REAL biological V, not synthetic 1-x^2-y^2)",
+  "zero_order_r": {
+    "r(kappa_V, erosion)": 0.9066547945735343,
+    "r(raw_F, erosion)": 0.5690905468194757,
+    "r(fisher_dist, erosion)": 0.34525734844125266,
+    "r(viability_margin, erosion)": 0.6034097799778286,
+    "r(constraint_violation_rate, erosion)": 0.0,
+    "r(natural_grad, erosion)": 0.3715585208938057,
+    "r(random_curvature, erosion)": 0.052742468688151085
+  },
+  "partial_r_kappa_V_given_baseline": {
+    "raw_F": 0.8767019056292646,
+    "fisher_dist": 0.9010417733868821,
+    "viability_margin": 0.8488451353141478,
+    "constraint_violation_rate": 0.9066547945735343,
+    "natural_grad": 0.8969119028260745,
+    "random_curvature": 0.9063818395496759
+  },
+  "partial_r_baseline_given_kappa_V": {
+    "raw_F": 0.3477553169891783,
+    "fisher_dist": 0.2626548293762534,
+    "viability_margin": 0.03881767054112412,
+    "constraint_violation_rate": 0.0,
+    "natural_grad": 0.23011873564838514,
+    "random_curvature": 0.0029890600543981166
+  },
+  "bootstrap_ci_partial_r_kappa_V_given_viability_margin": {
+    "n_bootstrap": 200,
+    "mean": 0.8477979106763717,
+    "ci_low_95": 0.7212313917464344,
+    "ci_high_95": 0.9490276820505331
+  },
+  "top_5_erosive_reactions": [
+    {
+      "reaction_id": "M2a",
+      "erosion": 0.1852746081365968,
+      "kappa_V": 0.12630915233739695,
+      "margin": 0.1852955077291082
+    },
+    {
+      "reaction_id": "M2b",
+      "erosion": 0.1852746081365968,
+      "kappa_V": 0.12630915233739695,
+      "margin": 0.1852955077291082
+    },
+    {
+      "reaction_id": "E2a",
+      "erosion": 0.1510368793491469,
+      "kappa_V": 0.06972726242716829,
+      "margin": 0.18638124382547416
+    },
+    {
+      "reaction_id": "E2b",
+      "erosion": 0.1510368793491469,
+      "kappa_V": 0.06972726242716829,
+      "margin": 0.18638124382547416
+    },
+    {
+      "reaction_id": "M21a",
+      "erosion": 0.1414597065873231,
+      "kappa_V": 0.1159526087908264,
+      "margin": 0.18133624099903722
+    }
+  ],
+  "bottom_5_erosive_reactions": [
+    {
+      "reaction_id": "E17a",
+      "erosion": 0.0,
+      "kappa_V": 0.007227403482753998,
+      "margin": 0.037448737911826624
+    },
+    {
+      "reaction_id": "E17b",
+      "erosion": 0.0,
+      "kappa_V": 0.007227403482753998,
+      "margin": 0.037448737911826624
+    },
+    {
+      "reaction_id": "E23a",
+      "erosion": 0.0,
+      "kappa_V": 0.009296761753423118,
+      "margin": 0.023346768540537428
+    },
+    {
+      "reaction_id": "E23b",
+      "erosion": 0.0,
+      "kappa_V": 0.009296761753423118,
+      "margin": 0.023346768540537428
+    },
+    {
+      "reaction_id": "G_auto",
+      "erosion": 0.0,
+      "kappa_V": 0.0002834873878482761,
+      "margin": 0.36751181532035254
+    }
+  ],
+  "verdict": "PASS",
+  "pass_threshold": "partial r(kappa_V, erosion | viability_margin) > 0.3 with > 5 erosive reactions"
+}

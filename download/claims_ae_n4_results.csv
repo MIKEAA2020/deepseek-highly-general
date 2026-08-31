@@ -1,0 +1,6 @@
+claim,title,verdict,predicted_summary,observed_summary,fit_metric,fit_value
+A,Held-out 3D margin erosion,CONFIRMED,slope=1 expected,slope=0.9976,R^2,0.9983
+B,Orientation reversal (n=4),CONFIRMED,a_rev_pred=1.000,a_rev_obs=0.9992,rel_err,0.0008
+C,Holonomy-area + non-abelian signature,CONFIRMED,"c1=pi=3.1416, c2=0.0526, c_comm=13.958","c1_fit=3.1386, c2_fit=0.0526, c_comm_fit=13.3342",R^2 (area + comm),1.0000 + 0.9996
+D,"Repeated-loop fatigue (n=4, so(3))",CONFIRMED,K_pred=29,K_obs=30,rel_err,0.0345
+E,"Total-variance (n=4, non-abelian)",CONFIRMED,T_loop<2 (=0.3959),"T_ctrl>1 (=11.4725), T_noncomm>2 (=22.2156)","ratio (ctrl/loop, noncomm/loop)","28.98, 56.11"

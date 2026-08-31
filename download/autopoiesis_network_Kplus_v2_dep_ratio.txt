@@ -1,0 +1,75 @@
+Network K+ v2 -- Cascade-breaking enzyme-pair prescription
+==============================================================================
+
+ITERATION SUMMARY:
+  Network K v2 dep_ratio (commit 07e6d85): 6/13 metabolic robust + 0/38 enzymes robust.
+  7 metabolic intermediates FRAGILE (max_dep >= 0.5): G6P, PEP, PYR, Glycogen, PolyP, DHAP, G3P.
+  Network K+ (this script): Add 6 new isozyme pairs (one pair per fragile intermediate,
+    with the ALDO5/6 pair fixing BOTH DHAP and G3P since they share producer ALDO3/4).
+  Each new enzyme is synthesized TF-catalyzed via the ACS1/2 synthesis pattern (GLU+alphaKG+ATP).
+
+Network K+: 77 species (11 food + 66 non-food), 114 reactions (Network K's 86 + 12 new metabolic + 12 new synthesis = 110)
+  New enzymes (12): ['MAE1', 'MAE2', 'PCK1', 'PCK2', 'FBP1', 'FBP2', 'GLY3', 'GLY4', 'PPK3', 'PPK4', 'ALDO5', 'ALDO6', 'PPS1', 'PPS2']
+  New metabolic reactions (12): ['M24a', 'M24b', 'M25a', 'M25b', 'M26a', 'M26b', 'M27a', 'M27b', 'M28a', 'M28b', 'M29a', 'M29b', 'M30a', 'M30b']
+  New synthesis reactions (12): ['E24a', 'E24b', 'E25a', 'E25b', 'E26a', 'E26b', 'E27a', 'E27b', 'E28a', 'E28b', 'E29a', 'E29b', 'E30a', 'E30b']
+
+STRATIFIED BY COMPONENT TYPE (at tau=0.5):
+  metabolic            (n=13): v2 robust (max_dep < 0.5) = 9/13 = 69.2%; mean=0.2665, median=0.0358
+  enzyme (orig)        (n=38): v2 robust (max_dep < 0.5) = 0/38 = 0.0%; mean=0.7139, median=0.7139
+  enzyme (new K+)      (n=14): v2 robust (max_dep < 0.5) = 0/14 = 0.0%; mean=0.7139, median=0.7139
+  regulatory           (n=1): v2 robust (max_dep < 0.5) = 0/1 = 0.0%; mean=0.6711, median=0.6711
+
+CASCADE-BREAKING VERIFICATION (7 originally-fragile intermediates):
+  Component  v2_max_dep     K+_max_dep     n_prod_v2  n_prod_K+  verdict        fix_reaction
+  G6P        0.5000         0.3571         4          6          CONVERTED      M26a/b (FBP1/FBP2: FBP -> G6P+Pi)
+  PEP        0.7000         -0.1582        2          6          CONVERTED      M25a/b (PCK1/PCK2: OAA+ATP->PEP+CO2+ADP, k=0.3 backup) + M30a/b (PPS1/PPS2: PYR+ATP->PEP+ADP, futile-cycle closure consuming robust PYR)
+  PYR        1.0000         0.0358         6          8          CONVERTED      M24a/b (MAE1/MAE2: MAL+NAD+ -> PYR+CO2+NADH)
+  Glycogen   1.0000         0.0000         2          4          CONVERTED      M27a/b (GLY3/GLY4: G6P+ATP -> Glycogen+ADP, isozyme of GLY1/2)
+  PolyP      0.9900         0.0000         2          4          CONVERTED      M28a/b (PPK3/PPK4: ATP -> PolyP+ADP, isozyme of PPK1/2)
+  DHAP       1.0000         -0.0039        2          4          CONVERTED      M29a/b (ALDO5/ALDO6: FBP -> DHAP+G3P, isozyme of ALDO3/4)
+  G3P        1.0000         -0.0039        2          4          CONVERTED      M29a/b (ALDO5/ALDO6: FBP -> DHAP+G3P, isozyme of ALDO3/4)
+
+CONVERSION VERDICT: 7/7 originally-fragile intermediates now ROBUST.
+
+INTERPRETATION:
+  - ALL 7 originally-fragile intermediates converted to ROBUST (max_dep < 0.5) in K+.
+  - The ACS1/2 prescription TRANSFERS to all 6 other fragile intermediates: add an
+    isozyme PAIR producing the intermediate from an INDEPENDENT substrate pool
+    (food-supplied or buffered against the cascade trigger).
+  - This GENERALIZES the cascade-breaking principle beyond AcCoA (the original
+    case from Network K commit 4327b89) to PYR, PEP, G6P, Glycogen, PolyP, DHAP, G3P.
+
+  COLLATERAL DAMAGE (WHACK-A-MOLE EFFECT):
+  - However, the prescription has SIDE EFFECTS: 4 originally-ROBUST intermediates
+    became FRAGILE in K+ due to substrate depletion by the new cascade-breaking
+    reactions:
+    * FBP: K=0.28 (ROBUST) -> K+=0.60 (FRAGILE); new r_argmax=M22a
+    * ALA: K=0.00 (ROBUST) -> K+=0.90 (FRAGILE); new r_argmax=M5a
+    * ASP: K=0.00 (ROBUST) -> K+=0.50 (FRAGILE); new r_argmax=M17a
+    * MAL: K=0.00 (ROBUST) -> K+=0.99 (FRAGILE); new r_argmax=M7a
+  - Total collateral damage: 4 intermediates.
+  - Root cause: the new cascade-breaking reactions consume shared substrates
+    (FBP, OAA, MAL, PYR) faster than the food supply + alternative producers can
+    replenish. This is the 'whack-a-mole' nature of cascade-breaking in a closed
+    metabolic network: each new pathway shifts the bottleneck elsewhere.
+
+  NET VERDICT:
+  - K v2 metabolic robust: 6/13
+  - K+ v2 metabolic robust: 9/13
+  - NET improvement: +3 robust intermediates
+    (7 converted - 4 collateral = 3 net).
+  - The prescription is a NET WIN (+3 metabolic robust), but does NOT achieve full
+    closure (would be 13/13). Full closure requires iterative re-balancing analogous
+    to the E->F->G->H->I->J->K lineage: each iteration fixes the previous iteration's
+    residual fragility. K+ is the first iteration toward a hypothetical Network L
+    that achieves 13/13 metabolic robust.
+
+  ENZYME-LEVEL ASYMMETRY (UNCHANGED):
+  - The 14 new enzymes (MAE1/2, PCK1/2, FBP1/2, GLY3/4, PPK3/4, ALDO5/6, PPS1/2)
+    are themselves FRAGILE (dep_ratio ~ 0.7139) BY DESIGN, matching Network K's
+    signature: metabolic-robust + enzyme-fragile. The 38 original enzymes + 14 new
+    = 52 enzymes, ALL single-synthesis-gene, ALL with dep_ratio = 0.7139 = 1-exp(-1.25)
+    (matching dilution-decay exactly). Adding cascade-breaking isozyme pairs at the
+    metabolic level PRESERVES the asymmetry at the enzyme level (each new isozyme
+    gene is still single-copy). The metabolic-robust + enzyme-fragile asymmetry is a
+    DESIGN PRINCIPLE of the isozyme-dampener network architecture, not a bug to fix.

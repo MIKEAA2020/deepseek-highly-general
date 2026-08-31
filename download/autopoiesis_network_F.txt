@@ -1,0 +1,80 @@
+TASK (1): NETWORK F -- push Network E toward full autopoiesis
+       ALT3/ALT4 (aspartate-pyruvate transaminase isozymes) break ALA cascade
+==============================================================================
+
+Network F design (extension of Network E):
+  (1-5) [same as Network E]: isozymes + substrate induction + basal TF +
+       backup ATP (ACK) + anaplerotic PEPC
+  (6) ASP-PYR TRANSAMINASE ISOZYMES (ALT3, ALT4): NEW pair of ALT isozymes
+      catalyzing M11: ASP + PYR -> OAA + ALA (EC 2.6.1.12)
+      -> ALA produced via DIFFERENT pathway than M5 (uses ASP as amino
+         donor instead of NH3)
+  KEY: ALT3/ALT4 SYNTHESIS (E11a/E11b) uses 2 ASP (NOT ALA), so ALT3/ALT4
+       stay at high level during ALA knockout -> break vicious cycle.
+  Total: 41 species (10 food + 31 non-food), 46 reactions
+
+Closed loop (Network F): TF (basal) -> enzyme synthesis (substrate-induced) ->
+             metabolic reactions (isozyme-catalyzed) -> produces
+             ALA (via M5 OR M11), ASP, ATP, AcCoA, OAA -> enzyme synthesis ->
+             enzymes catalyze metabolism -> TF autocatalyzes + basal ->
+             AcCoA -> ACK -> backup ATP -> all reactions
+             ALT3/ALT4 catalyze M11 (ASP+PYR -> ALA+OAA) -> ALA via alt route
+
+Closure test verdicts for Network F:
+  Component  Baseline     Knockout     Recover      Verdict       
+  G6P        13.2192      0.0000       5.2858       AUTOPOIETIC   
+  FBP        0.0000       0.0000       0.0000       HOMEOSTATIC   
+  PEP        0.0000       0.0000       46.9063      AUTOPOIETIC   
+  PYR        0.0000       0.0000       0.0000       HOMEOSTATIC   
+  AcCoA      13.1506      0.0000       5.2336       AUTOPOIETIC   
+  ALA        100.0000     0.0000       100.0000     AUTOPOIETIC   
+  ASP        44.3156      0.0000       100.0000     AUTOPOIETIC   
+  MAL        100.0000     0.0286       99.7500      AUTOPOIETIC   
+  HK1        100.0000     0.0286       99.7500      AUTOPOIETIC   
+  HK2        100.0000     0.0286       99.7500      AUTOPOIETIC   
+  PFK1       99.5006      0.0286       99.7500      AUTOPOIETIC   
+  PFK2       99.5006      0.0286       99.7500      AUTOPOIETIC   
+  ALDO1      99.5006      0.0286       99.5006      AUTOPOIETIC   
+  ALDO2      99.5006      0.0286       99.5006      AUTOPOIETIC   
+  PYK1       100.0000     0.0286       100.0000     AUTOPOIETIC   
+  PYK2       100.0000     0.0286       100.0000     AUTOPOIETIC   
+  ALT1       100.0000     0.0286       100.0000     AUTOPOIETIC   
+  ALT2       100.0000     0.0286       100.0000     AUTOPOIETIC   
+  ALT3       100.0000     0.0286       99.7500      AUTOPOIETIC   
+  ALT4       100.0000     0.0286       99.7500      AUTOPOIETIC   
+  ASPAT1     100.0000     0.0286       75.7573      AUTOPOIETIC   
+  ASPAT2     100.0000     0.0286       75.7573      AUTOPOIETIC   
+  MDH1       100.0000     0.0286       99.7500      AUTOPOIETIC   
+  MDH2       100.0000     0.0286       99.7500      AUTOPOIETIC   
+  PDH1       100.0000     0.0286       100.0000     AUTOPOIETIC   
+  PDH2       100.0000     0.0286       100.0000     AUTOPOIETIC   
+  PEPC1      100.0000     0.0286       99.2519      AUTOPOIETIC   
+  PEPC2      100.0000     0.0286       99.2519      AUTOPOIETIC   
+  ACK1       99.5006      0.0286       15.9961      AUTOPOIETIC   
+  ACK2       99.5006      0.0286       15.9961      AUTOPOIETIC   
+  TF         100.0000     0.0286       100.0000     AUTOPOIETIC   
+
+  Network F verdict: 29/31 components causally internal (93.5%).
+  Network F is PARTIALLY AUTOPOIETIC
+  per Definition def:autopoiesis.
+
+Comparison:
+  Network B (bare metabolic, 10 species):              0/10  (0.0%)   HOMEOSTATIC
+  Network D (integrated MR-GR, Network D v1):           5/17  (29.4%)  PARTIALLY AUTOPOIETIC
+  Network E (fully autopoietic MR-GR with isozymes):  24/29  (82.8%)  PARTIALLY AUTOPOIETIC
+  Network F (Network E + ALT3/ALT4 ASP-PYR isozymes): 29/31  (93.5%)  PARTIALLY AUTOPOIETIC
+
+  Comparison vs Network E (24/29, 82.8%):
+    - Absolute causally-internal count: 29 > 24  (strictly greater)
+    - Fraction: 93.5% > 82.8%  (strictly greater)
+  The sixth design improvement (ALT3/ALT4 ASP-PYR transaminase isozymes
+  with ASP-based synthesis) targets the ALA cascade collapse that Network E
+  left open. M5, M6, M11 are k_cat-boosted to 15.0 to overcome the
+  chronic ALA/ASP depletion (production rate << consumption rate at
+  default k_cat=0.8).
+
+Stratified by component type:
+  Metabolic intermediates:            6/8 causally internal
+  Enzymes (with isozymes incl ALT3/4):22/22 causally internal
+  Regulatory (TF):                    1/1 causally internal
+
