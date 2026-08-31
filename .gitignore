@@ -10,3 +10,10 @@ data/m3d/E_coli_v4_Build_6/*.tab
 data/precise.tar.gz
 data/precise/data/log_tpm*.csv
 data/precise/modulons.pdf
+
+# E27 (v20) Schmidt 2016: raw archives not committed (re-download per data/schmidt2016/README.md)
+data/schmidt2016/NIHMS65833-supplement-Supplementary_tables.xlsx
+data/schmidt2016/epmc_suppl.zip
+data/schmidt2016/NIHMS65833-supplement-Supplementary_figures_and_notes.pdf
+data/schmidt2016/emss-*.gif
+data/schmidt2016/emss-*.jpg

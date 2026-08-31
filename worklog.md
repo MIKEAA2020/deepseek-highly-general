@@ -3663,3 +3663,119 @@ Stage Summary:
   class; platform robustness; protein-layer decoupling).
 - Manuscript version chain now v10 -> ... -> v19; all rounds
   pushed to github.com/MIKEAA2020/deepseek-highly-general main.
+---
+Task ID: v20-round
+Agent: main (Super Z)
+Task: v20 round -- (1) perform the additional replication the user
+requested "with Schmidt 2016 or PRECISE 2.0"; (2) review the v19
+subsection wording for precision/overstatement; (3) commit and push.
+
+Work Log:
+- DATASET EVALUATION (user's "or"): PRECISE 2.0 = PRECISE-1K (SBRG,
+  1,035 samples). Metadata scan of every sample
+  (data/schmidt2016/precise1k_metadata_qc_scan.csv, fetched from
+  github.com/SBRG/precise1k) shows NO carbon-depletion condition (only
+  Fe/N starvation, non-carbon) -> cannot replicate the depletion
+  contrast; the transcript side is already replicated on two platforms
+  (E24/E25). Schmidt 2016 (the dataset the v19 verdict itself named)
+  obtained instead.
+- DATA ACQUISITION: PMC direct download is captcha-gated; the Europe
+  PMC REST supplementary-files endpoint for PMC4888949 delivered the
+  24 MB zip -> NIHMS65833-supplement-Supplementary_tables.xlsx (17 MB,
+  sha256 3280a13f...). Raw MS = PRIDE PXD000498. Extracted via
+  scripts/e27_prepare_schmidt.py: Table S8 (dataset 2, BW25113,
+  biological TRIPlicATES: 2,058 proteins x 22 conditions, medianRatio
+  FCs + q-values + CVs + peptide counts), Table S6 map (2,284/2,350
+  b-numbers; spot checks aceA/b4015, rpoB/b3987, gapA/P0A9B2/b1779,
+  groL/b4143 OK; 4 duplicate-bnum rows averaged), Table S7 (dataset 1,
+  sensitivity). Provenance + sha256 in data/schmidt2016/README.md;
+  raw archives .gitignored, extracted CSVs committed.
+- E27 ANALYSIS (novelty_v20_e27_schmidt_replication.py; E26 metric
+  definitions unchanged; classes: exhaustion = stationary 1d/3d,
+  limitation = chemostat mu=0.5..0.12, switch = 11 carbon sources,
+  stress-on-glucose = NaCl/42C/pH6, internal null = Glucose.2 batch):
+  [R-protfc] PRIMARY n=366/435 (vs E26's 169): protein r = -0.083
+  (p=0.12, CI [-0.188,+0.033]) while E24 transcript +0.419 (p=6.4e-17)
+  and E25 transcript +0.237 (p=6e-4) on the SAME subset, E26 protein
+  +0.025 -> the E26 core (transcript-present/protein-absent) REPLICATES
+  with quantitative triplicate proteomics; attenuation/saturation
+  explanation rejected (noise floor: batch-2 median |log2FC| 0.18 vs
+  stationary 0.81; dynamic range to 12.3; median CV ~15%).
+  Sensitivities: q<0.05 -0.148 (p=0.014), CV<=20% -0.017, excl b2097
+  -0.084, dataset-1 S7 -0.126 (p=0.022) -> null-to-negative, never
+  positive.
+  [R-profile] all 22 conditions: no positive protein gradient in any
+  depletion/limitation/stress condition (chemostat profile +0.089 ->
+  -0.067 DECLINING with limitation depth; stress -0.07..-0.10); only
+  significant positives are 2 switch conditions (glycerol+AA +0.134,
+  pyruvate +0.138) mirroring the transcript layer's attenuated switch
+  signal; LB +0.091 NS.
+  [R-tp] cross-experiment coupling by tertile +0.150 (NS) / +0.353
+  (p=6.7e-5) / +0.240 (p=7.7e-3): mid+high significant, low NS,
+  directionally consistent with E26 but NOT monotone; GSE-dT variant
+  null (+0.024). Discrepancy stated, not smoothed.
+  [R-magnitude] PARITY: protein mean 1.26 vs E24 transcript 1.42
+  (ratio 0.89) -> the E26 "5.29 vs 1.26" gap was GSE-TPM zero-inflation,
+  not biology; tertiles dT 0.90->1.52->1.84 (graded) vs dP
+  1.50->1.20->1.11 (kappa-flat); |dP|/|dT| falls 2.49->1.10->1.06.
+  [R-stability] E26 top-tertile stability (-0.427) does NOT replicate
+  (+0.114 NS) -> likely spectral-count saturation artifact; the weak
+  intrinsic form DOES hold: batch-2 control itself r = -0.119
+  (p=0.023), and exhaustion r (-0.083) is no stronger than that
+  baseline.
+  [R-zero] protein layer: panel 1.26 vs zero-kappa 1.63 (MWU p~1;
+  transcript layer E24: 1.32 vs 0.90, p=7.8e-22) -> further
+  transcript-layer localization.
+- FIGURE (e27_plot.py): 4 panels (per-condition r profile with
+  batch-2 baseline; three-way contrast; tertile magnitudes; primary
+  scatter). VLM QA: NO DEFECTS.
+- V19 WORDING REVIEW (v20_patch_manuscript.py W1-W5, 5/5): W1
+  top-tertile stability flagged as single-shot-counting observation
+  with v20 pointer; W2 "is confirmed" -> "finds support" + "not by
+  itself establishing" post-translational buffering; W3 "coupled, not
+  noise" -> "weakly coupled ... rather than pure noise" + "protein
+  capacity itself is buffered" -> "protein-level fold-changes show no
+  corresponding kappa_V gradient"; W4 "remains the natural follow-up"
+  -> executed-pointer to v20; W5 magnitude sentence now names the GSE
+  TPM zero-inflation and drops "whatsoever".
+- V20 INSERT (P6, ~185 lines): design + PRECISE 2.0 evaluation, [S-src]
+  [S-map] [S-contrast] [S-internal-null] verification checks, [R-protfc]
+  [R-profile] [R-tp] [R-magnitude] [R-stability] [R-zero] results,
+  honest verdict (core confirmed, two secondary readings corrected:
+  saturation artifact + magnitude parity; refined statement), caveats
+  (cross-strain BW25113, cross-medium, chronic-vs-acute,
+  single-proteome-source), artifacts.
+- FRAMING UPDATES: P7 abstract (E27 numbers: -0.08 at n=366; magnitude
+  parity), P8 intro contribution item (E24-E27 / v17-v20), P9 conclusion
+  (replication + kappa-graded-organization-not-magnitude correction),
+  P10 data availability (Schmidt + PRECISE-1K scan provenance).
+- QA: tectonic compile SUCCESS (6.24 MiB); git-HEAD baseline compile
+  comparison -> ALL overfull/underfull warnings map to the pre-existing
+  set (modulo line shifts) + 3 cosmetic underfulls in the P10 block;
+  the new artifacts-paragraph overfull was fixed via \allowbreak
+  (filename-space rendering bug also fixed); braces 6589/6590
+  (pre-existing +1); begin/end 439/439 (env mismatches NONE); version
+  chain v4 -> ... -> v20; ref audit 0 dangling (728 calls); PDF text
+  checks 20/20 after math-minus/ligature resolution; PDF copied to
+  download/ + mirrored to /tmp/my-project/scripts/.
+
+Stage Summary:
+- The additional replication is DONE and decisive: the E26 core
+  finding (kappa_V-transcript association present, kappa_V-protein
+  association absent, same genes) replicates with the Schmidt 2016
+  22-condition quantitative triplicate proteome (protein r = -0.083 at
+  n=366 vs transcript +0.419/+0.237 on the same subset), with the
+  spectral-count attenuation explanation excluded by the internal
+  batch control (noise floor 0.18) and full dynamic range.
+- Two honest corrections: the E26 top-tertile protein-stability
+  gradient (-0.427) was a spectral-count saturation artifact (E27:
+  +0.114 NS; the surviving weak form is the batch-level -0.119
+  intrinsic stability); and proteins change as much as transcripts on
+  matched log-ratio metrics (1.26 vs 1.42) -- what is
+  transcript-specific is the kappa_V-graded ORGANIZATION, not the
+  magnitude.
+- The v19 subsection is now precise and not overstated (5 hedging
+  patches); abstract/intro/conclusion/data-availability updated to
+  v20.
+- Manuscript version chain now v10 -> ... -> v20; this commit pushed
+  to github.com/MIKEAA2020/deepseek-highly-general main.
