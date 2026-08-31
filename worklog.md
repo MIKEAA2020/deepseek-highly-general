@@ -3341,3 +3341,95 @@ Stage Summary:
   for bcp/msrA/yeaA/sodA, osmotic for proV/proW/otsB/treA) — the
   435-gene panel and reaction->gene map from E22 are the required
   foundation and are now in place.
+---
+Task ID: v16-option-d-multicondition-fba
+Agent: Super Z (main)
+Task: Implement Option D (multi-condition FBA) as Study E23 / manuscript
+round v16, per the user's instruction "proceed with option D" (v14b fix
+and Option C/v15-E22 were completed in the previous round).
+
+Work Log:
+- Read the worklog tail + v14b_options_evaluation.md to recover the
+  Option D spec; confirmed environment intact (iJO1366 loads, Lemuth
+  JSON restored, cobra 0.32.1, GLPK).
+- Five diagnostic probes (scripts/e23_probe_conditions{,2,3,4,5}.py)
+  resolved every design unknown: NO3R1pp activates endogenously under
+  anaerobic+nitrate (22.10 -> 5.52, electron-balance limited); UGLT
+  carries all galactose carbon (5.0 -> 1.0); trehalose routes through
+  TREHpp (treA) but the PTS/trehalase split is solver-degenerate (fixed
+  by a treB/b4240-only KO); ugpC's ABC transporter is bypassed by the
+  periplasmic phosphatase G2PPpp/b4055 (fixed by KO) and by carbon
+  appetite for glycerol-2-P; SPODM and CAT are bounds-blocked (0,0) in
+  the published model; opening SPODM with MOX reversible creates a
+  thermodynamically infeasible energy loop (mu 0.4847 -> 0.6924; QMO ->
+  SPODM -> MOX-reverse -> MDH transhydrogenase; MOX made irreversible
+  as a model correction); ProU/Yeh ABC transporters are never FBA-
+  optimal vs symport (proP/b4111, putP/b1015, b1801 KOs force them);
+  carnitine CoA esters form a closed pool with no sink.
+- KEY METHOD DECISION (endogeneity criterion): only activations whose
+  flux follows from medium + feed trajectory + FBA optimality (the E10
+  b2097/FBA class) enter the primary correlation; imposed-burden
+  activations (damage/retention rates) are reported structurally but
+  excluded, because their kappa_V would encode the assumed burden
+  scale. caiC excluded a priori.
+- Wrote scripts/novelty_v16_multicondition_e23.py (~700 lines): 9
+  conditions (baseline + 6 nutrient-swap primary + 3 burden arms) on
+  the E10 time axis; fixed 3 implementation bugs during runs (RXN_IDS
+  capture from the DM-appending condition; GENE_PLAN mixed keys; one
+  bootstrap NaN poisoning percentiles) + 2 design fixes (carbon-matched
+  osmotic co-feed after the energy-loop guard fired; treB-only KO).
+- VERIFICATION: [D-cons] baseline reproduces E22 EXACTLY (438 active,
+  global kappa 0.158543, b2097 = 9.490142, r = -0.0633/+0.1024/+0.0838);
+  [D-map] 27/27 MAPPED gene-reaction GPR membership; [D-act] 13/14
+  zero-kappa_V genes activated (all except caiC); caiC proven
+  structurally unactivatable by a permissive LP (all exchanges open
+  +/-1000, objective = ligase flux: max = 0.000000 for all three
+  reactions) + empirical swap test; [D-end] nitrate/proline feeds
+  non-binding, glyc2p co-feed = the limiting feed trajectory.
+- PRIMARY RESULT (n = 7: 6 endogenous + b2097): Pearson r = +0.5712
+  (p = 0.180), Spearman +0.5636, bootstrap CI [-0.166, +0.969], exact
+  permutation p = 0.178 (5,040 reassignments), leave-one-out r in
+  [+0.47, +0.68] (sign-stable). Controls: v14b baseline-only artifact
+  r = -0.1579 (= stored -0.158); 13-gene mixed-class envelope +0.230.
+- COVERAGE: active reactions 438 (17.0%) -> union 538 (20.8%, +100,
+  +22.8% relative); genes with non-zero kappa_V 435 -> 524 (38.3% of
+  1367); 2,045 reactions remain inactive across all nine conditions.
+- Manuscript patch (scripts/v16_patch_manuscript.py, 3 idempotent
+  patches): P1 updated the v15 forward pointer ("executed as the v16
+  round"); P2 extended the E10-results narrative; P3 inserted the new
+  subsection sec:novelty-v16 before \section{Main Proposition}
+  (design + endogeneity criterion, 4 verification checks, caiC proof,
+  the two oxidative-design model findings incl. the energy loop, the
+  primary statistics with LOO, the burden-class caveat, coverage, an
+  honest verdict, artifacts).
+- QA: reference audit -> 0 dangling; braces 6275/6276 with the +1
+  imbalance pre-existing in the git baseline (6190/6191; my additions
+  85/85 balanced); begin/end 435/435; version chain now
+  v10 -> v11 -> v12 -> v13 -> v14b -> v15 -> v16; tectonic compile
+  SUCCESS (6.19 MiB; overfull-hbox warnings only in the pre-existing
+  artifacts itemize). PDF copied to download/journal_manuscript.pdf
+  (mirrored to /tmp/my-project/scripts/), key phrases verified in the
+  rendered PDF text.
+
+Stage Summary:
+- Option D COMPLETE: 13/14 zero-kappa_V genes activated under matched
+  conditions; caiC/b0037 proven structurally unactivatable in iJO1366
+  (closed carnitine-CoA pool; permissive-LP max flux = 0).
+- The cross-condition test is now computable and gives r = +0.571 at
+  n=7: positive, sign-stable under leave-one-out, consistent with the
+  E10-lineage direction, but under-powered (CI includes 0, permutation
+  p = 0.18). Honest verdict: local data cannot decide the kappa_V ->
+  transcript-response hypothesis at meaningful power; the missing
+  ingredient is expression coverage of the multi-condition panel
+  (Option A), not more genes/mappings/conditions.
+- New artifacts: scripts/novelty_v16_multicondition_e23.py, 5 probe
+  scripts, scripts/v16_patch_manuscript.py, download/
+  novelty_v16_multicondition_e23.{csv,txt,png,results.json}, updated
+  manuscript (+sec:novelty-v16, compiled 6.19 MiB PDF).
+- Notable model findings for the record: (i) SPODM/CAT bounds-blocked
+  by the publishers, and opening SPODM + reversible MOX yields an
+  energy loop (mu 0.69) — the reason SPODM was blocked; (ii) the
+  periplasmic phosphatase b4055 bypasses Ugp; (iii) ABC osmoprotectant
+  transport is never FBA-optimal vs symport without transporter KOs;
+  (iv) b2097's FBA reaction is active in every carbon condition
+  (kappa_V 8.9–11.2), a cross-condition robustness signal.

@@ -1,0 +1,320 @@
+{
+ "study": "v16 multi-condition FBA (Option D, E23)",
+ "conditions": [
+  "baseline",
+  "anaerobic-nitrate",
+  "galactose",
+  "glycerol-P-limited",
+  "trehalose",
+  "proline-nitrogen",
+  "oxidative-WT",
+  "oxidative-vulnerable",
+  "osmotic-retention"
+ ],
+ "trajectory": {
+  "q_glc": [
+   5.0,
+   4.2,
+   3.4,
+   2.7,
+   2.0,
+   1.5,
+   1.2,
+   1.0
+  ],
+  "q_O2": [
+   22.0,
+   18.5,
+   15.0,
+   12.0,
+   9.0,
+   7.0,
+   5.5,
+   5.0
+  ]
+ },
+ "mu_per_condition": {
+  "baseline": [
+   0.48465335156067574,
+   0.4050183977740722,
+   0.3253834439874692,
+   0.2557028594241827,
+   0.1860222748609036,
+   0.1362504287442739,
+   0.10638732107429573,
+   0.08647858262764398
+  ],
+  "anaerobic-nitrate": [
+   0.43879880008206856,
+   0.3660445948871149,
+   0.29329038969215837,
+   0.22963046014657648,
+   0.165970530600989,
+   0.12049915235414298,
+   0.09321632540603607,
+   0.0750277741072969
+  ],
+  "galactose": [
+   0.4794687842568662,
+   0.4006633612388688,
+   0.3218579382208698,
+   0.25290319308012515,
+   0.18394844793937531,
+   0.13469505855313094,
+   0.10514302492138149,
+   0.08544166916688102
+  ],
+  "glycerol-P-limited": [
+   0.6716347868657102,
+   0.5620219408109839,
+   0.45240909475625785,
+   0.3564978544583698,
+   0.26058661416048257,
+   0.19207858537627603,
+   0.1509737681057518,
+   0.12357055659207225
+  ],
+  "trehalose": [
+   0.48465335156068035,
+   0.4050183977740758,
+   0.32538344398746727,
+   0.25570285942418486,
+   0.18602227486090475,
+   0.1362504287442742,
+   0.10638732107429613,
+   0.08647858262764363
+  ],
+  "proline-nitrogen": [
+   0.9228959794976697,
+   0.7711236065244749,
+   0.6193512335512584,
+   0.4884038294272897,
+   0.3574564253033208,
+   0.26815895887780283,
+   0.20568405233010356,
+   0.17843994209836286
+  ],
+  "oxidative-WT": [
+   0.4817220354808099,
+   0.40255598860372455,
+   0.3233899417266463,
+   0.2541196507092043,
+   0.1848493596917607,
+   0.13537058039358785,
+   0.10568331281468457,
+   0.08589180109541439
+  ],
+  "oxidative-vulnerable": [
+   0.4815333510045555,
+   0.40239763750612983,
+   0.3232619240077072,
+   0.25401817469658633,
+   0.18477442538546707,
+   0.13531460444895427,
+   0.1056387118870449,
+   0.0858547835124392
+  ],
+  "osmotic-retention": [
+   0.43280767852252144,
+   0.36146803242202125,
+   0.2901283863215191,
+   0.22770619598357925,
+   0.16528400564564014,
+   0.12069672683282617,
+   0.0939443595451377,
+   0.07610944802001277
+  ]
+ },
+ "checks": {
+  "D_cons_baseline_reproduces_e22": true,
+  "D_map_gpr_membership": true,
+  "D_act_activated_of_14": 13,
+  "D_act_caiC_dead_end": true,
+  "D_end_glyc2p_binding_T": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8
+  ]
+ },
+ "primary_correlation": {
+  "n": 7,
+  "genes": [
+   "b2097",
+   "galT",
+   "narJ",
+   "proV",
+   "proW",
+   "treA",
+   "ugpC"
+  ],
+  "pearson_r": 0.5711686568545292,
+  "pearson_p": 0.18044593839727488,
+  "spearman_rho": 0.5636363636363636,
+  "spearman_p": 0.18758548260498042,
+  "bootstrap_ci95": [
+   -0.16600587651421522,
+   0.9691069317363252
+  ],
+  "permutation_p_exact_5040": 0.17817460317460318,
+  "leave_one_out_r": {
+   "b2097": 0.5458077916525126,
+   "galT": 0.5685238911575593,
+   "narJ": 0.5579390722084165,
+   "proV": 0.6800213440650988,
+   "proW": 0.684121697817299,
+   "treA": 0.4739526587033593,
+   "ugpC": 0.6256278653423571
+  },
+  "points": [
+   {
+    "gene": "b2097",
+    "bnum": "b2097",
+    "matched": "baseline",
+    "kv_max": 9.490141723290312,
+    "log10_kv": 0.9772726981157389,
+    "fc_max": 0.44
+   },
+   {
+    "gene": "galT",
+    "bnum": "b0758",
+    "matched": "galactose",
+    "kv_max": 16.000000000000007,
+    "log10_kv": 1.204119982655925,
+    "fc_max": 0.56
+   },
+   {
+    "gene": "narJ",
+    "bnum": "b1226",
+    "matched": "anaerobic-nitrate",
+    "kv_max": 274.8918188886903,
+    "log10_kv": 2.439161814909427,
+    "fc_max": 0.77
+   },
+   {
+    "gene": "proV",
+    "bnum": "b2677",
+    "matched": "proline-nitrogen",
+    "kv_max": 63.58852288589176,
+    "log10_kv": 1.8033787367628695,
+    "fc_max": 1.14
+   },
+   {
+    "gene": "proW",
+    "bnum": "b2678",
+    "matched": "proline-nitrogen",
+    "kv_max": 63.58852288589176,
+    "log10_kv": 1.8033787367628695,
+    "fc_max": 0.48
+   },
+   {
+    "gene": "treA",
+    "bnum": "b1197",
+    "matched": "trehalose",
+    "kv_max": 4.0,
+    "log10_kv": 0.6020599913279624,
+    "fc_max": 0.36
+   },
+   {
+    "gene": "ugpC",
+    "bnum": "b3450",
+    "matched": "glycerol-P-limited",
+    "kv_max": 2.5600000000000125,
+    "log10_kv": 0.4082399653118517,
+    "fc_max": 0.56
+   }
+  ]
+ },
+ "controls": {
+  "v14b_artifact_r": -0.1579159053375389,
+  "envelope_13gene_r": 0.22987907760828713,
+  "e10_lineage_r": {
+   "unmasked": -0.06334628128456718,
+   "v12": 0.10236053268696331,
+   "v13": 0.08382577088709309
+  }
+ },
+ "burden_class": [
+  {
+   "gene": "bcp",
+   "bnum": "b2480",
+   "matched": "oxidative-vulnerable",
+   "kv_max": 0.014400000000000003,
+   "fc_max": 0.55
+  },
+  {
+   "gene": "msrA",
+   "bnum": "b4219",
+   "matched": "oxidative-WT",
+   "kv_max": 0.0016,
+   "fc_max": 0.41
+  },
+  {
+   "gene": "otsB",
+   "bnum": "b1897",
+   "matched": "osmotic-retention",
+   "kv_max": 0.04000000000000001,
+   "fc_max": 0.32
+  },
+  {
+   "gene": "sodA",
+   "bnum": "b3908",
+   "matched": "oxidative-WT",
+   "kv_max": 0.04000000000000001,
+   "fc_max": 0.24
+  },
+  {
+   "gene": "yeaA",
+   "bnum": "b1778",
+   "matched": "oxidative-WT",
+   "kv_max": 0.0016,
+   "fc_max": 0.93
+  },
+  {
+   "gene": "yehX",
+   "bnum": "b2129",
+   "matched": "osmotic-retention",
+   "kv_max": 0.04000000000000001,
+   "fc_max": 0.42
+  },
+  {
+   "gene": "yehY",
+   "bnum": "b2130",
+   "matched": "osmotic-retention",
+   "kv_max": 0.04000000000000001,
+   "fc_max": 0.73
+  }
+ ],
+ "coverage": {
+  "active_rxns_per_condition": {
+   "baseline": 438,
+   "anaerobic-nitrate": 443,
+   "galactose": 445,
+   "glycerol-P-limited": 454,
+   "trehalose": 443,
+   "proline-nitrogen": 446,
+   "oxidative-WT": 446,
+   "oxidative-vulnerable": 444,
+   "osmotic-retention": 450
+  },
+  "union_active_rxns": 537,
+  "baseline_active_rxns": 438,
+  "newly_activated_vs_baseline": 99,
+  "genes_nonzero_kv": {
+   "baseline": 435,
+   "anaerobic-nitrate": 439,
+   "galactose": 440,
+   "glycerol-P-limited": 434,
+   "trehalose": 439,
+   "proline-nitrogen": 446,
+   "oxidative-WT": 446,
+   "oxidative-vulnerable": 444,
+   "osmotic-retention": 448
+  },
+  "union_genes_nonzero_kv": 525
+ }
+}

@@ -2,9 +2,9 @@
 
 **Manuscript:** `/tmp/my-project/scripts/journal_manuscript.tex`
 
-**Total `\label` definitions:** 325
-**Total ref-macro keys:** 709
-**Total ref-macro calls:** 709
+**Total `\label` definitions:** 327
+**Total ref-macro keys:** 715
+**Total ref-macro calls:** 715
 
 ## Dangling references (0)
 
@@ -18,7 +18,7 @@ _(none)_
 | `con:ijO1366-overlay` | [5343] |
 | `con:netK-accoa-cycle` | [5522] |
 | `con:netK-closure-diagram` | [5484] |
-| `conj:alg-envelope-restate` | [8553] |
+| `conj:alg-envelope-restate` | [8783] |
 | `cor:affine-bregman` | [1763] |
 | `def:control` | [2545] |
 | `def:hemp` | [2497] |
@@ -93,19 +93,19 @@ _(none)_
 | `prop:stress` | [2690] |
 | `rem:autopoiesis-discussion` | [4259] |
 | `rem:curv-counterex` | [1692] |
-| `rem:curv-equiv` | [8176] |
-| `rem:e19-three-follow-ups` | [7741] |
+| `rem:curv-equiv` | [8406] |
+| `rem:e19-three-follow-ups` | [7751] |
 | `rem:elevation-summary-table-v4` | [6364] |
 | `rem:elevation-summary-table-v5` | [6562] |
-| `rem:elevation-summary-table-v6` | [7039] |
+| `rem:elevation-summary-table-v6` | [7049] |
 | `rem:envelope-distD` | [1595] |
 | `rem:iJO1366-discovery` | [5762] |
 | `rem:ijO1366-discussion` | [4332] |
 | `rem:kappa-intuition` | [2462] |
 | `rem:kappa-v-real-network-k-v5` | [6443] |
 | `rem:levy-numerical` | [2868] |
-| `rem:main-bound` | [8071] |
-| `rem:main-falsifiable` | [8128] |
+| `rem:main-bound` | [8301] |
+| `rem:main-falsifiable` | [8358] |
 | `rem:mdp-pomdp` | [1672] |
 | `rem:n3-n4` | [455] |
 | `rem:netD-discussion` | [4423] |
@@ -128,23 +128,23 @@ _(none)_
 | `rem:zeno-derivation` | [3174] |
 | `rem:zeno-fixed-point` | [3151] |
 | `rem:zeno-r2` | [3210] |
-| `sec:authorship` | [9120] |
-| `sec:data-code` | [9072] |
+| `sec:authorship` | [9350] |
+| `sec:data-code` | [9302] |
 | `sec:fisher-transport` | [954] |
-| `sec:future-directions` | [8632] |
-| `sec:gem-limitations` | [8399] |
+| `sec:future-directions` | [8862] |
+| `sec:gem-limitations` | [8629] |
 | `sec:intro` | [161] |
 | `sec:novelty-e1` | [5667] |
 | `sec:novelty-e2` | [5708] |
 | `sec:novelty-e3` | [5889] |
 | `sec:novelty-e4` | [5942] |
 | `sec:novelty-e5` | [6006] |
-| `sec:novelty-v11` | [7728] |
+| `sec:novelty-v11` | [7738] |
 | `sec:novelty-v4` | [6143] |
 | `sec:phase3` | [3889] |
-| `tab:gem-limitations` | [8447] |
-| `tab:verdicts` | [8150] |
-| `thm:seven-optic-functorial-informal` | [6920] |
+| `tab:gem-limitations` | [8677] |
+| `tab:verdicts` | [8380] |
+| `thm:seven-optic-functorial-informal` | [6930] |
 
 ## Labels defined more than once (0)
 
@@ -154,5 +154,5 @@ _(none)_
 
 | Macro | Count |
 |---|---:|
-| `\ref` | 666 |
+| `\ref` | 672 |
 | `\eqref` | 43 |
