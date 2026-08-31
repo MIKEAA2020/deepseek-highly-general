@@ -1,0 +1,16 @@
+gene,b_number,max_kappa_V,max_abs_log2_FC,n_timepoints,reactions,via_keio_fallback
+b2097,b2097,9.490141723290312,0.44,8,['FBA'],False
+bcp,b2480,0.0,0.55,8,['THIORDXi'],True
+caiC,b0037,0.0,0.83,8,"['CTBTCAL2', 'CRNCAL2', 'CRNDCAL2']",True
+galT,b0758,0.0,0.56,8,['UGLT'],True
+msrA,b4219,0.0,0.41,8,['METSOXR1'],True
+narJ,b1226,0.0,0.77,8,"['NO3R1pp', 'NO3R2pp']",True
+otsB,b1897,0.0,0.32,8,['TRE6PP'],True
+proV,b2677,0.0,1.14,8,"['PROabcpp', 'CTBTabcpp', 'CRNabcpp']",True
+proW,b2678,0.0,0.48,8,"['PROabcpp', 'CTBTabcpp', 'CRNabcpp']",True
+sodA,b3908,0.0,0.24,8,['SPODM'],True
+treA,b1197,0.0,0.36,8,['TREHpp'],True
+ugpC,b3450,0.0,0.56,8,"['G3PSabcpp', 'GLYC2Pabcpp', 'G3PEabcpp']",True
+yeaA,b1778,0.0,0.93,8,['METSOXR2'],True
+yehX,b2129,0.0,0.42,8,"['CHLabcpp', 'GLYBabcpp']",True
+yehY,b2130,0.0,0.73,8,"['CHLabcpp', 'GLYBabcpp']",True
