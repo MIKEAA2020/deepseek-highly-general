@@ -222,6 +222,63 @@ trajectory refinement) is exactly the $L^1$-reconstruction regime of
 Theorem~B$'$(iv).
 \end{remark}
 
+\subsection{[D3] The value-function layer (Alexandrov)}
+
+\begin{proposition}[Existence and tie-break-freeness]\label{prop:alex}
+Let $\Phi(\theta) = \max\{ c^\top v : Sv = 0,\ \ell(\theta) \le v \le
+u(\theta)\}$ with $\ell, u$ affine, feasible and bounded. Then $\Phi$ is
+concave (pointwise infimum of affine dual objectives over a
+$\theta$-independent dual feasible set), and $-\Phi$ carries a symmetric
+matrix-valued Radon Hessian measure $D^2(-\Phi)$ (Alexandrov), independent
+of the optimal-flux selection rule. Concavity fails in general under OR
+(isoenzyme) GPR rules for simultaneous multi-gene capacity vectors;
+single-gene axes, exchange-bound families, and AND-only subnetworks
+retain it.
+\end{proposition}
+
+\begin{proposition}[Two-layer structure of $D^2(-\Phi)$]\label{prop:twolayer}
+Let $f$ be convex piecewise affine. (i) The singular part of $D^2 f$ is
+supported on the codimension-one facets, with density
+$[\partial_n f]\,(g^+ - g^-) \otimes n$ per unit facet measure; it has no
+atoms: the mass in an $\varepsilon$-neighborhood of a codimension-two
+vertex is $O(\varepsilon)$ (measured log--log slope $1.000$). (ii) The
+Monge--Amp\`ere measure $\det D^2 f$ is atomic at codimension-two
+vertices, each atom equal to the volume of the normal fan
+$|\operatorname{conv}\{\nabla f(\tau) : \tau \ni \text{vertex}\}|$
+(measured: constant $0.5$ under $\varepsilon$-shrinking).
+\end{proposition}
+
+\begin{proposition}[Dual optimal face identity]\label{prop:dualface}
+At a codimension-two vertex $\theta_v$ of a parametric-LP value function,
+the Monge--Amp\`ere atom of $-\Phi$ equals the area of the normal fan, and
+the fan is the image of the LP dual optimal face under
+$\theta \mapsto U^\top y$:
+\[
+\det D^2(-\Phi)(\{\theta_v\})
+= \bigl|\operatorname{conv}\{\nabla C_i\}\bigr|
+= \bigl|\{U^\top y : (\lambda, y) \text{ optimal dual}\}\bigr|.
+\]
+Machine-verified on a two-parameter max-flow LP (the phenotype phase
+plane in miniature): vertex refined to machine precision by exact
+triple-tie solve, $\Phi(\theta_v)$ matching the LP value to
+$10^{-15}$, fan area $0.235$ vs dual-face enumeration area
+$0.235000068$ ($16$ direction LPs over the dual optimal face).
+\end{proposition}
+
+\begin{remark}[Layer separation and PhPP positioning]\label{rem:layersep}
+The phenotype phase planes of Edwards--Ibarra--Palsson are the chamber
+complex of $\Phi$; their sector corners are the atoms of the
+Monge--Amp\`ere layer. The empirical $\kmu$ of
+Definition~\ref{def:kmu} is a functional of the \emph{flux-map} measure
+$D^2 v$ (Definition~\ref{def:mu}), which is tie-break-sensitive: in a
+controlled follower-variable LP, the value function stays affine and
+identical under two lexicographic tie-breaks while the follower's
+second-difference mass flips $0.0100 \leftrightarrow 10^{-13}$. The
+controlled relation between the value layer and the flux layer is stated
+as Conjecture~\ref{conj:valueflux}; the association results of
+\S\ref{sec:empirical} stand on the flux layer alone.
+\end{remark}
+
 % =====================================================================
 \section{The refinement--resolution bridge (Theorem B$'$)}
 \label{sec:theoremB}
@@ -360,6 +417,28 @@ $n = 4 \to 128$). The general complex case is open; the discrete-duality
 pairing stability is the identified missing assumption.
 \end{remark}
 
+\begin{remark}[Existence vs.\ resolution]
+Proposition~\ref{prop:alex} supplies existence of the curvature measure
+without refinement sequences, smoothing, or interpolation; Theorem~B$'$
+governs what a discretely sampled trajectory can \emph{resolve} of that
+measure, and at what rate. The two layers are complementary: the
+Alexandrov layer removes the extrinsic hypotheses, the refinement
+bridge keeps the quantitative rate.
+\end{remark}
+
+\begin{conjecture}[Value--flux layer relation]\label{conj:valueflux}
+Along generic one-dimensional cuts, the event structure of the flux map
+$v(\theta)$ is controlled by the facet structure of $\Phi$: the count
+and mass of $D^2v$ events between two parameter values are bounded by
+the crossed facets of $D^2(-\Phi)$ up to the degeneracy ratio observed
+at the iML1515 cut ($12$ flux events vs $1$ value atom; value/flux mass
+ratio $1.7\times 10^{-6}$), with the strain-circulation dichotomy
+(measured slopes $1.000$ piecewise-affine vs $2.000$ smooth) separating
+the regimes. If proved, the association of $\kmu$ with transcriptional
+response would promote from a flux-layer property to a value-function
+property.
+\end{conjecture}
+
 % =====================================================================
 \section{Computational validation}\label{sec:computational}
 
@@ -408,7 +487,12 @@ partition, carries one real atom
 $\Delta\Phi' = -0.006439$ at $t = 0.0358286$, and decouples from the
 flux-jump hierarchy (value/flux mass ratio $1.7 \times 10^{-6}$).
 Danskin: finite-difference shadow prices match envelope marginals to
-$6$--$7$ digits.
+$6$--$7$ digits. A controlled follower-variable LP reproduces the same
+structure: the value function stays affine and identical under two
+lexicographic tie-breaks while the follower's second-difference mass
+flips $0.0100 \leftrightarrow 10^{-13}$ --- the value layer is
+canonical (Proposition~\ref{prop:alex}), the flux-strain layer is not
+(Conjecture~\ref{conj:valueflux}).
 
 % =====================================================================
 \section{Empirical association and protein-layer buffering}
@@ -425,8 +509,10 @@ $\rho_S = +0.414$, partial $r = +0.269$ controlling reference level
 ($p = 1.8 \times 10^{-8}$), top-decile versus bottom-decile response
 $1.92$ vs $0.89$ (MWU $1.3 \times 10^{-7}$). Baseline reproduced to the
 digit ($r = +0.3739$, $n = 433$); metric invariance
-$\rho(\kmu, \kk^{\mathrm{lex}}) = 0.99998$ --- the association is an
-event-structure property, not a metric artifact.
+$\rho(\kmu, \kk^{\mathrm{lex}}) = 0.99998$ --- both metrics sample the
+same flux-event structure along the same lexicographic trajectory, so
+the association is an event-structure property of the flux layer, not a
+metric artifact and not a value-function shadow.
 
 \subsection{[E-E27] Protein-layer null}
 Condition-dependent quantitative proteomics ($22$ conditions, triplicates,

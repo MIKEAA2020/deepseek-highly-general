@@ -1,0 +1,143 @@
+{
+  "AX1": {
+    "lp_value_max_abs_err": 0.0,
+    "n_grid": 3721,
+    "danskin_max_abs_err": 0.0,
+    "danskin_n_checked": 3540,
+    "concavity_violation": 0.0,
+    "crease_jump_norms": {
+      "P1P0_x0": 1.0000000000000024,
+      "P2P0_y0": 1.0000000000000024,
+      "P1P2_diag": 1.4142135623745093
+    },
+    "ma_atom_analytic": 0.5,
+    "ma_atom_dual_face_area": 0.5,
+    "d2_mass_ball": [
+      2.0000000000010028,
+      1.0000000000005014,
+      0.5000000000002507,
+      0.25000000000012534,
+      0.12500000000006267
+    ],
+    "d2_ball_loglog_slope": 1.0,
+    "ma_mass_ball": [
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5
+    ],
+    "ma_ball_max_dev_from_half": 0.0,
+    "verdict": "D^2 Phi mass in eps-box vanishes at rate 1 (codim-1 facets, no atom); det D^2(-Phi) = MA atom 0.5 for all eps (codim-2). The file's atom claim holds ONLY for the Monge-Ampere layer."
+  },
+  "AX2": {
+    "feasible_fraction": 1.0,
+    "concavity_violation_exact_midpoints": 7.105427357601002e-15,
+    "concavity_n_tests": 600,
+    "frac_edges_with_grad_jump": 0.01015406162464986,
+    "cut_tv": 0.09956317950342018,
+    "cut_max_between_jump_residual": 0.0,
+    "cut_n_events": 1,
+    "n_chambers_detected": 4,
+    "n_vertices_detected": 0,
+    "ma_atoms_at_vertices": []
+  },
+  "AX2b": {
+    "n_chambers": 3,
+    "n_candidate_vertices": 1,
+    "feasible_fraction": 1.0,
+    "vertex_theta": [
+      0.7659574468085091,
+      0.8085106382978714
+    ],
+    "vertex_inside_grid": true,
+    "phi_at_vertex_lp": 3.5553191489361677,
+    "phi_at_vertex_tie": 3.5553191489361664,
+    "tie_consistency_err": 4.440892098500626e-16,
+    "chamber_fit_residuals": [
+      1.7763568394002505e-15,
+      1.1102230246251565e-15,
+      2.6645352591003757e-15
+    ],
+    "chamber_gradients": [
+      [
+        1.0000000000000002,
+        1.1
+      ],
+      [
+        1.9,
+        4.476596893343388e-16
+      ],
+      [
+        0.9000000000000001,
+        0.7000000000000015
+      ]
+    ],
+    "ma_atom_fan_area": 0.23499999999999924,
+    "ma_atom_dual_face_area": 0.2350000681000018,
+    "fan_equals_dual_face": true,
+    "verdict": "MA atom at a codim-2 vertex of an FBA-like LP = area of the normal fan = area of the LP dual optimal face (the audit's duality claim, machine-verified); the D^2 Hessian layer lives on the codim-1 creases (AX-1/AX-2)."
+  },
+  "AX3": {
+    "AND_min_concavity_violation": 0.0,
+    "OR_max_concavity_violation": 0.5483696279035014,
+    "OR_counterexample_pair": [
+      [
+        0.25231831966305474,
+        1.3490575754700576
+      ],
+      [
+        1.337283269229684,
+        0.22934954902750143
+      ]
+    ],
+    "OR_canonical_violation": 0.5
+  },
+  "AX4": {
+    "ma_atom_planar_area": 0.5,
+    "regge_defect_exact_rad": 0.3398369094541218,
+    "regge_defect_deg": 19.471220634490685,
+    "spherical_excess_gauss_image": 0.3398369094541218,
+    "fan_integral_value": 0.3398369094541218,
+    "identity_defect_minus_spherearea": 0.0,
+    "identity_defect_minus_fanintegral": 0.0,
+    "atom_minus_defect": 0.16016309054587818
+  },
+  "AX5": {
+    "identity": "mixed second difference = mu_12(rectangle), exact",
+    "verified": true
+  },
+  "AX6": {
+    "value_functions_identical": 0.0,
+    "value_is_affine_no_atom": true,
+    "value_second_diff_events": 0,
+    "flux_d2_mass_tiebreakA_minabs": 0.010000000000047748,
+    "flux_d2_mass_tiebreakB_maxs": 1.1191048088221578e-13,
+    "flux_kink_events_A": 1,
+    "flux_kink_events_B": 0,
+    "verdict": "value function (affine, atom-free) + its Hessian measure are tie-break-free; the follower's flux-strain mass flips nonzero <-> zero with the tie-break, so kappa^mu (flux-strain, V5 definition) is NOT a functional of the value-function Alexandrov measure"
+  },
+  "AX7": {
+    "loop": "square of half-width eps centered at the crease point (0,1)",
+    "H_pwl": [
+      2.0,
+      1.0,
+      0.5,
+      0.25,
+      0.125,
+      0.0625
+    ],
+    "H_smooth_control": [
+      2.4000000000000004,
+      0.6000000000000001,
+      0.14999999999999997,
+      0.03749999999999998,
+      0.009375000000000008,
+      0.0023437500000000056
+    ],
+    "loglog_slope_pwl": 1.0000000000000002,
+    "loglog_slope_smooth_control": 2.0,
+    "pwl_analytic": "H = 2*|[J]e1|*eps = 2*eps: legs 1 and 3 each contribute [J+] - [J-] applied to (eps, 0)",
+    "verdict": "PWL strain circulation is eps^1 (matches M4a slope 1.000 and BT-8); the smooth control is eps^2 -- the regime dichotomy is reproduced at the toy level"
+  }
+}

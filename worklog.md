@@ -4516,3 +4516,99 @@ Stage Summary:
   scripts/journal_manuscript_v2.{tex,pdf} (Layer-0). Open: Layer-1+
   porting of v21 sections; E32; PRECISE-arm replication; the formal
   kappa_flux = F[mu] identity.
+
+---
+Task ID: 2 (alexandrov-bridge)
+Agent: main (Super Z)
+Task: Evaluate, verify, deep-web-search for novelty, and
+strengthen/correct/complete "deepseek alexandrov strengthening
+bridge.txt"; push with PAT. (Formulation file already repaired in the
+prior session via Active_Set_Bridge_v2.md Theorems S/G/N/D.)
+
+Work Log:
+- Re-read both target audit files in full after session restart
+  (656 + 317 lines); confirmed disk state survived (script committed as
+  ce6796b, 13 search JSONs under tool-results/alexandrov_search/).
+- Repaired the AX battery's own defects before trusting it:
+  (a) linprog bounds=(0,None)*3 tuple bug -> [(0,None)]*3;
+  (b) crease FD probes straddling the crease (offset 1e-7 vs step 1e-6)
+  -> probes at 1e-3 with h=1e-5, both FD points on one side;
+  (c) AX-6 tie-breaks coincided by construction (w<=0 cap forced
+  clamp to the upper bound) -> redesigned follower-variable LP
+  (max t, w<=th, s<=t-1/2; two-stage lexicographic LPs, honest
+  split-variable min|s| LP): value affine/atom-free, follower |D2|
+  mass 0.0100 (1 event) vs 1.1e-13 (0 events) between tie-breaks;
+  (d) AX-7 never called v7 (tautological slope) -> honest
+  tangent-transport mismatch H(eps) = sum_legs [v(x1)-v(x0) -
+  J(x0)(x1-x0)]: PWL slope 1.0000000000000002 vs smooth control
+  2.0 (exact quadratics), mirroring M4a commutator semantics;
+  (e) AX-1 re-encoded honestly (3-cap LP, Danskin duals, measured
+  jump x length ball law, numerical gradient-image MA atom);
+  (f) AX-2 dead Danskin block replaced by a real subdifferential
+  bracket test; concavity test moved to exact LP midpoints
+  (violation 7.1e-15); (g) AX-4 Duffy-map bug caught BY THE RUN
+  (integ3 integrated the wrong triangle; identity itself true) ->
+  fixed map p = g0 + s(g1-g0) + t(1-s)(g2-g0), all three AX-4
+  quantities now agree at 0.0.
+- NEW AX-2b: max-flow LP (PhPP in miniature; min-cut chambers):
+  3 chambers with gradients [(1,1.1),(1.9,0),(0.9,0.7)], one vertex
+  detected and refined by exact triple-tie solve at
+  (0.765957, 0.808511); Phi(LP)=3.5553191489361677 vs tie
+  ...664 (1e-15); MA atom fan area 0.235 vs LP dual-optimal-face
+  enumeration area 0.235000068 (16 direction LPs over
+  {S^T lam + y >= c, y >= 0, y.u <= Phi}) -> the audit's dual-face
+  claim is machine-verified on a generic LP.
+- Full battery results (seed 20260902, ~70 s): AX-1 LP value err 0.0,
+  Danskin err 0.0 (3540 pts), concavity 0.0, crease jumps
+  1/1/sqrt2, MA dual-face 0.5=analytic, D2 ball slope 1.0, MA ball
+  0.5 const; AX-3 AND 0.0 / OR canonical 0.5; AX-5 exact rationals.
+- Verified V5's kappa_mu definition from
+  v5_e24_recalibration.json: flux-strain ("sum_t |D2|/dt per
+  reaction"), NOT a value-function Alexandrov functional -> the
+  audit's conjecture item 4 / sec 3C is misattributed; honest
+  justification of the 0.99998 rank identity = shared flux-event
+  structure along the same lexicographic trajectory.
+- Wrote download/Alexandrov_Bridge_Evaluation.md: verdict table
+  (C1-C9), three defects repaired (D-A codim-2 atom claim false for
+  D^2Phi, true only for det D^2Phi; D-B kappa^mu misattribution;
+  D-C convexity overclaim with GPR OR/max caveat), what the file
+  gets right, repaired Propositions A1-A5 + Conjecture A6, 13-search
+  novelty dossier (PhPP Edwards-Ibarra-Palsson 2001 = direct prior
+  art; mpLP chamber theory; Christiansen 2024 Regge codim-2; discrete
+  MA; no hit at the three-fold intersection -> file's "application,
+  not theorem" honesty confirmed), manuscript integration guidance,
+  reproducibility + battery bug-honesty note.
+- v2 manuscript (journal_manuscript_v2.tex, v21 untouched): added
+  [D3] The value-function layer (Alexandrov): Propositions
+  prop:alex (existence + tie-break-freeness + GPR caveat),
+  prop:twolayer (two-layer structure), prop:dualface (dual optimal
+  face identity), rem:layersep (PhPP positioning + layer
+  separation); added remark "Existence vs resolution" and
+  Conjecture conj:valueflux (value-flux layer relation) after
+  conj:bridge; E-V1 extended with the tie-break toy; E-V5 rank
+  identity sentence corrected ("not a value-function shadow").
+  Recompiled with tectonic: 8 pages. (Fixed a duplicated D3 block
+  introduced by a partially-applied failed MultiEdit.)
+
+Stage Summary:
+- The Alexandrov file's core move (value function as canonical,
+  tie-break-free curvature carrier via Alexandrov) is ENDORSED and
+  now integrated as the existence layer of the v2 spine; its
+  convexity proof verified; its codim-2 atom claim FALSIFIED for
+  D^2Phi and repaired into a strictly stronger two-layer structure
+  (Hessian on codim-1 facets, Monge-Ampere atoms on codim-2
+  vertices); its kappa^mu attribution FALSIFIED and replaced by the
+  honest flux-layer statement; novelty assessment confirmed by 13
+  searches (nearest prior art: PhPP, mpLP chambers, Regge codim-2,
+  discrete MA; nothing at the intersection).
+- NEW machine-verified results: dual-optimal-face = MA atom identity
+  on a generic LP (0.235 vs 0.235000068); normal-cone identity chain
+  (Regge defect = spherical excess = gnomonic fan integral, 0.0
+  diffs); tie-break decoupling toy; strain-circulation dichotomy
+  (1.000 vs 2.000).
+- Deliverables: download/Alexandrov_Bridge_Evaluation.md,
+  download/alexandrov_bridge/{ax_results.json, ax_summary.txt,
+  ax_figures.png}, scripts/alexandrov_bridge_verify.py (fixed),
+  scripts/journal_manuscript_v2.{tex,pdf} (8 pages). Open: Layer-1+
+  porting; Conjecture A6 (value-flux relation) proof; E32; PRECISE
+  arm; joint six-audit assessment write-up.

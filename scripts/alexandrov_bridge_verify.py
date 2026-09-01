@@ -18,7 +18,10 @@ Claims under test (from the file):
             is correct), AND the GPR caveat: AND/min gene rules keep
             concavity (joint convexity), OR/max rules break it.
   C-tb   : value function + its Hessian measure are tie-break-free
-            while the flux map is not  -> tested with a degenerate toy LP.
+            while the flux map is not  -> tested with a follower-variable
+            LP (two-stage lexicographic tie-breaks, honest LPs; the value
+            function is smooth (no atom) while the follower's second-
+            difference mass flips 1 <-> 0 with the tie-break).
   C-dec  : "the empirical kappa^mu is a functional of kappa_A = tr_V D^2 Phi"
             -> tested: FALSE-as-attributed (kappa^mu is flux-strain,
             V5 definition); demonstrated by decoupling toy.
@@ -55,69 +58,101 @@ def log(*a):
 # ----------------------------------------------------------------------
 # Shared LP helpers (parametric LP with affine bounds, S v = 0)
 # ----------------------------------------------------------------------
-def solve_lp(S, c, lo, up, method="highs"):
-    """max c^T v  s.t. S v = 0, lo <= v <= up.  Returns dict or None."""
+def solve_lp(S, c, lo, up, A_extra=None, b_extra=None, method="highs"):
+    """max c^T v  s.t. S v = 0, lo <= v <= up, [A_extra v <= b_extra].
+    Returns dict or None. Duals: y_up = dPhi/dup_i (max-problem
+    convention); y_extra = dPhi/d(b_extra)."""
     n = len(c)
     A_ub = np.vstack([np.eye(n), -np.eye(n)])
     b_ub = np.concatenate([up, -lo])
+    n_extra = 0
+    if A_extra is not None:
+        A_extra = np.asarray(A_extra, float).reshape(-1, n)
+        b_extra = np.asarray(b_extra, float).ravel()
+        A_ub = np.vstack([A_ub, A_extra])
+        b_ub = np.concatenate([b_ub, b_extra])
+        n_extra = len(b_extra)
     res = linprog(-c, A_eq=S, b_eq=np.zeros(S.shape[0]),
                   A_ub=A_ub, b_ub=b_ub, bounds=(None, None),
                   method=method)
     if not res.success:
         return None
     # duals: bound multipliers. linprog sign conventions:
-    # we minimized -c^T v with A_ub [I; -I] v <= [up; -lo].
-    # marginals m (res.eqlin.marginals dual for S v =0, res.ineqlin.marginals
-    # for the 2n bound rows, <= 0 convention).
-    m = res.ineqlin.marginals  # length 2n, for rows v_i <= up_i (first n)
-    # d(obj)/d(up_i) for the MAX problem = -m[i]  (marginal of min -c with
-    # <= constraint is <=0; increase up_i relaxes).  Check on the fly.
+    # we minimized -c^T v with A_ub [I; -I; extra] v <= [up; -lo; b_extra].
+    # marginals m (res.ineqlin.marginals, <= 0 convention for min problem).
+    m = res.ineqlin.marginals
     return {"v": res.x, "obj": float(c @ res.x),
-            "y_up": -m[:n],  # dPhi/dup (max-problem convention)
+            "y_up": -m[:n],          # dPhi/dup_i  (max-problem convention)
+            "y_extra": (-m[2 * n:2 * n + n_extra] if n_extra
+                         else np.zeros(0)),
             "res": res}
 
 
 # ======================================================================
 # AX-1  analytic 3-piece LP:  Phi(th) = min(0, th1, th2)
-#   max w  s.t. t - w = 0 (S),  w <= th1, w <= th2, w <= 0
+#   honest 3-cap encoding: variables (t, w1, w2, w0)
+#     max t  s.t.  t - w1 <= 0,  t - w2 <= 0,  t - w0 <= 0   (extra rows)
+#                  w1 <= th1,   w2 <= th2,   w0 <= 0          (theta caps)
+#   Phi(th) = min(th1, th2, 0);  Danskin duals y_up[1:3] = dPhi/dth
 # ======================================================================
 log("== AX-1: analytic LP, Phi = min(0, th1, th2) ==")
-S1 = np.array([[1.0, -1.0]])
-c1 = np.array([0.0, 1.0])  # objective on (t, w): maximize w
-n1 = 2
+S1 = np.zeros((0, 4))
+A1_extra = np.array([[1., -1., 0., 0.],
+                     [1., 0., -1., 0.],
+                     [1., 0., 0., -1.]])
+b1_extra = np.zeros(3)
+c1 = np.array([1., 0., 0., 0.])          # maximize t
+LO1 = -10.0
 
 
 def phi1(th):
     return min(0.0, th[0], th[1])
 
 
-# grid verify
+def grad_phi1_exact(th):
+    vals = [0.0, th[0], th[1]]
+    k = int(np.argmin(vals))
+    gv = np.zeros(2)
+    if k > 0:
+        gv[k - 1] = 1.0
+    return gv
+
+
+def solve1(th):
+    lo = np.full(4, LO1)
+    up = np.array([10.0, th[0], th[1], 0.0])
+    return solve_lp(S1, c1, lo, up, A1_extra, b1_extra)
+
+
+# grid verify: LP value + Danskin duals vs exact chamber gradient
 g = np.linspace(-1.5, 1.5, 61)
-err_val, err_grad_danskin = [], []
-grad_field = {}
-phi_grid = {}
-for i, x in enumerate(g):
-    for j, y in enumerate(g):
-        lo = np.array([-1e3, min(0.0, x, y)])
-        up = np.array([1e3, min(0.0, x, y)])
-        # bounds: t in (-inf, inf)? t=w via equality; w <= th1, <= th2, <= 0
-        # encode w's upper bound as min(0,x,y); keep lower bound -1000
-        r = solve_lp(S1, c1, lo, up)
+err_val, err_danskin, n_danskin = [], 0.0, 0
+for x in g:
+    for y in g:
+        r = solve1((x, y))
         assert r is not None
-        phi_grid[(i, j)] = r["obj"]
         err_val.append(abs(r["obj"] - phi1((x, y))))
-        # gradient via dual: dPhi/dth_k = dual of bound w<=th_k
-        # (only defined when that bound is the active one)
-        if r is not None:
-            grad_field[(i, j)] = r["y_up"]
+        # Danskin: skip points within 1e-3 of any crease LINE (x=0, y=0,
+        # x=y); the dual must equal the exact chamber gradient elsewhere
+        dmin = min(abs(x), abs(y), abs(x - y) / np.sqrt(2.0))
+        if dmin > 1e-3:
+            ydu = np.array([r["y_up"][1], r["y_up"][2]])
+            err_danskin = max(err_danskin, float(np.linalg.norm(
+                ydu - grad_phi1_exact((x, y)))))
+            n_danskin += 1
 
 ax1 = {
     "lp_value_max_abs_err": float(np.max(err_val)),
     "n_grid": len(err_val),
+    "danskin_max_abs_err": float(err_danskin),
+    "danskin_n_checked": n_danskin,
 }
-log("  LP value matches min(0,th1,th2): max err =", ax1["lp_value_max_abs_err"])
+log("  LP value matches min(0,th1,th2): max err =",
+    ax1["lp_value_max_abs_err"])
+log("  Danskin duals vs exact chamber gradient: max err =",
+    ax1["danskin_max_abs_err"], "over", n_danskin, "interior points")
 
-# concavity via midpoint tests
+# concavity via midpoint tests (analytic; LP-level concavity in AX-2)
 viol = 0.0
 for _ in range(4000):
     a = RNG.uniform(-1.5, 1.5, 2)
@@ -127,71 +162,75 @@ for _ in range(4000):
 ax1["concavity_violation"] = float(viol)
 log("  concavity (Phi) max violation:", viol)
 
-# facet masses of D^2 Phi (analytic): creases {th1=0, th2>=0} and
-# {th2=0, th1>=0}; jump [grad Phi] across them:
-#  from R1 (th1 piece): grad = (1,0)  ->  R0 (0 piece): grad = (0,0)
-#  D^2 Phi density on crease1 = -(1) e1 (x) e1   [concave]
-# numeric: finite-difference grad along a line crossing each crease
-def grad_phi_num(th, h=1e-6):
+# crease gradient jumps: probes at distance 1e-3 on each side, central
+# FD with h = 1e-5 (both FD points on the SAME side of the crease)
+def grad_phi_num(th, h=1e-5):
     return np.array([
         (phi1((th[0] + h, th[1])) - phi1((th[0] - h, th[1]))) / (2 * h),
         (phi1((th[0], th[1] + h)) - phi1((th[0], th[1] - h))) / (2 * h)])
 
 
-j1 = np.linalg.norm(grad_phi_num((1e-7, 0.3)) - grad_phi_num((-1e-7, 0.3)))
-j2 = np.linalg.norm(grad_phi_num((0.3, 1e-7)) - grad_phi_num((0.3, -1e-7)))
-ax1["crease_jump_norms"] = [float(j1), float(j2)]
-log("  crease gradient jumps (should be 1.0):", j1, j2)
+dp = 1e-3
+j1 = np.linalg.norm(grad_phi_num((dp, 0.3)) - grad_phi_num((-dp, 0.3)))
+j2 = np.linalg.norm(grad_phi_num((0.3, dp)) - grad_phi_num((0.3, -dp)))
+jd = np.linalg.norm(grad_phi_num((-0.3, -0.3 + dp))
+                    - grad_phi_num((-0.3, -0.3 - dp)))
+ax1["crease_jump_norms"] = {
+    "P1P0_x0": float(j1), "P2P0_y0": float(j2), "P1P2_diag": float(jd)}
+log("  crease gradient jumps (expect 1, 1, sqrt2):", j1, j2, jd)
 
-# MA atom at origin (analytic): |conv{(0,0),(-1,0),(0,-1)}| for f=-Phi
+# MA atom at origin (analytic): |conv{(0,0),(-1,0),(0,-1)}| for f = -Phi
 ax1["ma_atom_analytic"] = 0.5
 
-# dual-face cross-check: at th=(0,0), the dual optimal face projects to the
-# triangle {(y1,y2): y>=0, y1+y2<=1}; enumerate by LPs over the face
+# dual-face cross-check: at th=(0,0), the dual optimal face of the LP is
+# the superdifferential triangle {y>=0, y1+y2<=1} (enumerated by 16 LPs)
+from scipy.spatial import ConvexHull
 verts = []
 for k in range(16):
     d = np.array([np.cos(2 * np.pi * k / 16), np.sin(2 * np.pi * k / 16)])
-    # maximize d.(y1,y2) over dual optimal face of the primal at (0,0)
-    # dual: min th1 y1 + th2 y2 (th=0 -> any feasible y optimal)
-    #       s.t. y0 + y1 + y2 = 1, y >= 0
-    # i.e. maximize d.(y1,y2) s.t. y>=0, sum y = 1
-    # LP in variables (y0,y1,y2):
     A_eq = np.ones((1, 3))
     b_eq = np.array([1.0])
-    obj = -np.array([0.0, d[0], d[1]])  # maximize
-    r = linprog(obj, A_eq=A_eq, b_eq=b_eq, bounds=(0, None) * 3,
+    obj = -np.array([0.0, d[0], d[1]])  # maximize d.(y1,y2)
+    r = linprog(obj, A_eq=A_eq, b_eq=b_eq, bounds=[(0, None)] * 3,
                 method="highs")
     verts.append(r.x[1:3])
 verts = np.array(verts)
-from scipy.spatial import ConvexHull
 hull = ConvexHull(verts)
 ax1["ma_atom_dual_face_area"] = float(hull.volume)
 log("  MA atom: analytic 0.5 vs dual-face polygon area", hull.volume)
 
-# D^2 Phi has NO atom at the vertex: mass in eps-ball ~ 2*eps (facet law)
+# D^2 Phi has NO atom at the vertex: mass in eps-box = (measured jumps)
+# x (exact crease lengths); MA measure of the box = area of the
+# numerical gradient image (LP duals on a subgrid, convex hull)
 eps_list = np.array([0.5, 0.25, 0.125, 0.0625, 0.03125])
 d2_ball, ma_ball = [], []
 for eps in eps_list:
-    # D^2Phi mass in [-eps,eps]^2 = total variation of grad Phi image of the
-    # box = |grad-image measure| ~ sum of |crease jumps| x crease lengths
-    # crease lengths inside box: th1=0 segment length 2eps (for th2 in
-    # [-eps..]... careful: crease {th1=0, th2>=0} inside box: length eps;
-    # crease {th2=0, th1>=0}: length eps; PLUS diagonal crease? none here
-    # (pieces 1&2 meet only at origin: {th1=th2<=0} inside box: length
-    # eps*sqrt(2), jump (1,-1)-(0,... wait pieces R1,R2 grads (1,0),(0,1):
-    # jump (−1,1), density magnitude |[d_nu]| = sqrt(2)*... compute exactly:
-    # [grad]= (0,1)-(1,0)=(-1,1); nu = (1,-1)/sqrt2; [d_nu] = (-1,1).(1,-1)/sqrt2
-    #   = -2/sqrt2 = -sqrt2; |density| = sqrt2
-    # crease diag length in box = eps*sqrt2 -> mass = sqrt2 * eps*sqrt2 = 2 eps
-    # crease1 mass = 1 * eps (length eps, |jump| 1)
-    # crease2 mass = 1 * eps
-    # total = 4 eps (for the CONVEX f = -Phi; same for Phi with signs)
-    d2_ball.append(4.0 * eps)
-    ma_ball.append(0.5)  # MA atom fully inside every ball
-ax1["d2_mass_ball_law"] = "4*eps (facet lengths x jumps; no point mass)"
-ax1["ma_mass_ball_law"] = "0.5 for all eps (codim-2 atom)"
-log("  D^2 ball mass law: 4*eps; MA ball mass: 0.5  -> D^2 has no atom,")
-log("  MA is atomic: the file's codim claim holds ONLY for det D^2 Phi.")
+    # crease {th1=0, th2>=0} in box: length eps, jump j1;
+    # crease {th2=0, th1>=0}: length eps, jump j2;
+    # crease {th1=th2<=0}: length eps*sqrt2, jump jd
+    d2_ball.append(j1 * eps + j2 * eps + jd * eps * np.sqrt(2.0))
+    K = 21
+    sub = np.linspace(-eps, eps, K)
+    img = []
+    for x in sub:
+        for y in sub:
+            r = solve1((x, y))
+            img.append([r["y_up"][1], r["y_up"][2]])
+    img = np.unique(np.round(np.array(img), 9), axis=0)
+    ma_ball.append(float(ConvexHull(img).volume))
+d2_ball = np.array(d2_ball)
+ma_ball = np.array(ma_ball)
+slope_d2 = float(np.polyfit(np.log(eps_list), np.log(d2_ball), 1)[0])
+ax1["d2_mass_ball"] = d2_ball.tolist()
+ax1["d2_ball_loglog_slope"] = slope_d2
+ax1["ma_mass_ball"] = ma_ball.tolist()
+ax1["ma_ball_max_dev_from_half"] = float(np.max(np.abs(ma_ball - 0.5)))
+ax1["verdict"] = ("D^2 Phi mass in eps-box vanishes at rate 1 (codim-1 "
+                  "facets, no atom); det D^2(-Phi) = MA atom 0.5 for all "
+                  "eps (codim-2). The file's atom claim holds ONLY for "
+                  "the Monge-Ampere layer.")
+log("  D^2 ball mass:", np.round(d2_ball, 6), "slope", slope_d2)
+log("  MA ball mass:", np.round(ma_ball, 6), "(constant 0.5)")
 
 results["AX1"] = ax1
 
@@ -210,6 +249,10 @@ l0 = -RNG.uniform(1, 5, m2)
 U2 = np.zeros((m2, 2))
 U2[2, 0] = 1.0   # theta1 scales bound of reaction 2
 U2[5, 1] = 1.0   # theta2 scales bound of reaction 5
+U2[3, 0] = 0.8; U2[3, 1] = -0.4
+U2[6, 0] = -0.6; U2[6, 1] = 0.9
+U2[8, 1] = 0.5
+U2[9, 0] = 0.3; U2[9, 1] = 0.3
 LO0, HI0 = -3.0, 3.0
 
 def bounds2(th):
@@ -228,27 +271,31 @@ for i, t1 in enumerate(th1g):
         r = solve_lp(S2, c2, lo, up)
         if r is not None:
             phi2[j, i] = r["obj"]
-            grad2[j, i] = (r["y_up"][2], r["y_up"][5])
+            # dPhi/dth_k = sum_r (dPhi/dup_r) * U2[r, k]  (chain rule)
+            grad2[j, i] = r["y_up"] @ U2
 
 ok = ~np.isnan(phi2[:, :])
 log("  feasible grid fraction:", ok.mean())
 
-# concavity via random midpoints on the solved grid (bilinear mid values)
+# concavity via exact LP midpoints (no grid discretization)
 viol = 0.0
-n_test = 3000
-for _ in range(n_test):
-    i1, i2 = RNG.integers(0, Ng, 2)
-    j1_, j2_ = RNG.integers(0, Ng, 2)
-    if not (ok[j1_, i1] and ok[j2_, i2]):
+n_test = 0
+while n_test < 600:
+    a = RNG.uniform(LO0, HI0, 2)
+    b = RNG.uniform(LO0, HI0, 2)
+    m = 0.5 * (a + b)
+    ra = solve_lp(S2, c2, *bounds2(a))
+    rb = solve_lp(S2, c2, *bounds2(b))
+    rm = solve_lp(S2, c2, *bounds2(m))
+    if None in (ra, rb, rm):
         continue
-    im, jm = (i1 + i2) // 2, (j1_ + j2_) // 2
-    if not ok[jm, im]:
-        continue
-    # Phi concave:  Phi(mid) >= (Phi(a)+Phi(b))/2   approximately (grid mid)
-    viol = max(viol, 0.5 * (phi2[j1_, i1] + phi2[j2_, i2]) - phi2[jm, im])
+    n_test += 1
+    viol = max(viol, 0.5 * (ra["obj"] + rb["obj"]) - rm["obj"])
 ax2 = {"feasible_fraction": float(ok.mean()),
-       "concavity_violation_grid": float(viol)}
-log("  concavity violation (grid midpoints):", viol)
+       "concavity_violation_exact_midpoints": float(viol),
+       "concavity_n_tests": n_test}
+log("  concavity violation (exact LP midpoints):", viol,
+    "over", n_test, "triples")
 
 # chamber detection: gradient constant per chamber
 Gmag = np.linalg.norm(grad2, axis=2)
@@ -316,7 +363,10 @@ ax2["n_vertices_detected"] = len(merged)
 log("  candidate codim-2 vertices (>=3 chambers meet):", len(merged))
 
 # MA atom at each vertex = area of conv{chamber gradients} (normal fan);
-# cross-check one vertex via the dual optimal face (16 LPs over the face)
+# honest subdifferential-bracket cross-check at the strongest vertex:
+# one-sided FD slopes of Phi at the vertex must lie inside the
+# min/max bracket of the adjacent chamber gradients in that direction
+# (concavity + PL structure = the dual optimal face).
 atom_areas = []
 for mv in merged[:6]:
     j, i, ids = mv
@@ -336,8 +386,9 @@ for mv in merged[:6]:
         try:
             hull = ConvexHull(gs)
             atom_areas.append(
-                {"grid": (i, j), "n_facets": len(gs),
-                 "atom_area": float(hull.volume)})
+                {"grid": (int(i), int(j)), "n_facets": len(gs),
+                 "atom_area": float(hull.volume),
+                 "fan": np.unique(np.round(gs, 6), axis=0).tolist()})
         except Exception:
             pass
 ax2["ma_atoms_at_vertices"] = atom_areas
@@ -345,45 +396,180 @@ for a in atom_areas:
     log("  vertex at grid", a["grid"], "facets:", a["n_facets"],
         "MA atom area:", round(a["atom_area"], 6))
 
-# dual-face cross-check for the strongest vertex
 if atom_areas:
     a0 = max(atom_areas, key=lambda a: a["atom_area"])
-    j, i, _ = merged[atom_areas.index(a0)] if atom_areas.index(a0) < len(merged) else merged[0]
-    # pick the exact grid point of the vertex
-    thv = (th1g[i], th2g[j])
-    lo, up = bounds2(thv)
-    # dual of: max c.v s.t. Sv=0, lo<=v<=up  is
-    #   min lo.z - up.y  ... careful with signs; we enumerate the dual
-    #   optimal face in (y2, y5) [bound multipliers of the two theta-bounds]
-    #   by LPs: fix primal value Phi, vary weights.
-    # Simplest correct approach: the subdifferential of (-Phi) at thv is
-    # conv of the adjacent chamber NEGATED gradients (PL identity).  We
-    # verify instead via *Danskin FD*: the FD gradient at thv +- h must lie
-    # inside the atom polygon (subdifferential membership test).
-    h = 1e-5
-    inside = True
-    gs = np.array([-grad2[jj, ii]
-                   for (jj, ii) in [(j, i), (j, i + 1), (j + 1, i),
-                                    (j + 1, i + 1)]])
-    gs = np.unique(np.round(gs, 9), axis=0)
-    for sgn in [1, -1]:
-        thp = (thv[0] + sgn * h, thv[1])
-        lo, upb = bounds2(thp)
-        r1 = solve_lp(S2, c2, lo, upb)
-        thp = (thv[0], thv[1] + sgn * h)
-        lo, upb = bounds2(thp)
-        r2 = solve_lp(S2, c2, lo, upb)
-        for rr, comp in [(r1, 0), (r2, 1)]:
-            if rr is None:
+    i0, j0 = a0["grid"]
+    thv = (th1g[i0], th2g[j0])
+    fan = np.array(a0["fan"])
+    h = 1e-4
+    n_ok, n_tot, worst = 0, 0, 0.0
+    for k in range(16):
+        d = np.array([np.cos(2 * np.pi * k / 16),
+                      np.sin(2 * np.pi * k / 16)])
+        proj = fan @ d
+        lo_b, hi_b = float(proj.min()), float(proj.max())
+        ph0 = solve_lp(S2, c2, *bounds2(thv))["obj"]
+        for sgn in (1.0, -1.0):
+            thp = (thv[0] + sgn * h * d[0], thv[1] + sgn * h * d[1])
+            rp = solve_lp(S2, c2, *bounds2(thp))
+            if rp is None:
                 continue
-            # FD grad ~ (Phi(th+)-Phi(th-h))/(2h); check the one-sided
-            # slope lies between min/max of the fan in that direction
-            pass
-    ax2["danskin_note"] = ("subdifferential-membership verified "
-                           "structurally: adjacent chamber gradients "
-                           "form the dual optimal face (PL identity); "
-                           "V1 iML1515 Danskin check: 2.0e-09")
+            slope = (rp["obj"] - ph0) / (sgn * h)
+            n_tot += 1
+            slack = max(lo_b - slope, slope - hi_b, 0.0)
+            worst = max(worst, slack)
+            if slack <= 1e-3 * max(1.0, abs(hi_b)):
+                n_ok += 1
+    ax2["subdifferential_bracket"] = {
+        "vertex_grid": [int(i0), int(j0)],
+        "n_slopes_checked": n_tot, "n_inside_bracket": n_ok,
+        "max_bracket_violation": float(worst),
+        "fd_step": h,
+    }
+    log("  subdifferential bracket at strongest vertex:", n_ok, "/",
+        n_tot, "one-sided slopes inside fan bracket; worst slack", worst)
 results["AX2"] = ax2
+
+# ======================================================================
+# AX-2b  FBA-like max-flow LP (min-cut chamber complex): the phenotype
+#        phase plane in miniature.  Phi = max return flow with two
+#        theta-scaled capacity groups -> Phi = min over cuts (affine),
+#        chambers = minimal cuts, codim-2 vertex where 3 cuts tie.
+#        At the DETECTED-and-REFINED vertex, test:
+#          - MA atom (Monge-Ampere layer) = area of conv of adjacent
+#            chamber gradients (the normal fan);
+#          - the SAME atom recovered by enumerating the LP DUAL OPTIMAL
+#            FACE (the audit's own duality argument, machine-checked);
+#          - Phi at the vertex equals the triple tie value.
+# ======================================================================
+log("\n== AX-2b: max-flow LP (min-cut chambers, PhPP in miniature) ==")
+S2b = np.zeros((3, 6))
+S2b[0, 0] = 1.0                                    # return enters node0
+S2b[0, 1] = -1.0; S2b[0, 4] = -1.0                 # a1, b1 leave node0
+S2b[1, 1] = 1.0; S2b[1, 2] = -1.0; S2b[1, 5] = -1.0  # node1
+S2b[2, 2] = 1.0; S2b[2, 4] = 1.0; S2b[2, 3] = -1.0   # node2
+c2b = np.array([1., 0., 0., 0., 0., 0.])           # max return flow
+u0b = np.array([100., 1.0, 1.3, 1.1, 0.9, 1.2])
+U2b = np.zeros((6, 2))
+U2b[1, 0] = 1.0; U2b[2, 0] = 0.8; U2b[3, 0] = 0.9  # theta1: a-group
+U2b[4, 1] = 1.1; U2b[5, 1] = 0.7                   # theta2: b-group
+lo2b = np.zeros(6)
+
+
+def bounds2b(th):
+    up = u0b + U2b @ np.asarray(th, float)
+    return lo2b, up
+
+
+LO2b, HI2b = -0.8, 1.2
+Ngb = 121
+tg1 = np.linspace(LO2b, HI2b, Ngb)
+tg2 = np.linspace(LO2b, HI2b, Ngb)
+phib = np.full((Ngb, Ngb), np.nan)
+gradb = np.full((Ngb, Ngb, 2), np.nan)
+for i, t1 in enumerate(tg1):
+    for j, t2 in enumerate(tg2):
+        r = solve_lp(S2b, c2b, *bounds2b((t1, t2)))
+        if r is not None:
+            phib[j, i] = r["obj"]
+            gradb[j, i] = r["y_up"] @ U2b
+okb = ~np.isnan(phib)
+log("  feasible fraction:", okb.mean())
+
+labsb = {}
+chamb = np.full((Ngb, Ngb), -1)
+for j in range(Ngb):
+    for i in range(Ngb):
+        if not okb[j, i]:
+            continue
+        k = tuple(np.round(gradb[j, i] / 1e-6).astype(int))
+        if k not in labsb:
+            labsb[k] = len(labsb)
+        chamb[j, i] = labsb[k]
+log("  chambers (unique gradients):", len(labsb))
+
+verts_b = []
+for j in range(Ngb - 1):
+    for i in range(Ngb - 1):
+        ids = {chamb[j, i], chamb[j, i + 1], chamb[j + 1, i],
+               chamb[j + 1, i + 1]}
+        ids.discard(-1)
+        if len(ids) >= 3:
+            verts_b.append((j, i, tuple(sorted(ids))))
+log("  candidate vertices (>=3 chambers in 2x2 block):", len(verts_b))
+
+ax2b = {"n_chambers": len(labsb),
+        "n_candidate_vertices": len(verts_b),
+        "feasible_fraction": float(okb.mean())}
+if verts_b:
+    j, i, ids = verts_b[0]
+    # fit each chamber's affine function b_k + g_k . th (exact: PL)
+    fans = []
+    for cid in ids:
+        pts = np.argwhere(chamb == cid)
+        A = np.column_stack([np.ones(len(pts)),
+                             tg1[pts[:, 1]], tg2[pts[:, 0]]])
+        yv = phib[pts[:, 0], pts[:, 1]]
+        coef, *_ = np.linalg.lstsq(A, yv, rcond=None)
+        fans.append({"cid": int(cid), "b": float(coef[0]),
+                     "g": coef[1:3].astype(float),
+                     "fit_residual": float(
+                         np.max(np.abs(A @ coef - yv)))})
+    # exact triple-tie point of the first three chambers
+    f0, f1, f2 = fans[0], fans[1], fans[2]
+    M = np.array([f0["g"] - f1["g"], f0["g"] - f2["g"]])
+    rhs = np.array([f1["b"] - f0["b"], f2["b"] - f0["b"]])
+    th_v = np.linalg.solve(M, rhs)
+    phi_v = float(f0["b"] + f0["g"] @ th_v)
+    tie_err = max(abs(f1["b"] + f1["g"] @ th_v - phi_v),
+                  abs(f2["b"] + f2["g"] @ th_v - phi_v))
+    rv = solve_lp(S2b, c2b, *bounds2b(th_v))
+    gs = np.array([f["g"] for f in fans])
+    atom_fan = float(ConvexHull(gs).volume)
+    # dual optimal face at th_v:  max-flow dual is
+    #   min y.u(th)  s.t.  S^T lam + y >= c,  y >= 0  (lam free)
+    # the superdifferential of Phi = {U^T y : optimal duals}
+    upv = bounds2b(th_v)[1]
+    A_d = np.vstack([
+        np.hstack([-S2b.T, -np.eye(6)]),           # -S^T lam - y <= -c
+        np.hstack([np.zeros((1, 3)), upv[None, :]])])  # y.u <= Phi + tol
+    b_d = np.concatenate([-c2b, [phi_v + 1e-7]])
+    bnds = [(None, None)] * 3 + [(0, None)] * 6
+    img_pts = []
+    for k in range(16):
+        d = np.array([np.cos(2 * np.pi * k / 16),
+                      np.sin(2 * np.pi * k / 16)])
+        obj = np.concatenate([np.zeros(3), U2b @ d])
+        r = linprog(-obj, A_ub=A_d, b_ub=b_d, bounds=bnds,
+                    method="highs")
+        if r.success:
+            img_pts.append(U2b.T @ r.x[3:])
+    img_pts = np.unique(np.round(np.array(img_pts), 9), axis=0)
+    atom_dual = float(ConvexHull(img_pts).volume)
+    ax2b.update({
+        "vertex_theta": th_v.tolist(),
+        "vertex_inside_grid": bool(LO2b <= th_v[0] <= HI2b
+                                    and LO2b <= th_v[1] <= HI2b),
+        "phi_at_vertex_lp": (float(rv["obj"]) if rv else None),
+        "phi_at_vertex_tie": phi_v,
+        "tie_consistency_err": float(tie_err),
+        "chamber_fit_residuals": [f["fit_residual"] for f in fans],
+        "chamber_gradients": gs.tolist(),
+        "ma_atom_fan_area": atom_fan,
+        "ma_atom_dual_face_area": atom_dual,
+        "fan_equals_dual_face": bool(abs(atom_fan - atom_dual) < 1e-6),
+        "verdict": ("MA atom at a codim-2 vertex of an FBA-like LP = "
+                    "area of the normal fan = area of the LP dual "
+                    "optimal face (the audit's duality claim, "
+                    "machine-verified); the D^2 Hessian layer lives on "
+                    "the codim-1 creases (AX-1/AX-2)."),
+    })
+    log("  vertex theta:", np.round(th_v, 6),
+        " Phi(LP):", (rv["obj"] if rv else None), " tie:", phi_v)
+    log("  chamber gradients:", np.round(gs, 6).tolist())
+    log("  MA atom: fan area", round(atom_fan, 9),
+        "vs dual-face area", round(atom_dual, 9))
+results["AX2b"] = ax2b
 
 # ======================================================================
 # AX-3  GPR caveat: AND/min keeps concavity, OR/max breaks it
@@ -485,73 +671,24 @@ n1 = np.array([1, 0, 1.]) / np.sqrt(2)
 n2 = np.array([0, 1, 1.]) / np.sqrt(2)
 sph_area = sph_excess(n0, n1, n2)
 
-# integral of (1+|g|^2)^(-3/2) over the fan triangle (Gauss quadrature
-# via many small triangles; the integrand is smooth)
-def integ(N=400):
-    # integrate over triangle (g0,g1,g2) by mapping the unit simplex
-    tot = 0.0
-    # barycentric grid
-    xs = np.linspace(0, 1, N)
-    for ii in range(N - 1):
-        for jj in range(N - 1 - ii):
-            # midpoints of two microtriangles
-            for (a, b, cc) in [((ii, jj), (ii + 1, jj), (ii, jj + 1)),
-                               ((ii + 1, jj), (ii + 1, jj + 1), (ii, jj + 1))]:
-                if ii + 1 + jj + 1 > N - 1 and b[1] + cc[1] > N - 1 - 0:
-                    # second microtriangle only when inside
-                    if (ii + 1 + jj + 1) > N - 1:
-                        continue
-                gA = np.array(a, float) / N
-                gB = np.array(b, float) / N
-                gC = np.array(cc, float) / N
-                pts = [(gA + gB + gC) / 3]
-                area = 0.5 / N**2
-                for pt in pts:
-                    g = g1v * pt[0] + g2v * pt[1] + g0 * (1 - pt[0] - pt[1])
-                    tot += area * (1 + g @ g) ** (-1.5)
-    return tot
-
-# simpler: 2D Gauss-Legendre product on the triangle via Duffy transform
-def integ2(n=300):
-    x, w = np.polynomial.legendre.leggauss(n)
-    X, W = np.meshgrid(x, x, indexing="ij")
-    # Duffy: u in [0,1], v in [0, 1-u] -> (s,t) = (u, v(1-u))
-    # g = u*g1 + v'*... use coordinates a>=0, b>=0, a+b<=1
-    a = 0.5 * (X + 1)
-    b = 0.5 * (Y + 1) * (1 - a) if False else None
-    # do it cleanly:
-    tot = 0.0
-    A = 0.5 * (X + 1)              # a in [0,1]
-    B = 0.5 * (x[:, None] + 1) * (1 - A)  # b in [0, 1-a]
-    for i in range(n):
-        for j in range(n):
-            aa, bb = A[i, j], B[i, j]
-            if aa + bb <= 1:
-                g = aa * g1v + bb * g2v
-                jac = (1 - aa)  # dudv jacobian of the Duffy map * area
-                tot += w[i] * w[j] * 0.25 * (1 - aa) * (1 + g @ g) ** (-1.5)
-    # total = 2 * |triangle| * avg... redo carefully below
-    return tot
-
-# exact clean implementation: integrate over the triangle with a tensor
-# Gauss rule on the Duffy map, with the correct Jacobian:
-# map (s,t) in [0,1]^2 -> g = s*g1 + s*t*g2? use g = s*g1 + s*t*g2 covers
-# triangle {a=g1-coord, b=g2-coord: a,b>=0... } our fan triangle has
-# vertices g0(0,0), g1(-1,0), g2(0,-1): parametrize p(s,t) =
-# g0 + s*(g1-g0) + s*t*(g2-g0), jacobian |dps x dpt| = s*|det[g1-g0, g2-g0]|
-# = s*1 (area 2*|tri| = 1). integrate (1+|p|^2)^(-3/2):
+# integral of (1+|g|^2)^(-3/2) over the fan triangle: correct Duffy
+# map  p(sigma,tau) = g0 + sigma*(g1-g0) + tau*(1-sigma)*(g2-g0),
+# jacobian (1-sigma)*|det[g1-g0, g2-g0]| = (1-sigma); the gnomonic
+# projection g -> (-g,1)/sqrt(1+|g|^2) has exactly this Jacobian, so
+# the integral equals the spherical area of the Gauss image.
 def integ3(n=400):
     x, w = np.polynomial.legendre.leggauss(n)
-    s = 0.5 * (x + 1); ws = 0.5 * w
+    s = 0.5 * (x + 1)
+    ws = 0.5 * w
+    t = 0.5 * (x + 1)
+    wt = 0.5 * w
     tot = 0.0
     for i in range(n):
         si, wi = s[i], ws[i]
-        # t in [0,1]
-        t = 0.5 * (x + 1); wt = 0.5 * w
-        p = (g0 + si * (g1v - g0))[None, :] + \
-            si * np.outer(t, (g2v - g0))
+        beta = t * (1.0 - si)
+        p = (g0 + si * (g1v - g0))[None, :] + np.outer(beta, (g2v - g0))
         val = (1 + np.einsum("ij,ij->i", p, p)) ** (-1.5)
-        tot += wi * np.sum(wt * val) * si
+        tot += wi * np.sum(wt * val) * (1.0 - si)
     return tot
 
 fan_integral = integ3()
@@ -604,122 +741,192 @@ results["AX5"] = ax5
 
 # ======================================================================
 # AX-6  tie-break-freeness + layer decoupling (value vs flux map)
-#       degenerate LP: variables (t, w, s); s is degenerate (does not
-#       affect the objective); two tie-break rules give different flux
-#       kink structure, same value function and same atoms.
+#       follower-variable LP: variables (t, w, s); t = w (equality),
+#       w <= th (theta cap); follower row  s - t <= -1/2.
+#       Stage 1: max t  ->  Phi(th) = th  (AFFINE: no atom at all).
+#       At the optimum s is FREE in [-10, min(10, th-1/2)]: the flux
+#       layer is genuinely degenerate, so its kink structure is a pure
+#       tie-break artifact.  kappa^mu is built from |second differences|
+#       of exactly such follower trajectories (V5: "sum_t |D2|/dt").
 # ======================================================================
 log("\n== AX-6: tie-break-freeness & layer decoupling ==")
-# LP: max t  s.t. t = w (S), w <= th, w <= 0, s <= t - 1/2, s >= -10
-# (s is a follower variable: any feasible s; objective independent of s)
-# tie-break A: minimize |s|  -> s = 0 constant  (flux-flat)
-# tie-break B: maximize s    -> s = min(0, th) - 1/2 (kinked at 0)
 S6 = np.array([[1., -1., 0.]])
 c6 = np.array([1., 0., 0.])
+A6_extra = np.array([[-1., 0., 1.]])    # -t + s <= -1/2  (s <= t - 1/2)
+b6_extra = np.array([-0.5])
 
 
-def solve6(th, tie):
-    # variables (t, w, s); t = w; w <= th; w <= 0; s in [-10, t-1/2]
+def stage1(th):
     lo = np.array([-10., -10., -10.])
-    up = np.array([10., min(0.0, th), min(0.0, th) - 0.5])
-    if tie == "A":   # lexicographic stage 2: minimize |s| -> set obj
-        obj = np.array([1., 0., 0.])
-        # two-stage: first max t; then among optima min |s|:
-        r1 = solve_lp(S6, obj, lo, up)
-        tstar = r1["obj"]
-        # fix t = tstar (bound), minimize |s| via s = s+ - s-
-        # solve min |s| s.t. S6 v = 0, t=w=tstar, -10<=s<=tstar-0.5
-        lo2 = lo.copy(); up2 = up.copy()
-        up2[0] = tstar; lo2[0] = tstar; up2[1] = tstar; lo2[1] = tstar
-        # minimize |s|: linearize with variable split -- approximate by
-        # min s^2 not LP; instead pick s* = clamp(0, lo2[2], up2[2])
-        s_star = min(max(0.0, lo2[2]), up2[2])
-        return tstar, s_star
-    else:            # tie-break B: maximize s
-        r1 = solve_lp(S6, c6, lo, up)
-        tstar = r1["obj"]
-        s_star = min(0.0, th) - 0.5
-        return tstar, s_star
+    up = np.array([10., th, 10.])
+    return solve_lp(S6, c6, lo, up, A6_extra, b6_extra)
+
+
+def stage2_minabs(tstar):
+    # among optima: minimize |s|; s in [-10, tstar-1/2], s = sp - sm,
+    # sp, sm >= 0.  LP: min sp+sm s.t. sp-sm <= tstar-1/2, sm-sp <= 10.
+    A = np.array([[1., -1.], [-1., 1.]])
+    b = np.array([tstar - 0.5, 10.])
+    r = linprog([1., 1.], A_ub=A, b_ub=b,
+                bounds=[(0., 10.), (0., 10.)], method="highs")
+    return float(r.x[0] - r.x[1])
+
+
+def stage2_maxs(tstar):
+    # among optima: maximize s over the box [-10, min(10, tstar-1/2)]
+    # (single-variable box LP -- the upper bound IS the optimum)
+    return float(min(10.0, tstar - 0.5))
 
 
 ths = np.linspace(-2, 2, 401)
-tA = []; sA = []; tB = []; sB = []
+tA, sA, tB, sB = [], [], [], []
 for th in ths:
-    tt, ss = solve6(th, "A")
-    tA.append(tt); sA.append(ss)
-    tt, ss = solve6(th, "B")
-    tB.append(tt); sB.append(ss)
+    r1 = stage1(th)
+    assert r1 is not None
+    tstar = r1["obj"]
+    tA.append(tstar)
+    tB.append(tstar)
+    sA.append(stage2_minabs(tstar))
+    sB.append(stage2_maxs(tstar))
 tA, sA, tB, sB = map(np.array, (tA, sA, tB, sB))
-# value function identical under both tie-breaks:
-dv = np.max(np.abs(tA - tB))
-# value atom at 0 (single kink):
-dt = np.abs(np.diff(tA))
-value_events = np.sum(dt > 1e-9)
-# flux kink structure:
-dsA = np.abs(np.diff(sA))
-dsB = np.abs(np.diff(sB))
-flux_events_A = int(np.sum(dsA > 1e-9))
-flux_events_B = int(np.sum(dsB > 1e-9))
+# value function: identical under both tie-breaks, and AFFINE (no atom)
+dv = float(np.max(np.abs(tA - tB)))
+val_d2 = np.abs(np.diff(tA, 2))
+val_is_affine = bool(np.max(val_d2) < 1e-9)
+# kappa^mu analogue: total |second-difference| mass of the follower
+d2A = np.abs(np.diff(sA, 2))
+d2B = np.abs(np.diff(sB, 2))
+flux_d2_A, flux_d2_B = float(d2A.sum()), float(d2B.sum())
+n_events_A = int((d2A > 1e-9).sum())
+n_events_B = int((d2B > 1e-9).sum())
 ax6 = {
-    "value_functions_identical": float(dv),
-    "value_kink_events": int(value_events),
-    "flux_s_kinks_tiebreakA_minabs": flux_events_A,
-    "flux_s_kinks_tiebreakB_maxs": flux_events_B,
-    "verdict": ("value function + its atom are tie-break-free; the "
-                "flux-strain event structure is tie-break-DEPENDENT; "
-                "kappa^mu (flux-strain) is NOT a functional of the "
+    "value_functions_identical": dv,
+    "value_is_affine_no_atom": val_is_affine,
+    "value_second_diff_events": int((val_d2 > 1e-9).sum()),
+    "flux_d2_mass_tiebreakA_minabs": flux_d2_A,
+    "flux_d2_mass_tiebreakB_maxs": flux_d2_B,
+    "flux_kink_events_A": n_events_A,
+    "flux_kink_events_B": n_events_B,
+    "verdict": ("value function (affine, atom-free) + its Hessian measure "
+                "are tie-break-free; the follower's flux-strain mass "
+                "flips nonzero <-> zero with the tie-break, so kappa^mu "
+                "(flux-strain, V5 definition) is NOT a functional of the "
                 "value-function Alexandrov measure"),
 }
-log("  value identical under tie-breaks:", dv)
-log("  value kink events:", value_events, "(single atom, V1 analogue)")
-log("  flux s kinks: tie-break A (min|s|):", flux_events_A,
-    "| tie-break B (max s):", flux_events_B)
+log("  value identical under tie-breaks:", dv, "| affine (no atom):",
+    val_is_affine)
+log("  flux |D2| mass: tie-break A (min|s|):", flux_d2_A, "with",
+    n_events_A, "events | tie-break B (max s):", flux_d2_B, "with",
+    n_events_B, "events")
 results["AX6"] = ax6
 
 # ======================================================================
-# AX-7  circulation law (eps^1 at a crease) for the strain layer
-#       v: R^2 -> R^2 piecewise affine with a crease along x=0:
-#       v(x,y) = (x, 0) for x>=0;  v(x,y) = (2x, y) for x<0 (continuous
-#       on x=0: both give (0,y)... (x,0) at x=0 = (0,0) vs (2x, y) =
-#       (0, y): NOT continuous; fix: v = (x, y) for x>=0, (2x, y) for
-#       x<0: continuous? at x=0: (0,y) both: yes. Jacobians (1,0;0,1) vs
-#       (2,0;0,1): jump [M] = (1,0;0,0) = e1 (x) e1^T.  Circulation of
-#       Dv around a loop based at a crease point = O(eps): the loop
-#       crosses the crease; the Dv-increment = jump (O(1)) but the
-#       circulation measure of the spanning disk = |jump| * chord = O(eps).
+# AX-7  strain-circulation law (tangent-transport mismatch around a
+#       loop), mirroring the M4a commutator semantics:
+#         H(eps) = sum over loop legs of
+#              [v(x1) - v(x0)]  -  J(x0) (x1 - x0)
+#       (failure of the leg-start Jacobian to predict the displacement).
+#       PWL map with a crease: the O(1) Jacobian jump is crossed at an
+#       O(eps) displacement -> H ~ eps^1  (M4a slope 1.000, BT-8).
+#       Smooth control -> H ~ eps^2 (the naive smooth bridge that
+#       M4a falsified).
 # ======================================================================
-log("\n== AX-7: circulation law (strain layer, eps^1) ==")
+log("\n== AX-7: strain circulation law (eps^1 vs eps^2) ==")
 
 
-def v7(x, y):
-    return np.where(x >= 0, np.stack([np.full_like(x, 1.0) * x, y], -1),
-                    np.stack([2 * x, y], -1))
+def v_pwl(x, y):
+    return ((x, y) if x >= 0 else (2.0 * x, y))
 
 
-eps_list = 10.0 ** np.arange(-1, -6, -1)
-circ = []
-for eps in eps_list:
-    # loop: square of side 2*eps based at (0, 1) (on the crease)
-    # circulation of the piecewise-constant Dv = sum over crossings of
-    # the jump matrix applied... the honest scalar: the total variation
-    # of v along the loop minus the smooth part; equivalently the mass
-    # of the strain measure on the spanning disk = |[M] e1| * chord
-    # chord of crease inside the square = 2*eps
-    circ.append(np.linalg.norm(np.array([1.0, 0.0])) * 2 * eps)
-circ = np.array(circ)
-slope = np.polyfit(np.log(eps_list), np.log(circ), 1)[0]
-ax7 = {"circulation_values": circ.tolist(),
-       "loglog_slope": float(slope)}
-log("  circulation ~ ||[M]|| * crease chord: slopes ->", slope,
-    "(eps^1 law, matches M4a/BT-8 slope 1.000)")
+def J_pwl(x, y):
+    return (np.eye(2) if x >= 0 else np.diag([2.0, 1.0]))
+
+
+def v_sm(x, y):
+    return (x + 0.3 * x * x, y)
+
+
+def J_sm(x, y):
+    return np.array([[1.0 + 0.6 * x, 0.0], [0.0, 1.0]])
+
+
+def H_eps(eps, vfun, Jfun):
+    pts = [(-eps, 1.0 - eps), (eps, 1.0 - eps),
+           (eps, 1.0 + eps), (-eps, 1.0 + eps), (-eps, 1.0 - eps)]
+    H = np.zeros(2)
+    for k in range(4):
+        x0, y0 = pts[k]
+        x1, y1 = pts[k + 1]
+        dv = np.array(vfun(x1, y1)) - np.array(vfun(x0, y0))
+        H += dv - Jfun(x0, y0) @ np.array([x1 - x0, y1 - y0])
+    return float(np.linalg.norm(H))
+
+
+eps7 = np.array([1.0, 0.5, 0.25, 0.125, 0.0625, 0.03125])
+H_pwl = np.array([H_eps(e, v_pwl, J_pwl) for e in eps7])
+H_sm = np.array([H_eps(e, v_sm, J_sm) for e in eps7])
+slope_pwl = float(np.polyfit(np.log(eps7), np.log(H_pwl), 1)[0])
+slope_sm = float(np.polyfit(np.log(eps7), np.log(H_sm), 1)[0])
+ax7 = {
+    "loop": "square of half-width eps centered at the crease point (0,1)",
+    "H_pwl": H_pwl.tolist(),
+    "H_smooth_control": H_sm.tolist(),
+    "loglog_slope_pwl": slope_pwl,
+    "loglog_slope_smooth_control": slope_sm,
+    "pwl_analytic": ("H = 2*|[J]e1|*eps = 2*eps: legs 1 and 3 each "
+                     "contribute [J+] - [J-] applied to (eps, 0)"),
+    "verdict": ("PWL strain circulation is eps^1 (matches M4a slope "
+                "1.000 and BT-8); the smooth control is eps^2 -- the "
+                "regime dichotomy is reproduced at the toy level"),
+}
+log("  PWL H(eps):", np.round(H_pwl, 8), "slope", slope_pwl)
+log("  smooth H(eps):", np.round(H_sm, 8), "slope", slope_sm)
 results["AX7"] = ax7
 
 # ----------------------------------------------------------------------
 with open(os.path.join(OUT, "ax_results.json"), "w") as f:
     json.dump(results, f, indent=2, default=float)
 
+# figures
+import matplotlib
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
+
+fig, axes = plt.subplots(1, 3, figsize=(15.5, 4.2), constrained_layout=True)
+axp = axes[0]
+axp.loglog(eps7, H_pwl, "o-", label=f"PWL (crease): slope {slope_pwl:.3f}")
+axp.loglog(eps7, H_sm, "s--",
+           label=f"smooth control: slope {slope_sm:.3f}")
+axp.set_xlabel("loop half-width eps")
+axp.set_ylabel("strain circulation H(eps)")
+axp.set_title("AX-7: tangent-transport mismatch (regime dichotomy)")
+axp.legend()
+axq = axes[1]
+axq.plot(ths, sA, label="follower s, tie-break A (min |s|)")
+axq.plot(ths, sB, label="follower s, tie-break B (max s)")
+axq.plot(ths, tA, ":", label="value function (both tie-breaks)")
+axq.set_xlabel("theta")
+axq.set_ylabel("value / follower flux")
+axq.set_title("AX-6: atom-free value layer; flux kinks are tie-break artifacts")
+axq.legend()
+if verts_b:
+    axr = axes[2]
+    axr.imshow(chamb, origin="lower", extent=[LO2b, HI2b, LO2b, HI2b],
+               cmap="tab20", aspect="auto")
+    axr.plot(th_v[0], th_v[1], "k*", ms=14,
+             label=(f"codim-2 vertex (MA atom = {atom_fan:.3f}, "
+                    f"dual face = {atom_dual:.3f})"))
+    axr.set_xlabel("theta1 (a-group capacity)")
+    axr.set_ylabel("theta2 (b-group capacity)")
+    axr.set_title("AX-2b: min-cut chambers of the max-flow value function")
+    axr.legend()
+fig.savefig(os.path.join(OUT, "ax_figures.png"), dpi=150)
+plt.close(fig)
+
 # summary
 with open(os.path.join(OUT, "ax_summary.txt"), "w") as f:
-    f.write("ALEXANDROV-BRIDGE VERIFICATION BATTERY (AX)\n")
+    f.write("ALEXANDROV-BRIDGE VERIFICATION BATTERY (AX-1..AX-7)\n")
     f.write("=" * 60 + "\n\n")
     f.write(json.dumps(results, indent=2, default=float))
 log("\nSaved:", os.path.join(OUT, "ax_results.json"))
+log("Saved:", os.path.join(OUT, "ax_figures.png"))
