@@ -1,0 +1,354 @@
+{
+ "experiment": "V6 layer-decision: which curvature layer carries the E24 association (the follow-up audit's direct computation)",
+ "engine": "lex-pFBA (seed 20240901), iJO1366, E22 physiology (identical to V5)",
+ "value_kink_census": {
+  "n_grid_points": 57,
+  "refine": 8,
+  "n_value_kinks_total": 4,
+  "n_anchor_corner_kinks": 4,
+  "n_interior_chamber_kinks": 0,
+  "value_strain_total": 0.4180835073792539,
+  "flux_strain_total": 288.76892303855567,
+  "value_over_flux_mass_ratio": 0.001447813369181117,
+  "kinks": [
+   {
+    "grid_index": 16,
+    "t": 0.2857142857142857,
+    "t_phys": [
+     3.4,
+     15.0
+    ],
+    "is_anchor_corner": true,
+    "delta_phi_slope": 0.06968058456318049,
+    "flux_L1_slope_jump": 48.12815382916069,
+    "cT_jump": 0.06968058456318049,
+    "coupling_err": 0.0,
+    "n_reactions_in_dual_jump": 71,
+    "dual_uptake_jump": [
+     0.0,
+     0.0
+    ],
+    "dual_jump_L1": 0.3371323775621531,
+    "dual_jump_rxn_ids": [
+     "BIOMASS_Ec_iJO1366_WT_53p95M",
+     "EX_fum_e",
+     "EX_hdcea_e",
+     "EX_succ_e",
+     "EX_tartr__D_e",
+     "EX_tartr__L_e",
+     "2AGPEAT161",
+     "2AGPEAT180",
+     "2AGPEAT181",
+     "2AGPGAT161",
+     "2AGPGAT180",
+     "2AGPGAT181"
+    ]
+   },
+   {
+    "grid_index": 32,
+    "t": 0.5714285714285714,
+    "t_phys": [
+     2.0,
+     9.0
+    ],
+    "is_anchor_corner": true,
+    "delta_phi_slope": 0.13936116912751428,
+    "flux_L1_slope_jump": 96.25630765963028,
+    "cT_jump": 0.13936116912751428,
+    "coupling_err": 0.0,
+    "n_reactions_in_dual_jump": 185,
+    "dual_uptake_jump": [
+     2.7755575615628914e-17,
+     0.0
+    ],
+    "dual_jump_L1": 1.5783260091901568,
+    "dual_jump_rxn_ids": [
+     "BIOMASS_Ec_iJO1366_WT_53p95M",
+     "EX_12ppd__S_e",
+     "EX_LalaDgluMdap_e",
+     "EX_alaala_e",
+     "EX_butso3_e",
+     "EX_cit_e",
+     "EX_cpgn_e",
+     "EX_cpgn_un_e",
+     "EX_enter_e",
+     "EX_ethso3_e",
+     "EX_feenter_e",
+     "EX_fuc__L_e"
+    ]
+   },
+   {
+    "grid_index": 40,
+    "t": 0.7142857142857142,
+    "t_phys": [
+     1.5,
+     7.0
+    ],
+    "is_anchor_corner": true,
+    "delta_phi_slope": 0.1393611691263812,
+    "flux_L1_slope_jump": 96.25630765870393,
+    "cT_jump": 0.1393611691263812,
+    "coupling_err": 0.0,
+    "n_reactions_in_dual_jump": 197,
+    "dual_uptake_jump": [
+     0.0,
+     0.0
+    ],
+    "dual_jump_L1": 1.7192911501971428,
+    "dual_jump_rxn_ids": [
+     "BIOMASS_Ec_iJO1366_WT_53p95M",
+     "EX_12ppd__S_e",
+     "EX_LalaDgluMdap_e",
+     "EX_alaala_e",
+     "EX_butso3_e",
+     "EX_cit_e",
+     "EX_cpgn_e",
+     "EX_cpgn_un_e",
+     "EX_dimp_e",
+     "EX_din_e",
+     "EX_enter_e",
+     "EX_ethso3_e"
+    ]
+   },
+   {
+    "grid_index": 48,
+    "t": 0.8571428571428571,
+    "t_phys": [
+     1.2,
+     5.5
+    ],
+    "is_anchor_corner": true,
+    "delta_phi_slope": 0.06968058456217796,
+    "flux_L1_slope_jump": 48.12815382846422,
+    "cT_jump": 0.06968058456217796,
+    "coupling_err": 0.0,
+    "n_reactions_in_dual_jump": 129,
+    "dual_uptake_jump": [
+     0.0,
+     0.0
+    ],
+    "dual_jump_L1": 0.7634033074853819,
+    "dual_jump_rxn_ids": [
+     "BIOMASS_Ec_iJO1366_WT_53p95M",
+     "EX_LalaDgluMdap_e",
+     "EX_cpgn_e",
+     "EX_cpgn_un_e",
+     "EX_g3pe_e",
+     "EX_hdca_e",
+     "EX_hdcea_e",
+     "EX_mal__L_e",
+     "EX_ocdca_e",
+     "2AGPEAT160",
+     "2AGPEAT161",
+     "2AGPEAT180"
+    ]
+   }
+  ],
+  "single_chamber_check": {
+   "law": "mu(t) = Y * q_glc(t) with Y = 0.099544 gDW/mmol glucose, constant across all 4 kinks to 6 digits",
+   "evidence": "delta Phi slope = Y * delta(dq_glc/dt) at every anchor kink; uptake shadow prices (y_glc, y_o2) jump by exactly 0 at every kink (grad mu constant: the path stays in ONE chamber of Phi -- glucose-limited throughout)",
+   "consequence": "ALL 4 value kinks are path-design corners, not network events: the value layer carries ZERO network event structure on the E24 trajectory"
+  }
+ },
+ "arms": {
+  "A kappa_mu (flux layer, all events)": {
+   "all": {
+    "label": "A kappa_mu (flux layer, all events) [all n]",
+    "n": 424,
+    "pearson_r": 0.3954,
+    "pearson_p": 2.5828973740050062e-17,
+    "spearman_r": 0.4295,
+    "spearman_p": 1.8487148371088967e-20,
+    "perm_p_mc": 1e-05,
+    "boot_ci95": [
+     0.3199,
+     0.4677
+    ]
+   },
+   "nonzero": {
+    "label": "A kappa_mu (flux layer, all events) [nonzero]",
+    "n": 424,
+    "pearson_r": 0.3954,
+    "pearson_p": 2.5828973740050062e-17,
+    "spearman_r": 0.4295,
+    "spearman_p": 1.8487148371088967e-20,
+    "perm_p_mc": 1e-05,
+    "boot_ci95": [
+     0.3199,
+     0.4677
+    ]
+   },
+   "n_nonzero": 424,
+   "spearman_raw_full_panel": [
+    0.4136569553177663,
+    2.5056844446160166e-19
+   ]
+  },
+  "B1 kappa_vg (value-gated flux strain)": {
+   "all": {
+    "label": "B1 kappa_vg (value-gated flux strain) [all n]",
+    "n": 424,
+    "pearson_r": 0.3954,
+    "pearson_p": 2.5828973740050062e-17,
+    "spearman_r": 0.4295,
+    "spearman_p": 1.8487148371088967e-20,
+    "perm_p_mc": 1e-05,
+    "boot_ci95": [
+     0.3199,
+     0.4677
+    ]
+   },
+   "nonzero": {
+    "label": "B1 kappa_vg (value-gated flux strain) [nonzero]",
+    "n": 424,
+    "pearson_r": 0.3954,
+    "pearson_p": 2.5828973740050062e-17,
+    "spearman_r": 0.4295,
+    "spearman_p": 1.8487148371088967e-20,
+    "perm_p_mc": 1e-05,
+    "boot_ci95": [
+     0.3199,
+     0.4677
+    ]
+   },
+   "n_nonzero": 424,
+   "spearman_raw_full_panel": [
+    0.4136569553177663,
+    2.5056844446160166e-19
+   ]
+  },
+  "B1b kappa_vg interior kinks only": {
+   "all": {
+    "label": "B1b kappa_vg interior kinks only [all n]",
+    "n": 0,
+    "pearson_r": null,
+    "n_note": "degenerate predictor (n<3 or zero variance)"
+   },
+   "nonzero": {
+    "label": "B1b kappa_vg interior kinks only [nonzero]",
+    "n": 0,
+    "pearson_r": null,
+    "n_note": "degenerate predictor (n<3 or zero variance)"
+   },
+   "n_nonzero": 0,
+   "spearman_raw_full_panel": [
+    NaN,
+    NaN
+   ]
+  },
+  "B2 kappa_c (c-attribution)": {
+   "all": {
+    "label": "B2 kappa_c (c-attribution) [all n]",
+    "n": 0,
+    "pearson_r": null,
+    "n_note": "degenerate predictor (n<3 or zero variance)"
+   },
+   "nonzero": {
+    "label": "B2 kappa_c (c-attribution) [nonzero]",
+    "n": 0,
+    "pearson_r": null,
+    "n_note": "degenerate predictor (n<3 or zero variance)"
+   },
+   "n_nonzero": 0,
+   "spearman_raw_full_panel": [
+    NaN,
+    NaN
+   ]
+  },
+  "B3 kappa_dual (shadow-price jump)": {
+   "all": {
+    "label": "B3 kappa_dual (shadow-price jump) [all n]",
+    "n": 51,
+    "pearson_r": 0.0319,
+    "pearson_p": 0.8241752789858927,
+    "spearman_r": -0.0623,
+    "spearman_p": 0.6641744842717441,
+    "perm_p_mc": 0.82649,
+    "boot_ci95": [
+     -0.2718,
+     0.3159
+    ]
+   },
+   "nonzero": {
+    "label": "B3 kappa_dual (shadow-price jump) [nonzero]",
+    "n": 51,
+    "pearson_r": 0.0319,
+    "pearson_p": 0.8241752789858927,
+    "spearman_r": -0.0623,
+    "spearman_p": 0.6641744842717441,
+    "perm_p_mc": 0.82649,
+    "boot_ci95": [
+     -0.2718,
+     0.3159
+    ]
+   },
+   "n_nonzero": 51,
+   "spearman_raw_full_panel": [
+    -0.06920441573328222,
+    0.15054420293967558
+   ]
+  },
+  "kappa_V_lex (V5 engine control)": {
+   "all": {
+    "label": "kappa_V_lex (V5 engine control) [all n]",
+    "n": 424,
+    "pearson_r": 0.3954,
+    "pearson_p": 2.5828973744263975e-17,
+    "spearman_r": 0.4297,
+    "spearman_p": 1.7468869094262445e-20,
+    "perm_p_mc": 1e-05,
+    "boot_ci95": [
+     0.3199,
+     0.4677
+    ]
+   },
+   "nonzero": {
+    "label": "kappa_V_lex (V5 engine control) [nonzero]",
+    "n": 424,
+    "pearson_r": 0.3954,
+    "pearson_p": 2.5828973744263975e-17,
+    "spearman_r": 0.4297,
+    "spearman_p": 1.7468869094262445e-20,
+    "perm_p_mc": 1e-05,
+    "boot_ci95": [
+     0.3199,
+     0.4677
+    ]
+   },
+   "n_nonzero": 424,
+   "spearman_raw_full_panel": [
+    0.4138975233591196,
+    2.377929571659643e-19
+   ]
+  }
+ },
+ "partial_r_given_ref_level": {
+  "A kappa_mu": 0.2692,
+  "B1 kappa_vg": 0.2692,
+  "B3 kappa_dual": -0.0127
+ },
+ "predictor_agreement": {
+  "spearman_kappamu_vs_kappaVE22": [
+   0.9320385668956496,
+   4.016447187482718e-192
+  ],
+  "spearman_kappamu_vs_kappaVlex": [
+   0.9999881693960117,
+   0.0
+  ],
+  "spearman_kappamu_vs_kappa_vg": [
+   1.0,
+   0.0
+  ],
+  "spearman_kappamu_vs_kappa_dual": [
+   -0.13192686127393286,
+   0.0059720700245657786
+  ]
+ },
+ "layer_decision": {
+  "biomass_reaction_genes": [],
+  "kappa_c_n_nonzero": 0,
+  "note": "kappa_c is structurally degenerate: the sparse FBA objective attributes the value strain to the biomass pseudo-reaction alone, which carries no GPR -- per-gene attribution from the value layer is impossible (Theorem C, sparse-objective corollary)",
+  "verdict": "The association lives on the flux layer by structural necessity: (i) the value layer has 0 interior (chamber-crossing) kinks on this trajectory and value/flux strain ratio 1.45e-3; (ii) the c-attribution arm is supported on the biomass pseudo-reaction alone (0/433 genes -- Theorem C sparse-objective corollary); (iii) the dual/shadow-price arm gives 51 genes with r = +0.032 (null); (iv) the flux layer gives r = +0.3954, partial +0.2692. The value-gated arm coincides with kappa_mu exactly (433/433 genes attain their flux-strain maximum at a value-kink time = anchor corner), so gating loses nothing here, but that is a property of the trajectory design (anchor rerouting dominates per-gene maxima), not evidence of value-layer content."
+ }
+}

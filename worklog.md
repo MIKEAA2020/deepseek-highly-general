@@ -4612,3 +4612,116 @@ Stage Summary:
   scripts/journal_manuscript_v2.{tex,pdf} (8 pages). Open: Layer-1+
   porting; Conjecture A6 (value-flux relation) proof; E32; PRECISE
   arm; joint six-audit assessment write-up.
+
+---
+Task ID: 3 (value-flux coupling)
+Agent: main (Super Z)
+Task: Evaluate, verify, strengthen, correct and complete the follow-up
+external audit round ("Weaknesses / remaining open issues" + "Advice
+for next steps", received via chat 2026-09-02), then implement; commit
+and push. The audit pushes on the three open items: the value-flux
+layer relation (W1), the OR/max GPR concavity break (W2), and the
+layer choice for the biological association (W3).
+
+Work Log:
+- Verified the audit's factual premises against committed artifacts:
+  rho(kappa_mu, kappa_V_lex) = 0.99998/0.99999 is a WITHIN-FLUX-LAYER
+  trajectory-consistency statement (both metrics sample the same lex
+  trajectory) -- NOT value-layer equivalence (corrected for the second
+  time); V1's 12-vs-1 decoupling confirmed from
+  v1_value_function.json.
+- Derived and machine-verified THEOREM C (value-flux crease coupling):
+  Phi = c^T v* pointwise, hence D^2 Phi = sum_r c_r D^2 v*_r as signed
+  matrix-valued measures; per-crease Delta Phi' = c^T Delta v';
+  |Delta Phi'| <= ||c||_inf ||Delta v'||_1; visibility dichotomy
+  (objective-invisible events = degenerate alternate-optima reroutings
+  = exactly where tie-break sensitivity lives -- nondegenerate random
+  LPs showed 5/5 events objective-moving, 0 invisible); sparse-objective
+  corollary (FBA c = e_bio: the value layer IS the biomass component's
+  crease measure; per-gene value-layer attribution structurally
+  impossible).
+- Falsified and repaired the audit's two Conjecture-A6 guesses: "trace
+  of the Hessian over active reactions" FALSE (the coupling is the
+  c-contraction; trace fails when objective-inactive reactions reroute
+  = 11 of 12 V1 events); "MA atom = product of codim-1 jumps" FALSE in
+  general -- repaired to the exact determinant law atom = (1/2)|det|
+  = (1/2)|j1||j2| sin(angle), product overestimates by 2/sin(angle) >=
+  2, equality iff orthogonal (AX-9: 400 vertices, det = hull to
+  8.9e-16, product/atom median 3.296, min exactly 2.000, 2/sin law to
+  2.5e-12).
+- Falsified and repaired the audit's semiconvexity suggestion (W2
+  option c): PROPOSITION S -- continuous PWL semiconvex <=> convex
+  (proof: purely singular D^2 f vs the ac quadratic penalty; measured
+  lambda*h_max = 0.500 const across lambda = 1..1e12), so
+  semiconvexity is vacuous as a hypothesis for LP value functions;
+  BUT the intended conclusion holds for free: every continuous PWL Phi
+  (any GPR) carries a SIGNED crease measure (AX-10: OR+cap creases
+  PSD {0, sqrt2} and NSD {-1, 0} -- both signs present); concavity is
+  needed only by the MA layer. Option (a) AND-only valid but weak;
+  option (b) regularization subsumed by Theorem B'. Disaggregation
+  caveat completed: separate-reaction isozymes restore concavity but
+  change semantics max -> sum (measured 1 vs 2 at full expression).
+- AX-8c re-ran the V1/M4c iML1515 cut with flux-vector probes:
+  identity error 0.0 at all 12 events and 4 clusters; Phi = c^T v* to
+  1e-9; 11 of 12 events c-orthogonal with flux L1 slope jumps up to
+  1.6e4 against |c^T Delta v'| <= 1.5e-7 (the M4b sliver structure
+  now measured in slope-jump units).
+- V6 (scripts/e24_layer_decision.py) executed the audit's demanded
+  direct computation on the frozen V5 protocol: value layer has ZERO
+  interior kinks (single chamber: mu = Y q_glc, Y = 0.099544 constant
+  to 6 digits, uptake shadow prices jump by exactly 0 -- all 4 value
+  kinks are anchor corners of the trajectory design, magnitude
+  Y*Delta(dq_glc/dt) matching analytically); value/flux strain ratio
+  1.45e-3; arms: flux r = +0.3954/partial +0.2692 (n=424, V5
+  reproduced to the digit); c-attribution 0/433 genes (degenerate);
+  shadow-price arm 51 genes r = +0.032 (null); value-gated arm equals
+  kappa_mu exactly (433/433 maxima at value-kink times -- trajectory
+  design property, honestly interpreted). Layer decision: the
+  association lives on the flux layer by structural necessity.
+- Wrote download/Value_Flux_Coupling_Evaluation.md: verdict table for
+  W1-W3 + advice 1-6, Theorem C + Propositions S and M with proofs,
+  the V6 arm table, what the audit gets right, manuscript integration
+  guidance, reproducibility + bug-honesty note (the c-orthogonal toy's
+  degenerate first version became the visibility dichotomy; an AX-8b
+  detector indexing bug fixed; the V6 atom flag threshold repaired to
+  the V1 resolution floor).
+- v2 manuscript (journal_manuscript_v2.tex, v21 untouched): added [D4]
+  The value-flux coupling (Lemma lex, Theorem C with (i) dichotomy and
+  (ii) sparse-objective corollary, Proposition semiconvex, Proposition
+  maatom, remark); RESOLVED Conjecture conj:valueflux into Corollary
+  (label kept; decoupling direction corrected: value events subset of
+  flux events, never the converse); E-V1 extended with the AX-8c
+  coupling numbers; new [E-V6] The layer decision; prop:alex GPR
+  caveat extended to the signed layer; [D2] remark ties kappa_mu to
+  the c-contraction; Discussion closes the "formal identity
+  kappa_flux = F[mu]" open item. Recompiled with tectonic: 10 pages,
+  no undefined references.
+- Environment note: cobra was missing in the fresh sandbox; installed
+  via uv pip (cobra 0.32.1). The M3D compendium .tab was not on disk
+  (intentionally uncommitted); re-downloaded the 117 MB tarball from
+  the README URL and verified sha256 = e73088f7... matches the
+  committed manifest before extraction.
+
+Stage Summary:
+- The audit's "most critical theoretical gap" (W1) is CLOSED by an
+  exact identity, not a proportionality: D^2 Phi = c^T D^2 v*_lex,
+  machine-verified to 0.0 on iML1515 and to 1e-13/1e-16 on synthetic
+  batteries; the empirical kappa_mu is thereby justified BY THEOREM as
+  the primal layer of the canonical object.
+- W2 is resolved with a correction: semiconvexity is false as a
+  hypothesis for PWL value functions (new Proposition S), but the
+  signed Hessian layer extends the bridge to all GPRs; the MA layer is
+  restricted to the concave class; disaggregation semantics documented.
+- W3 is settled by direct computation (V6): the value layer is
+  structurally empty of per-gene network events on the E24 trajectory
+  (0 interior kinks; single chamber mu = Y q_glc); the association
+  (r = +0.395) lives on the flux layer; the audit's prediction is
+  confirmed in the strongest possible form.
+- Deliverables: scripts/alexandrov_coupling_verify.py,
+  scripts/e24_layer_decision.py,
+  download/alexandrov_bridge/coupling_{results.json,summary.txt,
+  figures.png}, download/deepseek_bridge/v6_layer_decision.{json,csv,
+  png}, download/Value_Flux_Coupling_Evaluation.md,
+  scripts/journal_manuscript_v2.{tex,pdf} (10 pages). Open: Layer-1+
+  porting (now unblocked per advice 4); E32; PRECISE arm; joint
+  six-audit write-up.

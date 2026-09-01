@@ -1,0 +1,451 @@
+{
+ "ax8a_exact": {
+  "toy1_c_orthogonal": {
+   "event": "c-orthogonal mask-type (degenerate optimal face)",
+   "t_star": 0.5,
+   "c": [
+    1.0,
+    0.0
+   ],
+   "tie_break_minabs": {
+    "flux_slope_jump": [
+     0.0,
+     0.7999999999999674
+    ],
+    "cT_jump": 0.0,
+    "delta_phi_slope": 0.0,
+    "identity_err": 0.0
+   },
+   "tie_break_maxy": {
+    "flux_slope_jump": [
+     0.0,
+     0.0
+    ],
+    "cT_jump": 0.0,
+    "delta_phi_slope": 0.0,
+    "identity_err": 0.0
+   },
+   "note": "invisible events live in the degenerate layer: the same Phi (affine, atom-free) under both tie-breaks, the flux kink present only under min|y| -- the tie-break sensitivity is concentrated in the c-orthogonal events"
+  },
+  "toy2_objective_moving": {
+   "event": "objective-moving",
+   "t_star": 1.0,
+   "c": [
+    2.0,
+    1.0
+   ],
+   "flux_slope_jump_measured": [
+    -0.29999999999996696,
+    0.2999999999997449
+   ],
+   "delta_phi_slope": -0.300000000000189,
+   "delta_phi_slope_analytic": -0.3,
+   "identity_err": 0.0,
+   "phi_err_vs_analytic": 1.890154699424329e-13
+  }
+ },
+ "ax8a_random": {
+  "n_lp": 150,
+  "grid": 401,
+  "events_total": 5,
+  "events_objective_moving": 5,
+  "events_c_orthogonal_invisible": 0,
+  "max_identity_err": 1.047356645855757e-13,
+  "max_flux_L1_at_invisible_events": 0.0,
+  "degenerate_family": {
+   "n_lp": 60,
+   "events_total": 60,
+   "events_with_follower_kink": 60,
+   "events_objective_moving": 0,
+   "max_identity_err": 2.0224743706108191e-13,
+   "max_flux_L1_invisible": 0.7835619484882761,
+   "note": "nondegenerate random LPs show ZERO c-orthogonal events (all 5 events objective-moving) -- confirming the visibility dichotomy: invisible events = degenerate (alternate-optima) reroutings"
+  }
+ },
+ "ax8b_mixed": {
+  "n_lp": 12,
+  "boxes": 40,
+  "max_mixed_identity_err": 6.369505475487753e-16
+ },
+ "ax9_ma_atom": {
+  "n_trials_with_vertex": 400,
+  "n_three_fan": 400.0,
+  "max_det_vs_hull_err": 8.881784197001252e-16,
+  "product_over_atom_ratio_median": 3.2964300527273878,
+  "product_over_atom_ratio_min": 2.0000313881610223,
+  "max_dev_from_2_over_sin_law": 2.5153212845907547e-12,
+  "orthogonal_edge_case": {
+   "atom": 0.5850000000000001,
+   "product": 1.1700000000000002,
+   "ratio": 2.0,
+   "note": "product = 2*atom exactly iff the two codim-1 jumps are orthogonal"
+  },
+  "law": "atom = (1/2)|det(j1,j2)| = (1/2)|j1||j2| sin(angle); product formula overestimates by 2/sin(angle) >= 2"
+ },
+ "ax10_collapse": {
+  "f": "min(max(x1,x2), 0.7) -- the OR-GPR value function under a viability cap",
+  "lambda_h_product": [
+   0.5,
+   0.4999999999999877,
+   0.5000000000004168,
+   0.4999999999267257,
+   0.49999997776162264,
+   0.49999910784470625,
+   0.49993062084530127,
+   0.4817815529856162,
+   0.2997593451237179,
+   1e-07,
+   1e-06,
+   9.999999999999999e-06,
+   9.999999999999999e-05
+  ],
+  "law": "h_max(lam) = 1/(2 lam): the semiconvexity constant blows up at every scale; a continuous PWL function is semiconvex iff it is convex",
+  "rows": [
+   {
+    "lam": 1.0,
+    "h_max_violating": 0.5,
+    "predicted_h_max": 0.5,
+    "lam_times_h_max": 0.5
+   },
+   {
+    "lam": 10.0,
+    "h_max_violating": 0.04999999999999877,
+    "predicted_h_max": 0.05,
+    "lam_times_h_max": 0.4999999999999877
+   },
+   {
+    "lam": 100.0,
+    "h_max_violating": 0.005000000000004168,
+    "predicted_h_max": 0.005,
+    "lam_times_h_max": 0.5000000000004168
+   },
+   {
+    "lam": 1000.0,
+    "h_max_violating": 0.0004999999999267257,
+    "predicted_h_max": 0.0005,
+    "lam_times_h_max": 0.4999999999267257
+   },
+   {
+    "lam": 10000.0,
+    "h_max_violating": 4.9999997776162264e-05,
+    "predicted_h_max": 5e-05,
+    "lam_times_h_max": 0.49999997776162264
+   },
+   {
+    "lam": 100000.0,
+    "h_max_violating": 4.999991078447063e-06,
+    "predicted_h_max": 5e-06,
+    "lam_times_h_max": 0.49999910784470625
+   },
+   {
+    "lam": 1000000.0,
+    "h_max_violating": 4.999306208453013e-07,
+    "predicted_h_max": 5e-07,
+    "lam_times_h_max": 0.49993062084530127
+   },
+   {
+    "lam": 10000000.0,
+    "h_max_violating": 4.817815529856162e-08,
+    "predicted_h_max": 5e-08,
+    "lam_times_h_max": 0.4817815529856162
+   },
+   {
+    "lam": 100000000.0,
+    "h_max_violating": 2.997593451237179e-09,
+    "predicted_h_max": 5e-09,
+    "lam_times_h_max": 0.2997593451237179
+   },
+   {
+    "lam": 1000000000.0,
+    "h_max_violating": 1e-16,
+    "predicted_h_max": 5e-10,
+    "lam_times_h_max": 1e-07
+   },
+   {
+    "lam": 10000000000.0,
+    "h_max_violating": 1e-16,
+    "predicted_h_max": 5e-11,
+    "lam_times_h_max": 1e-06
+   },
+   {
+    "lam": 100000000000.0,
+    "h_max_violating": 1e-16,
+    "predicted_h_max": 5e-12,
+    "lam_times_h_max": 9.999999999999999e-06
+   },
+   {
+    "lam": 1000000000000.0,
+    "h_max_violating": 1e-16,
+    "predicted_h_max": 5e-13,
+    "lam_times_h_max": 9.999999999999999e-05
+   }
+  ]
+ },
+ "ax10_gpr": {
+  "concavity_classification": {
+   "AND (min)": {
+    "worst_concavity_violation": 0.0,
+    "worst_convexity_violation": -0.47231939886740204,
+    "concave": true,
+    "convex": false
+   },
+   "OR (max of branches)": {
+    "worst_concavity_violation": -0.5086255037031037,
+    "worst_convexity_violation": 0.0,
+    "concave": false,
+    "convex": true
+   },
+   "SUM (disaggregated)": {
+    "worst_concavity_violation": -4.440892098500626e-16,
+    "worst_convexity_violation": -4.440892098500626e-16,
+    "concave": true,
+    "convex": true
+   },
+   "OR + viability cap": {
+    "worst_concavity_violation": -0.28288052596087404,
+    "worst_convexity_violation": -0.2650538087743471,
+    "concave": false,
+    "convex": false
+   },
+   "semantics_divergence": {
+    "theta": [
+     1.0,
+     1.0
+    ],
+    "phi_or (substitutable isozymes)": 1.0,
+    "phi_sum (disaggregated, additive)": 2.0,
+    "note": "the convexification by disaggregation is NOT a regularization of the same object: it replaces max by sum semantics (capacity doubling at full expression)"
+   }
+  },
+  "signed_crease_measure_phi_sat": {
+   "crease_A_diagonal": {
+    "density_matrix": [
+     [
+      0.7071067811864696,
+      -0.7071067811864696
+     ],
+     [
+      -0.7071067811864696,
+      0.7071067811864696
+     ]
+    ],
+    "eigenvalues": [
+     0.0,
+     1.4142135623729393
+    ]
+   },
+   "crease_B_cap_edge": {
+    "density_matrix": [
+     [
+      -0.9999999999998899,
+      -0.0
+     ],
+     [
+      0.0,
+      0.0
+     ]
+    ],
+    "eigenvalues": [
+     -0.9999999999998899,
+     0.0
+    ]
+   },
+   "note": "crease A is positive semidefinite (the convex OR kink), crease B negative semidefinite (the concave cap kink): the measure is genuinely SIGNED, exists with no concavity, and carries per-crease sign flags"
+  }
+ },
+ "ax8c_iml1515": {
+  "model": "iML1515",
+  "cut": "M4c (V1 locus)",
+  "n_lex_solves": 55,
+  "objective": "sparse (biomass only): c = c_bio e_r",
+  "phi_equals_cTv_star_max_err": 9.999999994736442e-10,
+  "events": [
+   {
+    "t_event": -0.09771331787109377,
+    "probe_d": 0.0002,
+    "flux_slope_jump_L1": 1.2944726806974582e-06,
+    "flux_slope_jump_L2": 2.5489618208237444e-07,
+    "cT_jump": 7.657069422961627e-11,
+    "delta_phi_slope": 7.657069422961627e-11,
+    "identity_err": 0.0,
+    "orthogonality_ratio": 5.915203570643159e-05,
+    "atom_is_real": false
+   },
+   {
+    "t_event": 0.0018685913085937519,
+    "probe_d": 1.5258789062496964e-07,
+    "flux_slope_jump_L1": 41.818196244651475,
+    "flux_slope_jump_L2": 7.927553752610684,
+    "cT_jump": -9.094947017729282e-11,
+    "delta_phi_slope": -9.094947017729282e-11,
+    "identity_err": 0.0,
+    "orthogonality_ratio": 2.1748778843832894e-12,
+    "atom_is_real": false
+   },
+   {
+    "t_event": 0.0018692016601562517,
+    "probe_d": 1.5258789062496964e-07,
+    "flux_slope_jump_L1": 15868.05348541656,
+    "flux_slope_jump_L2": 3015.64626024061,
+    "cT_jump": 1.5056684787677355e-07,
+    "delta_phi_slope": 1.5056684787677355e-07,
+    "identity_err": 0.0,
+    "orthogonality_ratio": 9.488677865571294e-12,
+    "atom_is_real": false
+   },
+   {
+    "t_event": 0.0018710327148437518,
+    "probe_d": 4.5776367187501735e-07,
+    "flux_slope_jump_L1": 0.00012209794684212025,
+    "flux_slope_jump_L2": 2.2878283031635062e-05,
+    "cT_jump": -1.5158244451307645e-11,
+    "delta_phi_slope": -1.5158244451307645e-11,
+    "identity_err": 0.0,
+    "orthogonality_ratio": 1.2414823380206498e-07,
+    "atom_is_real": false
+   },
+   {
+    "t_event": 0.024296569824218718,
+    "probe_d": 9.155273437491673e-07,
+    "flux_slope_jump_L1": 3.1765360528433417,
+    "flux_slope_jump_L2": 0.5756399014400229,
+    "cT_jump": 4.1988338726067775e-09,
+    "delta_phi_slope": 4.1988338726067775e-09,
+    "identity_err": 0.0,
+    "orthogonality_ratio": 1.3218278661903961e-09,
+    "atom_is_real": false
+   },
+   {
+    "t_event": 0.024300231933593715,
+    "probe_d": 9.155273437491673e-07,
+    "flux_slope_jump_L1": 3.04082982834302,
+    "flux_slope_jump_L2": 0.5949952065152261,
+    "cT_jump": 4.1912547512484855e-09,
+    "delta_phi_slope": 4.1912547512484855e-09,
+    "identity_err": 0.0,
+    "orthogonality_ratio": 1.3783259793700275e-09,
+    "atom_is_real": false
+   },
+   {
+    "t_event": 0.03517730712890622,
+    "probe_d": 3.0517578124972244e-07,
+    "flux_slope_jump_L1": 8.822479270351202e-05,
+    "flux_slope_jump_L2": 1.759432243320045e-05,
+    "cT_jump": 2.2737367544323206e-11,
+    "delta_phi_slope": 2.2737367544323206e-11,
+    "identity_err": 0.0,
+    "orthogonality_ratio": 2.5772083841255754e-07,
+    "atom_is_real": false
+   },
+   {
+    "t_event": 0.035178527832031216,
+    "probe_d": 3.0517578124972244e-07,
+    "flux_slope_jump_L1": 2019.5534123748084,
+    "flux_slope_jump_L2": 398.5361542464951,
+    "cT_jump": 6.275513442233205e-08,
+    "delta_phi_slope": 6.275513442233205e-08,
+    "identity_err": 0.0,
+    "orthogonality_ratio": 3.1073768110216905e-11,
+    "atom_is_real": false
+   },
+   {
+    "t_event": 0.03543792724609373,
+    "probe_d": 1.5258789062486122e-07,
+    "flux_slope_jump_L1": 0.00034228143455436694,
+    "flux_slope_jump_L2": 6.3104875317073e-05,
+    "cT_jump": -2.5193003239110112e-08,
+    "delta_phi_slope": -2.5193003239110112e-08,
+    "identity_err": 0.0,
+    "orthogonality_ratio": 7.360318350865312e-05,
+    "atom_is_real": false
+   },
+   {
+    "t_event": 0.03543853759765623,
+    "probe_d": 1.5258789062486122e-07,
+    "flux_slope_jump_L1": 113.9943353723786,
+    "flux_slope_jump_L2": 22.305101997275816,
+    "cT_jump": 0.0,
+    "delta_phi_slope": 0.0,
+    "identity_err": 0.0,
+    "orthogonality_ratio": 0.0,
+    "atom_is_real": false
+   },
+   {
+    "t_event": 0.03582855224609372,
+    "probe_d": 1.5258789062486122e-07,
+    "flux_slope_jump_L1": 4170.428333804666,
+    "flux_slope_jump_L2": 1417.969801590106,
+    "cT_jump": -0.006438729587758162,
+    "delta_phi_slope": -0.006438729587758162,
+    "identity_err": 0.0,
+    "orthogonality_ratio": 1.5439012668236246e-06,
+    "atom_is_real": true
+   },
+   {
+    "t_event": 0.03582916259765622,
+    "probe_d": 1.5258789062486122e-07,
+    "flux_slope_jump_L1": 0.0004257288358101731,
+    "flux_slope_jump_L2": 0.00014524425632677428,
+    "cT_jump": -3.474269760772586e-08,
+    "delta_phi_slope": -3.474269760772586e-08,
+    "identity_err": 0.0,
+    "orthogonality_ratio": 8.160757431807409e-05,
+    "atom_is_real": false
+   }
+  ],
+  "clusters": [
+   {
+    "t_lo": -0.09771331787109377,
+    "t_hi": -0.09771331787109377,
+    "n_events": 1,
+    "probe_d": 0.0002,
+    "flux_slope_jump_L1": 1.2944726806974582e-06,
+    "cT_jump": 7.657069422961627e-11,
+    "net_delta_phi": 7.657069422961627e-11,
+    "identity_err": 0.0,
+    "net_is_real": false,
+    "c_orthogonal": true
+   },
+   {
+    "t_lo": 0.0018685913085937519,
+    "t_hi": 0.0018710327148437518,
+    "n_events": 3,
+    "probe_d": 0.0002,
+    "flux_slope_jump_L1": 46.94832506054372,
+    "cT_jump": 7.657070290323365e-11,
+    "net_delta_phi": 7.657070290323365e-11,
+    "identity_err": 0.0,
+    "net_is_real": false,
+    "c_orthogonal": true
+   },
+   {
+    "t_lo": 0.024296569824218718,
+    "t_hi": 0.024300231933593715,
+    "n_events": 2,
+    "probe_d": 0.0002,
+    "flux_slope_jump_L1": 2.95200282904827,
+    "cT_jump": 3.83026943495679e-11,
+    "net_delta_phi": 3.83026943495679e-11,
+    "identity_err": 0.0,
+    "net_is_real": false,
+    "c_orthogonal": true
+   },
+   {
+    "t_lo": 0.03517730712890622,
+    "t_hi": 0.03582916259765622,
+    "n_events": 6,
+    "probe_d": 0.0009777832031250058,
+    "flux_slope_jump_L1": 51.76072681710797,
+    "cT_jump": -0.0064386857094062624,
+    "net_delta_phi": -0.0064386857094062624,
+    "identity_err": 0.0,
+    "net_is_real": true,
+    "c_orthogonal": false
+   }
+  ],
+  "n_flux_events": 12,
+  "n_value_atoms": 1,
+  "n_c_orthogonal_invisible_events": 11,
+  "sparse_objective_corollary": "with c = e_bio (coefficient 1), D^2 Phi = D^2 v*_bio: the value layer is the crease measure of the single biomass component; the other m-1 components' events are c-orthogonal and invisible to the value layer (the V1 decoupling 12 vs 1)"
+ }
+}

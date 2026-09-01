@@ -219,7 +219,10 @@ telescoping regime in which total variation and mass are automatically
 consistent (R2 remarks in \S\ref{sec:theoremB}); its resolution
 independence (measured mass $288.77$ stable under $4\times$/$8\times$
 trajectory refinement) is exactly the $L^1$-reconstruction regime of
-Theorem~B$'$(iv).
+Theorem~B$'$(iv). Its per-reaction masses are the components of the
+flux-layer crease measure whose objective contraction is $D^2\Phi$
+(Theorem~\ref{thm:coupling}): the metric is the primal layer of the
+canonical object.
 \end{remark}
 
 \subsection{[D3] The value-function layer (Alexandrov)}
@@ -233,7 +236,10 @@ matrix-valued Radon Hessian measure $D^2(-\Phi)$ (Alexandrov), independent
 of the optimal-flux selection rule. Concavity fails in general under OR
 (isoenzyme) GPR rules for simultaneous multi-gene capacity vectors;
 single-gene axes, exchange-bound families, and AND-only subnetworks
-retain it.
+retain it. For OR-containing rules the value function remains
+continuous piecewise affine and carries the signed crease measure of
+Proposition~\ref{prop:semiconvex}; only the Monge--Amp\`ere layer
+requires the concave class.
 \end{proposition}
 
 \begin{proposition}[Two-layer structure of $D^2(-\Phi)$]\label{prop:twolayer}
@@ -274,9 +280,109 @@ $D^2 v$ (Definition~\ref{def:mu}), which is tie-break-sensitive: in a
 controlled follower-variable LP, the value function stays affine and
 identical under two lexicographic tie-breaks while the follower's
 second-difference mass flips $0.0100 \leftrightarrow 10^{-13}$. The
-controlled relation between the value layer and the flux layer is stated
-as Conjecture~\ref{conj:valueflux}; the association results of
-\S\ref{sec:empirical} stand on the flux layer alone.
+controlled relation between the value layer and the flux layer is now
+a theorem (Theorem~\ref{thm:coupling} and
+Corollary~\ref{conj:valueflux}); the association results of
+\S\ref{sec:empirical} stand on the flux layer alone, which is where
+the evidence (E-V5, E-V6) actually lives.
+\end{remark}
+
+\subsection{[D4] The value--flux coupling}
+
+\begin{lemma}[Lex-selection regularity]\label{lem:lex}
+Let $\ell, u$ be continuous piecewise affine and let $v^*(\theta)$ be
+the three-stage lexicographic optimal flux (\S\ref{sec:methods}).
+Then $v^*$ is well defined, continuous, and piecewise affine; its
+graph over each GPR cell is polyhedral in $(v,\theta)$-space (each
+lexicographic stage adjoins the graph of a piecewise-affine value
+function, which is polyhedral, and an injective polyhedral projection
+is piecewise affine). Measured: path segment residuals $\le 8 \times
+10^{-14}$ (E-M1); $\Phi$ piecewise affine at $4.2 \times 10^{-13}$
+(E-V1).
+\end{lemma}
+
+\begin{theorem}[Value--flux crease coupling]\label{thm:coupling}
+$\Phi = c^\top v^*$ pointwise; hence, as symmetric matrix-valued
+signed Radon measures on the parameter domain,
+\[
+D^2\Phi \;=\; \sum_{r} c_r\, D^2 v^*_r .
+\]
+Along any piecewise-affine trajectory, at every crease time $t_k$:
+$\Delta\Phi'(t_k) = c^\top \Delta v'(t_k)$, and
+$|\Delta\Phi'| \le \|c\|_\infty \,\|\Delta v'\|_1$.
+\begin{enumerate}[label=(\roman*),leftmargin=2em]
+\item \textbf{(Visibility dichotomy.)} An event with unique optima
+      on both sides is a transversal optimal-vertex switch and is
+      necessarily objective-moving; objective-invisible events
+      ($c^\top \Delta v' = 0$, $\Delta v' \neq 0$) are exactly the
+      degenerate reroutings inside $\ge 1$-dimensional optimal faces
+      (mask-type events). The tie-break sensitivity of the flux layer
+      is concentrated in the invisible events; the $c$-contraction is
+      tie-break-free because it annihilates the degenerate layer.
+\item \textbf{(Sparse-objective corollary.)} If $c =
+      \gamma e_{\mathrm{bio}}$, then $D^2\Phi = \gamma\, D^2
+      v^*_{\mathrm{bio}}$: the value layer is the crease measure of
+      the single biomass component, and per-gene attribution from the
+      value layer is structurally impossible.
+\end{enumerate}
+Machine-verified: identity error $0.0$ at all $12$ events and all
+$4$ clusters of the iML1515 cut ($\Phi = c^\top v^*$ to $10^{-9}$);
+$11$ of $12$ events objective-invisible, with flux $\ell_1$ slope
+jumps up to $1.6 \times 10^{4}$ against $|c^\top \Delta v'| \le
+1.5 \times 10^{-7}$; $150$ random dense-objective LPs to $1.1 \times
+10^{-13}$ ($5$ events, all objective-moving --- the dichotomy); the
+degenerate follower family $60/60$ with invisible kinks at identity
+error $2.0 \times 10^{-13}$; two-dimensional mixed second
+differences at crease-straddling boxes to $6.4 \times 10^{-16}$.
+\end{theorem}
+
+\begin{proposition}[Semiconvexity collapse; signed layer for mixed
+GPRs]\label{prop:semiconvex}
+A continuous piecewise-affine function is semiconvex (resp.\
+semiconcave) iff it is convex (resp.\ concave) --- semiconvexity is
+not an available weakening for LP value functions (measured: the
+required constant blows up like $1/(2h)$; $\lambda \cdot h_{\max}
+\equiv 0.500$ across $\lambda = 1 \dots 10^{12}$). Nevertheless
+every continuous piecewise-affine $\Phi$, for any GPR structure,
+carries a finite \emph{signed} symmetric Radon Hessian measure on
+its crease skeleton with per-crease sign flags: for the OR-plus-cap
+value function $\min(\max(\theta_1,\theta_2), K)$, the diagonal
+crease density is positive semidefinite (eigenvalues
+$\{0,\sqrt2\}$) and the cap crease negative semidefinite
+($\{-1,0\}$). Concavity is required only by the
+Monge--Amp\`ere layer and the dual-face identity; the signed Hessian
+layer applies to all genes. Under multiplicative activity scaling
+with $\ell \le 0 \le u$, $\Phi = \Psi(a(\theta))$ with $\Psi$
+concave nondecreasing: AND-only (min-tree) GPRs retain concavity,
+top-level OR nodes can break it, and disaggregating isozymes into
+separate reactions restores affine bounds while replacing
+max-semantics by sum-semantics (capacity $1$ vs $2$ at full
+expression) --- a different biological model, not a regularization.
+\end{proposition}
+
+\begin{proposition}[Monge--Amp\`ere atoms are determinants, not
+products]\label{prop:maatom}
+For convex piecewise-affine $f$ on $\RR^2$ at a generic vertex with
+incident gradients $n_1, n_2, n_3$ and codimension-one gradient jumps
+$j_i$: the atom equals
+$\tfrac12|\det(j_1, j_2)| =
+|\operatorname{conv}\{n_i\}| =
+\tfrac12 |j_1| |j_2| \sin\angle$; the product $|j_1||j_2|$
+overestimates by $2/\sin\angle \ge 2$, with equality iff the jumps
+are orthogonal (measured on $400$ random max-of-affine vertices:
+determinant $=$ fan area to $8.9 \times 10^{-16}$; product/atom
+median $3.296$, minimum exactly $2.000$; the $2/\sin\angle$ law to
+$2.5 \times 10^{-12}$; in $p$ dimensions, atom $=
+(1/p!)|\det(j_1,\dots,j_p)|$ for simplex fans).
+\end{proposition}
+
+\begin{remark}[What this closes]\label{rem:closes}
+Theorem~\ref{thm:coupling} is the exact form of the value--flux
+relation previously left open: the empirical $\kmu$ is the
+per-reaction total variation of the flux-layer crease measure whose
+objective contraction is $D^2\Phi$ --- the metric is the primal
+layer of the canonical object, justified by identity rather than by
+rank agreement.
 \end{remark}
 
 % =====================================================================
@@ -426,18 +532,18 @@ Alexandrov layer removes the extrinsic hypotheses, the refinement
 bridge keeps the quantitative rate.
 \end{remark}
 
-\begin{conjecture}[Value--flux layer relation]\label{conj:valueflux}
-Along generic one-dimensional cuts, the event structure of the flux map
-$v(\theta)$ is controlled by the facet structure of $\Phi$: the count
-and mass of $D^2v$ events between two parameter values are bounded by
-the crossed facets of $D^2(-\Phi)$ up to the degeneracy ratio observed
-at the iML1515 cut ($12$ flux events vs $1$ value atom; value/flux mass
-ratio $1.7\times 10^{-6}$), with the strain-circulation dichotomy
-(measured slopes $1.000$ piecewise-affine vs $2.000$ smooth) separating
-the regimes. If proved, the association of $\kmu$ with transcriptional
-response would promote from a flux-layer property to a value-function
-property.
-\end{conjecture}
+\begin{corollary}[Decoupling; resolves the value--flux layer
+relation]\label{conj:valueflux}
+Theorem~\ref{thm:coupling} resolves the layer relation exactly: value
+events are a subset of flux events, never the converse, and the flux
+events invisible to the value layer are the degenerate reroutings
+(mask-type events --- rerouting without growth loss, the
+RC6/Kochanowski pattern). On the iML1515 cut: $12$ flux events vs $1$
+value atom, $11$ objective-invisible; on the E24 trajectory (E-V6) the
+value layer carries no network events at all. The association of
+$\kmu$ with transcriptional response is therefore a flux-layer
+property by structural necessity, not merely by empirical choice.
+\end{corollary}
 
 % =====================================================================
 \section{Computational validation}\label{sec:computational}
@@ -492,7 +598,14 @@ structure: the value function stays affine and identical under two
 lexicographic tie-breaks while the follower's second-difference mass
 flips $0.0100 \leftrightarrow 10^{-13}$ --- the value layer is
 canonical (Proposition~\ref{prop:alex}), the flux-strain layer is not
-(Conjecture~\ref{conj:valueflux}).
+(Corollary~\ref{conj:valueflux}). The coupling identity of
+Theorem~\ref{thm:coupling} is machine-verified on this same cut:
+$\Delta\Phi' = c^\top \Delta v'$ with error $0.0$ at all $12$
+events and all $4$ clusters, $\Phi = c^\top v^*$ to $10^{-9}$, and
+the $11$ invisible events carry flux $\ell_1$ slope jumps up to
+$1.6 \times 10^{4}$ against $|c^\top \Delta v'| \le 1.5 \times
+10^{-7}$ --- the decoupling is the objective contraction, not a loss
+of network information.
 
 % =====================================================================
 \section{Empirical association and protein-layer buffering}
@@ -514,6 +627,28 @@ same flux-event structure along the same lexicographic trajectory, so
 the association is an event-structure property of the flux layer, not a
 metric artifact and not a value-function shadow.
 
+\subsection{[E-V6] The layer decision}
+All value-layer attribution arms, on the frozen V5 protocol (iJO1366,
+E22 physiology, $n = 424$): the flux layer $\kmu$ gives $r = +0.395$,
+partial $r = +0.269$ ($p = 1.8 \times 10^{-8}$); the $c$-attribution
+arm is supported on the biomass pseudo-reaction alone ($0$ of $433$
+genes; Theorem~\ref{thm:coupling}(ii)); the shadow-price-jump arm
+gives $51$ genes at $r = +0.032$ (partial $-0.013$, $p = 0.93$). The
+value trajectory has \emph{zero} interior kinks: the path is
+glucose-limited throughout, $\mu(t) = Y\,q_{\mathrm{glc}}(t)$ with
+$Y = 0.099544$ constant to six digits and uptake shadow prices
+jumping by exactly zero --- all four value kinks are anchor corners of
+the trajectory design, of magnitude $Y\,\Delta(dq_{\mathrm{glc}}/dt)$,
+carrying no network structure. Value/flux strain mass ratio
+$1.45 \times 10^{-3}$; the coupling identity holds at machine
+precision (error $0.0$ at every kink). The value-gated flux strain
+coincides with $\kmu$ exactly ($433/433$ genes attain their maximum
+at a value-kink time), a property of the trajectory design (anchor
+rerouting dominates per-gene maxima), not evidence of value-layer
+content. The layer decision: the association lives on the flux layer,
+with Theorem~\ref{thm:coupling} as the exact bridge to the canonical
+object.
+
 \subsection{[E-E27] Protein-layer null}
 Condition-dependent quantitative proteomics ($22$ conditions, triplicates,
 $n = 366$): protein-level correlation $r = -0.083$ against transcript
@@ -534,11 +669,14 @@ $\mu * \phi_\sigma$, and its integrals along parameter trajectories
 ($\kmu$). The smooth member exists only through the window
 $h \ll \sigma \ll L_{\mathrm{var}}$; the $\sigma \to 0$ limit is the
 atomic object. Open items, demoted to their honest status:
-Conjecture~\ref{conj:bridge} (general complex stability), the formal
-identity $\kappa_{\mathrm{flux}} = \mathcal{F}[\mu]$ (decoupled from the
-empirical association by the metric-invariance result), E28 under the
+Conjecture~\ref{conj:bridge} (general complex stability), E28 under the
 $(\varepsilon, \sigma)$ design law, and E32 (event-measure stabilization
 --- the $L^1$-reconstruction regime of Theorem~\ref{thm:Bprime}(iv)).
+The formal identity $\kappa_{\mathrm{flux}} = \mathcal{F}[\mu]$ is closed by
+Theorem~\ref{thm:coupling} (the exact objective contraction
+$D^2\Phi = \sum_r c_r\, D^2 v^*_r$), which supersedes the earlier
+metric-invariance argument for why the association stands on the flux
+layer.
 
 \paragraph{Limitations.}
 Correlational design; single-organism scope; operational (not
