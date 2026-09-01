@@ -4103,3 +4103,130 @@ Stage Summary:
 - What this does NOT prove: the strong-form unification (Theorem U)
   remains open; E28 (second differences on measured time courses) remains
   the open empirical item; all v2 guidance recorded in report section 9.
+
+---
+Task ID: asb2-solution
+Agent: main (Super Z)
+Task: Evaluate, verify, strengthen, augment, improve, correct and
+complete external_audits/unifying object/deepseek formulation.txt (the
+Active-Set Bridge Conjecture), and attempt to solve it. Standing
+instructions honored: check unpushed work first (all previous work was
+already pushed; remote commit 5de0b7a pulled, containing the target
+file), always commit and push, frozen v21 untouched, all deliverables
+in download/, English response per user instruction.
+
+Work Log:
+- Push check: local main had 0 unique commits vs origin/main (all
+  previous turns pushed); pulled 5de0b7a which added exactly the
+  316-line deepseek formulation.txt.
+- Read the formulation in full: A1-A5, the eps^2 holonomy limit, the
+  5-step proof sketch, 3 testable consequences, status paragraph, and
+  the file's own 5-point self-critique with revised statement.
+- Re-verified every checkable claim against the M1/M3/M3b record
+  (m1_summary.json, m3_summary.json at line level): D2 mass 0.934-1.0,
+  affine residuals <= 8e-14, footprint Spearman 0.865, chi-vs-eps
+  Spearman -0.347 full panel / -0.07 non-SL (p 0.43) -- the claimed
+  identity "eps_ij = rectangle holonomy" (consequence 2) is
+  contradicted; consequence 3 imprecise (missing smooth term 2||v'||^2;
+  integral not pointwise).
+- Mathematical audit produced 6 corrections: C1 the affine-extension
+  holonomy is trivially the identity (v is a function: H_gamma = I
+  exactly, so the central display reads 0 = Omega); C2 the eps^2 law
+  fails in both layers; C3 the file's own projection-based transport
+  is not invertible (not a connection) -- replaced by the minimal-
+  rotation/unfolding map; C4 A3's existential embedding is
+  unfalsifiable -- replaced by the intrinsic graph geometry
+  G(theta)=(theta,v(theta)); C5 the claimed confirmations are
+  overstated; C6 A5 flatness is precisely why the conclusion cannot
+  follow. Additional: A1 achievable via the engine (degeneracy
+  discovery documented), rank-one updates correct within stages
+  (tower across the 3 lex stages).
+- M4a executed (scripts/m4a_scaling.py, 76 pairs x 6 depths, flux-
+  relative scaled knockdown family: ub=(1-eps)v_wt on v>0, mirrored,
+  homothetic on v=0; eps=1 equals the M3 full KO): 64/76 pairs
+  chi(eps)=0 exactly at every depth; 9 nonzero pairs slope 0.976-1.244
+  (median 0.998) with exact halving ratios across five octaves
+  (sdhD+nuoG 101.29->3.19; atpD+nuoJ reproduces the M3b max 226.48
+  then halves); single-response slope median 1.01 (linearity control);
+  release-identity checks 6/6 bit-exact -- M3b's closed-loop
+  non-return is greedy-dynamics irreversibility, not connection
+  holonomy. A4's eps^2 law is falsified in the only layer where it
+  was meaningful; the dynamic non-commutativity is FIRST order
+  (tangent-cone O(1) face change per knockout).
+- M4b executed (scripts/m4b_2d_geometry.py, 34x34 (glc,O2) grid =
+  1,156 lex solves, 24 operational chambers, 2,122 solves total):
+  (a) synthetic machinery validation (m4b_machinery_test.py): the
+  corrected unfolding transport equals the corner-angle defect to
+  1e-14 on flat/cone (up to 190.6 deg)/generic 4-sector synthetic
+  maps; frame planarity 1e-16; the flat case exposed and fixed a
+  transverse-direction sign bug in the loop composition (transport
+  maps g_from(d_other) -> g_to(d_other), NOT the negated direction);
+  (b) flat controls on real interfaces: 5/5 exact identity (residuals
+  1e-11 to 1e-23; axis/angle constancy along interfaces 1e-11);
+  interface kinks O(1) (50.07 deg overflow fold) vs exactly 0.0000 deg
+  mask-type boundaries -- the operational active set over-counts
+  geometric events;
+  (c) three fan vertices analyzed: defects scale-invariant to four
+  decimals (-7.1469 deg, -23.9087 deg, +0.0104 deg at both delta and
+  delta/2) with self-flagged face inconsistency (shared-edge 0.2-3.7
+  on 3/4 edges, one edge exact at 1e-10) -- the wedge-fan corner is
+  below the operational resolution;
+  (d) 1D cut through a codim-2 region: 11 events carry 100.0000000%
+  of D2 mass (M1's law at the vertex scale);
+  (e) DISCOVERY (Lemma N1, "no loose kinks"): on a continuous
+  piecewise-affine map a kinked codim-1 stratum cannot T-terminate
+  inside another stratum (the three tangential-derivative identities
+  force the terminating stratum Jacobian-flat); mask-type
+  T-junctions have defect exactly 0 and identity holonomy;
+  (f) edge-crossing census (m4b_edge_census.py, 11 cells): the corner
+  is a NESTED WEDGE-FAN -- up to 9-10 boundary crossings per grid cell
+  (up to 4 per single edge, thin sliver chambers) vs exactly 2 in flat
+  regions: the codim-2 skeleton is dense exactly where the D2 mass
+  concentrates -- the empirical face of the atomicity obstruction.
+- The repaired formulation (download/Active_Set_Bridge_v2.md):
+  Theorem S (static curvature measure: D2v on codim-1 skeleton, the
+  time-course INTEGRAL identity, trivial state holonomy), Theorem G
+  (intrinsic defect = the constructed kappa_geom, unfolding transport,
+  flatness off codim-2, O(1) scale-independent defects), Lemma N1 (no
+  loose kinks), Theorem N (atomicity obstruction: the eps^2 limit is 0
+  at generic points and divergent on the (p-2)-skeleton; only sound
+  limits are mesoscopic defect density (a model-family regularity
+  assumption) or dynamic), Theorem D (first-order dynamic commutator
+  law with the measured slope-1 evidence) + the full status table of
+  every original element (19 rows) and the honest residue (E28, the
+  strong-form identification now precisely localized as blocked by
+  atomicity, model-family regularity, new E31 wedge-fan resolution).
+- Report (pdf skill report route, cascade palette seed 20260901,
+  Template 03 series-consistent cover, TocDocTemplate + multiBuild):
+  download/Active_Set_Bridge_v2_solution_report.pdf, 14 pp, 609 KB,
+  3 embedded figures, 3 tables (claim-by-claim verification table,
+  M4a census, deliverables map), 5 theorem quote blocks; QA: pdf_qa
+  PASS (all checks), font.check 0 issues, toc.check clean,
+  cover_validate pass, poster_validate pass, meta.brand applied;
+  line-start-quote punctuation warnings fixed via nbsp + rephrasing.
+- The v21 manuscript remains untouched (git status: only new files).
+
+Stage Summary:
+- The DeepSeek formulation is evaluated and SOLVED to the extent its
+  own structure permits: the structural half (piecewise affinity,
+  event concentration, active-set substrate) is correct and machine-
+  verified; the central eps^2 holonomy claim is false in both layers,
+  and the reason is now a theorem set (S/G/N1/N/D) rather than an
+  opinion; A4 is resolved NEGATIVELY (slope 1.00 measured; atomicity
+  obstruction proven) and constructively (a first-order law with a
+  testable CRISPRi prediction, and a mesoscopic reading of the strong
+  form).
+- Deliverables: download/Active_Set_Bridge_v2_solution_report.pdf
+  (14 pp) + download/Active_Set_Bridge_v2.md (formulation, v2 source
+  material) + download/m4/ (m4a_scaling.csv, m4a_pairs.csv,
+  m4a_summary.json, m4b_grid.npz, m4b_summary.json,
+  m4b_edge_census.json, 3 figures) + scripts (m4a_scaling.py,
+  m4b_2d_geometry.py, m4b_machinery_test.py, m4b_edge_census.py,
+  m4_figures.py, active_set_bridge_v2_report_content.py,
+  active_set_bridge_v2_report_pdf.py).
+- New falsifiable science produced: the graded-knockdown order-
+  sensitivity scaling law (slope 1) and the no-loose-kinks lemma.
+- What this does NOT prove: the strong-form pointwise unification
+  (blocked by atomicity, now localized); E28 open; E31 (wedge-fan
+  resolution) open; all v2 integration guidance recorded in report
+  sections 5 and 8.

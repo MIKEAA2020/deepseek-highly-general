@@ -1,0 +1,334 @@
+{
+  "experiment": "M4b two-parameter static geometry (glc, O2) plane",
+  "model": "iML1515",
+  "grid": [
+    34,
+    34
+  ],
+  "grid_ranges": [
+    [
+      1.5,
+      10.0
+    ],
+    [
+      1.0,
+      22.0
+    ]
+  ],
+  "n_signatures": 24,
+  "cells": {
+    "cross": 2,
+    "pair": 264,
+    "single": 775,
+    "other": 48
+  },
+  "n_vertices_analyzed": 10,
+  "n_vertices_ok": 3,
+  "vertices": [
+    {
+      "status": "skip",
+      "reason": "3 boundary points",
+      "analysis_time_s": 4.7
+    },
+    {
+      "status": "skip",
+      "reason": "3 boundary points",
+      "analysis_time_s": 4.6
+    },
+    {
+      "status": "skip",
+      "reason": "3 boundary points",
+      "analysis_time_s": 3.0
+    },
+    {
+      "status": "skip",
+      "reason": "3 boundary points",
+      "analysis_time_s": 4.7
+    },
+    {
+      "status": "skip",
+      "reason": "no 4-sector probe scale",
+      "analysis_time_s": 9.7
+    },
+    {
+      "status": "ok",
+      "cell": [
+        2,
+        3
+      ],
+      "theta0": [
+        1.6920021856564074,
+        1.4795937877603242
+      ],
+      "dA": [
+        -0.020549974959059813,
+        0.9997888269675662
+      ],
+      "dB": [
+        0.6473547604531503,
+        -0.7621888310114787
+      ],
+      "delta": 0.04056818181818185,
+      "h": 0.013522727272727283,
+      "quadrant_signatures": [
+        -3894071949727644126,
+        8235134602039125724,
+        -3731472259026570721,
+        1668540887159155069
+      ],
+      "shared_edge_max_dev": {
+        "I_IV_dA": 2.9405860828425388,
+        "I_II_dB": 3.6322072053246215,
+        "II_III_dA": 3.711366263216516,
+        "III_IV_dB": 1.027036511391799e-10
+      },
+      "corner_angles": {
+        "I": 2.9821033031256596,
+        "II": 0.28422557050665925,
+        "III": 3.0098305096133418,
+        "IV": 0.13176214396753208
+      },
+      "defect_rad": -0.12473622003360685,
+      "defect_deg": -7.14685896034086,
+      "defect_at_half_delta": -0.12473622016311658,
+      "kink_angles_rad": {
+        "I_IV": 1.4928212304042932,
+        "IV_III": 9.362936225484886e-11,
+        "III_II": 1.0635371011112393,
+        "II_I": 0.8980149929948843
+      },
+      "transport_net_rotation_rad": 0.7137189580350335,
+      "transport_net_rotation_deg": 40.893084053882134,
+      "transport_frame_planarity": 0.9930428149428085,
+      "transport_net_minus_defect_rad": 0.5889827380014266,
+      "continuity_jump_A": 0.193175042715092,
+      "continuity_jump_B": 0.08265565434025834,
+      "jacobian_jumps": {
+        "dB_I_II": 9.604769188809641,
+        "dA_I_IV": 7.432699333385184
+      },
+      "analysis_time_s": 16.3
+    },
+    {
+      "status": "skip",
+      "reason": "no 4-sector probe scale",
+      "analysis_time_s": 9.5
+    },
+    {
+      "status": "ok",
+      "cell": [
+        2,
+        0
+      ],
+      "theta0": [
+        3.976653048824979,
+        2.9347932697974377
+      ],
+      "dA": [
+        -0.05367993262291013,
+        0.9985581930131062
+      ],
+      "dB": [
+        0.9781953956392458,
+        -0.20768670624327232
+      ],
+      "delta": 0.04056818181818185,
+      "h": 0.013522727272727283,
+      "quadrant_signatures": [
+        -3326147015782976128,
+        -2332784018667467837,
+        -3856988203059653339,
+        5958740450451598915
+      ],
+      "shared_edge_max_dev": {
+        "I_IV_dA": 0.5129698124515378,
+        "I_II_dB": 2.5778217549311777,
+        "II_III_dA": 3.1851250811220555,
+        "III_IV_dB": 0.4238179277650998
+      },
+      "corner_angles": {
+        "I": 2.594807025971684,
+        "II": 0.9661984197084262,
+        "III": 2.5948070259683407,
+        "IV": 0.5446590416401496
+      },
+      "defect_rad": -0.4172862061090141,
+      "defect_deg": -23.908738459072698,
+      "defect_at_half_delta": -0.41728523487477176,
+      "kink_angles_rad": {
+        "I_IV": 0.21242910911572113,
+        "IV_III": 0.1548721903025407,
+        "III_II": 0.8485504701436976,
+        "II_I": 0.5637832246300134
+      },
+      "transport_net_rotation_rad": 0.4575377400950148,
+      "transport_net_rotation_deg": 26.214981475397934,
+      "transport_frame_planarity": 0.9166275849202614,
+      "transport_net_minus_defect_rad": 0.040251533986000676,
+      "continuity_jump_A": 0.1676310201223128,
+      "continuity_jump_B": 0.1809346426902163,
+      "jacobian_jumps": {
+        "dB_I_II": 6.773946990062996,
+        "dA_I_IV": 1.1470286892615646
+      },
+      "analysis_time_s": 12.8
+    },
+    {
+      "status": "skip",
+      "reason": "no 4-sector probe scale",
+      "analysis_time_s": 9.5
+    },
+    {
+      "status": "ok",
+      "cell": [
+        0,
+        5
+      ],
+      "theta0": [
+        1.5586100121377564,
+        4.356188466108935
+      ],
+      "dA": [
+        -0.08194078169114961,
+        0.9966371999357858
+      ],
+      "dB": [
+        0.45110677965471896,
+        0.8924699845650547
+      ],
+      "delta": 0.16227272727272726,
+      "h": 0.054090909090909085,
+      "quadrant_signatures": [
+        -7523084000524217075,
+        3123131141550664468,
+        6377059487092145837,
+        5493607981660325243
+      ],
+      "shared_edge_max_dev": {
+        "I_IV_dA": 0.03901428473273628,
+        "I_II_dB": 0.15943353723271114,
+        "II_III_dA": 0.09453949601047218,
+        "III_IV_dB": 0.21793384438866523
+      },
+      "corner_angles": {
+        "I": 0.10093599835545743,
+        "II": 2.7999519373876116,
+        "III": 0.3414901882876096,
+        "IV": 3.040626002534568
+      },
+      "defect_rad": 0.0001811806143390271,
+      "defect_deg": 0.010380884531213698,
+      "defect_at_half_delta": 3.0652692478483345e-05,
+      "kink_angles_rad": {
+        "I_IV": 0.60739931656145,
+        "IV_III": 0.9188909668747689,
+        "III_II": 0.00741477448229511,
+        "II_I": 0.09798589186199552
+      },
+      "transport_net_rotation_rad": -0.0498177006117939,
+      "transport_net_rotation_deg": -2.8543439901020897,
+      "transport_frame_planarity": 0.9655569431698601,
+      "transport_net_minus_defect_rad": -0.04963651999745487,
+      "continuity_jump_A": 0.5103826567622889,
+      "continuity_jump_B": 0.32532313538079904,
+      "jacobian_jumps": {
+        "dB_I_II": 0.3723428874793427,
+        "dA_I_IV": 0.08190051403831076
+      },
+      "analysis_time_s": 13.6
+    }
+  ],
+  "t_junctions": [],
+  "flat_controls": [
+    {
+      "cell": [
+        0,
+        2
+      ],
+      "phi_rad": 0.873818258236159,
+      "phi_deg": 50.066098258404594,
+      "loop_identity_rel_dev": 3.364734374088577e-11,
+      "axis_constancy": 3.976039313302709e-11,
+      "phi_constancy": 4.0693559633098175e-11,
+      "shared_edge_max_dev": 5.1099659994741815
+    },
+    {
+      "cell": [
+        9,
+        6
+      ],
+      "phi_rad": 0.8738182581481676,
+      "phi_deg": 50.06609825336306,
+      "loop_identity_rel_dev": 2.30109007190444e-12,
+      "axis_constancy": 2.747124398399126e-12,
+      "phi_constancy": 2.624522821292885e-11,
+      "shared_edge_max_dev": 5.109965999522118
+    },
+    {
+      "cell": [
+        1,
+        8
+      ],
+      "phi_rad": 1.412323002741762e-10,
+      "phi_deg": 8.092014736634635e-09,
+      "loop_identity_rel_dev": 8.601759339591852e-24,
+      "axis_constancy": 9.904873468327733e-13,
+      "phi_constancy": 1.4362767701401329e-11,
+      "shared_edge_max_dev": 0.07476253908426672
+    },
+    {
+      "cell": [
+        16,
+        29
+      ],
+      "phi_rad": 0.0,
+      "phi_deg": 0.0,
+      "loop_identity_rel_dev": 7.403831056907075e-23,
+      "axis_constancy": 2.051950151495941e-12,
+      "phi_constancy": 5.0315439665720435e-11,
+      "shared_edge_max_dev": 9.897367647671018e-11
+    },
+    {
+      "cell": [
+        0,
+        11
+      ],
+      "phi_rad": 5.426777008913374e-11,
+      "phi_deg": 3.1093141896936505e-09,
+      "loop_identity_rel_dev": 5.6355600566019985e-24,
+      "axis_constancy": 2.227030333235481e-12,
+      "phi_constancy": 5.0599336541155305e-11,
+      "shared_edge_max_dev": 0.4761278074959901
+    }
+  ],
+  "cut": {
+    "span": 0.8,
+    "n_points": 49,
+    "dt": 0.033333333333333326,
+    "n_events": 11,
+    "event_positions": [
+      -0.7666666666666667,
+      -0.7333333333333334,
+      -0.7000000000000001,
+      -0.6666666666666667,
+      -0.5666666666666667,
+      -0.5333333333333334,
+      -0.10000000000000009,
+      -0.06666666666666676,
+      0.0,
+      0.033333333333333326,
+      0.06666666666666665
+    ],
+    "D2_total": 347231.98634994106,
+    "D2_mass_on_events": 1.0,
+    "D2_max": 299.58205023568473,
+    "D2_median_off": 1.1858743532061785e-08,
+    "theta0": [
+      1.6920021856564074,
+      1.4795937877603242
+    ]
+  },
+  "state_holonomy_note": "v(theta) is a single-valued function of the bounds: every closed loop in the (glc, O2) plane returns to the identical flux vector (the affine-extension holonomy of the original conjecture is trivially the identity); the nontrivial static object is the angle defect of the flux graph at codim-2 crossings",
+  "total_lex_solves": 2122,
+  "runtime_s": 362.9
+}
