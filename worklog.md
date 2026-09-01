@@ -4325,3 +4325,98 @@ Stage Summary:
   (flagged open, with the E24-recalibration test); E28 open (now with
   its (eps, sigma) design law); 2D sliver census (E31 remainder);
   model-family regularity for mesoscopic limits.
+
+---
+Task ID: deepseek-bridge-strength-audit
+Agent: main (Super Z)
+Task: Evaluate, verify (not at face value), strengthen, augment, improve,
+correct, and complete external_audits/unifying object/deepseek stengthen
+highly general bridge.txt; always commit and push; respond in English.
+
+Work Log:
+- Push check: all prior work on origin/main at 98e24fe; pulled remote
+  d85b162 which delivered the audit file (186 lines: Part-1 assessment
+  of M4c/root-cause + 5 strengthening routes + recommended theorem).
+- Part-1 fidelity: 14 claims adjudicated against the verified record
+  (Root_Cause_Evaluation.md, M1/M3/M4a/b/c, v2 theorems). Faithful on
+  the trichotomy/Theorem-R/dial; 3 slips (M4a-as-empirical-falsification
+  repeats RC5; slope-1.00 drops RC2's 9/76 sparsity; eps*/sigma 3-4 vs
+  measured 2.45-4.11); line-30 "sigma->0 smooth limit" is the seed of
+  the central defect.
+- Central defect D1 verified: the recommended formula
+  kappa_geom = lim(s->0) kappa_flux*phi_sigma selects the ATOMIC measure
+  (V3 on the measured M4c event set: near-event mass -> 1.0000 at fixed
+  w=0.01; wall-free density -> 0 exponentially; hat test 3772.5 at
+  s=3e-4 vs 253.4 smooth proxy). Line-30's two "different" limits are
+  the same limit (both = mu).
+- V1 (Route 3 corrected, 253 lex solves, M4c cut, iML1515): v=grad-Phi
+  is dimensionally false (R^2867 vs R^2); the TRUE statement: Phi is
+  single-valued with NO tie-breaking => D2Phi (shadow-price jumps) is
+  THE canonical carrier. Phi piecewise-affine at 4.2e-13 on the v-event
+  partition; ONE real atom Delta-Phi' = -0.006439 at t=0.0358286
+  (11.59-jump event) while the 1875.7/1884.6 sliver pair nets <= 7.7e-11
+  and the 22.3-jump event <= 8.4e-9; value/flux mass ratio 1.7e-6 with
+  non-proportional hierarchies. Danskin verified: r-copy bound marginals
+  = FD shadow prices to 6-7 digits (y = (0.0252545, 0.0336727) ->
+  (0.021743, 0.039138) across the atom); cut-slope identity y.theta' =
+  Phi' exact.
+- V2 (Routes 1+2 corrected): built the refinement prototype
+  (min-of-tangent-planes parametric LP family, theta in RHS, nested
+  outer approximations, concave f with non-constant curvature, 40
+  random cuts, exact breakpoint atoms). Theorem B proven in prototype:
+  (B1) mu_n -> Hessian measure weakly (uniform gradient convergence +
+  Gauss flux); machine: W1 0.049 -> 0.0035 (rate ~1 in h for n>=32),
+  mass ratio 0.93 -> 1.002, adaptive-scale L1 0.33 -> 0.07; (B3) at
+  fixed n=32 sigma->0 is ATOMIC (L1-to-smooth 0.054 -> 1.28; near-atom
+  mass 0.41 -> 0.9992) while the joint limit at sigma=0.05 gives L1
+  1.25 -> 0.040. Two-sided dial; window h << sigma << L_var.
+- Other defects: D3 (add-reactions/grid are not refinements; CMS 1984
+  citation missing; Route-2 feasibility medium-high -> low for real
+  networks), D4 (basis cocycle trivial by telescoping; the nontrivial
+  connection is Theorem G's unfolding transport), D5 (two carriers,
+  RC4), D6 (g^SAVGS identification smuggled -> Conjecture SA), D7
+  (lattice-YM analogy aspirational; E32 statistical form proposed),
+  D8 (Part-1 slips).
+- V5 (the audit's decisive test, EXECUTED): E24 recalibration with
+  kappa^mu = sum|D2|/dt (measure mass) on the deterministic lex-pFBA
+  E22 trajectory (4x/8x refinement, mass 288.77 resolution-independent,
+  440 event reactions, non-degenerate). Baseline reproduced to the
+  digit (r=+0.3739, p=8.18e-16, n=433). Measure-theoretic: r=+0.3954
+  (n=424, p=2.6e-17), Spearman +0.4138, partial given ref level
+  +0.2692 (p=1.8e-8), deciles 1.923/0.890 (MWU 1.3e-7). Decisive test
+  PASSES WITH STRENGTHENING -> single-paper route secure by the audit's
+  own criterion. Metric invariance: rho(kappa^mu, kappa_V_lex)=0.99998
+  (the association is an event-structure property). E22 artifact found:
+  e24 csv rounded kappa to 6dp zeroing 94 tiny values (reproducibility
+  trap; V5 reads the unrounded E22 artifact); 9 zero-lex genes are
+  plain-FBA vertex noise.
+- Deliverables: download/DeepSeek_Bridge_Strength_Evaluation.md +
+  download/deepseek_bridge/{v1,v2,v3,v5}_{json,csv,png} (12 files) +
+  scripts/{deepseek_route_verify.py, e24_measure_kappa.py} +
+  report PDF (pdf skill report route, series-consistent steel-blue
+  Template 03 cover, TocDocTemplate + multiBuild, 4 figures, 4 tables,
+  3 callouts, 1 quote block): download/
+  DeepSeek_Bridge_Strength_Evaluation_report.pdf, 12 pp, 842 KB.
+  QA: cover_validate pass (8 L3 blocks, no overlaps), meta.brand
+  applied, font.check 0 issues, toc.check clean, pdf_qa 13/13 PASS.
+  Committed and pushed.
+
+Stage Summary:
+- The audit's Part 1 is a faithful summary of the corrected record;
+  its Part-2 target theorem is FALSE as stated (sigma->0 picks the
+  atomic measure = Theorem N's obstruction) and was falsified on the
+  measured object AND in a prototype; the corrected theorem
+  (refinement + resolution, Theorem B) is proven in prototype and
+  machine-verified; the value function D2Phi is identified as the
+  canonical tie-break-free carrier with a measured decoupling from the
+  flux-jump hierarchy; and the audit's decisive test (E24 with the
+  measure-theoretic kappa) passes with strengthening (r +0.374 ->
+  +0.395, partial +0.251 -> +0.269), securing the single-paper route.
+- New falsifiable items: Conjecture RA (+ E32 statistical test on
+  existing panels), Conjecture SA (identification, not provable now),
+  Theorem B's window law, the E22 csv rounding trap note, and the
+  metric-invariance statement (trajectory property, not assumption).
+- Open: kappa_flux = F[mu] formal identity (now decoupled from the
+  association); E28 under the (eps, sigma) design law; E31 2D census;
+  v2 Layer-0 manuscript drafting (the next deliverable, with this file
+  as source material); frozen v21 untouched throughout.

@@ -1,0 +1,148 @@
+{
+ "experiment": "V2 refinement prototype (min-of-tangent-planes parametric LP family; theta in RHS, fixed constraint matrix, nested refinement)",
+ "f": "2 - 0.5|theta|^2 - 0.1 sum theta_i^4 (concave, non-const curvature)",
+ "refinement_limit": [
+  {
+   "n": 4,
+   "h": 0.6666666666666666,
+   "n_bins": 2,
+   "L1_mean": 0.3260193354192244,
+   "L1_med": 0.2814896220571969,
+   "W1_mean": 0.04885939468328544,
+   "W1_abs_mean": 0.03348174747899449,
+   "mass_ratio": 0.9303957173267078
+  },
+  {
+   "n": 8,
+   "h": 0.2857142857142857,
+   "n_bins": 2,
+   "L1_mean": 0.12641252484489424,
+   "L1_med": 0.09342573096457266,
+   "W1_mean": 0.012065330696049521,
+   "W1_abs_mean": 0.045466100073161125,
+   "mass_ratio": 0.9958085991822135
+  },
+  {
+   "n": 16,
+   "h": 0.13333333333333333,
+   "n_bins": 3,
+   "L1_mean": 0.0799338575733753,
+   "L1_med": 0.05054342511403895,
+   "W1_mean": 0.012646532491072312,
+   "W1_abs_mean": 0.01535285091256917,
+   "mass_ratio": 0.9839198427034144
+  },
+  {
+   "n": 32,
+   "h": 0.06451612903225806,
+   "n_bins": 5,
+   "L1_mean": 0.090380970255555,
+   "L1_med": 0.09117346327951711,
+   "W1_mean": 0.012211357773033069,
+   "W1_abs_mean": 0.01608106473356867,
+   "mass_ratio": 0.996941608384421
+  },
+  {
+   "n": 64,
+   "h": 0.031746031746031744,
+   "n_bins": 10,
+   "L1_mean": 0.0827832961712826,
+   "L1_med": 0.08529827572013207,
+   "W1_mean": 0.006964990507363013,
+   "W1_abs_mean": 0.01907553938727481,
+   "mass_ratio": 0.9988050587784955
+  },
+  {
+   "n": 128,
+   "h": 0.015748031496062992,
+   "n_bins": 20,
+   "L1_mean": 0.07241624490376214,
+   "L1_med": 0.08319572093443095,
+   "W1_mean": 0.003460471164969367,
+   "W1_abs_mean": 0.007745115725411563,
+   "mass_ratio": 1.0023227548032367
+  }
+ ],
+ "L1_rate_alpha": 0.23227511547469984,
+ "sigma_limit_fixed_n": [
+  {
+   "sigma": 0.3,
+   "L1_to_smooth": 0.209314411696761,
+   "mass_frac_near_atoms_w0.04": 0.40894171967139265
+  },
+  {
+   "sigma": 0.1,
+   "L1_to_smooth": 0.08193570030568885,
+   "mass_frac_near_atoms_w0.04": 0.40847784325392184
+  },
+  {
+   "sigma": 0.06,
+   "L1_to_smooth": 0.05347681989422236,
+   "mass_frac_near_atoms_w0.04": 0.4103150764093412
+  },
+  {
+   "sigma": 0.03,
+   "L1_to_smooth": 0.11891578531611974,
+   "mass_frac_near_atoms_w0.04": 0.43806556063532737
+  },
+  {
+   "sigma": 0.015,
+   "L1_to_smooth": 0.42795148210601647,
+   "mass_frac_near_atoms_w0.04": 0.5926033563441062
+  },
+  {
+   "sigma": 0.007,
+   "L1_to_smooth": 0.8671971949214389,
+   "mass_frac_near_atoms_w0.04": 0.8688044461563154
+  },
+  {
+   "sigma": 0.003,
+   "L1_to_smooth": 1.2763704725848082,
+   "mass_frac_near_atoms_w0.04": 0.9992435096797206
+  }
+ ],
+ "n_fixed": 32,
+ "joint_limit_fixed_sigma": [
+  {
+   "n": 4,
+   "h": 0.6666666666666666,
+   "sigma": 0.05,
+   "L1_mean": 1.2541405366410763
+  },
+  {
+   "n": 8,
+   "h": 0.2857142857142857,
+   "sigma": 0.05,
+   "L1_mean": 0.7146603717376904
+  },
+  {
+   "n": 16,
+   "h": 0.13333333333333333,
+   "sigma": 0.05,
+   "L1_mean": 0.16454043200222357
+  },
+  {
+   "n": 32,
+   "h": 0.06451612903225806,
+   "sigma": 0.05,
+   "L1_mean": 0.05575102781730238
+  },
+  {
+   "n": 64,
+   "h": 0.031746031746031744,
+   "sigma": 0.05,
+   "L1_mean": 0.042521222359023135
+  },
+  {
+   "n": 128,
+   "h": 0.015748031496062992,
+   "sigma": 0.05,
+   "L1_mean": 0.03982383333420912
+  }
+ ],
+ "verdict": {
+  "refinement": "atomic measures converge weakly to the smooth curvature density (L1 ~ h^alpha, alpha = 0.23)",
+  "sigma_to_0": "at fixed n the sigma->0 limit is the ATOMIC measure (the audit's limit direction)",
+  "joint": "at fixed sigma >> h the smoothed refined object converges to the smooth density (corrected theorem)"
+ }
+}
