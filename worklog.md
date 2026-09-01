@@ -4298,6 +4298,14 @@ Work Log:
   replacement text) + download/m4/ (m4c_summary.json, m4c_scaling.csv,
   m4c_cut_events.csv, fig_m4c_scaling.png, fig_m4c_density.png) +
   scripts/m4c_regime_dial.py + lp_engine patch. Committed and pushed.
+- Report rendered (pdf skill report route, cascade palette series seed
+  20260901 steel-blue family, Template 03 series-consistent cover,
+  TocDocTemplate + multiBuild): download/Root_Cause_Evaluation_report
+  .pdf, 10 pp, 618 KB,
+  2 embedded figures, 5 tables, 3 callouts, 2 quote blocks; QA:
+  cover_validate pass (8 L3 text blocks, no overlaps), meta.brand
+  applied, font.check 0 issues, toc.check clean, pdf_qa 13/13 PASS
+  (pages.clean not needed: no blank pages).
 
 Stage Summary:
 - The root-cause text is verified as a correct popularization of the v2
