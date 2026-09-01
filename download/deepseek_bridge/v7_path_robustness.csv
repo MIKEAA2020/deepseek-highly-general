@@ -1,0 +1,10 @@
+path,arm,n_nonzero,r,response
+P0_glucose_decline,"A kappa_mu (flux, all events)",424,0.3954,E24 carbon-depletion maxFC (M3D stationary)
+P0_glucose_decline,B1b kappa_vg (interior kinks only),0,,E24 carbon-depletion maxFC (M3D stationary)
+P0_glucose_decline,B3int kappa_dual (interior kinks),0,,E24 carbon-depletion maxFC (M3D stationary)
+P1_oxygen_limitation,"A kappa_mu (flux, all events)",426,0.3183,M3D M9_WT_anaerobic vs M9_WT (matched O2 contrast)
+P1_oxygen_limitation,B1b kappa_vg (interior kinks only),426,0.3181,M3D M9_WT_anaerobic vs M9_WT (matched O2 contrast)
+P1_oxygen_limitation,B3int kappa_dual (interior kinks),68,-0.1698,M3D M9_WT_anaerobic vs M9_WT (matched O2 contrast)
+P2_acetate_switch,"A kappa_mu (flux, all events)",426,0.2234,M3D WT_MOPS_acetate vs WT_MOPS_glucose (matched carbon-switch contrast)
+P2_acetate_switch,B1b kappa_vg (interior kinks only),426,0.2252,M3D WT_MOPS_acetate vs WT_MOPS_glucose (matched carbon-switch contrast)
+P2_acetate_switch,B3int kappa_dual (interior kinks),71,0.0321,M3D WT_MOPS_acetate vs WT_MOPS_glucose (matched carbon-switch contrast)

@@ -1,0 +1,15 @@
+PRECISE-arm replication with the locked metric kappa^mu
+================================================================
+predictor: log10 kappa^mu (V6 frozen run; 433-gene panel)
+prior art (v17, OLD kappa_V predictor): r = -0.0543 (n=433, NS)
+
+[E24 carbon-depletion maxFC (M3D stationary)] n=424 r=+0.3954 (p=2.58e-17) spearman=+0.4295 perm_p=1e-05 CI=[0.3199, 0.4677] partial_r(reflevel)=+0.2692 (p=1.8e-08)
+[M3D microarray carbon-switch glycerol] n=424 r=+0.1949 (p=5.34e-05) spearman=+0.2398 perm_p=7e-05 CI=[0.0988, 0.2871] partial_r(reflevel)=+0.1128 (p=0.02)
+[M3D microarray carbon-switch acetate] n=424 r=+0.1664 (p=5.82e-04) spearman=+0.2389 perm_p=0.00057 CI=[0.0725, 0.2628] partial_r(reflevel)=+0.0931 (p=0.055)
+[M3D microarray carbon-switch proline] n=424 r=+0.1752 (p=2.89e-04) spearman=+0.2137 perm_p=0.00032 CI=[0.0874, 0.2603] partial_r(reflevel)=+0.0847 (p=0.081)
+[M3D microarray carbon-switch MAX] n=424 r=+0.2063 (p=1.86e-05) spearman=+0.3060 perm_p=2e-05 CI=[0.1145, 0.3] partial_r(reflevel)=+0.1141 (p=0.019)
+[PRECISE RNA-seq carbon-switch galactose] n=424 r=-0.0875 (p=7.19e-02) spearman=+0.0516 perm_p=0.0706 CI=[-0.1779, 0.0216] partial_r(reflevel)=-0.0910 (p=0.061)
+[PRECISE RNA-seq carbon-switch glycerol] n=424 r=+0.1263 (p=9.21e-03) spearman=+0.1941 perm_p=0.00849 CI=[0.0307, 0.2293] partial_r(reflevel)=+0.1441 (p=0.0029)
+[PRECISE RNA-seq carbon-switch acetate (wt_ac)] n=424 r=+0.1297 (p=7.48e-03) spearman=+0.1667 perm_p=0.00734 CI=[0.0411, 0.2242] partial_r(reflevel)=+0.1233 (p=0.011)
+[PRECISE RNA-seq carbon-switch fructose (wt_fru)] n=424 r=+0.0985 (p=4.26e-02) spearman=+0.1076 perm_p=0.04297 CI=[-0.0018, 0.2027] partial_r(reflevel)=+0.1180 (p=0.015)
+[PRECISE RNA-seq carbon-switch MAX (10 WT conditions)] n=424 r=-0.0443 (p=3.63e-01) spearman=+0.0950 perm_p=0.361 CI=[-0.1342, 0.0489] partial_r(reflevel)=-0.0878 (p=0.071)

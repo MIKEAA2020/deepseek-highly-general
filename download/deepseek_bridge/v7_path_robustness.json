@@ -1,0 +1,1021 @@
+{
+ "experiment": "V7 path robustness: does the one-chamber (value-layer-empty) property persist across trajectories? (completed-round evaluation, residual risk 1 / recommendation 2)",
+ "engine": "lex-pFBA (seed 20240901), iJO1366, V6 protocol frozen; only the trajectory and its matched response vary",
+ "paths": {
+  "P0_glucose_decline": {
+   "trajectory_anchors": {
+    "q_glc": [
+     5.0,
+     4.2,
+     3.4,
+     2.7,
+     2.0,
+     1.5,
+     1.2,
+     1.0
+    ],
+    "q_o2": [
+     22.0,
+     18.5,
+     15.0,
+     12.0,
+     9.0,
+     7.0,
+     5.5,
+     5.0
+    ],
+    "q_ac": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "matched_response": "E24 carbon-depletion maxFC (M3D stationary)",
+   "value_kink_census": {
+    "n_grid_points": 57,
+    "refine": 8,
+    "n_value_kinks_total": 4,
+    "n_design_corners": 4,
+    "n_chamber_crossings": 0,
+    "classification_rule": "design corner = kink at a trajectory anchor with uptake shadow prices continuous (jump <= 1e-9); chamber crossing = uptake shadow prices jump (the parameters are the uptake bounds, so grad Phi = (y_glc, y_o2, y_ac))",
+    "value_strain_total": 0.4180835073792539,
+    "flux_strain_total": 288.76892303855567,
+    "value_over_flux_mass_ratio": 0.001447813369181117,
+    "kinks": [
+     {
+      "grid_index": 16,
+      "t": 0.2857142857142857,
+      "t_phys": [
+       3.4,
+       15.0,
+       0.0
+      ],
+      "is_design_corner": true,
+      "is_chamber_crossing": false,
+      "is_at_anchor_position": true,
+      "uptake_dual_jump_max": 0.0,
+      "delta_phi_slope": 0.06968058456318049,
+      "flux_L1_slope_jump": 48.12815382916069,
+      "cT_jump": 0.06968058456318049,
+      "coupling_err": 0.0,
+      "n_reactions_in_dual_jump": 71,
+      "dual_uptake_jump": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "dual_jump_L1": 0.3371323775621531,
+      "dual_jump_rxn_ids": [
+       "BIOMASS_Ec_iJO1366_WT_53p95M",
+       "EX_fum_e",
+       "EX_hdcea_e",
+       "EX_succ_e",
+       "EX_tartr__D_e",
+       "EX_tartr__L_e",
+       "2AGPEAT161",
+       "2AGPEAT180",
+       "2AGPEAT181",
+       "2AGPGAT161",
+       "2AGPGAT180",
+       "2AGPGAT181"
+      ]
+     },
+     {
+      "grid_index": 32,
+      "t": 0.5714285714285714,
+      "t_phys": [
+       2.0,
+       9.0,
+       0.0
+      ],
+      "is_design_corner": true,
+      "is_chamber_crossing": false,
+      "is_at_anchor_position": true,
+      "uptake_dual_jump_max": 2.7755575615628914e-17,
+      "delta_phi_slope": 0.13936116912751428,
+      "flux_L1_slope_jump": 96.25630765963028,
+      "cT_jump": 0.13936116912751428,
+      "coupling_err": 0.0,
+      "n_reactions_in_dual_jump": 185,
+      "dual_uptake_jump": [
+       2.7755575615628914e-17,
+       0.0,
+       2.42861286636753e-17
+      ],
+      "dual_jump_L1": 1.5783260091901568,
+      "dual_jump_rxn_ids": [
+       "BIOMASS_Ec_iJO1366_WT_53p95M",
+       "EX_12ppd__S_e",
+       "EX_LalaDgluMdap_e",
+       "EX_alaala_e",
+       "EX_butso3_e",
+       "EX_cit_e",
+       "EX_cpgn_e",
+       "EX_cpgn_un_e",
+       "EX_enter_e",
+       "EX_ethso3_e",
+       "EX_feenter_e",
+       "EX_fuc__L_e"
+      ]
+     },
+     {
+      "grid_index": 40,
+      "t": 0.7142857142857142,
+      "t_phys": [
+       1.5,
+       7.0,
+       0.0
+      ],
+      "is_design_corner": true,
+      "is_chamber_crossing": false,
+      "is_at_anchor_position": true,
+      "uptake_dual_jump_max": 0.0,
+      "delta_phi_slope": 0.1393611691263812,
+      "flux_L1_slope_jump": 96.25630765870393,
+      "cT_jump": 0.1393611691263812,
+      "coupling_err": 0.0,
+      "n_reactions_in_dual_jump": 197,
+      "dual_uptake_jump": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "dual_jump_L1": 1.7192911501971428,
+      "dual_jump_rxn_ids": [
+       "BIOMASS_Ec_iJO1366_WT_53p95M",
+       "EX_12ppd__S_e",
+       "EX_LalaDgluMdap_e",
+       "EX_alaala_e",
+       "EX_butso3_e",
+       "EX_cit_e",
+       "EX_cpgn_e",
+       "EX_cpgn_un_e",
+       "EX_dimp_e",
+       "EX_din_e",
+       "EX_enter_e",
+       "EX_ethso3_e"
+      ]
+     },
+     {
+      "grid_index": 48,
+      "t": 0.8571428571428571,
+      "t_phys": [
+       1.2,
+       5.5,
+       0.0
+      ],
+      "is_design_corner": true,
+      "is_chamber_crossing": false,
+      "is_at_anchor_position": true,
+      "uptake_dual_jump_max": 0.0,
+      "delta_phi_slope": 0.06968058456217796,
+      "flux_L1_slope_jump": 48.12815382846422,
+      "cT_jump": 0.06968058456217796,
+      "coupling_err": 0.0,
+      "n_reactions_in_dual_jump": 129,
+      "dual_uptake_jump": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "dual_jump_L1": 0.7634033074853819,
+      "dual_jump_rxn_ids": [
+       "BIOMASS_Ec_iJO1366_WT_53p95M",
+       "EX_LalaDgluMdap_e",
+       "EX_cpgn_e",
+       "EX_cpgn_un_e",
+       "EX_g3pe_e",
+       "EX_hdca_e",
+       "EX_hdcea_e",
+       "EX_mal__L_e",
+       "EX_ocdca_e",
+       "2AGPEAT160",
+       "2AGPEAT161",
+       "2AGPEAT180"
+      ]
+     }
+    ]
+   },
+   "arms": {
+    "A kappa_mu (flux, all events)": {
+     "n_nonzero": 424,
+     "nonzero": {
+      "label": "A kappa_mu (flux, all events) [nonzero]",
+      "n": 424,
+      "pearson_r": 0.3954,
+      "pearson_p": 2.5828973740050062e-17,
+      "spearman_r": 0.4295,
+      "spearman_p": 1.8487148371088967e-20,
+      "perm_p_mc": 1e-05,
+      "boot_ci95": [
+       0.3199,
+       0.4677
+      ]
+     }
+    },
+    "B1 kappa_vg (value-gated, all kinks)": {
+     "n_nonzero": 424,
+     "nonzero": {
+      "label": "B1 kappa_vg (value-gated, all kinks) [nonzero]",
+      "n": 424,
+      "pearson_r": 0.3954,
+      "pearson_p": 2.5828973740050062e-17,
+      "spearman_r": 0.4295,
+      "spearman_p": 1.8487148371088967e-20,
+      "perm_p_mc": 1e-05,
+      "boot_ci95": [
+       0.3199,
+       0.4677
+      ]
+     }
+    },
+    "B1b kappa_vg (interior kinks only)": {
+     "n_nonzero": 0,
+     "nonzero": {
+      "label": "B1b kappa_vg (interior kinks only) [nonzero]",
+      "n": 0,
+      "pearson_r": null,
+      "n_note": "degenerate predictor (n<3 or zero variance)"
+     }
+    },
+    "B2 kappa_c (c-attribution)": {
+     "n_nonzero": 0,
+     "nonzero": {
+      "label": "B2 kappa_c (c-attribution) [nonzero]",
+      "n": 0,
+      "pearson_r": null,
+      "n_note": "degenerate predictor (n<3 or zero variance)"
+     }
+    },
+    "B3int kappa_dual (interior kinks)": {
+     "n_nonzero": 0,
+     "nonzero": {
+      "label": "B3int kappa_dual (interior kinks) [nonzero]",
+      "n": 0,
+      "pearson_r": null,
+      "n_note": "degenerate predictor (n<3 or zero variance)"
+     }
+    },
+    "B3all kappa_dual (all kinks, V6-comparable)": {
+     "n_nonzero": 51,
+     "nonzero": {
+      "label": "B3all kappa_dual (all kinks, V6-comparable) [nonzero]",
+      "n": 51,
+      "pearson_r": 0.0319,
+      "pearson_p": 0.8241752789858927,
+      "spearman_r": -0.0623,
+      "spearman_p": 0.6641744842717441,
+      "perm_p_mc": 0.82649,
+      "boot_ci95": [
+       -0.2718,
+       0.3159
+      ]
+     }
+    },
+    "kappa_V_lex (engine control)": {
+     "n_nonzero": 424,
+     "nonzero": {
+      "label": "kappa_V_lex (engine control) [nonzero]",
+      "n": 424,
+      "pearson_r": 0.3954,
+      "pearson_p": 2.5828973744263975e-17,
+      "spearman_r": 0.4297,
+      "spearman_p": 1.7468869094262445e-20,
+      "perm_p_mc": 1e-05,
+      "boot_ci95": [
+       0.3199,
+       0.4677
+      ]
+     }
+    }
+   },
+   "partial_r_given_ref_level": {
+    "A kappa_mu": 0.2692
+   }
+  },
+  "P1_oxygen_limitation": {
+   "trajectory_anchors": {
+    "q_glc": [
+     5.0,
+     5.0,
+     5.0,
+     5.0,
+     5.0,
+     5.0,
+     5.0,
+     5.0
+    ],
+    "q_o2": [
+     22.0,
+     19.0,
+     16.0,
+     13.0,
+     10.0,
+     7.0,
+     4.0,
+     1.0
+    ],
+    "q_ac": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "matched_response": "M3D M9_WT_anaerobic vs M9_WT (matched O2 contrast)",
+   "value_kink_census": {
+    "n_grid_points": 57,
+    "refine": 8,
+    "n_value_kinks_total": 3,
+    "n_design_corners": 0,
+    "n_chamber_crossings": 3,
+    "classification_rule": "design corner = kink at a trajectory anchor with uptake shadow prices continuous (jump <= 1e-9); chamber crossing = uptake shadow prices jump (the parameters are the uptake bounds, so grad Phi = (y_glc, y_o2, y_ac))",
+    "value_strain_total": 1.047373539682371,
+    "flux_strain_total": 4406.753668026505,
+    "value_over_flux_mass_ratio": 0.0002376746282147921,
+    "kinks": [
+     {
+      "grid_index": 34,
+      "t": 0.6071428571428571,
+      "t_phys": [
+       5.0,
+       9.25,
+       0.0
+      ],
+      "is_design_corner": false,
+      "is_chamber_crossing": true,
+      "is_at_anchor_position": false,
+      "uptake_dual_jump_max": 0.05488058327270463,
+      "delta_phi_slope": -0.6773904859017561,
+      "flux_L1_slope_jump": 831.3321507413825,
+      "cT_jump": -0.6773904859017561,
+      "coupling_err": 0.0,
+      "n_reactions_in_dual_jump": 819,
+      "dual_uptake_jump": [
+       -0.05488058327270463,
+       0.032256689804845175,
+       -0.0269597499798411
+      ],
+      "dual_jump_L1": 33.16454053390508,
+      "dual_jump_rxn_ids": [
+       "DM_aacald_c",
+       "BIOMASS_Ec_iJO1366_WT_53p95M",
+       "EX_12ppd__S_e",
+       "EX_14glucan_e",
+       "EX_23camp_e",
+       "EX_23ccmp_e",
+       "EX_23cgmp_e",
+       "EX_23cump_e",
+       "EX_23dappa_e",
+       "EX_26dap__M_e",
+       "EX_2ddglcn_e",
+       "EX_34dhpac_e"
+      ]
+     },
+     {
+      "grid_index": 42,
+      "t": 0.75,
+      "t_phys": [
+       5.0,
+       6.25,
+       0.0
+      ],
+      "is_design_corner": false,
+      "is_chamber_crossing": true,
+      "is_at_anchor_position": true,
+      "uptake_dual_jump_max": 0.012761659980126822,
+      "delta_phi_slope": -0.21585008555077545,
+      "flux_L1_slope_jump": 854.3853928399,
+      "cT_jump": -0.21585008555077545,
+      "coupling_err": 0.0,
+      "n_reactions_in_dual_jump": 805,
+      "dual_uptake_jump": [
+       -0.012761659980126822,
+       0.010278575502392286,
+       0.0
+      ],
+      "dual_jump_L1": 7.156914092184545,
+      "dual_jump_rxn_ids": [
+       "DM_aacald_c",
+       "BIOMASS_Ec_iJO1366_WT_53p95M",
+       "EX_12ppd__S_e",
+       "EX_14glucan_e",
+       "EX_23camp_e",
+       "EX_23ccmp_e",
+       "EX_23cgmp_e",
+       "EX_23cump_e",
+       "EX_23dappa_e",
+       "EX_26dap__M_e",
+       "EX_2ddglcn_e",
+       "EX_34dhpac_e"
+      ]
+     },
+     {
+      "grid_index": 51,
+      "t": 0.9107142857142857,
+      "t_phys": [
+       5.0,
+       2.875,
+       0.0
+      ],
+      "is_design_corner": false,
+      "is_chamber_crossing": true,
+      "is_at_anchor_position": false,
+      "uptake_dual_jump_max": 0.0073396651537749324,
+      "delta_phi_slope": -0.15413296822983935,
+      "flux_L1_slope_jump": 988.1471379861332,
+      "cT_jump": -0.15413296822983935,
+      "coupling_err": 0.0,
+      "n_reactions_in_dual_jump": 794,
+      "dual_uptake_jump": [
+       -0.004193154279865621,
+       0.0073396651537749324,
+       0.0
+      ],
+      "dual_jump_L1": 4.047048099689681,
+      "dual_jump_rxn_ids": [
+       "DM_aacald_c",
+       "BIOMASS_Ec_iJO1366_WT_53p95M",
+       "EX_14glucan_e",
+       "EX_23camp_e",
+       "EX_23ccmp_e",
+       "EX_23cgmp_e",
+       "EX_23cump_e",
+       "EX_23dappa_e",
+       "EX_26dap__M_e",
+       "EX_2ddglcn_e",
+       "EX_34dhpac_e",
+       "EX_3amp_e"
+      ]
+     }
+    ]
+   },
+   "arms": {
+    "A kappa_mu (flux, all events)": {
+     "n_nonzero": 426,
+     "nonzero": {
+      "label": "A kappa_mu (flux, all events) [nonzero]",
+      "n": 426,
+      "pearson_r": 0.3183,
+      "pearson_p": 1.745059566512658e-11,
+      "spearman_r": 0.2408,
+      "spearman_p": 4.887094726956698e-07,
+      "perm_p_mc": 1e-05,
+      "boot_ci95": [
+       0.2488,
+       0.3798
+      ]
+     }
+    },
+    "B1 kappa_vg (value-gated, all kinks)": {
+     "n_nonzero": 426,
+     "nonzero": {
+      "label": "B1 kappa_vg (value-gated, all kinks) [nonzero]",
+      "n": 426,
+      "pearson_r": 0.3181,
+      "pearson_p": 1.789236889321275e-11,
+      "spearman_r": 0.2406,
+      "spearman_p": 5.018592767514405e-07,
+      "perm_p_mc": 1e-05,
+      "boot_ci95": [
+       0.2486,
+       0.3798
+      ]
+     }
+    },
+    "B1b kappa_vg (interior kinks only)": {
+     "n_nonzero": 426,
+     "nonzero": {
+      "label": "B1b kappa_vg (interior kinks only) [nonzero]",
+      "n": 426,
+      "pearson_r": 0.3181,
+      "pearson_p": 1.789236889321275e-11,
+      "spearman_r": 0.2406,
+      "spearman_p": 5.018592767514405e-07,
+      "perm_p_mc": 1e-05,
+      "boot_ci95": [
+       0.2486,
+       0.3798
+      ]
+     }
+    },
+    "B2 kappa_c (c-attribution)": {
+     "n_nonzero": 0,
+     "nonzero": {
+      "label": "B2 kappa_c (c-attribution) [nonzero]",
+      "n": 0,
+      "pearson_r": null,
+      "n_note": "degenerate predictor (n<3 or zero variance)"
+     }
+    },
+    "B3int kappa_dual (interior kinks)": {
+     "n_nonzero": 68,
+     "nonzero": {
+      "label": "B3int kappa_dual (interior kinks) [nonzero]",
+      "n": 68,
+      "pearson_r": -0.1698,
+      "pearson_p": 0.1661340466337405,
+      "spearman_r": -0.2662,
+      "spearman_p": 0.02820649422916331,
+      "perm_p_mc": 0.15529,
+      "boot_ci95": [
+       -0.3349,
+       -0.0478
+      ]
+     }
+    },
+    "B3all kappa_dual (all kinks, V6-comparable)": {
+     "n_nonzero": 68,
+     "nonzero": {
+      "label": "B3all kappa_dual (all kinks, V6-comparable) [nonzero]",
+      "n": 68,
+      "pearson_r": -0.1698,
+      "pearson_p": 0.1661340466337405,
+      "spearman_r": -0.2662,
+      "spearman_p": 0.02820649422916331,
+      "perm_p_mc": 0.15529,
+      "boot_ci95": [
+       -0.3349,
+       -0.0478
+      ]
+     }
+    },
+    "kappa_V_lex (engine control)": {
+     "n_nonzero": 426,
+     "nonzero": {
+      "label": "kappa_V_lex (engine control) [nonzero]",
+      "n": 426,
+      "pearson_r": 0.2806,
+      "pearson_p": 3.782908080934825e-09,
+      "spearman_r": 0.2276,
+      "spearman_p": 2.0765437670312364e-06,
+      "perm_p_mc": 1e-05,
+      "boot_ci95": [
+       0.211,
+       0.3417
+      ]
+     }
+    },
+    "A kappa_mu vs E24 carbon response (cross)": {
+     "n_nonzero": 426,
+     "nonzero": {
+      "label": "cross-response [nonzero]",
+      "n": 426,
+      "pearson_r": 0.3783,
+      "pearson_p": 6.094314390789976e-16,
+      "spearman_r": 0.4098,
+      "spearman_p": 1.0960734078449576e-18,
+      "perm_p_mc": 1e-05,
+      "boot_ci95": [
+       0.3033,
+       0.451
+      ]
+     }
+    }
+   },
+   "partial_r_given_ref_level": {
+    "A kappa_mu": 0.2583,
+    "B1b kappa_vg_int": 0.2582,
+    "B3int kappa_dual": -0.1813
+   }
+  },
+  "P2_acetate_switch": {
+   "trajectory_anchors": {
+    "q_glc": [
+     5.0,
+     4.2,
+     3.4,
+     2.7,
+     2.0,
+     1.4,
+     0.8,
+     0.0
+    ],
+    "q_o2": [
+     22.0,
+     22.0,
+     22.0,
+     22.0,
+     22.0,
+     22.0,
+     22.0,
+     22.0
+    ],
+    "q_ac": [
+     0.0,
+     2.0,
+     4.0,
+     5.5,
+     7.0,
+     8.5,
+     9.5,
+     10.0
+    ]
+   },
+   "matched_response": "M3D WT_MOPS_acetate vs WT_MOPS_glucose (matched carbon-switch contrast)",
+   "value_kink_census": {
+    "n_grid_points": 57,
+    "refine": 8,
+    "n_value_kinks_total": 7,
+    "n_design_corners": 3,
+    "n_chamber_crossings": 4,
+    "classification_rule": "design corner = kink at a trajectory anchor with uptake shadow prices continuous (jump <= 1e-9); chamber crossing = uptake shadow prices jump (the parameters are the uptake bounds, so grad Phi = (y_glc, y_o2, y_ac))",
+    "value_strain_total": 0.47415047668737453,
+    "flux_strain_total": 857.3513435361084,
+    "value_over_flux_mass_ratio": 0.0005530410376821263,
+    "kinks": [
+     {
+      "grid_index": 11,
+      "t": 0.19642857142857142,
+      "t_phys": [
+       3.9,
+       22.0,
+       2.75
+      ],
+      "is_design_corner": false,
+      "is_chamber_crossing": true,
+      "is_at_anchor_position": false,
+      "uptake_dual_jump_max": 0.00016410843947958428,
+      "delta_phi_slope": -0.0026930982027262296,
+      "flux_L1_slope_jump": 21.040491428469693,
+      "cT_jump": -0.0026930982027262296,
+      "coupling_err": 0.0,
+      "n_reactions_in_dual_jump": 781,
+      "dual_uptake_jump": [
+       7.063929464934393e-05,
+       0.0,
+       -0.00016410843947958428
+      ],
+      "dual_jump_L1": 0.6328768680929182,
+      "dual_jump_rxn_ids": [
+       "BIOMASS_Ec_iJO1366_WT_53p95M",
+       "EX_12ppd__R_e",
+       "EX_12ppd__S_e",
+       "EX_14glucan_e",
+       "EX_23camp_e",
+       "EX_23ccmp_e",
+       "EX_23cgmp_e",
+       "EX_23cump_e",
+       "EX_23dappa_e",
+       "EX_26dap__M_e",
+       "EX_2ddglcn_e",
+       "EX_3amp_e"
+      ]
+     },
+     {
+      "grid_index": 16,
+      "t": 0.2857142857142857,
+      "t_phys": [
+       3.4,
+       22.0,
+       4.0
+      ],
+      "is_design_corner": true,
+      "is_chamber_crossing": false,
+      "is_at_anchor_position": true,
+      "uptake_dual_jump_max": 0.0,
+      "delta_phi_slope": -0.024054713321997045,
+      "flux_L1_slope_jump": 88.43624555034988,
+      "cT_jump": -0.024054713321997045,
+      "coupling_err": 0.0,
+      "n_reactions_in_dual_jump": 95,
+      "dual_uptake_jump": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "dual_jump_L1": 0.48339376509540205,
+      "dual_jump_rxn_ids": [
+       "BIOMASS_Ec_iJO1366_WT_53p95M",
+       "EX_g3pc_e",
+       "EX_g3pg_e",
+       "EX_g3pi_e",
+       "EX_g3ps_e",
+       "EX_glyc3p_e",
+       "EX_hdca_e",
+       "EX_hdcea_e",
+       "2AGPEAT140",
+       "2AGPEAT141",
+       "2AGPEAT160",
+       "2AGPEAT161"
+      ]
+     },
+     {
+      "grid_index": 25,
+      "t": 0.4464285714285714,
+      "t_phys": [
+       2.6125000000000003,
+       22.0,
+       5.6875
+      ],
+      "is_design_corner": false,
+      "is_chamber_crossing": true,
+      "is_at_anchor_position": true,
+      "uptake_dual_jump_max": 0.00014766769327188844,
+      "delta_phi_slope": -0.0013043461456243577,
+      "flux_L1_slope_jump": 110.00948193321157,
+      "cT_jump": -0.0013043461456243577,
+      "coupling_err": 0.0,
+      "n_reactions_in_dual_jump": 767,
+      "dual_uptake_jump": [
+       0.00014766769327188844,
+       0.0,
+       -5.531185220996118e-05
+      ],
+      "dual_jump_L1": 0.11900018399811332,
+      "dual_jump_rxn_ids": [
+       "BIOMASS_Ec_iJO1366_WT_53p95M",
+       "EX_12ppd__R_e",
+       "EX_12ppd__S_e",
+       "EX_14glucan_e",
+       "EX_23camp_e",
+       "EX_23ccmp_e",
+       "EX_23cgmp_e",
+       "EX_23cump_e",
+       "EX_23dappa_e",
+       "EX_26dap__M_e",
+       "EX_2ddglcn_e",
+       "EX_3amp_e"
+      ]
+     },
+     {
+      "grid_index": 32,
+      "t": 0.5714285714285714,
+      "t_phys": [
+       2.0,
+       22.0,
+       7.0
+      ],
+      "is_design_corner": true,
+      "is_chamber_crossing": false,
+      "is_at_anchor_position": true,
+      "uptake_dual_jump_max": 0.0,
+      "delta_phi_slope": 0.06983339945475109,
+      "flux_L1_slope_jump": 51.15534859471293,
+      "cT_jump": 0.06983339945475109,
+      "coupling_err": 0.0,
+      "n_reactions_in_dual_jump": 0,
+      "dual_uptake_jump": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "dual_jump_L1": 0.0,
+      "dual_jump_rxn_ids": []
+     },
+     {
+      "grid_index": 40,
+      "t": 0.7142857142857142,
+      "t_phys": [
+       1.4,
+       22.0,
+       8.5
+      ],
+      "is_design_corner": true,
+      "is_chamber_crossing": false,
+      "is_at_anchor_position": true,
+      "uptake_dual_jump_max": 9.71445146547012e-17,
+      "delta_phi_slope": -0.09288051614903248,
+      "flux_L1_slope_jump": 144.4957687067198,
+      "cT_jump": -0.09288051614903248,
+      "coupling_err": 0.0,
+      "n_reactions_in_dual_jump": 87,
+      "dual_uptake_jump": [
+       -9.71445146547012e-17,
+       0.0,
+       -3.469446951953614e-18
+      ],
+      "dual_jump_L1": 0.3928279039000703,
+      "dual_jump_rxn_ids": [
+       "BIOMASS_Ec_iJO1366_WT_53p95M",
+       "EX_etha_e",
+       "EX_g3pe_e",
+       "EX_hdcea_e",
+       "2AGPEAT161",
+       "2AGPEAT180",
+       "2AGPEAT181",
+       "2AGPGAT161",
+       "2AGPGAT180",
+       "2AGPGAT181",
+       "APG3PAT140",
+       "APG3PAT180"
+      ]
+     },
+     {
+      "grid_index": 48,
+      "t": 0.8571428571428571,
+      "t_phys": [
+       0.8,
+       22.0,
+       9.5
+      ],
+      "is_design_corner": false,
+      "is_chamber_crossing": true,
+      "is_at_anchor_position": true,
+      "uptake_dual_jump_max": 0.004709856988052014,
+      "delta_phi_slope": -0.26187143260274093,
+      "flux_L1_slope_jump": 267.9155206348552,
+      "cT_jump": -0.26187143260274093,
+      "coupling_err": 0.0,
+      "n_reactions_in_dual_jump": 759,
+      "dual_uptake_jump": [
+       0.004709856988052014,
+       0.0,
+       -0.00041066650759187875
+      ],
+      "dual_jump_L1": 1.8159941410211857,
+      "dual_jump_rxn_ids": [
+       "BIOMASS_Ec_iJO1366_WT_53p95M",
+       "EX_12ppd__R_e",
+       "EX_12ppd__S_e",
+       "EX_14glucan_e",
+       "EX_23camp_e",
+       "EX_23ccmp_e",
+       "EX_23cgmp_e",
+       "EX_23cump_e",
+       "EX_23dappa_e",
+       "EX_26dap__M_e",
+       "EX_2ddglcn_e",
+       "EX_3amp_e"
+      ]
+     },
+     {
+      "grid_index": 54,
+      "t": 0.9642857142857142,
+      "t_phys": [
+       0.19999999999999996,
+       22.0,
+       9.875
+      ],
+      "is_design_corner": false,
+      "is_chamber_crossing": true,
+      "is_at_anchor_position": false,
+      "uptake_dual_jump_max": 0.003782396007121866,
+      "delta_phi_slope": -0.021512970810502408,
+      "flux_L1_slope_jump": 31.227913171867122,
+      "cT_jump": -0.021512970810500853,
+      "coupling_err": 1.5543122344752192e-15,
+      "n_reactions_in_dual_jump": 774,
+      "dual_uptake_jump": [
+       0.003782396007121866,
+       0.0,
+       -9.472947717747981e-05
+      ],
+      "dual_jump_L1": 1.6301146248229574,
+      "dual_jump_rxn_ids": [
+       "BIOMASS_Ec_iJO1366_WT_53p95M",
+       "EX_12ppd__R_e",
+       "EX_12ppd__S_e",
+       "EX_14glucan_e",
+       "EX_23camp_e",
+       "EX_23ccmp_e",
+       "EX_23cgmp_e",
+       "EX_23cump_e",
+       "EX_23dappa_e",
+       "EX_26dap__M_e",
+       "EX_2ddglcn_e",
+       "EX_3amp_e"
+      ]
+     }
+    ]
+   },
+   "arms": {
+    "A kappa_mu (flux, all events)": {
+     "n_nonzero": 426,
+     "nonzero": {
+      "label": "A kappa_mu (flux, all events) [nonzero]",
+      "n": 426,
+      "pearson_r": 0.2234,
+      "pearson_p": 3.220250567521773e-06,
+      "spearman_r": 0.2561,
+      "spearman_p": 8.366508380422115e-08,
+      "perm_p_mc": 2e-05,
+      "boot_ci95": [
+       0.1319,
+       0.3098
+      ]
+     }
+    },
+    "B1 kappa_vg (value-gated, all kinks)": {
+     "n_nonzero": 426,
+     "nonzero": {
+      "label": "B1 kappa_vg (value-gated, all kinks) [nonzero]",
+      "n": 426,
+      "pearson_r": 0.2234,
+      "pearson_p": 3.220250567521773e-06,
+      "spearman_r": 0.2561,
+      "spearman_p": 8.366508380422115e-08,
+      "perm_p_mc": 2e-05,
+      "boot_ci95": [
+       0.1319,
+       0.3098
+      ]
+     }
+    },
+    "B1b kappa_vg (interior kinks only)": {
+     "n_nonzero": 426,
+     "nonzero": {
+      "label": "B1b kappa_vg (interior kinks only) [nonzero]",
+      "n": 426,
+      "pearson_r": 0.2252,
+      "pearson_p": 2.6794895903769916e-06,
+      "spearman_r": 0.2603,
+      "spearman_p": 4.999719340681181e-08,
+      "perm_p_mc": 2e-05,
+      "boot_ci95": [
+       0.1336,
+       0.3117
+      ]
+     }
+    },
+    "B2 kappa_c (c-attribution)": {
+     "n_nonzero": 0,
+     "nonzero": {
+      "label": "B2 kappa_c (c-attribution) [nonzero]",
+      "n": 0,
+      "pearson_r": null,
+      "n_note": "degenerate predictor (n<3 or zero variance)"
+     }
+    },
+    "B3int kappa_dual (interior kinks)": {
+     "n_nonzero": 71,
+     "nonzero": {
+      "label": "B3int kappa_dual (interior kinks) [nonzero]",
+      "n": 71,
+      "pearson_r": 0.0321,
+      "pearson_p": 0.7904739077338613,
+      "spearman_r": -0.0419,
+      "spearman_p": 0.7285427757153171,
+      "perm_p_mc": 0.7928,
+      "boot_ci95": [
+       -0.1663,
+       0.2083
+      ]
+     }
+    },
+    "B3all kappa_dual (all kinks, V6-comparable)": {
+     "n_nonzero": 71,
+     "nonzero": {
+      "label": "B3all kappa_dual (all kinks, V6-comparable) [nonzero]",
+      "n": 71,
+      "pearson_r": -0.0095,
+      "pearson_p": 0.9376305042602782,
+      "spearman_r": -0.0809,
+      "spearman_p": 0.502195192047542,
+      "perm_p_mc": 0.93938,
+      "boot_ci95": [
+       -0.2053,
+       0.1636
+      ]
+     }
+    },
+    "kappa_V_lex (engine control)": {
+     "n_nonzero": 426,
+     "nonzero": {
+      "label": "kappa_V_lex (engine control) [nonzero]",
+      "n": 426,
+      "pearson_r": 0.2387,
+      "pearson_p": 6.18953401134357e-07,
+      "spearman_r": 0.2834,
+      "spearman_p": 2.5987661317310368e-09,
+      "perm_p_mc": 2e-05,
+      "boot_ci95": [
+       0.1466,
+       0.3241
+      ]
+     }
+    },
+    "A kappa_mu vs E24 carbon response (cross)": {
+     "n_nonzero": 426,
+     "nonzero": {
+      "label": "cross-response [nonzero]",
+      "n": 426,
+      "pearson_r": 0.391,
+      "pearson_p": 5.155676219046933e-17,
+      "spearman_r": 0.4334,
+      "spearman_p": 6.2531656766860745e-21,
+      "perm_p_mc": 1e-05,
+      "boot_ci95": [
+       0.3189,
+       0.4616
+      ]
+     }
+    }
+   },
+   "partial_r_given_ref_level": {
+    "A kappa_mu": 0.1598,
+    "B1b kappa_vg_int": 0.1604,
+    "B3int kappa_dual": 0.0075
+   }
+  }
+ }
+}

@@ -4725,3 +4725,89 @@ Stage Summary:
   scripts/journal_manuscript_v2.{tex,pdf} (10 pages). Open: Layer-1+
   porting (now unblocked per advice 4); E32; PRECISE arm; joint
   six-audit write-up.
+
+---
+Task ID: 4 (metric-lock round)
+Agent: main (Super Z)
+Task: Evaluate, verify, strengthen, correct and complete the
+completed-round external evaluation ("Evaluation of the completed
+round" + residual risks + recommended next steps + R/D/E hierarchy,
+received 2026-09-02), then implement; commit and push.
+
+Work Log:
+- Verified the review's premises against committed artifacts:
+  r = +0.3954 / +0.032, one-chamber, Theorem C / Prop S / Prop M all
+  confirmed; found 5 defects in the review (D-R1: "440 reaction
+  events" matches no artifact -- actual 424 nonzero of 433 panel
+  genes, 4 kinks; D-R2: envelope-theorem attribution wrong -- the
+  identity is pointwise optimality Phi = c^T v*, Danskin is the dual
+  side; D-R3: exposed our own v2 E-V6 overstatement mu = Y*q_glc --
+  repaired to the affine law dmu/dq_glc = Y = 0.099544 with
+  intercept -0.0124; D-R4: tie-break "independence" demand ill-posed
+  for the flux layer -- replaced by declared tie-break + c-contraction
+  invariance + measured robustness; D-R5: "+0.032" is the dual arm,
+  the direct value arms are structurally degenerate).
+- Designed and ran V7 (scripts/v7_path_robustness.py; three
+  trajectories on the frozen engine: P0 control, P1 oxygen limitation
+  at q_glc = 5, P2 acetate switch at q_o2 = 22; matched responses:
+  M9_WT_anaerobic vs M9_WT; WT_MOPS_acetate vs glucose): P0
+  reproduces V6 digit-exactly; the one-chamber property FAILS on P1
+  (3 chamber crossings at q_o2 approx 9.3/6.3/2.9, y_o2 jumps +0.032)
+  and P2 (4 crossings, 2 large near the glucose-acetate handoff);
+  the layer decision SURVIVES in the stronger form (c-attribution 0/433
+  on every path; interior dual arms null, -0.17/+0.03; value-gated
+  flux a subset of kappa_mu); the association GENERALIZES (P1 matched
+  anaerobic r = +0.3183, partial +0.2583, p = 6.4e-8; P2 matched
+  acetate r = +0.2234, partial +0.1598; cross-path predictors vs E24
+  r = +0.3783/+0.3910); Theorem C identity 0.0 at all 12 kinks.
+- Caught and repaired V7's own classification defect mid-round: the
+  position-based anchor rule (inherited from V6, adequate there)
+  misclassified P1's genuine crossing at q_o2 approx 6.25 (real dual
+  jumps 0.013/0.010) as an anchor corner; replaced by the chamber
+  test (uptake-shadow-price jump <= 1e-9 = design corner, jump =
+  crossing), re-run; the P0 control confirms the repair changes
+  nothing on the V6 path.
+- Ran the PRECISE-arm replication with the locked metric
+  (scripts/precise_arm_kappamu.py): E24 anchor +0.3954 reproduced;
+  M3D same-platform carbon switches +0.17..+0.21 (all p < 6e-4);
+  PRECISE cross-platform MAX r = -0.0443 NS (per-condition: glycerol
+  +0.126, acetate +0.130, fructose +0.099, galactose -0.088) -- the
+  dissociation is metric-robust; the honest negative stands, now
+  verified with kappa_mu rather than inherited from the precursor.
+- v2 manuscript (journal_manuscript_v2.tex; v21 untouched): [D2]
+  rem:lock (metric lock: carrier, declared lex tie-break, unsigned
+  total-variation masses, value layer as derived diagnostic only,
+  codim-1 Hessian/crease layer assignment, measured robustness); new
+  rem:conventions (explicit signed crease density, Alexandrov
+  extension statement, determinant-law normalizations); E-V6 affine
+  law repaired; new [E-V7] block; E-V5 extended with the PRECISE arm;
+  Layer-1 ports [E-E22]/[E-E23]/[E-E25]/[E-E26]; Discussion
+  "What this paper is and is not" (application, not theorem) +
+  updated Limitations; intro E-series updated; Methods and porting
+  map updated. Recompiled with tectonic: 12 pages, 0 undefined refs.
+- Wrote download/Metric_Lock_and_Path_Robustness_Evaluation.md
+  (verdict table for W1-W3 assessments, residual risks R1-R4, steps
+  1-4; defect dossier D-R1..R5; V7 tables; PRECISE table; v2
+  integration; R/D/E discipline; reproducibility + bug honesty).
+
+Stage Summary:
+- All four review recommendations EXECUTED with corrections folded
+  in; the three closure assessments endorsed; the review's own five
+  defects documented (none conclusion-changing; D-R3 productive --
+  it exposed and triggered the repair of the v2 affine-law
+  overstatement).
+- NEW machine-verified results: the one-chamber property is
+  path-dependent (V7: P1 3 crossings, P2 4) while the layer decision
+  is path-robust in the stronger form (value layer empty or
+  irrelevant on every path); the flux-layer association generalizes
+  to matched oxygen (+0.318) and acetate-switch (+0.223) responses
+  and is trajectory-robust as a predictor (+0.378/+0.391); the
+  PRECISE dissociation is metric-robust.
+- Deliverables: scripts/{v7_probe,v7_path_robustness,
+  precise_arm_kappamu}.py, download/deepseek_bridge/
+  v7_path_robustness.{json,csv,png} + v7_P{0,1,2}_*.csv,
+  precise_arm_kappamu.{json,txt},
+  download/Metric_Lock_and_Path_Robustness_Evaluation.md,
+  scripts/journal_manuscript_v2.{tex,pdf} (12 pages). Open:
+  companion document (categorical/HoTT subset); E32; PRECISE-1K
+  monitoring; journal-format references/figures pass.

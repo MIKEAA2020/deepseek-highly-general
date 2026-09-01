@@ -1,0 +1,179 @@
+{
+ "experiment": "PRECISE-arm replication with the locked metric kappa^mu (V6 run, iJO1366/E22 trajectory)",
+ "predictor": "log10 kappa^mu, n=433 panel (424 nonzero)",
+ "prior_art": "v17/E24 PRECISE carbon-switch arm with the OLD E22 kappa_V predictor: r = -0.0543 (n=433, p=0.26, NS)",
+ "arms": {
+  "E24 carbon-depletion maxFC (M3D stationary)": {
+   "label": "E24 carbon-depletion maxFC (M3D stationary)",
+   "n": 424,
+   "pearson_r": 0.3954,
+   "pearson_p": 2.5828973740050062e-17,
+   "spearman_r": 0.4295,
+   "spearman_p": 1.8487148371088967e-20,
+   "perm_p_mc": 1e-05,
+   "boot_ci95": [
+    0.3199,
+    0.4677
+   ]
+  },
+  "M3D microarray carbon-switch glycerol": {
+   "label": "M3D microarray carbon-switch glycerol",
+   "n": 424,
+   "pearson_r": 0.1949,
+   "pearson_p": 5.343985100249644e-05,
+   "spearman_r": 0.2398,
+   "spearman_p": 5.835330592926312e-07,
+   "perm_p_mc": 7e-05,
+   "boot_ci95": [
+    0.0988,
+    0.2871
+   ]
+  },
+  "M3D microarray carbon-switch acetate": {
+   "label": "M3D microarray carbon-switch acetate",
+   "n": 424,
+   "pearson_r": 0.1664,
+   "pearson_p": 0.000582083636504725,
+   "spearman_r": 0.2389,
+   "spearman_p": 6.445227083430888e-07,
+   "perm_p_mc": 0.00057,
+   "boot_ci95": [
+    0.0725,
+    0.2628
+   ]
+  },
+  "M3D microarray carbon-switch proline": {
+   "label": "M3D microarray carbon-switch proline",
+   "n": 424,
+   "pearson_r": 0.1752,
+   "pearson_p": 0.00028924678292682304,
+   "spearman_r": 0.2137,
+   "spearman_p": 9.01488302763606e-06,
+   "perm_p_mc": 0.00032,
+   "boot_ci95": [
+    0.0874,
+    0.2603
+   ]
+  },
+  "M3D microarray carbon-switch MAX": {
+   "label": "M3D microarray carbon-switch MAX",
+   "n": 424,
+   "pearson_r": 0.2063,
+   "pearson_p": 1.8560892422759892e-05,
+   "spearman_r": 0.306,
+   "spearman_p": 1.2162937072462827e-10,
+   "perm_p_mc": 2e-05,
+   "boot_ci95": [
+    0.1145,
+    0.3
+   ]
+  },
+  "PRECISE RNA-seq carbon-switch galactose": {
+   "label": "PRECISE RNA-seq carbon-switch galactose",
+   "n": 424,
+   "pearson_r": -0.0875,
+   "pearson_p": 0.07187417974311913,
+   "spearman_r": 0.0516,
+   "spearman_p": 0.28907605392269914,
+   "perm_p_mc": 0.0706,
+   "boot_ci95": [
+    -0.1779,
+    0.0216
+   ]
+  },
+  "PRECISE RNA-seq carbon-switch glycerol": {
+   "label": "PRECISE RNA-seq carbon-switch glycerol",
+   "n": 424,
+   "pearson_r": 0.1263,
+   "pearson_p": 0.009214907768251776,
+   "spearman_r": 0.1941,
+   "spearman_p": 5.7604107602781495e-05,
+   "perm_p_mc": 0.00849,
+   "boot_ci95": [
+    0.0307,
+    0.2293
+   ]
+  },
+  "PRECISE RNA-seq carbon-switch acetate (wt_ac)": {
+   "label": "PRECISE RNA-seq carbon-switch acetate (wt_ac)",
+   "n": 424,
+   "pearson_r": 0.1297,
+   "pearson_p": 0.00747939306551899,
+   "spearman_r": 0.1667,
+   "spearman_p": 0.000567335473213503,
+   "perm_p_mc": 0.00734,
+   "boot_ci95": [
+    0.0411,
+    0.2242
+   ]
+  },
+  "PRECISE RNA-seq carbon-switch fructose (wt_fru)": {
+   "label": "PRECISE RNA-seq carbon-switch fructose (wt_fru)",
+   "n": 424,
+   "pearson_r": 0.0985,
+   "pearson_p": 0.042554410939486434,
+   "spearman_r": 0.1076,
+   "spearman_p": 0.02675203874552062,
+   "perm_p_mc": 0.04297,
+   "boot_ci95": [
+    -0.0018,
+    0.2027
+   ]
+  },
+  "PRECISE RNA-seq carbon-switch MAX (10 WT conditions)": {
+   "label": "PRECISE RNA-seq carbon-switch MAX (10 WT conditions)",
+   "n": 424,
+   "pearson_r": -0.0443,
+   "pearson_p": 0.36298962918711924,
+   "spearman_r": 0.095,
+   "spearman_p": 0.05058059730742091,
+   "perm_p_mc": 0.361,
+   "boot_ci95": [
+    -0.1342,
+    0.0489
+   ]
+  }
+ },
+ "partials": {
+  "E24 carbon-depletion maxFC (M3D stationary)": [
+   0.2692,
+   1.7842624480818205e-08
+  ],
+  "M3D microarray carbon-switch glycerol": [
+   0.1128,
+   0.02013114686616022
+  ],
+  "M3D microarray carbon-switch acetate": [
+   0.0931,
+   0.05538650522021167
+  ],
+  "M3D microarray carbon-switch proline": [
+   0.0847,
+   0.08148777187654621
+  ],
+  "M3D microarray carbon-switch MAX": [
+   0.1141,
+   0.018746311937600894
+  ],
+  "PRECISE RNA-seq carbon-switch galactose": [
+   -0.091,
+   0.06105843338190368
+  ],
+  "PRECISE RNA-seq carbon-switch glycerol": [
+   0.1441,
+   0.0029479431119610448
+  ],
+  "PRECISE RNA-seq carbon-switch acetate (wt_ac)": [
+   0.1233,
+   0.011076358240797161
+  ],
+  "PRECISE RNA-seq carbon-switch fructose (wt_fru)": [
+   0.118,
+   0.015092991489570665
+  ],
+  "PRECISE RNA-seq carbon-switch MAX (10 WT conditions)": [
+   -0.0878,
+   0.07102736069058893
+  ]
+ }
+}
