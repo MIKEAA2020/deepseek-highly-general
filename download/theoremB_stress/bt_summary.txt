@@ -1,0 +1,50 @@
+THEOREM B STRESS TEST -- second-order verification
+============================================================
+
+BT1_reproduce_V2a
+-----------------
+"REPRODUCED"
+
+BT2_1d_interpolant
+------------------
+"CONFIRMED"
+
+BT3_counterexample_uxy
+----------------------
+{
+ "percell_exact_quadratic": true,
+ "TV_ratio_entry_limit": 2.9921875,
+ "predicted": 3.0
+}
+
+BT4_convex_counterexample
+-------------------------
+{
+ "percell_exact_quadratic": true,
+ "TV_ratio_entry_limit": 1.3921875,
+ "predicted": 1.4
+}
+
+BT5_aligned_x2
+--------------
+{
+ "percell_exact_quadratic": true,
+ "TV_ratio_entry_limit": 0.9921875,
+ "predicted": 1.0
+}
+
+BT6_generic
+-----------
+"ALIGNED mesh: weak convergence + L1 reconstruction converge (the repaired no-mass-loss statement; matches the LP outer-approximation family case); JITTERED mesh: weak convergence still holds, TV ratio still > 1 (S2 generically false), but the naive 3-facet per-cell reconstruction has an O(jitter)-relative bias (flat ~0.29) -- general meshes require the DDFV dual-diamond pairing (documented caveat, not a defect of the repair theorem)"
+
+BT7_layer_separation
+--------------------
+"(p-1) facet atoms -> D^2 u dvol, unbiased, weak rate ~2 (both mesh families); (p-2) vertex defects -> Gauss-map area density (sec-law bias, EXACT to 0.0% across 13 probes, tilts 0.11-2.83, three directions) -- S1's conflation of the two layers fails at the level of limits; the audit's Route 1 (Regge-Alexandrov) needs the area correction sqrt(1+|grad u|^2) to recover intrinsic curvature"
+
+BT7b_tilt_bias_law
+------------------
+"the (p-2) angle-defect layer is a BIASED estimator of Gaussian curvature: it converges to b(tilt,direction)*K dvol with b >= sec(tilt) > 1 for any nonzero tilt -- S1's conflation fails at the level of limits, and the Regge/angle-defect route (audit Route 1) needs a tilt/stencil correction; the (p-1) Hessian layer is unbiased (weak rate ~2 on both mesh families)"
+
+BT8_m4a_miniature
+-----------------
+"slopes 2.000 (2) and 1.000 (1): M4a's dichotomy reproduced in exact arithmetic -- smooth maps give O(eps^2) loop holonomy, piecewise-affine maps with fixed active sets give O(eps)"

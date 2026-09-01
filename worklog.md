@@ -4420,3 +4420,99 @@ Stage Summary:
   association); E28 under the (eps, sigma) design law; E31 2D census;
   v2 Layer-0 manuscript drafting (the next deliverable, with this file
   as source material); frozen v21 untouched throughout.
+
+---
+Task ID: theoremB-second-order-verification
+Agent: main (Super Z)
+Task: Evaluate, verify (not at face value), augment, strengthen, correct
+and complete the bridge-strength recommendation (pasted final text from
+commit e31fd69: single-manuscript route, Theorem B, kappa^mu, v2
+Layer-0, E32/PRECISE supplementary, v21 frozen); always commit and
+push; respond in English.
+
+Work Log:
+- Git sync: merged origin/main (e31fd69: bridge-strength audit work,
+  M1/M3 execution, root-cause analysis) and pushed bfef312 with PAT;
+  prior local mode-change auto-commit retained.
+- Record cross-check: the pasted recommendation's V2 numbers verified
+  against download/deepseek_bridge/v2_refinement.json (W1 0.0489 ->
+  0.00346, mass ratio 0.930 -> 1.0023) and V5 (r +0.3739 -> +0.3954,
+  partial +0.2692, rho 0.99998). Established that the V2 prototype
+  tests 1D cuts of a CONCAVE min-of-tangent-planes family (one-signed
+  telescoping regime) -- it cannot falsify the general 2D tensor-TV
+  claims of the recommendation's restated Theorem B.
+- Wrote and ran scripts/theoremB_stress_test.py (independent seed
+  20260902, 8 batteries + BT-7b sec-law probe, all vectorized;
+  debugged transposed-gradient solve, cell-index transpose, fixed
+  conormals for jittered meshes, missing dxdy in weak targets).
+  Results (download/theoremB_stress/):
+  * BT-1: V2a reproduced independently (folded W1 0.0582 -> 0.0039,
+    mass ratio 0.9388 -> 1.0009) -- the record's numbers are honest.
+  * BT-2: 1D mixed-sign TV ratios -> 0.997 (Riemann): 1D prototypes
+    cannot falsify TV claims.
+  * BT-3/4/5: exact quadratic atom calculus on the right-triangle
+    mesh: per-cell atom sum = h^2 H to 0.0e+00; TV ratios 3 - 1/n
+    (u=xy, measured 2.9922), 1.4 - 1/n (STRICTLY CONVEX u =
+    2x^2-xy+2y^2, measured 1.3922), 1 - 1/n (aligned u=x^2, 0.9922).
+    The recommendation's TV-convergence claim is FALSE in general,
+    including under convexity; the audit's "mass ratio 1.00" is the
+    aligned special case.
+  * BT-6: generic map, both mesh families: weak convergence at rate
+    2.00/1.99 (KR/flat lower bound -> 0); TV ratio 3.73/4.39; L1
+    reconstruction converges at rate 0.99 on ALIGNED meshes only --
+    on jittered meshes the naive 3-facet patch is not the dual cell
+    (flat 0.29 at 0.22h jitter; DDFV pairing is the general repair).
+  * BT-7/7b: TWO-LAYER SEPARATION with an exact law: the (p-2)
+    angle-defect measure converges weakly to the GAUSS-MAP AREA
+    DENSITY det(D^2u)/(1+|grad u|^2)^(3/2) = K*sqrt(1+|grad u|^2)
+    (curvature per projected area), NOT the intrinsic Gaussian
+    curvature; the bias factor follows the sec law sqrt(1+tilt^2)
+    EXACTLY (0.0% excess across 13 probes, tilts 0.11-2.83, three
+    directions; near-zero tilt 1.0060 vs 1.0061 predicted). The (p-1)
+    Hessian layer is unbiased. This corrects the audit's Route 1
+    (Regge-Alexandrov) and the recommendation's (p-2)-skeleton
+    support claim at the level of limits.
+  * BT-8: M4a dichotomy in exact arithmetic: slopes 2.000 (smooth)
+    vs 1.000 (PWL with fixed kink complex).
+- Defect list of the recommendation's Theorem B as stated: D-A
+  (support claim: (p-2) vs (p-1) skeleton -- false, inconsistent with
+  its own 1D prototype), D-B (TV convergence -- false, exact
+  counterexamples), D-C (proof step 3 invalid; steps 1-2 muddled --
+  the correct proof is two lines via distributional pairing),
+  D-D (W_1 misnamed for signed measures; KR/flat norm is correct),
+  D-E (angle-defect conflation -- sec law), D-F (window law h <<
+  sigma << L_var dropped). All repaired in Theorem B' (B'.1-B'.7),
+  which is strictly stronger than the recommendation's version.
+- Wrote download/TheoremB_Verification_and_Strengthening.md (claim
+  table, defect dossier with machine evidence, repaired theorem B',
+  v2 drafting rules, reproducibility section).
+- Created scripts/journal_manuscript_v2.tex (Layer-0: 7-page compiled
+  PDF via tectonic; R/D/E hierarchy; corrected Theorem B' as the
+  spine with the two-line weak-convergence proof, the TV
+  counterexample remark, the sec-law proposition, the regime
+  dichotomy, Conjecture (mpLP refinement bridge) with the
+  discrete-duality missing assumption identified, V1/M1/M3/M4/V5
+  result blocks, Kochanowski positioning paragraph, Layer-1 porting
+  map; no diary, no version history, no session references). The
+  frozen v21 (10,830 lines) untouched.
+
+Stage Summary:
+- Strategic recommendation (single paper, kappa^mu, v2 Layer-0,
+  freeze v21) ENDORSED; its Theorem B restatement is FALSE in two
+  claims (support, TV convergence) with an invalid proof step, and
+  the V2 evidence regime (1D one-signed telescoping) was structurally
+  unable to detect this -- now documented with exact counterexamples.
+- Repaired theorem B' is strictly stronger: trivial-and-rigorous weak
+  convergence, honest TV statement with counterexample calculus, L1
+  no-mass-loss reconstruction (the true "mass ratio 1.00"), KR norm,
+  restored window law, sharpened mpLP conjecture.
+- NEW machine-verified result: the angle-defect layer follows the
+  exact sec law sqrt(1+|grad u|^2) (Gauss-map area density vs
+  intrinsic curvature) -- corrects the audit's Route 1 and secures
+  the (p-1) Hessian layer as the canonical curvature carrier.
+- Deliverables: scripts/theoremB_stress_test.py,
+  download/theoremB_stress/{bt_results.json, bt_summary.txt,
+  bt_figures.png}, download/TheoremB_Verification_and_Strengthening.md,
+  scripts/journal_manuscript_v2.{tex,pdf} (Layer-0). Open: Layer-1+
+  porting of v21 sections; E32; PRECISE-arm replication; the formal
+  kappa_flux = F[mu] identity.

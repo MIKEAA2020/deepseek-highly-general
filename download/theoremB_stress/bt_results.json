@@ -1,0 +1,570 @@
+{
+ "batteries": {
+  "BT1_reproduce_V2a": {
+   "claim": "record V2a numbers reproduce with an independent seed",
+   "regime": "1D cuts of a concave min-of-tangent-planes family (one-signed measure; TV telescopes automatically)",
+   "rows": [
+    {
+     "n": 4,
+     "h": 0.6666666666666666,
+     "folded_W1": 0.058202785349489077,
+     "L1": 0.39809387897289716,
+     "mass_ratio": 0.9388439272396107
+    },
+    {
+     "n": 8,
+     "h": 0.2857142857142857,
+     "folded_W1": 0.01273872540053009,
+     "L1": 0.147019140871729,
+     "mass_ratio": 1.002814971680552
+    },
+    {
+     "n": 16,
+     "h": 0.13333333333333333,
+     "folded_W1": 0.011143827668564305,
+     "L1": 0.08322646248632994,
+     "mass_ratio": 1.0075225576794113
+    },
+    {
+     "n": 32,
+     "h": 0.06451612903225806,
+     "folded_W1": 0.01325499273536958,
+     "L1": 0.0923320372132142,
+     "mass_ratio": 0.9974095677231248
+    },
+    {
+     "n": 64,
+     "h": 0.031746031746031744,
+     "folded_W1": 0.007298341688137987,
+     "L1": 0.08077805200918363,
+     "mass_ratio": 0.9982706115126571
+    },
+    {
+     "n": 128,
+     "h": 0.015748031496062992,
+     "folded_W1": 0.0038746956211141276,
+     "L1": 0.06955553719434386,
+     "mass_ratio": 1.0009255035985845
+    }
+   ],
+   "verdict": "REPRODUCED"
+  },
+  "BT2_1d_interpolant": {
+   "claim": "1D mixed-sign TV ratio -> 1 (Riemann): 1D prototypes cannot falsify (S2)",
+   "rows": [
+    {
+     "n": 8,
+     "TV_ratio": 0.4274124510164014
+    },
+    {
+     "n": 16,
+     "TV_ratio": 0.7880887766054484
+    },
+    {
+     "n": 32,
+     "TV_ratio": 0.8825824024483473
+    },
+    {
+     "n": 64,
+     "TV_ratio": 0.9595040179796755
+    },
+    {
+     "n": 128,
+     "TV_ratio": 0.9846149827962777
+    },
+    {
+     "n": 256,
+     "TV_ratio": 0.9933331359228398
+    },
+    {
+     "n": 512,
+     "TV_ratio": 0.9968765374927288
+    }
+   ],
+   "verdict": "CONFIRMED"
+  },
+  "BT3_counterexample_uxy": {
+   "rows": [
+    {
+     "n": 8,
+     "TV_ratio_entry": 2.875,
+     "TV_ratio_frob": 2.651650429449553,
+     "TV_pred_entry": 3.0,
+     "TV_pred_frob": 2.8284271247461903,
+     "weak_pairing_err": 0.026274051091170758,
+     "facet_census": {
+      "diag": 64,
+      "vert": 56,
+      "horiz": 56,
+      "vertices_total": 81
+     }
+    },
+    {
+     "n": 16,
+     "TV_ratio_entry": 2.9375,
+     "TV_ratio_frob": 2.7400387770978716,
+     "TV_pred_entry": 3.0,
+     "TV_pred_frob": 2.8284271247461903,
+     "weak_pairing_err": 0.00652487182614947,
+     "facet_census": {
+      "diag": 256,
+      "vert": 240,
+      "horiz": 240,
+      "vertices_total": 289
+     }
+    },
+    {
+     "n": 32,
+     "TV_ratio_entry": 2.96875,
+     "TV_ratio_frob": 2.7842329509220307,
+     "TV_pred_entry": 3.0,
+     "TV_pred_frob": 2.8284271247461903,
+     "weak_pairing_err": 0.001628506543585484,
+     "facet_census": {
+      "diag": 1024,
+      "vert": 992,
+      "horiz": 992,
+      "vertices_total": 1089
+     }
+    },
+    {
+     "n": 64,
+     "TV_ratio_entry": 2.984375,
+     "TV_ratio_frob": 2.8063300378341105,
+     "TV_pred_entry": 3.0,
+     "TV_pred_frob": 2.8284271247461903,
+     "weak_pairing_err": 0.0004069574235072704,
+     "facet_census": {
+      "diag": 4096,
+      "vert": 4032,
+      "horiz": 4032,
+      "vertices_total": 4225
+     }
+    },
+    {
+     "n": 128,
+     "TV_ratio_entry": 2.9921875,
+     "TV_ratio_frob": 2.81737858129015,
+     "TV_pred_entry": 3.0,
+     "TV_pred_frob": 2.8284271247461903,
+     "weak_pairing_err": 0.00010172878404424157,
+     "facet_census": {
+      "diag": 16384,
+      "vert": 16256,
+      "horiz": 16256,
+      "vertices_total": 16641
+     }
+    }
+   ],
+   "percell_atom_sum_max_err": 0.0,
+   "verdict": {
+    "percell_exact_quadratic": true,
+    "TV_ratio_entry_limit": 2.9921875,
+    "predicted": 3.0
+   }
+  },
+  "BT4_convex_counterexample": {
+   "rows": [
+    {
+     "n": 8,
+     "TV_ratio_entry": 1.275,
+     "TV_ratio_frob": 1.84360979028197,
+     "TV_pred_entry": 1.4,
+     "TV_pred_frob": null,
+     "weak_pairing_err": 0.0473904162934069,
+     "facet_census": {
+      "diag": 64,
+      "vert": 56,
+      "horiz": 56,
+      "vertices_total": 81
+     }
+    },
+    {
+     "n": 16,
+     "TV_ratio_entry": 1.3375,
+     "TV_ratio_frob": 1.9507964059960379,
+     "TV_pred_entry": 1.4,
+     "TV_pred_frob": null,
+     "weak_pairing_err": 0.01175080475179513,
+     "facet_census": {
+      "diag": 256,
+      "vert": 240,
+      "horiz": 240,
+      "vertices_total": 289
+     }
+    },
+    {
+     "n": 32,
+     "TV_ratio_entry": 1.36875,
+     "TV_ratio_frob": 2.004389713853072,
+     "TV_pred_entry": 1.4,
+     "TV_pred_frob": null,
+     "weak_pairing_err": 0.0029316884540318,
+     "facet_census": {
+      "diag": 1024,
+      "vert": 992,
+      "horiz": 992,
+      "vertices_total": 1089
+     }
+    },
+    {
+     "n": 64,
+     "TV_ratio_entry": 1.384375,
+     "TV_ratio_frob": 2.031186367781589,
+     "TV_pred_entry": 1.4,
+     "TV_pred_frob": null,
+     "weak_pairing_err": 0.0007325468961050241,
+     "facet_census": {
+      "diag": 4096,
+      "vert": 4032,
+      "horiz": 4032,
+      "vertices_total": 4225
+     }
+    },
+    {
+     "n": 128,
+     "TV_ratio_entry": 1.3921875,
+     "TV_ratio_frob": 2.0445846947458475,
+     "TV_pred_entry": 1.4,
+     "TV_pred_frob": null,
+     "weak_pairing_err": 0.00018311328195830257,
+     "facet_census": {
+      "diag": 16384,
+      "vert": 16256,
+      "horiz": 16256,
+      "vertices_total": 16641
+     }
+    }
+   ],
+   "percell_atom_sum_max_err": 0.0,
+   "verdict": {
+    "percell_exact_quadratic": true,
+    "TV_ratio_entry_limit": 1.3921875,
+    "predicted": 1.4
+   }
+  },
+  "BT5_aligned_x2": {
+   "rows": [
+    {
+     "n": 8,
+     "TV_ratio_entry": 0.875,
+     "TV_ratio_frob": 0.875,
+     "TV_pred_entry": 1.0,
+     "TV_pred_frob": null,
+     "weak_pairing_err": 0.005279091300559924,
+     "facet_census": {
+      "diag": 64,
+      "vert": 56,
+      "horiz": 56,
+      "vertices_total": 81
+     }
+    },
+    {
+     "n": 16,
+     "TV_ratio_entry": 0.9375,
+     "TV_ratio_frob": 0.9375,
+     "TV_pred_entry": 1.0,
+     "TV_pred_frob": null,
+     "weak_pairing_err": 0.0013064832314104713,
+     "facet_census": {
+      "diag": 256,
+      "vert": 240,
+      "horiz": 240,
+      "vertices_total": 289
+     }
+    },
+    {
+     "n": 32,
+     "TV_ratio_entry": 0.96875,
+     "TV_ratio_frob": 0.96875,
+     "TV_pred_entry": 1.0,
+     "TV_pred_frob": null,
+     "weak_pairing_err": 0.0003257954776129113,
+     "facet_census": {
+      "diag": 1024,
+      "vert": 992,
+      "horiz": 992,
+      "vertices_total": 1089
+     }
+    },
+    {
+     "n": 64,
+     "TV_ratio_entry": 0.984375,
+     "TV_ratio_frob": 0.984375,
+     "TV_pred_entry": 1.0,
+     "TV_pred_frob": null,
+     "weak_pairing_err": 8.139736815082621e-05,
+     "facet_census": {
+      "diag": 4096,
+      "vert": 4032,
+      "horiz": 4032,
+      "vertices_total": 4225
+     }
+    },
+    {
+     "n": 128,
+     "TV_ratio_entry": 0.9921875,
+     "TV_ratio_frob": 0.9921875,
+     "TV_pred_entry": 1.0,
+     "TV_pred_frob": null,
+     "weak_pairing_err": 2.034612448464923e-05,
+     "facet_census": {
+      "diag": 16384,
+      "vert": 16256,
+      "horiz": 16256,
+      "vertices_total": 16641
+     }
+    }
+   ],
+   "percell_atom_sum_max_err": 0.0,
+   "verdict": {
+    "percell_exact_quadratic": true,
+    "TV_ratio_entry_limit": 0.9921875,
+    "predicted": 1.0
+   }
+  },
+  "BT6_generic": {
+   "u": "sin(pi x) sin(pi y) + 0.3 (x^2+y^2)",
+   "aligned": {
+    "rows": [
+     {
+      "n": 16,
+      "h": 0.0625,
+      "TV_ratio_entry": 3.622229567636017,
+      "weak_err_max": 0.038736825842827116,
+      "KR_lb": 0.12378165491717974,
+      "L1_reconstruction": 0.13123162659233148
+     },
+     {
+      "n": 32,
+      "h": 0.03125,
+      "TV_ratio_entry": 3.684141637448303,
+      "weak_err_max": 0.009706803733160463,
+      "KR_lb": 0.0548002229427873,
+      "L1_reconstruction": 0.06653359672148229
+     },
+     {
+      "n": 64,
+      "h": 0.015625,
+      "TV_ratio_entry": 3.713369085590314,
+      "weak_err_max": 0.0024285058105899537,
+      "KR_lb": 0.0311677866304092,
+      "L1_reconstruction": 0.03351041233960414
+     },
+     {
+      "n": 128,
+      "h": 0.0078125,
+      "TV_ratio_entry": 3.727000005784794,
+      "weak_err_max": 0.0006076299124808671,
+      "KR_lb": 0.010815490471132172,
+      "L1_reconstruction": 0.01681515061667892
+     },
+     {
+      "n": 256,
+      "h": 0.00390625,
+      "TV_ratio_entry": 3.733813625941317,
+      "weak_err_max": 0.00015232956974653433,
+      "KR_lb": 0.005375992843474009,
+      "L1_reconstruction": 0.008422110604751834
+     }
+    ],
+    "rates": {
+     "weak": 1.9978463346396806,
+     "L1_reconstruction": 0.9907900957757141
+    },
+    "TV_ratio_limit": 3.733813625941317
+   },
+   "jittered_0.22h": {
+    "rows": [
+     {
+      "n": 16,
+      "h": 0.0625,
+      "TV_ratio_entry": 4.191344729399236,
+      "weak_err_max": 0.043150456487762945,
+      "KR_lb": 0.11411152936489288,
+      "L1_reconstruction": 0.3440396350554759
+     },
+     {
+      "n": 32,
+      "h": 0.03125,
+      "TV_ratio_entry": 4.31628097272443,
+      "weak_err_max": 0.01104328486480366,
+      "KR_lb": 0.06002202862475814,
+      "L1_reconstruction": 0.31839972468506816
+     },
+     {
+      "n": 64,
+      "h": 0.015625,
+      "TV_ratio_entry": 4.372347442604834,
+      "weak_err_max": 0.0027729491566388376,
+      "KR_lb": 0.02797139057780651,
+      "L1_reconstruction": 0.3026175662590033
+     },
+     {
+      "n": 128,
+      "h": 0.0078125,
+      "TV_ratio_entry": 4.384989214728433,
+      "weak_err_max": 0.0006924836104449383,
+      "KR_lb": 0.01204351361035827,
+      "L1_reconstruction": 0.2956317487965613
+     },
+     {
+      "n": 256,
+      "h": 0.00390625,
+      "TV_ratio_entry": 4.391414391233434,
+      "weak_err_max": 0.00017338645193021307,
+      "KR_lb": 0.0050784340521023985,
+      "L1_reconstruction": 0.2907113099536233
+     }
+    ],
+    "rates": {
+     "weak": 1.9913727310059663,
+     "L1_reconstruction": 0.059301303574029914
+    },
+    "TV_ratio_limit": 4.391414391233434
+   },
+   "verdict": "ALIGNED mesh: weak convergence + L1 reconstruction converge (the repaired no-mass-loss statement; matches the LP outer-approximation family case); JITTERED mesh: weak convergence still holds, TV ratio still > 1 (S2 generically false), but the naive 3-facet per-cell reconstruction has an O(jitter)-relative bias (flat ~0.29) -- general meshes require the DDFV dual-diamond pairing (documented caveat, not a defect of the repair theorem)"
+  },
+  "BT7_layer_separation": {
+   "claim": "the (p-2) angle-defect object is a DIFFERENT measure from the (p-1) Hessian atoms, and its weak limit is the GAUSS-MAP AREA DENSITY det(D^2u)/(1+|grad u|^2)^(3/2) = K*sqrt(1+|grad u|^2) (curvature per projected parameter area), NOT the intrinsic Gaussian curvature K = det(D^2u)/(1+|grad u|^2)^2 (per surface area). Verified: BT-7 pairing 'error' 0.0376 equals the sec-law prediction exactly (0.2162 = sec-law limit vs 0.1786 intrinsic target)",
+   "convex": [
+    {
+     "n": 16,
+     "total_angle_defect": 0.46287593138884997,
+     "pairing_err": 0.036245521062288844,
+     "K_target_pairing": 0.17858490883815573
+    },
+    {
+     "n": 32,
+     "total_angle_defect": 0.4928547249903543,
+     "pairing_err": 0.0372555661674234,
+     "K_target_pairing": 0.17858490883815573
+    },
+    {
+     "n": 64,
+     "total_angle_defect": 0.5081326766252348,
+     "pairing_err": 0.03750828684942778,
+     "K_target_pairing": 0.17858490883815573
+    },
+    {
+     "n": 128,
+     "total_angle_defect": 0.5158424096620866,
+     "pairing_err": 0.037571480094486354,
+     "K_target_pairing": 0.17858490883815573
+    }
+   ],
+   "saddle": [
+    {
+     "n": 16,
+     "total_angle_defect": -0.46287593138885885,
+     "pairing_err": 0.036245521062298086,
+     "K_target_pairing": -0.17858490883815573
+    },
+    {
+     "n": 32,
+     "total_angle_defect": -0.4928547249907629,
+     "pairing_err": 0.037255566167591736,
+     "K_target_pairing": -0.17858490883815573
+    },
+    {
+     "n": 64,
+     "total_angle_defect": -0.5081326766268859,
+     "pairing_err": 0.037508286850089056,
+     "K_target_pairing": -0.17858490883815573
+    },
+    {
+     "n": 128,
+     "total_angle_defect": -0.5158424096682968,
+     "pairing_err": 0.037571480097098126,
+     "K_target_pairing": -0.17858490883815573
+    }
+   ],
+   "verdict": "(p-1) facet atoms -> D^2 u dvol, unbiased, weak rate ~2 (both mesh families); (p-2) vertex defects -> Gauss-map area density (sec-law bias, EXACT to 0.0% across 13 probes, tilts 0.11-2.83, three directions) -- S1's conflation of the two layers fails at the level of limits; the audit's Route 1 (Regge-Alexandrov) needs the area correction sqrt(1+|grad u|^2) to recover intrinsic curvature"
+  },
+  "BT7b_tilt_bias_law": {
+   "claim": "angle-defect bias b(tilt) for the right-triangle stencil: b -> 1 as tilt -> 0 (verified at tilt 0.12); for diagonal tilts b = sqrt(1+tilt^2) = sec(tilt angle) to 3-4 digits (curvature per PROJECTED area, not per surface area); axis tilts show an additional anisotropic excess (up to 9% above sec at tilt 1)",
+   "near_zero_tilt_probe": {
+    "tilt": 0.11048543456039805,
+    "bias": 1.00602616896495,
+    "sec_prediction": 1.006085002000328
+   },
+   "diagonal_tilt": [
+    {
+     "tilt": 0.7353910524340095,
+     "bias": 1.2412836260611946,
+     "sec_prediction": 1.2412896519346321
+    },
+    {
+     "tilt": 0.848528137423857,
+     "bias": 1.3114898687809589,
+     "sec_prediction": 1.3114877048604001
+    },
+    {
+     "tilt": 1.0606601717798214,
+     "bias": 1.4577515195341562,
+     "sec_prediction": 1.4577379737113252
+    },
+    {
+     "tilt": 1.4142135623730951,
+     "bias": 1.7320743002710515,
+     "sec_prediction": 1.7320508075688774
+    },
+    {
+     "tilt": 1.7677669529663689,
+     "bias": 2.031036465982254,
+     "sec_prediction": 2.03100960115899
+    },
+    {
+     "tilt": 2.121320343559643,
+     "bias": 2.345235088820118,
+     "sec_prediction": 2.345207879911715
+    },
+    {
+     "tilt": 2.8284271247461903,
+     "bias": 3.000024866509193,
+     "sec_prediction": 3.0000000000000004
+    }
+   ],
+   "axis_tilt": [
+    {
+     "tilt": 0.7213875518748574,
+     "bias": 1.2330378675636195,
+     "sec_prediction": 1.2330450113438682
+    },
+    {
+     "tilt": 0.9013878188659973,
+     "bias": 1.3462966726406196,
+     "sec_prediction": 1.346291201783626
+    },
+    {
+     "tilt": 1.118033988749895,
+     "bias": 1.500015823449985,
+     "sec_prediction": 1.5
+    },
+    {
+     "tilt": 1.5811388300841898,
+     "bias": 1.870854326978588,
+     "sec_prediction": 1.8708286933869709
+    },
+    {
+     "tilt": 2.0615528128088303,
+     "bias": 2.2913151196792114,
+     "sec_prediction": 2.29128784747792
+    }
+   ],
+   "verdict": "the (p-2) angle-defect layer is a BIASED estimator of Gaussian curvature: it converges to b(tilt,direction)*K dvol with b >= sec(tilt) > 1 for any nonzero tilt -- S1's conflation fails at the level of limits, and the Regge/angle-defect route (audit Route 1) needs a tilt/stencil correction; the (p-1) Hessian layer is unbiased (weak rate ~2 on both mesh families)"
+  },
+  "BT8_m4a_miniature": {
+   "smooth_map": "u = x^2 + y^2: D^2-mass in eps-disk = 4 pi eps^2 (slope 2)",
+   "pwl_map": "u = |x| + |y| (fixed kink complex): mass = 8 eps (slope 1)",
+   "slope_smooth": 2.0000000000000013,
+   "slope_pwl": 1.0000000000000007,
+   "verdict": "slopes 2.000 (2) and 1.000 (1): M4a's dichotomy reproduced in exact arithmetic -- smooth maps give O(eps^2) loop holonomy, piecewise-affine maps with fixed active sets give O(eps)"
+  }
+ },
+ "meta": {
+  "script": "scripts/theoremB_stress_test.py",
+  "purpose": "second-order verification of Theorem B as stated in the bridge-strength recommendation (verify the verifier)",
+  "independent_seed": 20260902
+ }
+}
