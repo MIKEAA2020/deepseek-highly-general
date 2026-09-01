@@ -1,0 +1,207 @@
+{
+ "experiment": "V5 E24 recalibration with the measure-theoretic kappa (the audit's decisive test)",
+ "engine": "lex-pFBA (seed 20240901), iJO1366, E22 physiology",
+ "predictors": {
+  "kappa_V_E22": "E22 artifact (plain FBA, squared displacement)",
+  "kappa_V_lex": "E22 definition on the deterministic lex trajectory (engine control)",
+  "kappa_mu": "measure mass: sum_t |D2|/dt per reaction, per-gene max (definition change)"
+ },
+ "arms": {
+  "kappa_V_E22 (baseline)": {
+   "all": {
+    "label": "kappa_V_E22 (baseline) [all n]",
+    "n": 433,
+    "pearson_r": 0.3739,
+    "pearson_p": 8.176722988556612e-16,
+    "spearman_r": 0.3991,
+    "spearman_p": 5.5564684654552105e-18,
+    "perm_p_mc": 1e-05,
+    "boot_ci95": [
+     0.2986,
+     0.4464
+    ]
+   },
+   "nonzero": {
+    "label": "kappa_V_E22 (baseline) [nonzero]",
+    "n": 433,
+    "pearson_r": 0.3739,
+    "pearson_p": 8.176722988556612e-16,
+    "spearman_r": 0.3991,
+    "spearman_p": 5.5564684654552105e-18,
+    "perm_p_mc": 1e-05,
+    "boot_ci95": [
+     0.2986,
+     0.4464
+    ]
+   },
+   "n_nonzero": 433,
+   "spearman_raw_full_panel": [
+    0.39986383371572776,
+    4.696107489633528e-18
+   ]
+  },
+  "kappa_V_lex (engine ctrl)": {
+   "all": {
+    "label": "kappa_V_lex (engine ctrl) [all n]",
+    "n": 424,
+    "pearson_r": 0.3954,
+    "pearson_p": 2.5828973744263975e-17,
+    "spearman_r": 0.4297,
+    "spearman_p": 1.7468869094262445e-20,
+    "perm_p_mc": 1e-05,
+    "boot_ci95": [
+     0.3199,
+     0.4677
+    ]
+   },
+   "nonzero": {
+    "label": "kappa_V_lex (engine ctrl) [nonzero]",
+    "n": 424,
+    "pearson_r": 0.3954,
+    "pearson_p": 2.5828973744263975e-17,
+    "spearman_r": 0.4297,
+    "spearman_p": 1.7468869094262445e-20,
+    "perm_p_mc": 1e-05,
+    "boot_ci95": [
+     0.3199,
+     0.4677
+    ]
+   },
+   "n_nonzero": 424,
+   "spearman_raw_full_panel": [
+    0.4138975233591196,
+    2.377929571659643e-19
+   ]
+  },
+  "kappa_mu max (4x)": {
+   "all": {
+    "label": "kappa_mu max (4x) [all n]",
+    "n": 424,
+    "pearson_r": 0.3954,
+    "pearson_p": 2.5828973602451418e-17,
+    "spearman_r": 0.4296,
+    "spearman_p": 1.7889621622519866e-20,
+    "perm_p_mc": 1e-05,
+    "boot_ci95": [
+     0.3199,
+     0.4677
+    ]
+   },
+   "nonzero": {
+    "label": "kappa_mu max (4x) [nonzero]",
+    "n": 424,
+    "pearson_r": 0.3954,
+    "pearson_p": 2.5828973602451418e-17,
+    "spearman_r": 0.4296,
+    "spearman_p": 1.7889621622519866e-20,
+    "perm_p_mc": 1e-05,
+    "boot_ci95": [
+     0.3199,
+     0.4677
+    ]
+   },
+   "n_nonzero": 424,
+   "spearman_raw_full_panel": [
+    0.4137964223483649,
+    2.4308190047256103e-19
+   ]
+  },
+  "kappa_mu sum (4x ctrl)": {
+   "all": {
+    "label": "kappa_mu sum (4x ctrl) [all n]",
+    "n": 424,
+    "pearson_r": 0.3909,
+    "pearson_p": 6.256669221492905e-17,
+    "spearman_r": 0.4205,
+    "spearman_p": 1.3614790059297055e-19,
+    "perm_p_mc": 1e-05,
+    "boot_ci95": [
+     0.3158,
+     0.4634
+    ]
+   },
+   "nonzero": {
+    "label": "kappa_mu sum (4x ctrl) [nonzero]",
+    "n": 424,
+    "pearson_r": 0.3909,
+    "pearson_p": 6.256669221492905e-17,
+    "spearman_r": 0.4205,
+    "spearman_p": 1.3614790059297055e-19,
+    "perm_p_mc": 1e-05,
+    "boot_ci95": [
+     0.3158,
+     0.4634
+    ]
+   },
+   "n_nonzero": 424,
+   "spearman_raw_full_panel": [
+    0.40496918188566117,
+    1.6125193534862575e-18
+   ]
+  },
+  "kappa_mu max (8x)": {
+   "label": "kappa_mu max [4x refinement, all n]",
+   "n": 424,
+   "pearson_r": 0.3954,
+   "pearson_p": 2.5828973712231342e-17,
+   "spearman_r": 0.4299,
+   "spearman_p": 1.6724920016433446e-20,
+   "perm_p_mc": 1e-05,
+   "boot_ci95": [
+    0.3199,
+    0.4677
+   ]
+  },
+  "confound_control": {
+   "r_kappamu_vs_reflevel": 0.3032,
+   "r_fc_vs_reflevel": 0.6984,
+   "partial_r_kappamu_fc_given_reflevel": 0.2692,
+   "partial_p": 1.7842624416418214e-08
+  },
+  "deciles": {
+   "top_decile_mean_fc": 1.9226806122448978,
+   "bottom_decile_mean_fc": 0.8896738260869566,
+   "mannwhitney_p_one_sided": 1.305481931998881e-07
+  },
+  "zero_contrast": {
+   "n_zero": 9,
+   "mean_fc_zero": 1.2961623333333334,
+   "mean_fc_nonzero": 1.3188392641509434,
+   "mwu_p": 0.8854918643060271
+  },
+  "predictor_agreement": {
+   "spearman_kappamu_vs_kappaVE22": [
+    0.9320254661451878,
+    4.180738143765575e-192
+   ],
+   "spearman_kappamu_vs_kappaVlex": [
+    0.9999774110894653,
+    0.0
+   ],
+   "spearman_kappaVlex_vs_kappaVE22": [
+    0.9320367750779741,
+    4.0385326019467176e-192
+   ]
+  }
+ },
+ "trajectory": {
+  "refine_4": {
+   "total_D2": 288.76892298801954,
+   "n_events_rxns": 440,
+   "affine_resid": 0.13501012640949206,
+   "dt": 0.03571428571428571
+  },
+  "refine_8": {
+   "total_D2": 288.76892303855567,
+   "n_events_rxns": 440,
+   "affine_resid": 0.06750506320526206,
+   "dt": 0.017857142857142856
+  }
+ },
+ "verdict": {
+  "baseline_reproduced": 0.3739,
+  "measure_theoretic_r": 0.3954,
+  "engine_control_r": 0.3954,
+  "note": "see the evaluation document for the interpretation"
+ }
+}

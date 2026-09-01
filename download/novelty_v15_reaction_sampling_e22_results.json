@@ -1,0 +1,300 @@
+{
+ "study": "v15 reaction-based sampling (Option C, E22)",
+ "n_reactions_total": 2583,
+ "n_active_reactions": 438,
+ "n_kappa_nonzero_reactions": 437,
+ "n_model_genes": 1367,
+ "n_panel_genes": 435,
+ "n_kappa_panel_genes": 435,
+ "checks": {
+  "C_map_gpr_ok": true,
+  "C_def_consistent": true,
+  "C_def_r_unmasked": -0.06334628128456718,
+  "C_def_r_v12": 0.10236053268696331,
+  "C_def_r_v13": 0.08382577088709309,
+  "C_dist_overlap_mapped15": [
+   "b2097"
+  ],
+  "C_dist_overlap_lemuth92": [
+   "b2097"
+  ],
+  "C_dist_distinct_genes": 434,
+  "C_var_all_positive": true,
+  "C_var_zero_fraction_excluded": 0.0
+ },
+ "distribution": {
+  "quantiles_25_50_75_90_95_99": [
+   1.0139004858085176e-06,
+   0.006040542598249923,
+   0.15126294689161512,
+   16.0,
+   157.4182345272644,
+   466.6299963622043
+  ],
+  "lognormal_mu": -3.044030554608151,
+  "lognormal_sigma": 3.4342728064939454,
+  "ks_stat": 0.09608373354611272,
+  "ks_p": 0.0006018952952887429,
+  "top1pct_share": 0.18041769533584204,
+  "top5pct_share": 0.7647910288245907,
+  "top10pct_share": 0.97355223897321,
+  "gini": 0.9315127282065049,
+  "hill_alpha_m50": 0.42655755667768125
+ },
+ "correlation_lemuth_overlap": {
+  "n": 1,
+  "computable": false,
+  "note": "Lemuth panel and active-reaction gene set are nearly disjoint; per-gene Pearson r not computable at meaningful n on local data"
+ },
+ "gpr_class_stats": {
+  "single": {
+   "n_reactions": 254,
+   "median_kappa": 0.000512272986043631,
+   "mean_kappa": 1.0997664788152404,
+   "max_kappa": 58.60772736440951
+  },
+  "isozyme-or": {
+   "n_reactions": 96,
+   "median_kappa": 0.020079580585957088,
+   "mean_kappa": 9.376001226192516,
+   "max_kappa": 330.19505587154964
+  },
+  "complex-and": {
+   "n_reactions": 36,
+   "median_kappa": 0.0005789483021511228,
+   "mean_kappa": 9.618407700016698,
+   "max_kappa": 185.18926892869518
+  },
+  "mixed": {
+   "n_reactions": 18,
+   "median_kappa": 0.0009954581971663937,
+   "mean_kappa": 26.82276593204922,
+   "max_kappa": 466.6299963622043
+  },
+  "no-gpr": {
+   "n_reactions": 34,
+   "median_kappa": 4.295254891668809e-06,
+   "mean_kappa": 14.263938565801366,
+   "max_kappa": 330.1950558715495
+  }
+ },
+ "subsystem_top15": [
+  {
+   "subsystem": "Oxidative Phosphorylation",
+   "total_kappa_V": 802.3799910589966,
+   "n_active_rxns": 6,
+   "n_genes": 34
+  },
+  {
+   "subsystem": "(unassigned)",
+   "total_kappa_V": 483.325405368938,
+   "n_active_rxns": 25,
+   "n_genes": 0
+  },
+  {
+   "subsystem": "Transport, Outer Membrane Porin",
+   "total_kappa_V": 467.1668621745918,
+   "n_active_rxns": 19,
+   "n_genes": 8
+  },
+  {
+   "subsystem": "Transport, Inner Membrane",
+   "total_kappa_V": 404.8032874541754,
+   "n_active_rxns": 10,
+   "n_genes": 13
+  },
+  {
+   "subsystem": "Glycolysis/Gluconeogenesis",
+   "total_kappa_V": 193.65027140531674,
+   "n_active_rxns": 10,
+   "n_genes": 18
+  },
+  {
+   "subsystem": "Inorganic Ion Transport and Metabolism",
+   "total_kappa_V": 64.97929136951724,
+   "n_active_rxns": 15,
+   "n_genes": 24
+  },
+  {
+   "subsystem": "Citric Acid Cycle",
+   "total_kappa_V": 23.692962866830563,
+   "n_active_rxns": 9,
+   "n_genes": 13
+  },
+  {
+   "subsystem": "Transport, Outer Membrane",
+   "total_kappa_V": 16.0,
+   "n_active_rxns": 1,
+   "n_genes": 4
+  },
+  {
+   "subsystem": "Glutamate Metabolism",
+   "total_kappa_V": 12.114286247283987,
+   "n_active_rxns": 2,
+   "n_genes": 3
+  },
+  {
+   "subsystem": "Pentose Phosphate Pathway",
+   "total_kappa_V": 10.913263970576558,
+   "n_active_rxns": 8,
+   "n_genes": 11
+  },
+  {
+   "subsystem": "Alternate Carbon Metabolism",
+   "total_kappa_V": 4.897410559449468,
+   "n_active_rxns": 6,
+   "n_genes": 9
+  },
+  {
+   "subsystem": "Glycine and Serine Metabolism",
+   "total_kappa_V": 1.6013883527009065,
+   "n_active_rxns": 4,
+   "n_genes": 4
+  },
+  {
+   "subsystem": "Alanine and Aspartate Metabolism",
+   "total_kappa_V": 1.5283885364202352,
+   "n_active_rxns": 4,
+   "n_genes": 6
+  },
+  {
+   "subsystem": "Anaplerotic Reactions",
+   "total_kappa_V": 1.3884892042596375,
+   "n_active_rxns": 2,
+   "n_genes": 3
+  },
+  {
+   "subsystem": "Histidine Metabolism",
+   "total_kappa_V": 0.8331119834101907,
+   "n_active_rxns": 10,
+   "n_genes": 9
+  }
+ ],
+ "direction_test": {
+  "pass": "14",
+  "total": 21,
+  "rate": 0.6666666666666666
+ },
+ "top20_genes": [
+  {
+   "gene": "b3731",
+   "name": "b3731",
+   "kappa_max": 466.6299963622043,
+   "subsystem": "Oxidative Phosphorylation"
+  },
+  {
+   "gene": "b3732",
+   "name": "b3732",
+   "kappa_max": 466.6299963622043,
+   "subsystem": "Oxidative Phosphorylation"
+  },
+  {
+   "gene": "b3733",
+   "name": "b3733",
+   "kappa_max": 466.6299963622043,
+   "subsystem": "Oxidative Phosphorylation"
+  },
+  {
+   "gene": "b3734",
+   "name": "b3734",
+   "kappa_max": 466.6299963622043,
+   "subsystem": "Oxidative Phosphorylation"
+  },
+  {
+   "gene": "b3735",
+   "name": "b3735",
+   "kappa_max": 466.6299963622043,
+   "subsystem": "Oxidative Phosphorylation"
+  },
+  {
+   "gene": "b3736",
+   "name": "b3736",
+   "kappa_max": 466.6299963622043,
+   "subsystem": "Oxidative Phosphorylation"
+  },
+  {
+   "gene": "b3737",
+   "name": "b3737",
+   "kappa_max": 466.6299963622043,
+   "subsystem": "Oxidative Phosphorylation"
+  },
+  {
+   "gene": "b3738",
+   "name": "b3738",
+   "kappa_max": 466.6299963622043,
+   "subsystem": "Oxidative Phosphorylation"
+  },
+  {
+   "gene": "b3739",
+   "name": "b3739",
+   "kappa_max": 466.6299963622043,
+   "subsystem": "Oxidative Phosphorylation"
+  },
+  {
+   "gene": "b0875",
+   "name": "b0875",
+   "kappa_max": 330.19505587154964,
+   "subsystem": "Transport, Inner Membrane"
+  },
+  {
+   "gene": "s0001",
+   "name": "s0001",
+   "kappa_max": 330.19505587154964,
+   "subsystem": "Transport, Inner Membrane"
+  },
+  {
+   "gene": "b0241",
+   "name": "b0241",
+   "kappa_max": 330.1950558715495,
+   "subsystem": "Transport, Outer Membrane Porin"
+  },
+  {
+   "gene": "b0929",
+   "name": "b0929",
+   "kappa_max": 330.1950558715495,
+   "subsystem": "Transport, Outer Membrane Porin"
+  },
+  {
+   "gene": "b0957",
+   "name": "b0957",
+   "kappa_max": 330.1950558715495,
+   "subsystem": "Transport, Outer Membrane Porin"
+  },
+  {
+   "gene": "b1319",
+   "name": "b1319",
+   "kappa_max": 330.1950558715495,
+   "subsystem": "Transport, Outer Membrane Porin"
+  },
+  {
+   "gene": "b1377",
+   "name": "b1377",
+   "kappa_max": 330.1950558715495,
+   "subsystem": "Transport, Outer Membrane Porin"
+  },
+  {
+   "gene": "b2215",
+   "name": "b2215",
+   "kappa_max": 330.1950558715495,
+   "subsystem": "Transport, Outer Membrane Porin"
+  },
+  {
+   "gene": "b3875",
+   "name": "b3875",
+   "kappa_max": 330.1950558715495,
+   "subsystem": "Transport, Outer Membrane Porin"
+  },
+  {
+   "gene": "b0429",
+   "name": "b0429",
+   "kappa_max": 185.18926892869518,
+   "subsystem": "Oxidative Phosphorylation"
+  },
+  {
+   "gene": "b0430",
+   "name": "b0430",
+   "kappa_max": 185.18926892869518,
+   "subsystem": "Oxidative Phosphorylation"
+  }
+ ]
+}

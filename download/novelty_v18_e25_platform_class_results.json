@@ -1,0 +1,739 @@
+{
+  "study": "E25_platform_vs_class",
+  "arms": {
+    "array-switch-glycerol": {
+      "label": "array switch glycerol (|FC|)",
+      "n": 433,
+      "pearson_r": 0.19101122662271824,
+      "pearson_p": 6.331950770289301e-05,
+      "spearman_r": 0.2419086759149884,
+      "spearman_p": 3.485350499169091e-07,
+      "perm_p_mc": 7.999920000799993e-05,
+      "boot_ci95": [
+        0.10057561549215314,
+        0.27741018576679805
+      ]
+    },
+    "array-switch-acetate": {
+      "label": "array switch acetate (|FC|)",
+      "n": 433,
+      "pearson_r": 0.15815183589072518,
+      "pearson_p": 0.0009592314484259444,
+      "spearman_r": 0.227544961202032,
+      "spearman_p": 1.717402126404072e-06,
+      "perm_p_mc": 0.001029989700102999,
+      "boot_ci95": [
+        0.07143484254057632,
+        0.2474604619956709
+      ]
+    },
+    "array-switch-proline": {
+      "label": "array switch proline (|FC|)",
+      "n": 433,
+      "pearson_r": 0.16521712049337967,
+      "pearson_p": 0.0005569472246931007,
+      "spearman_r": 0.20224488222977485,
+      "spearman_p": 2.2334610738625864e-05,
+      "perm_p_mc": 0.0005199948000519994,
+      "boot_ci95": [
+        0.0846247854200344,
+        0.24687324245799502
+      ]
+    },
+    "array-switch-MAX(primary)": {
+      "label": "array switch MAX",
+      "n": 433,
+      "pearson_r": 0.19639611152968306,
+      "pearson_p": 3.870626619059554e-05,
+      "spearman_r": 0.29445883738238254,
+      "spearman_p": 4.1401736179982224e-10,
+      "perm_p_mc": 3.999960000399996e-05,
+      "boot_ci95": [
+        0.1098224680623357,
+        0.283983664331691
+      ]
+    },
+    "array-switch-glycerol-SIGNED": {
+      "label": "array switch glycerol (signed)",
+      "n": 433,
+      "pearson_r": 0.021438612864335856,
+      "pearson_p": 0.6564135501668484,
+      "spearman_r": 0.07651820972118234,
+      "spearman_p": 0.11184158644966179,
+      "perm_p_mc": 0.6563534364656354,
+      "boot_ci95": [
+        -0.06831368199918089,
+        0.11292945715138299
+      ]
+    },
+    "array-switch-acetate-SIGNED": {
+      "label": "array switch acetate (signed)",
+      "n": 433,
+      "pearson_r": -0.021185541183067723,
+      "pearson_p": 0.660214116889429,
+      "spearman_r": -0.0052732384127179175,
+      "spearman_p": 0.9128752778176855,
+      "perm_p_mc": 0.6606633933660664,
+      "boot_ci95": [
+        -0.10247405862453192,
+        0.0613844439506328
+      ]
+    },
+    "array-switch-proline-SIGNED": {
+      "label": "array switch proline (signed)",
+      "n": 433,
+      "pearson_r": -0.09708818134729297,
+      "pearson_p": 0.043465749599018125,
+      "spearman_r": -0.12748367934911586,
+      "spearman_p": 0.007908766545216672,
+      "perm_p_mc": 0.04233957660423396,
+      "boot_ci95": [
+        -0.17757342991799901,
+        -0.019431097998750667
+      ]
+    },
+    "array-stress-heatShock": {
+      "label": "array stress heatShock (|FC|)",
+      "n": 433,
+      "pearson_r": 0.29467992371220786,
+      "pearson_p": 4.0119885909614927e-10,
+      "spearman_r": 0.30068036253014946,
+      "spearman_p": 1.691057870602465e-10,
+      "perm_p_mc": 9.99990000099999e-06,
+      "boot_ci95": [
+        0.21070763050641828,
+        0.37910747511458537
+      ]
+    },
+    "array-stress-acidShock": {
+      "label": "array stress acidShock (|FC|)",
+      "n": 433,
+      "pearson_r": 0.3030297920959625,
+      "pearson_p": 1.1991628084729871e-10,
+      "spearman_r": 0.3134971685723042,
+      "spearman_p": 2.4966464002716603e-11,
+      "perm_p_mc": 9.99990000099999e-06,
+      "boot_ci95": [
+        0.22024499198609224,
+        0.38437883432274383
+      ]
+    },
+    "array-stress-cipro": {
+      "label": "array stress cipro (|FC|)",
+      "n": 433,
+      "pearson_r": 0.2834596778834794,
+      "pearson_p": 1.9137151881703784e-09,
+      "spearman_r": 0.27829353172498095,
+      "spearman_p": 3.839941354535126e-09,
+      "perm_p_mc": 9.99990000099999e-06,
+      "boot_ci95": [
+        0.1965048760771366,
+        0.367286429381798
+      ]
+    },
+    "array-stress-MAX": {
+      "label": "array stress MAX",
+      "n": 433,
+      "pearson_r": 0.29787417763008617,
+      "pearson_p": 2.5392579952750583e-10,
+      "spearman_r": 0.3058399068519757,
+      "spearman_p": 7.916977927007694e-11,
+      "perm_p_mc": 9.99990000099999e-06,
+      "boot_ci95": [
+        0.21268911220226247,
+        0.38219899991943407
+      ]
+    },
+    "array-stress-heatShock-SIGNED": {
+      "label": "array stress heatShock (signed)",
+      "n": 433,
+      "pearson_r": -0.2243573306836844,
+      "pearson_p": 2.413273045526275e-06,
+      "spearman_r": -0.2654790173023169,
+      "spearman_p": 2.0319697956721582e-08,
+      "perm_p_mc": 1.999980000199998e-05,
+      "boot_ci95": [
+        -0.3154771548444354,
+        -0.13577414496227466
+      ]
+    },
+    "array-stress-acidShock-SIGNED": {
+      "label": "array stress acidShock (signed)",
+      "n": 433,
+      "pearson_r": -0.2903093332663811,
+      "pearson_p": 7.433808256930714e-10,
+      "spearman_r": -0.32391960186266877,
+      "spearman_p": 4.916548275923467e-12,
+      "perm_p_mc": 9.99990000099999e-06,
+      "boot_ci95": [
+        -0.3782373984597546,
+        -0.19863311752212873
+      ]
+    },
+    "array-stress-cipro-SIGNED": {
+      "label": "array stress cipro (signed)",
+      "n": 433,
+      "pearson_r": -0.2895093905139535,
+      "pearson_p": 8.312724153109104e-10,
+      "spearman_r": -0.3018968428636925,
+      "spearman_p": 1.4158983750078732e-10,
+      "perm_p_mc": 9.99990000099999e-06,
+      "boot_ci95": [
+        -0.3762607696294014,
+        -0.20274766463690566
+      ]
+    },
+    "seq-carbonstarve-1h": {
+      "label": "carbonstarve 1h (|FC|)",
+      "n": 241,
+      "pearson_r": 0.031218571064195108,
+      "pearson_p": 0.6296351848972154,
+      "spearman_r": 0.05338178407809271,
+      "spearman_p": 0.4093784133243086,
+      "perm_p_mc": 0.6305236947630524,
+      "boot_ci95": [
+        -0.0779290601177943,
+        0.14010371376811112
+      ]
+    },
+    "seq-carbonstarve-2h": {
+      "label": "carbonstarve 2h (|FC|)",
+      "n": 241,
+      "pearson_r": 0.151416557730511,
+      "pearson_p": 0.018674140595115993,
+      "spearman_r": 0.1470336433404493,
+      "spearman_p": 0.02242263772774025,
+      "perm_p_mc": 0.018659813401865982,
+      "boot_ci95": [
+        0.02215943102209055,
+        0.27725095592443855
+      ]
+    },
+    "seq-carbonstarve-4h": {
+      "label": "carbonstarve 4h (|FC|)",
+      "n": 241,
+      "pearson_r": 0.20544150057867283,
+      "pearson_p": 0.0013412460525816271,
+      "spearman_r": 0.26418831967681866,
+      "spearman_p": 3.266781781115646e-05,
+      "perm_p_mc": 0.0014899851001489986,
+      "boot_ci95": [
+        0.0809800261671267,
+        0.3321109263674518
+      ]
+    },
+    "seq-carbonstarve-6h": {
+      "label": "carbonstarve 6h (|FC|)",
+      "n": 241,
+      "pearson_r": -0.023171906394044036,
+      "pearson_p": 0.7204162594427923,
+      "spearman_r": -0.0032798621933058697,
+      "spearman_p": 0.9596023765274395,
+      "perm_p_mc": 0.7195328046719532,
+      "boot_ci95": [
+        -0.17035928813827056,
+        0.12171200325174557
+      ]
+    },
+    "seq-carbonstarve-1h-SIGNED": {
+      "label": "carbonstarve 1h (signed)",
+      "n": 241,
+      "pearson_r": -0.02594032230857006,
+      "pearson_p": 0.6886588102699117,
+      "spearman_r": -0.032600723301195546,
+      "spearman_p": 0.6145411335726889,
+      "perm_p_mc": 0.6903230967690324,
+      "boot_ci95": [
+        -0.1380795490728696,
+        0.08438101755768763
+      ]
+    },
+    "seq-carbonstarve-2h-SIGNED": {
+      "label": "carbonstarve 2h (signed)",
+      "n": 241,
+      "pearson_r": -0.09320815636305319,
+      "pearson_p": 0.14913347937420973,
+      "spearman_r": -0.11517883769283015,
+      "spearman_p": 0.07430930761240982,
+      "perm_p_mc": 0.14927850721492786,
+      "boot_ci95": [
+        -0.21738842978387268,
+        0.028427938515418298
+      ]
+    },
+    "seq-carbonstarve-4h-SIGNED": {
+      "label": "carbonstarve 4h (signed)",
+      "n": 241,
+      "pearson_r": -0.18889056334730547,
+      "pearson_p": 0.003243462708327852,
+      "spearman_r": -0.2637959232088818,
+      "spearman_p": 3.359400972639154e-05,
+      "perm_p_mc": 0.0032499675003249966,
+      "boot_ci95": [
+        -0.31339306934590744,
+        -0.06751788348163672
+      ]
+    },
+    "seq-carbonstarve-6h-SIGNED": {
+      "label": "carbonstarve 6h (signed)",
+      "n": 241,
+      "pearson_r": 0.01865809894959083,
+      "pearson_p": 0.7732160478693051,
+      "spearman_r": -0.0010955747594377043,
+      "spearman_p": 0.9865008582283448,
+      "perm_p_mc": 0.7728422715772842,
+      "boot_ci95": [
+        -0.1135248206564516,
+        0.15273088191063128
+      ]
+    },
+    "seq-carbonstarve-MAX(primary)": {
+      "label": "seq-carbonstarve-MAX(primary)",
+      "n": 241,
+      "pearson_r": 0.1913493808351031,
+      "pearson_p": 0.002857117160407003,
+      "spearman_r": 0.2481177090090182,
+      "spearman_p": 9.907599628267838e-05,
+      "perm_p_mc": 0.002889971100288997,
+      "boot_ci95": [
+        0.0689717509826621,
+        0.31459190699753625
+      ]
+    },
+    "seq-carbonstarve-MAX-PEmerged": {
+      "label": "seq-carbonstarve-MAX-PEmerged",
+      "n": 241,
+      "pearson_r": 0.1913493808351031,
+      "pearson_p": 0.002857117160407003,
+      "spearman_r": 0.2481177090090182,
+      "spearman_p": 9.907599628267838e-05,
+      "perm_p_mc": 0.002889971100288997,
+      "boot_ci95": [
+        0.0689717509826621,
+        0.31459190699753625
+      ]
+    },
+    "seq-carbonstarve-mean": {
+      "label": "seq-carbonstarve-mean",
+      "n": 241,
+      "pearson_r": 0.1394063285120682,
+      "pearson_p": 0.03050338495245778,
+      "spearman_r": 0.16261679664505155,
+      "spearman_p": 0.011464340873295705,
+      "perm_p_mc": 0.03036969630303697,
+      "boot_ci95": [
+        0.011292624976980274,
+        0.26480980346450467
+      ]
+    },
+    "seq-carbonstarve-6h-only": {
+      "label": "seq-carbonstarve-6h-only",
+      "n": 241,
+      "pearson_r": 0.01865809894959083,
+      "pearson_p": 0.7732160478693051,
+      "spearman_r": -0.0010955747594377043,
+      "spearman_p": 0.9865008582283448,
+      "perm_p_mc": 0.7728422715772842,
+      "boot_ci95": [
+        -0.1135248206564516,
+        0.15273088191063128
+      ]
+    },
+    "seq-phosphorus-MAX": {
+      "label": "seq-phosphorus-MAX",
+      "n": 241,
+      "pearson_r": 0.038783656662867025,
+      "pearson_p": 0.5490532384463314,
+      "spearman_r": 0.14544766730964276,
+      "spearman_p": 0.023930853289419306,
+      "perm_p_mc": 0.5520444795552044,
+      "boot_ci95": [
+        -0.0815596623146883,
+        0.15968867802129802
+      ]
+    },
+    "seq-heatshock-MAX": {
+      "label": "seq-heatshock-MAX",
+      "n": 241,
+      "pearson_r": 0.345028945123799,
+      "pearson_p": 3.836682525251432e-08,
+      "spearman_r": 0.39100360701607095,
+      "spearman_p": 3.1609685245043287e-10,
+      "perm_p_mc": 9.99990000099999e-06,
+      "boot_ci95": [
+        0.22959805488897614,
+        0.4589201226122532
+      ]
+    },
+    "seq-heatshock-1h": {
+      "label": "heatshock 1h (|FC|)",
+      "n": 241,
+      "pearson_r": 0.3221466289991599,
+      "pearson_p": 3.1878337586178266e-07,
+      "spearman_r": 0.37105837302944467,
+      "spearman_p": 2.781810700222203e-09,
+      "perm_p_mc": 9.99990000099999e-06,
+      "boot_ci95": [
+        0.19284677517959478,
+        0.4465804467439917
+      ]
+    },
+    "seq-heatshock-1h-SIGNED": {
+      "label": "heatshock 1h (signed)",
+      "n": 241,
+      "pearson_r": -0.29975661254302893,
+      "pearson_p": 2.1509554290935796e-06,
+      "spearman_r": -0.3477475496659872,
+      "spearman_p": 2.949051228247014e-08,
+      "perm_p_mc": 9.99990000099999e-06,
+      "boot_ci95": [
+        -0.4272193699146528,
+        -0.1709137218775227
+      ]
+    },
+    "seq-heatshock-2h": {
+      "label": "heatshock 2h (|FC|)",
+      "n": 241,
+      "pearson_r": 0.39279386407266187,
+      "pearson_p": 2.581638021328254e-10,
+      "spearman_r": 0.42263791715512955,
+      "spearman_p": 7.349139337210275e-12,
+      "perm_p_mc": 9.99990000099999e-06,
+      "boot_ci95": [
+        0.27704220753812814,
+        0.5044649100346335
+      ]
+    },
+    "seq-heatshock-2h-SIGNED": {
+      "label": "heatshock 2h (signed)",
+      "n": 241,
+      "pearson_r": -0.3140770541132214,
+      "pearson_p": 6.459431133634336e-07,
+      "spearman_r": -0.3641054805005756,
+      "spearman_p": 5.738794581873669e-09,
+      "perm_p_mc": 9.99990000099999e-06,
+      "boot_ci95": [
+        -0.4394685810618772,
+        -0.19030937573045725
+      ]
+    },
+    "seq-heatshock-4h": {
+      "label": "heatshock 4h (|FC|)",
+      "n": 241,
+      "pearson_r": 0.44501429645101476,
+      "pearson_p": 4.0113680751346984e-13,
+      "spearman_r": 0.46123884291939504,
+      "spearman_p": 4.2458851625352514e-14,
+      "perm_p_mc": 9.99990000099999e-06,
+      "boot_ci95": [
+        0.3505164274905817,
+        0.5350161073061954
+      ]
+    },
+    "seq-heatshock-4h-SIGNED": {
+      "label": "heatshock 4h (signed)",
+      "n": 241,
+      "pearson_r": -0.29834285641855474,
+      "pearson_p": 2.413894759585822e-06,
+      "spearman_r": -0.3903303176020005,
+      "spearman_p": 3.409973559201339e-10,
+      "perm_p_mc": 9.99990000099999e-06,
+      "boot_ci95": [
+        -0.4146213169800558,
+        -0.1846994753202737
+      ]
+    },
+    "seq-phosphorus-1h": {
+      "label": "phosphorus 1h (|FC|)",
+      "n": 241,
+      "pearson_r": 0.08100431888627645,
+      "pearson_p": 0.2101884815591111,
+      "spearman_r": 0.1313930724259922,
+      "spearman_p": 0.04154914777487379,
+      "perm_p_mc": 0.2110478895211048,
+      "boot_ci95": [
+        -0.012665004826566639,
+        0.1732513409870702
+      ]
+    },
+    "seq-phosphorus-2h": {
+      "label": "phosphorus 2h (|FC|)",
+      "n": 241,
+      "pearson_r": -0.03563223457850873,
+      "pearson_p": 0.5820039623249068,
+      "spearman_r": -0.008071112186875088,
+      "spearman_p": 0.9008022685238445,
+      "perm_p_mc": 0.5823741762582374,
+      "boot_ci95": [
+        -0.16214611007469362,
+        0.08454944504324738
+      ]
+    },
+    "seq-phosphorus-4h": {
+      "label": "phosphorus 4h (|FC|)",
+      "n": 241,
+      "pearson_r": 0.19533581885178816,
+      "pearson_p": 0.0023186299769167736,
+      "spearman_r": 0.2214305693799309,
+      "spearman_p": 0.0005347069038498251,
+      "perm_p_mc": 0.002249977500224998,
+      "boot_ci95": [
+        0.10755472748813169,
+        0.28254279669415555
+      ]
+    },
+    "seq-phosphorus-6h": {
+      "label": "phosphorus 6h (|FC|)",
+      "n": 241,
+      "pearson_r": 0.03040220783629173,
+      "pearson_p": 0.6386237234929291,
+      "spearman_r": 0.10969495081623083,
+      "spearman_p": 0.08928126402556805,
+      "perm_p_mc": 0.6403335966640333,
+      "boot_ci95": [
+        -0.08955978722407604,
+        0.1546513680383223
+      ]
+    },
+    "seq-carbonstarve-MAX-pseudocount0.5": {
+      "label": "pseudocount 0.5",
+      "n": 241,
+      "pearson_r": 0.13955348457369848,
+      "pearson_p": 0.03032662489132673,
+      "spearman_r": 0.18548934352143542,
+      "spearman_p": 0.0038558917805260376,
+      "perm_p_mc": 0.02993970060299397,
+      "boot_ci95": [
+        0.01840292301312233,
+        0.26029266848485877
+      ]
+    },
+    "seq-carbonstarve-MAX-TPMfilter": {
+      "label": "TPM>=1 in both, n=97",
+      "n": 97,
+      "pearson_r": 0.3124638213918377,
+      "pearson_p": 0.0018336751318681786,
+      "spearman_r": 0.37504673209231065,
+      "spearman_p": 0.00015368796478659936,
+      "perm_p_mc": 0.0020799792002079978,
+      "boot_ci95": [
+        0.11767964138257389,
+        0.4900343930691829
+      ]
+    },
+    "seq-MOPScontrol-own-timecourse": {
+      "label": "MOPS 6h vs 1h (|FC|)",
+      "n": 241,
+      "pearson_r": 0.0625883212720497,
+      "pearson_p": 0.3332794943699928,
+      "spearman_r": 0.13445429587181362,
+      "spearman_p": 0.03698581293280368,
+      "perm_p_mc": 0.33507664923350766,
+      "boot_ci95": [
+        -0.0555424864596722,
+        0.18602375254586553
+      ]
+    }
+  },
+  "panel": {
+    "E22_panel_size": 435,
+    "with_m3d_expression": 433,
+    "with_gse_expression": 241
+  },
+  "matrix_2x2": {
+    "microarray_depletion": {
+      "r": 0.3739,
+      "n": 433,
+      "source": "E24 A-panel"
+    },
+    "microarray_switch": {
+      "r": 0.19639611152968306,
+      "n": 433,
+      "source": "E25 S1"
+    },
+    "rnaseq_depletion": {
+      "r": 0.1913493808351031,
+      "n": 241,
+      "source": "E25 S2 GSE64021"
+    },
+    "rnaseq_switch": {
+      "r": -0.0543,
+      "n": 433,
+      "source": "E24 A-replicate PRECISE"
+    },
+    "class_effect_switch_array_vs_depletion_array": {
+      "z": -2.84412904815311,
+      "p": 0.004453300725770326,
+      "r1": 0.19639611152968306,
+      "n1": 433,
+      "r2": 0.3739,
+      "n2": 433
+    },
+    "class_effect_depletion_seq_vs_switch_seq": {
+      "z": 3.0707562855948742,
+      "p": 0.0021351735536330185,
+      "r1": 0.1913493808351031,
+      "n1": 241,
+      "r2": -0.0543,
+      "n2": 433
+    },
+    "platform_effect_depletion": {
+      "z": -2.465753208487908,
+      "p": 0.013672550068641875,
+      "r1": 0.1913493808351031,
+      "n1": 241,
+      "r2": 0.3739,
+      "n2": 433
+    },
+    "platform_effect_switch": {
+      "z": 3.714616823804429,
+      "p": 0.00020351183565847641,
+      "r1": 0.19639611152968306,
+      "n1": 433,
+      "r2": -0.0543,
+      "n2": 433
+    }
+  },
+  "matrix_2x2_common_set": {
+    "n_common": 240,
+    "microarray_depletion": {
+      "label": "common array depletion",
+      "n": 240,
+      "pearson_r": 0.43066505328168936,
+      "pearson_p": 2.9459942679427782e-12,
+      "spearman_r": 0.44099641168168735,
+      "spearman_p": 7.669786995277073e-13,
+      "perm_p_mc": 9.99990000099999e-06,
+      "boot_ci95": [
+        0.3280170786950812,
+        0.5257827199410146
+      ]
+    },
+    "microarray_switch": {
+      "label": "common array switch",
+      "n": 240,
+      "pearson_r": 0.183645683635624,
+      "pearson_p": 0.004310595109868886,
+      "spearman_r": 0.30818275165525827,
+      "spearman_p": 1.1248556027669037e-06,
+      "perm_p_mc": 0.004409955900440995,
+      "boot_ci95": [
+        0.06911511255350646,
+        0.3047370346716874
+      ]
+    },
+    "rnaseq_depletion": {
+      "label": "common seq depletion",
+      "n": 240,
+      "pearson_r": 0.18686391625223908,
+      "pearson_p": 0.003667786462574524,
+      "spearman_r": 0.2447623932088779,
+      "spearman_p": 0.00012789771671877317,
+      "perm_p_mc": 0.0038499615003849963,
+      "boot_ci95": [
+        0.06190930992225415,
+        0.313105149461066
+      ]
+    },
+    "rnaseq_switch_precise": {
+      "label": "common seq switch PRECISE",
+      "n": 240,
+      "pearson_r": -0.05745616130753569,
+      "pearson_p": 0.37551394804980204,
+      "spearman_r": 0.07029015101503353,
+      "spearman_p": 0.2781045085331321,
+      "perm_p_mc": 0.37374626253737464,
+      "boot_ci95": [
+        -0.16985865443274265,
+        0.060619305086886614
+      ]
+    },
+    "class_effect_array": {
+      "z": -2.9931499560619654,
+      "p": 0.002761140457540723,
+      "r1": 0.183645683635624,
+      "n1": 240,
+      "r2": 0.43066505328168936,
+      "n2": 240
+    },
+    "class_effect_rnaseq": {
+      "z": 2.684486999445969,
+      "p": 0.007264120838496035,
+      "r1": 0.18686391625223908,
+      "n1": 240,
+      "r2": -0.05745616130753569,
+      "n2": 240
+    },
+    "platform_effect_depletion": {
+      "z": -2.9568719409604065,
+      "p": 0.003107771595258102,
+      "r1": 0.18686391625223908,
+      "n1": 240,
+      "r2": 0.43066505328168936,
+      "n2": 240
+    },
+    "platform_effect_switch": {
+      "z": 2.6482089843444094,
+      "p": 0.00809194851266759,
+      "r1": 0.183645683635624,
+      "n1": 240,
+      "r2": -0.05745616130753569,
+      "n2": 240
+    }
+  },
+  "seq_depletion_deciles": {
+    "n_decile": 24,
+    "top_decile_mean_fc": 5.927825187812502,
+    "bottom_decile_mean_fc": 5.0564324977637165,
+    "mannwhitney_p_one_sided": 0.05735136519127942
+  },
+  "zero_control_gse": {
+    "n_zero_kappa_genes_model": 932,
+    "n_zero_with_gse": 541,
+    "panel_mean_max_fc": 5.102541492597503,
+    "zero_mean_max_fc": 3.2166499557989403,
+    "panel_median": 5.026919671868328,
+    "zero_median": 3.163474226704886,
+    "mannwhitney_p_one_sided_panel_gt_zero": 1.5391512236163747e-30
+  },
+  "plot_data": {
+    "matrix": [
+      [
+        0.3739,
+        0.19639611152968306
+      ],
+      [
+        0.1913493808351031,
+        -0.0543
+      ]
+    ],
+    "matrix_common": [
+      [
+        0.43066505328168936,
+        0.183645683635624
+      ],
+      [
+        0.18686391625223908,
+        -0.05745616130753569
+      ]
+    ],
+    "switch_conditions_array": {
+      "glycerol": 0.19101122662271824,
+      "acetate": 0.15815183589072518,
+      "proline": 0.16521712049337967
+    },
+    "starve_times_seq": {
+      "1h": 0.031218571064195108,
+      "2h": 0.151416557730511,
+      "4h": 0.20544150057867283,
+      "6h": -0.023171906394044036
+    },
+    "non_carbon_controls": {
+      "array-heat": 0.29467992371220786,
+      "array-acid": 0.3030297920959625,
+      "array-cipro": 0.2834596778834794,
+      "seq-phosphorus": 0.038783656662867025,
+      "seq-heatshock": 0.345028945123799
+    }
+  }
+}

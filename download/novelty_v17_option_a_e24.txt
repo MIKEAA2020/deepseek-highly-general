@@ -1,0 +1,63 @@
+STUDY E24 (round v17): Option A -- external expression coverage (M3D + PRECISE)
+==============================================================================
+Design: E22 kappa_V panel (435 genes, non-zero baseline kappa_V,
+glucose-decline FBA trajectory) x M3D v4 Build 6 (907 arrays x 4,297
+probes, log2) x PRECISE (278 RNA-seq samples, MG1655).
+
+[A-panel] PRIMARY (M3D carbon-exhaustion series, within-design):
+  n = 433; Pearson r = +0.3739 (p = 8.18e-16); Spearman = +0.3991
+  MC permutation (1e5) p = 1e-05; bootstrap 95% CI [0.2986, 0.4464]
+  Contrast: stationary t=135/330/480/720 min vs log-phase glucose
+  reference (Blattner/Allen MOPS-minimal series, 5 replicates).
+
+  Sensitivities (Pearson r):
+    single_stationary_135min   -0.0218  (n=433, perm p=0.6498)
+    single_stationary_330min   +0.2633  (n=433, perm p=1e-05)
+    single_stationary_480min   +0.3984  (n=433, perm p=1e-05)
+    single_stationary_720min   +0.3530  (n=433, perm p=1e-05)
+    single_lateLog             +0.0499  (n=433, perm p=0.3)
+    mean_stationary            +0.3336  (n=433, perm p=1e-05)
+    max_incl_lateLog           +0.3737  (n=433, perm p=1e-05)
+    hu_glycerol_stat           +0.1112  (n=433, perm p=0.01962)
+    biofilm_noGlucose          +0.1748  (n=433, perm p=0.00027)
+    excl_b2097                 +0.3729  (n=432, perm p=1e-05)
+  Deciles: top10% kappa mean|FC| = 1.923 vs bottom10% = 0.887 (MWU p = 9.02e-08)
+  GPR strata r: complex-and=+0.604, isozyme-or=+0.173, mixed=+0.528, single=+0.339
+  Confound control: partial r controlling reference expression level = +0.2508 (p = 1.23e-07)
+
+[A-replicate] PRECISE cross-platform carbon-switch (10 WT conditions):
+  n = 433; Pearson r = -0.0543 (p = 0.26); Spearman = +0.0776 -> NS: the association is specific to
+  the carbon-exhaustion class, not generic carbon-source switching.
+
+[A-matched] E23 replication with MATCHED expression (replaces the
+  Lemuth cross-condition FC):
+ gene b_number  kv_matched  log10_kv  fc_matched          fc_source                                                               note
+ proV    b2677   63.588523  1.803379    0.385756        M3D proline                                 WT_MOPS_proline vs WT_MOPS_glucose
+ proW    b2678   63.588523  1.803379    0.038168        M3D proline                                 WT_MOPS_proline vs WT_MOPS_glucose
+ ugpC    b3450    2.560000  0.408240    0.039919       M3D glycerol                                WT_MOPS_glycerol vs WT_MOPS_glucose
+ narJ    b1226  274.891819  2.439162    7.168080 PRECISE no3_anaero  ica__no3_anaero (glucose+KNO3 20mM, anaerobic) vs control__wt_glc
+ galT    b0758   16.000000  1.204120    3.330681    PRECISE thm_gal                  ica__thm_gal (galactose 4 g/L) vs control__wt_glc
+b2097    b2097    9.490142  0.977273    1.901312 M3D carbon exhaust max over stationary contrasts (its baseline glucose-decline class)
+  Pearson r = +0.5608 (n = 6, p = 0.247) -- direction and magnitude consistent
+  with E23's r = +0.571 at n = 7; still under-powered at n = 6.
+  Sensitivity (ugpC FC via PRECISE glycerol): r = +0.5400
+  treA: no matched trehalose expression data in either compendium.
+
+[A-burden] oxidative burden genes vs PRECISE paraquat 250 uM
+  (reported structurally, NOT correlated -- v16 endogeneity criterion):
+gene b_number  kv_burden  fc_paraquat
+sodA    b1646     0.0400     2.529743
+ bcp    b2480     0.0144     1.020866
+msrA    b3602     0.0016     0.594834
+
+[A-zero] zero-kappa_V control (iJO1366 genes with all-inactive
+  baseline reactions):
+  panel mean|FC| = 1.318 (median 1.092) vs zero-kappa genes mean 0.904 (median 0.679);
+  MWU one-sided p = 7.75e-22 (n_zero = 930)
+
+[C+D combination] Lemuth92 maps to 74 b-numbers; intersect
+  with the E22 panel = ['b2097'] -> combining C+D on Lemuth
+  data cannot raise n beyond 7. Coverage, not gene supply, binds.
+
+Sources: m3d.mssm.edu E_coli_v4_Build_6.tar.gz (117 MB);
+  github.com/SBRG/precise-db (Sastry et al. 2019).

@@ -1,0 +1,169 @@
+{
+ "experiment": "V1 value-function carrier (Route 3 corrected)",
+ "model": "iML1515",
+ "cut": "M4c cut (M4b codim-2 vertex, dB)",
+ "n_lex_solves": 253,
+ "phi_piecewise_affine": {
+  "n_segments": 5,
+  "worst_rel_resid": 4.1650776189544864e-13
+ },
+ "v_events_total": 12,
+ "phi_atoms_real": 1,
+ "phi_noise_scale": 1e-12,
+ "atoms": [
+  {
+   "t_event": 0.03582855224609372,
+   "jump_L2_flux": 11.588829445425874,
+   "delta_phi_slope": -0.006438679323115244
+  }
+ ],
+ "clusters": [
+  {
+   "t_lo": -0.09771331787109377,
+   "t_hi": -0.09771331787109377,
+   "n_events": 1,
+   "max_flux_jump": 8.492764610353775e-11,
+   "net_delta_phi": 7.657069422961627e-11,
+   "net_is_real": false
+  },
+  {
+   "t_lo": 0.0018685913085937519,
+   "t_hi": 0.0018710327148437518,
+   "n_events": 3,
+   "max_flux_jump": 1884.5843750663134,
+   "net_delta_phi": 7.657070290323365e-11,
+   "net_is_real": false
+  },
+  {
+   "t_lo": 0.024296569824218718,
+   "t_hi": 0.024300231933593715,
+   "n_events": 2,
+   "max_flux_jump": 0.8132267811318262,
+   "net_delta_phi": 3.83026943495679e-11,
+   "net_is_real": false
+  },
+  {
+   "t_lo": 0.03517730712890622,
+   "t_hi": 0.03582916259765622,
+   "n_events": 6,
+   "max_flux_jump": 22.305166943283645,
+   "net_delta_phi": -0.0064386857094062624,
+   "net_is_real": true
+  }
+ ],
+ "danskin_check": [
+  {
+   "t_center": -0.25,
+   "y_glc_fd": 0.025254531479529385,
+   "y_o2_fd": 0.03367270866489608,
+   "y_glc_lp": 0.025254531505032776,
+   "y_o2_lp": 0.03367270867337704,
+   "danskin_rel_err": 1.0098540567396574e-09,
+   "cut_slope_from_prices": -0.009316321267954293
+  },
+  {
+   "t_center": -0.05,
+   "y_glc_fd": 0.02525453155610008,
+   "y_o2_fd": 0.03367270856917404,
+   "y_glc_lp": 0.025254531505032776,
+   "y_o2_lp": 0.03367270867337704,
+   "danskin_rel_err": 2.022104549851337e-09,
+   "cut_slope_from_prices": -0.009316321267954293
+  },
+  {
+   "t_center": 0.012,
+   "y_glc_fd": 0.025254531460412732,
+   "y_o2_fd": 0.03367270874150147,
+   "y_glc_lp": 0.025254531505032776,
+   "y_o2_lp": 0.03367270867337704,
+   "danskin_rel_err": 1.7668133673701235e-09,
+   "cut_slope_from_prices": -0.009316321267954293
+  },
+  {
+   "t_center": 0.03,
+   "y_glc_fd": 0.02525453147949469,
+   "y_o2_fd": 0.03367270866496547,
+   "y_glc_lp": 0.025254531505032776,
+   "y_o2_lp": 0.03367270867337704,
+   "danskin_rel_err": 1.011227848590943e-09,
+   "cut_slope_from_prices": -0.009316321267954293
+  },
+  {
+   "t_center": 0.2,
+   "y_glc_fd": 0.02174348627384526,
+   "y_o2_fd": 0.0391382753512845,
+   "y_glc_lp": 0.021743486308970494,
+   "y_o2_lp": 0.03913827535614689,
+   "danskin_rel_err": 1.6154371755619541e-09,
+   "cut_slope_from_prices": -0.015755006970547016
+  }
+ ],
+ "danskin_max_rel_err": 2.022104549851337e-09,
+ "scatter": [
+  {
+   "t_event": -0.09771331787109377,
+   "jump_L2_flux": 8.492764610353775e-11,
+   "abs_delta_phi": 7.657069422961627e-11
+  },
+  {
+   "t_event": 0.0018685913085937519,
+   "jump_L2_flux": 1875.6880421996893,
+   "abs_delta_phi": 2.510205376893282e-08
+  },
+  {
+   "t_event": 0.0018692016601562517,
+   "jump_L2_flux": 1884.5843750663134,
+   "abs_delta_phi": 0.0
+  },
+  {
+   "t_event": 0.0018710327148437518,
+   "jump_L2_flux": 8.666587857616448e-05,
+   "abs_delta_phi": 1.1156468342904402e-08
+  },
+  {
+   "t_event": 0.024296569824218718,
+   "jump_L2_flux": 0.5094322210194167,
+   "abs_delta_phi": 4.18367562815547e-09
+  },
+  {
+   "t_event": 0.024300231933593715,
+   "jump_L2_flux": 0.8132267811318262,
+   "abs_delta_phi": 1.3945585432967311e-09
+  },
+  {
+   "t_event": 0.03517730712890622,
+   "jump_L2_flux": 2.850140294269852,
+   "abs_delta_phi": 0.0
+  },
+  {
+   "t_event": 0.035178527832031216,
+   "jump_L2_flux": 12.048707059361025,
+   "abs_delta_phi": 1.6727123389528864e-08
+  },
+  {
+   "t_event": 0.03543792724609373,
+   "jump_L2_flux": 2.483786814233312e-05,
+   "abs_delta_phi": 8.382509500762247e-09
+  },
+  {
+   "t_event": 0.03543853759765623,
+   "jump_L2_flux": 22.305166943283645,
+   "abs_delta_phi": 8.382509500762247e-09
+  },
+  {
+   "t_event": 0.03582855224609372,
+   "jump_L2_flux": 11.588829445425874,
+   "abs_delta_phi": 0.006438679323115244
+  },
+  {
+   "t_event": 0.03582916259765622,
+   "jump_L2_flux": 1.5596183846432528e-05,
+   "abs_delta_phi": 9.231371222995222e-09
+  }
+ ],
+ "verdict": {
+  "v_equals_grad_phi": "FALSE for constraint/RHS parameterization (v in R^m vs grad Phi in R^d; the gradient map is the DUAL y in R^d)",
+  "canonical_carrier": "Phi = c.v* is single-valued WITHOUT tie-breaking; D^2 Phi (shadow-price jumps) is the canonical atomic measure, tie-break-independent; the flux measure D^2 v needs the lex machine and has a FINER event set",
+  "danskin": "y from r-copy bound marginals matches FD to 2.0e-09 (rel)"
+ }
+}

@@ -1,0 +1,8 @@
+Study E26 (v19) protein-abundance mechanistic test
+[paxdb-kappaV-baseline] n=429 r=+0.3340 p=1.216e-12
+[transfc-kappaV-on-protein-subset] n=169 r=+0.2036 p=7.917e-03
+[m3dtfc-kappaV-on-protein-subset] n=169 r=+0.4201 p=1.301e-08
+[protfc-kappaV] n=169 r=+0.0076 p=9.214e-01
+[protfc-4h-only] n=169 r=+0.0317 p=6.826e-01
+[protfc-min6peptides] n=150 r=+0.0066 p=9.359e-01
+[coupling-T-P-overall] n=799 r=+0.0198 p=5.756e-01

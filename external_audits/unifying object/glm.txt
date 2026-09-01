@@ -1,0 +1,194 @@
+# What it would take, mathematically, to make this one coherent article
+
+**Short answer:** the manuscript already contains five genuine mathematical ideas, but they are held together by shared *vocabulary*, not by theorems. Coherence requires exactly three things: **(1) one ontology** — a single set of objects of which everything else is an instance or an estimator; **(2) seven load-bearing theorems** that are currently either false, incoherent, misstated, or proven for the wrong object — each is repairable, and I give the repair for each; **(3) deletion of the mathematical material that cannot be repaired** (roughly a quarter of the formal content). Do this and a single unifying image does emerge, and it is a good one: *closure → geometry → computability*.
+
+---
+
+## 1. Diagnosis: five threads, no spine
+
+Strip away everything else and the manuscript is five mathematical threads:
+
+| Thread | Objects | Honest status |
+|---|---|---|
+| **G — Stratified geometry** | SAVGS bundle (B, E, P, ε, Γ), GC-connection, stratified holonomy (Thms 3.4–3.5, 3.14) | Real, partially broken, repairable |
+| **A — Algorithmics** | dist_D, smooth surrogate r_{τ,β,D}, envelope E (Defs 4.1–4.9, Thm 4.11) | Vereshchagin–Vitányi + a broken regularity story; repairable |
+| **C — Category theory** | Optic(C), seven-fold composite T, "realization functor R" (Constr 7.1, Thm 7.4, Remark 7.8) | R **never defined**; composition theorem vacuous; the key gap is conceded in Remark 7.8 itself |
+| **D — Dynamics/contraction** | Banach contraction (Thm 8.2, §15), CPTP–Zeno (Thm 8.4), Lévy 3/2 (§12) | Correct math, proven for a *toy object that is not the paper's object* |
+| **B — Closure/combinatorics** | RAF, Φ, maxRAF, closure test, κ_V^FBA (Def 2.6, §16–19, E13 Thm A) | Real; E13 Theorem A misstated; Theorem B unsalvageable |
+
+The threads are currently glued by **naming conventions**, and every glue joint is broken at the mathematical level:
+
+- **Three different objects are named κ_V.** (a) the geometric κ_V of Prop 4.4 (Bregman-of-surrogate, positive-part, sup over bivectors); (b) Def 3.21's FBA flux-rerouting statistic with an essentiality indicator; (c) the time-course deviation (v_r(t) − v_r(T₁))² of E10/E22. The abstract's main proposition is about (a); the empirical flagship E24–E27 uses (c); Def 3.21 is (b). **The theoretical object never touches the empirical object.** This is the single deepest coherence defect.
+- **The categorical↔numerical bridge is undefined.** The "realization functor R from endo-optics to endomaps" is invoked in Remarks 7.7–7.8 and Props 15.1, but never constructed. Thm 8.2's contraction is proven for seven *generic identical resnet blocks*, not for the seven optics of Table 1 — the numbers never refer to the categories.
+- **Two incompatible optic formalisms coexist.** Def 2.5 makes the residual part of the *object* (triple (M, C, R)); Thm 16.3 uses Riley's actual pairs-with-existential-residual morphisms. Thm 7.4 cites Riley's Prop 2.3 for a composition law Thm 16.3 does not use.
+- **The envelope chain breaks three times** (Lemma 4.10's bound is vacuous as τ→0; Thm 4.11(e)'s "sup over a computably enumerable family" is false because the family is indexed by a continuum; Remark 20.2's "κ_V ≤ E" is a unit error — a derivative-ratio bounded by a function value).
+- **Four theorem-level statements are dead as stated:** Cor 4.14 (the proof computes a trivial radial identity and then substitutes "F = κ_V and area = πa²", giving πa⁴ ≠ πa²), Cor 17.3 (false under univalence: the type of contractible ∞-groupoids is contractible, not equivalent to U), E13 Theorem A (Φ as defined is neither deflationary nor polynomial), E13 Theorem B (Strachey–Reynolds parametricity does not apply to functor uniqueness).
+- **Type-level errors inside the formal core:** Def 3.21 applies dist_D — defined on *strings* (Def 4.1) — to a RAF *set*; Prop 16.2 computes "κ_V on a discrete RAF set" where κ_V is undefined; Def 6.1 cites "the κ_V of Definition 2.1", but Def 2.1 explicitly defines D_V and disclaims κ_V; Thm 3.14's tuple (Θ, π, Δ^{n−1}, ε, Γ) has drifted from Def 3.1's (B, E, P, ε, Γ).
+
+None of this is fatal. Every broken joint has a repair. The question is what the repaired object *is*.
+
+---
+
+## 2. The unifying image that actually emerges
+
+Once the ontology is forced to be single, the image is this — and it is, I think, the image the manuscript has been groping toward all along:
+
+> **A self-maintaining system is a fixed point of a contractive closure dynamics on a stratified viability space. Its fragility under cyclic environmental forcing is the non-abelian holonomy of that dynamics, measured by one curvature functional κ_V. The computable ceiling on our knowledge of that fragility is the algorithmic envelope of the viability margin.**
+
+Three layers, one object:
+
+```
+        CLOSURE                    GEOMETRY                    COMPUTABILITY
+   (combinatorial &             (stratified, gauge-            (algorithmic,
+    categorical)                  theoretic)                     semicomputable)
+
+  Φ : 2^R → 2^R              (S, strata, V, h)                 E = sup r_{τ,β,D,L}
+  closure operator            viability margin h
+        │                            │                                │
+        ▼                            ▼                                ▼
+  νΦ = maxRAF = gfp         T : S → S  (closure dynamics,     E upper-bounds h;
+  (Tarski / Adámek /         an instantiated endo-optic)      κ_V ≤ Lip(E)/ε on
+  America–Rutten,                    │                         the viability kernel
+  ONE theorem family)               ▼
+                             fix(T): exists & unique iff
+                             contractive (Banach / KM /
+                             CPTP–Zeno in the quantum fiber)
+                                     │
+                                     ▼
+                             cyclic forcing ↄ S ⇒ holonomy
+                             H = ε²·(smooth curvature) + jumps
+                             at strata ⇒ κ_V ⇒ erosion bounds
+```
+
+The single unifying theorem-family is the one the paper never states but repeatedly circulates: **the lattice greatest fixed point (Tarski/Kleene), the terminal coalgebra (Adámek), and the Banach fixed point are three enrichments of one finality statement.** Hordijk–Steel iterative removal *is* the Kleene iteration from ⊤; a contractive endofunctor on a complete-metric category has a terminal coalgebra (America–Rutten); the depolarizing-channel fixed state is the quantum fiber's instance. The paper's "single composition theorem" dream (§7) is honestly realized not as "seven optics compose" (they trivially do) but as: **the closure dynamics T is one optic pattern realized in several fibers, and fixed-point formation transfers along the realization.** That is a modest, true, and genuinely unifying theorem.
+
+The empirical layer then stops being a rival theory and becomes an *instantiation + estimators*: FBA's flux polytope **is** a stratified viability space (its strata are the critical regions of the parametric LP — the active-set decomposition), the KO experiment's optimizer jump **is** the strata-boundary term of the piecewise holonomy theorem, and Def 3.21 becomes an *estimator of the jump curvature* rather than a competing definition of κ_V.
+
+---
+
+## 3. The price of admission, itemized
+
+### 3.1 One ontology (the definitions that must be fixed first)
+
+**D1 — One κ_V, two named estimators.** Define κ_V once, the Prop 4.4 way, **but with h declared as a smooth viability margin on the strata — not with dist_D inside it** (dist_D enters only through the envelope theorem, where it belongs):
+
+κ_V(θ, x) = sup_{‖u∧v‖=1} max_{α active} [−D_{(u,v)}h_α]₊ / h_α.
+
+Then rename, and keep the names everywhere:
+- κ̂^FBA (Def 3.21) — an estimator of the **jump term** of Theorem 2 below (see T7);
+- κ̂^tc (E10/E22) — an estimator of the **pathwise erosion integral** (Claim A/D material).
+
+There is even a legitimate mathematical defense of the indicator mask that the manuscript never makes: the mask 𝟙[Δb > τ·b_wt] zeroes viability-*preserving* knockouts, which is exactly the structural role of the positive part [·]₊ in κ_V's own definition (viability-preserving curvature contributes zero). State this as *estimator-theoretic consistency with the positive-part construction* — it converts the "v10 definition-shopping" from a defect into a (declared, pre-registered) estimator choice. The τ = 0.05 scale must then be fixed ex ante as a declared truncation parameter, not tuned on the validation data.
+
+**D2 — One optic formalism.** Adopt Riley's Optic(C) as written (objects are pairs; residuals are bound in morphisms); delete Def 2.5's triple version. Define the seven arcs as instances of **one pattern in seven fibers** (Set for RAF, Markov/Stat for prediction, CMet for IFS contraction, Lie groups for Noether, quantum channels for CPTP, information geometry for FR/BA) — the residual in each fiber is a *concrete object of that fiber*, not an English phrase. Table 1's residuals ("Holevo information", "gFR") are currently semantics, not objects; each must become a fiber object.
+
+**D3 — Define the realization R.** The bridge the paper depends on and never builds: on concrete (metric) optics, define R(f, b, R) = f (the realized forward map), prove **R is monoidal**: R(O₂ ∘ O₁) = R(O₂) · R(O₁). This is provable in the concrete bidirectional/metric setting and it is all Remark 7.8 actually needs. Then "T is contractive" means Lip(R(T)) < 1, and the §8/§15 numerics finally refer to the categorical object through a defined map.
+
+**D4 — Make Φ deflationary.** Φ(S) = {r ∈ S : r catalyzed by F ∪ prod(S), food-generated} — the "r ∈ S" must be in the definition for Φ(S) ⊆ S to hold. One line, and it unlocks T4.
+
+**D5 — One tuple, one notation.** (B, E, P, ε, Γ) everywhere; Θ retired; one network registry; Def 6.1's reference corrected from "Definition 2.1" to "Proposition 4.4". D_V stays D_V and the "equality in the radial model is a model-specific coincidence" disclaimer of Def 2.1 becomes a *stated lemma* instead of being contradicted by Cor 4.14.
+
+**D6 — One closure-test semantics.** Collapse Phase I/II/III into one criterion: *ω-limit-pathwise viability* — trajectory in the viability kernel with period-aware sampling for oscillatory attractors (Poincaré-section / multi-time sampling instead of a single endpoint at t = T). This removes the disjunction that converts HOMEOSTATIC limit cycles into passes, removes the ϕ = 0.4 threshold-shopping, and adds the missing precondition *baseline ∈ V* (which fixes the PYR-at-baseline-0.0 anomaly). Phase III's only real content — limit cycles are not endpoint failures — is preserved, but by Poincaré/averaging (1930s tools) instead of ∞-groupoid contractibility.
+
+### 3.2 The seven theorems (current state → exact repair → difficulty)
+
+**T1 — Stratified gluing (repairs Thm 3.4).** *State:* stratified GC-bundles with connection form a 2-stack (gluing holds). *Repair:* the matching condition (O3) must be the exact gauge transform A_i = g⁻¹A_j g + g⁻¹dg; the manuscript's "A_i + d(log g) − [A_i, log g]" is a first-order BCH truncation presented as exact — keep it only as the derived O(Λ²) corollary. Verify the Giraux-axiom descent claim for stratified bases explicitly (or cite Bartels' 2-bundle descent and state the specialization honestly). *Difficulty:* weeks; routine specialization of known results.
+
+**T2 — Piecewise holonomy, the jump-cocycle theorem (repairs Thm 3.5).** *Current flaw:* a closed transverse loop crosses a separating boundary an **even** number of times (the manuscript's "crossing once" is impossible — its own numerics give n_cross = 2), and the O(1) boundary term R_b = log g(p*) pasted into an ε² expansion breaks the scaling (its own Remark 3.6 shows an O(ε) boundary contribution). *The correct theorem is better than the stated one:* for a small loop γ_ε crossing the boundary at the cyclic word w = (p₁, …, p_{2m}) (alternating sides),
+
+  H(γ_ε) = exp(ε² ∫∫_{Σ∩S⁺}F⁺ + ε² ∫∫_{Σ∩S⁻}F⁻) · ∏_{j} g_j(p_j)^{±1} + O(ε³),
+
+so the smooth curvature contributes at ε² and the **non-abelian information concentrates at the boundary as a group-valued jump cocycle** — an invariant of the crossing word w. This is a genuinely nice statement (singular/defect curvature concentrated on the stratification), it explains *why* non-abelian signatures appear exactly at constraint switches, and it is provable with standard stratified-gauge tools. Include the homotopy-invariance-within-crossing-class statement and the commutator estimate (Lemma 13.1 generalization). *Difficulty:* 1–3 months; **one of the two genuinely new theorems.**
+
+**T3 — κ_V regularity + the curvature–viability inequality (repairs Prop 4.7, Cor 4.14, and makes Prop 20.1/Claim D real).** *State:* (i) κ_V is lower semicontinuous, smooth on strata where h is C² and the active-covector set is locally constant, and locally Lipschitz/semiconcave via the Clarke subdifferential — **delete every C² claim on the aggregate** ([·]₊ and sup destroy it; §4.2 already concedes this). (ii) The erosion inequality, which is Thm 3.14 restated with an honest direction and hypotheses: for h ≥ ε on the viability kernel,
+
+  |log(h(x)/h(Hol_{γ_ε}(x)))| ≤ ε² κ_V(x) + O(ε³),
+
+and the N-cycle survival bound (Claim D) follows by summation: survival through K cycles whenever Σ_k a_k² κ_V < log(h_min/ε) — with the η_k noise term handled by the §12 diffusion lemma. *Difficulty:* weeks. (Cor 4.14's radial computation κ_V = a², H = πa² moves to a worked appendix example, clearly labeled as a computation, not a theorem.)
+
+**T4 — Closure = terminal coalgebra, the unification theorem (repairs E13 Theorem A).** With D4's deflationary Φ: (i) gfp(Φ) = maxRAF by Tarski; (ii) the Kleene chain from ⊤ stabilizes in ≤ |U| steps at cost O(|U|·|R|) — this *is* Hordijk–Steel, stated as what it is; (iii) the Set-endofunctor built from the catalysis relation (relation-image + intersection with the food-generated universe) preserves weak pullbacks — check directly (relation-image preserves weak pullbacks; powerset does) — so νΦ exists and equals gfp(Φ); (iv) the metric case: a contractive endofunctor on a complete-metric category has a terminal coalgebra (America–Rutten), which is the fiber where Banach lives. Present (i)–(iv) as **one theorem in three enrichments** (poset/Set/CMet). *This is the paper's actual "single composition theorem", honestly realized.* Delete Theorem B entirely. *Difficulty:* days–weeks; the mathematics is assembly of known results; the risk is positioning, not proof.
+
+**T5 — Contractive realization (repairs Thm 8.2 + unifies §8/§15/Thm 8.4).** One theorem, honest hypotheses: (i) if f_i : X → X are α_i-Lipschitz self-maps of a complete metric space, R(T) = f₇∘…∘f₁ is (Πα_i)-contractive with rate Πα_i, unique fixed point, geometric convergence — for the prototype instantiation, Πα_i = 0.697·1.15 = 0.802 on the enlarged box X = [0, 1.15]^d, which removes the need for the projection patch and for the misnomer "Bregman-regularized" (there is no Bregman divergence in T_reg); (ii) the expansion stage (f₂ = 1.15·Id) is handled by the **Krasnoselskii–Mann averaged-operator theorem** — which is what Prop 15.1's dangling α-monotonicity/β-cocoercivity hypotheses were groping for, and which makes §15's "single expansion optic does not break contraction" honest; (iii) the quantum fiber: CPTP channels are nonexpansive in trace distance; contraction holds iff the projected depolarizing instantiation (Thm 8.4, which is correct) — state "unconditional" only for that instantiation and drop the general claim (a unitary channel is an isometry). *Difficulty:* weeks for the math; months for the §7-fiber restructuring it rides on.
+
+**T6 — The algorithmic envelope (repairs Lemma 4.10, Thm 4.11, Remark 20.2).** Three fixes, each crisp:
+
+- *Lemma 4.10 (uniform Lipschitz).* The stated proof is vacuous (its lower bound → 0 as τ → 0), but the **true statement is stronger and simpler**: by the softmax/convex-combination identity, ∇r_{τ,β,D} = β Σ_j π_j ∇q_j with π_j a probability vector, q_j = [d(·, x̂_j) − D]²₊, hence on compact K
+
+  |∇r_{τ,β,D}| ≤ 2β L_d (diam K + D) — **uniform in τ, in L, and in the whole code family.**
+
+  The β-uniformity worry dissolves (linear in β; uniform for β ≤ B). This is a genuinely satisfying repair: the true lemma is better than the broken one.
+- *Thm 4.11(e) (semicomputability).* Restrict to (τ, β, D) ∈ ℚ₊ ∩ [τ₀, τ₁] × (0, B] × [0, D_max] with code families from a computable enumeration; the uniform equicontinuity above gives, by Arzelà–Ascoli, that E is **locally Lipschitz and equals the sup over the countable dense rational subgrid**; tail control in τ (τ → 0 gives the hard minimum, a Lipschitz limit) closes the family. State semicomputability only for this declared grid.
+- *Remark 20.2 (the unit error).* Replace with a three-line, dimensionally correct corollary: on the enforced viability kernel {h ≥ ε} with h ≤ E locally,
+
+  κ_V = [−Dh]₊/h ≤ Lip_loc(h)/ε ≤ Lip_loc(E)/ε,
+
+  i.e., **E bounds the margin, and the margin's Lipschitz ceiling over the enforced floor bounds κ_V.** That is the honest content of "the upper-bound language is a theorem".
+
+Also: attribute Def 4.1/Prop 4.2 to Vereshchagin–Vitányi in the statement, not implicitly. *Difficulty:* weeks; fiddly but fully understood.
+
+**T7 — The bridge theorem (NEW — this is the theorem the manuscript lacks entirely).** This is what welds thread B to threads G/A and makes the empirical half an *instantiation* rather than a rival framework. Three parts, all provable:
+
+- *(a) κ̂^FBA is the jump curvature of a parametric LP.* The FBA optimum under gene deletion is the solution map of a parametric linear program; the parameter space decomposes into **critical regions** on which the optimizer is constant/piecewise-affine (classical multi-parametric LP theory), and this critical-region decomposition **is** the stratified base B of the SAVGS in the FBA fiber. Define κ̂^FBA(g) = Σ_r (v_r^KO − v_r^WT)² as the squared displacement of the piecewise-affine optimizer path, whose kinks are precisely the active-set transitions — the discrete (angle-defect, Alexandrov-type) realization of T2's jump terms. The indicator mask is then the gene-level positive part (see D1). This single proposition converts Def 3.21 from "a different object named κ_V" into "the polyhedral estimator of the theory's boundary curvature".
+- *(b) The closure test is viability-kernel membership.* Def 3.18's knockout–drop–recover protocol is a finite-time approximation of **Aubin viability-kernel membership with restoration control** — the manuscript already has the Nagumo machinery (Remark 3.11, Prop 3.13's projected differential inclusion); state the equivalence as a proposition. E5's calibration-constant story then dissolves (the estimator's scale is set by the metric, not calibrated post hoc).
+- *(c) Limit cycles by Poincaré/averaging* (part of D6).
+
+note that the mathematics is mostly *assembly* of parametric-LP and viability theory; the contribution is the bridge itself. **This, together with T2, is where the genuine publishable novelty would live.**
+
+### 3.3 What must be deleted outright (mathematically dead, unrepairable)
+
+1. **Cor 4.14** — incoherent as a theorem (→ appendix computation).
+2. **§17 entirely**: Thm 17.2, Cor 17.3 (false under univalence), Def 17.4 (type-theoretic non sequitur), Remark 17.5's "contractibility = within 30% tolerance" — and with it Prop 18.26 (the witness 2-simplex is defined to exist iff Phase I passes — true by construction), Def 19.9 (persistent homology is not homotopy), and E9. The ∞-categorical layer is a rewrite of a sampling-phase artifact in the wrong language; its one real insight is absorbed into D6/T7(c).
+3. **E13 Theorem B** — parametricity does not bear on uniqueness of functors Per(C) → Optic(C).
+4. **Prop 16.2 and Prop 16.7 items 3–4** — κ_V on discrete RAF sets is undefined as constructed; "κ_V(R_max) = κ_V(R_i) = 0 verified to 10⁻⁹" is 0 = 0; "falsifiable" is a category error. Either pull κ_V back through a declared geometry on the realization space or cut. Fix the recurring inverse-limit/colimit confusion in one place (contribution list, §16.2, conclusion).
+5. **Prop 19.7** (the manufactured Zeno-schedule lower bound τ ≥ 1/(1+log₂ N)) — closure depth is not logarithmic in general (chains can descend by one reaction per step); replace with the true, known statement: stabilization in ≤ |U| iterations at O(|U|·|R|) cost.
+6. **Claims A–E as "empirical verdicts"** — simulations of textbook identities or of a simulator's own generating law are consistency checks, not experiments; reclassify them (they are *calibration* of the estimator κ̂^tc, and harmless under that label). The falsification hierarchy survives as: Claim F with corrected group theory, Claim G (Zeno exponent — the one genuinely discriminating prediction), plus the real-data estimator evaluations.
+7. The orphaned Lagrangian (22); the "all five conjectures closed" framing (they were internal draft conjectures — restate as theorems with honest provenance); every "unconditional", "in all three regimes", "strictly greater" overclaim whose proof does not cover it.
+
+### 3.4 Small honest repairs (they are *in* theorems)
+
+- **Structure groups:** the FR metric on the simplex is (radius-2, via ψ = 2√p — so Prop 3.16's "unit sphere" is wrong by a factor of 2) round-spherical; the point stabilizer is **O(n−1)**, and a CO(r) reduction requires the Weyl structure that Remark 2.3 correctly describes — Remark 2.4's flat "at n = 3 the stabilizer is CO(2)" must be routed through Def 2.2/Remark 2.3. The *claim that matters* (abelian so(2) at n = 3 ⇒ non-abelian signature unobservable; non-abelian so(3) at n ≥ 4 ⇒ observable) survives with corrected labels.
+- **The 3/2 exponent:** state the honest biconditional — fatigue exponent 3/2 ⇔ diffusion coefficient affine in the viability gap (σ² = νa) — and *derive* the constant C_fat from the Lévy first-passage normalization (the "kernel constant κ of order unity" is an unforced omission; the hitting-time density's constant is explicit), then check it against the Monte-Carlo value. Report that the fitted exponent lies outside the quoted CI rather than "verified to within 1.4%".
+- Unify §8 and §15 (duplicated content), fix Thm 3.14's tuple drift, fix the "3 compute κ_V … E10, E12, E15, E16" arithmetic, one notation table for the whole paper.
+
+---
+
+## 4. The spine of the coherent article
+
+With the above done, the single article has this shape (a long-form journal article, 60–90 pp — length is not the problem):
+
+```
+§1  The object: viability closure systems (S, V, h, T)        — D1–D6, the unifying image
+§2  Stratified geometry I: gluing (T1)                        — Bartels specialization, appendix proof
+§3  Stratified geometry II: the jump-cocycle holonomy (T2)    — the paper's best new theorem
+§4  κ_V: definition, regularity, erosion & survival bounds (T3)
+§5  The Bregman–Noether lemma and gauge invariance            — §5 as it stands, tightened
+§6  Closure as finality: Φ, maxRAF, terminal coalgebras       — T4, three enrichments, Hordijk–Steel
+    in poset/Set/CMet; the seven-fiber optic pattern, R monoidal (D2–D3)
+§7  Contractive realization: Banach, KM, CPTP–Zeno fibers (T5)
+§8  The algorithmic envelope (T6)                             — VV attribution, grid, ε-corollary
+§9  The bridge: FBA as a stratified viability closure system (T7)   — mpLP critical regions,
+     κ̂^FBA = jump curvature, closure test = viability kernel, Poincaré for cycles
+§10 Estimators and their evaluation                           — ONE protocol: holdout/transfer/
+    cross-rebuild/expression panels (the honest core of E10–E27, no study-numbering zoo)
+§11 The 3/2 fatigue exponent as a biconditional + limits
+A–D Appendices: radial worked example (ex-Cor 4.14), proofs, network registry, code
+```
+
+The abstract's proposition then becomes a statement the theorem chain actually supports: *closure is finality; fragility under cycling is stratified holonomy measured by κ_V; κ_V admits a computable envelope; and FBA provides a finite stratified instance whose gene-deletion statistics estimate the jump curvature.*
+
+---
+
+## 5. Feasibility and the bottom line
+
+| Theorem | Nature of work | Estimate |
+|---|---|---|
+| T1 gluing | Specialization of known descent | weeks |
+| T2 jump-cocycle holonomy | **New mathematics** | 1–3 months |
+| T3 regularity + erosion | Standard nonsmooth analysis | weeks |
+| T4 finality in three enrichments | Assembly of known results into a real theorem | days–weeks |
+| T5 contraction + fibers | Classical + restructuring | weeks (math) / months (restructure) |
+| T6 envelope | Careful, fully understood | weeks |
+| T7 FBA bridge | **New mathematics** (assembly of mpLP + viability theory) | months |
+| Deletions | Discipline | free |
+
+**The bottom line:** nothing in the list is mathematically impossible, nothing needs new machinery of Fields-medal caliber, and no part of the plan depends on the parts of the manuscript that are unfixable (provenance, audit-response layering, self-verification — all of which the math-only frame sets aside anyway). The real cost is not proving — it is **deleting and instantiating**: killing the HoTT layer, Cor 4.14, Theorem B, the 27-study architecture, and the "seven optics" numerology, and then doing the unglamorous work of defining R, unifying the three κ_V's, and proving T7 so that the biology half *instantiates* the geometry half. A competent author–collaborator pair can do this in roughly 6–12 months. What emerges is a smaller-claim, single-voice paper — "viability closure systems: stratified holonomy, contractive closure, and an algorithmic envelope, with a genome-scale instantiation" — whose every theorem is true, whose layers are connected by actual theorems rather than shared names, and whose two genuinely novel results (the jump-cocycle holonomy theorem and the mpLP bridge) are, frankly, better mathematics than anything the current 131 pages actually prove.

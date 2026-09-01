@@ -1,0 +1,316 @@
+## Active‑Set Bridge Conjecture
+
+Let \(\mathcal{N}=(S,R,\mathrm{GPR})\) be a genome‑scale metabolic network. Let \(\Theta\subseteq\mathbb{R}^{p}\) be a parameter space of environmental or genetic perturbations. For each \(\theta\in\Theta\), solve the FBA problem
+
+\[
+v(\theta)=\arg\max_{v}\{c^{T}v:Sv=0,\ \ell(\theta)\le v\le u(\theta)\}
+\]
+
+under a fixed **lexicographic pFBA tie‑breaking rule**. This makes \(v(\theta)\) unique for almost every \(\theta\) and piecewise affine on a finite polyhedral decomposition of \(\Theta\). Define the optimal active set \(A(\theta)\) as the set of reactions whose bounds are active, together with the active rows of \(S\) in the chosen basis.
+
+---
+
+### Construction of the discrete connection
+
+Let \(\mathcal{R}\) be the finite set of open regions on which \(v(\theta)\) is affine. For a region \(r\in\mathcal{R}\), let
+
+\[
+v_{r}(\theta)=M_{r}\theta+q_{r}
+\]
+
+be the affine map representing the optimal flux. Across an interface \(I_{ij}\) between adjacent regions \(i\) and \(j\), \(v\) is continuous, so
+
+\[
+(M_{i}\theta+q_{i}) = (M_{j}\theta+q_{j}) \quad \text{for all } \theta\in I_{ij}.
+\]
+
+Define the **affine‑extension transition map** \(T_{ij}\) acting on the vector space of affine maps \(\mathbb{R}^{p}\to\mathbb{R}^{m}\) by the unique linear transformation that sends the representative affine map of region \(i\) to that of region \(j\) while fixing the affine functions on \(I_{ij}\). Uniqueness of \(v\) ensures the \(T_{ij}\) satisfy the cocycle condition on triple overlaps.
+
+For a piecewise‑smooth loop \(\gamma\subset\Theta\) crossing finitely many interfaces, define the **discrete holonomy**
+
+\[
+H_{\gamma}=T_{i_{k}i_{k-1}}\cdots T_{i_{1}i_{0}}
+\]
+
+where \(i_{0},i_{1},\dots,i_{k}\) are the regions visited by \(\gamma\).
+
+---
+
+### Assumptions
+
+**A1. Nondegenerate FBA.**  
+For all \(\theta\) outside a measure‑zero set, the lexicographic pFBA optimum is unique and the active set is a basis of the stoichiometric subspace.
+
+**A2. Polyhedral regularity.**  
+The active‑set boundaries are smooth hypersurfaces intersecting transversely. The regions \(\mathcal{R}\) form a finite polyhedral complex.
+
+**A3. Geometric embedding.**  
+There exists a smooth embedding
+
+\[
+\Phi:\Theta\hookrightarrow B
+\]
+
+into a Riemannian manifold \(B\), a vector bundle \(E\to B\), a connection \(\nabla\) on \(E\), and a smooth viability field \(V\) on \(B\). Let \(\Omega^{\nabla}\) be the curvature tensor of \(\nabla\), and define the **geometric viability‑weighted curvature**
+
+\[
+\kappa_{\mathrm{geom}}(b)
+:=
+\operatorname{tr}_{V}\Omega^{\nabla}(b)
+\]
+
+or, equivalently, \(\kappa_{\mathrm{geom}}=\|\Omega^{\nabla}\|_{V}\).
+
+**A4. Scaling limit.**  
+The pullback metric on \(\Theta\) induced by \(\Phi\) fixes the scaling of parameter units to geometric distance. The limit below exists and is independent of the shape of the loop within a fixed tangent plane.
+
+**A5. Flatness on strata.**  
+The discrete connection defined by the \(T_{ij}\) is flat on each open stratum of \(\Theta\).
+
+---
+
+### Statement
+
+**Conjecture (Active‑Set Bridge).**  
+Let \(\theta_{0}\in\Theta\) be a point where several active‑set interfaces meet. Let \(\gamma_{\varepsilon}\) be a small closed loop in \(\Theta\) based at \(\theta_{0}\) and spanning a parallelogram with tangent vectors \(X,Y\in T_{\theta_{0}}\Theta\). Then
+
+\[
+\lim_{\varepsilon\to0}
+\frac{1}{\varepsilon^{2}}
+\Big(H_{\gamma_{\varepsilon}}-I\Big)
+=
+\Omega^{\nabla}\big(\Phi_{*}X,\Phi_{*}Y\big)\Big|_{V}
+\]
+
+in the operator norm on the affine‑extension fibres. In particular, the scalar curvature extracted from the discrete holonomy equals \(\kappa_{\mathrm{geom}}\) at \(\Phi(\theta_{0})\):
+
+\[
+\lim_{\varepsilon\to0}
+\frac{1}{\varepsilon^{2}}
+\Big\|
+H_{\gamma_{\varepsilon}}-I
+\Big\|
+=
+\kappa_{\mathrm{geom}}\big(\Phi(\theta_{0})\big).
+\]
+
+---
+
+### Proof sketch
+
+1. **Piecewise affine structure.**  
+   By parametric linear programming, the optimal flux \(v(\theta)\) is piecewise affine and continuous. The Jacobian \(Dv\) is constant on each region and jumps across active‑set interfaces.
+
+2. **Discrete connection encodes Jacobian jumps.**  
+   The transition \(T_{ij}\) acts nontrivially only on the linear part \(M\) of the affine map; it is determined by the difference \(M_{j}-M_{i}\). This difference is concentrated on the interface and is exactly the jump in the derivative of \(v\).
+
+3. **Holonomy is second order.**  
+   For a small loop, the composition of transitions differs from the identity by the commutator of the Jacobian jumps along the two crossing directions. Expanding the composition in powers of the loop size, the first‑order terms cancel; the leading term is second order and proportional to the commutator of the jumps.
+
+4. **Second‑order mass equals interface curvature.**  
+   The distributional second derivative of \(v\) is a sum of Dirac measures supported on active‑set interfaces. The holonomy computed from the transition maps equals the integral of this second‑order measure over the loop.
+
+5. **Comparison with geometric curvature.**  
+   The construction of \(\Phi\) identifies the active‑set interface measure with the curvature form of \(\nabla\). By the scaling limit A4, the discrete holonomy converges to the geometric holonomy, whose infinitesimal generator is \(\Omega^{\nabla}\). Contracting with \(V\) yields \(\kappa_{\mathrm{geom}}\).
+
+∎
+
+---
+
+### Testable consequences
+
+1. **Second‑order concentration.**  
+   For any one‑parameter sweep, the total squared second‑order variation of \(v(\theta)\) is concentrated on active‑set events; between events the path is affine to machine precision.
+
+2. **Double‑knockout non‑additivity.**  
+   The interaction term
+
+   \[
+   \varepsilon_{ij}
+   =
+   \kappa_{\mathrm{flux}}(ij)-\kappa_{\mathrm{flux}}(i)-\kappa_{\mathrm{flux}}(j)
+   \]
+
+   equals, in the small‑perturbation limit, the holonomy of the rectangle formed by perturbing \(i\) then \(j\). Non‑zero \(\varepsilon_{ij}\) is thus a discrete signature of curvature.
+
+3. **Time‑course object.**  
+   Along a temporal trajectory \(\theta(t)\), the squared displacement
+
+   \[
+   \kappa_{\mathrm{time}}(t)=\|v(\theta(t))-v(\theta(0))\|^{2}
+   \]
+
+   has second derivative equal to the curvature measure concentrated at active‑set events. Consequently, the empirical E24–E27 object is the integrated curvature along the viability gradient.
+
+---
+
+### Status
+
+The conjecture is **computationally supported but not proven**. M1 and M3 confirm the first two consequences to numerical precision. The missing ingredient is a proof of the scaling limit in A4, most likely using results from parametric linear programming and piecewise linear geometry.
+
+
+Yes, the last formulation is promising but still has weaknesses that prevent it from being a fully rigorous conjecture. Here are the main improvements needed, followed by a tighter version.
+
+---
+
+## 1. Replace the infinite‑dimensional affine‑map holonomy with a finite‑dimensional flux holonomy
+
+**Problem:**  
+The discrete connection was defined as a transition \(T_{ij}\) acting on the space of affine maps \(\mathbb{R}^{p}\to\mathbb{R}^{m}\). That space is infinite‑dimensional, and the operator‑norm limit is ill‑posed.
+
+**Fix:**  
+Use the finite‑dimensional tangent spaces of the FBA polytope. At each \(\theta\), define
+
+\[
+F_{\theta}
+=
+\{
+\delta v\in\mathbb{R}^{|R|}
+:
+S\,\delta v=0,\quad
+\delta v_i=0\ \text{for all } i\in A(\theta)
+\}
+\]
+
+This is the tangent cone of the feasible set at the unique optimum. Across an active‑set interface from region \(i\) to \(j\), define parallel transport
+
+\[
+P_{ij}: F_i \to F_j
+\]
+
+as the orthogonal projection onto the shared constraints, or as the unique minimal‑rotation map that preserves the flux vector on the common face.
+
+Then a small loop around \(\theta_0\) produces
+
+\[
+H_{\varepsilon} = P_{i_k i_{k-1}}\cdots P_{i_1 i_0}
+\]
+
+acting on a fixed finite‑dimensional vector space. This is computable and testable.
+
+---
+
+## 2. Make the geometric side explicit
+
+**Problem:**  
+Assumption A3 merely says there exists some manifold \(B\), bundle \(E\), connection \(\nabla\), and viability field \(V\). That is too weak. The conjecture cannot be proven or falsified until these objects are constructed from the FBA data.
+
+**Fix:**  
+Construct \(\nabla\) directly from the KKT conditions of FBA. On each active‑set stratum, the optimal flux is
+
+\[
+v_B(\theta)=B(\theta)^{-1}b(\theta)
+\]
+
+where \(B(\theta)\) is the active basis matrix. The change of basis across an interface is a rank‑one update. The discrete connection is therefore the gauge connection of the basis choices. Its curvature is the commutator of the update matrices. The geometric curvature \(\kappa_{\mathrm{geom}}\) is then defined as the contraction of this KKT curvature with the viability field, not as an abstract externally given object.
+
+---
+
+## 3. Clarify the limit in the conjecture
+
+**Problem:**  
+The limit is stated over arbitrary loops based at \(\theta_0\), but \(\theta_0\) may lie at the intersection of several active‑set interfaces, producing distributional curvature rather than a smooth tensor.
+
+**Fix:**  
+Restrict to a regular point where exactly two interfaces cross transversely, or state the result in a distributional sense:
+
+\[
+\frac{1}{\varepsilon^{2}}\big(H_{\varepsilon}-I\big)
+\;\xrightarrow{\;\mathcal{D}'\;}
+\Omega^{\nabla}(X,Y)
+\]
+
+where \(\Omega^{\nabla}\) is a curvature measure concentrated on the active‑set strata. The scalar version then becomes
+
+\[
+\lim_{\varepsilon\to0}\frac{1}{\varepsilon^{2}}
+\operatorname{tr}\big(H_{\varepsilon}-I\big)
+=
+\kappa_{\mathrm{geom}}(\theta_0)
+\]
+
+understood as a density of the curvature measure.
+
+---
+
+## 4. Add a precise parallel‑transport rule
+
+**Problem:**  
+The previous \(T_{ij}\) was only loosely defined as “the unique linear transformation that sends the representative affine map of region \(i\) to that of region \(j\).” Uniqueness is not guaranteed without fixing the action on the orthogonal complement of the interface.
+
+**Fix:**  
+Define \(P_{ij}\) by the following explicit rule. Let \(I_{ij}\) be the interface and let \(F_I\) be the shared tangent space of the common face. Then \(P_{ij}\) is the identity on \(F_I\), and on the orthogonal complement \(F_i\ominus F_I\) it is the minimal‑rotation map that aligns the nullspace directions. Equivalently, \(P_{ij}\) is the orthogonal projection from \(F_i\) to \(F_j\). This makes parallel transport unique and computable.
+
+---
+
+## 5. State the connection between holonomy and the second‑order response precisely
+
+**Problem:**  
+The proof sketch says the holonomy equals the integral of the second‑order measure, but this is not shown.
+
+**Fix:**  
+For a one‑parameter path \(\theta(t)\), the second derivative of \(v(\theta(t))\) in the distributional sense is
+
+\[
+D^{2}v
+=
+\sum_{\text{events } e}
+\Delta_e\,
+\delta(t-t_e)
+\]
+
+where \(\Delta_e = \lim_{t\downarrow t_e} v'(t) - \lim_{t\uparrow t_e} v'(t)\). For a small loop crossing two interfaces, the holonomy is
+
+\[
+H_{\varepsilon} - I
+=
+\Delta_{e_1}\Delta_{e_2}\,\varepsilon^{2}
++
+O(\varepsilon^{3})
+\]
+
+and the commutator of the two jumps equals the curvature. This gives the exact second‑order term and makes the proof sketch concrete.
+
+---
+
+## Revised compact statement
+
+**Conjecture.** Let \(v(\theta)\) be the unique lexicographic pFBA flux map on a polyhedral parameter space \(\Theta\). For each active‑set stratum, let \(F_\theta\) be the tangent space to the feasible polytope. Define parallel transport across active‑set interfaces by orthogonal projection of tangent spaces. Then for a small parallelogram with tangent vectors \(X,Y\) based at a regular crossing point,
+
+\[
+\lim_{\varepsilon\to0}
+\frac{1}{\varepsilon^{2}}
+\big(
+P_{i_4 i_3}P_{i_3 i_2}P_{i_2 i_1}P_{i_1 i_0}
+-
+I
+\big)
+=
+\Omega^{KKT}(X,Y)
+\]
+
+where \(\Omega^{KKT}\) is the curvature of the KKT basis connection. Contracting with the viability field gives
+
+\[
+\lim_{\varepsilon\to0}
+\frac{1}{\varepsilon^{2}}
+\Big\|
+P_{\text{loop}}-I
+\Big\|
+=
+\kappa_{\mathrm{geom}}.
+\]
+
+---
+
+## Bottom line
+
+The last version was conceptually right but formally loose. The key upgrades are:
+
+- finite‑dimensional tangent‑space holonomy,
+- explicit KKT/gauge connection,
+- distributional or regular‑point limit,
+- concrete projection‑based parallel transport,
+- exact second‑order expansion.
+
+With these changes, the conjecture becomes a precise statement that can be attacked with parametric linear programming and piecewise linear geometry.

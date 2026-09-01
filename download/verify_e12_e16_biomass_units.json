@@ -1,0 +1,32 @@
+{
+  "iJO script-medium (tre -1000)": {
+    "objective": 15.445105711056833,
+    "glc": -10.0,
+    "o2": -20.0,
+    "tre": -337.02765359072197
+  },
+  "iJO tre CLOSED (glucose-minimal)": {
+    "objective": 0.9823718127269797,
+    "glc": -10.0,
+    "o2": -17.57893353025425,
+    "tre": 0.0
+  },
+  "iJO tre-only (glc closed)": {
+    "objective": 15.439255447347103,
+    "glc": 0.0,
+    "o2": -20.0,
+    "tre": -343.4134207659911
+  },
+  "iML script-medium (tre -1000)": {
+    "objective": 11.008582705721524,
+    "glc": -10.0,
+    "o2": -20.0,
+    "tre": -353.80402480653095
+  },
+  "iML tre CLOSED (glucose-minimal)": {
+    "objective": 0.8217979336265955,
+    "glc": -10.0,
+    "o2": -20.0,
+    "tre": 0.0
+  }
+}

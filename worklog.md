@@ -3191,3 +3191,1232 @@ Next-step recommendation:
   compendium (COLOMBOS or M3D) where every gene maps to an iJO1366
   reaction, removing the 77-gene global-proxy dominance that still
   depresses the per-gene Pearson r at v12 (+0.1024) and v13 (+0.0838).
+
+---
+Task ID: v14b-fix-and-v15-option-c
+Agent: main (Z.ai)
+Task: User approved (1) the critical v14b manuscript fix (remove false
+statements from the v13 narrative) and (2) Option C — reaction-based
+sampling (Study E22 / v15). Both were implemented, with verification
+before and after each.
+
+Work Log:
+- ENVIRONMENT RESTORATION: cobrapy and /tmp/lemuth_ts_clean.json had
+  been lost from the environment (/tmp resets). Installed cobra 0.32.1
+  into /home/z/.venv; downloaded iJO1366 from BIGG (2583 rxns, 1367
+  genes) and cached locally at data/bigg_models/iJO1366.json;
+  reconstructed /tmp/lemuth_ts_clean.json from the archived v1-backup
+  E10 CSV (92 genes x 8 timepoints, bit-exact cross-check vs the
+  patched CSV: 0/736 mismatches). Script:
+  scripts/v14b_restore_lemuth_data.py.
+- VERIFICATION (before the fix): scripts/v14b_verify_claims.py re-ran
+  the FBA from first principles and confirmed all four audit claims:
+  C1 = 14/15 MAPPED genes have kappa_V = 0 at all 8 timepoints (only
+  b2097/fbaA non-zero, max 9.490142 — exact match); C2 = 438/2583
+  (17.0%) reactions active under the Lemuth condition; C3 = the
+  MAPPED-only r = -0.1579 is an outlier artifact (14 identical zeros
+  + b2097; removing b2097 leaves zero x-variance, Pearson undefined);
+  C4 = all audit-named reactions (THIORDXi, METSOXR1/2, SPODM, TREHpp,
+  TRE6PP, UGLT, NO3R1pp/2pp, G3PSabcpp, CRNCAL2, CTBTCAL2, PROabcpp)
+  carry zero flux; FBA is the only active one.
+- DISCOVERED during verification: the /tmp patched E10 CSV had again
+  reverted to the original 1-MAPPED version (periodic /tmp resets).
+  Built scripts/v14b_reconstruct_kappa.py, which reconstructs the
+  unmasked/v12/v13 per-gene kappa_V vectors entirely from first
+  principles (fresh FBA + GPR + Keio MOESM5). It reproduces unmasked
+  r = -0.0633, v12 r = +0.1024, v13 r = +0.0838 to 4 decimals and
+  proves the v12 and v13 kappa_V vectors differ at EXACTLY ONE gene
+  (b2097: 0 under v12, 9.49 under v13) — the structural fact behind
+  the manuscript correction.
+- v14b MANUSCRIPT FIX (scripts/v14b_patch_manuscript.py, 3 patches):
+  P1 rewrote the v13 paragraph (sec:novelty-v13): removed the false
+  "per-gene heterogeneous kappa_V" claim and the nonexistent "EcoCyc
+  annotation proxy" method description; replaced with the verified
+  narrative (14/15 GPR reactions inactive -> kappa_V = 0, same
+  end-state as v12 mask; v12/v13 differ only at b2097; verdict
+  reframed from "independently confirmed" to "structural
+  corroboration"; RETRACTED the "counterintuitive MAPPED-only finding
+  = protein-level regulation" interpretation as a degenerate
+  small-sample artifact).
+  P2 fixed the two echoes in the E10 Results follow-ups paragraph
+  (sign-flip consistency wording + retraction sentence).
+  P3 inserted the new subsection sec:novelty-v14b (correction-round
+  record: three verified findings + artifacts + audit verdicts
+  C1–C4 all CONFIRMED).
+  One patcher bug (broken idempotency check on P3) duplicated the
+  v14b subsection once; removed via scripts/v14b_dedupe_subsection.py
+  and the patcher's P3 check was hardened. Final state: 1 subsection,
+  1 label, 0 false-statement markers.
+- OPTION C IMPLEMENTATION (Study E22 / v15):
+  scripts/novelty_v15_reaction_sampling_e22.py (~560 lines). Inverts
+  the mapping direction: samples genes FROM the 438 active reactions
+  via cobra's authoritative reaction.genes GPR map; per-gene
+  kappa_V(g,t) = max over the gene's reactions (E10-identical
+  aggregation).
+  All four user-requested cautions verified IN-SCRIPT:
+  [C-map] GPR spot-checks on FBA/ATPS4rpp/PDH/GLCptspp (rule-string
+  token SET == cobra gene set — fixed a first-draft token-count bug
+  where nested rules repeat genes) + 0/120 symmetry failures on 50
+  sampled genes.
+  [C-def] all 15 MAPPED kappa values, global kappa 0.158543, and the
+  three r values reproduce exactly.
+  [C-dist] panel = 435 genes; overlap with the 15 MAPPED = {b2097}
+  only (434 distinct); Lemuth∩panel = {b2097}.
+  [C-var] 435/435 = 100% of panel genes have non-zero kappa_V
+  variation (the zero-dominated failure mode is excluded by
+  construction).
+  Results: 404/438 active reactions carry GPR genes -> 435-gene panel
+  (31.8% of 1367; 434 excluding spontaneous s0001). kappa_V
+  distribution extremely concentrated: Gini 0.932, top 1%/5%/10% of
+  genes hold 18.0%/76.5%/97.4% of total kappa_V, Hill alpha ~ 0.43,
+  lognormal rejected (KS p = 6.0e-4). Top carriers: ATPS4rpp complex
+  b3731–b3739 (466.63), H2O-transport porin/diffusion system
+  (330.20), cydAB bo3-oxidase b0429/b0430 (185.19). Top subsystems:
+  oxidative phosphorylation (802.4), porins (467.2), inner-membrane
+  transport (404.8), glycolysis (193.7). GPR classes over active
+  reactions: single 254, isozyme-OR 96 (21.9% — genome-scale
+  quantification of the v12 isozyme-cover finding), complex-AND 36,
+  mixed 18, no-GPR 34; mixed rules carry the highest mean kappa
+  (26.8). Direction test re-verified with E10's EXACT 21-prediction
+  list (first draft had a reconstructed 23-entry list — corrected):
+  14/21 = 66.7% pass, per-gene kappa values identical to stored E10.
+  E10-lineage correlation on the panel: Lemuth ∩ panel = 1 gene
+  (b2097) -> per-gene Pearson NOT COMPUTABLE at meaningful n on
+  local data — the honest central finding: the block is expression
+  COVERAGE, not mapping. Extending requires Option A (compendium,
+  deferred) or Option D (condition swaps, next round).
+  Outputs: download/novelty_v15_reaction_sampling_e22.{csv,txt,png,
+  results.json} (CSV = full 435-gene panel with kappa trajectories,
+  GPR class, subsystem, Lemuth/MAPPED15 flags).
+- v15 MANUSCRIPT UPDATE (scripts/v15_patch_manuscript.py): P1 added
+  the forward-pointer sentence in the E10 Results follow-ups
+  paragraph (structural disjointness, Lemuth ∩ panel = b2097); P2
+  inserted the new subsection sec:novelty-v15 (E22) with the four
+  verification checks, panel construction, distributional structure,
+  GPR-complexity analysis, direction-test re-verification, honest
+  verdict ("does not strengthen or weaken the E10 verdict; it
+  replaces the failed gene-mapping route with a sound panel
+  construction and proves the disjointness is structural"), and
+  artifacts. This resolves the 2 forward references to
+  sec:novelty-v15 that the v14b text had left dangling.
+- FINAL QA: reference audit (scripts/audit_manuscript_refs.py) ->
+  0 dangling references; brace/begin-end balances unchanged from the
+  git baseline; version subsection chain now v10 -> v11 -> v12 ->
+  v13 -> v14b -> v15; tectonic compile SUCCESS (6.18 MiB PDF, only
+  pre-existing warning: citation orth2011comprehensive missing from
+  the .bib, present in the git baseline too — out of scope). Fresh
+  PDF copied to download/journal_manuscript.pdf and mirrored to
+  /tmp/my-project/scripts/.
+
+Stage Summary:
+- v14b fix COMPLETE: the manuscript no longer contains the false
+  "per-gene heterogeneous kappa_V" / "EcoCyc proxy" statements; the
+  r = -0.158 protein-level-regulation interpretation is formally
+  retracted as a degenerate artifact; the v13 narrative now states
+  the verified facts (14/15 zero-flux reactions; v12/v13 differ only
+  at b2097; structural corroboration, not methodological
+  independence).
+- Option C (v15/E22) COMPLETE with all four user cautions verified:
+  correct GPR mapping (spot-checks + symmetry), kappa_V consistent
+  with E10/v13 definitions (exact reproduction of all stored
+  values), gene set truly distinct from the original 15 (434/435),
+  and 100% non-zero kappa_V variation across the 435-gene panel.
+- Key structural findings for the record: (i) the E10 correlation is
+  blocked by expression coverage, not gene mapping (Lemuth ∩
+  active-reaction genes = 1 gene); (ii) kappa_V is extremely
+  concentrated over the panel (Gini 0.93; top 10% of genes carry
+  97.4%); (iii) 21.9% of active reactions have isozyme OR-GPRs and
+  cannot be disabled by single-gene KO (v12's mechanism, quantified);
+  (iv) the most perturbed reactions (ATPS4rpp, GLCptspp) are exactly
+  those with mixed nested GPRs.
+- Deliverables: 7 new scripts (v14b_restore_lemuth_data,
+  v14b_verify_claims, v14b_reconstruct_kappa, v14b_patch_manuscript,
+  v14b_dedupe_subsection, novelty_v15_reaction_sampling_e22,
+  v15_patch_manuscript), v15 outputs (csv/txt/png/json), v14b
+  verification outputs, updated manuscript (+v14b and +v15
+  subsections, compiled PDF), restored iJO1366 model cache and
+  Lemuth JSON.
+- Next step (per user's decision): Option D (multi-condition FBA
+  swaps: anaerobic+NO3 for narJ, glycerol for ugpC, oxidative stress
+  for bcp/msrA/yeaA/sodA, osmotic for proV/proW/otsB/treA) — the
+  435-gene panel and reaction->gene map from E22 are the required
+  foundation and are now in place.
+---
+Task ID: v16-option-d-multicondition-fba
+Agent: Super Z (main)
+Task: Implement Option D (multi-condition FBA) as Study E23 / manuscript
+round v16, per the user's instruction "proceed with option D" (v14b fix
+and Option C/v15-E22 were completed in the previous round).
+
+Work Log:
+- Read the worklog tail + v14b_options_evaluation.md to recover the
+  Option D spec; confirmed environment intact (iJO1366 loads, Lemuth
+  JSON restored, cobra 0.32.1, GLPK).
+- Five diagnostic probes (scripts/e23_probe_conditions{,2,3,4,5}.py)
+  resolved every design unknown: NO3R1pp activates endogenously under
+  anaerobic+nitrate (22.10 -> 5.52, electron-balance limited); UGLT
+  carries all galactose carbon (5.0 -> 1.0); trehalose routes through
+  TREHpp (treA) but the PTS/trehalase split is solver-degenerate (fixed
+  by a treB/b4240-only KO); ugpC's ABC transporter is bypassed by the
+  periplasmic phosphatase G2PPpp/b4055 (fixed by KO) and by carbon
+  appetite for glycerol-2-P; SPODM and CAT are bounds-blocked (0,0) in
+  the published model; opening SPODM with MOX reversible creates a
+  thermodynamically infeasible energy loop (mu 0.4847 -> 0.6924; QMO ->
+  SPODM -> MOX-reverse -> MDH transhydrogenase; MOX made irreversible
+  as a model correction); ProU/Yeh ABC transporters are never FBA-
+  optimal vs symport (proP/b4111, putP/b1015, b1801 KOs force them);
+  carnitine CoA esters form a closed pool with no sink.
+- KEY METHOD DECISION (endogeneity criterion): only activations whose
+  flux follows from medium + feed trajectory + FBA optimality (the E10
+  b2097/FBA class) enter the primary correlation; imposed-burden
+  activations (damage/retention rates) are reported structurally but
+  excluded, because their kappa_V would encode the assumed burden
+  scale. caiC excluded a priori.
+- Wrote scripts/novelty_v16_multicondition_e23.py (~700 lines): 9
+  conditions (baseline + 6 nutrient-swap primary + 3 burden arms) on
+  the E10 time axis; fixed 3 implementation bugs during runs (RXN_IDS
+  capture from the DM-appending condition; GENE_PLAN mixed keys; one
+  bootstrap NaN poisoning percentiles) + 2 design fixes (carbon-matched
+  osmotic co-feed after the energy-loop guard fired; treB-only KO).
+- VERIFICATION: [D-cons] baseline reproduces E22 EXACTLY (438 active,
+  global kappa 0.158543, b2097 = 9.490142, r = -0.0633/+0.1024/+0.0838);
+  [D-map] 27/27 MAPPED gene-reaction GPR membership; [D-act] 13/14
+  zero-kappa_V genes activated (all except caiC); caiC proven
+  structurally unactivatable by a permissive LP (all exchanges open
+  +/-1000, objective = ligase flux: max = 0.000000 for all three
+  reactions) + empirical swap test; [D-end] nitrate/proline feeds
+  non-binding, glyc2p co-feed = the limiting feed trajectory.
+- PRIMARY RESULT (n = 7: 6 endogenous + b2097): Pearson r = +0.5712
+  (p = 0.180), Spearman +0.5636, bootstrap CI [-0.166, +0.969], exact
+  permutation p = 0.178 (5,040 reassignments), leave-one-out r in
+  [+0.47, +0.68] (sign-stable). Controls: v14b baseline-only artifact
+  r = -0.1579 (= stored -0.158); 13-gene mixed-class envelope +0.230.
+- COVERAGE: active reactions 438 (17.0%) -> union 538 (20.8%, +100,
+  +22.8% relative); genes with non-zero kappa_V 435 -> 524 (38.3% of
+  1367); 2,045 reactions remain inactive across all nine conditions.
+- Manuscript patch (scripts/v16_patch_manuscript.py, 3 idempotent
+  patches): P1 updated the v15 forward pointer ("executed as the v16
+  round"); P2 extended the E10-results narrative; P3 inserted the new
+  subsection sec:novelty-v16 before \section{Main Proposition}
+  (design + endogeneity criterion, 4 verification checks, caiC proof,
+  the two oxidative-design model findings incl. the energy loop, the
+  primary statistics with LOO, the burden-class caveat, coverage, an
+  honest verdict, artifacts).
+- QA: reference audit -> 0 dangling; braces 6275/6276 with the +1
+  imbalance pre-existing in the git baseline (6190/6191; my additions
+  85/85 balanced); begin/end 435/435; version chain now
+  v10 -> v11 -> v12 -> v13 -> v14b -> v15 -> v16; tectonic compile
+  SUCCESS (6.19 MiB; overfull-hbox warnings only in the pre-existing
+  artifacts itemize). PDF copied to download/journal_manuscript.pdf
+  (mirrored to /tmp/my-project/scripts/), key phrases verified in the
+  rendered PDF text.
+
+Stage Summary:
+- Option D COMPLETE: 13/14 zero-kappa_V genes activated under matched
+  conditions; caiC/b0037 proven structurally unactivatable in iJO1366
+  (closed carnitine-CoA pool; permissive-LP max flux = 0).
+- The cross-condition test is now computable and gives r = +0.571 at
+  n=7: positive, sign-stable under leave-one-out, consistent with the
+  E10-lineage direction, but under-powered (CI includes 0, permutation
+  p = 0.18). Honest verdict: local data cannot decide the kappa_V ->
+  transcript-response hypothesis at meaningful power; the missing
+  ingredient is expression coverage of the multi-condition panel
+  (Option A), not more genes/mappings/conditions.
+- New artifacts: scripts/novelty_v16_multicondition_e23.py, 5 probe
+  scripts, scripts/v16_patch_manuscript.py, download/
+  novelty_v16_multicondition_e23.{csv,txt,png,results.json}, updated
+  manuscript (+sec:novelty-v16, compiled 6.19 MiB PDF).
+- Notable model findings for the record: (i) SPODM/CAT bounds-blocked
+  by the publishers, and opening SPODM + reversible MOX yields an
+  energy loop (mu 0.69) — the reason SPODM was blocked; (ii) the
+  periplasmic phosphatase b4055 bypasses Ugp; (iii) ABC osmoprotectant
+  transport is never FBA-optimal vs symport without transporter KOs;
+  (iv) b2097's FBA reaction is active in every carbon condition
+  (kappa_V 8.9–11.2), a cross-condition robustness signal.
+---
+Task ID: v17-option-a-expression-coverage
+Agent: Super Z (main)
+Task: (1) Commit and push all previous turns (v14b/v15/v16 were
+unpushed). (2) Evaluate, verify and implement the user's five
+recommendations on the v16 round: honest n=7 wording, Option C as
+larger n / C+D combination, Option A (COLOMBOS/M3D expression data),
+no condition over-iteration, explicit burden-vs-endogenous
+circularity statement.
+
+Work Log:
+- PUSHED the 3 unpushed commits (v14b b35556f, v15 29dd852, v16
+  d5693de) to github.com/MIKEAA2020/deepseek-highly-general main
+  with the provided PAT; verified 0 unpushed afterwards.
+- VERIFIED recommendation 2 from data: the E22 panel (435 genes,
+  non-zero kappa_V) intersects the Lemuth series in exactly ONE gene
+  (b2097; 74/92 Lemuth genes map to b-numbers via the M3D symbol
+  table) -> combining C+D on local data cannot raise n beyond 7;
+  expression coverage binds, not gene supply. Documented in the
+  manuscript (new v17 subsection) and results JSON.
+- OPTION A DATA OBTAINED (despite dead hosts): COLOMBOS and
+  precise-db.org.uk hang/DNS-dead, but M3D is ALIVE at m3d.mssm.edu
+  -> downloaded E_coli_v4_Build_6.tar.gz (117,091,420 bytes, gzip
+  verified; 907 arrays x 4,297 gene probes, log2, structured
+  metadata); PRECISE from github.com/SBRG/precise-db (278 RNA-seq
+  samples, MG1655, per-sample carbon/nitrogen/electron-acceptor
+  metadata). Provenance + sha256 in data/m3d/README.md; big matrices
+  not committed (GitHub 100MB limit), metadata committed.
+- WROTE scripts/novelty_v17_option_a_e24.py (Study E24): four
+  exploration scripts resolved the design (matched contrasts:
+  Blattner/Allen WT_MOPS carbon-source-foraging series with 5-rep
+  log-phase glucose reference + stationary t=135/330/480/720;
+  WT_MOPS_proline/glycerol; M9_WT anaerobic vs aerobic; PRECISE
+  ica__no3_anaero/thm_gal, crp__wt_glyc, oxidative__wt_pq). Vectorized
+  MC permutation (1e5) + bootstrap after the loop version timed out.
+- E24 RESULTS: [A-panel] PRIMARY n=433: Pearson r(log10 kappa_V,
+  max|log2FC| carbon exhaustion) = +0.3739 (p = 8.2e-16, Spearman
+  +0.3991, CI [0.299, 0.446], perm p < 1e-4). Signal grows with
+  exhaustion depth (t135 -0.02 NS, t330 +0.26, t480 +0.40, t720
+  +0.35); robust to mean metric (+0.334), lateLog (+0.374), excl
+  b2097 (+0.373), two second-lab contrasts (HU glycerol stat +0.111
+  p=0.020; biofilm glucose-removal +0.175 p=2.7e-4); deciles 1.923
+  vs 0.887 (MWU p=9.0e-8); GPR strata complex-and +0.604 / mixed
+  +0.528 / single +0.339 / isozyme-or +0.173. CONFOUND CONTROL:
+  reference expression level correlates with both (r=+0.291 /
+  +0.679); partial r controlling level = +0.251 (p=1.2e-7) -> honest
+  note that ~1/3 of the raw association is level-mediated.
+- [A-replicate] PRECISE cross-platform carbon-SWITCH arm: r = -0.054
+  (NS; Spearman +0.078) -> HONEST DISSOCIATION: the association is
+  not a generic "high-kappa genes respond to anything carbon"
+  artifact; platform-vs-class ambiguity stated openly.
+- [A-matched] E23 replication with MATCHED expression (replaces the
+  Lemuth cross-condition FC): r = +0.561 at n=6 (vs E23's +0.571 at
+  n=7; ugpC-via-PRECISE sensitivity +0.540; treA has no matched
+  trehalose data anywhere -> excluded honestly). [A-burden] sodA/
+  bcp/msrA respond to paraquat (2.53/1.02/0.59) - reported
+  structurally only. [A-zero] 930 zero-kappa genes respond less
+  (0.904 vs 1.318 mean, MWU p=7.8e-22).
+- V16 TEXT REVIEW (user's required pre-final check), 5 patches via
+  scripts/v17_patch_manuscript.py: P1 v15 forward-pointer now names
+  v17; P2 E10 remark states "not statistically significant
+  (permutation p = 0.18)" + v17 resolution; P3 the burden exclusion
+  now says CIRCULAR explicitly ("the echo of an assumption against
+  the very data used to evaluate it") and notes it is a boundary
+  condition, not post-hoc; P4 primary result adds "supports the
+  trend without establishing it at alpha = 0.05"; P5 verdict
+  rewritten in the user's requested honest-limitation style
+  (r=+0.571, n=7, sign-stable, NOT significant, p=0.18, CI includes
+  zero, supports but does not establish at alpha=0.05, coverage
+  missing -> v17 obtains it).
+- P6: inserted sec:novelty-v17 (E24) subsection (~130 lines): data
+  acquisition, C+D evaluation, design + 5 verification checks
+  ([A-src]/[A-map]/[A-contrast]/[A-def]/[A-zero]), primary +
+  sensitivities + confound control, PRECISE dissociation,
+  matched-expression replication, burden check, verdict ("decided in
+  the affirmative within the carbon-exhaustion class"), artifacts.
+- QA: ref audit 0 dangling; braces 6365/6366 (the +1 imbalance is
+  the pre-existing git baseline); begin/end 436/436; version chain
+  v10 -> v11 -> v12 -> v13 -> v14b -> v15 -> v16 -> v17; tectonic
+  compile SUCCESS (6.20 MiB; only pre-existing overfull warnings +
+  one cosmetic underfull); key phrases verified in the rendered PDF
+  (incl. the ff-ligature "affirmative" false-miss). PDF copied to
+  download/journal_manuscript.pdf + mirrored to /tmp/my-project.
+
+Stage Summary:
+- The kappa_V -> transcript-response hypothesis is now DECIDED at
+  genome-panel scale within the carbon-exhaustion class: r = +0.374,
+  n = 433, p ~ 1e-15 (partial r = +0.251 controlling expression
+  level), consistent with every lineage estimate (E10 +0.08..+0.10,
+  E23 +0.571 at n=7, matched-expression replication +0.561 at n=6),
+  and bounded by an honest negative (PRECISE carbon-switching NS) --
+  not a generic-responsiveness artifact, though platform-vs-class
+  remains open.
+- All five user recommendations implemented: honest v16 wording (5
+  patches), C+D combination evaluated and documented (adds only
+  b2097; coverage binds), Option A executed with real downloaded
+  data (M3D + PRECISE), NO new FBA conditions iterated, burden/
+  endogenous circularity now explicit.
+- New deliverables: 6 scripts, download/novelty_v17_option_a_e24
+  {csv,txt,png,results.json}, updated manuscript (+v17 subsection,
+  compiled 6.20 MiB PDF), data provenance README with checksums.
+- Constraint honored: no condition over-iteration -- E24 uses the
+  E22/E23 kappa_V artifacts UNCHANGED; only the expression side was
+  extended.
+
+---
+Task ID: v18-round
+Agent: main (Super Z)
+Task: (1) always commit+push (incl. previous unpushed turns); (2)
+evaluate, verify and implement the user's v17-review recommendations:
+v17 wording (correlational-not-causal, platform-vs-class ambiguity
+acknowledged, partial-corr explanation), abstract/intro update,
+platform-vs-class resolution via new data, protein-abundance follow-up.
+
+Work Log:
+- PUSHED the unpushed auto-commit; the 117MB M3D tarball exceeded
+  GitHub's 100MB limit, so rewrote the unpushed commit (soft reset +
+  .gitignore) to keep only provenance/metadata (14.8MB); pushed
+  33c4606; verified 0 unpushed.
+- E25 DATA OBTAINED: GEO GSE64021 (Su lab UNCC; MG1655 MOPS+/-glucose
+  M-C carbon starvation, M-P phosphorus starvation, HS heat shock,
+  1/2/4/6h; directional RNA-seq + tandem-MS PeptideRaw; 22 samples,
+  sha256 in data/gse64021/README.md; cited by accession, no journal
+  record) + PaxDB 511145 integrated proteome (v6.1, 3,759 rows with
+  b-numbers, for v19). Download scripts persisted
+  (e25_download_data.py with retry + gzip-magic verification).
+- E25 ANALYSIS (novelty_v18_e25_platform_class.py): completed the
+  2x2 platform x class matrix. [S2 RNA-seq x depletion PRIMARY]
+  max-metric r=+0.191 (n=241, p=2.9e-3, Spearman +0.248, perm p
+  0.003); starvation-depth gradient +0.03/+0.15/+0.21 at 1/2/4h,
+  6h washout (-0.02); robust to PE-merge, mean metric (+0.139),
+  pseudocount 0.5 (+0.140), TPM>=1 filter (+0.313, n=97); deciles
+  5.93 vs 5.06 (MWU p=0.057); zero-kappa control 5.10 vs 3.22
+  (p=1.5e-30). [S1 microarray x switch] glycerol +0.191, acetate
+  +0.158, proline +0.165, MAX +0.196 -- attenuated positive.
+  [COMMON-SET 2x2 n=240] array-depletion +0.431, array-switch
+  +0.184, RNA-seq-depletion +0.187, RNA-seq-switch(PRECISE) -0.058;
+  ALL FOUR Fisher-z significant: class effect on array (p=0.0028)
+  and RNA-seq (p=0.0073); platform effect in depletion (p=0.0031)
+  and switch (p=0.0081) -> E24 dissociation OVER-DETERMINED (both
+  factors), not pure class specificity, not platform artifact.
+  [STRESS CONTROLS] M3D 10-min heat/acid/cipro |FC| r = +0.295/
+  +0.303/+0.284; GSE heat +0.322/+0.393/+0.445; phosphorus MAX
+  +0.039 NS (4h transient +0.195); SIGNED always negative under
+  acute stress (-0.19..-0.31) -> association tracks growth-state
+  transition severity, not carbon identity.
+- V18 PATCHES (v18_patch_manuscript.py, 6/6 applied): P1 partial-corr
+  does/does-not (linear-only, confounders remain); P2 dissociation
+  bounds-without-isolating + forward pointer; P3 verdict
+  correlational-not-causal + v18 resolution pointer; P4-P5 history
+  trail pointers; P6 inserted sec:novelty-v18 (~150 lines).
+- QA: tectonic compile SUCCESS (6.22 MiB; new warnings only
+  pre-existing \texttt overfulls); braces 6458/6459 (pre-existing
+  +1 baseline); begin/end 439/439; version chain v10..v18; ref
+  audit 0 dangling (724 calls); key phrases verified in PDF
+  (ff-ligature and hyphenation false-misses resolved). PDF copied
+  to download/ and mirrored.
+- COMMITTED + PUSHED ffc2634 (v18 round).
+
+Stage Summary:
+- The E24 platform-vs-class ambiguity is RESOLVED with a two-factor
+  answer: the association is platform-robust (RNA-seq depletion
+  replicates, with starvation-depth gradient) AND has both class
+  (depletion>switch on both platforms) and platform (microarray
+  ~2x amplification) components in the dissociation.
+- Specificity revised: tracks growth-state-transition severity
+  (heat/acid/cipro comparable; phosphorus null on max metric;
+  signed direction consistently negative under acute stress).
+- Manuscript v18 subsection + honest v17 wording fixes integrated.
+- NEXT (v19 round): PaxDB + GSE64021 PeptideRaw protein-abundance
+  mechanistic test (Recommendation 4) + abstract/intro/conclusion
+  framing update (Recommendation 2).
+
+---
+Task ID: v19-round
+Agent: main (Super Z)
+Task: v19 round -- (1) E26 protein-abundance mechanistic test
+(Recommendation 4: PaxDB + proteomics); (2) abstract/introduction/
+conclusion reframing to reflect the E24/E25 genome-scale result
+(Recommendation 2); (3) commit and push.
+
+Work Log:
+- E26 ANALYSIS (novelty_v19_e26_protein_abundance.py): [P-paxdb]
+  kappa_V correlates with baseline protein abundance (r=+0.334,
+  n=429, p=1.2e-12; mRNA-protein r=+0.632) but abundance does NOT
+  mediate the kappa->transcript association (partial +0.244 given
+  mRNA -> +0.230 given mRNA+protein); association present in ALL
+  PaxDb abundance tertiles (low +0.258 / mid +0.365 / high +0.205).
+  [P-protfc] THE DECISIVE TEST: on the SAME 169 panel genes with
+  matched GSE64021 proteomics, transcript association PRESENT (E25
+  metric +0.204 p=0.008; E24 metric +0.420 p=1.3e-8) while protein
+  association ABSENT (r=+0.008 NS; 4h-only +0.032; >=6 peptides
+  +0.007 n=150). [P-tp] transcript-protein coupling rises with
+  kappa tertile (+0.088 NS -> +0.164 p=0.014 -> +0.212 p=0.0013);
+  within the top tertile protein |FC| DECREASES with kappa
+  (r=-0.427, p=9.3e-4) while transcript has no within-stratum
+  gradient (-0.004) -> most sensitive genes have the most STABLE
+  proteins (post-translational buffering); |dP|/|dT| flat across
+  strata (MWU p=0.78). Honest caveats: n=169 detectable-protein
+  bias, single-shot spectral counts attenuate toward 0, PaxDb is a
+  multi-condition average.
+- V19 PATCHES (v19_patch_manuscript.py, 5/5 applied): P1 abstract
+  biology passage (r=+0.374/partial +0.251/RNA-seq replication
+  +0.187, growth-state severity framing, null controls, protein
+  decoupling, explicitly correlational); P2 new intro contribution
+  item (E24-E26); P3 sec:novelty-v19 subsection (~120 lines);
+  P4 conclusion biology paragraph; P5 data-availability external
+  compendia provenance (M3D/PRECISE/GSE64021/PaxDb).
+- QA: tectonic compile SUCCESS (6.53 MB); braces 6518/6519
+  (pre-existing +1 baseline); begin/end 439/439; version chain
+  v10..v19; ref audit 0 dangling; all key phrases verified in the
+  rendered PDF (ligature/hyphenation false-misses resolved; one
+  28pt artifact-paragraph overfull consistent with the existing
+  v16-v18 style). PDF copied to download/ + mirrored.
+- COMMIT + PUSH (this commit).
+
+Stage Summary:
+- MECHANISM: kappa_V predicts the transcriptional REPORTING of
+  metabolic stress (regulatory layer), not protein-level capacity
+  change; the v14b-retracted buffering hypothesis is rejected in
+  its naive transcript form but confirmed in refined protein form
+  (no kappa gradient in protein FC; top-tertile proteins most
+  stable; high-kappa transcripts couple tightest to what protein
+  change does occur).
+- FRAMING: abstract, introduction (new contribution item), and
+  conclusion now reflect the genome-scale result with the
+  user-mandated honest scope (correlational; carbon/growth-state
+  class; platform robustness; protein-layer decoupling).
+- Manuscript version chain now v10 -> ... -> v19; all rounds
+  pushed to github.com/MIKEAA2020/deepseek-highly-general main.
+---
+Task ID: v20-round
+Agent: main (Super Z)
+Task: v20 round -- (1) perform the additional replication the user
+requested "with Schmidt 2016 or PRECISE 2.0"; (2) review the v19
+subsection wording for precision/overstatement; (3) commit and push.
+
+Work Log:
+- DATASET EVALUATION (user's "or"): PRECISE 2.0 = PRECISE-1K (SBRG,
+  1,035 samples). Metadata scan of every sample
+  (data/schmidt2016/precise1k_metadata_qc_scan.csv, fetched from
+  github.com/SBRG/precise1k) shows NO carbon-depletion condition (only
+  Fe/N starvation, non-carbon) -> cannot replicate the depletion
+  contrast; the transcript side is already replicated on two platforms
+  (E24/E25). Schmidt 2016 (the dataset the v19 verdict itself named)
+  obtained instead.
+- DATA ACQUISITION: PMC direct download is captcha-gated; the Europe
+  PMC REST supplementary-files endpoint for PMC4888949 delivered the
+  24 MB zip -> NIHMS65833-supplement-Supplementary_tables.xlsx (17 MB,
+  sha256 3280a13f...). Raw MS = PRIDE PXD000498. Extracted via
+  scripts/e27_prepare_schmidt.py: Table S8 (dataset 2, BW25113,
+  biological TRIPlicATES: 2,058 proteins x 22 conditions, medianRatio
+  FCs + q-values + CVs + peptide counts), Table S6 map (2,284/2,350
+  b-numbers; spot checks aceA/b4015, rpoB/b3987, gapA/P0A9B2/b1779,
+  groL/b4143 OK; 4 duplicate-bnum rows averaged), Table S7 (dataset 1,
+  sensitivity). Provenance + sha256 in data/schmidt2016/README.md;
+  raw archives .gitignored, extracted CSVs committed.
+- E27 ANALYSIS (novelty_v20_e27_schmidt_replication.py; E26 metric
+  definitions unchanged; classes: exhaustion = stationary 1d/3d,
+  limitation = chemostat mu=0.5..0.12, switch = 11 carbon sources,
+  stress-on-glucose = NaCl/42C/pH6, internal null = Glucose.2 batch):
+  [R-protfc] PRIMARY n=366/435 (vs E26's 169): protein r = -0.083
+  (p=0.12, CI [-0.188,+0.033]) while E24 transcript +0.419 (p=6.4e-17)
+  and E25 transcript +0.237 (p=6e-4) on the SAME subset, E26 protein
+  +0.025 -> the E26 core (transcript-present/protein-absent) REPLICATES
+  with quantitative triplicate proteomics; attenuation/saturation
+  explanation rejected (noise floor: batch-2 median |log2FC| 0.18 vs
+  stationary 0.81; dynamic range to 12.3; median CV ~15%).
+  Sensitivities: q<0.05 -0.148 (p=0.014), CV<=20% -0.017, excl b2097
+  -0.084, dataset-1 S7 -0.126 (p=0.022) -> null-to-negative, never
+  positive.
+  [R-profile] all 22 conditions: no positive protein gradient in any
+  depletion/limitation/stress condition (chemostat profile +0.089 ->
+  -0.067 DECLINING with limitation depth; stress -0.07..-0.10); only
+  significant positives are 2 switch conditions (glycerol+AA +0.134,
+  pyruvate +0.138) mirroring the transcript layer's attenuated switch
+  signal; LB +0.091 NS.
+  [R-tp] cross-experiment coupling by tertile +0.150 (NS) / +0.353
+  (p=6.7e-5) / +0.240 (p=7.7e-3): mid+high significant, low NS,
+  directionally consistent with E26 but NOT monotone; GSE-dT variant
+  null (+0.024). Discrepancy stated, not smoothed.
+  [R-magnitude] PARITY: protein mean 1.26 vs E24 transcript 1.42
+  (ratio 0.89) -> the E26 "5.29 vs 1.26" gap was GSE-TPM zero-inflation,
+  not biology; tertiles dT 0.90->1.52->1.84 (graded) vs dP
+  1.50->1.20->1.11 (kappa-flat); |dP|/|dT| falls 2.49->1.10->1.06.
+  [R-stability] E26 top-tertile stability (-0.427) does NOT replicate
+  (+0.114 NS) -> likely spectral-count saturation artifact; the weak
+  intrinsic form DOES hold: batch-2 control itself r = -0.119
+  (p=0.023), and exhaustion r (-0.083) is no stronger than that
+  baseline.
+  [R-zero] protein layer: panel 1.26 vs zero-kappa 1.63 (MWU p~1;
+  transcript layer E24: 1.32 vs 0.90, p=7.8e-22) -> further
+  transcript-layer localization.
+- FIGURE (e27_plot.py): 4 panels (per-condition r profile with
+  batch-2 baseline; three-way contrast; tertile magnitudes; primary
+  scatter). VLM QA: NO DEFECTS.
+- V19 WORDING REVIEW (v20_patch_manuscript.py W1-W5, 5/5): W1
+  top-tertile stability flagged as single-shot-counting observation
+  with v20 pointer; W2 "is confirmed" -> "finds support" + "not by
+  itself establishing" post-translational buffering; W3 "coupled, not
+  noise" -> "weakly coupled ... rather than pure noise" + "protein
+  capacity itself is buffered" -> "protein-level fold-changes show no
+  corresponding kappa_V gradient"; W4 "remains the natural follow-up"
+  -> executed-pointer to v20; W5 magnitude sentence now names the GSE
+  TPM zero-inflation and drops "whatsoever".
+- V20 INSERT (P6, ~185 lines): design + PRECISE 2.0 evaluation, [S-src]
+  [S-map] [S-contrast] [S-internal-null] verification checks, [R-protfc]
+  [R-profile] [R-tp] [R-magnitude] [R-stability] [R-zero] results,
+  honest verdict (core confirmed, two secondary readings corrected:
+  saturation artifact + magnitude parity; refined statement), caveats
+  (cross-strain BW25113, cross-medium, chronic-vs-acute,
+  single-proteome-source), artifacts.
+- FRAMING UPDATES: P7 abstract (E27 numbers: -0.08 at n=366; magnitude
+  parity), P8 intro contribution item (E24-E27 / v17-v20), P9 conclusion
+  (replication + kappa-graded-organization-not-magnitude correction),
+  P10 data availability (Schmidt + PRECISE-1K scan provenance).
+- QA: tectonic compile SUCCESS (6.24 MiB); git-HEAD baseline compile
+  comparison -> ALL overfull/underfull warnings map to the pre-existing
+  set (modulo line shifts) + 3 cosmetic underfulls in the P10 block;
+  the new artifacts-paragraph overfull was fixed via \allowbreak
+  (filename-space rendering bug also fixed); braces 6589/6590
+  (pre-existing +1); begin/end 439/439 (env mismatches NONE); version
+  chain v4 -> ... -> v20; ref audit 0 dangling (728 calls); PDF text
+  checks 20/20 after math-minus/ligature resolution; PDF copied to
+  download/ + mirrored to /tmp/my-project/scripts/.
+
+Stage Summary:
+- The additional replication is DONE and decisive: the E26 core
+  finding (kappa_V-transcript association present, kappa_V-protein
+  association absent, same genes) replicates with the Schmidt 2016
+  22-condition quantitative triplicate proteome (protein r = -0.083 at
+  n=366 vs transcript +0.419/+0.237 on the same subset), with the
+  spectral-count attenuation explanation excluded by the internal
+  batch control (noise floor 0.18) and full dynamic range.
+- Two honest corrections: the E26 top-tertile protein-stability
+  gradient (-0.427) was a spectral-count saturation artifact (E27:
+  +0.114 NS; the surviving weak form is the batch-level -0.119
+  intrinsic stability); and proteins change as much as transcripts on
+  matched log-ratio metrics (1.26 vs 1.42) -- what is
+  transcript-specific is the kappa_V-graded ORGANIZATION, not the
+  magnitude.
+- The v19 subsection is now precise and not overstated (5 hedging
+  patches); abstract/intro/conclusion/data-availability updated to
+  v20.
+- Manuscript version chain now v10 -> ... -> v20; this commit pushed
+  to github.com/MIKEAA2020/deepseek-highly-general main.
+
+---
+Task ID: joint-3 (2nd wave)
+Agent: main (Z.ai)
+Task: Read the 3 new audits in external_audits/2nd wave/ (GLM, DeepSeek, Line_Level_Review_Report.pdf) at line level; independently verify every audit claim against the v20 manuscript (tex + PDF + result JSONs + scripts); refute/correct audit errors; provide joint assessment strengthening weaker suggestions before implementation; commit and push.
+
+Work Log:
+- Pulled origin/main: 3 new commits added external_audits/2nd wave/ (glm audit highly general.txt 52 lines; deepseek highly general audit.txt 366 lines; Line_Level_Review_Report.pdf 19 pp, 81 findings).
+- Read all three audits in full (PDF text-extracted to external_audits/2nd wave/Line_Level_Review_Report_extracted.txt).
+- Verification layer 1 (LaTeX source, 10,670 lines): citation-coverage audit via cite/bibitem set arithmetic -> 12 never-cited refs (audits said 11; missed breen1990bitorseurs), 6 false "Cited in §X" annotations (VV/Hirota/Segura/Kirchhoff/Becker/Bravetti), 1 broken key orth2011comprehensive -> renders "[?]". Confirmed: EC 2.7.4.1 double-assignment (L4770 vs L4776), -0.018 vs -0.008 (L7429/7543 vs 1321/7730/7741), network counts 2/4/2/4/10 (L135/329/426/4285/9518/10006), 52/52 vs limitations denial, definition shopping quote (L7637-7641), label leakage quote (L7589-90), AUC 0.428 "WRONG direction" (L7463), patch script names (L8046-47), raw tomoya baba supp (L7137), §1.4 and §7 dangling refs, "3...E10,E12,E15 and E16", Table 4 E1-E9 only vs 3 false "updated" claims, SAVGS 5-tuple vs 5-item mismatch, §21.5 "plausible but not currently provable" preamble vs [CLOSED] entries (new precise finding), "no open conjectures remain" vs 2 open statements.
+- Verification layer 2 (PDF, 131 pp): span-level coordinates confirmed Def 3.18 step labels (ii)-(v) begin at x<0 (physically clipped; "Drift/Recovery/Downstream/Restoration" absent from text layer); Table 6 cells end mid-word ("growt" x3, "regulat" x1) at x≈435; Figure 7 caption CO(3) vs main-text SO(3). Full-text counts: "the user"=6 (audit said 9), Qwen=34, commit 07e6d85=5, COLOMBOS=3.
+- Verification layer 3 (render/VLM, 4x zoom): Def 3.18 clipping render-verified (step numbers missing, first words cut mid-word); DeepSeek's "stray Q" REFUTED — correctly rendered ∏ product symbol, extraction-layer artifact only (audit error).
+- Verification layer 4 (result JSONs): E16 ground truth iML1515 Pearson = -0.0178 -> -0.018 correct, -0.008 wrong (3 sites), gap 0.103 correct; E15 values all confirmed (0.0847/0.2284/0.7126/0.245); nprod>=5 stratum = 10/11 in CSV vs 9/10 in manuscript (new discrepancy).
+- Verification layer 5 (code reading): autopoiesis_ijO1366.py knocks out ALL producers (matches text) -> REFUTES Editorial audit's §18.4 "text vs code" claim; replaced with sharper protocol-degeneracy finding (verdict ⟺ baseline_prod > 1e-6; knockout/recovery vacuous; generalizes to E2). novelty_structural_benchmark_e14.py seed = 18 extracellular mets only; all-reactants rule + cofactor blocking -> NE scope collapses to 45 mets (GLM's artifact suspicion confirmed and completed).
+- Math re-derivations: [d-D]²+ is C¹ not C² at d=D; Lemma 4.10 denominator →0 as τ→0; Theorem 4.11 discrete-enumerable vs continuum; Cor 4.14 πa⁴ vs πa² + V_max dropped; matching condition O3 BCH-as-exact; Thm 3.5 "crossing once" impossible + O(1) in ε² expansion; E13 Φ(S)⊆S false; realization functor R ×6 never defined; Prop 18.26 contractible⟺Phase I by construction; DeepSeek #12 CPTP algebra CORRECT (pk/2ⁿ·P/k = (p/2ⁿ)P, k cancels).
+- Wrote scripts/joint_assessment_2nd_wave_pdf.py (ReportLab, 3-accent palette teal/plum/amber per audit): cover + Exec Summary + Part I (audits & 5-layer method) + Part II (verification ledger: 5 category tables, 60+ graded rows) + Part III (audit errors: 2 refuted, 4 corrected) + Part IV (triangulation + reliability scorecard) + Part V (6 strengthened/completed findings) + Part VI (P0-P5 unified repair plan, 32 items with edit sites and efforts) + Part VII (joint verdict).
+- Fixed cover title overflow (x1=598.5>595.28) by 3-line split; pdf_qa PASS with non-blocking warnings (English-quote CJK-rule false positives; cover asymmetry by design).
+
+Stage Summary:
+- Deliverable: download/joint_assessment_2nd_wave.pdf (20 pp, all fonts embedded, no empty pages, no overflow).
+- 90+ audit findings VERIFIED with line-level evidence; 4 audit claims refuted/corrected (§18.4 mechanism; stray-Q extraction artifact; 11->12 count; 9->6 user sites); 1 numeric ground truth settled (-0.018); 2 new discrepancies found (nprod 10/11 vs 9/10; §21.5 preamble vs [CLOSED]).
+- Unified P0-P5 repair plan ready for implementation: P0 = 10 mechanical fixes (afternoon); P1 = 5 bookkeeping; P2 = 5 framing rewrites; P3 = 3 provenance excisions; P4 = 9 math/methodological repairs; P5 = strategic 3-paper split.
+- All three audits adopted with corrections: Editorial = strategic backbone, DeepSeek = tactical backbone, GLM = structural backbone (3-κ_V naming divorce completed as κ_geom/κ_flux/time-course).
+
+---
+Task ID: v21-round
+Agent: main (Super Z)
+Task: Execute the user-directed P0/P1 subset of the second-wave joint
+assessment repair plan: P0-mechanical + P1-clipping immediately;
+P0-editorial (citation annotations, uncited refs) and P2-P5 HELD
+pending the in-place-vs-deconstruction decision; verify every claim
+before implementing; commit and push.
+
+Work Log:
+- RE-VERIFICATION BEFORE IMPLEMENTATION (user's standing "no claims at
+  face value" rule): all 9 P0-mechanical items independently
+  re-checked against source, deposited JSONs/CSVs, BiGG model files,
+  IUBMB nomenclature, or fresh computation. Three items upgraded:
+  (a) the "biomass-units" framing of 15.444 vs 0.9259 is WRONG -- a
+  fresh cobrapy re-run of both scripts' exact media
+  (scripts/verify_e12_e16_biomass_units.py) shows a MEDIUM artifact:
+  both scripts list the trehalose exchange EX_tre_e among "minerals",
+  but E12 re-opens it at -1000 (uptake -337 -> obj 15.445, tre-only
+  15.439, glucose-only 0.982) while E16 re-opens it at -10 (uptake
+  -6.4 -> 0.925933 exactly reproduced; glucose-only 0.8218); the
+  honest notes now state the verified mechanism and flag the P4
+  corrected-medium re-run. (b) "verify 2.6.1.12": VERIFIED CORRECT
+  (IUBMB 2.6.1.12 = alanine--oxo-acid transaminase; ASP+PYR<->ALA+OAA
+  is its reaction with (2-oxo acid, amino acid)=(OAA, ASP)); PPK EC
+  2.7.4.1 also verified correct and retained; only glycogen
+  phosphorylase 2.7.4.1 -> 2.4.1.1 changed (iJO1366 GLCP2 annotation
+  confirms). (c) E25: +0.191 (n=241) is the primary full-panel
+  max-metric (p=2.857e-3) and +0.187 the 240-gene common-set value
+  (JSON matrix_2x2_common_set r=0.18686); four summary sites had
+  mispaired them; fixed to +0.191 and an explicit reconciliation note
+  added in the v18 subsection.
+- NEW dependent defect found and fixed (audits missed it): "rises by a
+  factor of ~56" was computed from the wrong -0.008; with -0.0178 the
+  factor is ~26 (same magnitude-ratio convention as E12's 2.54).
+- Applicability-matrix coherence completed: "only 3" -> 4 (E10, E12,
+  E15, E16); "remaining 10" -> 12 (the itemized list); headers
+  E1--E14 -> E1--E16; tally re-labeled 14 evaluation slots (16
+  studies, E6/E7 folded, E15+E16 paired); "13 if counted separately"
+  -> 12.
+- nprod>=5 stratum corrected 9/10 (90%) -> 10/11 (91%) per the
+  deposited CSV (11 metabolites, 10 internal; only rib__D_c fails).
+- P1 render defects re-verified in the v20 PDF before fixing: Def 3.18
+  step labels physically off-page (spans at x0=-3.1/-0.4); Table 6
+  last column to x1=597.2 > 595.3pt page width, cutting "growt" x3
+  and "regulat". Fixes: enumerate restructured with
+  label=\textit{(\roman*)} and titles as body text (all step
+  cross-references intact); Table 6 -> \small tabularx with ragged
+  X columns (no cell text changed).
+- v21_patch_mechanical.py: 29 asserted exact-match replacements, all
+  applied (backup kept in git history); two post-pass typesetting
+  refinements (allowbreak in the new \texttt filenames; one reworded
+  tally line) to keep the warning set clean.
+- New subsection sec:novelty-v21 ("v21 mechanical-integrity round")
+  documents the corrections ledger, the medium-audit finding, and the
+  explicit deferral of P0-editorial + P2-P5 pending the strategic
+  decision.
+- QA: tectonic compile SUCCESS (6.25 MiB, 134 pp); warning multiset vs
+  v20 baseline: -2 (Table 6's 104.86pt overfull and Def 3.18's
+  badness-2818 underfull REMOVED), +0 new; ref audit 0 dangling (741
+  calls / 333 labels) and 0 broken cite keys; braces 6646/6647
+  (pre-existing +1 offset); begin/end 440/440; v21_render_qa.py 30/30
+  PASS (cite key renders, -0.018 x3, gap 0.103, factor ~26, EC
+  2.4.1.1 + retained PPK/2.6.1.12, Fig.7 caption SO(3), authorship
+  pointer withdrawn, invlim -> Proposition 4.4 form, matrix 4/12,
+  nprod 10/11, +0.191 x4 + reconciliation, Def 3.18 five labels
+  on-page x0>=73, Table 6 "growth rate"/"(regulatory)" complete and
+  within the text block, v17..v21 chain, bookmarks).
+
+Stage Summary:
+- P0-mechanical + P1 executed exactly as the user sequenced them; the
+  two weak audit suggestions were strengthened before implementation
+  (medium artifact, not units; 2.6.1.12 verified, not changed) and one
+  dependent numerical claim (~56 -> ~26) was corrected beyond the
+  audit list.
+- P0-editorial (6 false "Cited in SX" annotations, 12 uncited refs)
+  and P2-P5 remain HELD until the in-place-vs-deconstruction decision,
+  as directed; the trehalose medium artifact is now documented and
+  scheduled as the P4 methodological re-run.
+- Deliverables: download/journal_manuscript.pdf (v21, 134 pp),
+  scripts/v21_patch_mechanical.py, scripts/verify_e12_e16_biomass_
+  units.py, download/verify_e12_e16_biomass_units.json,
+  scripts/v21_render_qa.py; commit + push follows.
+---
+Task ID: joint-3rd-wave
+Agent: main (Super Z)
+Task: Evaluate and verify the six new "unifying object" audits in
+external_audits/unifying object/ (DeepSeek, GLM, GPT, Kimi, Muse, Opus;
+1,058 lines); do not take claims at face value; produce a joint
+assessment that strengthens/augments/corrects/completes weaker
+suggestions; DO NOT touch the v21 manuscript (frozen baseline; from
+here on major rewrites are new documents journal_manuscript_v2, v3,
+...); always commit and push.
+
+Work Log:
+- Pulled origin/main (ddbb384..5b57f8d): the six audits landed in
+  external_audits/unifying object/ (deepseek recommendations.txt 188;
+  glm.txt 194; gpt sol 351; kimi k3max 68; muse spark 1.2 90; opus 5
+  167 lines).
+- Read all six audits in full. All target the kappa_V unification
+  problem: three objects share the name (geometric Prop 4.4; Def 3.21
+  indicator-weighted FBA sum; E10/E22 time-course squared flux
+  change), and each audit proposes a different repair (typed renaming
+  + Theorem U; slot family + R1-R4; curvature datum + mixed
+  difference; realized divergence + plaquette; D1-D6 + T1-T7;
+  editorial reconstruction).
+- RE-VERIFICATION (no-claims-at-face-value rule), against the frozen
+  v21 (tex 10,830 lines; PDF 134 pp; audits themselves reviewed the
+  131-pp v20): 118 checkable claims -> 111 VERIFIED, 8 corrected or
+  stale. Key line-level confirmations: E24-E27 uses the TIME-COURSE
+  object (E24 design text: "The E22 panel's per-gene kappa_V values
+  (baseline glucose-decline trajectory, unchanged from E22)");
+  abstract's proposition is about the geometric object -> the deepest
+  coherence defect is real. Cor 4.14 Stokes-substitution incoherent
+  (re-derived); Lemma 4.10 vacuous as tau->0 AND GLM's softmax repair
+  identity grad r = beta*sum pi_j grad q_j independently re-derived
+  CORRECT (outer -tau cancels the 1/tau); Thm 4.11(e) has TWO continua
+  (parameters AND directions - second one not flagged by any audit;
+  closed by countable-dense-subset lemma in Part V); Remark 20.2
+  kappa_V <= E unit error confirmed; E13 Thm A "r in U" vs "r in S"
+  confirmed; E13 Thm B parametricity misuse confirmed; Cor 17.3
+  contentless; Thm 3.5 "crossing once" vs own numerics n_cross = 2
+  confirmed; Thm 3.14 tuple drift confirmed; Prop 3.16 radius-2
+  finding verified by fresh geodesic computation (binary simplex
+  integral = pi = radius-2); Remark 2.4 CO(2) label error (O(n-1)
+  stabilizer) confirmed; Prop 16.2/16.7(3-4) 0=0 category error
+  confirmed; dist_D-on-RAF-set type error located at THREE sites
+  (Table 1 O1 residual, RAF-optic def, Sec 16 composite - sharper
+  than the audits' "Def 3.21"); "Bregman-regularized" T_reg is the
+  Krasnoselskii-Mann averaged form (structural identification
+  confirmed); 0.92^6*1.15 = 0.6973 arithmetic verified; Thm 8.2
+  proven for generic resnet blocks not the seven optics; network
+  counts four/four/two/two/ten persist; Table 4 "Nine studies" + 3
+  false update claims persist; "no open conjectures remain" vs two
+  open items persists; style layer ("the user" x6 cs, Qwen x34,
+  07e6d85 x5, COLOMBOS x3) persists; authorship statement tension
+  persists.
+- AUDIT ERRORS FOUND (Part III of the deliverable, 8 items): kimi R2
+  mislabel (the infinitesimal limit of the time-course statistic is
+  the Hessian-metric ENERGY, not curvature - aligns kimi with
+  gpt/opus); muse mask-as-stratum-crossing imprecise (the actual mask
+  selects nonzero single-KO biomass deficit; non-essential KOs can
+  cross strata); opus's "Def 3.21 is the mixed difference" is
+  aspirational not descriptive (single-KO squared displacement as
+  written; epistasis requires Route C2 recompute); GLM's 0.802
+  enlarged-box arithmetic not derivable (f_2 = 1.15x does not map
+  [0,1.15]^d into itself) - the KM identification is the sound part;
+  GLM's Lemma-4.10 repair constant needs max_j sup_K [d-D]_+ not
+  diam K + D; GLM's "Def 2.6" citation slip; deepseek's broken-key
+  item STALE (fixed in v21); GLM's Levy-CI direction reversed (theory
+  value outside fitted CI; manuscript discloses once - the defect is
+  the inconsistent 1.4% framing at 3 sites).
+- TRIANGULATION (Part IV): 7 convergences - 6/6 typed renaming; 5/6
+  the FBA active-set/mpLP critical-region stratification as the
+  bridge substrate (with opus's corollary: curvature is singular,
+  supported on basis-change loci - the paper's invisible thesis);
+  4/6 the energy-level transfer theorem is the provable glue; C4
+  curvature needs two directions (plaquette/double-KO/second
+  difference); C5 shared repair list; 6/6 strong-form unification not
+  provable in scope; C7 delete-vs-demote (GLM vs deepseek) - the one
+  real disagreement, adjudicated in Part V.
+- SYNTHESIS (Part V): 4-layer architecture. Layer 0 notation protocol
+  (muse migration checklist + kimi no-bare-kappa + gpt naming table,
+  typed-citation fixes, tuple freeze). Layer 1 central object
+  factored: opus's curvature datum (X, A, Phi) with the mixed
+  difference as the combinatorial DEFINITION (only candidate that
+  type-checks RAF, recovers Prop 4.4 as Proposition G, makes FBA =
+  epistasis), kimi's slot family as smooth organization, gpt's
+  realization datum as wrapper, GLM's h-margin as the viability
+  instantiation; mask adjudicated (positive part + deficit
+  sparsification correct; stratum-crossing conditional;
+  Lambda-restriction = declared redefinition). Layer 2 provable
+  transfers now: T-energy (gpt proposition = muse U part 1 = kimi R2
+  corrected) + T-bound (kimi R1/R3). Layer 3 three new measurements:
+  M1 opus Route C1 second differences on EXISTING time courses (data
+  availability verified: GSE64021 6 points, M3D 4+ref, E10/E22
+  T1-T8); M2 gpt plaquette with regularized optima; M3 opus Route C2
+  double-KO epistasis - AUGMENTED: executable in silico now (cobrapy
+  + quadratic regularization), converting "the experiment the theory
+  predicts" into a runnable study. Layer 4 theorem tiers R/D/E
+  resolving delete-vs-demote (repair 9 items in place; demote Section
+  17 to companion with Poincare absorption, Thm B to conjecture,
+  Claims A-E to calibration, Cor 4.14 to appendix; excise
+  P0-editorial items + "no open conjectures" + version framing).
+- IMPLEMENTATION (Part VI): v2 protocol recorded (v21 frozen; major
+  rewrites are new documents journal_manuscript_v2.tex, v3, ...; even
+  errata go to v2); 9-step sequence with the strategic decision
+  (single article vs main+companions) as step 0; risks R1-R3 with
+  muse/kimi fallbacks; GLM's 6-12 month total consistent.
+- Deliverable built per pdf skill (report route, cascade palette,
+  Template 03 academic cover via html2poster.js, TocDocTemplate +
+  multiBuild, install_font_fallback): fixed mid-word verdict-cell
+  wrap (VERIFI/ED) by column-width + font measurement; fixed cover
+  page-size normalization (0.3pt tolerance); cover_validate PASS;
+  pdf_qa PASS (13/13); font.check 0 issues; toc.check pass; 15 pages;
+  verdicts 40 VERIFIED + 2 CORRECTED render intact; last-page fill
+  93%.
+
+Stage Summary:
+- Deliverable: download/joint_assessment_unifying_object.pdf (15 pp)
+  + download/joint_assessment_unifying_object_cover.html (cover
+  source) + scripts/joint_assessment_unifying_object_pdf.py,
+  scripts/ja3_cover.html, scripts/ja3_merge.py.
+- The v21 manuscript is UNTOUCHED (frozen baseline; verified by git
+  status - only new files added).
+- All six audits adopted with corrections: GLM = structural backbone
+  (39/41 verified), GPT = formalization backbone (15/15), Kimi =
+  constructive backbone (R2 corrected), Muse = tactical backbone
+  (drop-in checklist), Opus = empirical backbone (Routes C1/C2 +
+  invisible-thesis corollary), DeepSeek = editorial backbone (1 stale
+  item).
+- Next actions specified in the assessment: strategic decision ->
+  journal_manuscript_v2 Layer 0 pass -> M1 second differences in
+  parallel -> Table 9 sequence.
+
+---
+Task ID: m1-m3-execution
+Agent: main (Super Z)
+Task: Execute M1 (second-order finite differences of the FBA response vs
+active-set switches) and M3 (double-knockout epistasis of kappa_flux +
+sequential path dependence) per the user's 2026-09-01 definitions, as the
+two highest-value measurements from the joint assessment of the six
+unifying-object audits; position Kochanowski et al. 2021 as complementary
+prior art with the user's staged passage; do not touch the frozen v21
+manuscript; always commit and push.
+
+Work Log:
+- Built a shared deterministic LP engine (scripts/lp_engine.py, scipy/HiGHS,
+  variables [v, f, r] with identical linking rows for lex-pFBA and L1-MOMA):
+  3-stage lexicographic pFBA (biomass -> parsimony -> fixed seeded
+  tie-break w, rng 20240901) after discovering pFBA vertex degeneracy
+  (sum|v| tied to 13 digits while warm-started solves flip fluxes by 0.69:
+  PYK4/NDPK1, PFK/FBA, NDPK3/PYK2). Bit-exact determinism verified (0.0
+  max diff on repeats); 0.17 s/lex solve, 0.14 s/MOMA at iML1515 scale.
+- M1 (scripts/m1_active_set_curvature.py): 12 sweeps (glucose 1-10, O2
+  0.5-30, 8 gene knockdowns c: 0.02->0, iJO1366 glucose replication);
+  D1/D2/turning angle + operational active-set events (support/binding,
+  thresholds 1e-6 main + 1e-5 robustness). Headline: D2 mass on events
+  0.99999996 (glucose), 0.999999999 (O2), 0.934-1.0 (knockdowns); fold
+  enrichment up to 1.2e10; AUC 0.83-1.00; MWU p 2e-4..1e-15; paths
+  piecewise-affine to machine precision (segment residuals <= 8e-14
+  relative; 76-89% of off-event triples have bit-exact zero curvature;
+  median off-event D2 = 0.0 exactly for 5 of 8 knockdowns). Negative
+  controls: kd_aceA (unused pathway) 0 events, D2 max 5.2e-11; iJO1366
+  glucose (single critical region, no overflow) D1 constant to 15 digits,
+  D2 ~ 1e-11. Committed 2fe264b.
+- M3 (scripts/m3_epistasis_path_dependence.py): singles census 1,516
+  genes (1,320 viable, 196 no-growth; kappa per manuscript Def
+  ard-derived-kappa-V; 92.3% of viable kappa = 0; max 19,587); pairs
+  2,779 across 5 panels. Epistasis eps_ij = kappa_ij - kappa_i - kappa_j:
+  40/40 synthetic lethals are isozyme redundancies (tktA/tktB, acnA/acnB,
+  metE/metH, argF/argI, ...) with pure-emergence eps = kappa_ij ~ 18,415;
+  55 masked emergences; Spearman |eps| vs footprint Jaccard 0.865
+  (J_support 0.800, p ~ 0); growth-epistasis vs kappa-epistasis -0.705;
+  targeted archetypes: zwf+gnd eps=-58.6 (perfect redundancy),
+  pfkA+pfkB eps=+242.8 (capacity redundancy), pgi+zwf eps=+198.2
+  (non-lethal super-additive), rpe+rpiA/B eps=0 (nested footprints).
+- M3b path dependence (L1-MOMA, 160 pairs): open-path commutator
+  chi > 0 in 25% of active pairs (q90 = 101, max 226); MOMA kappa
+  order-dependent for 19.4% of pairs; closed 4-step genotype loops
+  (WT -> di -> dij -> dj -> WT) return to genotype but not state in 66%
+  (median displacement ~110 L1 units) = plaquette holonomy / phenotypic
+  memory (M2 realized in genotype space); chi independent of |eps|
+  (non-SL Spearman -0.07, p 0.43): non-additivity of optima and
+  non-commutativity of transients are distinct signatures. Committed
+  f9f8634.
+- Figures (scripts/m1_m3_figures.py): 6 PNGs (glucose/O2/knockdown/
+  summary sweeps; epistasis; path dependence).
+- Kochanowski citation resolved by web search: "Global coordination of
+  metabolic pathways in Escherichia coli by active and passive
+  regulation", Mol Syst Biol 17(4):e10064 (2021), doi:10.15252/
+  msb.202010064; user's staged passage included verbatim in section 7.
+- Report (scripts/m1_m3_report_content.py + m1_m3_report_pdf.py, pdf
+  skill report route, cascade palette seed 20260901, Template 03 cover
+  series-consistent with the joint assessment covers, TocDocTemplate +
+  multiBuild): download/M1_M3_active_set_bridge_report.pdf, 14 pp;
+  fixed cover page-size normalization (1pt mismatch -> always
+  scale_to A4) and table placeholder dashes (line-start punctuation);
+  QA: pdf_qa PASS (all checks), font.check 0 issues, toc.check clean,
+  cover_validate pass, meta.brand applied.
+- The v21 manuscript remains untouched (git status: only new files).
+
+Stage Summary:
+- M1 and M3 executed and verified: the discrete curvature of the
+  lexicographic FBA path is a measure supported on active-set changes
+  (mass 1.0, machine-precision affine segments, discriminating controls),
+  and rerouting epistasis aligns with active-set footprint overlap
+  (Spearman 0.865) with all 40 sampled synthetic lethals being isozyme
+  redundancies; greedy-adjustment dynamics are non-commutative (25% of
+  active pairs) and closed genotype loops leave 66% holonomy.
+- Deliverables: download/M1_M3_active_set_bridge_report.pdf (14 pp) +
+  cover HTML; download/m1_m3/ (12 m1 npz + point CSVs + m1_summary.json;
+  m3_singles.npz, m3_pairs.csv, m3_path.csv, m3_summary.json; 6 figures);
+  scripts/lp_engine.py, m1_active_set_curvature.py,
+  m3_epistasis_path_dependence.py, m1_m3_figures.py.
+- Kochanowski et al. 2021 positioned as complementary prior art with the
+  user's passage staged for v2; citation resolved to MSB 17:e10064.
+- What this does NOT prove: the strong-form unification (Theorem U)
+  remains open; E28 (second differences on measured time courses) remains
+  the open empirical item; all v2 guidance recorded in report section 9.
+
+---
+Task ID: asb2-solution
+Agent: main (Super Z)
+Task: Evaluate, verify, strengthen, augment, improve, correct and
+complete external_audits/unifying object/deepseek formulation.txt (the
+Active-Set Bridge Conjecture), and attempt to solve it. Standing
+instructions honored: check unpushed work first (all previous work was
+already pushed; remote commit 5de0b7a pulled, containing the target
+file), always commit and push, frozen v21 untouched, all deliverables
+in download/, English response per user instruction.
+
+Work Log:
+- Push check: local main had 0 unique commits vs origin/main (all
+  previous turns pushed); pulled 5de0b7a which added exactly the
+  316-line deepseek formulation.txt.
+- Read the formulation in full: A1-A5, the eps^2 holonomy limit, the
+  5-step proof sketch, 3 testable consequences, status paragraph, and
+  the file's own 5-point self-critique with revised statement.
+- Re-verified every checkable claim against the M1/M3/M3b record
+  (m1_summary.json, m3_summary.json at line level): D2 mass 0.934-1.0,
+  affine residuals <= 8e-14, footprint Spearman 0.865, chi-vs-eps
+  Spearman -0.347 full panel / -0.07 non-SL (p 0.43) -- the claimed
+  identity "eps_ij = rectangle holonomy" (consequence 2) is
+  contradicted; consequence 3 imprecise (missing smooth term 2||v'||^2;
+  integral not pointwise).
+- Mathematical audit produced 6 corrections: C1 the affine-extension
+  holonomy is trivially the identity (v is a function: H_gamma = I
+  exactly, so the central display reads 0 = Omega); C2 the eps^2 law
+  fails in both layers; C3 the file's own projection-based transport
+  is not invertible (not a connection) -- replaced by the minimal-
+  rotation/unfolding map; C4 A3's existential embedding is
+  unfalsifiable -- replaced by the intrinsic graph geometry
+  G(theta)=(theta,v(theta)); C5 the claimed confirmations are
+  overstated; C6 A5 flatness is precisely why the conclusion cannot
+  follow. Additional: A1 achievable via the engine (degeneracy
+  discovery documented), rank-one updates correct within stages
+  (tower across the 3 lex stages).
+- M4a executed (scripts/m4a_scaling.py, 76 pairs x 6 depths, flux-
+  relative scaled knockdown family: ub=(1-eps)v_wt on v>0, mirrored,
+  homothetic on v=0; eps=1 equals the M3 full KO): 64/76 pairs
+  chi(eps)=0 exactly at every depth; 9 nonzero pairs slope 0.976-1.244
+  (median 0.998) with exact halving ratios across five octaves
+  (sdhD+nuoG 101.29->3.19; atpD+nuoJ reproduces the M3b max 226.48
+  then halves); single-response slope median 1.01 (linearity control);
+  release-identity checks 6/6 bit-exact -- M3b's closed-loop
+  non-return is greedy-dynamics irreversibility, not connection
+  holonomy. A4's eps^2 law is falsified in the only layer where it
+  was meaningful; the dynamic non-commutativity is FIRST order
+  (tangent-cone O(1) face change per knockout).
+- M4b executed (scripts/m4b_2d_geometry.py, 34x34 (glc,O2) grid =
+  1,156 lex solves, 24 operational chambers, 2,122 solves total):
+  (a) synthetic machinery validation (m4b_machinery_test.py): the
+  corrected unfolding transport equals the corner-angle defect to
+  1e-14 on flat/cone (up to 190.6 deg)/generic 4-sector synthetic
+  maps; frame planarity 1e-16; the flat case exposed and fixed a
+  transverse-direction sign bug in the loop composition (transport
+  maps g_from(d_other) -> g_to(d_other), NOT the negated direction);
+  (b) flat controls on real interfaces: 5/5 exact identity (residuals
+  1e-11 to 1e-23; axis/angle constancy along interfaces 1e-11);
+  interface kinks O(1) (50.07 deg overflow fold) vs exactly 0.0000 deg
+  mask-type boundaries -- the operational active set over-counts
+  geometric events;
+  (c) three fan vertices analyzed: defects scale-invariant to four
+  decimals (-7.1469 deg, -23.9087 deg, +0.0104 deg at both delta and
+  delta/2) with self-flagged face inconsistency (shared-edge 0.2-3.7
+  on 3/4 edges, one edge exact at 1e-10) -- the wedge-fan corner is
+  below the operational resolution;
+  (d) 1D cut through a codim-2 region: 11 events carry 100.0000000%
+  of D2 mass (M1's law at the vertex scale);
+  (e) DISCOVERY (Lemma N1, "no loose kinks"): on a continuous
+  piecewise-affine map a kinked codim-1 stratum cannot T-terminate
+  inside another stratum (the three tangential-derivative identities
+  force the terminating stratum Jacobian-flat); mask-type
+  T-junctions have defect exactly 0 and identity holonomy;
+  (f) edge-crossing census (m4b_edge_census.py, 11 cells): the corner
+  is a NESTED WEDGE-FAN -- up to 9-10 boundary crossings per grid cell
+  (up to 4 per single edge, thin sliver chambers) vs exactly 2 in flat
+  regions: the codim-2 skeleton is dense exactly where the D2 mass
+  concentrates -- the empirical face of the atomicity obstruction.
+- The repaired formulation (download/Active_Set_Bridge_v2.md):
+  Theorem S (static curvature measure: D2v on codim-1 skeleton, the
+  time-course INTEGRAL identity, trivial state holonomy), Theorem G
+  (intrinsic defect = the constructed kappa_geom, unfolding transport,
+  flatness off codim-2, O(1) scale-independent defects), Lemma N1 (no
+  loose kinks), Theorem N (atomicity obstruction: the eps^2 limit is 0
+  at generic points and divergent on the (p-2)-skeleton; only sound
+  limits are mesoscopic defect density (a model-family regularity
+  assumption) or dynamic), Theorem D (first-order dynamic commutator
+  law with the measured slope-1 evidence) + the full status table of
+  every original element (19 rows) and the honest residue (E28, the
+  strong-form identification now precisely localized as blocked by
+  atomicity, model-family regularity, new E31 wedge-fan resolution).
+- Report (pdf skill report route, cascade palette seed 20260901,
+  Template 03 series-consistent cover, TocDocTemplate + multiBuild):
+  download/Active_Set_Bridge_v2_solution_report.pdf, 14 pp, 609 KB,
+  3 embedded figures, 3 tables (claim-by-claim verification table,
+  M4a census, deliverables map), 5 theorem quote blocks; QA: pdf_qa
+  PASS (all checks), font.check 0 issues, toc.check clean,
+  cover_validate pass, poster_validate pass, meta.brand applied;
+  line-start-quote punctuation warnings fixed via nbsp + rephrasing.
+- The v21 manuscript remains untouched (git status: only new files).
+
+Stage Summary:
+- The DeepSeek formulation is evaluated and SOLVED to the extent its
+  own structure permits: the structural half (piecewise affinity,
+  event concentration, active-set substrate) is correct and machine-
+  verified; the central eps^2 holonomy claim is false in both layers,
+  and the reason is now a theorem set (S/G/N1/N/D) rather than an
+  opinion; A4 is resolved NEGATIVELY (slope 1.00 measured; atomicity
+  obstruction proven) and constructively (a first-order law with a
+  testable CRISPRi prediction, and a mesoscopic reading of the strong
+  form).
+- Deliverables: download/Active_Set_Bridge_v2_solution_report.pdf
+  (14 pp) + download/Active_Set_Bridge_v2.md (formulation, v2 source
+  material) + download/m4/ (m4a_scaling.csv, m4a_pairs.csv,
+  m4a_summary.json, m4b_grid.npz, m4b_summary.json,
+  m4b_edge_census.json, 3 figures) + scripts (m4a_scaling.py,
+  m4b_2d_geometry.py, m4b_machinery_test.py, m4b_edge_census.py,
+  m4_figures.py, active_set_bridge_v2_report_content.py,
+  active_set_bridge_v2_report_pdf.py).
+- New falsifiable science produced: the graded-knockdown order-
+  sensitivity scaling law (slope 1) and the no-loose-kinks lemma.
+- What this does NOT prove: the strong-form pointwise unification
+  (blocked by atomicity, now localized); E28 open; E31 (wedge-fan
+  resolution) open; all v2 integration guidance recorded in report
+  sections 5 and 8.
+
+---
+Task ID: root-cause-eval
+Agent: main (Super Z)
+Task: Evaluate, verify, and explore the "Root cause" analysis pasted in
+the current turn (the retrospective reading of the M4a/M4b record:
+"the bridge weakened because it was built on the wrong order of
+smoothness"). Standing instructions honored: push check first (local
+main == origin/main at 8403b7d after fetch; nothing from previous
+turns unpushed), always commit and push, frozen v21 untouched,
+deliverables in download/, English response.
+
+Work Log:
+- Verified the text's claims against the committed record: m4a_pairs
+  CSV (76 pairs: 64 chi=0 exactly at all depths, 9 slope~1 median
+  0.9982 range 0.857-1.244, 3 insufficient; release identity 6/6),
+  m4b_summary.json (state_holonomy_note; defects -7.1469/-23.9087/
+  +0.0104 deg scale-invariant at delta and delta/2; 11-event cut D2
+  mass 1.0), m4b_edge_census.json (9-10 crossings/cell in the overflow
+  corner vs 2 in flat cells), Active_Set_Bridge_v2.md theorems, M1/M3
+  headline numbers.
+- Verdict: diagnosis correct and theorem-backed; three misdescriptions
+  corrected (RC1 no O(eps) holonomy exists -- trichotomy: state
+  holonomy exactly identity / defect O(1) scale-invariant / dynamic
+  commutator O(eps) and it is greedy hysteresis not holonomy; RC2 the
+  slope-1.00 statistic is the 9-pair interacting stratum, 64/76 exactly
+  zero; RC3 the slope-1 law is a dynamic-layer result, independent of
+  static epistasis per M3b Spearman -0.347/-0.07, so it cannot support
+  the static bridge); plus RC4 codim-1 vs codim-2 curvature carriers,
+  RC5 "falsified" epistemics (PA structure is an a priori mpLP theorem
+  -- the falsification is model-independent), RC6 the wedge-fan is
+  operationally dense but measure-tame at fine scale.
+- Executed M4c (scripts/m4c_regime_dial.py, the "regime dial"): closes
+  the text's unmechanized step 3 ("separate regime") with Theorem R
+  (D^2(v*phi_sigma) = (D^2 v)*phi_sigma exactly; D(eps,sigma) =
+  sum_e Delta_e K(t0-t_e; eps,sigma) closed form; slope 2 for eps <<
+  sigma, slope 1 for eps >> sigma, crossover eps* = c*sigma, mass
+  conservation). Machine record: 858 lex solves; census 12 events
+  (11 kinked, 1 mask), telescoping residual 4.0e-14; 1e-6-resolution
+  bisection census RESOLVED the M4b sliver: 3 clusters, the one at
+  t=0.00187 is 2.44e-6 wide with opposite jumps +-1884.6 L2 that
+  SELF-CANCEL to net 8.90 (E31 fine structure: operational fan
+  overcounts events, measure is tamer).
+- M4c dial results (exact convolution of the machine-measured
+  measure): slope_small = 1.9995/1.9991/1.9994/1.9992 (the eps^2 law
+  to four significant figures at sigma = 0.003/0.01/0.03/0.1);
+  slope_large 1.13-1.17 with local slopes -> 1; eps*/sigma =
+  4.11/2.98/3.11/2.45 (crossover scales linearly in sigma, c ~ 3);
+  GH machine validation median rel err 0.4%/1.9%/5.4%/8.7% at eps >=
+  sigma/2; wall-free control machine D <= 1.5e-11 below reach.
+- New methodological finding (numerical echo of Theorem N): fixed-node
+  Gauss-Hermite quadrature does NOT smooth below node spacing -- the
+  discretized v_sigma is itself piecewise affine (nodes translate the
+  kinks), so machine D vanishes exactly for eps below the distance to
+  the nearest node-translated kink while the exact convolution gives
+  the eps^2 law; discretized smoothing does not remove atoms unless
+  the kernel is resolved. Constrains any E28 protocol: state (eps,
+  sigma) and resolve the kernel or work measure-theoretically.
+- Engine robustness patch (scripts/lp_engine.py): deterministic
+  presolve-off retry ladder in solve_lex (HiGHS presolve occasionally
+  mis-reports a feasible pinned stage-3 as infeasible, first observed
+  at glc=1.6932/o2=1.4782); activates only where the first call
+  failed, so previously computed results are unchanged.
+- Deliverables: download/Root_Cause_Evaluation.md (claim-by-claim
+  table, corrections RC1-RC6, Theorem R + M4c, corrected bottom-line
+  replacement text) + download/m4/ (m4c_summary.json, m4c_scaling.csv,
+  m4c_cut_events.csv, fig_m4c_scaling.png, fig_m4c_density.png) +
+  scripts/m4c_regime_dial.py + lp_engine patch. Committed and pushed.
+- Report rendered (pdf skill report route, cascade palette series seed
+  20260901 steel-blue family, Template 03 series-consistent cover,
+  TocDocTemplate + multiBuild): download/Root_Cause_Evaluation_report
+  .pdf, 10 pp, 618 KB,
+  2 embedded figures, 5 tables, 3 callouts, 2 quote blocks; QA:
+  cover_validate pass (8 L3 text blocks, no overlaps), meta.brand
+  applied, font.check 0 issues, toc.check clean, pdf_qa 13/13 PASS
+  (pages.clean not needed: no blank pages).
+
+Stage Summary:
+- The root-cause text is verified as a correct popularization of the v2
+  record with three technical slips (O(eps) "holonomy" conflation;
+  9/76 vs 76/76 slope statistic; slope-1 misattributed to the static
+  bridge) and one gap (the "separate regime" had no mechanism) -- the
+  gap is now closed by Theorem R + M4c: the smooth kappa_V is the same
+  curvature measure at resolution sigma; eps vs sigma selects the
+  regime; measured crossover eps* ~ 3 sigma; mass conserved across the
+  dial. The unification is a resolution statement, not a limit
+  statement.
+- New falsifiable science: the dial law (slope 2 -> 1 with crossover
+  eps* = c*sigma, c ~ 3, on the real network measure); the sliver
+  self-cancellation census; the kernel-resolution requirement for
+  empirical second-difference protocols.
+- What this does NOT prove: kappa_flux = F[mu] as a formal theorem
+  (flagged open, with the E24-recalibration test); E28 open (now with
+  its (eps, sigma) design law); 2D sliver census (E31 remainder);
+  model-family regularity for mesoscopic limits.
+
+---
+Task ID: deepseek-bridge-strength-audit
+Agent: main (Super Z)
+Task: Evaluate, verify (not at face value), strengthen, augment, improve,
+correct, and complete external_audits/unifying object/deepseek stengthen
+highly general bridge.txt; always commit and push; respond in English.
+
+Work Log:
+- Push check: all prior work on origin/main at 98e24fe; pulled remote
+  d85b162 which delivered the audit file (186 lines: Part-1 assessment
+  of M4c/root-cause + 5 strengthening routes + recommended theorem).
+- Part-1 fidelity: 14 claims adjudicated against the verified record
+  (Root_Cause_Evaluation.md, M1/M3/M4a/b/c, v2 theorems). Faithful on
+  the trichotomy/Theorem-R/dial; 3 slips (M4a-as-empirical-falsification
+  repeats RC5; slope-1.00 drops RC2's 9/76 sparsity; eps*/sigma 3-4 vs
+  measured 2.45-4.11); line-30 "sigma->0 smooth limit" is the seed of
+  the central defect.
+- Central defect D1 verified: the recommended formula
+  kappa_geom = lim(s->0) kappa_flux*phi_sigma selects the ATOMIC measure
+  (V3 on the measured M4c event set: near-event mass -> 1.0000 at fixed
+  w=0.01; wall-free density -> 0 exponentially; hat test 3772.5 at
+  s=3e-4 vs 253.4 smooth proxy). Line-30's two "different" limits are
+  the same limit (both = mu).
+- V1 (Route 3 corrected, 253 lex solves, M4c cut, iML1515): v=grad-Phi
+  is dimensionally false (R^2867 vs R^2); the TRUE statement: Phi is
+  single-valued with NO tie-breaking => D2Phi (shadow-price jumps) is
+  THE canonical carrier. Phi piecewise-affine at 4.2e-13 on the v-event
+  partition; ONE real atom Delta-Phi' = -0.006439 at t=0.0358286
+  (11.59-jump event) while the 1875.7/1884.6 sliver pair nets <= 7.7e-11
+  and the 22.3-jump event <= 8.4e-9; value/flux mass ratio 1.7e-6 with
+  non-proportional hierarchies. Danskin verified: r-copy bound marginals
+  = FD shadow prices to 6-7 digits (y = (0.0252545, 0.0336727) ->
+  (0.021743, 0.039138) across the atom); cut-slope identity y.theta' =
+  Phi' exact.
+- V2 (Routes 1+2 corrected): built the refinement prototype
+  (min-of-tangent-planes parametric LP family, theta in RHS, nested
+  outer approximations, concave f with non-constant curvature, 40
+  random cuts, exact breakpoint atoms). Theorem B proven in prototype:
+  (B1) mu_n -> Hessian measure weakly (uniform gradient convergence +
+  Gauss flux); machine: W1 0.049 -> 0.0035 (rate ~1 in h for n>=32),
+  mass ratio 0.93 -> 1.002, adaptive-scale L1 0.33 -> 0.07; (B3) at
+  fixed n=32 sigma->0 is ATOMIC (L1-to-smooth 0.054 -> 1.28; near-atom
+  mass 0.41 -> 0.9992) while the joint limit at sigma=0.05 gives L1
+  1.25 -> 0.040. Two-sided dial; window h << sigma << L_var.
+- Other defects: D3 (add-reactions/grid are not refinements; CMS 1984
+  citation missing; Route-2 feasibility medium-high -> low for real
+  networks), D4 (basis cocycle trivial by telescoping; the nontrivial
+  connection is Theorem G's unfolding transport), D5 (two carriers,
+  RC4), D6 (g^SAVGS identification smuggled -> Conjecture SA), D7
+  (lattice-YM analogy aspirational; E32 statistical form proposed),
+  D8 (Part-1 slips).
+- V5 (the audit's decisive test, EXECUTED): E24 recalibration with
+  kappa^mu = sum|D2|/dt (measure mass) on the deterministic lex-pFBA
+  E22 trajectory (4x/8x refinement, mass 288.77 resolution-independent,
+  440 event reactions, non-degenerate). Baseline reproduced to the
+  digit (r=+0.3739, p=8.18e-16, n=433). Measure-theoretic: r=+0.3954
+  (n=424, p=2.6e-17), Spearman +0.4138, partial given ref level
+  +0.2692 (p=1.8e-8), deciles 1.923/0.890 (MWU 1.3e-7). Decisive test
+  PASSES WITH STRENGTHENING -> single-paper route secure by the audit's
+  own criterion. Metric invariance: rho(kappa^mu, kappa_V_lex)=0.99998
+  (the association is an event-structure property). E22 artifact found:
+  e24 csv rounded kappa to 6dp zeroing 94 tiny values (reproducibility
+  trap; V5 reads the unrounded E22 artifact); 9 zero-lex genes are
+  plain-FBA vertex noise.
+- Deliverables: download/DeepSeek_Bridge_Strength_Evaluation.md +
+  download/deepseek_bridge/{v1,v2,v3,v5}_{json,csv,png} (12 files) +
+  scripts/{deepseek_route_verify.py, e24_measure_kappa.py} +
+  report PDF (pdf skill report route, series-consistent steel-blue
+  Template 03 cover, TocDocTemplate + multiBuild, 4 figures, 4 tables,
+  3 callouts, 1 quote block): download/
+  DeepSeek_Bridge_Strength_Evaluation_report.pdf, 12 pp, 842 KB.
+  QA: cover_validate pass (8 L3 blocks, no overlaps), meta.brand
+  applied, font.check 0 issues, toc.check clean, pdf_qa 13/13 PASS.
+  Committed and pushed.
+
+Stage Summary:
+- The audit's Part 1 is a faithful summary of the corrected record;
+  its Part-2 target theorem is FALSE as stated (sigma->0 picks the
+  atomic measure = Theorem N's obstruction) and was falsified on the
+  measured object AND in a prototype; the corrected theorem
+  (refinement + resolution, Theorem B) is proven in prototype and
+  machine-verified; the value function D2Phi is identified as the
+  canonical tie-break-free carrier with a measured decoupling from the
+  flux-jump hierarchy; and the audit's decisive test (E24 with the
+  measure-theoretic kappa) passes with strengthening (r +0.374 ->
+  +0.395, partial +0.251 -> +0.269), securing the single-paper route.
+- New falsifiable items: Conjecture RA (+ E32 statistical test on
+  existing panels), Conjecture SA (identification, not provable now),
+  Theorem B's window law, the E22 csv rounding trap note, and the
+  metric-invariance statement (trajectory property, not assumption).
+- Open: kappa_flux = F[mu] formal identity (now decoupled from the
+  association); E28 under the (eps, sigma) design law; E31 2D census;
+  v2 Layer-0 manuscript drafting (the next deliverable, with this file
+  as source material); frozen v21 untouched throughout.

@@ -1,0 +1,124 @@
+{
+ "experiment": "V3 sigma->0 limit direction on the measured M4c event measure",
+ "events": {
+  "n": 12,
+  "total_L2_mass": 3810.38804711051
+ },
+ "sigma_ladder": [
+  {
+   "sigma": 0.1,
+   "mass_frac_near_events_w0.01": 0.2604515147307905,
+   "density_at_wallfree_over_peak": 0.8724036551664996,
+   "hat_test_on_max_atom": 746.7676766608308,
+   "max_atom_mass": 1884.5843750663134
+  },
+  {
+   "sigma": 0.03,
+   "mass_frac_near_events_w0.01": 0.5306889723768159,
+   "density_at_wallfree_over_peak": 0.2229540511099935,
+   "hat_test_on_max_atom": 2103.96959154912,
+   "max_atom_mass": 1884.5843750663134
+  },
+  {
+   "sigma": 0.01,
+   "mass_frac_near_events_w0.01": 0.7907764516303974,
+   "density_at_wallfree_over_peak": 1.4383916454301711e-06,
+   "hat_test_on_max_atom": 3378.1368445795842,
+   "max_atom_mass": 1884.5843750663134
+  },
+  {
+   "sigma": 0.003,
+   "mass_frac_near_events_w0.01": 0.9991669712539509,
+   "density_at_wallfree_over_peak": 1.224553182871538e-65,
+   "hat_test_on_max_atom": 3731.535638516146,
+   "max_atom_mass": 1884.5843750663134
+  },
+  {
+   "sigma": 0.001,
+   "mass_frac_near_events_w0.01": 0.9999999999999998,
+   "density_at_wallfree_over_peak": 0.0,
+   "hat_test_on_max_atom": 3768.232397494413,
+   "max_atom_mass": 1884.5843750663134
+  },
+  {
+   "sigma": 0.0003,
+   "mass_frac_near_events_w0.01": 0.9999999999999996,
+   "density_at_wallfree_over_peak": 0.0,
+   "hat_test_on_max_atom": 3772.4761804862505,
+   "max_atom_mass": 1884.5843750663134
+  },
+  {
+   "sigma": 0.0001,
+   "mass_frac_near_events_w0.01": 1.0000000000000002,
+   "density_at_wallfree_over_peak": 0.0,
+   "hat_test_on_max_atom": 3772.8499521917884,
+   "max_atom_mass": 1884.5843750663134
+  }
+ ],
+ "hat_test_on_max_atom_vs_smooth_proxy": {
+  "atom_mass": 1884.5843750663134,
+  "sigma_0.003": 3731.535638516146,
+  "sigma_3e-4": 3772.4761804862505,
+  "smooth_proxy_sigma0.3": 253.4429313820474
+ },
+ "bump_tests": [
+  {
+   "t_event": -0.09771331787109377,
+   "atom_mass": 8.492764610353775e-11,
+   "int_psi_dmu_sigma_0.03": 46.040879325406664,
+   "int_psi_dmu_sigma_0.003": 0.02020387239936064,
+   "int_psi_dmu_sigma_0.0003": 0.015594334139205395,
+   "int_psi_dmu_atomic": 8.492764610353775e-11,
+   "int_psi_dsmooth_proxy": 239.80329660384976
+  },
+  {
+   "t_event": 0.0018685913085937519,
+   "atom_mass": 1875.6880421996893,
+   "int_psi_dmu_sigma_0.03": 2103.969247972154,
+   "int_psi_dmu_sigma_0.003": 3731.534898111535,
+   "int_psi_dmu_sigma_0.0003": 3772.4754370129262,
+   "int_psi_dmu_atomic": 1875.6880421996893,
+   "int_psi_dsmooth_proxy": 253.44292332970616
+  },
+  {
+   "t_event": 0.0018692016601562517,
+   "atom_mass": 1884.5843750663134,
+   "int_psi_dmu_sigma_0.03": 2103.96959154912,
+   "int_psi_dmu_sigma_0.003": 3731.535638516146,
+   "int_psi_dmu_sigma_0.0003": 3772.4761804862505,
+   "int_psi_dmu_atomic": 1884.5843750663134,
+   "int_psi_dsmooth_proxy": 253.4429313820474
+  },
+  {
+   "t_event": 0.0018710327148437518,
+   "atom_mass": 8.666587857616448e-05,
+   "int_psi_dmu_sigma_0.03": 2103.9706304460506,
+   "int_psi_dmu_sigma_0.003": 3731.537860376967,
+   "int_psi_dmu_sigma_0.0003": 3772.478411103834,
+   "int_psi_dmu_atomic": 8.666587857616448e-05,
+   "int_psi_dsmooth_proxy": 253.44295694903013
+  },
+  {
+   "t_event": 0.024296569824218718,
+   "atom_mass": 0.5094322210194167,
+   "int_psi_dmu_sigma_0.03": 1745.4641048114834,
+   "int_psi_dmu_sigma_0.003": 2053.3857566115985,
+   "int_psi_dmu_sigma_0.0003": 2048.333453145377,
+   "int_psi_dmu_atomic": 0.5094322210194167,
+   "int_psi_dsmooth_proxy": 252.76609815466503
+  },
+  {
+   "t_event": 0.024300231933593715,
+   "atom_mass": 0.8132267811318262,
+   "int_psi_dmu_sigma_0.03": 1745.3562842560723,
+   "int_psi_dmu_sigma_0.003": 2052.9861101183715,
+   "int_psi_dmu_sigma_0.0003": 2047.9260457900941,
+   "int_psi_dmu_atomic": 0.8132267811318262,
+   "int_psi_dsmooth_proxy": 252.7658692781384
+  }
+ ],
+ "verdict": {
+  "weak_limit": "as sigma->0 the family converges weakly to the ATOMIC measure (mass near events 1.000 at fixed w; wall-free density/peak 0.0e+00)",
+  "audit_formula": "kappa_geom = lim_{sigma->0} kappa_flux*phi_sigma therefore selects the atomic object = Theorem N's obstruction, NOT a smooth density; the defensible statement is the fixed-sigma resolution statement (Theorem R / M4c)"
+ }
+}

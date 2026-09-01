@@ -1,0 +1,155 @@
+==============================================================================
+v16 / Study E23: MULTI-CONDITION FBA (Option D)
+==============================================================================
+[baseline             ] mu T1..T8: 0.485 0.405 0.325 0.256 0.186 0.136 0.106 0.086
+[anaerobic-nitrate    ] mu T1..T8: 0.439 0.366 0.293 0.230 0.166 0.120 0.093 0.075
+[galactose            ] mu T1..T8: 0.479 0.401 0.322 0.253 0.184 0.135 0.105 0.085
+[glycerol-P-limited   ] mu T1..T8: 0.672 0.562 0.452 0.356 0.261 0.192 0.151 0.124
+[trehalose            ] mu T1..T8: 0.485 0.405 0.325 0.256 0.186 0.136 0.106 0.086
+[proline-nitrogen     ] mu T1..T8: 0.923 0.771 0.619 0.488 0.357 0.268 0.206 0.178
+[oxidative-WT         ] mu T1..T8: 0.482 0.403 0.323 0.254 0.185 0.135 0.106 0.086
+[oxidative-vulnerable ] mu T1..T8: 0.482 0.402 0.323 0.254 0.185 0.135 0.106 0.086
+[osmotic-retention    ] mu T1..T8: 0.433 0.361 0.290 0.228 0.165 0.121 0.094 0.076
+
+Active reactions per condition (|v|>1e-09 at any T):
+  baseline                438 active,   437 with kappa_V>0
+  anaerobic-nitrate       443 active,   442 with kappa_V>0
+  galactose               445 active,   444 with kappa_V>0
+  glycerol-P-limited      454 active,   453 with kappa_V>0
+  trehalose               443 active,   442 with kappa_V>0
+  proline-nitrogen        446 active,   445 with kappa_V>0
+  oxidative-WT            446 active,   445 with kappa_V>0
+  oxidative-vulnerable    444 active,   443 with kappa_V>0
+  osmotic-retention       450 active,   449 with kappa_V>0
+  UNION over 9 conditions: 537 (20.8% of 2583) vs baseline 438 (17.0%)
+
+Energy-loop guard: mu(T1) baseline=0.4847; oxidative-WT 0.4817; oxidative-vulnerable 0.4815 (all <= baseline+0.02: OK)
+
+[D-cons] Baseline reproduction of E22/E10:
+  active reactions: 438 (E22: 438)
+  global kappa_V (biomass deficit)^2 max = 0.158543 (E22: 0.158543)
+  b2097  (b2097) kappa_max =   9.490142 (expected   9.490142) OK
+  bcp    (b2480) kappa_max =   0.000000 (expected   0.000000) OK
+  caiC   (b0037) kappa_max =   0.000000 (expected   0.000000) OK
+  galT   (b0758) kappa_max =   0.000000 (expected   0.000000) OK
+  msrA   (b4219) kappa_max =   0.000000 (expected   0.000000) OK
+  narJ   (b1226) kappa_max =   0.000000 (expected   0.000000) OK
+  otsB   (b1897) kappa_max =   0.000000 (expected   0.000000) OK
+  proV   (b2677) kappa_max =   0.000000 (expected   0.000000) OK
+  proW   (b2678) kappa_max =   0.000000 (expected   0.000000) OK
+  sodA   (b3908) kappa_max =   0.000000 (expected   0.000000) OK
+  treA   (b1197) kappa_max =   0.000000 (expected   0.000000) OK
+  ugpC   (b3450) kappa_max =   0.000000 (expected   0.000000) OK
+  yeaA   (b1778) kappa_max =   0.000000 (expected   0.000000) OK
+  yehX   (b2129) kappa_max =   0.000000 (expected   0.000000) OK
+  yehY   (b2130) kappa_max =   0.000000 (expected   0.000000) OK
+  r unmasked -0.0633 (exp -0.0633), v12 +0.1024 (exp +0.1024), v13 +0.0838 (exp +0.0838)
+[D-cons] overall: BASELINE REPRODUCES E22 EXACTLY
+
+[D-map] GPR membership of the MAPPED genes in their audit reactions:
+  b2097  FBA            OK
+  bcp    THIORDXi       OK
+  caiC   CTBTCAL2       OK
+  caiC   CRNCAL2        OK
+  caiC   CRNDCAL2       OK
+  galT   UGLT           OK
+  msrA   METSOXR1       OK
+  narJ   NO3R1pp        OK
+  narJ   NO3R2pp        OK
+  otsB   TRE6PP         OK
+  proV   PROabcpp       OK
+  proV   CTBTabcpp      OK
+  proV   CRNabcpp       OK
+  proW   PROabcpp       OK
+  proW   CTBTabcpp      OK
+  proW   CRNabcpp       OK
+  sodA   SPODM          OK
+  treA   TREHpp         OK
+  ugpC   G3PSabcpp      OK
+  ugpC   GLYC2Pabcpp    OK
+  ugpC   G3PEabcpp      OK
+  yeaA   METSOXR2       OK
+  yehX   CHLabcpp       OK
+  yehX   GLYBabcpp      OK
+  yehY   CHLabcpp       OK
+  yehY   GLYBabcpp      OK
+[D-map] overall: ALL 15 MAPPED GENES PRESENT IN THEIR GPRs
+
+[D-act] Matched-condition activation of the 14 zero-kappa_V genes:
+  b2097  [baseline             ] flux T1=   3.933 T8=   0.853 kappa_max=  9.490142 ACTIVATED
+  bcp    [oxidative-vulnerable ] flux T1=   0.150 T8=   0.030 kappa_max=  0.014400 ACTIVATED
+  caiC   EXCLUDED (closed carnitine-CoA cycle; proof below)
+  galT   [galactose            ] flux T1=   5.000 T8=   1.000 kappa_max= 16.000000 ACTIVATED
+  msrA   [oxidative-WT         ] flux T1=   0.050 T8=   0.010 kappa_max=  0.001600 ACTIVATED
+  narJ   [anaerobic-nitrate    ] flux T1=  22.099 T8=   5.520 kappa_max=274.891819 ACTIVATED
+  otsB   [osmotic-retention    ] flux T1=   0.250 T8=   0.050 kappa_max=  0.040000 ACTIVATED
+  proV   [proline-nitrogen     ] flux T1=   9.968 T8=   1.994 kappa_max= 63.588523 ACTIVATED
+  proW   [proline-nitrogen     ] flux T1=   9.968 T8=   1.994 kappa_max= 63.588523 ACTIVATED
+  sodA   [oxidative-WT         ] flux T1=   0.250 T8=   0.050 kappa_max=  0.040000 ACTIVATED
+  treA   [trehalose            ] flux T1=   2.500 T8=   0.500 kappa_max=  4.000000 ACTIVATED
+  ugpC   [glycerol-P-limited   ] flux T1=   2.000 T8=   0.400 kappa_max=  2.560000 ACTIVATED
+  yeaA   [oxidative-WT         ] flux T1=   0.050 T8=   0.010 kappa_max=  0.001600 ACTIVATED
+  yehX   [osmotic-retention    ] flux T1=   0.250 T8=   0.050 kappa_max=  0.040000 ACTIVATED
+  yehY   [osmotic-retention    ] flux T1=   0.250 T8=   0.050 kappa_max=  0.040000 ACTIVATED
+[D-act] 13/14 zero-kappa_V genes activated under matched conditions (+ b2097, already active) = 14/15 MAPPED genes; caiC is the one structural dead-end
+
+[D-act] caiC structural proof (no steady-state flux through the ligases):
+  permissive LP (all 221+ exchanges open +/-1000, objective = ligase flux, no growth constraint):
+    max steady-state flux CTBTCAL2 = 0.000000
+    max steady-state flux CRNCAL2 = 0.000000
+    max steady-state flux CRNDCAL2 = 0.000000
+  mechanism: the ligases are irreversible (ATP-consuming) into a CoA-ester pool (crncoa/ctbtcoa/crnDcoa) whose only reactions interconvert
+  esters and release ctbt/gbbtn (both without exchanges, not in biomass) -- the pool has no net sink, so steady state forbids any
+  positive ligase flux regardless of medium or objective.
+  empirical swap (anaerobic+NO3+carnitine 10 mmol): CTBTCAL2=0.000, CRNCAL2=0.000, CRNDCAL2=0.000
+[D-act] caiC dead-end: closed-subnetwork=True, empirically-zero=True CONFIRMED STRUCTURALLY UNACTIVATABLE
+
+[A] PRIMARY cross-condition correlation (matched kappa_V vs Lemuth |log2 FC|, endogenous activations only):
+ gene            matched     kv_max  fc_max
+b2097           baseline   9.490142    0.44
+ galT          galactose  16.000000    0.56
+ narJ  anaerobic-nitrate 274.891819    0.77
+ proV   proline-nitrogen  63.588523    1.14
+ proW   proline-nitrogen  63.588523    0.48
+ treA          trehalose   4.000000    0.36
+ ugpC glycerol-P-limited   2.560000    0.56
+  n = 7 (6 endogenously re-activated + b2097 at its native condition)
+  Pearson r = +0.5712 (p = 0.1804), Spearman rho = +0.5636 (p = 0.1876)
+  95% bootstrap CI: [-0.1660, +0.9691] (10,000 resamples)
+  exact permutation p (5,040 condition-gene reassignments): 0.1782
+  leave-one-out r: -b2097: +0.546, -galT: +0.569, -narJ: +0.558, -proV: +0.680, -proW: +0.684, -treA: +0.474, -ugpC: +0.626
+  [control] baseline-only MAPPED-15 (v14b artifact): r = -0.1579 (stored v14b: -0.158)
+  [control] 13-gene all-condition envelope (mixed classes): r = +0.2299 (caveated: burden-class kappa_V magnitudes are imposed, not model-derived)
+
+[B] SECONDARY burden-class activations (imposed burden rates; NOT entered into the primary correlation):
+  bcp    [oxidative-vulnerable ] kappa_max = 0.014400 (burden rate is imposed; magnitude not interpretable)
+  msrA   [oxidative-WT         ] kappa_max = 0.001600 (burden rate is imposed; magnitude not interpretable)
+  otsB   [osmotic-retention    ] kappa_max = 0.040000 (burden rate is imposed; magnitude not interpretable)
+  sodA   [oxidative-WT         ] kappa_max = 0.040000 (burden rate is imposed; magnitude not interpretable)
+  yeaA   [oxidative-WT         ] kappa_max = 0.001600 (burden rate is imposed; magnitude not interpretable)
+  yehX   [osmotic-retention    ] kappa_max = 0.040000 (burden rate is imposed; magnitude not interpretable)
+  yehY   [osmotic-retention    ] kappa_max = 0.040000 (burden rate is imposed; magnitude not interpretable)
+  caveat: these kappa_V values scale with the imposed burden fractions
+  (QMO2 leak 5% of q_glc; METOX damage 1%; retention 5-10%); they show
+  the reactions CAN carry varying flux under designed stress, not that
+  the magnitudes predict anything.
+
+[C] Multi-condition coverage (the condition-reaction bottleneck):
+  baseline             :   438 active (   0 newly activated vs baseline)
+  anaerobic-nitrate    :   443 active (  16 newly activated vs baseline)
+  galactose            :   445 active (  17 newly activated vs baseline)
+  glycerol-P-limited   :   454 active (  29 newly activated vs baseline)
+  trehalose            :   443 active (  17 newly activated vs baseline)
+  proline-nitrogen     :   446 active (  23 newly activated vs baseline)
+  oxidative-WT         :   446 active (  15 newly activated vs baseline)
+  oxidative-vulnerable :   444 active (  17 newly activated vs baseline)
+  osmotic-retention    :   450 active (  19 newly activated vs baseline)
+  UNION: 537 / 2583 (20.8%) vs 438 (17.0%) baseline
+  coverage lift: 99 additional reactions, i.e. 22.6% relative
+  genes with non-zero kappa_V: baseline 435, union over 9 conditions 525 (38.4% of 1367 model genes)
+
+[D-end] Endogeneity audit (feed caps non-binding / flux not cap-set):
+  NO3R1pp T1=22.10 T8=5.52 (EX_no3 cap 1000: non-binding)
+  glyc2p uptake T1=2.000 (cap 2.00) T8=0.400 (cap 0.40); binding at T: [1, 2, 3, 4, 5, 6, 7, 8]
+  proline uptake T1=9.97 T8=1.99 (EX_pro cap 20: non-binding)
+  trehalose uptake T1=2.50 T8=0.50 (= the C-matched feed trajectory by design)

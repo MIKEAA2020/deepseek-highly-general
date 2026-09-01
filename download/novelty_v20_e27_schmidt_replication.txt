@@ -1,0 +1,38 @@
+Study E27 (v20) Schmidt-2016 protein-layer replication
+[schmidt-protfc-exhaustion] n=366 r=-0.0825 p=1.151e-01
+[e24-transfc-on-schmidt-subset] n=365 r=+0.4186 p=6.399e-17
+[e25-transfc-on-schmidt-subset] n=207 r=+0.2372 p=5.802e-04
+[e26-gse-protfc-on-schmidt-subset] n=164 r=+0.0251 p=7.500e-01
+[schmidt-protfc-q05] n=277 r=-0.1479 p=1.377e-02
+[schmidt-protfc-lowcv] n=254 r=-0.0168 p=7.903e-01
+[schmidt-protfc-excl-b2097] n=365 r=-0.0843 p=1.081e-01
+[schmidt-s7-protfc] n=333 r=-0.1260 p=2.147e-02
+[schmidt-protfc-exhaustion-max] n=366 r=-0.0825 p=1.151e-01
+[schmidt-protfc-limitation-max] n=366 r=-0.0138 p=7.928e-01
+[schmidt-protfc-switch-max] n=366 r=+0.0396 p=4.499e-01
+[schmidt-protfc-stress_glucose-max] n=366 r=-0.0914 p=8.070e-02
+[tp-coupling-gse-dT] n=207 r=+0.0244 p=7.274e-01
+[stability-top-tertile] n=122 r=+0.1141 p=2.109e-01
+[stability-top-tertile-transcript] n=122 r=+0.2656 p=3.113e-03
+[exhaustion:Statday] r=-0.0726 p=1.659e-01
+[exhaustion:Stat.3days] r=-0.0355 p=4.979e-01
+[limitation:Chemstat.0.5] r=+0.0893 p=8.786e-02
+[limitation:Chemstat.0.35] r=+0.0138 p=7.923e-01
+[limitation:Chemstat.0.2] r=-0.0423 p=4.200e-01
+[limitation:Chemstat.02] r=-0.0674 p=1.983e-01
+[switch:Glycerin.AA] r=+0.1340 p=1.029e-02
+[switch:Acetate] r=+0.0200 p=7.023e-01
+[switch:Fumarate] r=+0.0330 p=5.286e-01
+[switch:Glucoseamine] r=+0.0640 p=2.219e-01
+[switch:Glycerol] r=+0.0759 p=1.474e-01
+[switch:Pyruvate] r=+0.1380 p=8.200e-03
+[switch:Xylose] r=-0.0325 p=5.355e-01
+[switch:Mannose] r=+0.0124 p=8.135e-01
+[switch:Galactose] r=-0.0213 p=6.846e-01
+[switch:Succinate] r=+0.0553 p=2.916e-01
+[switch:Fructose] r=-0.0246 p=6.396e-01
+[stress_glucose:OSM] r=-0.0707 p=1.771e-01
+[stress_glucose:42.C] r=-0.0940 p=7.259e-02
+[stress_glucose:pH6] r=-0.0958 p=6.715e-02
+[null:Glucose.2] r=-0.1186 p=2.329e-02
+[out:LB] r=+0.0907 p=8.306e-02

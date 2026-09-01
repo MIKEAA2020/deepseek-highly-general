@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Noto+Serif+SC:wght@400;700;900&family=Inter:wght@300;400;500&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    @page { size: 794px 1123px; margin: 0; }
+    :root {
+      --c-bg: #141312;
+      --c-accent: #dbbe64;
+      --c-text: #ededeb;
+      --c-muted: #87847d;
+      --c-footer: #87847d;
+    }
+    html, body { margin: 0; padding: 0; width: 794px; height: 1123px; background: var(--c-bg); color: var(--c-text); font-family: 'Inter', 'Noto Sans SC', sans-serif; }
+    @media screen {
+      html { height: auto; display: flex; justify-content: center; min-height: 100vh; background: var(--c-bg); }
+      body { transform-origin: top center; scale: min(1, calc(100vw / 794), calc(100vh / 1123)); margin: 0 auto; box-shadow: 0 0 60px rgba(0,0,0,0.3); }
+    }
+    .cover { width: 794px; height: 1123px; position: relative; box-sizing: border-box; border: none; outline: none; box-shadow: none; }
+    .vline { position: absolute; left: 57px; top: 76px; bottom: 76px; width: 2.5px; background: var(--c-accent); }
+    .content { position: absolute; left: 102px; right: 76px; top: 0; bottom: 0; }
+    .label { position: absolute; top: 128px; font-size: 9pt; color: var(--c-accent); letter-spacing: 3px; text-transform: uppercase; font-family: 'Inter', 'Noto Sans SC', sans-serif; }
+    .title { position: absolute; top: 210px; font-size: 34pt; font-weight: 700; line-height: 1.28; font-family: 'Playfair Display', 'Noto Serif SC', serif; color: var(--c-text); max-width: 600px; }
+    .subtitle { position: absolute; top: 545px; font-size: 12pt; line-height: 1.6; color: var(--c-muted); max-width: 540px; }
+    .authors { position: absolute; top: 720px; font-size: 12pt; color: var(--c-text); }
+    .institution { position: absolute; top: 762px; font-size: 10pt; color: var(--c-muted); line-height: 1.5; max-width: 540px; }
+    .summary { position: absolute; top: 840px; font-size: 10.5pt; line-height: 1.7; color: var(--c-muted); max-width: 560px; }
+    .footer { position: absolute; bottom: 76px; left: 0; right: 0; display: flex; justify-content: space-between; font-size: 9pt; color: var(--c-footer); }
+  </style>
+</head>
+<body>
+  <div class="cover">
+    <div class="vline"></div>
+    <div class="content">
+      <div class="label">Technical Audit Report &middot; Third Wave</div>
+      <div class="title">Joint Assessment of<br>Six Unifying-Object<br>Audits</div>
+      <div class="subtitle">The &kappa;<sub>V</sub> coherence problem &mdash; full claim-level
+        verification of six independent repair proposals, eight audit errors
+        corrected, and one synthesized unification architecture assembled from
+        the six.</div>
+      <div class="authors">Verification &amp; Synthesis Unit</div>
+      <div class="institution">Manuscript lineage v12&ndash;v21 &middot; frozen baseline v21
+        (commit ddbb384) &middot; audits: DeepSeek, GLM, GPT, Kimi, Muse, Opus</div>
+      <div class="summary">118 checkable claims verified against the frozen source; 111
+        confirmed, 8 corrected or stale. Layered synthesis: notation protocol,
+        factored curvature datum, provable energy-level transfers, and three
+        computable curvature measurements (second differences, plaquette,
+        double-knockout epistasis). Manuscript untouched &mdash; all repairs
+        specified for journal_manuscript_v2.</div>
+      <div class="footer">
+        <span>external_audits/unifying object/ &mdash; 6 audits &middot; 1,058 lines</span>
+        <span>September 2026</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

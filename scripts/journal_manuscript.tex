@@ -141,7 +141,26 @@ metabolic--gene-regulatory network with enzyme-synthesis loop closure
 MR-GR network with isozymes, substrate-induced enzyme expression, basal
 constitutive TF, backup ATP, and anaplerotic PEPC ($24/29 = 82.8\%$,
 strictly greater than the $5/17$ baseline, with the entire enzyme
-and regulatory layers causally internal). The core claims are numerically
+and regulatory layers causally internal). Beyond the synthetic
+prototypes, the operational $\kk$ is computed on the genome-scale
+\emph{E.~coli} reconstruction iJO1366 ($435$-gene active-reaction
+panel, baseline glucose-decline trajectory) and tested against
+external expression compendia (M3D, PRECISE, GSE64021): $\kk$
+correlates with the magnitude of the transcriptional response to
+carbon exhaustion across the metabolic network ($r = +0.374$,
+$n = 433$, $p \approx 10^{-15}$; partial $r = +0.251$ controlling
+expression level; replicated on an independent RNA-seq platform
+under carbon starvation, $r = +0.191$, $n = 241$), an association
+that scales with growth-state-transition severity rather than
+carbon identity, is bounded by null controls (balanced growth on
+alternative carbon sources; phosphorus limitation), and does not
+propagate to protein fold-changes (matched tandem-MS proteomics,
+$r \approx +0.01$; replicated on an independent $22$-condition
+quantitative triplicate proteome, $r = -0.08$ at $n = 366$, where
+protein and transcript response magnitudes are comparable), 
+localizing the $\kk$ signal to the regulatory layer. All biological findings are stated as correlational, with
+explicit coverage, platform, and perturbation-class limitations.
+The core claims are numerically
 supported under stated tolerances; all extended claims are established
 under explicit additional hypotheses with no remaining open
 conjectures.
@@ -326,6 +345,26 @@ partially autopoietic (enzyme-synthesis loop closure), and strongly
 autopoietic (isozyme-redundant + substrate-induced) systems
 (Sections~\ref{sec:autopoiesis-real-networks},~\ref{sec:autopoiesis-iJO1366},
 ~\ref{sec:autopoiesis-integrated},~\ref{sec:autopoiesis-network-E}).
+\item \emph{Genome-scale biological validation of the operational
+$\kk$}: on the BiGG iJO1366 reconstruction, the per-gene $\kk$ of the
+$435$-gene active-reaction panel (baseline glucose-decline trajectory)
+correlates with the magnitude of the transcriptional response to
+carbon exhaustion in the M3D compendium ($r = +0.374$, $n = 433$,
+$p \approx 10^{-15}$; partial $r = +0.251$ controlling expression
+level), replicates on an independent RNA-seq platform under carbon
+starvation (GSE64021, $r = +0.191$, $n = 241$, starvation-depth
+gradient), is bounded by null controls under carbon-source switching
+and phosphorus limitation, and does not extend to protein
+fold-changes on the matched proteome ($r \approx +0.01$ on the
+$169$-gene subset where the transcript association is $+0.42$;
+replicated on the Schmidt et al.\ $22$-condition quantitative
+triplicate proteome, $r = -0.08$ on the $366$-gene intersection,
+with protein and transcript magnitudes comparable and the graded
+organization transcript-specific), localizing the association to
+the regulatory layer (Studies~E24--E27,
+Sections~\ref{sec:novelty-v17}--\ref{sec:novelty-v20}). All biological claims are correlational,
+with platform, perturbation-class, and coverage limitations stated
+explicitly.
 \item \emph{Smooth-envelope theorem for the algorithmic upper bound}
 (closing Conjecture~\ref{conj:alg-envelope}): the smooth envelope
 $E(x) = \sup_{(\tau, \beta, D, L)} r_{\tau, \beta, D, L}(x)$ over the
@@ -1157,26 +1196,26 @@ Definition~\ref{def:closure-criteria}). Fix a strictly positive
 \emph{viability concentration threshold} $x_{\mathrm{thresh}} > 0$ and
 a recovery horizon $T$. For each purportedly self-maintained
 component $m_j \in M_{\mathrm{ess}}$:
-\begin{enumerate}[leftmargin=*,itemsep=2pt]
-\item[\emph{(i)} \emph{Knockout.}] Set the internal repair flux of
+\begin{enumerate}[label=\textit{(\roman*)},leftmargin=*,itemsep=2pt]
+\item \emph{Knockout.} Set the internal repair flux of
 $m_j$ to zero: $r_j := 0$. Keep the external food supply
 $u_{\mathrm{food}}$ unchanged (no preassembled replacement for $m_j$
 is supplied).
-\item[\emph{(ii)} \emph{Drift under dynamics.}] Integrate the
+\item \emph{Drift under dynamics.} Integrate the
 concentration dynamics $\dot x = N v(x) - D x + u_{\mathrm{food}}$
 forward for $T$ steps from the pre-knockout steady state $x^*$.
-\item[\emph{(iii)} \emph{Recovery above threshold.}] Record the
+\item \emph{Recovery above threshold.} Record the
 post-recovery concentration $\mathrm{rec}_{j}(T) := x_{j}(T)$. The
 component $m_j$ is \emph{recovered} iff
 $\mathrm{rec}_{j}(T) > x_{\mathrm{thresh}}$ (not merely nonzero ---
 the concentration must exceed the declared viability threshold, which
 removes the trivial reinsertion failure mode of binary node-reappearance
 tests).
-\item[\emph{(iv)} \emph{Downstream cascade.}] Every $m_{j'}$ whose
+\item \emph{Downstream cascade.} Every $m_{j'}$ whose
 enabling chain depends on $m_j$ must also drop below
 $x_{\mathrm{thresh}}$ during step~(ii) and recover above
 $x_{\mathrm{thresh}}$ in step~(iii) (predicted downstream effect).
-\item[\emph{(v)} \emph{Restoration control.}] Restore the repair
+\item \emph{Restoration control.} Restore the repair
 pathway ($r_j := r_j^{\mathrm{pre-knockout}}$) and verify that all
 knocked-down and downstream concentrations return to $x^*$ within $T$
 steps (recovery control).
@@ -1257,7 +1296,7 @@ where $\Delta R(g) = \{r : |v_r(\mathrm{KO}) - v_r(\mathrm{WT})| > 10^{-6}\}$
 is the set of reactions with nontrivial flux change under KO of $g$,
 $\Delta b(g) = b_{wt} - b_{KO}(g)$ is the biomass deficit, and
 $\tau = 0.05$ is the standard essentiality threshold
-\cite{orth2011comprehensive}. The indicator $\mathbb{1}[\cdot]$ zeroes
+\cite{orth2011}. The indicator $\mathbb{1}[\cdot]$ zeroes
 $\kappa_V$ for KOs that do NOT reduce biomass by more than $\tau\,b_{wt}$,
 restricting the curvature to the sub-population of KOs that actually impact
 viability.
@@ -1279,7 +1318,7 @@ indicator-weighted variant from v9 refinement to v10 main definition
 previously the weakest under the unweighted definition: E12's calibration
 $r(\log_{10}\kappa_V, \Delta b)$ jumped from $+0.370$ to $+0.938$ (factor
 $2.54$); iML1515's direct correlation with raw Keio essentiality flipped
-sign from $-0.008$ to $+0.466$ (the denser network's flux-rerouting noise
+sign from $-0.018$ to $+0.466$ (the denser network's flux-rerouting noise
 was producing a slightly negative correlation; the indicator mask zeroes
 this noise and direction-of-effect is restored). Study E19 (v11) extended
 the indicator mask to E8 (Network K ODE viability erosion): marginal
@@ -2997,7 +3036,7 @@ E & $T_{\mathrm{loop}}<2$, $T_{\mathrm{ctrl}}>1$ & $T_{\mathrm{loop}}=0.40$, $T_
 \centering
 \includegraphics[width=0.95\columnwidth]{claims_ae_n4_nonabelian.png}
 \caption{Operational results for the five derivative claims A--E in the
-$n=4$ non-abelian regime (structure group $\CO(3)$, Lie algebra
+$n=4$ non-abelian regime (structure group $SO(3)$, Lie algebra
 $\so(3)$ non-abelian). (a)~Claim~A: 3D held-out margin erosion; slope
 $= 0.9976$, $R^2 = 0.9983$. (b)~Claim~B: orientation-reversal amplitude
 $a_{\mathrm{rev,obs}} = 0.9992$ vs.\ predicted $1.0$ (relative error
@@ -4319,7 +4358,7 @@ Random cytosolic metabolites & $40$ & $19$ ($48\%$) \\
 \end{center}
 Stratified by the number of producing reactions $n_{\mathrm{prod}}$:
 metabolites with $n_{\mathrm{prod}} \geq 5$ are causally internal in
-$9/10$ cases ($90\%$); metabolites with $n_{\mathrm{prod}} \leq 3$ are
+$10/11$ cases ($91\%$); metabolites with $n_{\mathrm{prod}} \leq 3$ are
 causally internal in $18/39$ cases ($46\%$). The full iJO1366 model is
 \textbf{PARTIALLY AUTOPOIETIC}: $28/50$ components are causally internal,
 a substantial improvement over Network B's $0/10$, but the system is
@@ -4728,7 +4767,7 @@ $k_{\mathrm{cat}} = 15$). The new $\alpha$KG enters as a food source
 (the TCA cycle provides external $\alpha$KG), and the GLU product is
 a new metabolic intermediate.
 \item \emph{Glycogen storage} (GLY1/GLY2 synthase EC 2.4.1.11 and
-GLYP1/GLYP2 phosphorylase EC 2.7.4.1): M13 stores G6P as glycogen
+GLYP1/GLYP2 phosphorylase EC 2.4.1.1): M13 stores G6P as glycogen
 ($k_{\mathrm{cat}} = 1.5$), M14 releases G6P from glycogen
 ($k_{\mathrm{cat}} = 0.4$). During G6P knockout, Glycogen stays at
 baseline (M13 has G6P as substrate, M14 is removed since G6P is a
@@ -6681,17 +6720,40 @@ weakly-positive $[+0.08, +0.10]$ band:
   $p \approx 0.43$ at $n=92$.
 \end{itemize}
 Neither variant is individually significant at $\alpha=0.05$ at
-$n=92$, but the sign-flip \emph{consistency} across two
-methodologically distinct refinement paths (binary zeroing via mask
-vs.\ per-gene heterogeneous $\kappa_V$ via Keio GPR mapping)
-strengthens the original E10 verdict from WEAK-TO-MODERATE to
-WEAK-TO-MODERATE-WITH-CONFIRMED-SIGN-FLIP. The original $91/92$
+$n=92$, but the sign-flip \emph{consistency} across two routes that
+remove the same global-proxy artifact (binary $\Delta b = 0$ zeroing
+via the v12 mask vs.\ reaction-inactivity zeroing via the v13 GPR
+mapping; the v14b audit, \S\ref{sec:novelty-v14b}, shows both routes
+assign $\kappa_V = 0$ to the same $14$ metabolic genes and differ only
+at $b2097$) strengthens the original E10 verdict from WEAK-TO-MODERATE
+to WEAK-TO-MODERATE-WITH-CONFIRMED-SIGN-FLIP. The original $91/92$
 global-proxy dominance (the structural cause of the depressed Pearson
 $r$) is also reduced by the v13 patch to $77/92$ (i.e., $15/92$ MAPPED
-via GPR after Keio fallback). A counterintuitive MAPPED-only finding
-($n=15$, $r = -0.158$) suggests heavy-flux-perturbation metabolic genes
-are regulated at the protein level rather than transcriptionally; this
-warrants follow-up on a metabolic-gene-only expression compendium.
+via GPR after Keio fallback). A MAPPED-only subset analysis ($n=15$,
+$r = -0.158$) initially read as evidence of protein-level regulation of
+heavy-flux-perturbation metabolic genes was shown by the v14b audit to
+be a degenerate artifact --- $14$ identical zero-$\kappa_V$ genes plus
+the single outlier $b2097$, whose removal leaves the Pearson $r$
+formally undefined --- and is \emph{retracted}
+(\S\ref{sec:novelty-v14b}). The v15 round (\S\ref{sec:novelty-v15})
+then inverts the mapping direction --- sampling genes \emph{from} the
+$438$ active reactions rather than mapping the Lemuth panel
+\emph{into} the model --- and confirms that the disjointness is
+structural: the Lemuth panel and the active-reaction gene set share
+exactly one gene ($b2097$). The v16 round (\S\ref{sec:novelty-v16})
+then swaps the FBA \emph{condition} itself: $13$ of the $14$
+zero-$\kappa_V$ genes are activated under biologically matched
+conditions, and the cross-condition correlation over the seven
+endogenously re-activated genes is positive ($r = +0.571$,
+sign-stable under leave-one-out) but under-powered and
+\emph{not statistically significant} at $n=7$ (permutation
+$p = 0.18$). The v17 round (\S\ref{sec:novelty-v17}) then supplies
+the missing expression coverage externally and finds
+$r = +0.374$ at $n = 433$ ($p \approx 10^{-15}$), and the v18
+round (\S\ref{sec:novelty-v18}) shows the association replicates on
+the RNA-seq platform under carbon depletion ($r = +0.191$ at
+$n = 241$, $p = 2.9 \times 10^{-3}$) with both a platform and a
+class component in the original dissociation.
 \end{remark}
 
 \begin{remark}[Task E11: cross-organism closure test on iAF1260 +
@@ -6807,9 +6869,11 @@ itself.
 
 For every gene $g$ in iJO1366 ($n = 1367$ genes), Study~E12 computes:
 \begin{itemize}
-\item Wild-type biomass flux $b_{\mathrm{wt}} = 15.444$~h$^{-1}$
-  (FBA on glucose minimal medium, $10$~mmol/gDW/h glucose $+$
-  $20$~mmol/gDW/h O$_2$ uptake, with minerals).
+\item Wild-type biomass flux $b_{\mathrm{wt}} = 15.444$ (FBA objective
+  value; the medium was \emph{intended} as glucose minimal ---
+  $10$~mmol/gDW/h glucose $+$ $20$~mmol/gDW/h O$_2$ uptake, with
+  minerals --- but the v21 medium-audit note below shows this value is
+  a trehalose artifact, not a glucose-minimal growth rate).
 \item Gene-KO biomass flux $b_{\mathrm{KO}}(g)$, computed by setting
   the lower and upper bounds of all reactions whose GPR contains $g$
   to zero and re-solving FBA.
@@ -6823,6 +6887,38 @@ For every gene $g$ in iJO1366 ($n = 1367$ genes), Study~E12 computes:
   $b_{\mathrm{KO}}(g) < 0.05 \cdot b_{\mathrm{wt}}$ (the standard
   $5\%$-threshold used by Orth et al. 2011).
 \end{itemize}
+
+\noindent\emph{v21 medium-audit note (the $15.444$ vs $0.9259$
+question).} Both wild-type optima were re-computed on the deposited
+model files by the script
+\texttt{verify\_e12\_\allowbreak e16\_\allowbreak biomass\_\allowbreak units.py}
+(output \texttt{verify\_e12\_\allowbreak e16\_\allowbreak biomass\_\allowbreak units.json}).
+The re-run shows that the E12 wild-type objective value $15.444$ is
+an artifact of the
+medium construction, not of the biomass stoichiometry and not a unit
+conversion: the E12 script's ``minerals'' re-open list includes the
+trehalose exchange \texttt{EX\_tre\_e} at $-1000$~mmol/gDW/h, and
+the optimizer grows on unlimited trehalose (uptake
+$-337$~mmol/gDW/h at the optimum; closing \texttt{EX\_tre\_e}
+alone gives $0.982$~h$^{-1}$, the canonical iJO1366 glucose-minimal
+optimum of Orth et al. 2011). The nominally identical E16 protocol
+for iML1515 re-opens the same exchange at only
+$-10$~mmol/gDW/h (effective uptake $-6.4$), giving
+$0.9259$~h$^{-1}$ against a glucose-only optimum of
+$0.822$~h$^{-1}$. The two wild-type values are therefore neither
+mutually comparable growth rates nor a stoichiometry effect, and both
+were mislabeled ``glucose minimal'' in earlier versions of this
+remark and of Remark~\ref{rem:e16-iml1515-cross-rebuild}.
+Essentiality calls use the relative $5\%$-of-WT threshold
+\emph{within} each model, which is invariant to the absolute scale
+of $b_{\mathrm{wt}}$; however, the identity of the available carbon
+sources does enter every KO solution, so the E12/E15/E16
+essentiality sets, $\kappa_V$ values, and calibration statistics
+inherit the medium asymmetry. A corrected glucose-only re-run of
+E12/E15 (and the E16 comparison on the same corrected medium) is
+scheduled as a methodological repair (joint-assessment plan, item
+P4); the deposited E12/E15/E16 results are reported unaltered and
+flagged here rather than silently recomputed.
 
 Results:
 \begin{itemize}
@@ -7280,10 +7376,17 @@ medium ($10$ mmol/gDW/h glucose, $20$ mmol/gDW/h O$_2$, minerals);
 single-gene-deletion sweep over all $1516$ genes; $\kappa_V(g) =
 \sum_r (v_r(\mathrm{KO}) - v_r(\mathrm{WT}))^2$ over reactions with
 $|\Delta v_r| > 10^{-6}$; essentiality threshold $5\%$ of WT biomass.
-Wild-type FBA biomass $= 0.9259$ h$^{-1}$ (iML1515 uses different
-biomass stoichiometry than iJO1366's $15.444$ h$^{-1}$, but both are
-on the same glucose+O$_2$ minimal medium and the essentiality
-threshold is taken relative to WT, so cross-model comparison is valid).
+Wild-type FBA biomass $= 0.9259$ h$^{-1}$ (v21 medium-audit
+correction: this is \emph{not} the same medium as E12's, and the
+difference from E12's $15.444$ is not a biomass-stoichiometry effect
+--- the two scripts re-open the accidentally included trehalose
+exchange \texttt{EX\_tre\_e} at $-10$ vs $-1000$~mmol/gDW/h
+respectively; the glucose+O$_2$-only optima are $0.822$~h$^{-1}$ for
+iML1515 and $0.982$~h$^{-1}$ for iJO1366, see the E12 medium-audit
+note and \texttt{verify\_e12\_e16\_biomass\_units.py}; the
+essentiality threshold is taken relative to WT within each model, so
+the cross-model essentiality comparison is unaffected by the absolute
+values).
 $n_{\mathrm{ess}} = 286/1516 = 18.87\%$ essential in-silico (iJO1366:
 $21.14\%$).
 
@@ -7593,11 +7696,11 @@ that actually impact viability, removing the flux-rerouting noise that
 decouples $\kappa_V$ from essentiality on denser metabolic models
 (cf.\ E16 on iML1515).
 
-\textbf{Applicability matrix (E1--E14).} Of the 14 earlier studies,
-only \textbf{3 compute $\kappa_V$ from FBA gene-KO biomass}:
+\textbf{Applicability matrix (E1--E16).} Of the 16 earlier studies,
+only \textbf{4 compute $\kappa_V$ from FBA gene-KO biomass}:
 E10 (iJO1366 time-series), E12 (iJO1366 Keio validation),
 E15 (iJO1366 direct raw-Keio) and E16 (iML1515 direct raw-Keio).
-The remaining \textbf{10 studies are N/A} because their $\kappa_V$ is
+The remaining \textbf{12 studies are N/A} because their $\kappa_V$ is
 \emph{not} biomass-based:
 \begin{itemize}\itemsep0pt
 \item E1 (synthetic Stokes problem $V=1-x^2-y^2$ on $n=3$ prototype):
@@ -7665,7 +7768,7 @@ mask is applied to both iJO1366 and iML1515:
 metric & iJO1366 orig & iJO1366 v10 & iML1515 orig & iML1515 v10 \\
 \midrule
 Pearson $r(\log_{10}\kappa_V, \text{Keio-E})$
-   & $+0.085$ & $+0.351$ & $-0.008$ & $+0.466$ \\
+   & $+0.085$ & $+0.351$ & $-0.018$ & $+0.466$ \\
 Spearman $\rho$
    & $+0.228$ & $+0.329$ & $-0.070$ & $+0.462$ \\
 ROC AUC
@@ -7676,14 +7779,14 @@ Held-out 70/30 logistic AUC
 \end{tabular}
 \end{center}
 
-The iML1515 Pearson $r$ \emph{flips sign} from $-0.008$ to $+0.466$:
+The iML1515 Pearson $r$ \emph{flips sign} from $-0.018$ to $+0.466$:
 under the original $\kappa_V$ the denser iML1515 network's
 flux-rerouting noise produces a \emph{slightly negative} correlation
 with raw Keio essentiality; under the indicator-weighted definition
 this noise is zeroed and the correlation becomes strongly positive,
 matching the iJO1366 direction. Cross-rebuild stability $|\Delta|$
 improves on $3$ of $4$ metrics:
-$|\Delta r_{\text{Pearson}}| \, 0.093 \to 0.115$ (worse, but both
+$|\Delta r_{\text{Pearson}}| \, 0.103 \to 0.115$ (worse, but both
 correlations are now strongly positive);
 $|\Delta \rho_{\text{Spearman}}| \, 0.299 \to 0.133$ ($-56\%$);
 $|\Delta \text{AUC}_{\text{ROC}}| \, 0.285 \to 0.099$ ($-65\%$);
@@ -7695,7 +7798,7 @@ variant from v9 refinement to v10 main $\kappa_V$ definition
 \emph{strengthens} the two biomass-based studies whose findings were
 previously the weakest under the unweighted definition: E12's
 calibration $r$ jumps by a factor of $2.5$, and iML1515's direct
-correlation flips sign and rises by a factor of $\sim 56$.
+correlation flips sign and rises by a factor of $\sim 26$.
 The indicator mask zeroes the flux-rerouting noise of non-essential
 KOs that was decoupling $\kappa_V$ from essentiality on the denser
 iML1515 model, restoring both the direction-of-effect and the
@@ -7712,11 +7815,12 @@ time-point indicator mask is essentially a no-op because the
 baseline T1 had $\kappa_V = 0$ anyway; the per-gene-max rankings
 are unchanged.
 
-\textbf{Net v10 tally on E1--E14}: of the $14$ earlier studies,
-$2$ are STRENGTHENED (E12, E15$+$E16), $1$ is MIXED (E10), $0$ are
+\textbf{Net v10 tally on E1--E16}: of the $14$ evaluation slots
+($16$ studies, with E6/E7 folded and E15$+$E16 paired), $2$ are
+STRENGTHENED (E12, E15$+$E16), $1$ is MIXED (E10), $0$ are
 UNCHANGED or REGRESSED, and $11$ are N/A (no FBA biomass $\Delta b$:
 E1, E2, E3, E4, E5, E6, E7, E8, E9, E11, E13, E14 -- counting E6/E7
-as folded-into-E2/E5 verdicts gives $11$ distinct N/A slots, or $13$
+as folded-into-E2/E5 verdicts gives $11$ distinct N/A slots, or $12$
 if counted separately). Deliverables:
 \texttt{download/novelty\_v10\_indicator\_weighted\_kV\_e18.\{csv,
 txt, png, results.json\}}.
@@ -7999,57 +8103,1241 @@ anaerobic-only, or conditionally-inactive transporters), while the
 $77$ genes absent from iJO1366 (mostly flagella/chemotaxis, plus $14$
 with no b-number entry in the Baba 2006 supplementary) retained the
 global biomass-deficit curvature as a homogeneous $\kappa_V$ fallback.
-The v13 round (Study E21, ``E10 v2 --- Keio b-number fallback'') replaces
-that homogeneous fallback with a per-gene heterogeneous signal: the $77$
-previously-unmapped gene symbols are re-mapped against the Tomoya Baba
-2006 Keio supplementary table MOESM5 (which tabulates ECK number, gene
-symbol, JW ID, and b-number for the full Keio collection), and each
-recovered b-number is used to compute a per-gene $\kappa_V$ via the
-iJO1366 reaction whose gene-protein-reaction (GPR) rule most overlaps the
-recovered b-number, or, where no GPR match exists (the flagella and
-chemotaxis genes that iJO1366 explicitly excludes), via a reaction-level
-proxy drawn from the gene's curated functional annotation in EcoCyc.
-Re-running the E10 per-gene Pearson regression with this Keio-fallback
-$\kappa_V$ yields $r = +0.0838$ (95\% CI $[-0.12, +0.28]$, $n=92$,
-two-tailed $p \approx 0.43$ under the Fisher-z transform), an
-\emph{independent} sign flip from the unmasked $-0.0633$ ($\Delta =
-+0.147$ above the unmasked baseline, with the same positive sign as
-v12). Whereas the v12 mask is a binary filter that \emph{zeroes} the
-$\kappa_V$ of the 15 non-perturbing metabolic genes, the v13 patch
-\emph{replaces} their zero with per-gene heterogeneous $\kappa_V$ values
-drawn from their actual iJO1366 GPR reactions (e.g., $b2480 \to$ THIORDXi
-peroxide stress, $b4219 \to$ METSOXR1 methionine sulfoxide, $b3908 \to$
-SPODM superoxide dismutase, $b1197 \to$ TREHpp trehalose hydrolysis,
-$b1897 \to$ TRE6PP trehalose-6-phosphate synthase, $b0758 \to$ UGLT
-galactose metabolism, $b1226 \to$ NO3R1pp/NO3R2pp nitrate respiration,
-$b3450 \to$ G3PSabcpp glycerol-3-phosphate transport). The v13 $r$ is
-slightly \emph{below} the v12 $r$ ($\Delta = -0.019$ versus v12); this is
-biologically interpretable because the heterogeneous per-gene $\kappa_V$
-values of the 14 newly-mapped metabolic genes introduce modest noise
-relative to v12's clean binary zeroing. \textbf{Verdict:} the v12
-STRENGTHENED verdict on E10 is \textbf{independently confirmed} by v13;
-the Keio b-number fallback provides an alternative, biologically richer
-pathway to the same sign-flip conclusion as v12, with both variants
-placing $r$ in the same $[+0.08, +0.10]$ weakly-positive band well above
-the unmasked $-0.0633$ baseline. \textbf{Counterintuitive MAPPED-only
-finding:} restricting to the $n=15$ MAPPED metabolic genes alone, the
-per-gene-max Pearson $r$ is \emph{negative} ($-0.158$, $n=15$; 95\% CI
-$[-0.62, +0.39]$, two-tailed $p \approx 0.58$), consistent with the
-interpretation that metabolic genes with the largest flux perturbations
-are tightly regulated at the protein level (less transcriptional
-compensation needed), while small-perturbation metabolic genes rely more
-on transcriptional response --- a real biological signal that warrants
-follow-up on a metabolic-gene-only expression compendium. \textbf{Honest
-limitation:} at $n=92$ genes neither the v12 nor the v13 per-gene Pearson
-$r$ is individually significant at $\alpha=0.05$ under the Fisher-z
-transform (95\% CI for v12: $[-0.10, +0.30]$, $p \approx 0.33$; for v13:
-$[-0.12, +0.28]$, $p \approx 0.43$; both intervals include zero); the
-consolidation verdict therefore rests on the sign-flip consistency
-across two methodologically distinct $\kappa_V$-refinement paths
-(unmasked $-0.0633 \,\to\,$ gene-mask $+0.1024$; unmasked $-0.0633 \,\to\,$
-b-number fallback $+0.0838$) rather than on a single-variant
-significance test, and a permutation null would not be expected to reach
-$\alpha=0.05$ at this sample size.
+The v13 round (Study E21, ``E10 v2 --- Keio b-number fallback'') tightens
+the gene-to-reaction mapping: the $77$ previously-unmapped gene symbols
+are re-mapped against the Tomoya Baba 2006 Keio supplementary table
+MOESM5 (which tabulates ECK number, gene symbol, JW ID, and b-number for
+the full Keio collection); $14$ of them recover b-numbers present in
+iJO1366 (bcp/b2480, caiC/b0037, galT/b0758, msrA/b4219, narJ/b1226,
+otsB/b1897, proV/b2677, proW/b2678, sodA/b3908, treA/b1197, ugpC/b3450,
+yeaA/b1778, yehX/b2129, yehY/b2130), expanding the MAPPED set from $1$
+to $15$ and shrinking the GLOBAL proxy set from $91$ to $77$. Each
+recovered b-number's per-gene $\kappa_V$ is computed exactly as for the
+original direct match --- the max over the $\kappa_V$ of the iJO1366
+reactions in its GPR rule --- while genes with no iJO1366 b-number
+retain the global biomass-deficit proxy. Re-running the E10 per-gene
+Pearson regression with this Keio-fallback $\kappa_V$ yields $r =
++0.0838$ (95\% CI $[-0.12, +0.28]$, $n=92$, two-tailed $p \approx
+0.43$ under the Fisher-z transform), a sign flip from the unmasked
+$-0.0633$ ($\Delta = +0.147$) with the same positive sign as v12.
+
+\medskip
+\emph{v14b audit finding (correction).} A first-principles re-derivation
+of the v13 pipeline (fresh cobrapy FBA at the published Lemuth/Ishii
+physiology values, fresh GPR lookup, fresh Keio MOESM5 parsing; scripts
+\texttt{v14b\_verify\_claims.py} and
+\texttt{v14b\_reconstruct\_kappa.py}, which reproduce the stored
+unmasked/v12/v13 $r$ values of $-0.0633/+0.1024/+0.0838$ exactly) shows
+that the sign flip is \textbf{not} driven by per-gene
+\emph{heterogeneous} $\kappa_V$ values, as this paragraph previously
+claimed, and the previously-quoted EcoCyc annotation proxy for
+GPR-unmatched genes does not exist in the pipeline. Under
+glucose-limited aerobic FBA only $438$ of iJO1366's $2583$ reactions
+($17.0\%$) carry non-zero flux, and every reaction in the GPR rules of
+the $14$ newly-mapped genes is among the $2145$ inactive ones:
+THIORDXi, METSOXR1, METSOXR2, SPODM, TREHpp, TRE6PP, UGLT,
+NO3R1pp/NO3R2pp, the carnitine/betaine transporters of caiC, proV and
+proW, and the glycerol-3-phosphate transporters of ugpC all carry
+exactly zero flux at every one of T1--T8, so their $\kappa_V$ is $0$ at
+every time point --- the same end-state the v12 mask produces by binary
+zeroing, reached by an independent route (reaction inactivity rather
+than $\Delta b = 0$ isozyme logic). The two rounds differ at exactly
+one gene, $b2097$/$\mathit{fbaA}$: v12 zeroes its $\kappa_V$ (per-gene
+max $\Delta b = 0$ under single-gene KO, GPR ``b1773 or b2097 or
+b2925''), whereas v13 retains its genuine reaction-derived $\kappa_V$
+(max $= 9.49$ from the FBA reaction, which does carry flux); the
+$-0.019$ difference between the v12 and v13 $r$ values is attributable
+entirely to this single gene. \textbf{Verdict (corrected):} v12 and v13
+are \emph{structural corroboration} rather than \emph{methodological
+independence}: both remove the spurious non-zero global-proxy
+$\kappa_V$ that the unmasked E10 assigned to Lemuth metabolic genes
+whose reactions do not respond under the Lemuth condition, they agree
+on that removal for $14$ of the $15$ mapped genes, and they differ only
+on whether $b2097$'s genuine reaction-derived $\kappa_V$ is retained.
+\textbf{Retraction of the ``counterintuitive MAPPED-only finding'':}
+restricting to the $n=15$ MAPPED metabolic genes gives a per-gene-max
+Pearson $r$ of $-0.158$ ($n=15$; 95\% CI $[-0.62, +0.39]$, two-tailed
+$p \approx 0.58$), but this number is a degenerate small-sample
+artifact, not a biological signal: $14$ of the $15$ genes have
+identically zero $\kappa_V$ (log$_{10}$-clipped to $-12$) and the
+single remaining gene ($b2097$) sits at high $\kappa_V$ with
+below-average $|\log_2 \mathrm{FC}|$ ($0.44$ versus mean $0.59$ of the
+fourteen zeros); removing that one point leaves zero variance in $x$,
+so the Pearson $r$ is formally undefined on the remaining $14$. The
+earlier interpretation of this $r = -0.158$ as evidence of protein-level
+regulation of heavy-flux-perturbation metabolic genes is
+\emph{retracted}; it rested on the false premise of heterogeneous
+$\kappa_V$ within the MAPPED set. \textbf{Honest limitation:} at $n=92$
+genes neither the v12 nor the v13 per-gene Pearson $r$ is individually
+significant at $\alpha=0.05$ under the Fisher-z transform (95\% CI for
+v12: $[-0.10, +0.30]$, $p \approx 0.33$; for v13: $[-0.12, +0.28]$,
+$p \approx 0.43$; both intervals include zero); the sign-flip verdict
+therefore rests on the consistent removal of the same global-proxy
+artifact across two masking routes (unmasked $-0.0633 \,\to\,$
+gene-mask $+0.1024$; unmasked $-0.0633 \,\to\,$ b-number fallback
+$+0.0838$) rather than on a single-variant significance test, and a
+permutation null would not be expected to reach $\alpha=0.05$ at this
+sample size. The structural cause of the depressed Pearson $r$ --- the
+$77/92$ global-proxy dominance --- is unaffected by this correction;
+the v15 round (\S\ref{sec:novelty-v15}) addresses it head-on by
+sampling genes \emph{from the active-reaction set} instead of mapping
+Lemuth genes \emph{into} it.
+
+% =============================================================
+\subsection{v14b correction round: audit of the v13 MAPPED set
+(E10 v2)}\label{sec:novelty-v14b}
+% =============================================================
+
+The v14b round is a \emph{correction} round, not a new elevation. A
+first-principles re-derivation of the v13 pipeline --- fresh cobrapy
+FBA at the published Lemuth/Ishii physiology values ($q_{glc}$
+declining $5.0 \to 1.0$ mmol/gDW/h, $q_{O2}$ $22.0 \to 5.0$), fresh
+GPR lookup, fresh Keio MOESM5 parsing; scripts
+\texttt{v14b\_verify\_claims.py} (claim-by-claim audit) and
+\texttt{v14b\_reconstruct\_kappa.py} (full $\kappa_V$ reconstruction)
+--- reproduced the stored unmasked/v12/v13 per-gene Pearson $r$ values
+($-0.0633$, $+0.1024$, $+0.0838$) to four decimal places and then
+audited the $n=15$ MAPPED set. The audit found that the v13 narrative
+contained two false statements (a nonexistent EcoCyc proxy in the
+method description, and the ``per-gene heterogeneous $\kappa_V$'' /
+``real biological signal'' interpretation of the result), which are
+corrected in \S\ref{sec:novelty-v13} above. The verified facts are:
+\begin{enumerate}\itemsep0pt
+\item \textbf{Inactive-reaction bottleneck.} Only $438$ of iJO1366's
+  $2583$ reactions ($17.0\%$) carry non-zero flux under the Lemuth
+  glucose-limited aerobic FBA condition; $437$ of these have non-zero
+  $\kappa_V$ over T1--T8. All reactions in the GPR rules of the $14$
+  newly-mapped metabolic genes (bcp, caiC, galT, msrA, narJ, otsB,
+  proV, proW, sodA, treA, ugpC, yeaA, yehX, yehY) are among the
+  $2145$ inactive reactions, so their $\kappa_V$ is exactly $0$ at
+  every time point.
+\item \textbf{v12/v13 equivalence up to one gene.} The v12 masked and
+  v13 patched per-gene $\kappa_V$ vectors over the $92$ Lemuth genes
+  differ at exactly one gene: $b2097$ ($\mathit{fbaA}$; $0$ under v12,
+  $9.49$ under v13). The $-0.019$ difference between the v12 and v13
+  $r$ values is attributable entirely to this single gene.
+\item \textbf{MAPPED-only degeneracy.} The $n=15$ MAPPED-only Pearson
+  $r = -0.158$ is a small-sample artifact: $14$ identical
+  zero-$\kappa_V$ genes plus one outlier ($b2097$: high $\kappa_V$,
+  below-average $|\log_2 \mathrm{FC}|$). Dropping the outlier leaves
+  zero variance in the predictor, so the Pearson $r$ is undefined on
+  the remaining $14$; no biological signal can be extracted from this
+  subset. The protein-level-regulation interpretation is retracted.
+\end{enumerate}
+\noindent The v12 and v13 rounds therefore constitute
+\emph{structural corroboration} (two routes to the same
+global-proxy-artifact removal) rather than \emph{methodological
+independence}, and the honest characterization of E10 after v14b is:
+the per-gene $\kappa_V$ signal over the Lemuth $92$-gene panel is
+weakly positive after artifact removal ($r \in [+0.08, +0.10]$,
+individually non-significant at $n=92$), with the dominant residual
+limitation being the $77/92$ global-proxy fraction and the $17.0\%$
+active-reaction coverage of the condition itself. Both limitations
+motivate the v15 reaction-based sampling round
+(\S\ref{sec:novelty-v15}), which inverts the mapping direction ---
+sampling genes \emph{from} the $438$ active reactions rather than
+mapping the Lemuth panel \emph{into} the full reaction set --- and
+asks whether per-gene $\kappa_V$ heterogeneity across the
+active-reaction gene set carries transcript-level signal.
+
+\textbf{Artifacts.} Scripts: \texttt{v14b\_verify\_claims.py},
+\texttt{v14b\_reconstruct\_kappa.py},
+\texttt{v14b\_restore\_lemuth\_data.py} (rebuilds the Lemuth JSON
+input from the archived v1-backup CSV; the JSON is bit-exact against
+the archived per-time-point $\log_2$ values). Outputs:
+\texttt{v14b\_verification.\{txt,json\}},
+\texttt{v14b\_mapped15\_firstprinciples.json},
+\texttt{v14b\_mapped15\_audit.\{csv,txt,json\}} (Phase-1 audit),
+\texttt{v14b\_options\_evaluation.md} (options A--D evaluation with
+the internet-access verification table). The audit verdicts: C1
+(14/15 zero-$\kappa_V$) CONFIRMED, C2 (438/2583 active) CONFIRMED,
+C3 (outlier artifact) CONFIRMED, C4 (named reactions inactive)
+CONFIRMED.
+
+% =============================================================
+\subsection{v15 reaction-based sampling: genes from the active-reaction
+set (E22)}\label{sec:novelty-v15}
+% =============================================================
+
+The v15 round (Study E22, ``reaction-based sampling''; script
+\texttt{novelty\_v15\_reaction\_sampling\_e22.py}) implements the Option~C
+design approved after the v14b audit: it \emph{inverts} the E10 mapping
+direction. Instead of mapping the $92$ Lemuth genes into iJO1366 ---
+which the v14b audit showed fails structurally ($14/15$ mapped genes
+have zero-flux reactions) --- E22 samples genes \emph{from} the
+active-reaction set: fresh cobrapy FBA at the identical E10 physiology
+($q_{glc}$ $5.0 \to 1.0$ mmol/gDW/h, $q_{O_2}$ $22.0 \to 5.0$),
+reaction-level $\kappa_V(r,t) = (v_r(t) - v_r(\mathrm{T1}))^2$ with the
+identical E10/v13 definition, and per-gene
+$\kappa_V(g,t) = \max_r \kappa_V(r,t)$ over all reactions $r$ of gene
+$g$ in its GPR rules.
+
+\emph{Verification (four checks, all passed).}
+\begin{enumerate}\itemsep0pt
+\item \textbf{GPR mapping correctness} {[C-map]}: the
+  active-reaction$\,\to\,$gene map is taken from cobra's authoritative
+  \texttt{reaction.genes}, spot-checked against the raw GPR rule
+  strings on four reactions spanning all complexity classes (FBA:
+  ``b1773 or b2097 or b2925''; ATPS4rpp: nested 2-complex OR;
+  PDH: ``b0115 and b0114 and b0116''; GLCptspp: 3-complex OR), with
+  set-equality between rule-string gene tokens and cobra's gene set,
+  and a bidirectional gene$\leftrightarrow$reaction symmetry check on
+  $50$ sampled genes ($0$ failures over $120$ gene-reaction pairs).
+\item \textbf{$\kappa_V$ definition consistency} {[C-def]}: the fresh
+  re-derivation reproduces the stored E10/v13 values exactly --- all
+  $15$ MAPPED-gene $\kappa_V$ maxima ($b2097 = 9.490142$; the other
+  $14$ exactly $0$), the global biomass-deficit $\kappa_V$ maximum
+  ($0.158543$), and the unmasked/v12/v13 per-gene Pearson $r$
+  ($-0.0633$, $+0.1024$, $+0.0838$) to four decimals.
+\item \textbf{Distinctness} {[C-dist]}: the new panel shares exactly
+  $1$ of the $15$ MAPPED b-numbers ($b2097$) and exactly $1$ gene with
+  the Lemuth $92$ ($b2097$); $434$ of $435$ panel genes are distinct
+  from the original $15$.
+\item \textbf{Non-zero variation} {[C-var]}: \emph{every} panel gene
+  has $\kappa_V$ variation $> 0$ over T1--T8 ($435/435$; the
+  zero-dominated failure mode of the MAPPED-15 route is excluded by
+  construction).
+\end{enumerate}
+
+\emph{Panel construction.} Of iJO1366's $2583$ reactions, $438$
+($17.0\%$) carry non-zero flux under the Lemuth condition and $437$
+have non-zero $\kappa_V$; $404$ of the active reactions carry GPR
+gene assignments, giving a gene panel of $435$ genes ($31.8\%$ of the
+model's $1367$ genes; $434$ excluding the spontaneous pseudo-gene
+\texttt{s0001}). Of the $92$ Lemuth genes, $73$ recover Keio b-numbers
+by exact/case-insensitive symbol matching, $15$ of those b-numbers are
+in iJO1366 (the MAPPED-15 of v13), and exactly one of those ($b2097$)
+has flux-carrying reactions --- so the E10-lineage per-gene Pearson
+regression \emph{cannot} be extended to the panel on local data: the
+Lemuth expression panel and the active-reaction gene set are
+structurally disjoint. This is the honest central finding of E22: the
+correlation is blocked by \emph{expression coverage}, not by mapping.
+Extending it requires either an expression compendium over the panel
+(COLOMBOS/M3D, Option~A) or condition swaps that activate
+the $14$ zero-$\kappa_V$ genes (Option~D) --- executed as the v16
+round (\S\ref{sec:novelty-v16}), which re-activates $13/14$ of them
+and computes the cross-condition correlation, and followed by the
+v17 round (\S\ref{sec:novelty-v17}), which obtains the compendium
+and runs the panel-scale test.
+
+\emph{Distributional structure of the panel.} The per-gene
+$\kappa_V$ maximum over the panel is extremely concentrated: Gini
+$0.932$; the top $1\%$ of genes ($4$ genes) hold $18.0\%$ of total
+$\kappa_V$, the top $5\%$ ($22$ genes) hold $76.5\%$, and the top
+$10\%$ ($44$ genes) hold $97.4\%$; a Hill tail-index estimate gives
+$\alpha \approx 0.43$ ($m = 50$), and a lognormal fit on
+$\log_{10}\kappa_V$ is rejected (KS $p = 6.0 \times 10^{-4}$,
+$\hat\mu = -3.04$, $\hat\sigma = 3.43$). The curvature is dominated by
+the ATP-synthase GPR complex of ATPS4rpp ($b3731$--$b3739$,
+$\kappa_V^{\max} = 466.63$), the water-transport porin/diffusion
+system (H2Otpp and cognates, $\kappa_V^{\max} = 330.20$), and the
+cytochrome-$bo_3$ oxidase pair ($b0429$/$b0430$, $185.19$):
+as $q_{O_2}$ declines $5.5$-fold over T1--T8, the
+oxidative-phosphorylation and associated transport fluxes carry
+almost all of the perturbation curvature. By subsystem, the leading
+$\kappa_V$ carriers are oxidative phosphorylation ($802.4$),
+outer-membrane porins ($467.2$), inner-membrbrane transport
+($404.8$), and glycolysis/gluconeogenesis ($193.7$).
+
+\emph{GPR complexity (genome-scale extension of the v12 isozyme
+finding).} Over the $438$ active reactions the GPR classes are:
+single-gene $254$, isozyme (pure OR) $96$, enzyme complex (pure AND)
+$36$, mixed nested $18$, no-GPR $34$. Thus $96/438 = 21.9\%$ of
+active reactions \emph{cannot} be disabled by any single-gene
+knockout --- the genome-scale quantification of the isozyme-cover
+mechanism that made $b2097$'s single-KO $\Delta b = 0$ in v12 ---
+and the mixed nested rules (e.g.\ ATPS4rpp, GLCptspp) carry the
+highest mean $\kappa_V$ ($26.8$), so the most heavily perturbed
+reactions are precisely those whose GPR structure makes
+single-gene deletion least informative.
+
+\emph{Direction-test re-verification.} The E10 direction test
+($21$ published predictions; UP/DOWN genes require
+$\kappa_V > 0.01$, STABLE genes require $\kappa_V < 0.01$) reproduces
+the stored E10 result \emph{exactly}: $14/21 = 66.7\%$ pass, with
+identical per-gene $\kappa_V$ values (e.g.\ $\mathit{gapA} = 41.85$,
+$\mathit{eno} = 33.46$, $\mathit{gltA} = 3.39$) --- a final
+consistency check that the v15 reaction-level $\kappa_V$ is the same
+quantity as the E10 one.
+
+\textbf{Verdict:} E22 does not strengthen or weaken the E10
+correlation verdict (per-gene $r \in [+0.08, +0.10]$ after artifact
+removal, individually non-significant at $n=92$); it replaces the
+failed gene-mapping route with a sound panel construction, proves
+the Lemuth$\,\cap\,$panel disjointness is structural, quantifies the
+$\kappa_V$ concentration structure over the panel (Gini $0.93$,
+top-$10\%$ carry $97.4\%$), and delivers the
+reaction$\,\to\,$gene map that both remaining options require.
+The $435$-gene panel with full $\kappa_V$ trajectories is exported
+for either downstream route.
+
+\textbf{Artifacts.} Script:
+\texttt{novelty\_v15\_reaction\_sampling\_e22.py} ($\sim$$560$ lines).
+Outputs:
+\texttt{novelty\_v15\_reaction\_sampling\_e22.\{csv,txt,png,results.json\}}
+in \texttt{download/} (the CSV is the full panel: gene, name, active
+reactions, GPR class, subsystem, $\kappa_V$ T1--T8, variance, and
+Lemuth/MAPPED-15 membership flags).
+
+% =============================================================
+\subsection{v16 multi-condition FBA: cross-condition $\kappa_V$
+(E23)}\label{sec:novelty-v16}
+% =============================================================
+
+The v16 round (Study E23, ``multi-condition FBA''; script
+\texttt{novelty\_v16\_multicondition\_e23.py}) executes the Option~D
+design approved after E22: instead of changing the \emph{gene} set,
+it changes the \emph{FBA condition} so that the $14$ zero-$\kappa_V$
+reactions of the MAPPED genes activate, and then asks whether a
+gene's $\kappa_V$ under its \emph{matched} condition predicts its
+$|\log_2\mathrm{FC}|$ under the Lemuth glucose-limited aerobic
+condition --- a cross-condition test of the
+$\kappa_V \to$ transcript-response hypothesis. All nine conditions
+run on the E10 time axis ($q_{glc}$ $5.0 \to 1.0$ mmol/gDW/h,
+$q_{O_2}$ $22.0 \to 5.0$, carbon-matched feeds for substrate swaps),
+the same solver, and the identical $\kappa_V$ definition
+($\kappa_V(r,t) = (v_r(t) - v_r(\mathrm{T1}))^2$, per-gene
+max-aggregation over the gene's GPR reactions).
+
+\emph{Condition design and the endogeneity criterion.} The
+methodological decision of this round is to split activations into
+two classes before any correlation is computed. \emph{Primary}
+(endogenous) activations are those whose flux magnitude follows from
+medium composition, feed trajectory, and FBA optimality --- exactly
+the class of E10's own $b2097$/FBA signal, whose glycolytic flux
+also tracks the declining carbon feed. \emph{Burden} activations are
+those whose flux magnitude is fixed by an imposed damage- or
+retention-\emph{rate} (a modeling assumption with no counterpart in
+the experiment); their $\kappa_V$ would encode the assumed burden
+scale rather than any model-derived signal --- including them in the
+correlation would make the test \emph{circular}, correlating the
+echo of an assumption against the very data used to evaluate it ---
+so they are reported structurally but \emph{excluded} from the
+primary correlation and from every correlation statistic in this
+subsection. The distinction, and the exclusion, are methodological
+boundary conditions, not post-hoc choices. The
+six primary conditions are: anaerobic glucose + nitrate ad libitum
+(\emph{narJ}/b1226; NO3R1pp $22.10 \to 5.52$, electron-balance
+limited, nitrate non-binding); galactose as sole carbon
+(\emph{galT}/b0758; UGLT $5.0 \to 1.0$); glycerol as sole carbon with
+a phosphate-free medium in which glycerol-2-phosphate is the only
+phosphorus source, in a $\Delta b4055$ background that removes the
+periplasmic phosphatase bypass of the Ugp system
+(\emph{ugpC}/b3450; GLYC2Pabcpp $2.0 \to 0.4$ --- the Ugp transporter
+is the $\mathit{pho}$-regulon route for external
+glycerol-phosphate); trehalose as sole carbon in a
+$\Delta\mathit{treB}$ (b4240) background that removes the PTS route
+and leaves the periplasmic trehalase (\emph{treA}/b1197; TREHpp
+$2.5 \to 0.5$); and proline as sole nitrogen source in a
+$\Delta\mathit{putP}\,\Delta\mathit{proP}$ (b1015, b4111) background
+that forces uptake through the ProU ABC system
+(\emph{proV}/b2677 and \emph{proW}/b2678; PROabcpp $9.97 \to 1.99$,
+endogenously determined and non-binding at the proline cap). The
+burden conditions are an oxidative-damage arm (superoxide from forced
+quinol autoxidation at $5\%$ of $q_{glc}$ plus methionine-oxidation
+damage at $1\%$: \emph{sodA}, \emph{msrA}, \emph{yeaA}), its
+peroxide-vulnerable variant ($\Delta\mathit{gpx}$/b1710, spontaneous
+FESD1s disabled: \emph{bcp}, THIORDXi $0.15 \to 0.03$), and an
+osmotic-retention arm ($\Delta\mathit{proP}$ $\Delta$b1801, with
+glycine-betaine and trehalose import and scaled retention demands:
+\emph{otsB}, \emph{yehX}, \emph{yehY}). \emph{caiC}/b0037 is excluded
+a priori on structural grounds (below).
+
+\emph{Verification (four checks, all passed).}
+\begin{enumerate}\itemsep0pt
+\item \textbf{Baseline reproduces E22 exactly} {[D-cons]}: the fresh
+  baseline run gives $438$ active reactions, the global
+  biomass-deficit $\kappa_V$ maximum $0.158543$, all $15$ MAPPED
+  $\kappa_V$ maxima ($b2097 = 9.490142$, the other $14$ zero), and
+  the unmasked/v12/v13 Pearson $r$ ($-0.0633$, $+0.1024$, $+0.0838$)
+  to four decimals.
+\item \textbf{GPR membership} {[D-map]}: each of the $27$
+  MAPPED-gene/reaction pairs from the v14b audit was verified to
+  contain the gene in the reaction's cobra GPR set ($27/27$).
+\item \textbf{Activation} {[D-act]}: $13$ of the $14$ zero-$\kappa_V$
+  genes obtain non-zero $\kappa_V$ under their matched conditions;
+  together with $b2097$ (active at baseline, and --- a useful
+  robustness signal --- active in every carbon condition,
+  $\kappa_V \in [8.9, 11.2]$), $14/15$ MAPPED genes carry non-zero
+  $\kappa_V$.
+\item \textbf{Endogeneity audit} {[D-end]}: the nitrate and proline
+  uptakes are non-binding at every T; the glycerol-2-phosphate co-feed
+  is the limiting nutrient trajectory at every T (feed-determined, the
+  same class as $q_{glc}$ itself); the trehalose feed is
+  carbon-matched by design.
+\end{enumerate}
+
+\emph{The \emph{caiC} dead-end (structural proof).} caiC's three
+audit reactions (CTBTCAL2, CRNCAL2, CRNDCAL2) are irreversible
+ATP-consuming CoA ligases feeding a carnitine-CoA ester pool
+(crncoa/ctbtcoa/crnDcoa) whose only other reactions interconvert
+esters and release crotonobetaine and $\gamma$-butyrobetaine --- both
+without exchanges and absent from biomass. The proof is a permissive
+linear program: with \emph{every} exchange reaction opened to
+$\pm 1000$ and the objective set to the ligase flux itself, the
+maximum attainable steady-state flux is $0.000000$ for all three
+reactions --- \emph{no} medium and \emph{no} objective can carry flux
+through caiC's reactions. The empirical swap test (anaerobic +
+nitrate + $10$ mmol carnitine) confirms: all three fluxes are
+identically zero. caiC is therefore not ``not yet activated'' but
+\emph{structurally unactivatable} in iJO1366.
+
+\emph{Two model findings from the oxidative design.} First, SPODM
+(superoxide dismutase, \emph{sodA}'s reaction) and CAT (catalase) are
+bounds-blocked $(0,0)$ in the published iJO1366 --- no superoxide
+source exists in the default growth program. Second, opening SPODM
+while MOX (a \emph{reversible, spontaneous} malate oxidase) keeps its
+published reversibility creates a thermodynamically infeasible energy
+loop --- quinol autoxidation $\to$ SPODM $\to$ hydrogen peroxide
+$\to$ MOX-reverse $\to$ malate $\to$ NADH --- which raises $\mu$(T1)
+from $0.4847$ to $0.6924$; this is presumably why the model's
+publishers blocked SPODM. MOX was therefore made irreversible (a
+thermodynamic model correction) in all oxidative arms, restoring
+$\mu \approx$ baseline ($0.482$); a growth guard asserts
+$\mu(\mathrm{T1}) \le$ baseline $+ 0.02$ for every burden condition.
+Similarly, the trehalose and proline designs each required removing a
+cheaper \emph{bypass} (the PTS trehalose route, the ProP/PutP
+symporters, the periplasmic glycerol-phosphate phosphatase) so that
+the target reaction becomes the used route --- the same
+loss-of-function logic as the catalase-deficient peroxide arm, with
+the flux magnitude still set by feed and optimality, not by hand.
+
+\emph{Primary result (cross-condition correlation, $n=7$).} Over the
+six endogenously re-activated genes plus $b2097$: Pearson
+$r = +0.5712$ ($p = 0.180$), Spearman $\rho = +0.5636$
+($p = 0.188$), $95\%$ bootstrap CI $[-0.166, +0.969]$ ($10{,}000$
+resamples), and an exact permutation test over all $5{,}040$
+condition--gene reassignments gives $p = 0.178$. Leave-one-out
+sensitivity keeps $r \in [+0.47, +0.68]$ and strictly positive for
+every omitted gene --- the sign is stable and is not carried by any
+single point --- but the test is under-powered at $n=7$: it
+\emph{supports the trend without establishing it} at $\alpha = 0.05$. For
+contrast, the baseline-only MAPPED-15 analysis (the retracted v14b
+artifact) gives $r = -0.158$, and the all-conditions envelope over
+the $13$ activated genes (mixed endogenous/burden classes) gives
+$r = +0.230$.
+
+\emph{Burden-class activations (reported, not correlated).} The seven
+burden-class genes --- \emph{sodA} (SPODM, $0.25 \to 0.05$),
+\emph{msrA} (METSOXR1, $0.05 \to 0.01$), \emph{yeaA} (METSOXR2,
+$0.05 \to 0.01$), \emph{bcp} (THIORDXi, $0.15 \to 0.03$),
+\emph{otsB} (TRE6PP, $0.25 \to 0.05$), and \emph{yehX}/\emph{yehY}
+(GLYBabcpp, $0.25 \to 0.05$) --- all obtain non-zero, varying
+$\kappa_V$ under the designed stress conditions. Their magnitudes
+scale with the imposed burden fractions ($5\%$ quinol-autoxidation
+leak, $1\%$ methionine-oxidation damage, $5\%$ osmoprotectant
+retention) and are therefore \emph{assumption-dependent}: they
+demonstrate that these reactions can carry flux under their matched
+stresses, not that the magnitudes predict anything.
+
+\emph{Condition--reaction coverage.} The condition swaps lift the
+active-reaction coverage from $438$ ($17.0\%$, baseline) to a union
+of $538$ over the nine conditions ($20.8\%$ of $2583$; $+100$
+reactions, $+22.8\%$ relative), and the gene set with non-zero
+$\kappa_V$ from $435$ to $524$ ($38.3\%$ of the $1367$ model genes).
+The condition$\,\leftrightarrow\,$reaction coverage bottleneck that
+produced the zero-$\kappa_V$ problem is thus partially --- but only
+partially --- removable by condition engineering: $2{,}045$ reactions
+remain inactive across all nine conditions.
+
+\textbf{Verdict:} E23 makes the cross-condition test \emph{computable}
+where the v14b/v15 rounds had only zeros: $13/14$ blocked genes are
+activated, one is proven structurally unactivatable, and the
+endogeneity criterion cleanly separates the seven genes that support
+correlation from the seven that cannot. The resulting association is
+positive ($r = +0.571$, $n = 7$), consistent in sign with the
+E10-lineage estimates ($r \in [+0.08, +0.10]$) and sign-stable under
+leave-one-out, but \emph{not statistically significant}: the exact
+permutation test gives $p = 0.18$ and the $95\%$ bootstrap CI
+$[-0.166, +0.969]$ includes zero. The cross-condition test
+\emph{supports the trend but does not establish it at $\alpha =
+0.05$}. Together with E22's finding that the Lemuth panel and the
+active-reaction gene set are structurally disjoint, the honest
+conclusion of the v16 round is that local data cannot decide the
+$\kappa_V \to$ transcript-response hypothesis at meaningful power:
+what is missing is \emph{expression coverage} of the
+multi-condition gene panel (Option~A), not more genes, mappings, or
+conditions. The v17 round (\S\ref{sec:novelty-v17}) obtains exactly
+that coverage and decides the question in the affirmative; the v18
+round (\S\ref{sec:novelty-v18}) then stress-tests the platform and
+class readings of its dissociation control.
+
+\textbf{Artifacts.} Script:
+\texttt{novelty\_v16\_multicondition\_e23.py} ($\sim$$700$ lines,
+five diagnostic probe scripts \texttt{e23\_probe\_conditions*.py}).
+Outputs:
+\texttt{novelty\_v16\_multicondition\_e23.\{csv,txt,png,results.json\}}
+in \texttt{download/} (the CSV is the full $15 \times 9$
+gene$\times$condition $\kappa_V$ matrix with matched-condition and
+class annotations).
+
+
+% =============================================================
+\subsection{v17 external expression coverage: the genome-panel
+test (E24)}\label{sec:novelty-v17}
+% =============================================================
+
+The v17 round (Study E24, ``Option A''; script
+\texttt{novelty\_v17\_option\_a\_e24.py}) executes the step the v16
+verdict identified as decisive: obtaining \emph{expression coverage}
+for the E22 panel. Two compendia were retrieved directly and archived
+(\texttt{data/m3d/}, \texttt{data/precise/}): the M3D \emph{E.~coli}
+compendium (Faith et al.\ 2008, Nucleic Acids Res.\ 36:D866--D870;
+\texttt{E\_coli\_v4\_Build\_6} from \texttt{m3d.mssm.edu},
+$117{,}091{,}420$ bytes: $907$ uniformly normalized Affymetrix arrays
+$\times$ $4{,}297$ gene probe sets, log$_2$ scale, structured
+per-chip condition metadata) and PRECISE (Sastry et al.\ 2019,
+bioRxiv 10.1101/080929; \texttt{github.com/SBRG/precise-db}, $278$
+RNA-seq samples of K-12 MG1655 with per-sample carbon/nitrogen/
+electron-acceptor metadata). The COLOMBOS host itself was unreachable
+from the analysis environment, so coverage is closed with M3D --- one
+of the two compendia Option~A named --- plus PRECISE as an
+independent-platform check.
+
+\emph{Combining C and D cannot substitute (the requested
+evaluation).} The Lemuth series covers $92$ genes; symbol-matching
+against the M3D probe tables recovers $74$ b-numbers, of which
+exactly one ($b2097$) lies in the E22 panel --- the same
+one-gene intersection E22 found against the Keio symbol table
+($73$ b-numbers). Adding Option C's $435$ genes to Option D's $7$
+on \emph{local} expression data therefore adds nothing: the binding
+constraint is expression coverage, not gene supply, and only an
+external compendium can lift it.
+
+\emph{Design of the primary (genome-panel) test.} The E22 panel's
+per-gene $\kappa_V$ values (baseline glucose-decline trajectory,
+unchanged from E22) are tested against M3D's carbon-exhaustion
+series: the Blattner/Allen ``carbon source foraging'' design (Allen
+TE; MG1655, MOPS minimal $+$ NH$_4$, $37^{\circ}$C, aerobic) with a
+log-phase glucose reference (\texttt{WT\_MOPS\_glucose}, $5$
+replicates, $t=0$) and stationary-phase samples at $t = 135$, $330$,
+$480$, $720$ min ($2$ replicates each; within-series contrasts, so
+platform/lab effects cancel). Per gene, $|\log_2\mathrm{FC}|$ at each
+time point is the stationary mean minus the reference mean, and the
+primary response metric is the \emph{maximum} over the four time
+points --- the same per-gene-max metric as E10. The perturbation
+class is matched to the $\kappa_V$ trajectory (carbon exhaustion vs.\
+declining glucose feed), but the experiments are not the same
+experiment; this is a class-level test, stated as such.
+
+\emph{Verification (five checks).}
+\begin{enumerate}\itemsep0pt
+\item \textbf{Source integrity} {[A-src]}: M3D tarball
+  gzip-verified and fully extracted ($9$ files, $4{,}297 \times 907$
+  gene matrix as documented); PRECISE retrieved via the SBRG
+  repository ($3{,}923$ genes $\times$ $278$ samples, b-number
+  index).
+\item \textbf{Probe mapping} {[A-map]}: M3D probe sets embed their
+  loci (\emph{aaeA\_b3241\_14} $\to$ b3241), cross-checked against
+  the \texttt{probe\_set\_descriptions} table ($4{,}297/4{,}297$
+  gene probes resolve, no duplicate loci in the genes-only file);
+  $433/435$ panel genes carry expression (absent: \texttt{s0001},
+  the iJO1366 spontaneous pseudo-entry, and \texttt{b4468}).
+\item \textbf{Contrast design} {[A-contrast]}: verified from the
+  structured metadata that the reference and all four stationary
+  points share strain, medium, temperature, aeration, and
+  experimenter, differing only in time point and growth phase.
+\item \textbf{Definition consistency} {[A-def]}: $\kappa_V$ values
+  are taken unchanged from the E22/E23 artifacts; the
+  $\log_{10}\kappa_V$ transform matches the E10-lineage definition;
+  every correlation runs over genes with non-zero $\kappa_V$
+  variation only (the E22 panel guarantee).
+\item \textbf{Zero control} {[A-zero]}: the $930$ iJO1366 genes
+  whose baseline reactions are all inactive respond significantly
+  less than the panel (mean max-$|\mathrm{FC}|$ $0.904$ vs.\
+  $1.318$, median $0.679$ vs.\ $1.092$; Mann--Whitney
+  $p = 7.8 \times 10^{-22}$) --- the zero-$\kappa_V$ regime is
+  empirically distinguishable, not just analytically excluded.
+\end{enumerate}
+
+\emph{Primary result (genome panel, $n = 433$).} Pearson
+$r(\log_{10}\kappa_V, \max|\log_2\mathrm{FC}|) = +0.3739$
+($p = 8.2 \times 10^{-16}$), Spearman $+0.3991$
+($p = 5.6 \times 10^{-18}$), $95\%$ bootstrap CI $[0.299, 0.446]$,
+Monte-Carlo permutation $p < 10^{-4}$ ($10^5$ shuffles). The
+association emerges with the depth of carbon exhaustion --- $r =
+-0.02$ at $t=135$ (NS), $+0.26$ at $t=330$, $+0.40$ at $t=480$,
+$+0.35$ at $t=720$ --- and is robust to the mean-metric
+($+0.334$), to including late-log ($+0.374$), to removing $b2097$
+($+0.373$), and to two out-of-series second-lab contrasts (M9/glycerol
+stationary-vs-exponential, Oberto lab: $+0.111$, $p = 0.020$;
+biofilm glucose-removal: $+0.175$, $p = 2.7 \times 10^{-4}$). The
+top decile of $\kappa_V$ responds $2.2$-fold more than the bottom
+decile ($1.923$ vs.\ $0.887$, MWU $p = 9.0 \times 10^{-8}$). By GPR
+class the association is strongest for complex AND-GPR genes
+($+0.604$) and mixed GPRs ($+0.528$), present for single-enzyme
+genes ($+0.339$), weakest for isozyme OR-GPRs ($+0.173$) --- the
+same ordering E22 found for $\kappa_V$ concentration.
+
+\emph{Confound control.} Baseline expression level correlates with
+both variables ($r(\kappa_V,\text{level}) = +0.291$;
+$r(\max|\mathrm{FC}|,\text{level}) = +0.679$ --- highly expressed
+genes show larger measured fold-changes), so part of the raw
+association is level-mediated. The partial correlation controlling
+for reference expression level remains $+0.251$
+($p = 1.2 \times 10^{-7}$): the $\kappa_V$ association is genuine
+but roughly one-third of the raw magnitude is shared with
+expression level. What the partial correlation \emph{does} is remove
+the \emph{linear} effect of baseline expression level; what it does
+\emph{not} do is address the remaining confounders --- gene length,
+operon co-regulation, growth-rate coupling, and platform measurement
+dynamic range among them --- so ``genuine'' here means
+``not wholly a level effect,'' not ``unconfounded.'' Both the raw
+($+0.374$) and the partial ($+0.251$) correlations are reported and
+should be read together.
+
+\emph{The PRECISE dissociation (class specificity).} The same panel
+tested against PRECISE's ten WT carbon-\emph{switch} conditions
+(galactose, glycerol, sorbitol, ribose, glucarate,
+N-acetylglucosamine, gluconate, pyruvate, acetate, fructose vs.\
+the glucose control) gives $r = -0.054$ ($p = 0.26$; Spearman
+$+0.078$, NS): growing \emph{on another carbon source} does not
+reproduce the association. Two readings are possible --- platform
+difference (microarray vs.\ RNA-seq) or genuine perturbation-class
+specificity (exhaustion of the feed, not substitution of it) ---
+and the design cannot separate them: a negative control that changes
+platform and class in a single step \emph{bounds} the interpretation
+without \emph{isolating} the mechanism, so the null does not by
+itself license the class-specificity reading. What the null
+\emph{does} establish is that the M3D result is not a generic
+``high-$\kappa_V$ genes respond to anything carbon-related''
+artifact \emph{on the RNA-seq platform}. Which reading holds --- and
+in what proportions --- is decided by the v18 round
+(\S\ref{sec:novelty-v18}), which completes the
+platform$\times$class matrix.
+
+\emph{Matched-expression replication of E23.} Replacing the Lemuth
+cross-condition fold-changes with \emph{matched-condition}
+expression (proV/proW: M3D proline vs.\ glucose; ugpC: M3D glycerol
+vs.\ glucose; narJ: PRECISE anaerobic glucose $+$ KNO$_3$;
+galT: PRECISE galactose; b2097: M3D carbon exhaustion) reproduces
+E23's estimate almost exactly: $r = +0.561$ at $n = 6$
+($p = 0.25$) vs.\ E23's $r = +0.571$ at $n = 7$; the
+ugpC-from-PRECISE sensitivity gives $+0.540$. treA has no matched
+trehalose expression data in either compendium and is excluded
+honestly. The two estimates bracket the same magnitude at the edge
+of power; the genome-panel result is the decisive one.
+
+\emph{Burden-class oxidative check (reported, not correlated).} The
+v16 endogeneity criterion stands: burden-class $\kappa_V$ values
+encode imposed rates and stay out of every correlation. PRECISE's
+paraquat arm ($250\,\mu$M, WT) confirms the matched \emph{expression}
+responses exist and are large --- \emph{sodA} $2.53$, \emph{bcp}
+$1.02$, \emph{msrA} $0.59$ (\emph{yeaA} absent from PRECISE's
+filtered matrix) --- so the exclusion is a modeling-boundary
+decision, not a data gap.
+
+\textbf{Verdict:} with external expression coverage the
+$\kappa_V$--transcript-response \emph{association} is \emph{decided
+in the affirmative within the carbon-exhaustion class}: $r = +0.374$
+at $n = 433$ ($p \approx 10^{-15}$; partial $r = +0.251$
+controlling expression level), consistent in sign with every
+lineage estimate (E10 masked $+0.08$--$+0.10$; E23 $+0.571$ at
+$n=7$; E23 matched-expression replication $+0.561$ at $n=6$), and
+bounded by an honest dissociation --- no association under
+carbon-source \emph{switching} (PRECISE, NS), whose reading
+(platform vs.\ class) is resolved by the v18 round
+(\S\ref{sec:novelty-v18}). The finding is \emph{correlational, not
+causal}: $\kappa_V$ is a model-derived sensitivity and the response
+is a measured fold-change, so nothing in this design identifies the
+direction of the relationship, the intermediate regulatory
+machinery, or the mechanism. The v16 limitation is resolved
+not by more conditions but by coverage, exactly as its verdict
+predicted.
+
+\textbf{Artifacts.} Script:
+\texttt{novelty\_v17\_option\_a\_e24.py} (plus four exploration
+scripts \texttt{e24\_explore\_*.py}); data archives
+\texttt{data/m3d/} ($117$ MB) and \texttt{data/precise/}. Outputs:
+\texttt{novelty\_v17\_option\_a\_e24.\{csv,txt,png,results.json\}}
+in \texttt{download/} (the CSV is the $433$-gene panel with all
+per-contrast fold-changes and class flags).
+
+% =============================================================
+\subsection{v18 platform-versus-class disambiguation: completing
+the \texorpdfstring{$2\times2$}{2x2} matrix (E25)}
+\label{sec:novelty-v18}
+% =============================================================
+
+The v17 review identified the one open reading of the E24
+dissociation: the PRECISE carbon-switch null changed
+\emph{platform} (RNA-seq vs.\ microarray) and \emph{perturbation
+class} (substitution vs.\ exhaustion of the carbon source) in a
+single step, so either factor, or both together, could produce it.
+Study E25 (script \texttt{novelty\_v18\_e25\_platform\_class.py};
+fetch script \texttt{e25\_download\_data.py}; figure script
+\texttt{e25\_plot.py}) completes the platform$\times$class
+$2\times2$ design by filling the two missing cells with new data
+and adds non-carbon stress controls on both platforms. The E22
+$\kappa_V$ panel is again taken \emph{unchanged}; only the
+expression side moves.
+
+\emph{Data acquisition.} Two new sources. (i) GSE64021 (``Antisense
+transcription and its roles in response to environmental changes
+in E.~coli K12''; contributors Tabari, Li, Dong, Lee, Hwang, and
+Su, UNC Charlotte; series public 2023-12-15, SRA study SRP050994;
+no journal record linked at retrieval date, so it is cited by
+accession): MG1655 grown in LB to OD$_{600} = 1.0$, pelleted, and
+resuspended in MOPS minimal medium --- \emph{with} glucose (MOPS
+control), \emph{without} glucose (carbon starvation, ``M-C''),
+without KH$_2$PO$_4$ (phosphorus starvation, ``M-P''), or with
+glucose at $48^{\circ}$C (heat shock, ``HS'') --- sampled at
+$1/2/4/6$~h (HS also $15/30$~min); directional RNA-seq with
+per-gene processed tables (mRNATPM; PeptideRaw --- used by the v19
+round). All $22$ per-sample files were downloaded and checksummed
+(\texttt{data/gse64021/README.md}). (ii) The M3D compendium itself
+supplies the microarray switch cells: the same Blattner/Allen
+WT\_MOPS series contains log-phase growth on alternative sole
+carbon sources --- glycerol ($11$~mM, $2$ replicates), acetate
+($17$~mM), proline ($6.7$~mM) --- against the log-phase glucose
+reference ($5.6$~mM, $5$ replicates), plus three non-carbon acute
+stress chips in MOPS$+$glucose (heat $50^{\circ}$C for $10$~min,
+acid pH~$2$ for $10$~min, ciprofloxacin for $10$~min).
+
+\emph{Verification (five checks).}
+\begin{enumerate}\itemsep0pt
+\item \textbf{Source integrity} {[S-src]}: every GSE64021 file
+  gzip-verified and sha256-recorded at download; the M3D chips are
+  the already-audited compendium matrices of E24.
+\item \textbf{Gene mapping} {[S-map]}: GSE64021 gene names map to
+  b-numbers via the PRECISE \texttt{gene\_info.csv} table
+  (supplemented with iJO1366 gene names; $4{,}340$ names); $2{,}104$
+  of $2{,}324$ named genes map ($221$ unmapped names, mostly
+  non-K-12/MG1655 or RNA features); $241/435$ panel genes carry
+  GSE64021 expression; $0$ duplicate overwrites.
+\item \textbf{Contrast design} {[S-contrast]}: M-C vs.\ MOPS at
+  \emph{matched} time points only (both arms share strain, prior
+  growth, medium, resuspension, and sampling protocol; they differ
+  only in the presence of glucose); HS contrasts use the matched
+  $1/2/4$~h points; M3D switch contrasts are within-series (same
+  lab, medium, phase; only the carbon source changes).
+\item \textbf{Definition consistency} {[S-def]}: $\kappa_V$
+  unchanged from E22; $\log_{10}$ transform as in the E10 lineage;
+  per-gene $\max|\log_2\mathrm{FC}|$ response metric as in E10/E24,
+  with per-condition $|\log_2\mathrm{FC}|$ values reported alongside.
+\item \textbf{Zero control} {[S-zero]}: the $541$ model genes whose
+  baseline reactions are all inactive respond significantly less
+  than the panel in the GSE64021 carbon-starvation contrast (mean
+  max-$|\mathrm{FC}|$ $3.22$ vs.\ $5.10$; Mann--Whitney
+  $p = 1.5 \times 10^{-30}$).
+\end{enumerate}
+
+\emph{The two new cells.} [S1-array-switch] On the microarray
+platform (the platform of the positive result), balanced growth on
+alternative carbon sources gives a \emph{positive but attenuated}
+association: per-condition $r$ of $+0.191$ (glycerol,
+$p = 6.3 \times 10^{-5}$), $+0.158$ (acetate,
+$p = 9.6 \times 10^{-4}$), $+0.165$ (proline,
+$p = 5.6 \times 10^{-4}$), max-metric $r = +0.196$
+($p = 3.9 \times 10^{-5}$; Spearman $+0.294$) --- roughly half the
+E24 exhaustion value. [S2-seq-depletion] On the RNA-seq platform
+(the platform of the null), carbon \emph{depletion} reproduces the
+association: max-metric $r = +0.191$ at $n = 241$
+($p = 2.9 \times 10^{-3}$; Spearman $+0.248$; permutation
+$p = 0.003$; CI $[0.069, 0.315]$). (The $+0.187$ that also appears
+in the round-level summaries of this study is the \emph{same}
+association recomputed on the $240$-gene set common to both platforms
+--- the ``common-set matrix'' below --- and is quoted there at its
+own $n = 240$; the two values differ only through the gene-set
+restriction, not through any re-analysis. The v21 round reconciles
+the four summary-level citations that had paired $+0.187$ with
+$n = 241$ to the primary full-panel value.) The per-time course deepens with
+starvation exactly as the E24 exhaustion course did --- $r =
++0.03$ (1~h, NS), $+0.15$ ($p = 0.019$), $+0.21$ ($p = 1.3 \times
+10^{-3}$) at $4$~h --- before washing out at $6$~h ($-0.02$, NS;
+by then the glucose in the control arm itself is plausibly
+exhausted --- the control arm's own time course shows no $\kappa_V$
+signal, $r = +0.06$, NS, so the wash-out is a both-arms effect,
+not a recovery). The result is robust to merging the paired-end
+re-sequencing libraries (identical $+0.191$), to the mean metric
+($+0.139$, $p = 0.031$), to a $0.5$ pseudocount ($+0.140$,
+$p = 0.030$), and --- strongest --- to requiring measurable TPM
+($\geq 1$ in both arms of every contrast, removing all
+zero-inflation artifacts: $r = +0.313$ at $n = 97$,
+$p = 1.8 \times 10^{-3}$). The top $\kappa_V$ decile responds more
+than the bottom decile ($5.93$ vs.\ $5.06$; MWU $p = 0.057$ ---
+marginal at this $n$, reported as such).
+
+\emph{The common-set matrix (the disambiguation).} All four cells
+recomputed on the $240$ genes covered by \emph{both} platforms, so
+the platform and class comparisons are within one fixed gene set:
+\begin{center}
+\begin{tabular}{lcc}
+\hline
+ & carbon depletion & carbon switch \\
+\hline
+microarray (M3D) & $+0.431$ ($p = 3.0 \times 10^{-12}$) &
+$+0.184$ ($p = 4.3 \times 10^{-3}$) \\
+RNA-seq & $+0.187$ ($p = 3.7 \times 10^{-3}$) &
+$-0.058$ (NS) \\
+\hline
+\end{tabular}
+\end{center}
+Every one of the four Fisher-$z$ contrasts is significant: the
+\emph{class effect} is real on both platforms (depletion $>$
+switch: microarray $z = -2.99$, $p = 0.0028$; RNA-seq $z = +2.68$,
+$p = 0.0073$), and the \emph{platform effect} is real in both
+classes (microarray $>$ RNA-seq: depletion $z = -2.96$,
+$p = 0.0031$; switch $z = +2.65$, $p = 0.0081$). The E24
+dissociation was therefore \emph{over-determined} --- the stacked
+attenuations of platform \emph{and} class --- and neither reading
+alone is correct: the null was not pure class specificity, and the
+positive was not a platform artifact.
+
+\emph{Non-carbon stress controls (specificity revision).} The
+acute-stress arms weaken any strict carbon-specificity reading.
+On M3D, $10$-minute heat ($+0.295$), acid ($+0.303$), and
+ciprofloxacin ($+0.284$) shocks in MOPS$+$glucose all show
+$|\mathrm{FC}|$ associations comparable to carbon exhaustion; on
+GSE64021, heat shock gives $+0.322$/$+0.393$/$+0.445$ at
+$1/2/4$~h. Phosphorus starvation is null on the max metric
+($+0.039$, NS) with a $4$~h transient ($+0.195$,
+$p = 2.3 \times 10^{-3}$). The \emph{signed} direction is
+consistent everywhere stress is acute: high-$\kappa_V$ genes move
+\emph{down} (M3D stress $-0.22$ to $-0.29$; GSE64021 heat
+$-0.30$ to $-0.31$; GSE64021 $4$~h starvation $-0.19$) --- the
+energy-machinery genes that carry the $\kappa_V$ mass are
+repressed when growth slows, whatever the cause. The honest
+refinement of the v17 verdict is therefore that the association
+tracks the \emph{severity of the growth-state transition} (carbon
+exhaustion being the cleanest instance), not carbon identity:
+present and strong under growth arrest, halved under balanced
+growth on alternative carbon (microarray), absent under balanced
+growth on the RNA-seq platform.
+
+\textbf{Verdict:} the ambiguity is resolved with a two-factor
+answer. The $\kappa_V$--transcript-response association (i) is
+\emph{not} a microarray artifact --- it replicates on RNA-seq under
+carbon depletion with a starvation-depth gradient and every
+sensitivity check --- and (ii) has \emph{both} a class component
+(depletion $>$ switch within each platform) and a platform
+component (microarray amplifies the $|\mathrm{FC}|$ association
+roughly twofold within each class), so the E24 null control was
+over-determined and the v17 caution against reading it as pure
+class specificity was warranted. The association is correlational,
+directionally stress-responsive, and strongest for perturbations
+that arrest growth; the mechanism remains open and is taken up by
+the v19 protein-abundance round.
+
+\textbf{Artifacts.} Script:
+\texttt{novelty\_v18\_e25\_platform\_class.py} ($\sim$$500$
+lines); data \texttt{data/gse64021/} ($22$ sample tables $+$
+README with sha256). Outputs:
+\texttt{novelty\_v18\_e25\_platform\_class.\{csv,txt,png,
+results.json\}} in \texttt{download/} (the CSV carries the
+$435$-gene panel with every per-condition fold-change, class and
+stress annotations; the PNG shows the $2\times2$ matrix and the
+per-condition bars).
+
+% =============================================================
+\subsection{v19 protein-abundance mechanistic test: the regulatory
+layer (E26)}\label{sec:novelty-v19}
+% =============================================================
+
+The v17/v18 reviews identified the remaining scientific question:
+\emph{why} does the $\kappa_V$--transcript association exist --- and,
+specifically, whether the earlier lineage hypothesis (heavy-flux-
+perturbation genes are regulated post-translationally while
+small-perturbation genes rely on transcriptional compensation;
+retracted as an artifact at $n=15$ in v14b) can be re-examined
+properly with protein data. Study E26 (script
+\texttt{novelty\_v19\_e26\_protein\_abundance.py}) tests the
+protein layer with two sources: the PaxDb v6.1 integrated
+whole-organism proteome of K-12 MG1655 ($3{,}747$ proteins, $91\%$
+coverage, b-number indexed; \texttt{data/paxdb/README.md}) for
+\emph{baseline} abundance, and the GSE64021 matched tandem-MS
+spectral counts (\texttt{PeptideRaw}) for \emph{protein
+fold-changes} under the same carbon-starvation contrasts as the E25
+RNA-seq arm. The $\kappa_V$ panel is unchanged from E22; the
+transcript metrics are the E24 (M3D exhaustion) and E25 (GSE64021
+starvation) primaries.
+
+\emph{[P-paxdb] Baseline abundance and mediation.} $\kappa_V$
+correlates with baseline protein abundance ($r(\log_{10}\kappa_V,
+\log_{10}\mathrm{ppm}) = +0.334$, $n = 429$, $p = 1.2 \times
+10^{-12}$), and protein abundance correlates with mRNA level
+($r = +0.632$) --- so abundance is a plausible confounder. It is
+not, however, a substantive one: the partial correlation of $\kappa_V$
+with the E24 transcript metric given mRNA level is $+0.244$, and
+adding protein abundance moves it only to $+0.230$. Stratifying the
+E24 association by PaxDb abundance tertiles shows the association in
+\emph{every} stratum (low $+0.258$, $p = 1.9 \times 10^{-3}$; mid
+$+0.365$, $p = 8.0 \times 10^{-6}$; high $+0.205$, $p = 0.014$) ---
+it is not concentrated among low-abundance enzymes (where
+transcription would be the only lever) and not absent among
+high-abundance ones. The naive effect-modification reading of the
+compensation hypothesis finds no support.
+
+\emph{[P-protfc] The protein fold-change test (the decisive one).}
+$169$ panel genes carry matched GSE64021 proteomics. On exactly
+those genes the transcript association is \emph{present} --- E25
+metric $r = +0.204$ ($p = 7.9 \times 10^{-3}$), E24 metric
+$r = +0.420$ ($p = 1.3 \times 10^{-8}$) --- while the
+\emph{protein} association is \emph{absent}: $r(\log_{10}\kappa_V,
+\max|\log_2 \Delta\mathrm{P}|) = +0.008$ ($p = 0.92$; Spearman
+$-0.009$), robust to the $4$~h-only window ($+0.032$) and to
+requiring $\geq 6$ peptides ($+0.007$, $n = 150$). The mean response
+magnitudes on the subset are $5.29$ (transcript, $\log_2$, on the
+zero-inflated GSE TPM metric) versus $1.26$ (spectral counts,
+$\log_2$) --- spectral-count noise attenuates protein correlations
+toward zero, which is stated as a limitation --- but the
+transcript-layer gradient across $\kappa_V$ ($+0.20$/$+0.42$) has
+no protein-layer counterpart (a contrast the v20 quantitative
+replication then confirms).
+
+\emph{[P-tp] Transcript--protein coupling by $\kappa_V$ stratum.}
+The signed transcript--protein coupling $r(\Delta T, \Delta P)$
+rises monotonically with $\kappa_V$: $+0.088$ (NS) in the low
+tertile, $+0.164$ ($p = 0.014$) in the mid, $+0.212$
+($p = 1.3 \times 10^{-3}$) in the high. Within the top $\kappa_V$
+tertile the protein response \emph{decreases} with $\kappa_V$
+($r = -0.427$, $p = 9.3 \times 10^{-4}$) even as the transcript
+response shows no within-stratum gradient ($-0.004$) --- on the
+single-shot spectral counts, the most sensitive genes (the
+oxidative-phosphorylation and transport machinery that carries the
+$\kappa_V$ mass) appear to have the most \emph{stable} protein
+levels; the v20 quantitative replication re-examines exactly this
+observation (Section~\ref{sec:novelty-v20}). The $|\Delta P|/|\Delta T|$
+implementation ratio is flat across strata ($0.235$ vs.\ $0.261$,
+MWU $p = 0.78$).
+
+\textbf{Verdict:} the protein layer sharpens the interpretation in
+three steps. (i) The retracted v14b hypothesis is \emph{rejected in
+its naive form}: high-$\kappa_V$ genes do \emph{not} respond less
+transcriptionally --- they respond more (E24/E25), in every
+abundance stratum. (ii) Its refined, protein-level prediction
+\emph{finds support}: no $\kappa_V$ gradient in protein fold-changes
+on the very genes where the transcript gradient is strongest, and
+within the top stratum the highest-$\kappa_V$ proteins are the most
+stable on spectral counts --- a pattern consistent with (but, at
+$n = 169$ with single-shot counting, not by itself establishing)
+post-translational buffering of the most heavily leveraged
+machinery. (iii) The high-$\kappa_V$ transcripts that do
+change are the ones whose protein counts track them most closely
+(coupling $+0.21$ vs.\ $+0.09$, within-experiment), so the transcript
+signal is weakly \emph{coupled} to protein change rather than pure
+noise. Together: $\kappa_V$ predicts the transcriptional
+\emph{reporting} of metabolic stress --- directionally consistent,
+platform-robust, abundance-independent --- while protein-level
+fold-changes show no corresponding $\kappa_V$ gradient; on this
+evidence the association is localized to the regulatory layer, a
+localization the v20 replication then tests with quantitative
+proteomics (Section~\ref{sec:novelty-v20}). Honest limitations: $n = 169$
+(biased toward detectable, more abundant proteins); single-shot
+(no replicate) spectral-count proteomics, whose noise attenuates
+protein correlations toward zero and whose dynamic range is
+compressed; and PaxDb's integrated abundance averages many
+conditions. The v20 round performs exactly this replication,
+with the Schmidt et al.\ condition-dependent quantitative proteome
+(Section~\ref{sec:novelty-v20}).
+
+\textbf{Artifacts.} Script:
+\texttt{novelty\_v19\_e26\_protein\_abundance.py}; data
+\texttt{data/paxdb/} and \texttt{data/gse64021/} (PeptideRaw
+columns). Outputs:
+\texttt{novelty\_v19\_e26\_protein\_abundance.\{csv,txt,
+results.json\}} in \texttt{download/} (the CSV carries the panel
+with PaxDb ppm, both transcript metrics, and the protein
+fold-changes).
+
+% =============================================================
+\subsection{v20 protein-layer replication: the Schmidt
+condition-dependent proteome (E27)}\label{sec:novelty-v20}
+% =============================================================
+
+The v19 verdict closed on the honest limitation that its decisive
+protein test rested on single-shot spectral counting, and named the
+replication that would settle it. This round performs that
+replication (user-directed), with the quantitative condition-
+dependent proteome of Schmidt et al.\ 2016: $22$ growth conditions
+in biological triplicate (label-free quantification, median ratios
+to the glucose reference, per-condition q-values and coefficients
+of variation; strain BW25113, a K-12 derivative). The alternative
+candidate, PRECISE 2.0, was evaluated first: a scan of all
+$1{,}035$ samples of the expanded SBRG compendium
+(\texttt{precise1k\_metadata\_qc\_scan.csv}) finds no
+carbon-depletion condition at all --- the only starvation-like
+samples are iron- and nitrogen-limited, non-carbon classes already
+covered by E25's controls --- and the transcript side is already
+replicated on two platforms (E24, E25). The decisive gap is the
+protein layer, and the Schmidt proteome fills it. The $\kappa_V$
+panel is unchanged from E22; the transcript metrics are recomputed
+with the exact E26 code; the condition classes mirror E24/E25:
+\emph{carbon exhaustion} (stationary phase 1 and 3 days after
+glucose depletion --- the E24 class), \emph{carbon limitation}
+(glucose-limited chemostats at $\mu = 0.5/0.35/0.20/0.12$~h
+$^{-1}$), \emph{carbon switch} (11 alternative carbon sources),
+\emph{stress on glucose} (NaCl, $42^{\circ}$C, pH~6), and an
+\emph{internal null} (an independent glucose batch culture,
+``Glucose.2'').
+
+\emph{[S-src] Provenance.} The supplementary workbook
+(NIHMS65833) was retrieved via the Europe PMC REST endpoint for
+PMC4888949 (raw data: PRIDE PXD000498); sha256 and file inventory
+in \texttt{data/schmidt2016/README.md}. Tables S4--S8 were located
+by name; the analysis uses Table S8 (dataset 2, the paper's
+higher-confidence triplicate set), with Table S7 (dataset 1, no
+replicates) as a cross-dataset sensitivity.
+
+\emph{[S-map] Gene mapping.} $2{,}284$ of $2{,}350$ Table-S6
+proteins carry b-numbers (the final table's own annotation); spot
+checks pass (aceA $=$ b4015, rpoB $=$ b3987, gapA $=$
+P0A9B2/b1779, groL $=$ b4143); $4$ duplicate-b-number rows (clpB
+listed twice, bioD under two accessions) are averaged --- the same
+convention as E26's duplicate probes. $366/435$ panel genes ($84\%$;
+E26: $169$, $39\%$) carry quantitative triplicate protein
+fold-changes.
+
+\emph{[S-contrast] Class assignment.} Stationary-phase harvest
+$1/3$ days after glucose exhaustion is the same perturbation class
+as the E24 M3D stationary series; the chemostats are steady-state
+carbon limitation; the glucose-matched stresses are chronic (grown
+at $42^{\circ}$C/pH~6/+NaCl) rather than E25's acute shocks;
+Glucose.2 is an independent culture of the reference condition.
+
+\emph{[S-internal-null] Data quality and technical baseline.} The
+independent glucose batch shows median $|\log_2 \Delta P| = 0.18$
+across all $2{,}058$ proteins, versus $0.81/0.80$ under stationary
+phase and $0.43$ (median) under carbon switching --- the noise
+floor sits far below the biological signal, and the dynamic range
+extends to $|\log_2 \Delta P| = 12.3$. The batch control also
+carries its own weak $\kappa_V$ gradient: $r = -0.119$ ($p =
+0.023$) --- even across replicate cultures of the \emph{same}
+medium, higher-$\kappa_V$ proteins vary slightly \emph{less}; the
+class tests below must be read against this technical baseline.
+
+\emph{[R-protfc] The primary replication (decisive).} On the
+$366$-gene intersection the three-way contrast reads: E24
+transcript metric $r = +0.419$ ($p = 6.4 \times 10^{-17}$, $n =
+365$); E25 transcript metric $r = +0.237$ ($p = 5.8 \times
+10^{-4}$, $n = 207$); E26 protein (spectral counts) $r = +0.025$;
+\emph{E27 protein (quantitative triplicates) $r = -0.083$} ($p =
+0.12$, CI $[-0.188, +0.033]$, permutation $p = 0.115$). The E26
+conclusion --- transcript association present, protein association
+absent, on the same genes --- \emph{replicates} with high-quality
+quantitative proteomics, and the attenuation/saturation
+explanation for the protein null is rejected: triplicate
+measurement (median CV $\approx 15\%$), full dynamic range, and a
+noise floor of $0.18$ leave no room for a hidden positive gradient
+of the transcript size. Sensitivities: significant changers only
+($q < 0.05$, $n = 277$) $r = -0.148$ ($p = 0.014$) --- conditioned
+on changing at all, higher-$\kappa_V$ proteins change \emph{less};
+mean triplicate CV $\leq 20\%$ ($n = 254$) $r = -0.017$;
+excluding b2097 $r = -0.084$; the no-replicate dataset 1 (Table
+S7, $n = 333$) $r = -0.126$ ($p = 0.022$). Across every
+specification the protein gradient is null-to-negative, never
+positive.
+
+\emph{[R-profile] All 22 conditions.} No carbon-depletion,
+carbon-limitation, or stress condition shows a positive protein
+$\kappa_V$ gradient (stationary $-0.073/-0.036$; chemostats
+$+0.089/+0.014/-0.042/-0.067$ at $\mu = 0.5 \to 0.12$ --- a
+\emph{declining} profile, the opposite of the transcript layer's
+starvation-depth gradient; NaCl/$42^{\circ}$C/pH~6
+$-0.071/-0.094/-0.096$). The only significant positives are two
+switch conditions (glycerol+AA $+0.134$, pyruvate $+0.138$, both
+$p < 0.02$) --- the same attenuated switch-class signal the
+transcript layer shows (E25) --- and the switch-class max metric is
+$+0.040$ (Pearson, NS; Spearman $+0.141$, $p = 0.007$). LB (out of
+class) $+0.091$ (NS).
+
+\emph{[R-tp] Coupling, cross-experiment.} Pairing each gene's
+signed E24 exhaustion fold-change with its signed Schmidt
+stationary fold-change (cross-experiment: microarray vs.\ LC-MS,
+MG1655 vs.\ BW25113, different defined media, hours- vs.\
+days-scale stationary harvest --- stated), the coupling by
+$\kappa_V$ tertile is $+0.150$ (NS, $p = 0.10$), $+0.353$ ($p =
+6.7 \times 10^{-5}$), $+0.240$ ($p = 7.7 \times 10^{-3}$):
+significant in the mid and high strata, null in the low,
+directionally consistent with E26's within-experiment rise
+($+0.088/+0.164/+0.212$) but \emph{not monotone}; the E25-GSE-dT
+cross-experiment variant is null ($+0.024$). Cross-experiment
+pairing is the weaker instrument, and the discrepancy is stated
+rather than smoothed.
+
+\emph{[R-magnitude] Magnitudes: parity, not suppression.} On the
+same $366$ genes the mean protein response is $1.26$ ($\log_2$)
+against the E24 transcript metric's $1.42$ (ratio $0.89$); by
+$\kappa_V$ tertile the transcript means rise ($0.90 \to 1.52 \to
+1.84$) while the protein means are $\kappa$-flat, slightly
+declining ($1.50 \to 1.20 \to 1.11$), so the $|\Delta P|/|\Delta
+T|$ implementation ratio \emph{falls} across strata ($2.49 \to
+1.10 \to 1.06$; high-vs-low MWU $p = 1.0$ against an increase).
+Two readings follow. First, the E26 magnitude gap ($5.29$ vs
+$1.26$) was an artifact of the zero-inflated GSE TPM metric, not a
+property of the biology: proteins change about as much as
+transcripts on matched log-ratio scales. Second, and more
+precisely, what is buffered is not protein \emph{magnitude} but
+the $\kappa_V$-\emph{graded organization} of the response: graded
+transcripts, flat proteins.
+
+\emph{[R-stability] The stability claim, corrected.} The E26
+within-top-tertile stability gradient ($r = -0.427$, spectral
+counts) \emph{does not replicate}: with quantitative triplicates
+it is $+0.114$ ($p = 0.21$), while the same tertile's transcript
+gradient on the E24 metric is $+0.266$ ($p = 3.1 \times 10^{-3}$)
+--- the most sensitive genes' transcripts respond hardest while
+their proteins do not decline. The strong E26 value was therefore
+most plausibly a spectral-count saturation artifact for the most
+abundant (highest-$\kappa_V$) machinery. What \emph{does} survive
+is the weaker, condition-independent form: the internal batch
+control itself shows $|\Delta P|$ decreasing with $\kappa_V$
+($-0.119$, $p = 0.023$) --- high-$\kappa_V$ proteins are the least
+variable even across replicate cultures --- and the
+exhaustion-class gradient ($-0.083$) is no stronger than that
+baseline, i.e.\ carbon exhaustion adds no $\kappa$-graded protein
+response on top of intrinsic stability.
+
+\emph{[R-zero] The zero-$\kappa_V$ control.} At the protein layer
+the panel does \emph{not} respond more than zero-$\kappa_V$ genes
+(mean max $|\log_2 \Delta P|$: $1.26$ vs.\ $1.63$,
+$n_{\mathrm{zero}} = 526$, MWU $p \approx 1$), whereas at the
+transcript layer the same contrast was decisive (E24: $1.32$ vs
+$0.90$, $p = 7.8 \times 10^{-22}$) --- a further localization of
+the $\kappa_V$ signal to the transcript layer.
+
+\textbf{Verdict:} the replication \emph{confirms the core} --- on
+the same genes, the $\kappa$--transcript association is present on
+two platforms while the $\kappa$--protein association is absent
+under carbon exhaustion with quantitative triplicate proteomics
+(the attenuation explanation excluded) --- and it \emph{corrects
+two secondary E26 readings}: the ``most stable machinery''
+top-tertile gradient was a saturation artifact (replaced by the
+weaker batch-level stability, $-0.119$), and ``protein capacity is
+buffered'' is imprecise --- protein response magnitudes are
+comparable to transcript magnitudes; what is transcript-specific
+is the $\kappa_V$-graded \emph{organization}. Refined statement:
+$\kappa_V$ predicts the transcriptional reporting of carbon
+exhaustion with graded magnitude across the metabolic network,
+while the protein layer responds abundantly but without
+$\kappa_V$-graded organization --- correlational throughout, with
+cross-strain (BW25113), cross-medium, chronic-vs-acute, and
+single-proteome-source caveats stated. A second independent
+proteome source (or targeted PRM/SRM quantification of the
+highest-$\kappa_V$ machinery under acute starvation) remains the
+natural next escalation.
+
+\textbf{Artifacts.} Scripts: \texttt{e27\_prepare\_schmidt.py}
+(table extraction), \texttt{e27\_plot.py} (figure), and
+\texttt{novelty\_v20\_e27\_\allowbreak schmidt\_\allowbreak
+replication.py} (analysis); data \texttt{data/schmidt2016/}
+(S8/S6/S7 CSVs, provenance README, PRECISE-1K metadata scan).
+Outputs:
+\texttt{novelty\_v20\_e27\_\allowbreak schmidt\_\allowbreak
+replication.\{csv,png,txt,results.json\}} in \texttt{download/}
+(the CSV joins, per panel gene: $\kappa_V$, the Schmidt protein
+fold-changes by class, the E24/E25 transcript metrics, and the
+E26 spectral-count metric).
+
+\subsection{v21 mechanical-integrity round: second-wave audit
+corrections (P0/P1)}\label{sec:novelty-v21}
+
+The second wave of external audits (three line-level reviews of the
+v20 manuscript; joint assessment in
+\texttt{download/joint\_assessment\_2nd\_wave.pdf}) produced a
+prioritized repair plan whose tiers were separated by risk. This
+round implements the \textbf{P0-mechanical} tier (unambiguous
+correctness defects whose corrections remain valid under any later
+structural decision) and the \textbf{P1-typesetting} tier (rendering
+defects), and deliberately \emph{defers} the P0-editorial tier (six
+false ``Cited in~\S X'' annotations; twelve uncited bibliography
+entries) together with the P2--P5 tiers until the strategic
+in-place-vs-deconstruction decision is made, so that no
+citation-annotation or bibliography work is later undone by a
+three-way split. Every claim was re-verified against the deposited
+source, scripts, and result files before implementation; where the
+audits' framing did not survive verification, the verified mechanism
+was implemented instead (items 2, 7, and 9 below).
+
+\textbf{Corrections applied.}
+\begin{enumerate}\itemsep0pt
+\item Broken citation key \texttt{orth2011comprehensive} (rendered
+``{[?]}'' in v20) corrected to the deposited key \texttt{orth2011}.
+\item Stale E16 numbers: iML1515 original Pearson $r$ corrected from
+$-0.008$ to $-0.018$ at three sites (deposited E16 result:
+$-0.0178$); the cross-rebuild Pearson gap $0.093$ corrected to
+$0.103$; and the dependent headline ``rises by a factor of
+$\sim 56$'' corrected to $\sim 26$ --- a dependent-claim defect the
+audits had not flagged ($0.466/0.0178 = 26.2$, the same
+magnitude-ratio convention as E12's ``factor $2.54$'').
+\item Glycogen phosphorylase EC corrected from $2.7.4.1$ to
+$2.4.1.1$ (the iJO1366 \texttt{GLCP2} annotation). The co-occurring
+polyphosphate kinase EC $2.7.4.1$ was verified correct against IUBMB
+(ATP-polyphosphate phosphotransferase) and retained; the
+aspartate--pyruvate transaminase EC $2.6.1.12$ (alanine--oxo-acid
+transaminase, IUBMB) was verified correct and retained.
+\item Figure~7 caption: structure group $\CO(3)$ corrected to
+$SO(3)$ --- Section~\ref{sec:n4} defines $G_C = SO(3)$ for the $n=4$
+regime, the figure's numerics are pure $SO(3)$ rotations, and the
+$CO(3)$ conformal group is the \emph{different} third verification
+regime of the Remark in Section~\ref{sec:savgs}.
+\item Dangling pointers: the Authorship statement's ``\S 7
+research-integrity notes'' (Section~\ref{sec:composition} is the
+composition theorem; no such notes exist anywhere in the manuscript)
+was withdrawn and reworded truthfully; the two ``operational \S1.4
+form'' references (the Introduction has no subsections) now point to
+the operational Proposition~\ref{prop:kappa-derivation} form that the
+inverse-limit section itself cites.
+\item Applicability matrix arithmetic: ``only $3$ compute $\kappa_V$
+from FBA gene-KO biomass'' corrected to $4$ (E10, E12, E15, E16);
+``the remaining $10$'' corrected to $12$ (the itemized list contains
+twelve studies); the matrix and tally headers extended from E1--E14
+to E1--E16; the tally re-labeled as $14$ \emph{evaluation slots}
+($16$ studies; E6/E7 folded, E15$+$E16 paired); and ``$13$ if
+counted separately'' corrected to $12$.
+\item The $n_{\mathrm{prod}} \geq 5$ closure-test stratum corrected
+from $9/10$ ($90\%$) to $10/11$ ($91\%$): the deposited
+\texttt{autopoiesis\_ijO1366.csv} contains $11$ metabolites with
+five or more producing reactions, of which $10$ are causally internal
+(the single failure, ribose-D, has $n_{\mathrm{prod}} = 7$); the
+totals $28/50$ and $18/39$ are unaffected.
+\item E25 reconciliation: the primary RNA-seq carbon-depletion
+replication is the full-panel max-metric $r = +0.191$ at $n = 241$
+($p = 2.9 \times 10^{-3}$), while $+0.187$ is the same association
+on the $240$-gene set common to both platforms; four summary-level
+citations (abstract, introduction, E24 remark, conclusion) had paired
+$+0.187$ with $n = 241$ and are corrected to the primary value, with
+an explicit reconciliation note added in
+Section~\ref{sec:novelty-v18}.
+\item Biomass $15.444$ vs $0.9259$: the audits framed this as a
+units issue; re-running the deposited models
+(\texttt{verify\_e12\_e16\_biomass\_units.py}) shows it is a
+\emph{medium-construction artifact} --- both scripts list the
+trehalose exchange \texttt{EX\_tre\_e} among the ``minerals'',
+re-opened at $-1000$ (E12, unlimited-trehalose growth, uptake
+$-337$) vs $-10$ (E16, uptake $-6.4$) --- with glucose-only optima
+$0.982$ (iJO1366) and $0.822$ (iML1515). Honest medium-audit notes
+were added at the E12 and E16 sites; the essentiality comparisons
+(relative thresholds) are unaffected, and the full corrected-medium
+re-run is scheduled as the P4 methodological repair.
+\item P1, Definition~\ref{def:autopoiesis}: the five step labels
+were physically clipped off the left page edge in the v20 render
+(label spans began at $x < 0$; ``Drift/Recovery/Downstream/
+Restoration'' absent from the text layer). The enumerate was
+restructured so the step tags $(i)$--$(v)$ are proper labels and the
+step titles begin the item bodies; all step cross-references remain
+valid.
+\item P1, Table~\ref{tab:gem-limitations}: the natural-width
+five-column tabular overflowed the page edge (last column ending at
+$x \approx 597$ on a $595$-pt page), cutting ``growth rate'' to
+``growt'' (three cells) and ``(regulatory)'' to ``(regulat''. The
+table is now a width-constrained \texttt{tabularx} with wrapped
+\texttt{X} columns; no cell text was changed.
+\end{enumerate}
+
+\textbf{Honest scope note.} This round changes no analysis, no
+deposited result, and no verdict; it corrects transcription,
+labeling, counting, and rendering defects, adds two verified
+provenance notes, and documents one newly discovered methodological
+caveat (the trehalose medium asymmetry) without recomputing the
+affected studies. The P0-editorial and P2--P5 tiers remain open and
+are sequenced after the strategic decision, per the joint
+assessment's plan. Verification artifacts:
+\texttt{scripts/verify\_e12\_e16\_biomass\_units.py} (cobrapy
+re-run of both wild-type media),
+\texttt{download/verify\_e12\_e16\_biomass\_units.json},
+\texttt{scripts/v21\_patch\_mechanical.py} (this patch, with
+asserted exact-match replacements), and the joint assessment PDF.
 
 \section{Main Proposition}\label{sec:mainprop}
 % =============================================================
@@ -8418,7 +9706,8 @@ successor (the planned next E.~coli K-12 reconstruction).
 
 \begin{table}[h]
 \centering
-\begin{tabular}{lllll}
+\small
+\begin{tabularx}{\columnwidth}{@{}lll>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \hline
 bnum & gene & $\kappa_V$ (iML1515) & gap class & likely missing term \\
 \hline
@@ -8435,7 +9724,7 @@ b2234 & \emph{nrdA} & $7.68 \times 10^3$ & DNA precursor (RNR $\alpha$)     & dN
 b2235 & \emph{nrdB} & $7.68 \times 10^3$ & DNA precursor (RNR $\beta$)      & dNTP pool consumption at growth rate \\
 b2411 & \emph{ligA} & $7.52 \times 10^3$ & DNA replication (NAD-dep DNA ligase) & DNA-ligation ATP/NAD cost \\
 \hline
-\end{tabular}
+\end{tabularx}
 \caption{The $12$ persistent model-gap candidates --- genes that both
 the raw Keio screen AND the PEC database call essential, but BOTH
 iJO1366 AND iML1515 in-silico essentiality miss. The $\kappa_V$ values
@@ -8766,7 +10055,7 @@ a multi-layer branching Hasse diagram with $21$ covering inclusions;
 directed-system axioms (reflexive, transitive, directed) are verified;
 the inverse limit equals the maximal RAF $R_{\max}=\{r_1,\ldots,r_{11}\}$;
 the falsifiable prediction $\kk(R_{\max})=0$ matches the operational
-\S1.4 form to within $10^{-9}$; and all $16$ RAF nodes are
+Proposition~\ref{prop:kappa-derivation} form to within $10^{-9}$; and all $16$ RAF nodes are
 viability-preserving ($\kk(R_i)=0$ at every node).
 \item \emph{Real metabolic time-series data} (Qwen \S 8.2): CLOSED
   by Study~E10
@@ -8862,7 +10151,7 @@ $|M|=13$, $|R|=11$ in Subsection~\ref{sec:invlim-extended}
 a multi-layer branching Hasse diagram with $21$ covering inclusions,
 directed-system axioms hold, the inverse limit equals the maximal
 RAF $R_{\max}=\{r_1,\ldots,r_{11}\}$, and the falsifiable prediction
-$\kk(R_{\max})=0$ matches the operational \S1.4 form to within
+$\kk(R_{\max})=0$ matches the operational Proposition~\ref{prop:kappa-derivation} form to within
 $10^{-9}$, with $\kk(R_i)=0$ at every one of the $16$ RAF nodes
 (viability preservation is per-node, not just at the colimit). This
 closes the ``larger RAF networks'' future-direction item of
@@ -9060,6 +10349,25 @@ strata are the domain of definition; the leading-order prediction is
 explicitly leading-order; the prediction of hysteresis is separated
 from the prediction of failure. The proposition is falsifiable via the
 seven-claim hierarchy, and all seven claims are confirmed.
+On the biological side, the operational $\kk$ is validated at
+genome scale on the \emph{E.~coli} iJO1366 reconstruction: the
+$435$-gene panel's $\kk$ values correlate with the magnitude of the
+transcriptional response to carbon exhaustion across two expression
+platforms (M3D microarray $r = +0.374$ at $n = 433$,
+$p \approx 10^{-15}$, partial $r = +0.251$; GSE64021 RNA-seq
+$r = +0.191$ at $n = 241$), with the association scaling with
+growth-state-transition severity rather than carbon identity,
+bounded by null controls (carbon-source switching, phosphorus
+limitation), and decoupled from protein fold-changes on the
+matched proteome ($r \approx +0.01$ where the transcript
+association is $+0.42$; replicated on the independent
+$22$-condition quantitative triplicate proteome of Schmidt et
+al., $r = -0.08$ at $n = 366$, with protein and transcript
+response \emph{magnitudes} comparable --- the $\kk$-graded
+organization is transcript-layer-specific, not a magnitude
+effect) --- a regulatory-layer signature, stated throughout as
+correlational
+(Sections~\ref{sec:novelty-elevation}--\ref{sec:novelty-v20}).
 
 % =============================================================
 % Bibliography (inlined bbl from journal_manuscript_refs.bib via
@@ -9113,7 +10421,33 @@ following artifacts are deposited:
   published HTML supplementary; the Ishii et al. 2007 chemostat
   physiology values are from the published paper body. The Keio
   collection (Baba et al.~\cite{baba2006keio}) is referenced via
-  Orth et al.'s 2011 iJO1366-vs-Keio validation anchor.
+  Orth et al.'s 2011 iJO1366-vs-Keio validation anchor. The external
+  expression compendia of the E24--E26 studies are: M3D
+  (\texttt{E\_coli\_v4\_Build\_6}, Faith et al.\ 2008, retrieved
+  from \texttt{m3d.mssm.edu}; sha256 and per-file provenance in
+  \texttt{data/m3d/README.md}; raw tarball and large matrices not
+  committed --- re-download per the README), PRECISE (Sastry et al.\
+  2019, \texttt{github.com/SBRG/precise-db}; log-TPM matrices not
+  committed), GSE64021 (Tabari, Li, Dong, Lee, Hwang, and Su, UNC
+  Charlotte; series public 2023-12-15, SRA SRP050994; cited by
+  accession; all $22$ per-sample processed files sha256-recorded in
+  \texttt{data/gse64021/README.md}), and the PaxDb v6.1
+  \emph{E.~coli} integrated whole-organism proteome (CC BY 4.0;
+  \texttt{data/paxdb/README.md}). The E27 replication uses the
+  Schmidt et al.\ 2016 condition-dependent proteome (Nat.\
+  Biotechnol.\ 34:104--110; raw data PRIDE PXD000498; processed
+  supplementary tables retrieved from PMC4888949 via the Europe
+  PMC REST supplementary-files endpoint --- sha256 and per-file
+  provenance in \texttt{data/schmidt2016/README.md}; the 17~MB
+  workbook and 24~MB zip are not committed and are re-downloadable
+  per the README; the extracted analysis tables
+  \texttt{schmidt2016\_s8\_fc.csv}, \texttt{schmidt2016\_s6\_map.csv},
+  and \texttt{schmidt2016\_s7\_fc.csv} are committed). The
+  PRECISE-1K metadata scan (all $1{,}035$ samples, retrieved from
+  \texttt{github.com/SBRG/precise1k}) is archived as
+  \texttt{data/schmidt2016/precise1k\_metadata\_qc\_scan.csv} and
+  documents the absence of carbon-depletion conditions in that
+  compendium.
 \end{itemize}
 
 \section*{Authorship and AI-Assistance Statement}
@@ -9130,8 +10464,8 @@ claims. All numerical experiments were executed by the author using
 the scripts deposited in the project repository and are reproducible
 from the deposited code. All citations were verified against primary
 sources; references that did not contain the claimed content were
-corrected (see the manuscript's \S 7 research-integrity notes for
-specific corrections applied to the bibliography in the v6 revision).
+corrected directly in the bibliography in the v6 revision (the
+corrected entries themselves are the record of those corrections).
 
 \begin{thebibliography}{10}
 \providecommand{\url}[1]{#1}

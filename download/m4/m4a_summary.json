@@ -1,0 +1,92 @@
+{
+  "experiment": "M4a scaling of the sequential L1-MOMA commutator",
+  "model": "iML1515",
+  "n_pairs": 76,
+  "eps_grid": [
+    1.0,
+    0.5,
+    0.25,
+    0.125,
+    0.0625,
+    0.03125
+  ],
+  "chi_floor": 1e-06,
+  "bound_convention": "flux-relative: ub=(1-eps)v_wt on v>0, mirrored on v<0, homothetic on v=0; eps=1 equals the M3 full knockout",
+  "class_counts": {
+    "zero": 64,
+    "slope~1": 9,
+    "insufficient": 3
+  },
+  "median_slope_chi": 0.9982407513015231,
+  "mean_slope_chi": 1.0086156949053782,
+  "median_slope_d1_single": 1.0104854889423132,
+  "release_identity_checks": [
+    {
+      "g1": "b3734",
+      "g2": "b3735",
+      "n1": "atpA",
+      "n2": "atpH",
+      "eps": 1.0,
+      "release_i_identity": true,
+      "release_j_identity": true,
+      "max_dev_release_i": 0.0,
+      "max_dev_release_j": 0.0
+    },
+    {
+      "g1": "b3734",
+      "g2": "b3736",
+      "n1": "atpA",
+      "n2": "atpF",
+      "eps": 1.0,
+      "release_i_identity": true,
+      "release_j_identity": true,
+      "max_dev_release_i": 0.0,
+      "max_dev_release_j": 0.0
+    },
+    {
+      "g1": "b3734",
+      "g2": "b3737",
+      "n1": "atpA",
+      "n2": "atpE",
+      "eps": 1.0,
+      "release_i_identity": true,
+      "release_j_identity": true,
+      "max_dev_release_i": 0.0,
+      "max_dev_release_j": 0.0
+    },
+    {
+      "g1": "b3734",
+      "g2": "b3731",
+      "n1": "atpA",
+      "n2": "atpC",
+      "eps": 1.0,
+      "release_i_identity": true,
+      "release_j_identity": true,
+      "max_dev_release_i": 0.0,
+      "max_dev_release_j": 0.0
+    },
+    {
+      "g1": "b3734",
+      "g2": "b3732",
+      "n1": "atpA",
+      "n2": "atpD",
+      "eps": 1.0,
+      "release_i_identity": true,
+      "release_j_identity": true,
+      "max_dev_release_i": 0.0,
+      "max_dev_release_j": 0.0
+    },
+    {
+      "g1": "b3734",
+      "g2": "b3733",
+      "n1": "atpA",
+      "n2": "atpG",
+      "eps": 1.0,
+      "release_i_identity": true,
+      "release_j_identity": true,
+      "max_dev_release_i": 0.0,
+      "max_dev_release_j": 0.0
+    }
+  ],
+  "runtime_s": 59.3
+}

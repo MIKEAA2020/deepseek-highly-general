@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Noto+Serif+SC:wght@400;700;900&family=Inter:wght@300;400;500&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    @page { size: 794px 1123px; margin: 0; }
+    :root {
+      --c-bg: #1d2d38;
+      --c-accent: #7fb3c8;
+      --c-text: #edf1f3;
+      --c-muted: #8fa3ad;
+      --c-footer: #8fa3ad;
+    }
+    html, body { margin: 0; padding: 0; width: 794px; height: 1123px; background: var(--c-bg); color: var(--c-text); font-family: 'Inter', 'Noto Sans SC', sans-serif; }
+    @media screen {
+      html { height: auto; display: flex; justify-content: center; min-height: 100vh; background: var(--c-bg); }
+      body { transform-origin: top center; scale: min(1, calc(100vw / 794), calc(100vh / 1123)); margin: 0 auto; box-shadow: 0 0 60px rgba(0,0,0,0.3); }
+    }
+    .cover { width: 794px; height: 1123px; position: relative; box-sizing: border-box; border: none; outline: none; box-shadow: none; }
+    .vline { position: absolute; left: 57px; top: 76px; bottom: 76px; width: 2.5px; background: var(--c-accent); }
+    .content { position: absolute; left: 102px; right: 76px; top: 0; bottom: 0; }
+    .label { position: absolute; top: 128px; font-size: 9pt; color: var(--c-accent); letter-spacing: 3px; text-transform: uppercase; font-family: 'Inter', 'Noto Sans SC', sans-serif; }
+    .title { position: absolute; top: 210px; font-size: 33pt; font-weight: 700; line-height: 1.28; font-family: 'Playfair Display', 'Noto Serif SC', serif; color: var(--c-text); max-width: 600px; }
+    .subtitle { position: absolute; top: 520px; font-size: 12pt; line-height: 1.6; color: var(--c-muted); max-width: 540px; }
+    .authors { position: absolute; top: 690px; font-size: 12pt; color: var(--c-text); }
+    .institution { position: absolute; top: 732px; font-size: 10pt; color: var(--c-muted); line-height: 1.5; max-width: 540px; }
+    .summary { position: absolute; top: 812px; font-size: 10.5pt; line-height: 1.7; color: var(--c-muted); max-width: 560px; }
+    .footer { position: absolute; bottom: 76px; left: 0; right: 0; display: flex; justify-content: space-between; font-size: 9pt; color: var(--c-footer); }
+  </style>
+</head>
+<body>
+  <div class="cover">
+    <div class="vline"></div>
+    <div class="content">
+      <div class="label">Solution Report · Unifying Object Wave</div>
+      <div class="title">The Active-Set Bridge v2:<br>Evaluation, Repair,<br>and Solution</div>
+      <div class="subtitle">The DeepSeek formulation of the unifying
+        conjecture, audited against the executed M1/M3/M3b record and
+        extended by two new measurements — M4a (the scaling test of the
+        dynamic commutator) and M4b (the two-parameter static geometry
+        of the flux graph) — which resolve its declared missing
+        ingredient: the scaling limit A4.</div>
+      <div class="authors">Computational Verification Unit</div>
+      <div class="institution">Source: external_audits/unifying object/
+        deepseek formulation.txt · verdicts grounded in proofs, the
+        deterministic lexicographic engine, and 4,000+ new solves ·
+        frozen v21 untouched</div>
+      <div class="summary">The structural half of the conjecture is
+        correct and machine-verified; its ε<super>2</super> holonomy limit is
+        false in both layers — and the reason is now a theorem set:
+        curvature measures on the chamber skeletons (S), a constructed
+        κ_geom with a transport validated to 10<sup>-14</sup> (G),
+        the no-loose-kinks lemma (N1), the atomicity obstruction (N),
+        and the measured first-order dynamic law (D, slope 0.998).</div>
+      <div class="footer">
+        <span>download/Active_Set_Bridge_v2.md · download/m4/</span>
+        <span>September 2026</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+[
+  {
+    "url": "https://www.biorxiv.org/content/10.1101/2021.04.08.439047v1.full-text",
+    "name": "PRECISE 2.0 - an expanded high-quality RNA-seq",
+    "snippet": "Apr 11, 2021 — PRECISE 2.0 , a high-fidelity E. coli expression compendium that enables the discovery of independently-modulated regulatory signals.",
+    "host_name": "www.biorxiv.org",
+    "rank": 0,
+    "date": "Apr 11, 2021",
+    "favicon": ""
+  },
+  {
+    "url": "https://github.com/SBRG/precise1k",
+    "name": "SBRG/precise1k",
+    "snippet": "This repository contains data and code necessary for assembling the PRECISE-1K E. coli K-12 MG1655 expression and transcriptional regulation knowledgebase, ... Read more",
+    "host_name": "github.com",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10602906",
+    "name": "A multi-scale expression and regulation knowledge base for",
+    "snippet": "by CR Lamoureux · 2023 · Cited by 64 — The compendium contains diverse growth conditions, including: 9 media; 39 supplements, including antibiotics; 42 heterologous proteins; and 76 gene knockouts. Read more",
+    "host_name": "pmc.ncbi.nlm.nih.gov",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.imodulondb.org/about",
+    "name": "About iModulonDB",
+    "snippet": "This is a web-based tool for accessing a database of transcriptomic dataset decompositions. E . coli PRECISE -1K dataset, A multi-scale expression and regulation ...",
+    "host_name": "www.imodulondb.org",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.researchgate.net/figure/PRECISE-20-reveals-broad-gene-expression-trends-in-the-E-coli-transcriptome-A-The_fig2_350817835",
+    "name": "PRECISE 2.0 reveals broad gene expression trends in",
+    "snippet": "Detailed information on each iModulon is available at iModulonDB.org 33 and this study focuses primarily on the \" E . coli PRECISE 2.0 \" dataset 29 ; an E . coli ... Read more",
+    "host_name": "www.researchgate.net",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://systemsbiology.ucsd.edu/imodulons",
+    "name": "iModulons",
+    "snippet": "iModulon analysis is the use of a machine learning method called independent component analysis to compute and characterize the transcriptional regulatory ... Read more",
+    "host_name": "systemsbiology.ucsd.edu",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.nature.com/articles/s41467-019-13483-w",
+    "name": "The Escherichia coli transcriptome mostly consists of",
+    "snippet": "by AV Sastry · 2019 · Cited by 302 — PRECISE, a Precision RNA-seq Expression Compendium for Independent Signal Exploration. comprises 278 RNA-seq expression profiles across 154 ...",
+    "host_name": "www.nature.com",
+    "rank": 6,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://academic.oup.com/nar/article/53/D1/D99/7874843",
+    "name": "iModulonDB 2.0: dynamic tools to facilitate knowledge-mining",
+    "snippet": "by EA Catoiu · 2025 · Cited by 38 — The purR gene is a regulator of the PurR-1 iModulon in the E . coli PRECISE -278 dataset. The PurR-1 iModulon activity and purR gene expression is ... Read more",
+    "host_name": "academic.oup.com",
+    "rank": 7,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://github.com/SBRG/precise-db",
+    "name": "SBRG/precise-db: A high-fidelity E. coli RNA-seq",
+    "snippet": "PRECISE is an RNA-seq compendium for Escherichia coli from the Systems Biology Research group at UC San Diego. DOI. Data. The following data files are available ... Read more",
+    "host_name": "github.com",
+    "rank": 8,
+    "date": "",
+    "favicon": ""
+  }
+]

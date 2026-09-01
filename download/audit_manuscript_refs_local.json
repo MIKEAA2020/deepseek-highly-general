@@ -1,812 +1,800 @@
 {
   "manuscript": "/tmp/my-project/scripts/journal_manuscript.tex",
-  "total_labels": 324,
-  "total_ref_keys": 705,
-  "total_ref_calls": 705,
+  "total_labels": 331,
+  "total_ref_keys": 728,
+  "total_ref_calls": 728,
   "dangling": [],
   "unused_labels": [
     {
       "label": "con:iJO1366-external-essentiality",
       "lines": [
-        5722
+        5756
       ]
     },
     {
       "label": "con:ijO1366-overlay",
       "lines": [
-        5343
+        5377
       ]
     },
     {
       "label": "con:netK-accoa-cycle",
       "lines": [
-        5522
+        5556
       ]
     },
     {
       "label": "con:netK-closure-diagram",
       "lines": [
-        5484
+        5518
       ]
     },
     {
       "label": "conj:alg-envelope-restate",
       "lines": [
-        8448
+        9479
       ]
     },
     {
       "label": "cor:affine-bregman",
       "lines": [
-        1763
+        1797
       ]
     },
     {
       "label": "def:control",
       "lines": [
-        2545
+        2579
       ]
     },
     {
       "label": "def:hemp",
       "lines": [
-        2497
+        2531
       ]
     },
     {
       "label": "def:lindbladian",
       "lines": [
-        3062
+        3096
       ]
     },
     {
       "label": "def:optic",
       "lines": [
-        482
+        516
       ]
     },
     {
       "label": "def:permutation",
       "lines": [
-        2589
+        2623
       ]
     },
     {
       "label": "def:subdivision",
       "lines": [
-        2602
+        2636
       ]
     },
     {
       "label": "def:tstat",
       "lines": [
-        2530
+        2564
       ]
     },
     {
       "label": "eq:DV",
       "lines": [
-        403
+        437
       ]
     },
     {
       "label": "eq:Hgeo-stokes",
       "lines": [
-        2431
+        2465
       ]
     },
     {
       "label": "eq:cfat-formula",
       "lines": [
-        2826
+        2860
       ]
     },
     {
       "label": "eq:co3-transition",
       "lines": [
-        810
+        844
       ]
     },
     {
       "label": "eq:comm",
       "lines": [
-        2960
+        2994
       ]
     },
     {
       "label": "eq:comp",
       "lines": [
-        1972
+        2006
       ]
     },
     {
       "label": "eq:dep-ratio",
       "lines": [
-        5788
+        5822
       ]
     },
     {
       "label": "eq:distD",
       "lines": [
-        1314
+        1348
       ]
     },
     {
       "label": "eq:extended-rxn",
       "lines": [
-        3650
+        3684
       ]
     },
     {
       "label": "eq:filtered-colim",
       "lines": [
-        3522
+        3556
       ]
     },
     {
       "label": "eq:food-noise",
       "lines": [
-        5408
+        5442
       ]
     },
     {
       "label": "eq:fr",
       "lines": [
-        1093
+        1127
       ]
     },
     {
       "label": "eq:kappa-closure",
       "lines": [
-        1227
+        1261
       ]
     },
     {
       "label": "eq:kappa-derivation",
       "lines": [
-        1350
+        1384
       ]
     },
     {
       "label": "eq:kappa-radial",
       "lines": [
-        1644
+        1678
       ]
     },
     {
       "label": "eq:kappaV",
       "lines": [
-        201
+        218
       ]
     },
     {
       "label": "eq:kkt",
       "lines": [
-        968
+        1002
       ]
     },
     {
       "label": "eq:lagrangian",
       "lines": [
-        1715
+        1749
       ]
     },
     {
       "label": "eq:lip-per-optic",
       "lines": [
-        2120
+        2154
       ]
     },
     {
       "label": "eq:mu-theory",
       "lines": [
-        2238
+        2272
       ]
     },
     {
       "label": "eq:netF-M11",
       "lines": [
-        4593
+        4627
       ]
     },
     {
       "label": "eq:netH-M17-M18",
       "lines": [
-        4847
+        4881
       ]
     },
     {
       "label": "eq:netI-M19-M20",
       "lines": [
-        4998
+        5032
       ]
     },
     {
       "label": "eq:netK-M23",
       "lines": [
-        5173
+        5207
       ]
     },
     {
       "label": "eq:noether-current",
       "lines": [
-        1740
+        1774
       ]
     },
     {
       "label": "eq:norm",
       "lines": [
-        2965
+        2999
       ]
     },
     {
       "label": "eq:pdi",
       "lines": [
-        1003
+        1037
       ]
     },
     {
       "label": "eq:raf-zeno-bound",
       "lines": [
-        5904
+        5938
       ]
     },
     {
       "label": "eq:rmax-colim",
       "lines": [
-        3450
+        3484
       ]
     },
     {
       "label": "eq:smooth-envelope",
       "lines": [
-        1488
+        1522
       ]
     },
     {
       "label": "eq:so3comm",
       "lines": [
-        2938
+        2972
       ]
     },
     {
       "label": "eq:treg-uncond",
       "lines": [
-        2160
+        2194
       ]
     },
     {
       "label": "eq:zeno-fixed-eq",
       "lines": [
-        2242
+        2276
       ]
     },
     {
       "label": "eq:zeno-fixed-point",
       "lines": [
-        3153
+        3187
       ]
     },
     {
       "label": "fig:autopoiesis",
       "lines": [
-        4255
+        4289
       ]
     },
     {
       "label": "fig:autopoiesis-integrated",
       "lines": [
-        4456
+        4490
       ]
     },
     {
       "label": "fig:autopoiesis-network-E",
       "lines": [
-        4570
+        4604
       ]
     },
     {
       "label": "fig:autopoiesis-network-F",
       "lines": [
-        4691
+        4725
       ]
     },
     {
       "label": "fig:autopoiesis-network-G",
       "lines": [
-        4822
+        4856
       ]
     },
     {
       "label": "fig:autopoiesis-network-H",
       "lines": [
-        4972
+        5006
       ]
     },
     {
       "label": "fig:autopoiesis-network-I",
       "lines": [
-        5133
+        5167
       ]
     },
     {
       "label": "fig:autopoiesis-network-K",
       "lines": [
-        5323
+        5357
       ]
     },
     {
       "label": "fig:claimF",
       "lines": [
-        2369
+        2403
       ]
     },
     {
       "label": "fig:hasse",
       "lines": [
-        3499
+        3533
       ]
     },
     {
       "label": "fig:hasse-extended",
       "lines": [
-        3740
+        3774
       ]
     },
     {
       "label": "fig:n3",
       "lines": [
-        2673
+        2707
       ]
     },
     {
       "label": "fig:n4",
       "lines": [
-        3018
+        3052
       ]
     },
     {
       "label": "fig:netK-hott-so3-verdict",
       "lines": [
-        5618
+        5652
       ]
     },
     {
       "label": "fig:stress",
       "lines": [
-        2738
+        2772
       ]
     },
     {
       "label": "fig:titer-conv",
       "lines": [
-        3394
+        3428
       ]
     },
     {
       "label": "fig:titer-d10d20",
       "lines": [
-        3409
+        3443
       ]
     },
     {
       "label": "fig:titer-rotated",
       "lines": [
-        3424
+        3458
       ]
     },
     {
       "label": "fig:zeno",
       "lines": [
-        3205
+        3239
       ]
     },
     {
       "label": "prop:ard-props",
       "lines": [
-        1319
+        1353
       ]
     },
     {
       "label": "prop:ard-surrogate",
       "lines": [
-        1426
+        1460
       ]
     },
     {
       "label": "prop:claimF",
       "lines": [
-        2340
+        2374
       ]
     },
     {
       "label": "prop:claimG",
       "lines": [
-        2380
+        2414
       ]
     },
     {
       "label": "prop:holevo",
       "lines": [
-        3113
+        3147
       ]
     },
     {
       "label": "prop:netA-verdict",
       "lines": [
-        4175
+        4209
       ]
     },
     {
       "label": "prop:netB-verdict",
       "lines": [
-        4228
+        4262
       ]
     },
     {
       "label": "prop:netD-verdict",
       "lines": [
-        4388
+        4422
       ]
     },
     {
       "label": "prop:netE-verdict",
       "lines": [
-        4489
+        4523
       ]
     },
     {
       "label": "prop:netF-verdict",
       "lines": [
-        4617
+        4651
       ]
     },
     {
       "label": "prop:stress",
       "lines": [
-        2690
+        2724
       ]
     },
     {
       "label": "rem:autopoiesis-discussion",
       "lines": [
-        4259
+        4293
       ]
     },
     {
       "label": "rem:curv-counterex",
       "lines": [
-        1692
+        1726
       ]
     },
     {
       "label": "rem:curv-equiv",
       "lines": [
-        8071
+        9102
       ]
     },
     {
       "label": "rem:e19-three-follow-ups",
       "lines": [
-        7703
-      ]
-    },
-    {
-      "label": "rem:e20-three-follow-ups",
-      "lines": [
-        7845
+        7798
       ]
     },
     {
       "label": "rem:elevation-summary-table-v4",
       "lines": [
-        6364
+        6398
       ]
     },
     {
       "label": "rem:elevation-summary-table-v5",
       "lines": [
-        6562
+        6596
       ]
     },
     {
       "label": "rem:elevation-summary-table-v6",
       "lines": [
-        7001
+        7096
       ]
     },
     {
       "label": "rem:envelope-distD",
       "lines": [
-        1595
+        1629
       ]
     },
     {
       "label": "rem:iJO1366-discovery",
       "lines": [
-        5762
+        5796
       ]
     },
     {
       "label": "rem:ijO1366-discussion",
       "lines": [
-        4332
+        4366
       ]
     },
     {
       "label": "rem:kappa-intuition",
       "lines": [
-        2462
+        2496
       ]
     },
     {
       "label": "rem:kappa-v-real-network-k-v5",
       "lines": [
-        6443
+        6477
       ]
     },
     {
       "label": "rem:levy-numerical",
       "lines": [
-        2868
+        2902
       ]
     },
     {
       "label": "rem:main-bound",
       "lines": [
-        7966
+        8997
       ]
     },
     {
       "label": "rem:main-falsifiable",
       "lines": [
-        8023
+        9054
       ]
     },
     {
       "label": "rem:mdp-pomdp",
       "lines": [
-        1672
+        1706
       ]
     },
     {
       "label": "rem:n3-n4",
       "lines": [
-        455
+        489
       ]
     },
     {
       "label": "rem:netD-discussion",
       "lines": [
-        4423
+        4457
       ]
     },
     {
       "label": "rem:netF-discussion",
       "lines": [
-        4654
+        4688
       ]
     },
     {
       "label": "rem:netG-discussion",
       "lines": [
-        4792
+        4826
       ]
     },
     {
       "label": "rem:netH-discussion",
       "lines": [
-        4932
+        4966
       ]
     },
     {
       "label": "rem:netI-discussion",
       "lines": [
-        5093
+        5127
       ]
     },
     {
       "label": "rem:netK-hott-so3",
       "lines": [
-        5580
+        5614
       ]
     },
     {
       "label": "rem:netkplus-cascade-breaking-v4",
       "lines": [
-        6216
+        6250
       ]
     },
     {
       "label": "rem:networks-E-J-v3-dep-ratio-v4",
       "lines": [
-        6306
+        6340
       ]
     },
     {
       "label": "rem:optics-decomp",
       "lines": [
-        1904
+        1938
       ]
     },
     {
       "label": "rem:optics-physical",
       "lines": [
-        1947
+        1981
       ]
     },
     {
       "label": "rem:qbound-tightness",
       "lines": [
-        3294
+        3328
       ]
     },
     {
       "label": "rem:raf-zeno-verification",
       "lines": [
-        5922
+        5956
       ]
     },
     {
       "label": "rem:real-fba-c-v4",
       "lines": [
-        6165
+        6199
       ]
     },
     {
       "label": "rem:reversed-loop",
       "lines": [
-        2615
+        2649
       ]
     },
     {
       "label": "rem:smallloop-scope",
       "lines": [
-        1070
+        1104
       ]
     },
     {
       "label": "rem:two-contractions",
       "lines": [
-        2302
+        2336
       ]
     },
     {
       "label": "rem:viability-inherit",
       "lines": [
-        3612
+        3646
       ]
     },
     {
       "label": "rem:zeno-derivation",
       "lines": [
-        3174
+        3208
       ]
     },
     {
       "label": "rem:zeno-fixed-point",
       "lines": [
-        3151
+        3185
       ]
     },
     {
       "label": "rem:zeno-r2",
       "lines": [
-        3210
+        3244
       ]
     },
     {
       "label": "sec:authorship",
       "lines": [
-        9015
+        10072
       ]
     },
     {
       "label": "sec:data-code",
       "lines": [
-        8967
+        10012
       ]
     },
     {
       "label": "sec:fisher-transport",
       "lines": [
-        954
+        988
       ]
     },
     {
       "label": "sec:future-directions",
       "lines": [
-        8527
+        9558
       ]
     },
     {
       "label": "sec:gem-limitations",
       "lines": [
-        8294
+        9325
       ]
     },
     {
       "label": "sec:intro",
       "lines": [
-        161
+        178
       ]
     },
     {
       "label": "sec:novelty-e1",
       "lines": [
-        5667
+        5701
       ]
     },
     {
       "label": "sec:novelty-e2",
       "lines": [
-        5708
+        5742
       ]
     },
     {
       "label": "sec:novelty-e3",
       "lines": [
-        5889
+        5923
       ]
     },
     {
       "label": "sec:novelty-e4",
       "lines": [
-        5942
+        5976
       ]
     },
     {
       "label": "sec:novelty-e5",
       "lines": [
-        6006
+        6040
       ]
     },
     {
       "label": "sec:novelty-v11",
       "lines": [
-        7690
-      ]
-    },
-    {
-      "label": "sec:novelty-v12",
-      "lines": [
-        7833
+        7785
       ]
     },
     {
       "label": "sec:novelty-v4",
       "lines": [
-        6143
+        6177
       ]
     },
     {
       "label": "sec:phase3",
       "lines": [
-        3889
+        3923
       ]
     },
     {
       "label": "tab:gem-limitations",
       "lines": [
-        8342
+        9373
       ]
     },
     {
       "label": "tab:verdicts",
       "lines": [
-        8045
+        9076
       ]
     },
     {
       "label": "thm:seven-optic-functorial-informal",
       "lines": [
-        6882
+        6977
       ]
     }
   ],
   "multi_defined": [],
   "ref_macro_usage": {
-    "ref": 662,
+    "ref": 685,
     "eqref": 43
   },
   "prefix_buckets_dangling": {}

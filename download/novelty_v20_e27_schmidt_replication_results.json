@@ -1,0 +1,630 @@
+{
+  "study": "E27_schmidt_replication",
+  "data": {
+    "source": "Schmidt et al. 2016 Nat Biotechnol (PRIDE PXD000498; supplementary tables via PMC4888949/Europe PMC)",
+    "table": "S8 (dataset 2, BW25113, biological triplicates)",
+    "n_proteins": 2022
+  },
+  "arms": {
+    "schmidt-protfc-exhaustion": {
+      "label": "log10 kappa_V vs Schmidt protein max|log2FC| (stationary 1d/3d)",
+      "n": 366,
+      "pearson_r": -0.08250877051777214,
+      "pearson_p": 0.11507788817785394,
+      "spearman_r": -0.027132341059348784,
+      "spearman_p": 0.6048825911934186,
+      "perm_p_mc": 0.11524423778811059,
+      "boot_ci95": [
+        -0.18780335106683135,
+        0.03319904365316607
+      ]
+    },
+    "e24-transfc-on-schmidt-subset": {
+      "label": "E24 M3D exhaustion metric on the Schmidt subset",
+      "n": 365,
+      "pearson_r": 0.41863918343272055,
+      "pearson_p": 6.398549345806206e-17,
+      "spearman_r": 0.46529579996897785,
+      "spearman_p": 5.221727015825099e-21,
+      "perm_p_mc": 4.999750012499375e-05,
+      "boot_ci95": [
+        0.3388300304978502,
+        0.492845783400851
+      ]
+    },
+    "e25-transfc-on-schmidt-subset": {
+      "label": "E25 GSE starvation metric on the Schmidt subset",
+      "n": 207,
+      "pearson_r": 0.23716183578132433,
+      "pearson_p": 0.000580163713065957,
+      "spearman_r": 0.2937243721452868,
+      "spearman_p": 1.743007047648855e-05,
+      "perm_p_mc": 0.00044997750112494374,
+      "boot_ci95": [
+        0.10494911516171146,
+        0.36464456715970217
+      ]
+    },
+    "e26-gse-protfc-on-schmidt-subset": {
+      "label": "E26 GSE spectral-count protein metric on the Schmidt subset (n=164)",
+      "n": 164,
+      "pearson_r": 0.025068830615644987,
+      "pearson_p": 0.7500054311238907,
+      "spearman_r": 0.017261635753894194,
+      "spearman_p": 0.8263522415969606,
+      "perm_p_mc": 0.7541122943852807,
+      "boot_ci95": [
+        -0.11301498273839287,
+        0.1558470081182817
+      ]
+    },
+    "schmidt-protfc-q05": {
+      "label": "significant FCs only (q<0.05, n=277)",
+      "n": 277,
+      "pearson_r": -0.14786173847286535,
+      "pearson_p": 0.013765066741163262,
+      "spearman_r": -0.1420335825733862,
+      "spearman_p": 0.018019189281666827,
+      "perm_p_mc": 0.013899305034748262,
+      "boot_ci95": [
+        -0.2838776982303587,
+        -0.0067975757267228695
+      ]
+    },
+    "schmidt-protfc-lowcv": {
+      "label": "mean triplicate CV<=20% (n=254)",
+      "n": 254,
+      "pearson_r": -0.016766902111702744,
+      "pearson_p": 0.7902999787953406,
+      "spearman_r": 0.025687767917361187,
+      "spearman_p": 0.6836822242063565,
+      "perm_p_mc": 0.791210439478026,
+      "boot_ci95": [
+        -0.15100167158231664,
+        0.12338298701113679
+      ]
+    },
+    "schmidt-protfc-excl-b2097": {
+      "label": "excl. b2097 (n=365)",
+      "n": 365,
+      "pearson_r": -0.08425112017000663,
+      "pearson_p": 0.10806478353425356,
+      "spearman_r": -0.030726586164885147,
+      "spearman_p": 0.5584433423189018,
+      "perm_p_mc": 0.10794460276986151,
+      "boot_ci95": [
+        -0.18975892807450725,
+        0.03106855413242424
+      ]
+    },
+    "schmidt-s7-protfc": {
+      "label": "dataset-1 (Table S7) stationary (n=333)",
+      "n": 333,
+      "pearson_r": -0.1259868987120532,
+      "pearson_p": 0.0214725833093665,
+      "spearman_r": -0.10738229332902663,
+      "spearman_p": 0.05024890109432502,
+      "perm_p_mc": 0.02334883255837208,
+      "boot_ci95": [
+        -0.23323928605861252,
+        -0.013984726954276607
+      ]
+    },
+    "schmidt-protfc-exhaustion-max": {
+      "label": "max|log2FC| over the exhaustion class",
+      "n": 366,
+      "pearson_r": -0.08250877051777214,
+      "pearson_p": 0.11507788817785394,
+      "spearman_r": -0.027132341059348784,
+      "spearman_p": 0.6048825911934186,
+      "perm_p_mc": 0.11524423778811059,
+      "boot_ci95": [
+        -0.18780335106683135,
+        0.03319904365316607
+      ]
+    },
+    "schmidt-protfc-limitation-max": {
+      "label": "max|log2FC| over the limitation class",
+      "n": 366,
+      "pearson_r": -0.013775672801884907,
+      "pearson_p": 0.7928164249375618,
+      "spearman_r": 0.06501732242005462,
+      "spearman_p": 0.21463784457053217,
+      "perm_p_mc": 0.7933603319834008,
+      "boot_ci95": [
+        -0.12727323826777676,
+        0.10467528254457723
+      ]
+    },
+    "schmidt-protfc-switch-max": {
+      "label": "max|log2FC| over the switch class",
+      "n": 366,
+      "pearson_r": 0.03961466396652332,
+      "pearson_p": 0.44990264399920066,
+      "spearman_r": 0.14110063402271977,
+      "spearman_p": 0.006856810662846113,
+      "perm_p_mc": 0.4473776311184441,
+      "boot_ci95": [
+        -0.05862939172862023,
+        0.15504994549069467
+      ]
+    },
+    "schmidt-protfc-stress_glucose-max": {
+      "label": "max|log2FC| over the stress_glucose class",
+      "n": 366,
+      "pearson_r": -0.09141934745690011,
+      "pearson_p": 0.08070125843837582,
+      "spearman_r": -0.05783575774782653,
+      "spearman_p": 0.26976567905564425,
+      "perm_p_mc": 0.07999600019999,
+      "boot_ci95": [
+        -0.20838035769276805,
+        0.03621185245127874
+      ]
+    },
+    "tp-coupling-gse-dT": {
+      "label": "E25 GSE signed dT vs Schmidt dP (n=207)",
+      "n": 207,
+      "pearson_r": 0.024368350143324488,
+      "pearson_p": 0.7274435252859088,
+      "spearman_r": 0.07378153716271066,
+      "spearman_p": 0.2907196979294127,
+      "perm_p_mc": 0.7291635418229089,
+      "boot_ci95": [
+        -0.1262823541780396,
+        0.17943948234012433
+      ]
+    },
+    "stability-top-tertile": {
+      "label": "within top kappa tertile: kappa vs protein max|FC|",
+      "n": 122,
+      "pearson_r": 0.11406902331304518,
+      "pearson_p": 0.21091586579883898,
+      "spearman_r": 0.14920482773808397,
+      "spearman_p": 0.10095305078820167,
+      "perm_p_mc": 0.21253937303134843,
+      "boot_ci95": [
+        -0.08930914815922956,
+        0.2794412093322652
+      ]
+    },
+    "stability-top-tertile-transcript": {
+      "label": "within top kappa tertile: kappa vs E24 transcript",
+      "n": 122,
+      "pearson_r": 0.26556642365611477,
+      "pearson_p": 0.003112971089496932,
+      "spearman_r": 0.21987279077482083,
+      "spearman_p": 0.01495652061014242,
+      "perm_p_mc": 0.0029498525073746312,
+      "boot_ci95": [
+        0.07356526210292728,
+        0.42932677087209303
+      ]
+    }
+  },
+  "per_condition": {
+    "exhaustion:Statday": {
+      "label": "stationary 1 day",
+      "n": 366,
+      "pearson_r": -0.0725654688271645,
+      "pearson_p": 0.16594935156495985,
+      "spearman_r": 0.017419749759558442,
+      "spearman_p": 0.7397800237356658,
+      "perm_p_mc": 0.16704164791760412,
+      "boot_ci95": [
+        -0.172796089875459,
+        0.04283359624109303
+      ]
+    },
+    "exhaustion:Stat.3days": {
+      "label": "stationary 3 days",
+      "n": 366,
+      "pearson_r": -0.035538697069254624,
+      "pearson_p": 0.49790882144973986,
+      "spearman_r": -0.003378292626014032,
+      "spearman_p": 0.9486440489380807,
+      "perm_p_mc": 0.49052547372631367,
+      "boot_ci95": [
+        -0.14139388663032404,
+        0.08059639138995058
+      ]
+    },
+    "limitation:Chemstat.0.5": {
+      "label": "chemostat mu=0.5",
+      "n": 366,
+      "pearson_r": 0.08934368325291256,
+      "pearson_p": 0.08785675252765017,
+      "spearman_r": 0.038583406640562215,
+      "spearman_p": 0.46179573505990035,
+      "perm_p_mc": 0.08569571521423928,
+      "boot_ci95": [
+        -0.020121646691961547,
+        0.1899015495065066
+      ]
+    },
+    "limitation:Chemstat.0.35": {
+      "label": "chemostat mu=0.35",
+      "n": 366,
+      "pearson_r": 0.013810862048081657,
+      "pearson_p": 0.7922992402756567,
+      "spearman_r": 0.08575098140268204,
+      "spearman_p": 0.10143851407875304,
+      "perm_p_mc": 0.7943102844857757,
+      "boot_ci95": [
+        -0.10208492370288265,
+        0.13554966065675111
+      ]
+    },
+    "limitation:Chemstat.0.2": {
+      "label": "chemostat mu=0.20",
+      "n": 366,
+      "pearson_r": -0.04227389783050473,
+      "pearson_p": 0.4200460605339003,
+      "spearman_r": 0.04790198620255765,
+      "spearman_p": 0.3608172916424357,
+      "perm_p_mc": 0.41577921103944804,
+      "boot_ci95": [
+        -0.14983239190559292,
+        0.0715511167779966
+      ]
+    },
+    "limitation:Chemstat.02": {
+      "label": "chemostat mu=0.12",
+      "n": 366,
+      "pearson_r": -0.06738905657720214,
+      "pearson_p": 0.1983449619763247,
+      "spearman_r": 0.01935957517756824,
+      "spearman_p": 0.7120247460060125,
+      "perm_p_mc": 0.19654017299135043,
+      "boot_ci95": [
+        -0.1729131959559301,
+        0.04609639169787564
+      ]
+    },
+    "switch:Glycerin.AA": {
+      "label": "glycerol+AA",
+      "n": 366,
+      "pearson_r": 0.1339711299525061,
+      "pearson_p": 0.010292988157849636,
+      "spearman_r": 0.2413110750704621,
+      "spearman_p": 3.0126879067297413e-06,
+      "perm_p_mc": 0.011649417529123544,
+      "boot_ci95": [
+        0.05326277165887708,
+        0.222985333052187
+      ]
+    },
+    "switch:Acetate": {
+      "label": "Acetate",
+      "n": 366,
+      "pearson_r": 0.020046446135827914,
+      "pearson_p": 0.7022851036015035,
+      "spearman_r": 0.1597403635867522,
+      "spearman_p": 0.0021747677317765987,
+      "perm_p_mc": 0.7004649767511625,
+      "boot_ci95": [
+        -0.0853127477965917,
+        0.159852547934441
+      ]
+    },
+    "switch:Fumarate": {
+      "label": "Fumarate",
+      "n": 366,
+      "pearson_r": 0.03304297254086602,
+      "pearson_p": 0.5285905562375408,
+      "spearman_r": 0.12157116499859691,
+      "spearman_p": 0.01999333554726631,
+      "perm_p_mc": 0.5231738413079347,
+      "boot_ci95": [
+        -0.07401543030003113,
+        0.15192231088112965
+      ]
+    },
+    "switch:Glucoseamine": {
+      "label": "glucosamine",
+      "n": 366,
+      "pearson_r": 0.06400105464315405,
+      "pearson_p": 0.22190563361812277,
+      "spearman_r": 0.11661241895276069,
+      "spearman_p": 0.025686963275546353,
+      "perm_p_mc": 0.21873906304684765,
+      "boot_ci95": [
+        -0.04133806130011984,
+        0.1737589806584627
+      ]
+    },
+    "switch:Glycerol": {
+      "label": "Glycerol",
+      "n": 366,
+      "pearson_r": 0.07588112902280615,
+      "pearson_p": 0.1473891854493356,
+      "spearman_r": 0.16019594348363714,
+      "spearman_p": 0.0021112291251333837,
+      "perm_p_mc": 0.14849257537123145,
+      "boot_ci95": [
+        -0.04221746714853492,
+        0.195773363199263
+      ]
+    },
+    "switch:Pyruvate": {
+      "label": "Pyruvate",
+      "n": 366,
+      "pearson_r": 0.13800077126031118,
+      "pearson_p": 0.008199567247147831,
+      "spearman_r": 0.24679737333434618,
+      "spearman_p": 1.7573756222472055e-06,
+      "perm_p_mc": 0.007649617519124044,
+      "boot_ci95": [
+        0.025672364276155695,
+        0.24858261692325861
+      ]
+    },
+    "switch:Xylose": {
+      "label": "Xylose",
+      "n": 366,
+      "pearson_r": -0.0324914787062289,
+      "pearson_p": 0.5354975110302741,
+      "spearman_r": -0.06565821880374337,
+      "spearman_p": 0.21014328697360568,
+      "perm_p_mc": 0.535723213839308,
+      "boot_ci95": [
+        -0.17192601066467988,
+        0.09091724690453731
+      ]
+    },
+    "switch:Mannose": {
+      "label": "Mannose",
+      "n": 366,
+      "pearson_r": 0.012376305418619792,
+      "pearson_p": 0.8134545689693999,
+      "spearman_r": 0.06526665510408326,
+      "spearman_p": 0.21288116017742184,
+      "perm_p_mc": 0.8101594920253987,
+      "boot_ci95": [
+        -0.09413131739686231,
+        0.11612413155297138
+      ]
+    },
+    "switch:Galactose": {
+      "label": "Galactose",
+      "n": 366,
+      "pearson_r": -0.021300581059144483,
+      "pearson_p": 0.6846277940006414,
+      "spearman_r": 0.018469958119384542,
+      "spearman_p": 0.7247089383249512,
+      "perm_p_mc": 0.687965601719914,
+      "boot_ci95": [
+        -0.12939889791194195,
+        0.09129692015235051
+      ]
+    },
+    "switch:Succinate": {
+      "label": "Succinate",
+      "n": 366,
+      "pearson_r": 0.0552719273508308,
+      "pearson_p": 0.291606698431404,
+      "spearman_r": 0.059515601515921335,
+      "spearman_p": 0.25607682963547684,
+      "perm_p_mc": 0.2896355182240888,
+      "boot_ci95": [
+        -0.0489079251791805,
+        0.1568720422684494
+      ]
+    },
+    "switch:Fructose": {
+      "label": "Fructose",
+      "n": 366,
+      "pearson_r": -0.02455677629341016,
+      "pearson_p": 0.6395969646734195,
+      "spearman_r": -0.030069619615379895,
+      "spearman_p": 0.5663552208251936,
+      "perm_p_mc": 0.64026798660067,
+      "boot_ci95": [
+        -0.1378521273494714,
+        0.08300607049084056
+      ]
+    },
+    "stress_glucose:OSM": {
+      "label": "NaCl 50mM",
+      "n": 366,
+      "pearson_r": -0.07071075083649948,
+      "pearson_p": 0.17706761355657277,
+      "spearman_r": -0.06297724984042506,
+      "spearman_p": 0.22940313333334278,
+      "perm_p_mc": 0.17649117544122794,
+      "boot_ci95": [
+        -0.19914826602686905,
+        0.05596686681116711
+      ]
+    },
+    "stress_glucose:42.C": {
+      "label": "42C",
+      "n": 366,
+      "pearson_r": -0.0939621680164605,
+      "pearson_p": 0.07258566736976402,
+      "spearman_r": -0.09816510518612295,
+      "spearman_p": 0.06063900561689296,
+      "perm_p_mc": 0.07414629268536573,
+      "boot_ci95": [
+        -0.20045514043378213,
+        0.019125336275658423
+      ]
+    },
+    "stress_glucose:pH6": {
+      "label": "pH 6",
+      "n": 366,
+      "pearson_r": -0.09579949466897633,
+      "pearson_p": 0.06714599423978669,
+      "spearman_r": -0.03872796329242173,
+      "spearman_p": 0.4601181569713624,
+      "perm_p_mc": 0.0671966401679916,
+      "boot_ci95": [
+        -0.20100699382791534,
+        0.03427876539555728
+      ]
+    },
+    "null:Glucose.2": {
+      "label": "glucose (batch 2)",
+      "n": 366,
+      "pearson_r": -0.11857099419883489,
+      "pearson_p": 0.023289875761530097,
+      "spearman_r": -0.21518426567497947,
+      "spearman_p": 3.3049281736952054e-05,
+      "perm_p_mc": 0.022998850057497126,
+      "boot_ci95": [
+        -0.24012872826074327,
+        0.0015354808831087275
+      ]
+    },
+    "out:LB": {
+      "label": "LB",
+      "n": 366,
+      "pearson_r": 0.09071801413572633,
+      "pearson_p": 0.0830643199744415,
+      "spearman_r": 0.1512952440312508,
+      "spearman_p": 0.0037165801375387635,
+      "perm_p_mc": 0.08294585270736463,
+      "boot_ci95": [
+        -0.002309291157234764,
+        0.18173444780501072
+      ]
+    }
+  },
+  "coverage": {
+    "panel_genes_with_schmidt": 366,
+    "panel_total": 435,
+    "e26_spectral_count_subset": 169,
+    "n_proteins_S8": 2022
+  },
+  "internal_null": {
+    "median_abs_log2fc_per_condition": {
+      "Statday": 0.8062269399304466,
+      "Stat.3days": 0.795848394800385,
+      "Chemstat.0.5": 0.518854216390466,
+      "Chemstat.0.35": 0.6547603789568941,
+      "Chemstat.0.2": 0.7437526485889292,
+      "Chemstat.02": 0.847705358717229,
+      "Glycerin.AA": 0.46617867026062254,
+      "Acetate": 0.5464700155654016,
+      "Fumarate": 0.4339675263482418,
+      "Glucoseamine": 0.41140826895333515,
+      "Glycerol": 0.34576034368857134,
+      "Pyruvate": 0.41774782472266603,
+      "Xylose": 0.3577084137121899,
+      "Mannose": 0.46253193022684447,
+      "Galactose": 0.6166283024043222,
+      "Succinate": 0.471731355127894,
+      "Fructose": 0.3605242115533991,
+      "OSM": 0.5286998437396231,
+      "42.C": 0.4494024533046741,
+      "pH6": 0.485993227683833,
+      "Glucose.2": 0.1831103760853199,
+      "LB": 0.620364532335989
+    },
+    "glucose2_r_on_panel": {
+      "label": "kappa vs |log2FC| glucose batch-2 (internal null)",
+      "n": 366,
+      "pearson_r": -0.11857099419883489,
+      "pearson_p": 0.023289875761530097,
+      "spearman_r": -0.21518426567497947,
+      "spearman_p": 3.3049281736952054e-05,
+      "perm_p_mc": 0.022998850057497126,
+      "boot_ci95": [
+        -0.24012872826074327,
+        0.0015354808831087275
+      ]
+    }
+  },
+  "magnitudes_schmidt_subset": {
+    "schmidt_protein_max": 1.2621034930736885,
+    "e24_transcript_max": 1.423565808219178,
+    "e25_transcript_max": 5.370808276190214,
+    "ratio_protein_e24": 0.886578959530173
+  },
+  "tp_coupling_by_kappa": {
+    "low-kappa": {
+      "label": "signed dT vs dP, low-kappa",
+      "n": 121,
+      "pearson_r": 0.1498083787327247,
+      "pearson_p": 0.10099349734107838,
+      "spearman_r": 0.18506299959355096,
+      "spearman_p": 0.04213835557807351,
+      "perm_p_mc": 0.10439478026098695,
+      "boot_ci95": [
+        -0.01125535677149994,
+        0.2953630565629586
+      ]
+    },
+    "low-kappa_ratio": {
+      "n": 121,
+      "mean_dP": 1.4950467117639277,
+      "mean_dT": 0.8991360247933884,
+      "mean_ratio": 2.488430515743556
+    },
+    "mid-kappa": {
+      "label": "signed dT vs dP, mid-kappa",
+      "n": 122,
+      "pearson_r": 0.35281311452329667,
+      "pearson_p": 6.725732883456946e-05,
+      "spearman_r": 0.3679949507800186,
+      "spearman_p": 3.0447299790193567e-05,
+      "perm_p_mc": 4.999750012499375e-05,
+      "boot_ci95": [
+        0.14328190751673056,
+        0.5492254203911597
+      ]
+    },
+    "mid-kappa_ratio": {
+      "n": 122,
+      "mean_dP": 1.1961091218342583,
+      "mean_dT": 1.5239197868852454,
+      "mean_ratio": 1.0985476022078697
+    },
+    "high-kappa": {
+      "label": "signed dT vs dP, high-kappa",
+      "n": 122,
+      "pearson_r": 0.24005739022329606,
+      "pearson_p": 0.007738147092639576,
+      "spearman_r": 0.2153551802419528,
+      "spearman_p": 0.017209018336475944,
+      "perm_p_mc": 0.007299635018249088,
+      "boot_ci95": [
+        0.046059681805430935,
+        0.4255266672991141
+      ]
+    },
+    "high-kappa_ratio": {
+      "n": 122,
+      "mean_dP": 1.107345798915843,
+      "mean_dT": 1.8433430081967215,
+      "mean_ratio": 1.0619259251442412
+    }
+  },
+  "implementation_ratio_test": {
+    "high_mean": 1.0619259251442412,
+    "low_mean": 2.488430515743556,
+    "n_high": 122,
+    "n_low": 121,
+    "mannwhitney_p_one_sided_high_gt_low": 0.99999999977812
+  },
+  "e26_reference": {
+    "coupling_low_mid_high": [
+      0.088,
+      0.164,
+      0.212
+    ],
+    "stability_top_tertile_r": -0.427
+  },
+  "zero_control": {
+    "n_zero_genes_model": 932,
+    "n_zero_with_schmidt": 526,
+    "panel_mean_max_fc": 1.2621034930736885,
+    "zero_mean_max_fc": 1.6280290306394865,
+    "mannwhitney_p_one_sided_panel_gt_zero": 0.9989517256019269
+  },
+  "deciles": {
+    "top_decile_mean": 1.401401720329185,
+    "bottom_decile_mean": 1.214826822803969,
+    "mannwhitney_p_one_sided": 0.1847801491443654
+  }
+}

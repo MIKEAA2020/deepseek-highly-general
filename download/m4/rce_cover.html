@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Noto+Serif+SC:wght@400;700;900&family=Inter:wght@300;400;500&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    @page { size: 794px 1123px; margin: 0; }
+    :root {
+      --c-bg: #1d2d38;
+      --c-accent: #7fb3c8;
+      --c-text: #edf1f3;
+      --c-muted: #8fa3ad;
+      --c-footer: #8fa3ad;
+    }
+    html, body { margin: 0; padding: 0; width: 794px; height: 1123px; background: var(--c-bg); color: var(--c-text); font-family: 'Inter', 'Noto Sans SC', sans-serif; }
+    @media screen {
+      html { height: auto; display: flex; justify-content: center; min-height: 100vh; background: var(--c-bg); }
+      body { transform-origin: top center; scale: min(1, calc(100vw / 794), calc(100vh / 1123)); margin: 0 auto; box-shadow: 0 0 60px rgba(0,0,0,0.3); }
+    }
+    .cover { width: 794px; height: 1123px; position: relative; box-sizing: border-box; border: none; outline: none; box-shadow: none; }
+    .vline { position: absolute; left: 57px; top: 76px; bottom: 76px; width: 2.5px; background: var(--c-accent); }
+    .content { position: absolute; left: 102px; right: 76px; top: 0; bottom: 0; }
+    .label { position: absolute; top: 128px; font-size: 9pt; color: var(--c-accent); letter-spacing: 3px; text-transform: uppercase; font-family: 'Inter', 'Noto Sans SC', sans-serif; }
+    .title { position: absolute; top: 210px; font-size: 33pt; font-weight: 700; line-height: 1.28; font-family: 'Playfair Display', 'Noto Serif SC', serif; color: var(--c-text); max-width: 600px; }
+    .subtitle { position: absolute; top: 520px; font-size: 12pt; line-height: 1.6; color: var(--c-muted); max-width: 540px; }
+    .authors { position: absolute; top: 690px; font-size: 12pt; color: var(--c-text); }
+    .institution { position: absolute; top: 732px; font-size: 10pt; color: var(--c-muted); line-height: 1.5; max-width: 540px; }
+    .summary { position: absolute; top: 812px; font-size: 10.5pt; line-height: 1.7; color: var(--c-muted); max-width: 560px; }
+    .footer { position: absolute; bottom: 76px; left: 0; right: 0; display: flex; justify-content: space-between; font-size: 9pt; color: var(--c-footer); }
+  </style>
+</head>
+<body>
+  <div class="cover">
+    <div class="vline"></div>
+    <div class="content">
+      <div class="label">Evaluation Report · Unifying Object Wave</div>
+      <div class="title">The Root Cause,<br>Verified: Smoothness<br>and the Regime Dial</div>
+      <div class="subtitle">The root-cause analysis of the active-set
+        bridge - "the wrong order of smoothness" - evaluated claim by
+        claim against the executed M1/M3/M4a/M4b record, corrected where
+        it misdescribes the measured objects, and extended by a new
+        measurement, M4c, which gives its "separate regime" a mechanism
+        and a law: one curvature measure, multiple resolutions, a
+        measurable crossover.</div>
+      <div class="authors">Computational Verification Unit</div>
+      <div class="institution">Source: the root-cause analysis under
+        evaluation · verdicts grounded in the v2 theorem set
+        (S/G/N1/N/D), the committed M4a/M4b artifacts, and 858 new
+        lexicographic solves at the M4b codim-2 vertex · frozen v21
+        untouched</div>
+      <div class="summary">The diagnosis is correct and theorem-backed;
+        three misdescriptions are corrected (no O(eps) holonomy exists -
+        the scalings form a trichotomy; the slope-1.00 statistic is the
+        9-of-76 interacting stratum; the slope-1 law belongs to the
+        dynamic layer). Theorem R closes the gap: the smoothed map's
+        curvature is the same measure, its epsilon-squared law measures
+        at slope 1.9991-1.9995, and the crossover scales linearly,
+        epsilon-star approximately 3 sigma. The unification is a
+        resolution statement, not a limit statement.</div>
+      <div class="footer">
+        <span>download/Root_Cause_Evaluation.md · download/m4/</span>
+        <span>September 2026</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,1517 @@
+MANUSCRIPT REVIEW · LINE-LEVEL AUDIT
+
+Line-Level Review of the Revised
+Categorical Viability-Weighted
+Curvature Framework
+A granular audit of the 131-page revision (v3): eighty-one
+line-referenced findings spanning textual defects,
+mathematical flaws, internal inconsistencies, provenance
+signals, and validation-chain weaknesses, with a prioritized
+de-construction plan for the salvageable core.
+
+Editorial Assessment Unit
+Sequential read of all 7,897 text-layer lines · render-level verification of suspect
+passages · citation-coverage audit of 54 references · count-consistency audit
+across six framing layers
+
+C ONFID ENT IAL · FOR ED IT OR IAL US E · S EP T EMBER 20 26
+
+LINE-LEVEL REVIEW REPORT
+
+Table of Contents
+1. Executive Summary
+
+1
+
+2. Scope, Method, and What Changed
+
+2
+
+3. Textual and Typesetting Defects
+
+3
+
+4. Mathematical Flaws and Proof Gaps
+
+4
+
+5. Internal Inconsistencies
+
+5
+
+6. Provenance and Integrity Signals
+
+7
+
+7. Methodological Weaknesses in the Validation Chain
+
+8
+
+8. What Genuinely Improved or Works
+
+9
+
+9. Prioritized Opportunities for Improvement
+
+10
+
+1. Split the single manuscript into three papers . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 11
+2. Repair or delete the broken mathematics before any resubmission . . . . . . . . . . . . . . . . . . . . . . 11
+3. Excise the session provenance, then re-verify the bibliography against the text . . . . . . . . . . . . . . . . 12
+4. Fix the endpoint-sampling problem in the closure test and drop the higher-categorical patch . . . . . . . . 12
+5. Report the designed-network lineage as engineering, not discovery . . . . . . . . . . . . . . . . . . . . . . 13
+6. Pre-register the next external-anchoring step and demote the in-silico headlines . . . . . . . . . . . . . . . 13
+
+10. Consolidated Line-Level Findings Ledger
+
+13
+
+11. Editorial Verdict
+
+19
+
+Editorial Assessment Unit
+
+i
+
+LINE-LEVEL REVIEW REPORT
+
+1. Executive Summary
+This report is a granular, line-level review of the revised 131-page manuscript “A Categorical
+Viability-Weighted Curvature Framework: From Autopoietic Sets to Non-Abelian Holonomy” (listed author
+“Z.ai”, draft dated 31 August 2026; 54 references; approximately 71,000 words). Every page of the text layer
+was read sequentially, with targeted render-level verification of suspect passages, a full citation-coverage
+audit of the bibliography against the body text, and visual inspection of the pages carrying typesetting
+anomalies. The review logged approximately eighty discrete, line-referenced findings, consolidated into the
+ledger in Section 10 and grouped into five categories: textual defects, mathematical flaws, internal
+inconsistencies, provenance signals, and methodological weaknesses in the validation chain.
+The revision is substantially expanded relative to the 90-page version assessed on 30 August (v2):
+genome-scale biological validation on external expression and proteomics compendia has been added,
+prior-art references missing from v2 now appear in the bibliography, and several v2 errors (the
+optic-category source, the DV-versus-κV conflation, the inverse-limit terminology) have been corrected
+locally. These improvements are real, and the strongest new material, the transcript-versus-protein
+dissociation chain of Studies E24 to E27, is genuinely competent experimental science with honest confound
+controls. The revision, however, has been assembled as an append-only research log rather than rewritten as a
+paper, and the result is a manuscript that contradicts itself in public: six mutually different network counts, a
+limitations section that denies results the body headlines, proofs that state one thing while their lemmas
+assume another, and a body text that openly documents its own origin as an iterated response to AI audits and
+user requests.
+The most consequential findings are these. First, the paper’s central quantity κV is three different objects at
+three different places (a geometric curvature contraction in Sections 2 to 5, an indicator-masked
+flux-rerouting statistic in Definition 3.21, and a time-course squared flux change in Studies E10 to E27), and
+the theory’s object never touches the data’s object. Second, the main definition of κV was changed after
+seeing the data, at an explicit in-text “user request”, “to test whether it strengthens the original findings”, and
+the promoted variant embeds the in-silico essentiality label inside the predictor. Third, eleven of the
+fifty-four references are never cited in the body, and at least six of those carry bibliography annotations
+falsely claiming “Cited in §4/§3/§21/§14/§5”, including the single most important prior-art attribution
+(Vereshchagin and Vitányi for the algorithmic rate-distortion distance). Fourth, the text retains session
+provenance throughout: “the user deposited”, “the user requested”, “the Qwen novelty assessment”, git
+commit hashes, build-log audits of dangling references, and a reference to “the source transcript”.
+The editorial conclusion is that the manuscript is further from publishable than the v2 draft, not closer. The
+v2 problems (circular validation, uncited prior art, definitional instability) have not been removed; they have
+been multiplied and documented in the authors’ own words. The salvageable core is now clearer, however:
+the E24 to E27 biology chain, the fixed-model closure-test confusion matrices of E15 to E16, and the Phase
+III endpoint-sampling problem (currently buried under an incoherent ∞-categorical apparatus) are all
+genuinely interesting if extracted from the surrounding machine. Section 9 sets out a prioritized
+de-construction plan; Section 11 gives the verdict.
+
+Editorial Assessment Unit
+
+1
+
+LINE-LEVEL REVIEW REPORT
+
+131
+
+81
+
+11
+
+6
+
+pages read line-by-line
+
+line-referenced findings
+
+references never cited in body
+
+conflicting network counts
+
+2. Scope, Method, and What Changed
+The unit of review for this report is the line, not the claim. The full text layer (7,897 lines over 131 pages)
+was extracted with a layout-preserving converter and read sequentially from page 1 to page 131, with every
+theorem, definition, table, protocol, and numerical verdict logged against its line number. Where the
+extraction was ambiguous (superscripts flatten in text extraction, so 0.926 reads as “0.926”), the
+corresponding PDF page was rendered to an image and inspected visually before any finding was recorded;
+this report therefore distinguishes extraction artifacts (not flaws) from render-level defects (flaws), and
+several findings below were confirmed at the pixel level. Two audits were run over the whole document: a
+citation-coverage audit that parsed every bracketed reference group in the body and compared it against the
+fifty-four bibliography entries, and a count-consistency audit that extracted every stated count of
+biochemical networks, thresholds, and recovery horizons for cross-comparison.
+The manuscript under review is the third identifiable version of the same work. Version v2 (90 pages, 41
+references, 30 August) was the subject of the novelty assessment of 30 August. Version v3 (131 pages, 54
+references, 31 August) incorporates, among other things: a new smooth-surrogate treatment of the
+algorithmic rate-distortion distance (Sections 4.1 and 4.2); genome-scale biological validation of an
+operational κV on the M3D, PRECISE, GSE64021, PaxDb and Schmidt proteomics datasets (Studies E24 to
+E27); a direct-raw-Keio essentiality test (E15) and an iML1515 cross-rebuild test (E16); a
+persistent-homology operationalization of the higher-categorical closure test (E4); nine additional designed
+metabolic networks (E through K-plus); and bibliography additions covering algorithmic rate-distortion,
+categorical cybernetics, categorical autopoiesis, chemical organization theory, network expansion, higher
+gauge theory and homotopy type theory. The scale of the expansion matters for the review: approximately
+3,400 of the 7,897 lines are new content appended in “elevation rounds” (v1 through v20 of an internal study
+series), and the framing sections (abstract, introduction, roadmap, limitations) were not rewritten to match.
+
+Aspect
+
+v2 (30 Aug, 90 pp)
+
+v3 (31 Aug, 131 pp)
+
+Size and
+references
+
+90 pages, 41 references, 15 numbered
+contributions
+
+131 pages, 54 references, 16 numbered contributions;
+~3,400 new lines in §19 alone
+
+External data
+
+None; all validation self-generated
+
+M3D, PRECISE, GSE64021, PaxDb, Schmidt 2016
+proteome, raw Keio supplements, iML1515, iAF1260,
+iMM904
+
+Prior art
+
+Vereshchagin–Vitányi, Hirota, Segura, Dittrich,
+Handorf, Fong–Spivak, Hedges all uncited
+
+All added to the bibliography; but 11 of 54 never cited in
+the body, 6 with false “Cited in §X” annotations
+
+Editorial Assessment Unit
+
+2
+
+LINE-LEVEL REVIEW REPORT
+
+Aspect
+
+v2 (30 Aug, 90 pp)
+
+v3 (31 Aug, 131 pp)
+
+Framing integrity
+
+Internally stale in places (roadmap counts)
+
+Six mutually different network counts (2 / 4 / 5 / 10 / actual
+~13); limitations contradict body results
+
+Central definition
+
+κV from Bregman divergence at distD
+
+Three coexisting κV objects; FBA variant redefined post
+hoc (“v10 main definition”)
+
+Provenance
+leakage
+
+“Earlier drafts” references
+
+“The user” (9 sites), “Qwen audit”, “source transcript”,
+commit 07e6d85, build-log audits, v1–v20 study rounds
+
+Table 1. Structural comparison of the assessed versions. Line counts refer to the extracted text layer.
+
+3. Textual and Typesetting Defects
+Category A collects the defects that are visible on the rendered page without any mathematical
+interpretation: clipped text, a broken citation marker, cross-references to nonexistent sections, wrong
+enzyme-commission numbers, a biomass-units anomaly, and small numeric inconsistencies between
+restatements of the same quantity. These are individually small and collectively serious, because they show
+the PDF was never proofread end to end at the level of its own typography. A journal’s production team
+would return the file on the first three items alone; an editor should treat them as a proxy for the care taken
+with the less visible layers.
+The gravest item is Definition 3.18, the five-step protocol that the abstract calls the paper’s operational
+centerpiece. In the rendered PDF the step labels are physically truncated: step (i) reads “Knockout”, but the
+following steps begin mid-word as “nder dynamics”, “above threshold”, “nstream cascade” and “toration
+control” (L780–791; confirmed by pixel-level inspection of page 14). The protocol is nevertheless cited by
+number throughout the paper, and readers must reconstruct from context that (ii) is a drop step, (iii) a
+recovery step, (iv) a downstream-cascade step and (v) a restoration-control step. The same overfull-box
+clipping reappears in Table 6, whose “likely missing term” column ships the fragments “growt” (three cells)
+and “regulat” (one cell; page 119). The one broken citation marker, “the standard essentiality threshold [?]”
+(L859), is an unresolved LaTeX \cite that survived into the final PDF; the in-text audit of v12 checked
+dangling \ref labels but evidently not \cite keys.
+Cross-reference integrity fails repeatedly at the section level. The future-directions item 5 points to “the
+operational §1.4 form” (L7415), but Section 1 has no subsections. The authorship statement directs readers
+to “the manuscript’s §7 research-integrity notes” (L7715), but Section 7 is the composition-theorem section
+and contains no such notes. The §19 study rounds are cross-referenced in a numbering space (§§19.9 to
+19.22) that collides with the Remark numbering of the same section (Remark 19.19 is the claim-by-claim
+verification, while “the v17 round (§19.19)” denotes the M3D study), so at least a dozen internal pointers are
+ambiguous. Two passages state the same statistic with different values: the iML1515 direct correlation to raw
+Keio essentiality appears as −0.018 in the E16 table (L5424) and −0.008 in the E18 re-run table (L5749),
+with the derived stability gap shifting between 0.103 and 0.093 accordingly.
+
+Editorial Assessment Unit
+
+3
+
+LINE-LEVEL REVIEW REPORT
+
+Two factual slips have substantive weight. Glycogen phosphorylase is labeled EC 2.7.4.1 in the Network G
+design (L3363–3364), which is the EC number of polyphosphate kinase, correctly used for PPK in the same
+paragraph; glycogen phosphorylase is EC 2.4.1.1, so the same EC number is assigned to two different
+enzymes four lines apart. The attribution EC 2.6.1.12 to the invented aspartate–pyruvate transaminase M11
+is also doubtful, since that EC entry is aspartate–prephenate aminotransferase. Separately, the wild-type
+biomass flux of iJO1366 is reported as 15.444 h−1 on 10 mmol glucose per gDW per hour (L5006–5013),
+roughly sixteen times the biologically possible growth rate on that uptake; the comparison with iML1515’s
+0.9259 is glossed as “different biomass stoichiometry” when the actual cause is almost certainly different
+units conventions (mmol-biomass versus gDW-normalized), which the relative-threshold logic papers over
+but never states.
+
+4. Mathematical Flaws and Proof Gaps
+Category B collects places where a stated theorem, lemma, or formula is wrong, is unproven as stated, or is
+proven at a level of rigor far below what its rhetorical use requires. The pattern is consistent: headline claims
+are stated as theorems “closing” the paper’s own conjectures, while the proofs are sketches, restatements, or
+appeals to standard machinery that does not apply. Where the mathematical core is sound it is also
+elementary, and where it is not elementary it is not sound.
+The smooth-surrogate chain of Section 4 is the clearest case. Definition 4.6 asserts that the surrogate rτ,β,D is
+C2, but its kernel is the squared positive part [d−D]2+, which is C1 and not C2 at the threshold locus d = D.
+Proposition 4.7 then compounds the error by claiming that the positive-part projection, the supremum over
+unit bivectors, and the maximum over margins “preserve smoothness”, giving a “C2 observable”; both the
+positive part and the supremum are nonsmooth operations, which is precisely why Section 4.2 needs Clarke
+subdifferentials three pages later. The paper contradicts itself on this point in adjacent subsections. Lemma
+4.10’s uniform Lipschitz bound is vacuous as proved: its own denominator lower bound 2−L/τe−βdiam²/τ tends
+to zero as τ → 0, and β is unbounded in the family, so no uniform bound is established; Theorem 4.11 calls
+the parameter set “discrete-enumerable” (L1095) when Definition 4.9 indexes it by a continuum, and its
+upper-semicomputability claim is asserted for a supremum over uncountably many functions. Remark 4.12’s
+“consistency with distD up to O(1)” establishes only a lower bound on the envelope and no upper bound at all.
+Corollary 4.14 is the single worst mathematical passage. It asserts, as a corollary, exactly the equality
+between the viability depth DV and the curvature κV that Definition 2.1 had explicitly disclaimed as “a
+model-specific relation, not an identity”; its proof computes only the trivial radial average ⟨Vmax − V ∘ γa⟩
+and never derives κV from the curvature 2-form; and its closing substitution “F = κV and area = πa²” gives
+κV · πa² = πa4, not the πa² the text claims (L1150–1177). The stratified-holonomy section has two further
+
+analytic defects: the matching condition (O3) is presented as an exact identity in a log/commutator form that
+is a Baker–Campbell–Hausdorff truncation of the standard gauge relation, and the small-loop formula (5)
+posits a loop “crossing the boundary once”, which a closed transverse loop cannot do (the paper’s own
+numerics use two crossings), while adding an order-one boundary reset term to an ε² expansion whose own
+verification exhibits an order-ε boundary contribution instead (L454–466).
+
+Editorial Assessment Unit
+
+4
+
+LINE-LEVEL REVIEW REPORT
+
+Two “theorems” added in the elevation rounds are incorrect as stated. Theorem A of Study E13 (“maxRAF =
+terminal coalgebra”) defines Φ(S) = {r ∈ U : catalyzed by S, food-generated} and asserts Φ(S) ⊆ S for all S,
+which is false for that definition (a reaction catalyzed by S need not be in S); it further calls Φ “a polynomial
+endofunctor”, which the catalysis and closure conditions are not. The deflationary operator that would make
+the statement true is the standard greatest-fixed-point iteration known in the RAF literature, so nothing new
+is proved even after repair. Theorem B of the same study claims uniqueness of the functorial realization “by
+Strachey–Reynolds parametricity restricted to typed polynomial optics” (L5083–5084); parametricity is a
+property of polymorphic terms in typed calculi and cannot decide uniqueness of functors between the
+categories at hand. Corollary 17.3, the “univalence-identified fixed point”, imposes a metric on a simplicial
+mapping space, speaks of “a unique fixed point in each hom-set”, and asserts that “the type of contractible
+∞-groupoids is equivalent to the universe U”, which is false (that type is contractible, not universe-sized); the
+proof chains these non sequiturs (L2734–2750). Remark 20.2’s claim that the upper-bound language is
+“theorem-justified” then restates the domination as “κV bounded above by the envelope E”, a unit error (a
+derivative ratio bounded by a function value) that recurs when a curvature 2-form integral is “bounded” by a
+scalar ratio integral (L6812–6836).
+Finally, the 3/2 fatigue “derivation” (Theorem 12.2) is honest arithmetic wrapped in a misleading title. The
+exponent follows from an Itô-isometry computation plus the modeling assumption σ² = ν·a
+(path-length-proportional diffusion); with amplitude-independent noise the same computation yields an
+analytic a1 correction instead, so the “derived” exponent is manufactured by the ansatz. The first-passage
+Lévy story is decoration that the proof never uses, the constant Cfat is not derived (κ is “a kernel constant of
+order unity” absorbing a factor of 2.3 between theory and fit), and the reported 95% confidence interval
+[1.471, 1.493] excludes the theoretical 3/2, which the text acknowledges and then summarizes as “verified to
+within 1.4%” (L2030–2057).
+
+5. Internal Inconsistencies
+Category C collects statements that contradict other statements in the same document. The dominant cause is
+structural: the manuscript grew by appending elevation rounds without ever reconciling the framing layers, so
+the abstract, the introduction’s roadmap, the limitations section, and the conclusion each snapshot a different
+draft state. The clearest symptom is the answer to the question “how many biochemical networks does the
+paper test?”, which receives six mutually different answers in six places, tabulated below. A reviewer who
+reads only the abstract (four networks, climaxing at Network E’s 82.8%) and then only the body (eleven
+networks A through K plus variants, climaxing at 52/52 = 100% “FULL AUTOPOIESIS”) is reading two
+different papers.
+The stale-framing problem reaches its sharpest form in the limitations section. Item 9 of Section 21.3 states
+that the closure test “does NOT produce a fully autopoietic verdict, and designing a fully autopoietic network
+with realistic biology remains open” (L7092–7098), which is the v2 position; the body’s Section 18.11
+declares Network K a 52/52 = 100% Phase I verdict and Section 18.13 stress-tests it. Item 8 of the same
+limitations list says the piecewise holonomy formula is “verified numerically on a two-stratum abelian (U(1))
+
+Editorial Assessment Unit
+
+5
+
+LINE-LEVEL REVIEW REPORT
+
+base” with the non-abelian extension “left for future work” (L7087–7091), while Section 3.1 presents SO(3)
+and CO(3) verifications plus five loop topologies as already done. The conclusion’s “ten real biochemical
+networks” (L7482) matches neither the abstract’s four, the roadmap’s two, the limitations’ four, nor the actual
+count of roughly thirteen (A, B, C, D, E, F, G, H, I, J, K, K-plus, and the iJO1366 overlay).
+A second family of inconsistencies is conceptual rather than editorial. The DV-versus-κV distinction,
+carefully drawn in Definition 2.1 (“it is not a curvature 2-form… the equality is a model-specific relation,
+not an identity”), is collapsed by Corollary 4.14 (which asserts the equality for all radially symmetric V), by
+Definition 6.1 (which cites “κV of Definition 2.1 (viability depth)”), by Remark 10.1 (“follows from
+Proposition 4.4 on the same model”, without the computation), and again by the conclusion. The
+inverse-limit-versus-filtered-colimit confusion that Section 16.1 explicitly corrects (“this is a filtered colimit,
+not an inverse limit”) resurfaces in contribution 7 of the introduction, in the title and text of Proposition 16.7
+(whose “projection arrows Rmax → Ri” are described as “the inclusions”, which point the other way), in the
+interpretation paragraph, in the script name, and in the conclusion. The endofunctor claim is stated in the
+introduction (“a single endofunctor T on the optic category”) and withdrawn in Remark 7.8 (“requires
+explicit functorial semantics… not established here”), yet the withdrawn form continues to circulate in the
+§17 headline and the conclusion’s “realization-to-contraction functor”, which is itself never defined
+anywhere in the paper.
+The remaining contradictions are localized but each would draw a referee comment. Definition 2.5 defines
+optic objects as triples (M, C, R) while Theorem 16.3 treats them as pairs with residuals on morphisms, two
+different formalisms coexisting without reconciliation. The base manifold is renamed from Θ to B in
+Definition 3.1 but Θ returns in Proposition 4.4, Remark 4.15 and Theorem 3.14 (with a differently shaped
+tuple). The structure group is SO(2)/SO(3) in Definition 2.2, requires added Weyl structure before CO(r) is
+licensed in Remark 2.3, and is flatly “the Fisher–Rao stabilizer CO(2)/CO(3)” in Remark 2.4. Equation (37)
+carries a three-term deterministic decomposition (πa², a·κV(a) = a³, Cfata3/2) while Claim C fits a two-term
+model; at the operating amplitude a = 0.3 the omitted a³ term is 3.3 times the fitted fatigue term, and Section
+11’s stress test uses the three-term mean. The §15 “control” experiment “replaces” the RPSI optic f2 with an
+expansion (determinant 1.15) when §8’s canonical instantiation already defines f2 = 1.15·Id as the expansion,
+making the control identical to the canonical setup. And the Network A results table marks component g
+“HOMEOSTATIC” with a recovery value of 164.2 (far above the 0.1 threshold) because it never dropped
+below threshold, while Remark 18.3 explains g’s failure as a collapsed repair pathway, contradicting the
+table’s own numbers.
+
+Location (line)
+
+Stated count
+
+What is actually present
+
+L238 (roadmap)
+
+“two real biochemical networks” (Section 18)
+
+Stale v2 text
+
+L40–47 (abstract)
+
+“four real biochemical networks”, then lists five
+(A–E)
+
+Count and list disagree; E is synthetic
+
+L167–180 (contribution 12)
+
+“four”, listing A, B, C, D and E
+
+Same five-as-four mismatch
+
+L2899–2901 (§18 opening)
+
+“two real biochemical networks”
+
+Stale v2 text again
+
+Editorial Assessment Unit
+
+6
+
+LINE-LEVEL REVIEW REPORT
+
+Location (line)
+
+Stated count
+
+What is actually present
+
+L7092–7098 (limitations)
+
+“four”; “no fully autopoietic verdict” exists
+
+Contradicts §18.11’s 52/52 = 100%
+
+L7482 (conclusion)
+
+“ten real biochemical networks”
+
+Sixth distinct count
+
+Actual body content
+
+—
+
+A, B, C, D, E, F, G, H, I, J, K, K+,
+iJO1366-overlay (~13)
+
+Table 2. The six mutually different answers to “how many networks does the paper test?”
+
+6. Provenance and Integrity Signals
+Category D collects the passages that document, in the manuscript’s own words, how it was produced. Read
+together they establish that the document is a lightly-edited research-session transcript: an artifact in which
+an external “user” requests analyses, an AI system runs them, external AI audits (a “Qwen novelty
+assessment” and a 15-page “Novelty Assessment Report” held in an external_audits/ folder) supply the
+criticism that drives each revision round, and the rounds are versioned v1 through v20 with git commits. The
+scientific content is often honest about this, which is to the authors’ credit as analysts; as a manuscript it is
+disqualifying, because no journal can publish a paper whose methods narrative is addressed to a prompter
+rather than a reader.
+The explicit markers are unambiguous and numerous. Section 19 opens by collecting “nine elevation studies
+conducted in response to the Qwen novelty assessment of the manuscript (external audit)” and cites “the v3
+results from commit 07e6d85” (L4015–4024). Study E15 reports that “the user deposited the raw primary
+supplementary tables from Baba et al. itself into the project repository (folder raw tomoya baba supp/)”
+(L5187–5190); E16, E17, E12 and the v11–v13 rounds each record that “the user requested” or “the user
+then requested” the next analysis (L5302, L5505, L5680, L5958, L5801); the E27 replication is
+“(user-directed)” (L6686). The v14b round corrects “two false statements” in the manuscript’s own prior text
+and retracts an earlier interpretation (L6071–6125). Remark 20.6 compares the paper’s proposition to “the
+source transcript’s curvature-survival equivalence”, acknowledged “by the source” (L6940–6941). And the
+v12 round embeds a complete build log: a dangling-\ref audit with LaTeX line numbers and the names of the
+patch scripts “patch_manuscript_v12.py” and “patch_elevation_pdf_v12.py” (L6015–6048).
+The citation-coverage audit compounds the integrity problem. Eleven of the fifty-four bibliography entries
+are never cited anywhere in the body: [5] (Brunerie et al., the orphaned v2 mis-citation), [32], [34], [35], [36]
+(higher-gauge references whose annotations describe usage that never appears), and, most importantly, [42]
+Vereshchagin–Vitányi, [45] Hirota et al., [46] Segura, [49] Kirchhoff et al., [50] Becker et al. and [51]
+Bravetti et al. Each of those six carries an annotation asserting a citation site: “Cited in §4 for prior-art
+precedence of the algorithmic rate-distortion distance”, “Cited in §3 for prior categorical-autopoiesis
+formalization work”, and so on. No such citations exist. Definition 4.1 therefore still presents the algorithmic
+rate-distortion distance without attribution at the point of definition, exactly as in v2; the bibliography merely
+performs attribution. Since the annotations were evidently written to satisfy an audit’s demand for
+
+Editorial Assessment Unit
+
+7
+
+LINE-LEVEL REVIEW REPORT
+
+attribution, this pattern deserves an explicit integrity note in any editorial file.
+The authorship statement itself conflicts with the documented workflow. It asserts that “all mathematical
+content, theorem statements, proofs, numerical experiments, and conclusions were drafted by the author with
+the assistance of the Z.ai large language model for stylistic and editorial polish; the model did not originate
+novel mathematical claims” (L7713–7220). The body text attributes the design of Networks J and K, the
+robustness sweep, the definition promotion, and the data deposits to “the user”, attributes the paper’s revision
+agenda to two external AI audits, and refers to a “source transcript”; the data-and-code availability URL is a
+public repository named “deepseek-highly-general”, which contradicts the named drafting model. The
+statement also cites nonexistent §7 research-integrity notes. Whatever the true division of labor, the
+statement as written cannot be reconciled with the paper it accompanies, and the journal ’s AI-use and
+authorship policies will require an accurate account rather than this one.
+
+7. Methodological Weaknesses in the Validation
+Chain
+Category E collects the structural problems in how evidence is produced and selected, as distinct from
+whether any individual number is right. Five patterns dominate: definition shopping, label leakage,
+self-consistency presented as validation, threshold placement, and a serial search whose final statistic is
+reported without correction. Each pattern is documented in the manuscript’s own text, which again reflects
+real analytical transparency and still invalidates the headline claims as stated.
+Definition shopping is explicit. The indicator-weighted variant of the FBA κV was promoted from a v9
+refinement candidate to “the main definition” after a comparison of four weighting variants, at the “user”’s
+request, “to test whether it strengthens the original findings” (L5680–5683). The stated effects of the
+promotion are that E12’s calibration correlation jumped from +0.370 to +0.938 and that the iML1515
+correlation flipped from −0.008 to +0.466 (L867–877). The definition text itself is titled “v10 main
+definition, indicator-weighted” and cites its own justification studies in-line. Worse, the winning indicator
+mask ᶜ[Δb > 0.05·bwt] is built from the in-silico essentiality criterion, so the promoted predictor contains the
+in-silico version of the outcome label; the paper concedes the semantics (“essentially asks given that a gene is
+in-silico-essential, what is its κV?”, L5646–5647), and the honest cross-rebuild evidence shows what the
+unmasked metric is worth on its own: below-chance ROC AUC 0.428 and top-10 precision 0.000 on
+iML1515, with the admission that “κV as currently defined (sum of squared flux changes) measures flux
+rerouting, not biomass reduction” (L5412–5445).
+The self-validation pattern persists from v2 at every level. Claims A to E fit data simulated from the same
+formulas, with the fitted coefficient’s “prediction” being the data-generating parameter set in the same table
+(Claim C: predicted c2 = 0.0500 against the simulator’s Cfat = 0.05; Claim D: Kpred = 25 versus Kobs = 25
+with relative error 0.00). Claims F and G are deterministic simulations of textbook identities (so(3)
+commutators; the quantum-Zeno τ² expansion), and Remark 14.7 defends the resulting R² = 1.0000 by
+conceding that the simulated curve is the analytic law itself. The genome-scale “external” validations are
+
+Editorial Assessment Unit
+
+8
+
+LINE-LEVEL REVIEW REPORT
+
+internal in the way that matters: Study E12’s held-out AUC of 0.953 correlates two statistics of the same
+knockout-FBA solution, and the genuinely external anchors are much weaker when tested directly (raw-Keio
+AUC 0.713, held-out specificity 0.180, MCC 0.085). The E14 “benchmark” against network expansion and
+chemical organization theory compares instruments run on different inputs (full model versus a
+28-metabolite subnetwork) answering different questions, and then declares the dynamical test “strictly
+stronger”.
+The transcript-layer biology (E10 through E27) is the exception that proves the rule: its final numbers are
+defensible exactly because the round structure is honest. But the same round structure is a garden of forking
+paths when read as hypothesis testing. The abstract’s r = +0.374 at n = 433 is the survivor of seven
+documented restructurings of the same question (E10 r = 0.010; two masking variants at p = 0.33 and 0.43; a
+retracted subset; a mapping inversion that found exactly one shared gene; a cross-condition test at n = 7, p =
+0.18; then the M3D compendium), and no multiplicity correction is applied or discussed at the level of the
+headline. Threshold placement has the same flavor in the network designs: acceptance margins of 0.498
+against a 0.5 pathwise threshold, 0.401 against a 0.4 Phase III threshold, and 0.853 against 0.5, with the
+thresholds themselves hand-set (xthresh = 0.1, φ = 0.4 versus 0.5, τ = 0.30, n = 2 perturbed trajectories) and
+the recovery horizon doubled from T = 200 to T = 500 precisely for the designed-to-pass Network E.
+Two architectural gaps complete the picture. First, the paper’s central quantity is not one object: the
+geometric κV of Propositions 4.4 and 4.7 (a positive-part curvature contraction of a Bregman divergence at a
+smooth surrogate), the FBA-operational κV of Definition 3.21 (an indicator-masked sum of squared flux
+changes), and the time-course κV(r, t) = (vr(t) − vr(T1))² of Studies E10 and E22 are three different
+constructions with different domains, and the empirical program never touches the first. Second, the
+smooth-surrogate pathway that connects them in theory is the one the elevation studies dismantled: E5’s
+calibration constant for the surrogate is shape-dependent, sign-flips on real FBA-derived viability, and yields
+a negative (unphysical) κV when the synthetic constant is applied, with the v4 verdict “NOT
+TRANSFERABLE” directly contradicting the v2 claim “transferable to subsequent real-data applications”
+two pages earlier (L4353–4470).
+
+8. What Genuinely Improved or Works
+Credit where due, stated plainly. The revision fixed several v2 defects: the optic-category definition now
+cites Riley’s “Categories of optics” rather than the HoTT seminar notes (the [5] mis-citation survives only as
+an orphaned bibliography entry); the Hordijk–Steel, Dittrich, Handorf–Ebenhöh, Fong–Spivak–Tuyéras,
+Hedges, Hirota, Segura, Lurie, Riehl–Verity and Vereshchagin–Vitányi entries all exist in the bibliography
+now; the DV versus κV distinction is at least drawn once (Definition 2.1) before being collapsed; the CO(r)
+structure group is correctly demoted to an extra modeling commitment in Remark 2.3; and the closure-test
+definition now includes a genuine viability threshold to defeat the trivial reinsertion failure mode. The
+methodology scaffolding around the prototype (calibration/holdout split, no-loop-drift control,
+equal-exposure permutation test, subdivision consistency, bootstrap variance) is sound experimental design
+in form.
+
+Editorial Assessment Unit
+
+9
+
+LINE-LEVEL REVIEW REPORT
+
+The strongest new content is the E24 to E27 chain, which this review deliberately separates from the
+surrounding apparatus. The M3D genome-panel test (r = +0.374, n = 433, partial r = +0.251 controlling
+expression level, with the confound honestly described as “not wholly a level effect” rather than
+“unconfounded”), the 2×2 platform-by-class disambiguation on a common gene set with all four Fisher
+contrasts significant, the revision of the interpretation to growth-state-transition severity after non-carbon
+stress controls, and the Schmidt-quantitative-proteome replication establishing that the κV-graded
+organization is transcript-layer-specific while protein magnitudes are comparable, together constitute a real,
+honestly-caveated
+
+correlational
+
+finding.
+
+The
+
+E15
+
+direct-raw-Keio
+
+analysis
+
+(transitivity
+
+gap,
+
+medium-mismatch mechanism, PEC confidence stratification) and the E16 iJO1366-versus-iML1515
+model-gap comparison (30 to 13 gap candidates, 14 aminoacyl-tRNA synthetases resolved by the newer
+model’s explicit tRNA charging) are likewise publishable analyses in their own right. The v14b retraction,
+the honest nulls at every round, and the E5 arc that ends in its own constant’s refutation show authors capable
+of the right scientific instincts.
+Finally, the closure-test program contains one genuinely good idea wrapped in two layers of apparatus. The
+knockout–collapse–threshold-crossing-recovery protocol with a downstream-cascade check and a restoration
+control is a legitimate operationalization of autopoietic closure, and its application to fixed, unengineered
+models (28/50 on iJO1366; 20/50 on both iAF1260 and iMM904, with honest cross-model agreement
+statistics) is the right experiment. The endpoint-sampling problem it discovered, that limit-cycle recoveries
+are scored by oscillation phase at the sampling instant, is a real methodological observation; the correct fix is
+period-averaging or multi-time sampling, both of which are one-line changes to the protocol. That the paper
+instead built an ∞-categorical “univalence-corrected” reinterpretation, operationalized as two perturbed
+reruns with a 30% tolerance, is a measure of how far the framing has drifted from the science.
+
+9. Prioritized Opportunities for Improvement
+The improvements below are ordered by expected effect on publishability. The first three are
+de-construction steps that reduce the manuscript to what its evidence can actually support; the remaining
+three are constructive steps that would give the salvageable core a defensible home. None of them requires
+new experiments beyond those already performed; all of them require deleting or relocating content, which is
+the operation the revision cycles have systematically avoided.
+
+Editorial Assessment Unit
+
+10
+
+LINE-LEVEL REVIEW REPORT
+
+1. Split the single manuscript into three papers
+The current document contains at least three separable works at three different credibility levels. The first is
+a methods paper on the dynamical closure test applied to fixed genome-scale models: Definition 3.18
+(repaired typographically), the E2/E11/E15/E16 fixed-model results, the dep-ratio analysis, and the
+network-expansion and chemical-organization comparison run on matched inputs. The second is a short
+empirical report on the κV–transcript association: E22’s panel construction, E24 to E27, with the metric
+renamed honestly (a model-derived flux-perturbation sensitivity, not a curvature) and the full search path
+either disclosed in a methods paragraph or pre-registered going forward. The third is the theoretical
+framework, which requires the mathematical repairs of the next item before it can be submitted anywhere.
+Each of the first two could be reviewed on its merits; none can while embedded in the current 131-page
+compilation.
+The splitting also forces the naming problem to a resolution. Three constructs currently share the name κV;
+after the split, the geometric object keeps the name (or a better one), the FBA statistic becomes κflux or a
+rerouting index, and the time-course statistic is named for what it is. A reader must never be able to slide
+from a theorem about one to a correlation about another, which is what the current text invites at every level,
+up to and including the abstract.
+
+2. Repair or delete the broken mathematics before any resubmission
+Five items are repairable with bounded effort, and each currently blocks a referee’s approval: (i) replace the
+[d−D]2+ kernel with a smooth soft-threshold (for example a Student-t or logistic kernel) so that the C² claim
+becomes true, or weaken every smoothness claim to C1 plus Clarke differentiability consistently; (ii) restate
+Lemma 4.10 with a bounded parameter family (compact (τ, β) ranges, enumerable L) so that both the
+uniform Lipschitz bound and the upper-semicomputability claim become provable, and restrict Theorem
+4.11 to a countable dense subfamily with a continuity argument for the envelope; (iii) delete Corollary 4.14
+or restate it as a model-specific computation with the correct area factor, and reconcile it with Definition
+2.1’s disclaimer; (iv) restate Theorem 3.5’s small-loop formula for two crossings with the boundary transition
+expanded to the order it actually contributes, and write the matching condition in the standard gauge form;
+(v) either delete Corollary 17.3, Theorem 17.2’s uniqueness clause, Theorem A/B of E13 and the §17
+apparatus, or commission actual proofs, which in the case of the terminal-coalgebra statement means
+correcting Φ to the deflationary operator and citing the finite-lattice fixed-point literature it instantiates.
+One further repair has outsized value: define the “realization functor R” that the paper invokes at least six
+times, or remove every claim that depends on it. As written, the bridge between the categorical fixed-point
+story and the numerical contraction experiments is a name, not a construction, and every “unconditional” and
+“explicit” attached to it is unsupported. If the seven-optic composite cannot be realized faithfully, the honest
+paper says so in one sentence and the Banach analysis is reported for the toy maps it actually covers.
+
+Editorial Assessment Unit
+
+11
+
+LINE-LEVEL REVIEW REPORT
+
+3. Excise the session provenance, then re-verify the bibliography against the
+text
+A submission-ready manuscript cannot contain “the user”, “the Qwen assessment”, “the Novelty Assessment
+Report”, “the v14b audit”, “the source transcript”, commit hashes, version labels (v1–v20, “v10 main
+definition”), build logs, patch-script names, or folder paths such as “raw tomoya baba supp/”. Every one of
+these is a find-and-replaceable marker today, but removing them is not cosmetic: the surrounding narrative
+(elevation rounds, claim-by-claim verification of an audit, future-direction items marked closed inside their
+own statement) is built on them and must be rewritten as methods, not as responses. The authorship and
+AI-assistance statement must then be rewritten to be true, and reconciled with the repository name and the
+documented workflow; the current statement’s claim that the model “did not originate novel mathematical
+claims” is not sustainable against the paper’s own text.
+The bibliography needs a mechanical pass that the v12 audit did not perform: compile-time citation checking
+(every “[?]” is a build failure), plus a report of uncited entries. The eleven uncited references should either be
+cited at the point of use (the Vereshchagin–Vitányi citation belongs at Definition 4.1, Hirota and Segura
+belong in Section 3’s related-work paragraph, which currently has none) or removed; the false “Cited in §X”
+annotations must be deleted in either case. This is the single highest-integrity-value edit available, because
+the annotations currently perform attribution that the text does not deliver.
+
+4. Fix the endpoint-sampling problem in the closure test and drop the
+higher-categorical patch
+The Phase I endpoint test scores limit-cycle recoveries by the oscillation phase at the sampling instant; the
+paper itself demonstrates this with AcCoA and ALA. The principled fix is to average the post-recovery
+trajectory over one period (or to sample at multiple offsets and require the median above threshold), which
+preserves the falsifiable binary verdict, removes the 0.498-versus-0.5 threshold knife-edge, and makes the
+Phase III apparatus unnecessary. The persistent-homology test of Study E4 (Betti numbers of the trajectory
+point cloud) can be retained as an optional descriptor, but the paper should stop calling a two-perturbation
+rerun the contractibility of an ∞-groupoid, and “univalence” should not appear in the operational verdict of a
+knockout experiment. The 2×2 platform-by-class design of E25 shows the authors can do clean
+disambiguation; the same discipline applied here would close the question in a page.
+If a permissive multi-level verdict is retained for any reason, the acceptance logic must be a fixed hierarchy
+declared before the experiments, not a disjunction of three levels whose thresholds were tuned to the
+observed fractions. The current construction, in which a system is “autopoietic at Phase III” whenever it fails
+Phase I in a specific oscillatory way, is criterion relaxation documented as a theorem.
+
+Editorial Assessment Unit
+
+12
+
+LINE-LEVEL REVIEW REPORT
+
+5. Report the designed-network lineage as engineering, not discovery
+Networks E through K-plus are a design-convergence sequence: each variant adds isozymes, changes
+synthesis substrates, adds a food species, or boosts rate constants after seeing the previous verdict, and the
+paper’s own monotone-improvement table (E 82.8% to K 100%) is a changelog. Presented as engineering
+with declared parameters (all kcat values, the T = 200 versus 500 recovery horizons, the food set expansions),
+this material is a legitimate specification-based stress test of the closure protocol: it shows which design
+features (isozymes with independent synthesis substrates, basal constitutive expression, storage buffers)
+convert homeostatic verdicts into autopoietic ones. Presented as “Propositions” with “STRICTLY
+GREATER” verdicts, it invites exactly the reading the Qwen audit gave it, and the iJO1366-overlay null (Δ =
+0) already shows the architecture adds nothing at genome scale. The honest framing is one section: the
+closure test as a design-verification instrument, the lineage as its calibration curve.
+
+6. Pre-register the next external-anchoring step and demote the in-silico
+headlines
+The paper’s strongest available external anchors are the raw Keio panels, the expression compendia, and the
+quantitative proteome, and the honest numbers on those anchors (AUC 0.713 direct; r = +0.374 and partial
++0.251; protein-layer null) are the ones the abstract should carry, with the in-silico AUC 0.953 reported as a
+calibration diagnostic of two FBA-derived statistics, not as validation. Before any further round, a
+pre-analysis plan for the essentiality question (primary endpoint, single metric definition fixed in advance,
+multiplicity correction for the already-explored variant space, and the unmasked κflux reported alongside any
+masked variant) would convert the documented search into a confirmatory analysis. The E16 result that the
+unmasked metric is below chance on the denser model should be treated as the standing null hypothesis to
+beat, not as noise to be masked.
+
+10. Consolidated Line-Level Findings Ledger
+The ledger consolidates the review’s granular findings. Line numbers refer to the 7,897-line extracted text
+layer of the 131-page PDF; page numbers in parentheses refer to the PDF’s own pagination. Severity is
+graded Critical (blocks publication on its own), Major (requires correction before publication), Moderate
+(requires an explicit fix or disclosure), and Minor (copy-editing). Findings that were verified against the
+rendered page rather than the text layer are marked “render-verified”. Extraction artifacts such as flattened
+superscripts were excluded from the ledger after pixel-level verification showed correct rendering.
+
+Lines
+
+Finding (Category A: textual and typesetting defects)
+
+Severity
+
+L780–791 (p.14)
+
+Definition 3.18 step labels (ii)–(v) are clipped mid-word in the rendered PDF (“nder dynamics”, “above
+threshold”, “nstream cascade”, “toration control”); render-verified. The centerpiece protocol is
+typographically broken.
+
+Critical
+
+Editorial Assessment Unit
+
+13
+
+LINE-LEVEL REVIEW REPORT
+
+Lines
+
+Finding (Category A: textual and typesetting defects)
+
+Severity
+
+L859 (p.15)
+
+Unresolved LaTeX citation ships as “[?]”: “the standard essentiality threshold [?]”; render-verified, sole
+occurrence.
+
+Major
+
+L7127–7185
+(p.119)
+
+Table 6 “likely missing term” cells clipped (“growt” ×3, “regulat”); render-verified.
+
+Major
+
+L839–877
+
+Draft version metadata embedded in text: Definition 3.21 titled “v10 main definition, indicator-weighted”;
+“v1–v9 elevation studies”, “(v10, E18; v11, E19)”.
+
+Critical
+
+L7415–716
+
+Cross-reference to nonexistent “§1.4” (“the operational §1.4 form”).
+
+Moderate
+
+L7715
+
+Authorship statement cites “the manuscript’s §7 research-integrity notes”; no such content exists in §7.
+
+Major
+
+L4872–4875,
+5928–5930
+
+§19 study-round cross-references (§§19.14–19.22) collide with the Remark numbering space (Remark 19.19
+etc.); a dozen internal pointers ambiguous.
+
+Moderate
+
+L5424 vs L5749
+
+Same statistic, two values: iML1515 direct Pearson r = −0.018 (E16 table) versus −0.008 (E18 re-run table);
+derived gaps 0.103 versus 0.093.
+
+Moderate
+
+L3363–3364
+
+Glycogen phosphorylase labeled EC 2.7.4.1 (polyphosphate kinase’s number, used for PPK correctly four
+lines later); actual EC 2.4.1.1. M11’s EC 2.6.1.12 attribution also dubious.
+
+Moderate
+
+L5006–5013, 5319
+
+iJO1366 WT biomass reported as 15.444 h−1 on 10 mmol glucose/gDW/h (≈16× biologically possible);
+iML1515 0.9259; glossed as “different biomass stoichiometry” (units conventions, unstated).
+
+Moderate
+
+L5694–5696
+
+“only 3 compute κV from FBA…: E10, E12, E15 and E16” (four items after “3”).
+
+Minor
+
+L7188–7190
+
+Table 6 caption uses singular “the author’s hypothesis” against consistent “we” elsewhere.
+
+Minor
+
+L364, 322–327
+
+Notation clashes: Γ = (M, R, EΓ) reuses M and R with different meanings than the RAF tuple (X, R, F, c).
+
+Minor
+
+L1204–1206
+
+Lagrangian (22) L = E[d] + λI introduced, never used again (orphaned equation).
+
+Minor
+
+Table 3. Category A: textual and typesetting defects (14 findings).
+
+Lines
+
+Finding (Category B: mathematical flaws and proof gaps)
+
+Severity
+
+L962–989
+
+Definition 4.6/Proposition 4.7 C² claims false: [d−D]²+ is C¹ not C² at d = D; positive part and supremum do
+not “preserve smoothness”; contradicts §4.2’s own Clarke machinery.
+
+Major
+
+L1026–1051
+
+Lemma 4.10’s uniform Lipschitz proof vacuous: its lower bound 2−L/τe−βdiam²/τ → 0 as τ→0; β unbounded in
+the family.
+
+Major
+
+L1015–1022,
+1092–1096
+
+Theorem 4.11: family indexed by a continuum (τ, β, D ∈ ℝ+) but proof calls it “discrete-enumerable”;
+upper-semicomputability of an uncountable supremum asserted, unproven.
+
+Major
+
+L1114–1133
+
+Remark 4.12’s “E consistent with distD up to O(1)” is a non sequitur (lower bound only; no envelope upper
+bound); Levin’s theorem uncited.
+
+Major
+
+L1150–1177
+
+Corollary 4.14: asserts the DV = κV equality that Definition 2.1 disclaims; proof never derives κV from F; “F
+= κV, area = πa²” gives πa4, not πa2.
+
+Critical
+
+L406–409,
+419–421
+
+Gluing matching condition (O3) is a BCH truncation presented as an exact gauge identity (standard form Ai
+= g−1Ajg + g−1dg).
+
+Major
+
+L454–466
+
+Theorem 3.5 formula (5): “crossing the boundary once” impossible for closed transverse loops (own
+numerics: ncross = 2); O(1) reset term in an ε² expansion, inconsistent with the paper’s own O(ε) boundary
+verification.
+
+Major
+
+Editorial Assessment Unit
+
+14
+
+LINE-LEVEL REVIEW REPORT
+
+Lines
+
+Finding (Category B: mathematical flaws and proof gaps)
+
+Severity
+
+L384–388 vs
+417–423
+
+Remark 3.2 defers the 2-categorical development to future work; §3.1 immediately claims the full gluing
+theorem “closing Conjecture 21.1”. Direct contradiction.
+
+Major
+
+L427–446,
+477–611
+
+Theorem 3.4 proof by asserted Giraud axioms for stratified spaces; Remarks 3.6–3.10 numerics verify
+self-derived formulas on toy constant-curvature connections; “closes Conjecture 21.1 in ALL THREE
+regimes” is an overclaim.
+
+Moderate
+
+L1709–1714 vs
+1267, 1829–1861
+
+Validation circularity: Claim C’s predicted c2 = 0.0500 is the simulator’s input Cfat = 0.05; Claims A–E fit
+data generated from the same laws (Claim D “rel err = 0.00”).
+
+Critical
+
+L1709–1714 vs
+1267, 1878–1879
+
+Eq (37) three-term decomposition (πa², a³, Cfata3/2) vs Claim C’s two-term fit; at a = 0.3 the omitted a³ term
+is 3.3× the fatigue term; §11 uses the three-term mean. Never reconciled.
+
+Major
+
+L1982–2057
+
+Theorem 12.2: 3/2 exponent manufactured by the ansatz σ² = ν·a (constant σ² gives analytic a¹); first-passage
+Lévy framing unused in proof; Cfat not derived (κ “order unity” absorbs 2.3×); theoretical 3/2 outside the
+reported 95% CI.
+
+Moderate
+
+L2734–2750
+
+Corollary 17.3 incoherent: metric on simplicial mapping spaces; “unique fixed point in each hom-set”; “type
+of contractible ∞-groupoids equivalent to U” false under univalence.
+
+Critical
+
+L5053–5068
+
+E13 Theorem A incorrect as stated: Φ(S) ⊆ S false for the defined Φ; Φ not polynomial; correct content is
+the standard finite-lattice greatest-fixed-point iteration.
+
+Major
+
+L5078–5091
+
+E13 Theorem B uniqueness “by Strachey–Reynolds parametricity” inapplicable to functor uniqueness;
+“numerical illustration” is ℤ/4 arithmetic; does not close the functorial-semantics problem it names.
+
+Major
+
+L4234–4256
+
+E3 transfer bound τZeno ≥ 1/(1+log₂ N) manufactured (four unjustified steps); verified with 45–180× slack
+(vacuous); “monotone direction-of-effect” is the chosen functional form.
+
+Major
+
+L6812–6836
+
+Remark 20.2 “theorem-justified” upper bound: restated domination “κV ≤ E” is a unit error (ratio vs
+function value); “∫ΣF ≤ ∫ΣκV ≤ ∫ΣκValg” mixes 2-form integrals with scalar ratios.
+
+Major
+
+L912–948
+
+Proposition 4.4’s “proof” is a restatement; gauge invariance argued via the square-root embedding’s
+SO(n)-invariance (a different group than the GC-gauge).
+
+Moderate
+
+L1446–1503
+
+Theorem 8.2: the “seven optics” instantiated as six identical generic resnet blocks + one linear map (no
+semantic connection to the arcs); “Bregman-regularized” is a misnomer (Euclidean projection, no Bregman
+divergence); bound looser than the trivial Lip(T).
+
+Major
+
+L1390, 1437,
+6957–6960
+
+The “realization functor R from endo-optics to endomaps” is invoked repeatedly (called “explicit” in §21.1)
+and never defined.
+
+Major
+
+L2383–2389,
+2417–2420
+
+§15 Prop 15.4’s “control” (f2 replaced by an expansion) is identical to §8’s canonical instantiation where f2 =
+1.15·Id is already the expansion; Fig. 9 caption repeats the confusion.
+
+Major
+
+L2333–2336
+
+Prop 15.1 states strong-monotonicity and cocoercivity hypotheses never used in its proof.
+
+Minor
+
+L2759–2798,
+3519–3526
+
+Phase III: recovery map equated to the seven-optic composite with no connecting construction;
+contractibility operationalized as n = 2 perturbed reruns, 30% tolerance, no test statistic; disjunctive
+acceptance makes the verdict strictly more permissive.
+
+Major
+
+L3954–3967
+
+Prop 18.26 “HoTT verdict” defined to coincide with Phase I (witness triangle present iff PASS);
+“contractible ⇔ Phase I = 100%” true by construction, labeled “falsifiable”.
+
+Major
+
+L3968–4002
+
+Prop 18.28 SO(3) holonomies hand-assigned (α = 1.0 “canonical”, axes by fiat); “identity holonomy” =
+exp(αT)exp(−αT) = I; Network K’s actual dynamics never enter; Theorem 3.5 invoked decoratively.
+
+Moderate
+
+L729–746
+
+Prop 3.16: “2√pa places Δ on the positive orthant of the unit sphere”; |2√p| = 2 (radius-2 sphere).
+
+Minor
+
+L1614–1673,
+2291–2311
+
+Claims F/G “empirical verdicts” are deterministic simulations of textbook identities; Remark 14.7 concedes
+the Zeno curve is the analytic law (48) evaluated at machine precision.
+
+Moderate
+
+Editorial Assessment Unit
+
+15
+
+LINE-LEVEL REVIEW REPORT
+
+Lines
+
+Finding (Category B: mathematical flaws and proof gaps)
+
+Severity
+
+L1380–1405
+
+Theorem 7.4 proof conflates optic-composition associativity with the monoidal structure; Construction
+7.1/Table 1 residuals are semantic descriptions (“residual = Fisher–Rao metric”), not objects of a concrete
+C; “compatibility Ai = Mi+1 by construction” asserted by declaration; O2 forward is a CPTP channel, not a
+Set-map.
+
+Moderate
+
+Table 4. Category B: mathematical flaws and proof gaps (28 findings).
+
+Lines
+
+Finding (Category C: internal inconsistencies)
+
+Severity
+
+L40–47, 167–180,
+238, 2899,
+7092–7098, 7482
+
+Network count stated as 2 / 4 (with five listed) / 4 / 2 / 4 (“no fully autopoietic verdict”) / 10 across six
+framing sites, against ~13 actual networks (A–K+ plus overlay); limitations deny the body’s 52/52 = 100%
+headline.
+
+Critical
+
+L246–274 vs
+1150–1162, 1259,
+1722–1724,
+7454–7456
+
+DV vs κV separation drawn in Definition 2.1, then collapsed by Corollary 4.14, Definition 6.1 (“κV of
+Definition 2.1 (viability depth)”), Remark 10.1 and the conclusion.
+
+Major
+
+L135–137 vs
+2457–2458,
+2628–2631, 2644,
+7407–7417, 7475
+
+Inverse-limit vs filtered-colimit: contribution 7 says “inverse-limit construction”; §16.1 explicitly corrects it;
+Prop 16.7 item 2 titled “Inverse limit” with “projection arrows” described as inclusions (pointing the wrong
+way); conclusion repeats “inverse limit”.
+
+Major
+
+L80–81 vs
+1426–1435
+
+Intro claims “a single endofunctor T on Optic(C)”; Remark 7.8 concedes the endofunctor semantics is “not
+established here” (typed endo-optic only); withdrawn form persists in §17 and conclusion.
+
+Major
+
+L275–312 vs
+284–286
+
+Structure group triple-claim: prototypes use SO(2)/SO(3) (Def 2.2); CO(r) needs added Weyl structure
+(Remark 2.3); “the Fisher–Rao stabilizer is CO(2)/CO(3)” flatly (Remark 2.4); spherical FR point stabilizer
+is O(n−1).
+
+Moderate
+
+L316–319 vs
+2489–2491
+
+Optic objects as triples (M, C, R) in Definition 2.5 versus pairs with morphism-residuals in Theorem 16.3;
+two formalisms coexist without reconciliation.
+
+Moderate
+
+L353–361 vs 676,
+931, 1178
+
+Base manifold renamed Θ → B in Definition 3.1; Θ returns in Prop 4.4, Remark 4.15, Theorem 3.14 (with a
+differently shaped tuple).
+
+Minor
+
+L3034–3039 vs
+2859–2873,
+3055–3060
+
+§18.4’s written FBA protocol (knock out ALL producers of m) cannot generate its own nprod-stratified
+results; implementation must have knocked out only active producers. Text vs code mismatch.
+
+Major
+
+L2936–2968 vs
+3408–3412,
+3519–3526
+
+Network A table: g marked HOMEOSTATIC with recovery 164.2 (never dropped below threshold);
+Remark 18.3 explains g as a collapsed repair pathway, contradicting the table.
+
+Moderate
+
+L3413
+
+PYR “baseline 0.0, recover 5.7, causally internal”: a component whose baseline is below the viability
+threshold passes the closure test; drop-condition semantics break.
+
+Moderate
+
+L3186 vs 2912
+
+Recovery horizon T = 200 for Networks A/B/D but T = 500 for the designed-to-pass Network E; goalpost
+move; §18.1 also calls mass-action kinetics “Michaelis–Menten–type” (no Km, no saturation) while E uses
+true MM.
+
+Moderate
+
+L3352–3354 vs
+4479 vs robustness
+tables
+
+“Substrate MAL is food (stable at 100)” in the E6 design contradicts MAL being a tested non-food
+intermediate (fragile 0.99 in K+).
+
+Moderate
+
+L1830–1831 vs
+2139–2145
+
+Claim E acceptance criterion drifts: n = 3 “Tctrl/Tloop ≥ 5” (Def 6.1, Table 2) vs n = 4 “Tloop < 2, Tctrl > 1”
+(Table 3).
+
+Moderate
+
+Editorial Assessment Unit
+
+16
+
+LINE-LEVEL REVIEW REPORT
+
+Lines
+
+Finding (Category C: internal inconsistencies)
+
+Severity
+
+L7245–7267 vs
+7087–7091 vs §3.1
+
+Non-abelian verification status stated three ways: Conjecture 21.1 restatement (U(1) only), Limitation 8
+(non-abelian “future work”), §3.1 (SO(3), CO(3), five topologies done).
+
+Moderate
+
+L3621–3626,
+3653–3658,
+3724–3732
+
+Acceptance margins cluster at thresholds: 0.498 vs 0.5; 0.401 vs 0.4; 0.853 vs 0.5; thresholds hand-set (φ =
+0.4 vs 0.5, τ = 0.30) and appear placed around observed values.
+
+Major
+
+L2103–2145
+
+Table 3 stray “+0.99958” in the ccomm row (commutator-fit R² mangled into the wrong column).
+
+Minor
+
+L3672–3675 vs
+§18 structure
+
+Network J has no subsection; introduced parenthetically inside §18.11’s opening; section numbering skips I
+→ K with J in passing.
+
+Moderate
+
+Table 5. Category C: internal inconsistencies (17 findings).
+
+Lines
+
+Finding (Category D: provenance and integrity signals)
+
+Severity
+
+L4015–4024
+
+§19 “Novelty-Assessment Elevation Studies”: “nine elevation studies conducted in response to the Qwen
+novelty assessment (external audit)”; cites “commit 07e6d85”; v3/v4/v5 study versions; Table 4 organized by
+the audit’s own section numbers.
+
+Critical
+
+L4978–4988
+
+§19.8: responses to “the Novelty Assessment Report (editorial-style external audit, 15 pages, see
+external_audits/ folder)”; its three upgrade recommendations “closed” in-study.
+
+Critical
+
+L6071–6125
+
+v14b round corrects the manuscript’s own prior text: “two false statements (a nonexistent EcoCyc proxy…
+and the ‘per-gene heterogeneous κV’/‘real biological signal’ interpretation)”; a previously reported subset
+finding retracted in-place.
+
+Critical
+
+L6940–6941
+
+Remark 20.6 refers to “the source transcript’s curvature-survival equivalence”, “acknowledged by the
+source”: a source transcript is cited as the origin of prior claims.
+
+Critical
+
+L3672–3673,
+3853, 3896,
+5187–5190, 5302,
+5505, 5680, 5801,
+5958, 6686
+
+“The user” appears as the driver of design and analysis decisions throughout (“the user-suggested…”, “the
+user deposited… (folder raw tomoya baba supp/)”, “the user then requested…”, “(user-directed)”).
+
+Critical
+
+Bibliography [5],
+[32], [34]–[36],
+[42], [45], [46],
+[49]–[51]
+
+Eleven of 54 references never cited in the body; six ([42] Vereshchagin–Vitányi, [45] Hirota, [46] Segura,
+[49] Kirchhoff, [50] Becker, [51] Bravetti) carry annotations falsely claiming “Cited in §4/§3/§21/§14/§5”;
+Definition 4.1 still presents distD without attribution at the point of definition.
+
+Critical
+
+L6015–6048
+
+Build log embedded: dangling-\ref audit (12 label namespaces, 321 labels, 704 references, LaTeX line
+numbers) and patch scripts by name (patch_manuscript_v12.py, patch_elevation_pdf_v12.py).
+
+Critical
+
+L4297
+
+“The audit’s §8.4 prescription to ‘remove the HoTT section’ is REJECTED in favor of elevation”:
+referee-response negotiation in the body; L750/L1193 also reference “the audit”.
+
+Moderate
+
+L2884–2895,
+3430–3434,
+3553–3555,
+3846–3847,
+5293–5298,
+7393–7406
+
+The manuscript implements its own §21 future-directions list within the same document (“the
+future-direction item of Section 21 had suggested X; the present subsection implements that suggestion”);
+future work marked [CLOSED] inside its own statement.
+
+Critical
+
+L7713–7720
+
+AI-assistance statement (“the model did not originate novel mathematical claims”) contradicted by the
+documented workflow; code availability URL is a public repository named “deepseek-highly-general”,
+contradicting the stated drafting model.
+
+Critical
+
+Editorial Assessment Unit
+
+17
+
+LINE-LEVEL REVIEW REPORT
+
+Lines
+
+Finding (Category D: provenance and integrity signals)
+
+Severity
+
+L5187–5188,
+6392–6393,
+6152–6167
+
+Session-environment details in the body: file deposits into the project repository, “the COLOMBOS host
+itself was unreachable from the analysis environment”, artifact names with “internet-access verification
+table”.
+
+Moderate
+
+Table 6. Category D: provenance and integrity signals (11 findings).
+
+Lines
+
+Finding (Category E: methodological weaknesses)
+
+Severity
+
+L867–877,
+5680–5683
+
+Definition shopping documented in-text: the indicator-weighted κV promoted to “main definition” at the
+user’s request “to test whether it strengthens the original findings”; calibration r jumped +0.370 → +0.938;
+iML1515 flipped −0.008 → +0.466.
+
+Critical
+
+L5528–5529,
+5646–5651
+
+Label leakage: the indicator mask ᶜ[Δb > 0.05·bwt] embeds the in-silico essentiality criterion in the predictor;
+the “Keio correlation” largely measures the model’s own essentiality accuracy (text concedes the
+conditional-on-essential semantics).
+
+Critical
+
+L5412–5457
+
+Unmasked metric null on the denser model: iML1515 ROC AUC 0.428 (below chance), P@10 = 0.000, “the
+gap is now in the WRONG direction”; admission that κV “measures flux rerouting, not biomass reduction”.
+
+Major
+
+L4839–4855,
+4871–4922
+
+Garden of forking paths, transparently documented: the headline r = +0.374 (n = 433, p ≈ 10−15) is the
+survivor of seven restructurings (r = 0.010 → masks at p = 0.33/0.43 → retraction → mapping inversion (one
+shared gene) → n = 7, p = 0.18 → M3D); no multiplicity correction; abstract reports only the survivor.
+
+Major
+
+L4301–4470
+
+E5 self-refutation arc: the surrogate’s calibration constant is shape-dependent (1.625/1.367/1.263), sign-flips
+on real FBA viability, and yields negative (unphysical) κV; v2’s “transferable to real-data applications”
+directly contradicted by v4’s “NOT TRANSFERABLE” two pages later.
+
+Major
+
+Props 4.4/4.7 vs
+Def 3.21 vs
+E10/E22
+
+Three distinct objects named κV (geometric curvature contraction; indicator-masked FBA flux rerouting;
+time-course squared flux change). The empirical program (E10–E27) never touches the theoretical object;
+the abstract’s main proposition concerns the latter.
+
+Critical
+
+L5026–5047,
+5029–5036
+
+E12 “external validation” is FBA-versus-FBA: κV and the essentiality label are both statistics of the same
+KO-FBA solution (held-out AUC 0.953 in-silico); the direct external test (E15) gives AUC 0.713, specificity
+0.180, MCC 0.085; “transitive prediction” framing.
+
+Major
+
+L5140–5166
+
+E14 benchmark invalid as designed: dynamical test on full iJO1366 vs NE scope and a 28-metabolite COT
+subnetwork; different inputs and different questions (“can m be made?” vs “is m’s production causally
+necessary?”); “strictly stronger” is a category error; “no false positives” is circular.
+
+Moderate
+
+L3179–3186, 3284
+
+Unexamined free parameters: xthresh = 0.1, Cfat = 0.05 (hand-set), φ = 0.4/0.5, τ = 0.30, n = 2, kcat ∈
+{0.5…30} (per-reaction overrides), Km = 0.1, δ = 0.05; sensitivity analyzed for a subset only.
+
+Moderate
+
+L4417–4444 vs
+4595–4632
+
+E17/E18 cross-rebuild “stability” of the masked variant comes from the mask; E7’s universality table shows
+G/H/I rows identical (5/11, 0.450, 0.714) across three different networks and K (46%) below F/J (60%).
+
+Moderate
+
+L4583–4605,
+L4622–4646
+
+Positive: honest negatives retained in tables (E5 “NOT TRANSFERABLE”; E9 “NO_TRANSITION”; E16
+counter-finding; v14b retraction); the round structure discloses the search that produced the headline.
+
+Minor
+
+Table 7. Category E: methodological weaknesses (11 findings).
+
+Editorial Assessment Unit
+
+18
+
+LINE-LEVEL REVIEW REPORT
+
+11. Editorial Verdict
+The verdict of this line-level review is that the revised manuscript is not publishable and is further from
+publication than the version it revises. That conclusion is not primarily about the new biology, parts of which
+are sound, nor even about the mathematics, much of which is repairable. It is about the document as a
+document: an append-only compilation that preserves every superseded framing layer, contradicts itself on
+its own basic counts, embeds the transcript of its production, claims attributions in the bibliography that the
+text never makes, and states as theorems a set of propositions whose correct versions are either elementary or
+false. Each defect is individually documentable at a line reference; the aggregate is decisive.
+For an editor, the practical reading is this. The theoretical core (Sections 2 to 8, 12, 16, 17) cannot be sent to
+referees in this state: five of its load-bearing statements are wrong or unproven as written, and the central
+object’s name is shared by three incompatible constructions. The closure-test program (Section 18) is
+salvageable only as an engineering-verification study on fixed models, with the designed-network lineage
+re-framed and the higher-categorical verdict machinery deleted. The empirical biology (E22, E24 to E27,
+with E15 and E16) is the strongest material in the paper and could anchor a short, honest
+methods-and-findings report once the metric is renamed, the search path is disclosed, and the in-silico
+headlines are demoted to calibration diagnostics.
+The three integrity items that would surface in any competent refereeing round, and that the authors should
+address before anything else, are the falsely annotated bibliography entries, the AI-assistance statement that
+the body text contradicts, and the in-text documentation of definition changes made after seeing the data.
+None of these requires new science to fix; all three require deletions and true statements. The
+recommendation is therefore not “revise and resubmit” in the ordinary sense but “deconstruct and re-submit
+as three separate, honestly framed works”, following the plan in Section 9. The raw material for at least one
+publishable paper is present; it is currently buried under the machinery of its own production.
+
+Editorial Assessment Unit
+
+19
+
+

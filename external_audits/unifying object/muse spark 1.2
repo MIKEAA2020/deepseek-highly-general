@@ -1,0 +1,90 @@
+The only repair that makes the paper coherent is: **one definition is canonical, the other two are named estimators/proxies with an explicit limit theorem.** Do not keep three `Definition: kappa_V`.
+
+Here is the drop-in repair.
+
+### 1. The Canonical Object - `kappa_V^geom`
+
+This is the object of Prop.4.4 / Thm 3.14. It is the only object allowed to be called `kappa_V`.
+
+> **Definition 2.1* [Canonical, SAVGS base].** Fix a SAVGS
+> `S = (B,E,pi,epsilon,Gamma)` with `B` a compact stratified `C^2` manifold with corners, `pi:E -> B` a bundle, `epsilon` a tameness function and `Gamma = Gamma^{GC}[r_{tau,beta,D}]` the GC-connection of Def 3.1.
+> 
+> Fix a **code** `c: B -> {0,1}*` continuous on each stratum, a computable distance `dist_D: {0,1}* x {0,1}* -> R_{>=0}` as in Def 4.1, `r_{tau,beta,D}` its smooth surrogate Def 4.5, and `E: B -> R_{>0}` its envelope Def 4.9.
+> 
+> For `theta in B^{reg}` define:
+> ```
+> kappa_V^geom(theta; tau,beta,D) :=  1/E(theta) * sup_{u/\w in /\^2 T_theta B^{reg}, ||u/\w||=1} [ Breg_{r_{tau,beta,D}}[u,w](theta) ]_+
+> ```
+> where `Breg_r[u,w]` is the bivector Bregman defect of `r` = sectional second variation of `r` along the infinitesimal `Gamma`-holonomy parallelogram spanned by `u,w`, `[x]_+ = max(x,0)`. For `theta` in singular stratum, `kappa_V^geom(theta) := limsup_{theta'->theta, theta' in B^{reg}} kappa_V^geom(theta')`. This is Prop.4.4's object. It has units `1/length^2`.
+
+**Remarks that fix the audit:**
+
+* `dist_D` is never applied to a set. We apply `dist_{D}^B(theta,theta') := dist_D(c(theta),c(theta'))`. This repairs Def 3.21 / Prop 16.2 type errors.
+* `D_V(theta) := dist_{D}^B(theta, V)` where `V subset B` is the `Vital` locus. `D_V` is the function, `kappa_V` is its normalized curvature contraction. This repairs Def 6.1 citing "the `kappa_V` of Def 2.1".
+* The tuple is frozen as `(B,E,pi,epsilon,Gamma)` everywhere. Thm 3.14's `(Theta,pi,Delta^{n-1},epsilon,Gamma)` becomes a special case `B = Delta^{n-1}`.
+
+Do not define any other `kappa_V`.
+
+### 2. Controlled Instantiation I - The FBA Statistic is NOT `kappa_V`
+
+> **Definition 3.21* [Discrete FBA proxy, rename].** Let `S` be a stoichiometric model with feasible polytope `F = {v: Sv=0, l<=v<=u}` and wild-type optimum `v^{wt}` maximizing `v_bio`. Fix an embedding
+> ```
+> iota: F -> B
+> ```
+> `C^1` on strata, with `d iota_v: T_v F -> T_{iota(v)} B`. Fix `V = iota({v: v_bio < (1-delta)v_bio^{wt}})`. Define the **FBA curvature proxy**:
+> ```
+> K_V^{FBA}(v; tau,beta,D) := sum_{r in R} 1_{r essential}(v) * [ (v_r - v_r^{wt})^2 / E(iota(v)) ]
+> ```
+> or any norm you actually computed, with **explicit essentiality mask** `1_{r essential}(v) = 1` iff `max{v_bio: v_r=0} < (1-delta)v_bio^{wt}`.
+> 
+> **Do not call this `kappa_V`.** It is a `R^{|R|} -> R_{>=0}` function value, not a curvature. Units are `(flux)^2 / E`, not `1/length^2`. The claim `kappa_V <= E` in Remark 20.2 is exactly the confusion of these units.
+
+**What the mask is geometrically:** `1_{r essential}` is the indicator that `iota(v)` and `iota(v^{wt})` lie in different strata of `B`. It is a discrete proxy for crossing the singular locus where `Gamma` jumps - i.e. where holonomy of Thm 3.4-3.5 is non-trivial.
+
+### 3. Controlled Instantiation II - The Time-Course Statistic is NOT `kappa_V`
+
+> **Definition E10* [Empirical estimator, rename].** For a flux time-course `v(t) in F`, `t in [T1,T2]`, define
+> ```
+> \hat K_{V,T}(t) := sum_{r in T} (v_r(t) - v_r(T1))^2   // or weighted
+> \hat kappa_{V,T}^{emp}(t) := \hat K_{V,T}(t) / E(iota(v(T1)))
+> ```
+> for a probe set `T subset R`. This is an **estimator of the integrated curvature along the path** `gamma(t)=iota(v(t))`, not a pointwise `kappa_V`. The object used in E24-E27 is `\hat kappa_{V,T}^{emp}`.
+
+### 4. The Unification Theorem - The Only Glue Allowed
+
+You must now prove *or* explicitly assume as an axiom with stated error - that 2 and 3 approximate 1. No naming convention can replace this.
+
+> **Theorem U [Formal Unification, to replace Thm 4.11(e) + Remark 20.2].** Under the embedding `iota` above, assume:
+> (i) `iota(F)` is transverse to the stratification, (ii) `r_{tau,beta,D} -> dist_D^B` in `C^2` on compacta of `B^{reg}` as `tau->0, beta->infty` with bound `||Hess r - Hess dist_D^B|| <= C1 tau + C2 beta^{-1}` [this repairs Lemma 4.10 vacuity - you must keep `tau` bounded away from 0], (iii) `v -> v_r` is the coordinate of `d iota(v)`.
+>
+> Then for `theta = iota(v)` in `B^{reg}`:
+> ```
+> K_V^{FBA}(v; tau,beta,D) = ||d iota_v (v - v^{wt})||_{g_{tau,beta}}^2 / E(theta) + O(tau)+O(beta^{-1})+O(||v-v^{wt}||^3)
+> ```
+> and
+> ```
+> kappa_V^geom(theta) = lim_{a->0} (1/pi a^2) * sup_{P in Gr_2}  E_{gamma in P, diam=a} [\hat kappa_{V,T}^{emp}[gamma]]_+ + O(tau)+O(beta^{-1})
+> ```
+> In particular, `K_V^{FBA} / a^2 -> kappa_V^geom` for infinitesimal bivectors, and `\hat kappa_{V,T}^{emp}` is its path integral: `d/dt \hat K approx 2* kappa_V^geom * E * a^2`.
+
+*Sketch of proof:* `r_{tau,beta,D}` is constructed so `Breg_r` is the second-order term of `Gamma^{GC}`-holonomy defect [Thms 3.4-3.5]. `d iota` pushes flux variations to tangent bivectors. The essentiality indicator is exactly the condition that the straight-line homotopy `v^{wt} -> v` crosses a stratum, i.e. the holonomy picks up the positive part `[_+ ]`. Outside that crossing the Bregman defect is `O(||dv||^3)`.
+
+**If you cannot prove Theorem U**, you must choose Honest Disambiguation and the paper splits:
+
+| Name | Object | Where it may be used | Forbidden |
+|---|---|---|---|
+| `kappa_V^geom` | Def 2.1* | Abstract, Prop 4.4, Thm 3.14, Cor 4.14 | Never applied to discrete RAF set |
+| `K_V^{FBA}` | Def 3.21* | Sec 16-19, E13 | Never called curvature, never compared to `E` |
+| `\hat kappa_V^{emp}` | Def E10* | E10, E22, E24-E27 | Never claimed to be Prop 4.4's object |
+
+Then every theorem that deduces an empirical conclusion from a geometric hypothesis must be restated as a **conjecture conditional on Theorem U**.
+
+### 5. Migration Checklist to Make This Enforceable
+
+1.  Global search: `kappa_V` -> `kappa_V^geom` only in Thread G/A. Replace all others with `K_V^{FBA}` and `\hat kappa_V^{emp}`.
+2.  Delete Def 2.1's disclaimer, delete Def 3.21's `dist_D(Phi(...))` - replace with `dist_D^B(iota(Phi(...)))` via `c`.
+3.  Delete Cor 4.14 proof as written. Correct to: `integral_{B_a} kappa_V^geom dA = Bregman defect` not `pi a^4`. You need `a->0` limit with `1/pi a^2` prefactor to get units right.
+4.  Freeze envelope chain: Lemma 4.10 must state bound with `tau >= tau_0 >0`. Thm 4.11(e) must be `sup over finite rational net` not `sup over continuum via c.e.`, or assume `B` computably compact.
+5.  The categorical/numerical bridge remains vacuous for this fix - simply do not claim Thm 8.2 contracts `T` of Constr 7.1. State Thm 8.2 as `For any 7 Lipschitz blocks with L<1, composition contracts`. Remark 7.8's concession must stay.
+
+> **Bottom line:** Keep **one** geometric principle `kappa_V^geom = E^{-1} sup [Breg_{r_{tau,beta}}]_+`. Make `K_V^{FBA}` and `\hat kappa_V^{emp}` its **explicit `(iota,tau,beta,T)`-instantiations**. Either prove Theorem U with the map `Flux -> B` written down - `model->B`, `flux->d iota(v)`, `biomass deficit -> D_V` - or admit the empirical flagship does not test the abstract's proposition.
