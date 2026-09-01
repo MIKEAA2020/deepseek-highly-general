@@ -1,0 +1,623 @@
+{
+ "model": "iML1515",
+ "n_genes": 1516,
+ "mu_wt": 0.87699721342697,
+ "n_viable": 1320,
+ "n_infeasible": 0,
+ "n_nogrowth": 196,
+ "kappa_singles": {
+  "median": 0.0,
+  "mean": 197.53666133584127,
+  "q90": 0.0,
+  "q99": 3719.237820017231,
+  "max": 19586.667612014615,
+  "frac_zero": 0.9227272727272727,
+  "n_masked": 28
+ },
+ "pairs": {
+  "n_pairs": 2779,
+  "n_SL": 40,
+  "n_SL_isozyme": 40,
+  "eps_median": 0.0,
+  "eps_q05": -3294.285861140926,
+  "eps_q95": 2106.99731008124,
+  "frac_superadditive": 0.1317020510975171,
+  "frac_large_interaction": 0.34364879453040664,
+  "rho_median": 0.5,
+  "eps_masked_emergence": 55,
+  "spearman_|eps|_J_support": {
+   "rho": 0.80034060420803,
+   "p": 0.0
+  },
+  "spearman_|eps|_J_dR": {
+   "rho": 0.8649091273316316,
+   "p": 0.0
+  },
+  "spearman_eps_growth_vs_eps": {
+   "rho": -0.7046710389016121,
+   "p": 0.0
+  },
+  "spearman_rho_J_dR": {
+   "rho": 0.5058139835132124,
+   "p": 1.8969152871426797e-180
+  },
+  "eps_iso": {
+   "n": 892,
+   "median": 0.0,
+   "q95": 0.0
+  },
+  "eps_noniso": {
+   "n": 1847,
+   "median": 0.0,
+   "q95": 2291.924205544826
+  },
+  "eps_SL": {
+   "n": 40,
+   "median": 18414.902542344003,
+   "q95": 18414.902542344058
+  },
+  "MWU_hilowJ": {
+   "medianJS": 0.0,
+   "p": 0.0,
+   "median_hi": 3240.7517372117595,
+   "median_lo": 0.0
+  },
+  "top_eps": [
+   {
+    "genes": "atpG(b3733) + atpB(b3738)",
+    "panel": "A",
+    "eps": -19586.667612014615,
+    "kappa_i": 19586.667612014615,
+    "kappa_j": 19586.667612014615,
+    "kappa_ij": 19586.667612014615,
+    "growth_ij": 0.2849329232733675,
+    "J_dR": 1.0
+   },
+   {
+    "genes": "atpH(b3735) + atpG(b3733)",
+    "panel": "A",
+    "eps": -19586.667612014615,
+    "kappa_i": 19586.667612014615,
+    "kappa_j": 19586.667612014615,
+    "kappa_ij": 19586.667612014615,
+    "growth_ij": 0.2849329232733675,
+    "J_dR": 1.0
+   },
+   {
+    "genes": "atpH(b3735) + atpB(b3738)",
+    "panel": "A",
+    "eps": -19586.667612014615,
+    "kappa_i": 19586.667612014615,
+    "kappa_j": 19586.667612014615,
+    "kappa_ij": 19586.667612014615,
+    "growth_ij": 0.2849329232733675,
+    "J_dR": 1.0
+   },
+   {
+    "genes": "atpA(b3734) + atpH(b3735)",
+    "panel": "A",
+    "eps": -19586.667612014615,
+    "kappa_i": 19586.667612014615,
+    "kappa_j": 19586.667612014615,
+    "kappa_ij": 19586.667612014615,
+    "growth_ij": 0.2849329232733675,
+    "J_dR": 1.0
+   },
+   {
+    "genes": "atpH(b3735) + atpD(b3732)",
+    "panel": "A",
+    "eps": -19586.667612014615,
+    "kappa_i": 19586.667612014615,
+    "kappa_j": 19586.667612014615,
+    "kappa_ij": 19586.667612014615,
+    "growth_ij": 0.2849329232733675,
+    "J_dR": 1.0
+   },
+   {
+    "genes": "atpA(b3734) + atpF(b3736)",
+    "panel": "A",
+    "eps": -19586.667612014615,
+    "kappa_i": 19586.667612014615,
+    "kappa_j": 19586.667612014615,
+    "kappa_ij": 19586.667612014615,
+    "growth_ij": 0.2849329232733675,
+    "J_dR": 1.0
+   },
+   {
+    "genes": "atpA(b3734) + atpC(b3731)",
+    "panel": "A",
+    "eps": -19586.667612014615,
+    "kappa_i": 19586.667612014615,
+    "kappa_j": 19586.667612014615,
+    "kappa_ij": 19586.667612014615,
+    "growth_ij": 0.2849329232733675,
+    "J_dR": 1.0
+   },
+   {
+    "genes": "atpA(b3734) + atpD(b3732)",
+    "panel": "A",
+    "eps": -19586.667612014615,
+    "kappa_i": 19586.667612014615,
+    "kappa_j": 19586.667612014615,
+    "kappa_ij": 19586.667612014615,
+    "growth_ij": 0.2849329232733675,
+    "J_dR": 1.0
+   },
+   {
+    "genes": "atpE(b3737) + atpB(b3738)",
+    "panel": "A",
+    "eps": -19586.667612014615,
+    "kappa_i": 19586.667612014615,
+    "kappa_j": 19586.667612014615,
+    "kappa_ij": 19586.667612014615,
+    "growth_ij": 0.2849329232733675,
+    "J_dR": 1.0
+   },
+   {
+    "genes": "atpE(b3737) + atpG(b3733)",
+    "panel": "A",
+    "eps": -19586.667612014615,
+    "kappa_i": 19586.667612014615,
+    "kappa_j": 19586.667612014615,
+    "kappa_ij": 19586.667612014615,
+    "growth_ij": 0.2849329232733675,
+    "J_dR": 1.0
+   },
+   {
+    "genes": "atpC(b3731) + atpD(b3732)",
+    "panel": "A",
+    "eps": -19586.667612014615,
+    "kappa_i": 19586.667612014615,
+    "kappa_j": 19586.667612014615,
+    "kappa_ij": 19586.667612014615,
+    "growth_ij": 0.2849329232733675,
+    "J_dR": 1.0
+   },
+   {
+    "genes": "atpC(b3731) + atpB(b3738)",
+    "panel": "A",
+    "eps": -19586.667612014615,
+    "kappa_i": 19586.667612014615,
+    "kappa_j": 19586.667612014615,
+    "kappa_ij": 19586.667612014615,
+    "growth_ij": 0.2849329232733675,
+    "J_dR": 1.0
+   },
+   {
+    "genes": "atpD(b3732) + atpB(b3738)",
+    "panel": "A",
+    "eps": -19586.667612014615,
+    "kappa_i": 19586.667612014615,
+    "kappa_j": 19586.667612014615,
+    "kappa_ij": 19586.667612014615,
+    "growth_ij": 0.2849329232733675,
+    "J_dR": 1.0
+   },
+   {
+    "genes": "atpA(b3734) + atpG(b3733)",
+    "panel": "A",
+    "eps": -19586.667612014615,
+    "kappa_i": 19586.667612014615,
+    "kappa_j": 19586.667612014615,
+    "kappa_ij": 19586.667612014615,
+    "growth_ij": 0.2849329232733675,
+    "J_dR": 1.0
+   },
+   {
+    "genes": "atpA(b3734) + atpB(b3738)",
+    "panel": "A",
+    "eps": -19586.667612014615,
+    "kappa_i": 19586.667612014615,
+    "kappa_j": 19586.667612014615,
+    "kappa_ij": 19586.667612014615,
+    "growth_ij": 0.2849329232733675,
+    "J_dR": 1.0
+   }
+  ],
+  "SL_table": [
+   {
+    "genes": "ydiB(b1692) + aroE(b3281)",
+    "panel": "ISO",
+    "kappa_i": 0.0,
+    "kappa_j": 0.0,
+    "growth_i": 0.87699721442697,
+    "growth_j": 0.87699721442697,
+    "J_dR": 0.0
+   },
+   {
+    "genes": "ybjI(b0844) + yigB(b3812)",
+    "panel": "ISO",
+    "kappa_i": 0.0,
+    "kappa_j": 0.0,
+    "growth_i": 0.87699721442697,
+    "growth_j": 0.87699721442697,
+    "J_dR": 0.0
+   },
+   {
+    "genes": "|can|(b0126) + cynT(b0339)",
+    "panel": "ISO",
+    "kappa_i": 0.0,
+    "kappa_j": 0.0,
+    "growth_i": 0.87699721442697,
+    "growth_j": 0.87699721442697,
+    "J_dR": 0.0
+   },
+   {
+    "genes": "dadX(b1190) + alr(b4053)",
+    "panel": "ISO",
+    "kappa_i": 0.0,
+    "kappa_j": 0.0,
+    "growth_i": 0.87699721442697,
+    "growth_j": 0.87699721442697,
+    "J_dR": 0.0
+   },
+   {
+    "genes": "aspC(b0928) + tyrB(b4054)",
+    "panel": "ISO",
+    "kappa_i": 0.0,
+    "kappa_j": 0.0,
+    "growth_i": 0.87699721442697,
+    "growth_j": 0.87699721442697,
+    "J_dR": 0.0
+   },
+   {
+    "genes": "gutQ(b2708) + kdsD(b3197)",
+    "panel": "ISO",
+    "kappa_i": 0.0,
+    "kappa_j": 0.0,
+    "growth_i": 0.87699721442697,
+    "growth_j": 0.87699721442697,
+    "J_dR": 0.0
+   },
+   {
+    "genes": "ilvH(b0078) + ilvB(b3671)",
+    "panel": "ISO",
+    "kappa_i": 0.0,
+    "kappa_j": 0.0,
+    "growth_i": 0.87699721442697,
+    "growth_j": 0.87699721442697,
+    "J_dR": 0.0
+   },
+   {
+    "genes": "ilvH(b0078) + ilvN(b3670)",
+    "panel": "ISO",
+    "kappa_i": 0.0,
+    "kappa_j": 0.0,
+    "growth_i": 0.87699721442697,
+    "growth_j": 0.87699721442697,
+    "J_dR": 0.0
+   },
+   {
+    "genes": "ilvI(b0077) + ilvB(b3671)",
+    "panel": "ISO",
+    "kappa_i": 0.0,
+    "kappa_j": 0.0,
+    "growth_i": 0.87699721442697,
+    "growth_j": 0.87699721442697,
+    "J_dR": 0.0
+   },
+   {
+    "genes": "ilvI(b0077) + ilvN(b3670)",
+    "panel": "ISO",
+    "kappa_i": 0.0,
+    "kappa_j": 0.0,
+    "growth_i": 0.87699721442697,
+    "growth_j": 0.87699721442697,
+    "J_dR": 0.0
+   },
+   {
+    "genes": "tktB(b2465) + tktA(b2935)",
+    "panel": "ISO",
+    "kappa_i": 0.0,
+    "kappa_j": 0.0,
+    "growth_i": 0.87699721442697,
+    "growth_j": 0.87699721442697,
+    "J_dR": 0.0
+   },
+   {
+    "genes": "tktA(b2935) + tktB(b2465)",
+    "panel": "ISO+TGT",
+    "kappa_i": 0.0,
+    "kappa_j": 0.0,
+    "growth_i": 0.87699721442697,
+    "growth_j": 0.87699721442697,
+    "J_dR": 0.0
+   },
+   {
+    "genes": "mutT(b0099) + nudB(b1865)",
+    "panel": "ISO",
+    "kappa_i": 0.0,
+    "kappa_j": 0.0,
+    "growth_i": 0.87699721442697,
+    "growth_j": 0.87699721442697,
+    "J_dR": 0.0
+   },
+   {
+    "genes": "leuB(b0073) + dmlA(b1800)",
+    "panel": "ISO",
+    "kappa_i": 0.0,
+    "kappa_j": 0.0,
+    "growth_i": 0.87699721442697,
+    "growth_j": 0.87699721442697,
+    "J_dR": 0.0
+   },
+   {
+    "genes": "tdcB(b3117) + ilvA(b3772)",
+    "panel": "ISO",
+    "kappa_i": 0.0,
+    "kappa_j": 0.0,
+    "growth_i": 0.87699721442697,
+    "growth_j": 0.87699721442697,
+    "J_dR": 0.0
+   },
+   {
+    "genes": "pabC(b1096) + ubiC(b4039)",
+    "panel": "ISO",
+    "kappa_i": 0.0,
+    "kappa_j": 0.0,
+    "growth_i": 0.87699721442697,
+    "growth_j": 0.87699721442697,
+    "J_dR": 0.0
+   },
+   {
+    "genes": "pyrH(b0171) + cmk(b0910)",
+    "panel": "ISO",
+    "kappa_i": 0.0,
+    "kappa_j": 0.45837977444987826,
+    "growth_i": 0.87699721442697,
+    "growth_j": 0.8752954684189223,
+    "J_dR": 0.0
+   },
+   {
+    "genes": "asnB(b0674) + asnA(b3744)",
+    "panel": "ISO",
+    "kappa_i": 0.0,
+    "kappa_j": 0.0,
+    "growth_i": 0.8769972144269701,
+    "growth_j": 0.87699721442697,
+    "J_dR": 0.0
+   },
+   {
+    "genes": "cysK(b2414) + cysM(b2421)",
+    "panel": "ISO",
+    "kappa_i": 0.0,
+    "kappa_j": 0.0,
+    "growth_i": 0.87699721442697,
+    "growth_j": 0.87699721442697,
+    "J_dR": 0.0
+   },
+   {
+    "genes": "thrA(b0002) + metL(b3940)",
+    "panel": "ISO",
+    "kappa_i": 0.0,
+    "kappa_j": 0.0,
+    "growth_i": 0.87699721442697,
+    "growth_j": 0.87699721442697,
+    "J_dR": 0.0
+   },
+   {
+    "genes": "argF(b0273) + argI(b4254)",
+    "panel": "ISO",
+    "kappa_i": 0.0,
+    "kappa_j": 0.0,
+    "growth_i": 0.87699721442697,
+    "growth_j": 0.87699721442697,
+    "J_dR": 0.0
+   },
+   {
+    "genes": "malY(b1622) + metC(b3008)",
+    "panel": "ISO",
+    "kappa_i": 0.0,
+    "kappa_j": 0.0,
+    "growth_i": 0.87699721442697,
+    "growth_j": 0.87699721442697,
+    "J_dR": 0.0
+   },
+   {
+    "genes": "modB(b0764) + cysW(b2423)",
+    "panel": "ISO",
+    "kappa_i": 0.0,
+    "kappa_j": 0.0,
+    "growth_i": 0.87699721442697,
+    "growth_j": 0.87699721442697,
+    "J_dR": 0.0
+   },
+   {
+    "genes": "modB(b0764) + cysA(b2422)",
+    "panel": "ISO",
+    "kappa_i": 0.0,
+    "kappa_j": 0.0,
+    "growth_i": 0.87699721442697,
+    "growth_j": 0.87699721442697,
+    "J_dR": 0.0
+   },
+   {
+    "genes": "modB(b0764) + cysU(b2424)",
+    "panel": "ISO",
+    "kappa_i": 0.0,
+    "kappa_j": 0.0,
+    "growth_i": 0.87699721442697,
+    "growth_j": 0.87699721442697,
+    "J_dR": 0.0
+   },
+   {
+    "genes": "modC(b0765) + cysW(b2423)",
+    "panel": "ISO",
+    "kappa_i": 0.0,
+    "kappa_j": 0.0,
+    "growth_i": 0.87699721442697,
+    "growth_j": 0.87699721442697,
+    "J_dR": 0.0
+   },
+   {
+    "genes": "modC(b0765) + cysA(b2422)",
+    "panel": "ISO",
+    "kappa_i": 0.0,
+    "kappa_j": 0.0,
+    "growth_i": 0.87699721442697,
+    "growth_j": 0.87699721442697,
+    "J_dR": 0.0
+   },
+   {
+    "genes": "modC(b0765) + cysU(b2424)",
+    "panel": "ISO",
+    "kappa_i": 0.0,
+    "kappa_j": 0.0,
+    "growth_i": 0.87699721442697,
+    "growth_j": 0.87699721442697,
+    "J_dR": 0.0
+   },
+   {
+    "genes": "modA(b0763) + cysW(b2423)",
+    "panel": "ISO",
+    "kappa_i": 0.0,
+    "kappa_j": 0.0,
+    "growth_i": 0.87699721442697,
+    "growth_j": 0.87699721442697,
+    "J_dR": 0.0
+   },
+   {
+    "genes": "modA(b0763) + cysA(b2422)",
+    "panel": "ISO",
+    "kappa_i": 0.0,
+    "kappa_j": 0.0,
+    "growth_i": 0.87699721442697,
+    "growth_j": 0.87699721442697,
+    "J_dR": 0.0
+   },
+   {
+    "genes": "modA(b0763) + cysU(b2424)",
+    "panel": "ISO",
+    "kappa_i": 0.0,
+    "kappa_j": 0.0,
+    "growth_i": 0.87699721442697,
+    "growth_j": 0.87699721442697,
+    "J_dR": 0.0
+   },
+   {
+    "genes": "metE(b3829) + metH(b4019)",
+    "panel": "ISO",
+    "kappa_i": 0.0,
+    "kappa_j": 0.0,
+    "growth_i": 0.87699721442697,
+    "growth_j": 0.87699721442697,
+    "J_dR": 0.0
+   },
+   {
+    "genes": "gdhA(b1761) + gltD(b3213)",
+    "panel": "ISO",
+    "kappa_i": 0.0,
+    "kappa_j": 0.0,
+    "growth_i": 0.87699721442697,
+    "growth_j": 0.8769972144269701,
+    "J_dR": 0.0
+   },
+   {
+    "genes": "gdhA(b1761) + gltB(b3212)",
+    "panel": "ISO",
+    "kappa_i": 0.0,
+    "kappa_j": 0.0,
+    "growth_i": 0.87699721442697,
+    "growth_j": 0.8769972144269701,
+    "J_dR": 0.0
+   },
+   {
+    "genes": "folA(b0048) + folM(b1606)",
+    "panel": "ISO",
+    "kappa_i": 0.0,
+    "kappa_j": 0.0,
+    "growth_i": 0.87699721442697,
+    "growth_j": 0.87699721442697,
+    "J_dR": 0.0
+   },
+   {
+    "genes": "aroL(b0388) + aroK(b3390)",
+    "panel": "ISO",
+    "kappa_i": 0.0,
+    "kappa_j": 0.0,
+    "growth_i": 0.87699721442697,
+    "growth_j": 0.87699721442697,
+    "J_dR": 0.0
+   },
+   {
+    "genes": "ddlB(b0092) + ddlA(b0381)",
+    "panel": "ISO",
+    "kappa_i": 0.0,
+    "kappa_j": 0.0,
+    "growth_i": 0.87699721442697,
+    "growth_j": 0.87699721442697,
+    "J_dR": 0.0
+   },
+   {
+    "genes": "mrcB(b0149) + mrcA(b3396)",
+    "panel": "ISO",
+    "kappa_i": 0.0,
+    "kappa_j": 0.0,
+    "growth_i": 0.87699721442697,
+    "growth_j": 0.87699721442697,
+    "J_dR": 0.0
+   },
+   {
+    "genes": "acnB(b0118) + acnA(b1276)",
+    "panel": "ISO",
+    "kappa_i": 0.0,
+    "kappa_j": 0.0,
+    "growth_i": 0.8769972144269699,
+    "growth_j": 0.87699721442697,
+    "J_dR": 0.0
+   },
+   {
+    "genes": "fldA(b0684) + fldB(b2895)",
+    "panel": "ISO",
+    "kappa_i": 0.0,
+    "kappa_j": 0.0,
+    "growth_i": 0.87699721442697,
+    "growth_j": 0.87699721442697,
+    "J_dR": 0.0
+   }
+  ]
+ },
+ "path": {
+  "n_pairs": 160,
+  "frac_chi_positive": 0.19375,
+  "chi_median": 0.0,
+  "chi_max": 226.48252944535557,
+  "frac_kappa_path_asymmetric": 0.19375,
+  "kappa_path_asym_median": 0.0,
+  "frac_loop_holonomy_nonzero": 0.6625,
+  "h_loop_median": 109.3382444846047,
+  "h_loop_asym_median": 0.0,
+  "h_loop_asym_max": 226.4825294453556,
+  "spearman_chi_vs_|eps|": {
+   "rho": -0.34721878226948316,
+   "p": 6.848968770183757e-06
+  },
+  "spearman_chi_vs_kappa_ij": {
+   "rho": -0.1394634877681679,
+   "p": 0.07860071832677228
+  },
+  "spearman_hasym_vs_|eps|": {
+   "rho": -0.35404732853056264,
+   "p": 4.370733646219976e-06
+  },
+  "spearman_chi_vs_|eps|_nonSL": {
+   "rho": -0.0732487917618491,
+   "p": 0.42657250969802496,
+   "n": 120
+  },
+  "SL_strata": {
+   "SL": {
+    "n": 40,
+    "frac_chi_positive": 0.025,
+    "h_loop_median": 107.67934683254583
+   },
+   "nonSL": {
+    "n": 120,
+    "frac_chi_positive": 0.25,
+    "h_loop_median": 124.81676294043339,
+    "chi_median": 1.4135638189485822e-14,
+    "chi_q90": 101.28580689036127
+   }
+  }
+ }
+}
