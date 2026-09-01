@@ -4017,3 +4017,89 @@ Stage Summary:
 - Next actions specified in the assessment: strategic decision ->
   journal_manuscript_v2 Layer 0 pass -> M1 second differences in
   parallel -> Table 9 sequence.
+
+---
+Task ID: m1-m3-execution
+Agent: main (Super Z)
+Task: Execute M1 (second-order finite differences of the FBA response vs
+active-set switches) and M3 (double-knockout epistasis of kappa_flux +
+sequential path dependence) per the user's 2026-09-01 definitions, as the
+two highest-value measurements from the joint assessment of the six
+unifying-object audits; position Kochanowski et al. 2021 as complementary
+prior art with the user's staged passage; do not touch the frozen v21
+manuscript; always commit and push.
+
+Work Log:
+- Built a shared deterministic LP engine (scripts/lp_engine.py, scipy/HiGHS,
+  variables [v, f, r] with identical linking rows for lex-pFBA and L1-MOMA):
+  3-stage lexicographic pFBA (biomass -> parsimony -> fixed seeded
+  tie-break w, rng 20240901) after discovering pFBA vertex degeneracy
+  (sum|v| tied to 13 digits while warm-started solves flip fluxes by 0.69:
+  PYK4/NDPK1, PFK/FBA, NDPK3/PYK2). Bit-exact determinism verified (0.0
+  max diff on repeats); 0.17 s/lex solve, 0.14 s/MOMA at iML1515 scale.
+- M1 (scripts/m1_active_set_curvature.py): 12 sweeps (glucose 1-10, O2
+  0.5-30, 8 gene knockdowns c: 0.02->0, iJO1366 glucose replication);
+  D1/D2/turning angle + operational active-set events (support/binding,
+  thresholds 1e-6 main + 1e-5 robustness). Headline: D2 mass on events
+  0.99999996 (glucose), 0.999999999 (O2), 0.934-1.0 (knockdowns); fold
+  enrichment up to 1.2e10; AUC 0.83-1.00; MWU p 2e-4..1e-15; paths
+  piecewise-affine to machine precision (segment residuals <= 8e-14
+  relative; 76-89% of off-event triples have bit-exact zero curvature;
+  median off-event D2 = 0.0 exactly for 5 of 8 knockdowns). Negative
+  controls: kd_aceA (unused pathway) 0 events, D2 max 5.2e-11; iJO1366
+  glucose (single critical region, no overflow) D1 constant to 15 digits,
+  D2 ~ 1e-11. Committed 2fe264b.
+- M3 (scripts/m3_epistasis_path_dependence.py): singles census 1,516
+  genes (1,320 viable, 196 no-growth; kappa per manuscript Def
+  ard-derived-kappa-V; 92.3% of viable kappa = 0; max 19,587); pairs
+  2,779 across 5 panels. Epistasis eps_ij = kappa_ij - kappa_i - kappa_j:
+  40/40 synthetic lethals are isozyme redundancies (tktA/tktB, acnA/acnB,
+  metE/metH, argF/argI, ...) with pure-emergence eps = kappa_ij ~ 18,415;
+  55 masked emergences; Spearman |eps| vs footprint Jaccard 0.865
+  (J_support 0.800, p ~ 0); growth-epistasis vs kappa-epistasis -0.705;
+  targeted archetypes: zwf+gnd eps=-58.6 (perfect redundancy),
+  pfkA+pfkB eps=+242.8 (capacity redundancy), pgi+zwf eps=+198.2
+  (non-lethal super-additive), rpe+rpiA/B eps=0 (nested footprints).
+- M3b path dependence (L1-MOMA, 160 pairs): open-path commutator
+  chi > 0 in 25% of active pairs (q90 = 101, max 226); MOMA kappa
+  order-dependent for 19.4% of pairs; closed 4-step genotype loops
+  (WT -> di -> dij -> dj -> WT) return to genotype but not state in 66%
+  (median displacement ~110 L1 units) = plaquette holonomy / phenotypic
+  memory (M2 realized in genotype space); chi independent of |eps|
+  (non-SL Spearman -0.07, p 0.43): non-additivity of optima and
+  non-commutativity of transients are distinct signatures. Committed
+  f9f8634.
+- Figures (scripts/m1_m3_figures.py): 6 PNGs (glucose/O2/knockdown/
+  summary sweeps; epistasis; path dependence).
+- Kochanowski citation resolved by web search: "Global coordination of
+  metabolic pathways in Escherichia coli by active and passive
+  regulation", Mol Syst Biol 17(4):e10064 (2021), doi:10.15252/
+  msb.202010064; user's staged passage included verbatim in section 7.
+- Report (scripts/m1_m3_report_content.py + m1_m3_report_pdf.py, pdf
+  skill report route, cascade palette seed 20260901, Template 03 cover
+  series-consistent with the joint assessment covers, TocDocTemplate +
+  multiBuild): download/M1_M3_active_set_bridge_report.pdf, 14 pp;
+  fixed cover page-size normalization (1pt mismatch -> always
+  scale_to A4) and table placeholder dashes (line-start punctuation);
+  QA: pdf_qa PASS (all checks), font.check 0 issues, toc.check clean,
+  cover_validate pass, meta.brand applied.
+- The v21 manuscript remains untouched (git status: only new files).
+
+Stage Summary:
+- M1 and M3 executed and verified: the discrete curvature of the
+  lexicographic FBA path is a measure supported on active-set changes
+  (mass 1.0, machine-precision affine segments, discriminating controls),
+  and rerouting epistasis aligns with active-set footprint overlap
+  (Spearman 0.865) with all 40 sampled synthetic lethals being isozyme
+  redundancies; greedy-adjustment dynamics are non-commutative (25% of
+  active pairs) and closed genotype loops leave 66% holonomy.
+- Deliverables: download/M1_M3_active_set_bridge_report.pdf (14 pp) +
+  cover HTML; download/m1_m3/ (12 m1 npz + point CSVs + m1_summary.json;
+  m3_singles.npz, m3_pairs.csv, m3_path.csv, m3_summary.json; 6 figures);
+  scripts/lp_engine.py, m1_active_set_curvature.py,
+  m3_epistasis_path_dependence.py, m1_m3_figures.py.
+- Kochanowski et al. 2021 positioned as complementary prior art with the
+  user's passage staged for v2; citation resolved to MSB 17:e10064.
+- What this does NOT prove: the strong-form unification (Theorem U)
+  remains open; E28 (second differences on measured time courses) remains
+  the open empirical item; all v2 guidance recorded in report section 9.

@@ -1,0 +1,74 @@
+[
+  {
+    "url": "https://link.springer.com/article/10.15252/msb.202010064",
+    "name": "Global coordination of metabolic pathways in Escherichia coli by",
+    "snippet": "Apr 14, 2021 · Catabolic proteins are directly induced by Crp under catabolic limitation, while anabolic protein expression is repressed indirectly.",
+    "host_name": "link.springer.com",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://massive.ucsd.edu/ProteoSAFe/dataset.jsp?task=d989bc063f5a4498b4a6e0fabe26cd32",
+    "name": "MSV000086992 - MassIVE Dataset Summary",
+    "snippet": "In this study, we identify the regulatory mechanisms that coordinate catabolism and anabolism in the bacterium Escherichia coli. Karl Kochanowski,",
+    "host_name": "massive.ucsd.edu",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.semanticscholar.org/paper/3109d9b5c062aa9278fe7b9a009f2bf27c4bdbd1",
+    "name": "[PDF] Global coordination of metabolic pathways in Escherichia coli",
+    "snippet": "This work identifies the regulatory mechanisms that coordinate catabolism and anabolism in Escherichia coli",
+    "host_name": "www.semanticscholar.org",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.researchgate.net/figure/Schematic-summary-of-mechanisms-implementing-the-global-coordination-of-metabolism_fig1_350888228",
+    "name": "Schematic summary of mechanisms implementing the global",
+    "snippet": "Crp, which directly induces catabolic proteins and indirectly represses anabolic proteins under catabolic limitation, 2021 Karl Kochanowski",
+    "host_name": "www.researchgate.net",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://dspace.library.uu.nl/bitstreams/5fa223bf-9c74-4b9c-b990-1be86cecc568/download",
+    "name": "[PDF] The interplay between metabolic stochasticity and regulation in",
+    "snippet": "Aug 29, 2022 · Here, we show that in E. coli cells, expression of the main catabolic enzymes is continuously adjusted in response to metabolic fluctuations ...",
+    "host_name": "dspace.library.uu.nl",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4038431",
+    "name": "Coordination of bacterial proteome with metabolism by cAMP  - PMC",
+    "snippet": "Abstract. Cyclic AMP (cAMP) dependent catabolite repression effect in E. coli is among the most intensely studied regulatory processes in biology.",
+    "host_name": "pmc.ncbi.nlm.nih.gov",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://pubs.acs.org/doi/abs/10.1021/acssynbio.5c00039",
+    "name": "Metabolic Regulation and Engineering Strategies of Carbon and",
+    "snippet": "Apr 17, 2025 · The regulation of carbon catabolism in E. coli embodies a multilayered approach to ensure survival and proliferation in diverse environments. By ...",
+    "host_name": "pubs.acs.org",
+    "rank": 6,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://dash.harvard.edu/bitstreams/7312037d-04f9-6bd4-e053-0100007fdf3b/download",
+    "name": "[PDF] Metabolic Erosion Primarily Through Mutation Accumulation, and",
+    "snippet": "Feb 18, 2014 · “Metabolic Erosion Primarily Through. Mutation Accumulation, and Not Tradeoffs, Drives Limited Evolution of Substrate Specificity in Escherichia ...",
+    "host_name": "dash.harvard.edu",
+    "rank": 7,
+    "date": "",
+    "favicon": ""
+  }
+]
