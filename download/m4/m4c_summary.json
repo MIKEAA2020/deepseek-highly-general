@@ -1,0 +1,179 @@
+{
+  "experiment": "M4c regime dial (smoothing crossover of the second-difference scaling law)",
+  "model": "iML1515",
+  "locus": {
+    "theta0": [
+      1.6920021856564074,
+      1.4795937877603242
+    ],
+    "direction": [
+      0.6473547604531503,
+      -0.7621888310114787
+    ],
+    "span": 0.4,
+    "n_points": 161
+  },
+  "theorem_R": {
+    "statement": "v_sigma'' = (D^2 v) * phi_sigma; D(eps,sigma) = sum_e Delta_e K(t0-t_e; eps, sigma); slope 2 for eps<<sigma, slope 1 for eps>>sigma, crossover eps~sigma",
+    "kernel_selftest_rel_err": 1.1788163318718685e-06
+  },
+  "event_census": {
+    "n_events": 12,
+    "n_kinked": 11,
+    "n_mask": 1,
+    "max_jump_L2": 1884.5843750663134,
+    "telescoping_residual": 3.977027041024428e-14
+  },
+  "dial_exact": {
+    "0.003": {
+      "slope_small": 1.999454242638524,
+      "slope_large": 1.1315190267897541,
+      "eps_star": 0.01233327655660771,
+      "eps_star_over_sigma": 4.111092185535903
+    },
+    "0.01": {
+      "slope_small": 1.9991223016804385,
+      "slope_large": 1.1629855645323786,
+      "eps_star": 0.02983734900718517,
+      "eps_star_over_sigma": 2.983734900718517
+    },
+    "0.03": {
+      "slope_small": 1.999408775740068,
+      "slope_large": 1.141647260396994,
+      "eps_star": 0.09327008690225315,
+      "eps_star_over_sigma": 3.1090028967417718
+    },
+    "0.1": {
+      "slope_small": 1.9991747422547748,
+      "slope_large": 1.1743942322173124,
+      "eps_star": 0.24474285134788315,
+      "eps_star_over_sigma": 2.4474285134788314
+    }
+  },
+  "slopes_machine": {
+    "0.003": {
+      "slope_small": null,
+      "slope_large": 1.1053981521946261
+    },
+    "0.01": {
+      "slope_small": null,
+      "slope_large": 1.1083498148342756
+    },
+    "0.03": {
+      "slope_small": 1.836099809869773,
+      "slope_large": 1.0641125987027844
+    },
+    "0.1": {
+      "slope_small": 1.4144845014041127,
+      "slope_large": 0.8619463732356512
+    }
+  },
+  "validation_machine_vs_exact": {
+    "0.003": {
+      "n_valid": 9,
+      "median_rel": 0.004134348042177342,
+      "max_rel": 0.11905825614210394
+    },
+    "0.01": {
+      "n_valid": 8,
+      "median_rel": 0.019287744076601495,
+      "max_rel": 0.5668609979147983
+    },
+    "0.03": {
+      "n_valid": 7,
+      "median_rel": 0.05399467291151881,
+      "max_rel": 0.8401119323420904
+    },
+    "0.1": {
+      "n_valid": 6,
+      "median_rel": 0.08653388077462242,
+      "max_rel": 0.7008708614897682
+    }
+  },
+  "gh_resolution_finding": "A fixed-node Gauss-Hermite evaluation of v_sigma is itself a piecewise-affine function of t (each node translates the kinks of v), so it cannot probe eps below the node spacing ~ sigma: the machine D vanishes exactly for eps below the distance from the base point to the nearest node-translated kink, while the exact convolution gives the eps^2 law. The regime dial is therefore read from the exact convolution of the machine-measured measure; the GH points validate the identity at eps >= sigma/2 (and also truncate Gaussian tails beyond ~3sigma, which sets the control's machine floor). This is Theorem N's atomicity manifesting at the numerical level: discretized smoothing does not remove the atoms unless the kernel itself is resolved.",
+  "sliver_clusters": [
+    {
+      "t_center": 0.0018696085611979187,
+      "n_events": 3,
+      "width": 2.441406249999948e-06,
+      "max_jump_L2": 1884.5843750663134,
+      "net_jump_L2": 8.900054982741656
+    },
+    {
+      "t_center": 0.024298400878906216,
+      "n_events": 2,
+      "width": 3.6621093749966693e-06,
+      "max_jump_L2": 0.8132267811318263,
+      "net_jump_L2": 1.3201676956846717
+    },
+    {
+      "t_center": 0.035481669108072884,
+      "n_events": 6,
+      "width": 0.0006518554687500039,
+      "max_jump_L2": 22.30516694328365,
+      "net_jump_L2": 9.544639352958958
+    }
+  ],
+  "control": {
+    "t_ctrl": 0.215,
+    "clearance": 0.16499999999999998,
+    "sigma": 0.03,
+    "max_D_below_reach": 1.4524882226332677e-11,
+    "note": "machine values additionally truncated by GH tail cutoff (~3 sigma); exact values in rows",
+    "rows": [
+      {
+        "eps": 0.0008000000000000003,
+        "D_machine": 8.475315129428283e-12,
+        "D_analytic": 1.460643588819933e-12
+      },
+      {
+        "eps": 0.0017235477520255082,
+        "D_machine": 4.3843230008808486e-12,
+        "D_analytic": 6.830075970870586e-12
+      },
+      {
+        "eps": 0.003713271066890223,
+        "D_machine": 1.2044966839779974e-11,
+        "D_analytic": 3.2812644332572666e-11
+      },
+      {
+        "eps": 0.008000000000000004,
+        "D_machine": 5.583983504054749e-12,
+        "D_analytic": 1.7797253359804762e-10
+      },
+      {
+        "eps": 0.017235477520255074,
+        "D_machine": 1.4524882226332677e-11,
+        "D_analytic": 1.5756007976379986e-09
+      },
+      {
+        "eps": 0.03713271066890223,
+        "D_machine": 4.156752712979572e-12,
+        "D_analytic": 6.126585054854953e-08
+      },
+      {
+        "eps": 0.08000000000000003,
+        "D_machine": 7.167872350288517e-12,
+        "D_analytic": 3.558322433518521e-05
+      },
+      {
+        "eps": 0.17235477520255066,
+        "D_machine": 0.07954201453996125,
+        "D_analytic": 0.08305659445438658
+      },
+      {
+        "eps": 0.37132710668902236,
+        "D_machine": 2.055262779200003,
+        "D_analytic": 2.055836771755528
+      },
+      {
+        "eps": 0.8,
+        "D_machine": 6.99228447952702,
+        "D_analytic": 6.992939175847712
+      }
+    ]
+  },
+  "quadrature": "5-point Gauss-Hermite per machine evaluation",
+  "n_lex_solves": 858,
+  "runtime_s": 150.6
+}

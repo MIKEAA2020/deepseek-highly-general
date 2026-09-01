@@ -46,6 +46,21 @@ class LPEngine:
         self.ub0 = np.array([r.upper_bound for r in model.reactions])
         self.OPTS = {"presolve": True}
 
+    def _lp(self, c, bounds, A_ub=None, b_ub=None):
+        """linprog with a deterministic retry: HiGHS presolve occasionally
+        mis-reports a feasible pinned stage as infeasible; the retry with
+        presolve disabled succeeds at the same tolerances. Only activates
+        where the first call failed, so previously computed results are
+        unchanged."""
+        res = linprog(c, A_ub=A_ub, b_ub=b_ub, A_eq=self.A_eq,
+                      b_eq=self.b_eq0, bounds=bounds, method="highs",
+                      options=self.OPTS)
+        if not res.success:
+            res = linprog(c, A_ub=A_ub, b_ub=b_ub, A_eq=self.A_eq,
+                          b_eq=self.b_eq0, bounds=bounds, method="highs",
+                          options={"presolve": False})
+        return res
+
     # ---------------------------------------------------------------- lex
     def solve_lex(self, lb, ub, bio_idx, mu_tol=1e-9, pin_rel=1e-9):
         """Full 3-stage lexicographic pFBA. lb/ub: current flux bounds (R).
@@ -60,9 +75,7 @@ class LPEngine:
         # stage 1: max c_bio . v
         c1 = np.zeros(3 * R)
         c1[:R] = -self.c_bio            # linprog minimizes
-        res = linprog(c1, A_eq=self.A_eq, b_eq=self.b_eq0,
-                      bounds=np.column_stack((vlb, vub)), method="highs",
-                      options=self.OPTS)
+        res = self._lp(c1, np.column_stack((vlb, vub)))
         if not res.success:
             return None
         mu = float(res.x[bio_idx])
@@ -71,9 +84,7 @@ class LPEngine:
         vlb2 = vlb.copy()
         vlb2[bio_idx] = max(vlb2[bio_idx], mu - mu_tol * max(1.0, abs(mu)))
         c2 = np.concatenate([np.zeros(R), np.ones(R), np.ones(R)])
-        res = linprog(c2, A_eq=self.A_eq, b_eq=self.b_eq0,
-                      bounds=np.column_stack((vlb2, vub)), method="highs",
-                      options=self.OPTS)
+        res = self._lp(c2, np.column_stack((vlb2, vub)))
         if not res.success:
             return None
         s2 = float(res.fun)
@@ -82,9 +93,8 @@ class LPEngine:
         c3 = np.zeros(3 * R)
         c3[:R] = self.w
         b_ub = np.array([s2 + pin_rel * max(1.0, abs(s2))])
-        res = linprog(c3, A_ub=self.A_ub, b_ub=b_ub, A_eq=self.A_eq,
-                      b_eq=self.b_eq0, bounds=np.column_stack((vlb2, vub)),
-                      method="highs", options=self.OPTS)
+        res = self._lp(c3, np.column_stack((vlb2, vub)), A_ub=self.A_ub,
+                       b_ub=b_ub)
         if not res.success:
             return None
         return res.x[:R].copy(), mu, s2

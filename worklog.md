@@ -4230,3 +4230,90 @@ Stage Summary:
   (blocked by atomicity, now localized); E28 open; E31 (wedge-fan
   resolution) open; all v2 integration guidance recorded in report
   sections 5 and 8.
+
+---
+Task ID: root-cause-eval
+Agent: main (Super Z)
+Task: Evaluate, verify, and explore the "Root cause" analysis pasted in
+the current turn (the retrospective reading of the M4a/M4b record:
+"the bridge weakened because it was built on the wrong order of
+smoothness"). Standing instructions honored: push check first (local
+main == origin/main at 8403b7d after fetch; nothing from previous
+turns unpushed), always commit and push, frozen v21 untouched,
+deliverables in download/, English response.
+
+Work Log:
+- Verified the text's claims against the committed record: m4a_pairs
+  CSV (76 pairs: 64 chi=0 exactly at all depths, 9 slope~1 median
+  0.9982 range 0.857-1.244, 3 insufficient; release identity 6/6),
+  m4b_summary.json (state_holonomy_note; defects -7.1469/-23.9087/
+  +0.0104 deg scale-invariant at delta and delta/2; 11-event cut D2
+  mass 1.0), m4b_edge_census.json (9-10 crossings/cell in the overflow
+  corner vs 2 in flat cells), Active_Set_Bridge_v2.md theorems, M1/M3
+  headline numbers.
+- Verdict: diagnosis correct and theorem-backed; three misdescriptions
+  corrected (RC1 no O(eps) holonomy exists -- trichotomy: state
+  holonomy exactly identity / defect O(1) scale-invariant / dynamic
+  commutator O(eps) and it is greedy hysteresis not holonomy; RC2 the
+  slope-1.00 statistic is the 9-pair interacting stratum, 64/76 exactly
+  zero; RC3 the slope-1 law is a dynamic-layer result, independent of
+  static epistasis per M3b Spearman -0.347/-0.07, so it cannot support
+  the static bridge); plus RC4 codim-1 vs codim-2 curvature carriers,
+  RC5 "falsified" epistemics (PA structure is an a priori mpLP theorem
+  -- the falsification is model-independent), RC6 the wedge-fan is
+  operationally dense but measure-tame at fine scale.
+- Executed M4c (scripts/m4c_regime_dial.py, the "regime dial"): closes
+  the text's unmechanized step 3 ("separate regime") with Theorem R
+  (D^2(v*phi_sigma) = (D^2 v)*phi_sigma exactly; D(eps,sigma) =
+  sum_e Delta_e K(t0-t_e; eps,sigma) closed form; slope 2 for eps <<
+  sigma, slope 1 for eps >> sigma, crossover eps* = c*sigma, mass
+  conservation). Machine record: 858 lex solves; census 12 events
+  (11 kinked, 1 mask), telescoping residual 4.0e-14; 1e-6-resolution
+  bisection census RESOLVED the M4b sliver: 3 clusters, the one at
+  t=0.00187 is 2.44e-6 wide with opposite jumps +-1884.6 L2 that
+  SELF-CANCEL to net 8.90 (E31 fine structure: operational fan
+  overcounts events, measure is tamer).
+- M4c dial results (exact convolution of the machine-measured
+  measure): slope_small = 1.9995/1.9991/1.9994/1.9992 (the eps^2 law
+  to four significant figures at sigma = 0.003/0.01/0.03/0.1);
+  slope_large 1.13-1.17 with local slopes -> 1; eps*/sigma =
+  4.11/2.98/3.11/2.45 (crossover scales linearly in sigma, c ~ 3);
+  GH machine validation median rel err 0.4%/1.9%/5.4%/8.7% at eps >=
+  sigma/2; wall-free control machine D <= 1.5e-11 below reach.
+- New methodological finding (numerical echo of Theorem N): fixed-node
+  Gauss-Hermite quadrature does NOT smooth below node spacing -- the
+  discretized v_sigma is itself piecewise affine (nodes translate the
+  kinks), so machine D vanishes exactly for eps below the distance to
+  the nearest node-translated kink while the exact convolution gives
+  the eps^2 law; discretized smoothing does not remove atoms unless
+  the kernel is resolved. Constrains any E28 protocol: state (eps,
+  sigma) and resolve the kernel or work measure-theoretically.
+- Engine robustness patch (scripts/lp_engine.py): deterministic
+  presolve-off retry ladder in solve_lex (HiGHS presolve occasionally
+  mis-reports a feasible pinned stage-3 as infeasible, first observed
+  at glc=1.6932/o2=1.4782); activates only where the first call
+  failed, so previously computed results are unchanged.
+- Deliverables: download/Root_Cause_Evaluation.md (claim-by-claim
+  table, corrections RC1-RC6, Theorem R + M4c, corrected bottom-line
+  replacement text) + download/m4/ (m4c_summary.json, m4c_scaling.csv,
+  m4c_cut_events.csv, fig_m4c_scaling.png, fig_m4c_density.png) +
+  scripts/m4c_regime_dial.py + lp_engine patch. Committed and pushed.
+
+Stage Summary:
+- The root-cause text is verified as a correct popularization of the v2
+  record with three technical slips (O(eps) "holonomy" conflation;
+  9/76 vs 76/76 slope statistic; slope-1 misattributed to the static
+  bridge) and one gap (the "separate regime" had no mechanism) -- the
+  gap is now closed by Theorem R + M4c: the smooth kappa_V is the same
+  curvature measure at resolution sigma; eps vs sigma selects the
+  regime; measured crossover eps* ~ 3 sigma; mass conserved across the
+  dial. The unification is a resolution statement, not a limit
+  statement.
+- New falsifiable science: the dial law (slope 2 -> 1 with crossover
+  eps* = c*sigma, c ~ 3, on the real network measure); the sliver
+  self-cancellation census; the kernel-resolution requirement for
+  empirical second-difference protocols.
+- What this does NOT prove: kappa_flux = F[mu] as a formal theorem
+  (flagged open, with the E24-recalibration test); E28 open (now with
+  its (eps, sigma) design law); 2D sliver census (E31 remainder);
+  model-family regularity for mesoscopic limits.
