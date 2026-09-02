@@ -5091,3 +5091,93 @@ Stage Summary:
   competing interests, suggested reviewers, SI split of appendices,
   optional sastry2019 preprint -> published-version upgrade);
   PRECISE-1K post-submission.
+
+---
+Task ID: two-paper-bmb
+Agent: main (Super Z)
+Task: Execute the user's two-paper blueprint (main = load-bearing
+categorical parts only, cross-cited; companion = full standalone
+theory paper), retarget the journal to a no-pay venue (PLOS charges
+APC), triage remaining audit points from external_audits/2nd wave,
+and run sentence-level flow, remnant/redundancy, and
+clarification-merit scans; commit and push.
+
+Work Log:
+- Verified web policies: PLOS Comp Bio APC $3,190 (gold OA) ->
+  rejected per user constraint; Bulletin of Mathematical Biology
+  selected (Springer hybrid; subscription route free; author-year
+  citations per BMB guidelines).
+- Companion restructured into a standalone theory paper
+  (scripts/restructure_companion_{a,b}.py, 70 asserted edits):
+  new title/abstract/Introduction with contributions + division of
+  labor + \citep{zai2026measure}; v21 inventory + extraction-record
+  sections deleted; all 92 v21 pointers converted (52 textual ->
+  internal labels/prose); def:ard + def:kv + def:realization +
+  prop:vulnerability + prop:treg-lip added (previously dangling
+  dependencies on the unpublished v21); Future directions section
+  (7 open problems) added. 35 pp, tectonic clean, 0 undefined refs.
+- Audit-derived theorem repairs (P4 tier, adapted): piecewise-
+  holonomy small-loop formula restated for TWO transversal
+  crossings with the boundary term at its true order O(eps)
+  (grounded in the companion's own numerics: n_cross=2, reset
+  slope eps); matching condition O3 in standard gauge form with
+  explicit convention; "Unconditional Banach contraction" ->
+  "for the chosen seven-map instantiation" with parameter
+  dependence; HoTT thm/cor proof-sketch status marked (Remark);
+  gluing proof-status remark (cited descent, not re-proved);
+  kappa_V(R_max)=0 re-scoped from "falsifiable prediction" to
+  consistency check (0=0 honesty); FBA-operational indicator-
+  weighted kappa_V removed (definition-shopping object,
+  superseded by the main paper's locked metric); thm:smallloop
+  SAVGS tuple harmonized. Bug fixed in part B: %% escape in %-format
+  left stray % on 8 \section lines (caught by the 0-undefined-ref
+  build; repaired + script fixed).
+- Main paper retargeted to BMB (scripts/retarget_main_bmb.py, 11
+  asserted edits): Author Summary removed; keywords 8 -> 6; natbib
+  [super] -> [round]; 27-entry alphabetical BMB reference list
+  with author-year labels (scripts/build_bmb_refs.py; companion
+  entry zai2026categorical added to the bib); new \S3.5 [D5] "The
+  categorical reading, in brief" (adapted summary, no displayed
+  duplication of the companion construction, division of labor,
+  cross-citation); Discussion companion paragraph rewritten to the
+  two-paper division; Layer-1 porting map appendix removed
+  (provenance note kept); v21 body mentions removed (E22/E32/
+  counts-ledger sites). 21 pp, tectonic clean.
+- Scans (scripts/scan_two_paper_package.py): cross-paper
+  duplication = 38 shared 7-grams, ZERO real prose runs (the one
+  >=7-word run is a preamble-macro artifact); intra-paper
+  redundancy: one verbatim triple sentence tightened; remnants
+  all clean (2 flags are false positives: "supersedes", a % source
+  comment); overfull 26 -> 4 (<=4pt + one pre-existing table-strut
+  artifact); filename paragraph de-spaced with allowbreak.
+- Clarification/accuracy fixes: L_var defined at first use (body +
+  abstract gloss); "thirteen-fold wider dynamic range" ->
+  verifiable "~130-fold (support ratio 400:1 vs 3:1)"; E28 glossed
+  ("second differences on measured time courses").
+- audit_v2_numbers.py: JP-2/JP-3/JP-5 checks retargeted from PLOS
+  structure to BMB structure -> 98/98 PASS (all numeric claims
+  trace to committed artifacts after the edits).
+- Cover letter rewritten for BMB
+  (download/cover_letter_bmb.md) with the required related-
+  manuscript disclosure block (division of labor, availability,
+  not under consideration elsewhere) and the no-fee subscription-
+  route note.
+- Deliverables: download/journal_manuscript_v2.pdf (21 pp),
+  download/companion_categorical.pdf (35 pp),
+  download/cover_letter_bmb.md,
+  download/Two_Paper_Submission_Package_Evaluation.md (audit
+  triage: 12 implemented, 5 verified present, 6 rejected with
+  reasons).
+
+Stage Summary:
+- Two-paper package complete: main paper (application, BMB,
+  author-year, self-contained) + companion (standalone theory
+  paper with its own intro/future-directions, all theorem
+  dependencies internalized, proof statuses honestly labeled);
+  zero verbatim overlap; cross-citations both directions; cover
+  letter discloses the companion.
+- Audit triage closed: the remaining implementable 2nd/3rd-wave
+  findings are implemented; the rejected set is documented with
+  reasons (out of scope / superseded / frozen-v21-only).
+- Target journal: Bulletin of Mathematical Biology (no author
+  charges on the subscription route); PRECISE-1K stays deferred.

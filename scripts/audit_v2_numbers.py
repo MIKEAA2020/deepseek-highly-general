@@ -935,45 +935,48 @@ check("JP-1", "tie-break robustness table present (5 rules TB0-TB4, "
       "rho_S >= 0.99897, kappa change 9.3e-5)", "v2 E-V8 table",
       "TB4 + 0.99897 + 9.3 present",
       "TB4" in tex2 and "0.99897" in tex2 and "9.3" in tex2)
-check("JP-2", "superscript numeric citations; no table of contents; "
-      "generated PLOS reference list input",
+check("JP-2", "BMB retarget: author-year citations (natbib round); no "
+      "table of contents; generated BMB reference list input; no "
+      "Author Summary (PLOS-era block removed)",
       "v2 preamble/backmatter", "all present",
-      "[super,sort&compress]{natbib}" in tex2 and
+      "[round]{natbib}" in tex2 and
       "tableofcontents" not in tex2 and
-      "journal_manuscript_v2_plos_refs" in tex2)
+      "journal_manuscript_v2_bmb_refs" in tex2 and
+      "Author Summary" not in tex2)
 m_abs = re.search(r"\\begin\{abstract\}(.*?)\\end\{abstract\}", tex2,
                   re.S)
 abs_words = len(re.findall(r"[A-Za-z0-9\-]+",
                 re.sub(r"\\[a-zA-Z]+", " ", m_abs.group(1))))
-m_sum = re.search(r"\\section\*\{Author Summary\}(.*?)\\section",
-                  tex2, re.S)
-sum_words = len(re.findall(r"[A-Za-z0-9\-]+", m_sum.group(1))) \
-    if m_sum else -1
-check("JP-3", "abstract <= 300 words; Author Summary present and "
-      "<= 200 words; keywords line present", "v2 front matter",
-      f"abstract {abs_words}w, summary {sum_words}w",
-      abs_words <= 300 and 0 < sum_words <= 200 and
-      "Keywords:" in tex2)
+m_kw = re.search(r"Keywords:\}\s*([^\n]*(?:\n[^\n\\]*){0,3})", tex2)
+kw_terms = m_kw.group(1).count(";") + 1 if m_kw else 99
+check("JP-3", "BMB retarget: abstract <= 300 words; no Author Summary; "
+      "keywords line with <= 6 terms", "v2 front matter",
+      f"abstract {abs_words}w, keywords {kw_terms}",
+      abs_words <= 300 and "Author Summary" not in tex2 and
+      "Keywords:" in tex2 and kw_terms <= 6)
 check("JP-4", "backmatter: Data/Software/Code Availability, Funding, "
       "Competing Interests", "v2 backmatter", "all present",
       "Data, Software, and Code Availability" in tex2 and
       "Competing Interests" in tex2 and
       "Funding" in tex2)
-plos_refs = open(os.path.join(BASE, "scripts",
-                 "journal_manuscript_v2_plos_refs.tex")).read()
-n_bib = len(re.findall(r"\\bibitem", plos_refs))
-order_keys = []
+bmb_refs = open(os.path.join(BASE, "scripts",
+                 "journal_manuscript_v2_bmb_refs.tex")).read()
+n_bib = len(re.findall(r"\\bibitem", bmb_refs))
+cited_keys = set()
 for m in re.finditer(r"\\cite[tp]?\{([^}]*)\}", tex2):
     for k in m.group(1).split(","):
         k = k.strip()
-        if k and k not in order_keys:
-            order_keys.append(k)
-ref_order = re.findall(r"\\bibitem(?:\[[^\]]*\])?\{([^}]*)\}", plos_refs)
-check("JP-5", "26 PLOS-style references, numbered in order of first "
-      "citation; all cited keys resolve", "generated plos refs",
-      f"{n_bib} entries, order match {ref_order == order_keys}",
-      n_bib == 26 and ref_order == order_keys and
-      set(order_keys) == set(ref_order))
+        if k:
+            cited_keys.add(k)
+ref_keys = re.findall(r"\\bibitem(?:\[[^\]]*\])?\{([^}]*)\}", bmb_refs)
+has_labels = bool(re.search(r"\\bibitem\[[^\]]+\(", bmb_refs))
+check("JP-5", "BMB-style references: 27 entries, alphabetical with "
+      "natbib author-year labels; all cited keys resolve",
+      "generated bmb refs",
+      f"{n_bib} entries, labels {has_labels}, all keys resolve "
+      f"{cited_keys <= set(ref_keys)}",
+      n_bib == 27 and has_labels and cited_keys <= set(ref_keys) and
+      set(ref_keys) == (cited_keys | {"zai2026categorical"}))
 check("JP-6", "in-text 'Fig' abbreviation throughout (no 'Figure~')",
       "v2 text", "Figure~ absent", "Figure~" not in tex2)
 

@@ -1,10 +1,15 @@
 % =====================================================================
 %  journal_manuscript_v2  --  LAYER-0 (spine + theorem blocks)
 %  ---------------------------------------------------------------
-%  Status:     Layer-1 in progress (E22-E27 ported; V6/V7 executed;
-%              metric locked). The frozen v21 (scripts/
-%              journal_manuscript.tex, 10,830 lines, DO NOT MODIFY)
-%              remains the audit baseline.
+%  Status:     journal-ready. Target journal: Bulletin of
+%              Mathematical Biology (Springer hybrid; subscription
+%              route, no author charges). Author-year citations,
+%              BMB reference list (scripts/build_bmb_refs.py). The
+%              categorical framework is carried by the standalone
+%              theory companion (scripts/companion_categorical.tex),
+%              cross-cited here; [D5] states it in brief adapted
+%              form only. The frozen v21 remains the audit baseline
+%              in the repository (provenance, not cited in body).
 %  Policy:     single coherent manuscript (single-paper route, secured
 %              by the V5 recalibration). No diary, no version history,
 %              no session references. Reads as one investigation.
@@ -23,7 +28,7 @@
 \usepackage{microtype}
 \usepackage{booktabs}
 \usepackage{tabularx}
-\usepackage[super,sort&compress]{natbib}
+\usepackage[round]{natbib}
 \usepackage[labelsep=period]{caption}
 \renewcommand{\figurename}{Fig}
 \usepackage{enumitem}
@@ -93,7 +98,8 @@ atomic measure converges weakly to the smooth curvature density, the
 dual-cell reconstruction converges strongly in $L^1$, and the total-variation
 claims of earlier formulations are replaced by an exact counterexample
 calculus; a resolution parameter $\sigma$ separates the discrete and smooth
-regimes through the measured window $h \ll \sigma \ll L_{\mathrm{var}}$.
+regimes through the measured window $h \ll \sigma \ll L_{\mathrm{var}}$
+($L_{\mathrm{var}}$: the variation scale of the smooth object).
 From the measure we derive a gene-level sensitivity metric $\kmu$ (measure
 mass along a parametric trajectory) and show, on
 \emph{E.~coli} (M3D microarrays, $n=424$ genes), that $\kmu$ predicts
@@ -114,27 +120,10 @@ resolutions.
 
 \medskip
 \noindent\textbf{Keywords:} discrete curvature; active set; parametric
-linear programming; flux rerouting; carbon depletion; transcriptional
-response; epistasis; holonomy
+linear programming; flux rerouting; transcriptional response;
+carbon depletion
 
 \bigskip
-\section*{Author Summary}
-When a bacterium's environment changes, its metabolism must reroute:
-reactions switch on and off, and the pattern of switching carries the
-geometry of the adaptation. This paper gives that geometry an exact,
-measurable form for flux-balance-analysis models: the second derivative
-of the optimal flux map is a matrix-valued measure concentrated on the
-switching surfaces of the active set. From this measure we derive a
-per-gene sensitivity score (the measure mass along a gene's parameter
-trajectory) and test it on \emph{E.~coli}: genes scored high by the
-geometry are the genes whose transcription responds to carbon
-starvation, with a robust statistical association that survives every
-robustness check we designed (metric, tie-break convention, path, and
-panel resampling), while the protein layer buffers the predicted
-change. The same geometry organizes double-knockout epistasis and
-predicts the memory of genetic loops. All code, data, and artifacts
-are publicly available, and every number in the paper is regenerated
-by committed scripts.
 
 % =====================================================================
 \section{Introduction}\label{sec:intro}
@@ -171,8 +160,8 @@ This manuscript establishes, in order:
       carbon-depletion transcriptional response ($r = +0.395$),
       generalizes to oxygen-limitation and carbon-switch trajectories
       with matched responses ($r = +0.32$, $+0.22$; E-V7), is robust
-      to the tie-break convention ($r \in [+0.386, +0.396]$ across
-      five selection rules; E-V8), is buffered at the protein layer
+      to the tie-break convention (E-V8: $r \in [+0.386, +0.396]$
+      over five selection rules), is buffered at the protein layer
       (\S\ref{sec:empirical}), and its event measures stabilize at
       the Glivenko--Cantelli rate across random panels (E-E32).
 \end{enumerate}
@@ -353,10 +342,11 @@ The phenotype phase planes of Edwards--Ibarra--Palsson
 complex of $\Phi$; their sector corners are the atoms of the
 Monge--Amp\`ere layer. The empirical $\kmu$ of
 Definition~\ref{def:kmu} is a functional of the \emph{flux-map} measure
-$D^2 v$ (Definition~\ref{def:mu}), which is tie-break-sensitive: in a
-controlled follower-variable LP, the value function stays affine and
-identical under two lexicographic tie-breaks while the follower's
-second-difference mass flips $0.0100 \leftrightarrow 10^{-13}$. The
+$D^2 v$ (Definition~\ref{def:mu}), which is tie-break-sensitive: under
+two lexicographic tie-breaks the value layer of a controlled
+follower-variable LP is invariant, while the flux layer's
+second-difference mass moves by ten orders of magnitude (E-M1,
+\S\ref{sec:computational}). The
 controlled relation between the value layer and the flux layer is now
 a theorem (Theorem~\ref{thm:coupling} and
 Corollary~\ref{conj:valueflux}); the association results of
@@ -485,6 +475,60 @@ layer of the canonical object, justified by identity rather than by
 rank agreement.
 \end{remark}
 
+\subsection{[D5] The categorical reading, in brief}\label{sec:categorical}
+
+The measure-theoretic development above is self-contained: nothing in
+this section uses categorical language, and the reader may take
+$\kmu$ exactly as defined. This subsection records, briefly and in
+adapted form, the categorical reading that first suggested the
+active-set curvature interpretation; the full framework --- with its
+constructions, proofs, and machine verifications --- is developed in
+a companion theory paper \citep{zai2026categorical}, and nothing
+below is a premise of the empirical results.
+
+\emph{Strata as a stratified base.} The lexicographic pFBA engine
+(\S\ref{sec:engine}) partitions parameter space into chambers on
+which the optimizer is affine; the codimension-one facets where the
+active set switches are exactly the facets that carry the atomic
+measure $\mu$ of Definition~\ref{def:mu}. In the categorical reading,
+this partition is a stratified base and the optimizer organizes the
+policy fiber stratum by stratum, as a stratified connection in the
+companion's $2$-category $\mathbf{StCon}(B)$: connection $1$-forms on
+each stratum, glued along the switching facets by a boundary
+transition satisfying a gauge matching condition, with a gluing
+theorem (proved there by reduction to stack-descent theory, and with
+its piecewise-holonomy consequences machine-verified in five loop
+geometries and three structure groups).
+
+\emph{The active-set bridge, summarized.} Two companion results
+connect this geometry to viability, and we summarize them in words
+(the displayed constructions appear in
+\citep{zai2026categorical}). First, on each constant-active-set
+stratum, a Fisher-minimal transport law defines the connection in
+closed form as a constrained projection with the Fisher--Rao metric;
+its curvature is the smooth avatar of the per-facet density that
+$\mu$ concentrates on. Second, a small-loop viability--holonomy
+theorem bounds the endpoint erosion of a viability margin around a
+small parameter loop by the \emph{viability-weighted curvature}:
+the worst case, over unit-area parameter bivectors and active
+viability margins, of the positive part of the margin's change along
+the connection curvature, normalized by the margin itself. The
+per-pair form of $\kmu$ is the measure-theoretic discretization of
+that object --- the atomic crease measure replaces the curvature
+$2$-form, and the value--flux coupling
+(Theorem~\ref{thm:coupling}) supplies the survival covectors.
+
+\emph{Division of labor.} The present paper states only this brief
+reading; the companion theory paper develops the SAVGS object, the
+gluing theorem and piecewise holonomy formula, the
+optic-composition semantics with its contraction analysis, the
+filtered-colimit construction of autocatalytic sets, and the
+homotopy-type-theoretic extension, with proofs and extensions. The
+two manuscripts share no verbatim passages of length, and neither
+depends on the other's claims: the association evidence below is
+statistical and self-contained, and the categorical development is
+mathematical and self-contained.
+
 % =====================================================================
 \section{The refinement--resolution bridge (Theorem B$'$)}
 \label{sec:theoremB}
@@ -531,7 +575,9 @@ $\mu = D^2u \dvol$. Then:
       $\mu_{h,\sigma} = \mu_h * \varphi_\sigma$: at fixed $h$, the limit
       $\sigma \to 0$ is the \emph{atomic} measure; the smooth object
       exists only as a family member at matched resolution through the
-      window $h \ll \sigma \ll L_{\mathrm{var}}$ (the measured regime dial,
+      window $h \ll \sigma \ll L_{\mathrm{var}}$, where $L_{\mathrm{var}}$
+      is the length scale on which the smooth curvature density itself
+      varies (the measured regime dial,
       \S\ref{sec:m4}).
 \end{enumerate}
 \end{theorem}
@@ -760,8 +806,7 @@ active reaction. GPR complexity classes over active reactions:
 single-gene $254$, isozyme-OR $96$, complex-AND $36$, mixed $18$,
 no-GPR $34$ --- the classes that drive the concavity analysis of
 Proposition~\ref{prop:semiconvex}. Panel construction passed four
-verification checks (v21 \S E22, restored here after the content-loss
-scan): (i) GPR mapping taken from cobra's authoritative
+verification checks: (i) GPR mapping taken from cobra's authoritative
 \texttt{reaction.genes}, spot-checked against the raw rule strings on
 four reactions spanning all complexity classes, with set-equality of
 gene tokens and a bidirectional gene--reaction symmetry check on $50$
@@ -900,7 +945,8 @@ engine:
       --- same family, independent draw;
 \item \textbf{TB2} (family swap): $w \sim \mathrm{LogN}(0, 1)$ clipped
       to $[0.05, 20]$, seed 20240903 --- a different distribution
-      family with a thirteen-fold wider dynamic range;
+      family with a roughly $130$-fold wider dynamic range
+      (support ratio $400{:}1$ versus $3{:}1$);
 \item \textbf{TB3} (rule swap): stage-3 objective on the split
       variables, $\min \sum_r w_r (f_r + r_r)$ --- weighted
       \emph{absolute}-flux selection with TB0's weights;
@@ -954,11 +1000,11 @@ declared selection is a convention, the value layer does not see it,
 and the flux-layer association is a property of the lexicographic
 protocol class, not of one rule.
 
-\subsection{[E-E32] Event-measure stabilization across growing
-panels (Glivenko--Cantelli type)}\label{sec:e32}
+\subsection{[E-E32] Event-measure stabilization
+(Glivenko--Cantelli type)}\label{sec:e32}
 
-The refinement-stabilization question behind the frozen v21's
-Route-5 program (\emph{do the empirical event point measures of the
+The refinement-stabilization question
+(\emph{do the empirical event point measures of the
 lex-pFBA map converge as the sampled family grows?}) has a
 near-term statistical form, proposed as E32 and executed here on
 three existing data sources: random straight cuts through the M4b
@@ -1135,7 +1181,8 @@ $\mu * \phi_\sigma$, and its integrals along parameter trajectories
 $h \ll \sigma \ll L_{\mathrm{var}}$; the $\sigma \to 0$ limit is the
 atomic object. Open items, demoted to their honest status:
 Conjecture~\ref{conj:bridge} (general complex stability) and E28
-under the $(\varepsilon, \sigma)$ design law. E32 (event-measure
+(second differences on measured time courses, under the
+$(\varepsilon, \sigma)$ design law). E32 (event-measure
 stabilization) is now executed (E-E32): the statistical form passes
 --- random panels are Glivenko--Cantelli objects, designed panels
 reproduce the event measure exactly --- and the deterministic
@@ -1164,20 +1211,24 @@ finite-population correction is part of the reported result) and the
 E32 two-dimensional arm is floor-limited at large panels by the
 transport-LP atom cap.
 
-\paragraph{The companion document.}
-The categorical and homotopy-theoretic material of the predecessor
-manuscript (optic-category composition, the $2$-category
-$\mathbf{StCon}(B)$ of stratified connections, the gluing and
-composition theorems, the filtered-colimit RAF construction, the
-HoTT/$\infty$-categorical extension) is \emph{preserved, not
-discarded}: it is extracted, with its status labels (proved /
-conjecture / machine-verified), into a separate companion paper
-(\emph{A Categorical Companion to the Measure-Theoretic Curvature
-Framework}, compiled from the frozen v21 source), which shares no
-load-bearing content with the present manuscript. The full frozen
-v21 (10{,}830 lines) and its complete Git history remain committed
-as the audit baseline; the split is a publication choice, not a
-deletion.
+\paragraph{The companion theory paper.}
+The categorical and homotopy-theoretic reading behind the
+active-set curvature interpretation --- the $2$-category
+$\mathbf{StCon}(B)$ of stratified connections with its gluing
+theorem, the Fisher-minimal transport law on constant-active-set
+strata, the optic-composition semantics with its contraction
+analysis, the filtered-colimit construction of autocatalytic sets,
+and the homotopy-type-theoretic extension --- is developed in full,
+as a standalone theory paper with its own proofs and machine
+verifications, in a companion manuscript \citep{zai2026categorical}.
+The division of labor is deliberate and is disclosed here and in the
+covering letter: this paper is the application --- the
+measure-theoretic curvature of parametric FBA, the metric $\kmu$,
+and the genome-scale empirical association with its layer decision
+--- and carries only a brief adapted statement of the load-bearing
+definitions (\S\ref{sec:categorical}); the companion carries the
+framework. The two manuscripts share no verbatim passages of length
+and neither depends on the other's claims.
 
 \paragraph{What this paper is and is not.}
 The mathematics is classical: parametric linear programming (chamber
@@ -1312,13 +1363,15 @@ for the refinement prototype (BT1) and the stress batteries. The
 V6/V7/V8 layer decisions, the PRECISE arm, the tie-break
 robustness, and the E32 event-measure stabilization re-run in
 minutes each (scripts
-\texttt{e24\_layer\_} \texttt{decision.py},
-\texttt{v7\_path\_} \texttt{robustness.py},
-\texttt{precise\_arm\_} \texttt{kappamu.py},
-\texttt{v8\_tiebreak\_} \texttt{robustness.py},
-\texttt{e32\_event\_} \texttt{measure\_stabilization.py}; the last
-includes one $57$-solve engine run). The full numeric audit
-(\texttt{audit\_v2\_} \texttt{numbers.py}) re-derives every manuscript
+{\sloppy
+\texttt{e24\_layer\_\allowbreak decision.py},
+\texttt{v7\_path\_\allowbreak robustness.py},
+\texttt{precise\_arm\_\allowbreak kappamu.py},
+\texttt{v8\_tiebreak\_\allowbreak robustness.py}, and
+\texttt{e32\_event\_\allowbreak measure\_\allowbreak stabilization.py};
+the last
+includes one $57$-solve engine run)\par}. The full numeric audit
+(\texttt{audit\_v2\_\allowbreak numbers.py}) re-derives every manuscript
 number from the committed artifacts ($73$ checks, $8$ repaired
 defects D-N1--D-N8, one counts ledger) and is re-runnable
 end-to-end.
@@ -1330,7 +1383,7 @@ end-to-end.
 Near-colliding counts of the manuscript, each traced to a single
 committed artifact (numeric audit, 2026-09-02):
 
-\begin{tabularx}{\textwidth}{lX}
+\begin{tabularx}{\textwidth}{l>{\raggedright\arraybackslash}X}
 \toprule
 \textbf{Value} & \textbf{Meaning (source)} \\
 \midrule
@@ -1349,9 +1402,9 @@ $435$ & genes with $\ge 1$ active reaction, E22 (e22 csv;
 $454$ & max active reactions across the nine E23 conditions (v16
          results json) \\
 $537$ & union of active reactions across conditions, $20.8\%$ (v16
-         results json; the frozen v21's $538$ is a typo) \\
+         results json) \\
 $525$ & genes with nonzero $\kappa$ across conditions (v16 results
-         json; the frozen v21's $524$ is a typo) \\
+         json) \\
 $4$ & trajectory atoms of the E24 event measure --- the four design
          corners carrying the full flux-layer mass $288.77$; identical
          to the value-kink positions (V6/E32 jsons) \\
@@ -1426,29 +1479,13 @@ Machine verification: 400 random max-of-affine vertices,
 determinant $=$ fan area to $8.9 \times 10^{-16}$, the
 $2/\sin\angle$ law to $2.5 \times 10^{-12}$, orthogonal edge case
 exactly $2$. \qed
-
-\section{Layer-1 porting map}\label{sec:portmap}
-
-\begin{tabularx}{\textwidth}{lX}
-\toprule
-\textbf{v2 section} & \textbf{v21 source (frozen; do not modify)} \\
-\midrule
-\S\ref{sec:intro} & v21 sec 1 (rewritten to the single story) \\
-\S\ref{sec:notation} & v21 sec 2 (subset: active-set notation only) \\
-\S\ref{sec:measure} & v21 active-set stratification defs; new D1/D2 \\
-\S\ref{sec:theoremB} & new (Theorem B$'$; replaces the smooth bridge) \\
-\S\ref{sec:computational} & M1/M3/M4 report bodies \\
-\S\ref{sec:empirical} & v21 E22--E27 sections (E22, E23, E25, E26
-      ported; E24 $\to$ E-V5 with the PRECISE arm; E27 $\to$ E-E27;
-      V6/V7/V8/E32 new) \\
-\S\ref{sec:discussion} & v21 discussion, rewritten as resolution statement \\
-\S\ref{sec:methods} & v21 methods; engine documentation (expanded) \\
-Appendices~\ref{sec:counts}--\ref{sec:proofs} & new (numeric audit
-      ledger; proofs of Theorem~C and Propositions S, M) \\
-companion & categorical/HoTT sections of v21 (preserved in
-      \emph{A Categorical Companion}, separate document) \\
-\bottomrule
-\end{tabularx}
+\vspace{0.6em}
+\noindent\emph{Provenance note (for editors and reviewers).} A
+section-level record of how this manuscript relates to the authors'
+predecessor drafts, and the audit artifacts that accompany it, is
+available from the public repository together with the code and
+data; the covering letter summarizes the division of labor with the
+companion theory paper \citep{zai2026categorical}.
 
 \section*{Data, Software, and Code Availability}
 All figures, tables, and numerical claims in this manuscript are
@@ -1474,6 +1511,6 @@ declaration, not a claim of the manuscript.
 [To be completed by the submitter --- e.g., ``The author(s) have
 declared that no competing interests exist.'']
 
-\input{journal_manuscript_v2_plos_refs}
+\input{journal_manuscript_v2_bmb_refs}
 
 \end{document}

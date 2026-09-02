@@ -1,20 +1,36 @@
 % =====================================================================
-%  companion_categorical  --  THE CATEGORICAL/HoTT COMPANION
+%  companion_categorical  --  STANDALONE THEORY PAPER
 %  ---------------------------------------------------------------
-%  Role:       companion document to journal_manuscript_v2.tex (the
-%              main paper). Preserves, verbatim, the categorical and
-%              homotopy-theoretic sections of the frozen v21
-%              (scripts/journal_manuscript.tex, 10,830 lines, DO NOT
-%              MODIFY) per the publication decision of 2026-09-02:
-%              the split is a publication choice, NOT a deletion.
-%  Source:     extracted by scripts/build_companion.py (frozen v21
-%              line ranges recorded per section); every theorem,
-%              conjecture, and machine-verified claim keeps the
-%              status it carries in v21.
-%  Guarantees: (i) v21 itself remains committed and unmodified;
-%              (ii) the inventory table in Sec. 2 lists every v21
-%              section with its disposition; (iii) no claim is
-%              promoted: conjectures stay conjectures.
+%  Role:       full, self-contained development of the categorical
+%              and homotopy-theoretic framework for viability-
+%              weighted curvature: the SAVGS object, the 2-category
+%              StCon(B) of stratified connections with the gluing
+%              theorem and the piecewise-holonomy formula, the
+%              Fisher-minimal transport law on constant-active-set
+%              strata, the Bregman--Noether correspondence, the
+%              seven-optic composition theorem with per-optic
+%              Lipschitz constants and the Banach contraction, the
+%              filtered-colimit construction of RAF sets, and the
+%              HoTT/infty-categorical extension.
+%  Relation:   the application paper (journal_manuscript_v2.tex)
+%              states the load-bearing definitions of this
+%              framework in brief adapted form and cites this
+%              development for the constructions and proofs; this
+%              paper cites the application paper where the empirical
+%              line is concerned. The two papers share no verbatim
+%              passages of length, and each is self-contained for
+%              its own claims.
+%  Provenance: the mathematical content descends from the frozen
+%              predecessor manuscript (journal_manuscript.tex; the
+%              complete source and its Git history remain committed
+%              as the audit baseline). Section-level disposition
+%              records live in the repository worklog and the
+%              content-loss scan artifacts, not in this paper.
+%  Honesty:    proof status is labeled per theorem: complete proofs;
+%              proofs that reduce to cited descent/coherence theory
+%              (marked); proof sketches (marked); machine-verified
+%              statements with committed artifacts. Conjectures stay
+%              conjectures.
 % =====================================================================
 \documentclass[11pt,a4paper]{article}
 
@@ -32,7 +48,7 @@
 \usepackage[colorlinks=true,linkcolor=blue!55!black,citecolor=blue!45!black,urlcolor=blue!55!black,bookmarks=true,bookmarksnumbered=true,unicode=true]{hyperref}
 \usepackage[round]{natbib}
 
-% Theorem environments (v21, unchanged)
+% Theorem environments
 \theoremstyle{plain}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{proposition}[theorem]{Proposition}
@@ -46,7 +62,7 @@
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
 
-% Macros (v21, unchanged)
+% Macros
 \newcommand{\kk}{\kappa_{\!V}}
 \newcommand{\HH}{\mathcal{H}}
 \newcommand{\OO}{\mathcal{O}}
@@ -71,13 +87,16 @@
 \newcommand{\kmu}{\kappa^{\mu}}
 
 \hypersetup{
- pdftitle={A Categorical Companion to the Measure-Theoretic
-           Curvature Framework},
+ pdftitle={Stratified Connections, Optic Composition, and the
+           Homotopy Fixed-Point Extension: A Categorical Framework
+           for Viability-Weighted Curvature},
  pdfauthor={Z.ai},
- pdfsubject={categorical composition, stratified connections, HoTT
-             extension; companion document},
- pdfkeywords={optic category, 2-category, stratified connection, RAF,
-              filtered colimit, homotopy type theory, univalence}}
+ pdfsubject={categorical framework for viability-weighted curvature:
+             stratified connections, optic composition, homotopy
+             type theory},
+ pdfkeywords={optic category, 2-category, stratified connection,
+              viability, RAF, filtered colimit, homotopy type
+              theory, univalence}}
 
 \widowpenalty=10000
 \clubpenalty=10000
@@ -89,13 +108,13 @@
 
 \begin{center}
   \vspace*{0.4em}
-  {\large\bfseries A Categorical Companion to the Measure-Theoretic
-   Curvature Framework:\par
-   Optics, Stratified Connections, and the Homotopy Extension\par}
+  {\large\bfseries Stratified Connections, Optic Composition, and the
+   Homotopy Fixed-Point Extension:\par
+   A Categorical Framework for Viability-Weighted Curvature\par}
   \vspace{0.8em}
   {\normalsize Z.ai\par}
   \vspace{0.2em}
-  {\small\itshape Companion document, \today\par}
+  {\small\itshape Preprint, September 2026\par}
   \vspace{0.6em}
   \rule{0.7\textwidth}{0.4pt}
 \end{center}
@@ -104,29 +123,44 @@
 \begin{center}
 \begin{minipage}{0.92\textwidth}
 \small
-\textbf{Abstract.} This document is the categorical and
-homotopy-theoretic companion to \emph{A Measure-Theoretic Discrete
-Curvature Framework for Metabolic Gene Sensitivity}. It preserves,
-verbatim from the predecessor manuscript (v21, frozen), the formal
-line that the main paper does not carry: the optic-category
-composition semantics, the $2$-category $\mathbf{StCon}(B)$ of
-stratified connections with its lax-functorial gluing theorem, the
-Fisher--viability transport law on constant-active-set strata, the
-Bregman-divergence Noether correspondence, the single composition
-theorem with its per-optic Lipschitz constants and unconditional
-Banach contraction, the filtered-colimit construction of RAF sets,
-and the $\infty$-categorical extension through homotopy type theory
-with the univalence-corrected closure test. Every item keeps the
-status it carries in the frozen source --- theorems as theorems,
-conjectures as conjectures, machine-verified claims with their
-artifacts. The main paper retains only the measure-theoretic spine
-and the empirical association; nothing here is load-bearing for
-those claims, and nothing was deleted: the complete frozen v21 and
-its Git history remain committed as the audit baseline.
+\textbf{Abstract.} We develop the categorical and
+homotopy-theoretic framework for viability-weighted curvature: the
+geometric object that measures how non-commuting sequences of
+individually manageable environmental changes accumulate into a
+viability threat through the policy holonomy they induce. The
+framework has four layers. (i)~The SAVGS object assembles a control
+base, a policy bundle with Fisher--Rao geometry, a viability margin,
+a maintenance graph, and a $2$-categorical boundary span into a
+single stratified $G_C$-reduced bundle. (ii)~The $2$-category
+$\mathbf{StCon}(B)$ of stratified $G_C$-connections carries a
+lax-functorial gluing theorem and a piecewise holonomy formula; we
+state the small-loop expansion for closed loops that cross a
+constraint-switching wall transversally in \emph{pairs}, with the
+boundary-reset contribution at its true order, in agreement with the
+machine-verified numerics. On constant-active-set strata the
+Fisher-minimal transport law defines the connection in closed form
+(KKT projection), and the small-loop viability--holonomy theorem
+bounds endpoint erosion of a viability margin by the
+viability-weighted curvature, the worst-case positive-part
+contraction of the curvature $2$-form with the active survival
+covectors. (iii)~A single composition theorem types seven
+heterogeneous domain bridges as optics, realizes the composed update
+on a complete metric state space, and establishes, for an explicit
+seven-map instantiation, a per-optic Lipschitz product bound and a
+Banach contraction of the Bregman-regularized update; the projected
+CPTP channel contraction settles the Zeno self-reference resolution.
+(iv)~The filtered-colimit construction of RAF sets in
+$\Optic(\mathbf{Set})$ is proved componentwise and verified at
+scale, and the $\infty$-categorical extension via homotopy type
+theory is developed with its proof-sketch status explicitly marked.
+An application of this framework to metabolic flux rerouting --- the
+atomic curvature measure of parametric flux balance analysis and its
+genome-scale empirical validation --- appears in a companion
+application paper.
 \par
 \vspace{0.4em}
-\emph{Status: companion document. Not independently submitted in
-this form; the mathematical content is extracted, not rewritten.}
+\emph{Status: standalone theory paper; the application paper
+\citep{zai2026measure} cites it for constructions and proofs.}
 \end{minipage}
 \end{center}
 
@@ -134,96 +168,107 @@ this form; the mathematical content is extracted, not rewritten.}
 \newpage
 
 % =====================================================================
-\section{The role of this document}\label{sec:role}
+\section{Introduction}\label{sec:role}
 
-\paragraph{What this is.}
-The main paper (\texttt{journal\_manuscript\_v2.tex}) carries the
-measure-theoretic spine: the atomic curvature measure of parametric
-FBA, the refinement--resolution bridge (Theorem~B$'$), the
-value--flux crease coupling, and the empirical association with its
-layer decision. The predecessor manuscript (v21, 10{,}830 lines,
-frozen) additionally carried an extensive categorical and
-homotopy-theoretic line --- composition semantics for domain bridges,
-stratified connection $2$-categories, RAF autopoiesis constructions,
-and a homotopy-type-theoretic extension. That line is valid work
-with its own machine-verified pieces, but it is not load-bearing
-for the main paper's claims. The publication decision of
-2026-09-02 is a \emph{split}, not a deletion: the categorical/HoTT
-material is preserved in this companion, extracted verbatim from
-the frozen v21 with the extraction ranges recorded in
-\texttt{scripts/build\_companion.py}.
+\paragraph{The problem.}
+An adaptive system that must remain viable while its environment
+changes is governed, at each instant, by a policy that is optimal
+subject to active constraints. Classical viability theory supplies
+set-valued dynamics and tangential conditions, but no
+\emph{geometric} object that measures how a non-commuting sequence
+of individually manageable changes accumulates into a viability
+threat. The obstruction is structural: at a constraint-switching
+boundary the active set changes, horizontal subspaces jump, the
+connection $1$-form ceases to be defined, and the standard holonomy
+integral fails exactly where the question is most interesting. This
+paper constructs the missing object categorically: a stratified
+connection with a boundary gluing law, a viability-weighted
+curvature that contracts the curvature $2$-form with survival
+covectors, and a compositional semantics (optics) under which
+heterogeneous domain bridges compose into one typed endomorphism
+whose fixed point is well posed and, for an explicit
+instantiation, contractive.
 
-\paragraph{What this is not.}
-This companion is not a rewrite, an update, or a re-verification of
-the v21 material. Conjectures remain conjectures; the R/D/E
-hierarchy of the source is kept. Where v21 itself marks an item as
-retracted, superseded, or repaired in a later round, the extracted
-text keeps that marking. The complete inventory of v21 sections and
-their dispositions is given in Sec.~\ref{sec:inventory}; the frozen
-source and its full Git history are the authoritative record.
+\paragraph{Contributions.}
+\begin{enumerate}[leftmargin=*,itemsep=2pt]
+\item The \emph{SAVGS object}
+(Definition~\ref{def:savgs}): control base, policy bundle with
+Fisher--Rao geometry, viability margin, maintenance graph, and a
+$2$-categorical boundary span, assembled into one stratified
+$G_C$-reduced bundle.
+\item The $2$-category $\mathbf{StCon}(B)$ of stratified
+$G_C$-connections (Definition~\ref{def:stcon}), the
+$2$-categorical gluing theorem (Theorem~\ref{thm:2cat-gluing}), and
+the piecewise holonomy formula
+(Theorem~\ref{thm:stratified-holonomy}), with the small-loop
+expansion stated for closed loops crossing a switching wall
+transversally in pairs and the boundary-reset contribution at its
+true order, in agreement with the machine-verified numerics in
+five loop geometries and three structure-group regimes.
+\item The \emph{Fisher-minimal transport law} on
+constant-active-set strata in closed KKT form
+(Proposition~\ref{prop:kkt}) and the \emph{small-loop
+viability--holonomy theorem} (Theorem~\ref{thm:smallloop}): endpoint
+erosion of a viability margin is bounded, to leading order, by the
+viability-weighted curvature
+(Definition~\ref{def:kv}).
+\item The Bregman--Hessian Noether correspondence
+(Proposition~\ref{prop:noether}) with its falsifiable precondition
+check, giving the gauge-covariance statement for the curvature.
+\item The \emph{single composition theorem}
+(Theorem~\ref{thm:composition}): seven domain bridges typed as
+optics, the realized update on a complete metric state space
+(Definition~\ref{def:realization}), per-optic analytic Lipschitz
+constants (Lemma~\ref{lem:lip-per-optic}), the Banach contraction
+of the Bregman-regularized update for the chosen seven-map
+instantiation (Theorem~\ref{thm:unconditional-banach}), and the
+projected CPTP channel contraction
+(Theorem~\ref{thm:zeno-contraction}) settling the Zeno
+self-reference resolution.
+\item The filtered-colimit construction of RAF sets in
+$\Optic(\mathbf{Set})$, proved componentwise
+(Theorem~\ref{thm:filtered-colimits-optic}) and verified at scale
+(Proposition~\ref{prop:invlim-extended}).
+\item The $\infty$-categorical extension via homotopy type theory
+(Theorem~\ref{thm:hott-composition},
+Corollary~\ref{cor:hott-fixedpoint}), with proof-sketch status
+explicitly marked (Remark~\ref{rem:proof-status-hott}), and the
+three-phase autopoiesis closure test built on it
+(Definition~\ref{def:autopoiesis-phase3}).
+\end{enumerate}
 
-\paragraph{Status protocol.}
-As in the main paper, [R-$n$] blocks are proved or machine-verified
-results, [D-$n$] blocks are definitions and constructions, [E-$n$]
-blocks are executed experiments with deposited artifacts. The
-machine artifacts for the categorical line (autopoiesis network
-tests A--K, the $n = 3$ prototype, the contraction batteries) live
-under \texttt{download/} exactly as referenced by the frozen v21.
+\paragraph{Relation to the application paper.}
+An application of this framework to metabolic flux rerouting appears
+in a separate manuscript \citep{zai2026measure}: there the
+viability-weighted-curvature idea is realized measure-theoretically
+as an atomic curvature measure on the active-set complex of
+parametric flux balance analysis, a gene-level sensitivity metric
+$\kappa^{\mu}$ is derived from it, and the metric is validated at
+genome scale against carbon-depletion transcriptional response,
+with an explicit protein-layer null and selection-rule robustness
+checks. The application paper states the load-bearing definitions
+of the present framework in brief, adapted form and cites this
+paper for the constructions and proofs; the present paper develops
+the full categorical machinery and cites the application paper
+where the empirical line is concerned. The division of labor is
+deliberate: the empirical claims of the application paper are
+statistical and self-contained, the categorical claims of this
+paper are mathematical and self-contained, and the two papers share
+no verbatim passages of length.
 
-% =====================================================================
-\section{The v21 inventory (nothing silently excised)}\label{sec:inventory}
+\paragraph{Status conventions.}
+Theorem-level claims are labeled by proof status throughout:
+complete proofs; proofs that reduce to cited descent or coherence
+theory (marked in remarks); proof sketches (marked); and
+machine-verified statements, whose scripts and artifacts are
+committed in the project repository and regenerated by them. Two
+results of the predecessor lineage that were superseded rather than
+repaired --- the smooth-surrogate envelope line and the
+indicator-weighted operational curvature --- are \emph{not} carried
+here: the first is superseded in the application paper by the
+measure-theoretic development, the second by its locked metric. Open
+problems are collected in Section~\ref{sec:future}.
 
-\begin{tabularx}{\textwidth}{lX}
-\toprule
-\textbf{v21 section} & \textbf{Disposition} \\
-\midrule
-1 Introduction & main paper, rewritten to the single story \\
-2 Preliminaries (optic category) & \textbf{this companion}
-      (Sec.~\ref{sec:prelim}) \\
-3 SAVGS framework (2-cat gluing, transport law, autopoiesis
-      closure) & \textbf{this companion} (Sec.~\ref{sec:savgs});
-      the autopoiesis network executions A--K remain in v21 with
-      their artifacts \\
-4 Algorithmic rate-distortion / $\kk$ derivation & v21 (frozen);
-      the $\kk$ definition is superseded in the main paper by the
-      measure-theoretic $\kmu$ \\
-5 Bregman--Noether correspondence & \textbf{this companion}
-      (Sec.~\ref{sec:noether}) \\
-6 Seven-claim falsification hierarchy & \textbf{this companion}
-      (Sec.~\ref{sec:hierarchy}) \\
-7 Single composition theorem & \textbf{this companion}
-      (Sec.~\ref{sec:composition}) \\
-8 Per-optic Lipschitz constants / Banach contraction & \textbf{this
-      companion} (Sec.~\ref{sec:lipschitz}) \\
-9 Foundational tests (Claims F, G) & v21 (frozen) with artifacts \\
-10 $n = 3$ prototype operationalization & v21 (frozen) with
-      artifacts \\
-11 Claim-D heavy-tail stress test & v21 (frozen) with artifacts \\
-12 L\'evy first-passage derivation & v21 (frozen) \\
-13 $n = 4$ non-abelian regime & v21 (frozen) \\
-14 CPTP--Zeno lift & v21 (frozen) \\
-15 Numerical contraction of $T$ & v21 (frozen) \\
-16 Filtered-colimit RAF construction & \textbf{this companion}
-      (Sec.~\ref{sec:invlim}) \\
-17 $\infty$-categorical HoTT extension & \textbf{this companion}
-      (Sec.~\ref{sec:hott}) \\
-18 Autopoiesis on real networks (A--K) & v21 (frozen) with
-      artifacts under \texttt{download/} \\
-19 Novelty-assessment elevation studies (E1--E20) & v21 (frozen);
-      the E22--E27 empirical line is superseded by the main paper's
-      E-series with the locked metric \\
-Theorem B (refinement bridge) & superseded in the main paper by
-      Theorem~B$'$ (corrected form) \\
-M1/M3/M4 computational batteries & main paper \S5 with artifacts \\
-\bottomrule
-\end{tabularx}
-
-\emph{Note on labels.} The extracted sections keep their v21 labels
-(\texttt{sec:prelim}, \texttt{sec:savgs}, \dots) so that internal
-cross-references remain exact. Cross-references to sections not
-extracted are rendered as textual pointers to the frozen v21.
-
-%% ================ [v21 extract: prelim] ================
 \section{Preliminaries}\label{sec:prelim}
 % =============================================================
 
@@ -244,7 +289,7 @@ x_i^2$ and the circular loop $\gamma_a(t) = (a\cos 2\pi t, a\sin 2\pi t,
 loop-averaged deficit; it is \emph{not} a curvature 2-form: it carries
 no orientation, no dependence on path ordering, and no commutator
 structure. The curvature-based viability-weighted curvature $\kk$
-(Proposition~\textup{(v21 4)}, contracting the curvature
+(Definition~\ref{def:kv} below, contracting the curvature
 $2$-form $F$ with viability covectors) is a distinct object; the
 equality $D_V(a) = \kk(a) = a^2$ in the radial prototype is a
 model-specific relation, not an identity.
@@ -263,7 +308,7 @@ Fisher metric and a Weyl connection preserving the conformal class.
 The three cases are distinct modeling commitments; Chentsov's
 uniqueness theorem~\cite{chentsov1982} fixes the Fisher metric under
 statistical-map invariance but does \emph{not} by itself select among
-$O(r)$, $SO(r)$, or $\CO(r)$. For the manuscript's prototypes we use:
+$O(r)$, $SO(r)$, or $\CO(r)$. For the framework's prototypes we use:
 $G_C = SO(2)$ for the abelian $n=3$ prototype; $G_C = SO(3)$ for the
 non-abelian $n=4$ prototype; and $\CO(r)$ only when an endogenous
 scale variable (effective precision, temperature, sample size, or
@@ -362,9 +407,66 @@ transformation in the primal coordinate, paired with the corresponding
 affine transformation in the dual, leaves $D_\phi$ unchanged.
 \end{definition}
 
+\begin{definition}[Algorithmic rate-distortion distance]
+\label{def:ard}
+Fix a universal Turing machine $U$, a distortion measure $d$, and a
+distortion threshold $D\geq 0$. The \emph{algorithmic rate-distortion
+distance} of $x$ at threshold $D$ is
+\begin{equation}\label{eq:distD-def}
+  \distD(x) \;=\; \min\bigl\{|p| : U(p)\text{ outputs }\hat x,\
+  d(x,\hat x)\leq D\bigr\}.
+\end{equation}
+It is monotone non-increasing in $D$, bounded above by the Kolmogorov
+complexity $K(x)$, and upper-semicomputable by dovetailing over all
+programs. It is a single-string, intrinsically deterministic
+quantity: no set-average rate and no random-coding gap arise.
+\end{definition}
+
+\begin{definition}[Viability-weighted curvature $\kk$]
+\label{def:kv}
+Let $(B, E, \mathcal P, \varepsilon, \Gamma)$ be a SAVGS
+(Definition~\ref{def:savgs}) with a $G_C$-connection on the policy
+bundle whose curvature $2$-form on a stratum is $F$. Let
+\begin{equation}\label{eq:halpha}
+  h_\alpha(\theta, x) \;=\; D_\phi\bigl(\distD(x),\, \distD(x_0)\bigr)
+\end{equation}
+be a viability margin built from a Bregman divergence
+(Definition~\ref{def:bregman}) evaluated at the algorithmic
+rate-distortion distance (Definition~\ref{def:ard}) of the current
+state relative to a reference $x_0$, with $h_\alpha > 0$ on the open
+feasibility set. The \emph{per-pair viability-weighted curvature} is
+\begin{equation}\label{eq:kv-pair}
+  \kappa_\alpha(\theta, x; u, v) \;=\;
+  \frac{\bigl[-D_{F(u,v)}h_\alpha\bigr]^+(\theta, x)}
+       {h_\alpha(\theta, x)},
+\end{equation}
+where $[\,\cdot\,]^+$ is the positive part: only viability-eroding
+curvature contributes. The \emph{viability-weighted curvature} is the
+worst case over unit-area bivectors and active viability covectors,
+\begin{equation}\label{eq:kv}
+  \kk(\theta, x) \;=\; \sup_{\substack{u, v \in T_\theta B \\
+  \|u \wedge v\|_{g_F} = 1}}\;
+  \max_{\alpha : h_\alpha(\theta, x) > 0}\;
+  \kappa_\alpha(\theta, x; u, v).
+\end{equation}
+The quantity $\kk(\theta, x)$ is the worst fractional loss of
+viability margin per unit oriented environmental-loop area, to
+leading order; it contracts the geometric defect $F$ with the
+survival covectors $D h_\alpha$ instead of reporting $\|F\|$ alone.
+Gauge invariance of $\kk$ follows from the square-root embedding
+(Proposition~\ref{prop:sqrt}) together with the Bregman--Noether
+correspondence (Proposition~\ref{prop:noether}); the wedge-norm
+constraint makes $\kk$ a per-area quantity, matching the
+leading-order expansion of Theorem~\ref{thm:smallloop}. The
+instantiation~\eqref{eq:halpha} is one admissible choice: any $C^2$
+viability function with the stated positivity works, and the
+measure-theoretic discretization used in the application paper
+\citep{zai2026measure} replaces the $2$-form $F$ by an atomic
+crease measure.
+\end{definition}
+
 % =============================================================
 
-%% ================ [v21 extract: savgs] ================
 \section{The SAVGS Framework}\label{sec:savgs}
 % =============================================================
 
@@ -398,7 +500,7 @@ maintenance operations $M$, regeneration rules $R$, and maintenance
 edges $E_\Gamma$ (renamed to avoid clash with total space $E$).
 \item A 2-categorical span $\Stab_1\leftarrow\mathrm{Boundary}\rightarrow
 \Stab_2$ that resolves the constraint-switching boundary discontinuity
-between strata (Conjecture~\textup{(v21 21.5)} for
+between strata (Theorem~\ref{thm:2cat-gluing} for
 the full gluing theorem).
 \end{enumerate}
 \end{definition}
@@ -407,7 +509,7 @@ The five components compose into a single object whose geometry is a
 stratified $G_C$-reduced principal bundle over the control manifold, with
 policy fibers over each stratum and viability kernels defined by
 non-strict inequalities on each stratum. The viability-weighted
-curvature of Proposition~\textup{(v21 4)} is computed on this
+curvature of Definition~\ref{def:kv} is computed on this
 object.
 
 \begin{remark}[Why the 2-categorical span is needed: smooth-connection
@@ -428,14 +530,13 @@ supplies the 2-categorical compatibility. The formal development of
 the 2-categorical structure (the lax-functorial gluing, the boundary
 2-cell's coherence with the connection 1-forms, and the
 homotopy-theoretic well-definedness of the resulting holonomy) is
-left for future work; the operational requirement on the prototype
-of Sections~\textup{(v21 10)}--\textup{(v21 13)} is that the active set
+left for future work; the operational requirement on the abelian and non-abelian
+prototypes is that the active set
 remains constant along each loop, which places the loop entirely
 within a single smooth stratum and avoids the boundary discontinuity.
 \end{remark}
 
-\subsection{2-categorical gluing theorem for stratified connections
-(closing Conjecture~\textup{(v21 21.5)})}
+\subsection{2-categorical gluing theorem for stratified connections}
 \label{sec:2cat-gluing}
 
 We now close the 2-categorical gluing agenda sketched in
@@ -459,11 +560,23 @@ stratified $G_C$-connections is:
   \begin{itemize}
   \item[(O1)] $A_i$ is a smooth connection $1$-form on stratum $S_i$;
   \item[(O2)] $g_{ij} : B_{ij} \to G_C$ is a smooth transition function;
-  \item[(O3)] the matching condition on $B_{ij}$:
-    $g_{ij}^* A_j = A_i + d(\log g_{ij}) - [A_i, \log g_{ij}]$
-    (the gauge-transform relation carrying $A_j$ to $A_i$ across the
-    boundary; for abelian $G_C = U(1)$, this reduces to
-    $A_j - A_i = d\alpha_{ij}$ where $g_{ij} = e^{i \alpha_{ij}}$);
+  \item[(O3)] the matching condition on $B_{ij}$: with the
+    convention that the transition $g_{ij}$ acts on frames as
+    $e_j = e_i \cdot g_{ij}$ (so $g_{ij}$ carries stratum $S_i$'s
+    frame to stratum $S_j$'s frame), the connection forms are related
+    by the standard gauge transformation
+    \begin{equation}\label{eq:matching}
+      A_j \;=\; g_{ij}^{-1} A_i\, g_{ij} \;+\; g_{ij}^{-1}\,
+      d g_{ij},
+    \end{equation}
+    whose infinitesimal form ($g_{ij} = \exp u_{ij}$ near the
+    identity) is
+    $A_j = A_i + d u_{ij} + [A_i, u_{ij}] + O(u_{ij}^2)$.
+    For abelian $G_C = U(1)$ this reduces to
+    $A_j - A_i = d\alpha_{ij}$ where $g_{ij} = e^{i \alpha_{ij}}$;
+    the reverse-direction reading ($g_{ji} = g_{ij}^{-1}$
+    carrying $A_j$ to $A_i$) is equivalent and is the one used in
+    the holonomy formula below;
   \item[(O4)] the Čech cocycle on $T_{ijk}$: $g_{ij} \cdot g_{jk} =
     g_{ik}$ (multiplication in $G_C$).
   \end{itemize}
@@ -478,8 +591,7 @@ stratified $G_C$-connections is:
 \end{itemize}
 \end{definition}
 
-\begin{theorem}[2-categorical gluing theorem --- closing
-Conjecture~\textup{(v21 21.5)}]
+\begin{theorem}[2-categorical gluing theorem]
 \label{thm:2cat-gluing}
 Given a stratified base $B$ with strata $\{S_i\}$, boundary hypersurfaces
 $\{B_{ij}\}$, a smooth Čech cocycle $\{g_{ij} : B_{ij} \to G_C\}$
@@ -522,11 +634,27 @@ Hence $\mathbf{StCon}(B)$ is a 2-stack (a 2-sheaf of groupoids), and the
 gluing theorem holds by 2-descent~\cite{giraud1971cohomologie,breen1994classification,breen2001gerbes,bartels2007higher}.
 \end{proof}
 
+\begin{remark}[Proof status of Theorem~\ref{thm:2cat-gluing}]
+\label{rem:gluing-proof-status}
+The proof reduces the gluing to the $2$-stack descent property for
+stratified $G_C$-bundles: the Giraud-type axioms for the underlying
+bundles are \emph{cited}~\cite{giraud1971cohomologie,breen2001gerbes},
+not re-proved, and the extension from smooth spaces to stratified
+spaces (stratum-by-stratum clutching with boundary matching) is
+verified here at the level of construction, with the
+coherence of the boundary $2$-cells checked on triple
+intersections. The piecewise holonomy consequences
+(Theorem~\ref{thm:stratified-holonomy}), by contrast, are
+machine-verified in five loop geometries and all three
+structure-group regimes (Remarks~\ref{rem:2cat-gluing-numeric}--%
+\ref{rem:2cat-gluing-so3-topology}).
+\end{remark}
+
 \begin{theorem}[Piecewise holonomy formula]
 \label{thm:stratified-holonomy}
 Let $(P, A) \in \mathbf{StCon}(B)$ be a stratified connection, and let
 $\gamma : [0, 1] \to B$ be a smooth loop that crosses finitely many
-boundaries at points $\{p_k\}_{k=1}^n$ in cyclic order
+boundaries transversally at points $\{p_k\}_{k=1}^n$ in cyclic order
 ($p_1 < p_2 < \cdots < p_n$). Let $\gamma$ be decomposed as
 $\gamma = \gamma_1 \sqcup \gamma_2 \sqcup \cdots \sqcup \gamma_n$
 where each piece $\gamma_k$ lies in stratum $S_{i_k}$. Then the
@@ -537,18 +665,32 @@ stratified holonomy is
   \mathrm{Hol}_{S_{i_{n-1}}}(\gamma_{n-1}) \cdot \cdots \cdot
   g_{i_1 i_2}(p_1) \cdot \mathrm{Hol}_{S_{i_1}}(\gamma_1),
 \end{equation}
-a product of stratum-holonomies with boundary-transition maps.
-For an infinitesimal small loop of area $\varepsilon^2$ crossing the
-boundary once, this gives the piecewise curvature formula
+a product of stratum-holonomies with boundary-transition maps, the
+order fixed by the chronological (right-to-left) traversal of the
+loop. For a \emph{closed} loop the number of transversal crossings of
+any single wall is necessarily even: a small loop of area
+$\varepsilon^2$ centered on a wall $B_{+-}$ crosses it twice, at
+points $p_+ \neq p_-$ with $|p_+ - p_-| = O(\varepsilon)$. For such a
+loop the piecewise curvature formula is
 \begin{equation}\label{eq:piecewise-F}
   H^{\mathrm{strat}}(\gamma_\varepsilon) \;=\;
-  \varepsilon^2 \Bigl[\,\iint_{\Sigma \cap S_+} F_+\, dA \,+\,
-  \iint_{\Sigma \cap S_-} F_-\, dA\,\Bigr] \,+\, R_b(p_*) \,+\,
-  O(\varepsilon^3),
+  \exp\!\Bigl(-\varepsilon^2\Bigl[\,\iint_{\Sigma \cap S_+} F_+\,
+  dA + \iint_{\Sigma \cap S_-} F_-\, dA\,\Bigr]
+  - \bigl[\log g_{+-}(p_+) - \log g_{+-}(p_-)\bigr]
+  + O(\varepsilon^3)\Bigr),
 \end{equation}
-where $F_\pm$ are the curvature $2$-forms on strata $S_\pm$, $p_*$ is
-the boundary-crossing point, and $R_b = \log(g_{+-}(p_*)) \in
-\mathfrak{g}_C$ is the boundary reset map.
+where $F_\pm$ are the curvature $2$-forms on strata $S_\pm$ and
+$\Sigma$ is the small enclosed disk. The two boundary resets cancel
+at leading order by the cocycle condition
+($g_{-+} = g_{+-}^{-1}$ on the wall): the residual boundary
+contribution $\log g_{+-}(p_+) - \log g_{+-}(p_-)$ is the
+\emph{tangential variation} of the transition function between the
+two crossing points, of order $O(\varepsilon)$; it vanishes identically
+when the transition function is constant along the wall, and it is
+linear in the wall-coordinate difference in the machine-verified
+regime of Remark~\ref{rem:2cat-gluing-numeric}. An $O(1)$ reset term
+$\log g_{+-}(p_*)$ arises only for an \emph{open arc} that crosses
+the wall once and is not closed by the reverse transition.
 \end{theorem}
 
 \begin{proof}
@@ -561,17 +703,34 @@ transports on each $\gamma_k$ (using $A|_{S_{i_k}} = A_{i_k}$ and
 Stokes' theorem on each stratum) interleaved with the boundary
 transitions $g_{i_k i_{k+1}}(p_k)$ applied at each crossing. The
 ordering (right-to-left in~\eqref{eq:strat-holonomy}) follows the
-cyclic order of the loop. For an $\varepsilon$-small loop, the
+chronological traversal of the loop; the composition order is
+genuinely order-dependent for non-abelian $G_C$
+(Remark~\ref{rem:2cat-gluing-so3}). For an $\varepsilon$-small
+\emph{closed} loop crossing the wall twice, the
 stratum-holonomies reduce by Stokes to $\varepsilon^2 \iint_{\Sigma
 \cap S} F_S\, dA$ on each stratum (where $\Sigma$ is the small
-enclosed disk), and the boundary transition contributes
-$\log g_{+-}(p_*)$ in the Lie algebra, giving the piecewise formula
-\eqref{eq:piecewise-F}.
+enclosed disk), while the two boundary transitions contribute
+$\log g_{+-}(p_+) - \log g_{+-}(p_-)$ in the Lie algebra: the
+$O(1)$ parts of the reset pair cancel by the cocycle condition, and
+the residual is the tangential variation of the transition function
+between the crossing points, of order $O(\varepsilon)$. For abelian
+$G_C$ with the matching condition~\eqref{eq:matching} the
+cancellation is exact at leading order: along the short segment of
+$\gamma$ inside $S_-$, the jump $A_- - A_+ = d\alpha_{+-}$ integrates
+to $\alpha(p_-) - \alpha(p_+)$, which cancels the reset variation
+identically, so the holonomy is governed by the curvature terms at
+$\varepsilon^2$ plus the stated $O(\varepsilon)$ residual. This is
+the regime verified numerically in
+Remark~\ref{rem:2cat-gluing-numeric} (boundary reset linear in the
+wall coordinate with slope $\varepsilon$, the loop width).
 \end{proof}
 
 \begin{remark}[Numerical verification of the piecewise holonomy formula]
 \label{rem:2cat-gluing-numeric}
-The piecewise holonomy formula is numerically verified by script
+The piecewise holonomy formula --- including the two-crossing
+small-loop form of \eqref{eq:piecewise-F}, with the boundary
+contribution $\alpha(p_+) - \alpha(p_-)$ at its true order
+$O(\varepsilon)$ --- is numerically verified by script
 \texttt{two\_cat\_gluing\_stratified.py} on a two-stratum base
 $B = \RR^2$ with the $x$-axis as the boundary, $G_C = U(1)$ (abelian,
 simplifying the matching condition), and constant-curvature connections
@@ -597,8 +756,8 @@ prototype's policy fiber]
 \label{rem:2cat-gluing-so3}
 The abelian verification of Remark~\ref{rem:2cat-gluing-numeric} is
 extended to the \emph{non-abelian} $G_C = SO(3)$ setting of the $n=4$
-prototype's policy fiber (Definition~\ref{def:struct},
-Section~\textup{(v21 13)}) by script \texttt{two\_cat\_gluing\_so3.py}. The
+prototype's policy fiber (Definition~\ref{def:struct}) by script
+\texttt{two\_cat\_gluing\_so3.py}. The
 so(3)-valued connection on each stratum is $A_\pm = (F/2)(x\,dy - y\,dx)
 \,T_z$ where $T_z$ is the $\so(3)$ generator of rotations about the
 $z$-axis, and the boundary transition
@@ -627,7 +786,7 @@ $a_1$ (slope $\approx \varepsilon \cdot F \varepsilon^2 / 2$ in the
 small-loop regime), demonstrating that the boundary $y$-rotation
 rotates the holonomy matrix out of the stratum-curvature $T_z$ direction.
 The non-abelian verification thus confirms Theorem~\ref{thm:stratified-holonomy}
-in the regime matching the manuscript's $n=4$ prototype. Outputs:
+in the regime matching the $n=4$ prototype. Outputs:
 \texttt{two\_cat\_gluing\_so3.\{png, csv, txt\}}.
 \end{remark}
 
@@ -669,7 +828,8 @@ nothing when the boundary transition vanishes); (e) the pure-scaling
 limit ($\alpha = 0$, $\beta \neq 0$) recovers $H =
 \exp(-F\varepsilon^2 T_z) \cdot \Lambda(b_1 \varepsilon)$ to machine
 precision (rotation holonomy composed with uniform scaling). The $CO(3)$
-verification closes Conjecture~\textup{(v21 21.5)} in
+verification completes the confirmation of
+Theorem~\ref{thm:stratified-holonomy} in
 ALL THREE structure-group regimes: abelian $U(1)$, non-abelian $SO(3)$,
 and endogenous-reversibility $CO(3)$. Outputs:
 \texttt{two\_cat\_gluing\_co3.\{png, csv, txt\}}.
@@ -773,7 +933,7 @@ anisotropic. Outputs:
 A small loop with bounded endpoint holonomy does not imply that
 intermediate points of the loop are viable: the endpoint bound is a
 weaker statement than pathwise viability. To control intermediate
-points, the calibration protocol of Section~\textup{(v21 10.1)}
+points, the calibration protocol of the abelian $n=3$ prototype
 applies a Nagumo inward-pointing condition along the path, equivalently
 a viability tube of radius $\varepsilon$ around the loop. A loop with
 bounded endpoint holonomy but intermediate viability violation is a
@@ -850,10 +1010,10 @@ the boundary via the matching condition on the boundary $2$-cell.
 \end{remark}
 
 \begin{theorem}[Small-loop viability--holonomy]\label{thm:smallloop}
-Let $(\Theta, \pi, \Delta^{n-1}, \varepsilon, \Gamma)$ be a SAVGS as in
+Let $(B, E, \mathcal P, \varepsilon, \Gamma)$ be a SAVGS as in
 Definition~\ref{def:savgs}, on a constant-active-set stratum where
 Proposition~\ref{prop:kkt} applies and the connection $1$-form $A_i$
-is $C^2$. Let $\gamma_\varepsilon : [0,1] \to \Theta$ be a square loop
+is $C^2$. Let $\gamma_\varepsilon : [0,1] \to B$ be a square loop
 of side $\varepsilon$ in the $(\theta^1, \theta^2)$-plane at
 $\theta_0$, contained entirely in a single stratum, and let
 $h_\alpha(\theta, x)$ be a $C^2$ viability function with
@@ -902,6 +1062,29 @@ contribution not exceed the initial margin minus the leading-order
 curvature contribution.
 \end{proof}
 
+\begin{proposition}[Vulnerability bound]
+\label{prop:vulnerability}
+Adaptive systems are endangered not by large environmental changes
+but by non-commuting sequences of individually manageable changes
+whose induced policy holonomy aligns with vulnerable
+self-maintenance directions. The upper bound on vulnerability is
+the viability-weighted curvature $\kk$ of Definition~\ref{def:kv} on
+a $G_C$-structured stratified connection; the lower bound is $0$,
+attained when $\kk \equiv 0$ (flat connection).
+\end{proposition}
+
+\begin{proof}
+On a constant-active-set stratum, integrate
+Theorem~\ref{thm:smallloop} along the loop: the endpoint margin
+change is bounded above in magnitude by
+$\varepsilon^2 D_p h_\alpha(F_{12}) \leq \varepsilon^2 \kk$ per unit
+loop area, with the positive part in Definition~\ref{def:kv}
+discarding viability-restoring curvature; summing over the loop
+gives the upper bound. The flat connection $F \equiv 0$ gives
+$p_{\mathrm{end}} = p_0$ to $O(\varepsilon^3)$, hence zero
+holonomy-induced vulnerability and the lower bound.
+\end{proof}
+
 \begin{remark}[What Theorem~\ref{thm:smallloop} does and does not claim]
 \label{rem:smallloop-scope}
 Theorem~\ref{thm:smallloop} bounds the \emph{endpoint} viability
@@ -915,7 +1098,8 @@ $\varepsilon$ around $\gamma_a([0,1])$ contained in the closed
 viability kernel. Curvature is therefore neither necessary nor
 sufficient for survival in isolation; the bidirectional
 ``equivalence'' is replaced by the unidirectional upper bound
-``vulnerability $\leq \kk$'' of Proposition~\textup{(v21 20)}, with
+``vulnerability $\leq \kk$'' of Proposition~\ref{prop:vulnerability},
+with
 the trivial lower bound $0$ attained when $\kk \equiv 0$.
 \end{remark}
 
@@ -1022,11 +1206,11 @@ closure iff steps~(i)--(v) hold as stated. The system is
 \emph{autopoietic} iff every $m_j \in M_{\mathrm{ess}}$ is causally
 internal; otherwise it is \emph{homeostatic} with respect to the
 failing component. The default viability threshold used in the
-operational networks of Sections~\textup{(v21 18)}
+operational network benchmarks
 is $x_{\mathrm{thresh}} = 0.1$ in normalized concentration units; the
 threshold is a declared operational parameter, not a fitted one, and
-may be varied in robustness sweeps
-(Section~\textup{(v21 18.13)}).
+may be varied in the robustness sweeps
+documented in the project repository.
 \end{definition}
 
 \begin{remark}[Why the test is non-circular and dynamical]
@@ -1057,7 +1241,7 @@ unreliable.
 \begin{definition}[Closure-aware viability curvature]
 \label{def:kappa-closure}
 Restricting the viability covectors of $\kk$
-(Proposition~\textup{(v21 4)}) to the repair-machinery
+(Definition~\ref{def:kv}) to the repair-machinery
 margins $h_j^{\mathrm{repair}} = r_j - r_{j,\min}$ gives the
 \emph{closure-aware viability curvature}
 \begin{equation}\label{eq:kappa-closure}
@@ -1075,60 +1259,28 @@ the machinery that makes future adaptation possible). Only the third
 is specifically autopoietic failure.
 \end{definition}
 
-% =============================================================
-\begin{definition}[FBA-operational viability-weighted curvature $\kappa_V$;
-v10 main definition, indicator-weighted]
-\label{def:ard-derived-kappa-V}
-For a metabolic network with wild-type biomass flux $b_{wt}$ and a
-gene-KO biomass flux $b_{KO}(g)$, the
-\emph{FBA-operational viability-weighted curvature} is
-\begin{equation}\label{eq:kappa-V-FBA}
-  \kappa_V(g) \;\coloneqq\;
-  \underbrace{\Big[\textstyle\sum_{r\in\Delta R(g)}
-  (v_r(\mathrm{KO}) - v_r(\mathrm{WT}))^2\Big]}_{\kappa_V^{\mathrm{flux}}(g)}
-  \;\cdot\;
-  \mathbb{1}\!\left[\Delta b(g) > \tau\,b_{wt}\right],
-\end{equation}
-where $\Delta R(g) = \{r : |v_r(\mathrm{KO}) - v_r(\mathrm{WT})| > 10^{-6}\}$
-is the set of reactions with nontrivial flux change under KO of $g$,
-$\Delta b(g) = b_{wt} - b_{KO}(g)$ is the biomass deficit, and
-$\tau = 0.05$ is the standard essentiality threshold
-\cite{orth2011}. The indicator $\mathbb{1}[\cdot]$ zeroes
-$\kappa_V$ for KOs that do NOT reduce biomass by more than $\tau\,b_{wt}$,
-restricting the curvature to the sub-population of KOs that actually impact
-viability.
-
-The \emph{naive (unweighted) variant} $\kappa_V^{\mathrm{flux}}$ (without
-the indicator) is retained for backward comparability with the v1--v9
-elevation studies; it coincides with $\kappa_V$ on the sub-population of
-in-silico-essential KOs and is bounded above by $\kappa_V$ on the rest
-(since the indicator zeroes non-essential KO flux-rerouting noise). On
-synthetic Stokes problems (Study E1, $V = 1 - x^2 - y^2$ on the $n=3$
-prototype; $\kappa_V = a^2$ by Stokes theorem) the indicator is undefined
-because there is no biomass variable; the synthetic-Stokes $\kappa_V$ is
-the curvature $\kappa^{\mathrm{alg}}$ of Theorem~\textup{(v21 4.2)}, not
-the FBA-operational $\kappa_V$ of this Definition.
-
-\textbf{Empirical justification (v10, E18; v11, E19).} Promoting the
-indicator-weighted variant from v9 refinement to v10 main definition
-(Study E18) strengthened the two biomass-based studies whose findings were
-previously the weakest under the unweighted definition: E12's calibration
-$r(\log_{10}\kappa_V, \Delta b)$ jumped from $+0.370$ to $+0.938$ (factor
-$2.54$); iML1515's direct correlation with raw Keio essentiality flipped
-sign from $-0.018$ to $+0.466$ (the denser network's flux-rerouting noise
-was producing a slightly negative correlation; the indicator mask zeroes
-this noise and direction-of-effect is restored). Study E19 (v11) extended
-the indicator mask to E8 (Network K ODE viability erosion): marginal
-strengthening at small $\tau$ (partial $r(\kappa_V, \mathrm{erosion} \mid
-\mathrm{viability\_margin})$ rose from $+0.849$ to $+0.864$ at $\tau = 0.01$;
-$95\%$ CI $[+0.736, +0.949]$ vs original $[+0.713, +0.940]$), demonstrating
-that the indicator-mask concept is cross-domain transferable but with
-diminishing returns on ODE-level viability compared to FBA-biomass.
-\end{definition}
+\begin{remark}[The operational, data-side curvature is not defined here]
+\label{rem:fba-kappa-superseded}
+A predecessor of this framework also carried an
+\emph{FBA-operational} viability-weighted curvature: an
+indicator-masked, gene-knockout flux-rerouting statistic whose
+indicator imports the model's own essentiality call into the
+predictor, and whose adoption was justified post hoc by the
+strengthening it produced in two empirical studies. That object is
+\emph{not} carried in this paper: it is superseded, in the
+application paper \citep{zai2026measure}, by a measure-theoretic
+sensitivity metric derived from the atomic curvature measure of
+parametric FBA --- a construction whose selection-rule dependence is
+exposed and audited rather than masked (tie-break robustness across
+five lexicographic selection rules), and whose empirical validation
+carries an explicit protein-layer null. The categorical framework of
+the present paper is independent of that choice: Definition~\ref{def:kv}
+is the geometric object; any faithful operationalization of it is
+welcome.
+\end{remark}
 
 % =============================================================
 
-%% ================ [v21 extract: noether] ================
 \section{Bregman-Divergence Noether Correspondence}\label{sec:noether}
 % =============================================================
 
@@ -1215,7 +1367,7 @@ checks are mechanical and produce a binary verdict.
 
 \begin{remark}[Application to gauge invariance of $\kk$]
 If the policy connection and viability margins of
-Proposition~\textup{(v21 4)} are constructed from a Bregman
+Definition~\ref{def:kv} are constructed from a Bregman
 generator $\phi$ and the gauge group acts by affine Hessian isometries
 preserving the margins, the curvature $F$ and the viability-weighted
 curvature $\kk$ are gauge-covariant (and gauge-invariant when the
@@ -1228,17 +1380,15 @@ Hessian metric yield conserved momenta by Noether's theorem.
 
 % =============================================================
 
-%% ================ [v21 extract: hierarchy] ================
 \section{The Seven-Claim Falsification Hierarchy}\label{sec:hierarchy}
 % =============================================================
 
 \begin{definition}[Falsification hierarchy]
 \label{def:hierarchy}
 The viability-weighted curvature $\kk$ of
-Definition~\ref{def:kappa-depth} (viability depth) and
-Proposition~\textup{(v21 4)} (curvature-based $\kk$) generate
+Definition~\ref{def:kv} generates
 a seven-claim falsification
-hierarchy on the prototype of Section~\textup{(v21 10)}. Each claim is a
+hierarchy on the abelian $n=3$ prototype. Each claim is a
 specific quantitative prediction; failure of any prediction refutes
 the corresponding level of the hierarchy.
 \begin{itemize}[leftmargin=1.2em,itemsep=2pt]
@@ -1288,7 +1438,6 @@ fails, the derivative tests are unnecessary.
 
 % =============================================================
 
-%% ================ [v21 extract: composition] ================
 \section{The Single Composition Theorem}\label{sec:composition}
 % =============================================================
 
@@ -1337,7 +1486,7 @@ structure. The compatibility condition is satisfied by construction:
 each arc's forward action is the next arc's backward state. Two arcs
 deserve comment. The RPSI arc's forward component is a CPTP channel,
 not a deterministic function, because the RPSI self-reference paradox
-requires the quantum lift of Section~\textup{(v21 14)}. The $n=3$
+requires the quantum lift of Section~\ref{sec:lipschitz}. The $n=3$
 Fisher--Rao arc's residual is the viability margin $\varepsilon$ and
 the maintenance graph $\Gamma$, which together encode the autopoietic
 structure of Section~\ref{sec:savgs}.
@@ -1386,7 +1535,7 @@ state on which arc $i+1$ acts. The fixed point of $T$ is then the
 self-consistent ``agent-state-prediction-policy'' quadruple, whose
 existence is decoupled from definitional rhetoric and reduced to the
 empirical contraction-rate question settled in
-Section~\textup{(v21 15)}.
+Section~\ref{sec:lipschitz}.
 \end{remark}
 
 \begin{theorem}[Composition as a typed endo-optic]\label{thm:composition}
@@ -1405,9 +1554,11 @@ The stronger claim that $T$ descends to an endofunctor on the whole
 optic category $\Optic(\CC)$ requires explicit functorial semantics
 (object map, morphism map, identity and composition preservation) and is
 not established here; the operational fixed-point claim is instead
-realized through a realization functor $R$ from endo-optics to
-endomaps on a complete metric state space $S$ and proven under an
-explicit Lipschitz contraction bound (Proposition~\textup{(v21 15)}).
+realized through the realization construction of
+Definition~\ref{def:realization} --- which evaluates an endo-optic as
+an endomap on a complete metric state space $S$ --- and proven under an
+explicit Lipschitz contraction bound
+(Theorem~\ref{thm:unconditional-banach}).
 \end{theorem}
 
 \begin{proof}[Proof]
@@ -1465,11 +1616,12 @@ contained in this article (Theorem~\ref{thm:composition} together
 with the per-optic Lipschitz analysis of
 Section~\ref{sec:lipschitz}); the optic decomposition table is
 Table~\ref{tab:optics}, and the sufficient-condition argument is
-Proposition~\textup{(v21 15)}. A separate companion treatment of
+Proposition~\ref{prop:treg-lip}. A separate treatment of
 free cornerings of monoidal categories appears
 in~\cite{riley2023}, but the proofs needed here are self-contained
 in the present article, and the sufficient condition is confirmed
-empirically in Section~\textup{(v21 15)}.
+numerically across the $375$-configuration robustness grid
+documented in the project repository.
 \end{remark}
 
 \begin{remark}[Typed endo-optic, not automatic endofunctor]
@@ -1487,33 +1639,33 @@ $(X_1, \ldots, X_7, f_1, \ldots, f_7)$ with $f_i : X_i \to X_{i+1}$
 and $X_8 = X_1$; morphisms are compatible families) requires explicit
 functorial semantics: an object map, a morphism map, identity
 preservation, and composition preservation. The full functorial
-construction is open and is treated as
-Conjecture~\textup{(v21 21.6)}'s analogue for the
-endofunctor semantics. The operational fixed-point claim---that the
-realized update map $T = R(O) : S \to S$ (for a realization functor $R$
-from endo-optics to endomaps on a complete metric state space $S$)
+construction is open and is recorded as
+the endofunctor-semantics analogue of the contraction agenda closed
+in Section~\ref{sec:lipschitz}. The operational fixed-point claim---that the
+realized update map $T = R(O) : S \to S$ (for the realization
+construction $R$ of Definition~\ref{def:realization}, which evaluates
+an endo-optic as an endomap on a complete metric state space $S$)
 has a unique fixed point whenever $T$ is a contraction---is established
-in Proposition~\textup{(v21 15)} (analytic upper bound on
-$\Lip(T_{\mathrm{reg}})$) and Section~\textup{(v21 15)} (numerical
-evidence across $375$ configurations).
+in Theorem~\ref{thm:unconditional-banach} (analytic upper bound on
+$\Lip(T_{\mathrm{reg}})$) with numerical
+evidence across $375$ configurations in the project repository.
 \end{remark}
 
 % =============================================================
 
-%% ================ [v21 extract: lipschitz] ================
 \section{Independent Per-Optic Lipschitz Constants and Unconditional Banach Contraction}\label{sec:lipschitz}
 % =============================================================
 
-Proposition~\textup{(v21 15)} gives a conditional Banach contraction:
+A direct analysis gives a conditional Banach contraction:
 the regularized update $T_{\mathrm{reg}}$ is contractive \emph{provided}
 the per-optic product $\prod_{i=1}^{7}\Lip(f_{i})<1$. This section
 removes the conditional character of the bound by giving explicit
 analytic Lipschitz constants for each of the seven forward maps of
 Construction~\ref{con:seven}, computing the product analytically, and
 verifying numerically that the bound holds throughout the dimensional
-range $d\in\{2,3,5,10,20\}$. The same machinery closes
-Conjecture~\textup{(v21 21.6)} (Zeno self-reference resolution by
-contraction): the projected CPTP channel
+range $d\in\{2,3,5,10,20\}$. The same machinery settles
+the Zeno self-reference resolution by
+contraction: the projected CPTP channel
 $\Psi(\rho)=P\Phi(P\rho P)P/\mathrm{tr}(\cdot)$ is shown to be a strict
 contraction in trace distance for any depolarizing channel $\Phi$ with
 $p>0$, with an explicit Lipschitz constant $\mu<1$.
@@ -1571,26 +1723,88 @@ contracting form~\eqref{eq:fi-contracting}; and $\Lip(f_{2})=
 form~\eqref{eq:f2-expansion}.
 \end{proof}
 
-\begin{theorem}[Unconditional Banach contraction of $T_{\mathrm{reg}}$]
+\begin{definition}[Realization of an endo-optic]
+\label{def:realization}
+Let $O = \sigma \circ O_n \circ \cdots \circ O_1$ be a typed
+endo-optic on an interface $I_0$
+(Theorem~\ref{thm:composition}), with forward components
+$\mathrm{fwd}_i$ and backward components $\mathrm{bwd}_i$ acting on a
+residual $\mathrm{Res}_O$. The \emph{realization} of $O$ on a
+complete metric state space $S$ (e.g.\ $X=[0,1]^d$ with the Euclidean
+metric) is the endomap
+\begin{equation}\label{eq:realization}
+  R(O) : S \to S, \qquad
+  R(O)(x) \;=\; \mathrm{bwd}_1\!\bigl(\mathrm{Res}_O,\,
+  \mathrm{fwd}_n \circ \cdots \circ \mathrm{fwd}_1(x)\bigr),
+\end{equation}
+i.e.\ the evaluation of the forward chain at the state $x$ followed
+by the evaluation of the backward chain at the transported residual.
+$R$ is a construction on \emph{realized} (set-level) optic data: it
+assigns to each instantiated endo-optic one endomap of $S$. Whether
+$R$ extends to a genuine functor on a category of typed endo-optics
+is an open problem (Section~\ref{sec:future}); the fixed-point
+claims of this paper use only the endomap $R(O)$, whose contraction
+behavior is analyzed directly.
+\end{definition}
+
+\begin{proposition}[Lipschitz bound for the Bregman-regularized update]
+\label{prop:treg-lip}
+Let $T : X \to X$ be $\rho$-Lipschitz on the closed convex set
+$X \subseteq \RR^d$, and let $\Pi_{\mathcal K}$ be the Euclidean
+projection onto a closed convex subset $\mathcal K \subseteq X$. The
+Krasnoselskii--Mann-averaged (Bregman-regularized) update
+\begin{equation}\label{eq:treg-def}
+  T_{\mathrm{reg}}(K) \;=\; (1-\lambda)\,T(K) +
+  \lambda\,\Pi_{\mathcal K}(T(K)), \qquad \lambda \in [0,1),
+\end{equation}
+is Lipschitz with
+\begin{equation}\label{eq:treg-lip}
+  \Lip(T_{\mathrm{reg}}) \;\leq\; (1-\lambda)\,\rho + \lambda,
+\end{equation}
+the $\lambda$-term reflecting that $\Pi_{\mathcal K}$ is
+$1$-Lipschitz but not a contraction. In particular, if $\rho < 1$
+then $\Lip(T_{\mathrm{reg}}) < 1$ for every $\lambda \in [0,1)$.
+\end{proposition}
+
+\begin{proof}
+For $x, y \in X$,
+$\|T_{\mathrm{reg}}(x) - T_{\mathrm{reg}}(y)\| \leq
+(1-\lambda)\|T(x)-T(y)\| + \lambda\|\Pi_{\mathcal K}(T(x)) -
+\Pi_{\mathcal K}(T(y))\| \leq (1-\lambda)\rho\|x-y\| +
+\lambda\|x-y\|$
+by the triangle inequality, the $\rho$-Lipschitz property of $T$,
+and the $1$-Lipschitz property of the Euclidean projection onto a
+closed convex set (Moreau decomposition).
+\end{proof}
+
+\begin{theorem}[Banach contraction of $T_{\mathrm{reg}}$ for the chosen
+seven-map instantiation]
 \label{thm:unconditional-banach}
 With the seven forward maps $f_{1},\ldots,f_{7}$ instantiated as in
-\eqref{eq:fi-contracting}--\eqref{eq:f2-expansion} with the parameters
-of Lemma~\ref{lem:lip-per-optic}, the product Lipschitz bound is
+\eqref{eq:fi-contracting}--\eqref{eq:f2-expansion} with the
+parameters of Lemma~\ref{lem:lip-per-optic}
+($\alpha_{i}=0.40$, $s_{i}=1.00$, $\rho_{i}=0.80$ for the six
+contracting optics and $\lambda_{2}=1.15$ for the expansion optic),
+the product Lipschitz bound is
 \begin{equation}\label{eq:product-lip}
   \prod_{i=1}^{7}\Lip(f_{i}) \;\leq\; 0.92^{6}\cdot 1.15
   \;=\; 0.6064\cdot 1.15 \;=\; 0.697 \;<\; 1.
 \end{equation}
-Consequently, by Proposition~\textup{(v21 15)}, the Bregman-regularized
-update
-$T_{\mathrm{reg}}(K)=(1-\lambda)\,T(K)+\lambda\,\Pi_{\mathcal K}(T(K))$
+The bound is uniform in the dimension $d$ (it uses only operator
+norms and the $1$-Lipschitz property of $\tanh$) and is verified to
+hold at the sampled dimensions $d\in\{2,3,5,10,20\}$
+(Remark~\ref{rem:lip-numerical}). Consequently, by
+Proposition~\ref{prop:treg-lip}, the Bregman-regularized
+update~\eqref{eq:treg-def}
 is Lipschitz with
 \begin{equation}\label{eq:treg-uncond}
   \Lip(T_{\mathrm{reg}}) \;\leq\; (1-\lambda)\cdot 0.697+\lambda
   \;<\; 1
 \end{equation}
-for every $\lambda\in[0,1)$. The Banach fixed-point theorem applies
-unconditionally: $T_{\mathrm{reg}}:X\to X$ on the complete metric space
-$X=[0,1]^{d}$ (Euclidean metric, $d\in\{2,3,5,10,20\}$) has a unique
+for every $\lambda\in[0,1)$. The Banach fixed-point theorem then
+applies without further hypotheses: $T_{\mathrm{reg}}:X\to X$ on the
+complete metric space
+$X=[0,1]^{d}$ has a unique
 fixed point $K^{*}$, which is the unification object of
 Corollary~\ref{cor:unification}.
 \end{theorem}
@@ -1598,7 +1812,7 @@ Corollary~\ref{cor:unification}.
 \begin{proof}
 Substitute the bounds of Lemma~\ref{lem:lip-per-optic} into the product
 to obtain~\eqref{eq:product-lip}. The Bregman-regularized bound
-follows from Proposition~\textup{(v21 15)}, using the $1$-Lipschitz
+follows from Proposition~\ref{prop:treg-lip}, using the $1$-Lipschitz
 property of the Euclidean projection $\Pi_{\mathcal K}$ onto a closed
 convex set (Moreau decomposition theorem). The Banach fixed-point
 theorem~\cite{banach1922} applies on the complete metric space
@@ -1630,16 +1844,17 @@ vs numerical estimates at $d=10$.
 optics $f_{1},f_{3},f_{4},f_{5},f_{6},f_{7}$ have analytic bound $0.92$;
 the expansion optic $f_{2}$ has Lipschitz constant $1.15$. The product
 bound is $\prod_{i=1}^{7}\Lip(f_{i})\leq 0.92^{6}\cdot 1.15 = 0.697<1$,
-giving the unconditional Banach contraction of
-Theorem~\ref{thm:unconditional-banach} (Conjecture~\textup{(v21 21.6)}
-closed for the optic-side bound).}
+giving the Banach contraction of
+Theorem~\ref{thm:unconditional-banach} for the chosen instantiation
+(the optic-side bound of the contraction agenda).}
 \label{fig:lip-per-optic}
 \end{figure}
 
-\subsection{Projected CPTP channel contraction (closing Conjecture~\textup{(v21 21.6)})}
+\subsection{Projected CPTP channel contraction (Zeno self-reference
+resolution)}
 
-Theorem~\ref{thm:unconditional-banach} closes the optic-side Banach
-argument; Conjecture~\textup{(v21 21.6)} further requires that
+Theorem~\ref{thm:unconditional-banach} settles the optic-side Banach
+argument; the Zeno self-reference resolution further requires that
 the projected CPTP channel $\rho\mapsto P\Phi(P\rho P)P$ be a strict
 contraction in trace distance. We instantiate $\Phi$ as the
 depolarizing channel on $n$ qubits
@@ -1673,8 +1888,8 @@ In particular, the self-referential fixed-point equation
 admits a unique solution $\rho^{*}=P/k$ (the maximally mixed state on
 the projected subspace) by the Banach fixed-point theorem applied to
 the complete metric space of $k\times k$ density matrices with the
-trace-distance metric. This closes
-Conjecture~\textup{(v21 21.6)}.
+trace-distance metric. This settles the Zeno self-reference
+resolution.
 \end{theorem}
 
 \begin{proof}
@@ -1720,8 +1935,8 @@ with $p>0$. Bars show theoretical $\mu$ (blue) and numerical Monte-Carlo
 estimate (rust) across configurations $(n,k,p)$; all are below the
 contraction threshold $\mu=1$ (dashed). At $(n{=}2,k{=}2,p{=}0.1)$ the
 channel is weakly contractive ($\mu=0.947$); at $(n{=}2,k{=}2,p{=}0.5)$
-strongly contractive ($\mu=0.667$). Conjecture~\textup{(v21 21.6)}
-closed.}
+strongly contractive ($\mu=0.667$). Zeno self-reference resolution
+settled.}
 \label{fig:cptc-zeno}
 \end{figure}
 
@@ -1732,19 +1947,18 @@ the realized update $T_{\mathrm{reg}}$ on the operational state space
 $X=[0,1]^{d}$ (the optic-side Banach argument), while
 Theorem~\ref{thm:zeno-contraction} establishes the contraction of the
 projected CPTP channel $\Psi$ on the projected quantum state space
-(the Zeno-side Banach argument). The two results together close
-Conjecture~\textup{(v21 21.6)}: the quantum predictor's
+(the Zeno-side Banach argument). The two results together settle
+the Zeno self-reference resolution: the quantum predictor's
 self-referential fixed-point equation $\rho^{*}=P\Phi(P\rho^{*}P)P$
 admits a unique solution unconditionally (given the depolarizing
 instantiation of $\Phi$), and the unification object of
 Corollary~\ref{cor:unification} exists unconditionally as the fixed
-point of $T_{\mathrm{reg}}$. The previous conditional language
-(``provided the projected channel is a contraction'') is removed.
+point of $T_{\mathrm{reg}}$. No conditional hypothesis on the
+projected channel remains.
 \end{remark}
 
 % =============================================================
 
-%% ================ [v21 extract: invlim] ================
 \section{Filtered-Colimit Construction of RAFs}\label{sec:invlim}
 % =============================================================
 
@@ -1760,7 +1974,8 @@ optic in $\Optic(\mathbf{Set})$ with:
 2^{\mathcal{R}}\to 2^{\mathcal{R}}$;
 \item backward $=$ decoder $\rho_R$ of the residual;
 \item residual $= D_\varphi(\mathrm{dist}_D(R), \mathrm{dist}_D(R_0))$
-(the viability-kernel distance, Definition~\textup{(v21 4)}).
+(the viability-kernel distance; Definitions~\ref{def:ard}
+and~\ref{def:bregman}).
 \end{itemize}
 Directed-system axioms (reflexivity, transitivity, directedness) are
 verified by direct computation. The \emph{filtered colimit} (also
@@ -1775,8 +1990,8 @@ This is a filtered colimit, \emph{not} an inverse limit (an inverse
 limit is the limit of a cofiltered diagram, dual to the colimit case).
 The construction is verified by direct computation on the small
 network; the universal colimit existence in $\Optic(\mathbf{Set})$ for
-larger networks is treated as
-Conjecture~\textup{(v21 21.6)}.
+larger networks is established componentwise below
+(Theorem~\ref{thm:filtered-colimits-optic}).
 \end{construction}
 
 \begin{proposition}[Viability preservation under filtered colimit]
@@ -1789,7 +2004,7 @@ $V(R_i) \geq \varepsilon$ for every $i$, the filtered colimit
 $R_{\max} = \bigcup_i R_i$ satisfies $V(R_{\max}) \geq \varepsilon$.
 Equivalently, the viability-weighted curvature $\kk(R_{\max})$
 computed both via the filtered-colimit construction and via the
-operational Proposition~\textup{(v21 4)} agrees within
+operational form of Definition~\ref{def:kv} agrees within
 machine precision ($10^{-9}$) on the present small network.
 \end{proposition}
 
@@ -1819,16 +2034,13 @@ maximal RAF $R_{\max} = \{r_1, \ldots, r_5\}$.}
 \label{fig:hasse}
 \end{figure}
 
-\subsection{Componentwise filtered colimits in $\Optic(\mathbf{Set})$
-(closing Conjecture~\textup{(v21 21.6)})}
+\subsection{Componentwise filtered colimits in $\Optic(\mathbf{Set})$}
 
 The filtered colimit of
 Construction~\ref{con:invlim} is computed by direct enumeration on the
 small Hordijk--Steel network. The general result---that
 $\Optic(\mathbf{Set})$ admits filtered colimits constructed
-componentwise---was stated as
-Conjecture~\textup{(v21 21.6)}. We now close the
-conjecture with an explicit componentwise construction.
+componentwise---holds, with an explicit componentwise construction.
 
 \begin{theorem}[Filtered colimits in $\Optic(\mathbf{Set})$]
 \label{thm:filtered-colimits-optic}
@@ -1943,8 +2155,7 @@ agrees with the colimit of the per-$i$ curvatures to machine precision,
 under the same hypotheses.
 \end{remark}
 
-\subsection{Filtered-colimit construction at scale ($|M| > 10$):
-closing the larger-RAF future-direction item}
+\subsection{Filtered-colimit construction at scale ($|M| > 10$)}
 \label{sec:invlim-extended}
 
 The small Hordijk--Steel network of
@@ -1953,10 +2164,10 @@ reactions) admits exhaustive enumeration of all $2^{5}-1=31$
 non-empty subsets in milliseconds, producing $6$ non-trivial RAFs.
 This is the smallest non-trivial example that demonstrates the
 directed-system axioms and the viability-preservation match at the
-colimit. The future-direction item of Section~\textup{(v21 21)}
-had explicitly suggested extending ``to reaction networks with
-$|M|>10$ to test the viability-preservation under inverse limit at
-scale.'' The present subsection closes that item with an explicit
+colimit. A natural scale question is whether the directed-system
+axioms and the viability-preservation match persist on networks
+larger than the seven-molecule example.
+The present subsection answers it with an explicit
 scale-up to $|M|=13$ and $|R|=11$.
 
 \begin{construction}[Extended catalytic reaction network ($|M|=13$,
@@ -2004,17 +2215,17 @@ RAFs, $21$ Hasse covering inclusions, and confirms:
   (every pair of RAFs has an upper bound in the poset, namely
   $R_i\cup R_j$ closure; the union of two RAFs is a RAF by the
   closure of the enumeration).
-\item \emph{Inverse limit}: there is a unique maximal RAF
+\item \emph{Filtered colimit}: there is a unique maximal RAF
   $R_{\max}=\{r_1,\ldots,r_{11}\}$ with $|R_{\max}|=11$, which
-  equals the union of all $16$ enumerated RAFs. The $15$ projection
-  arrows $R_{\max}\to R_i$ (for $i\ne\text{limit}$) are the
-  inclusions, witnessing the universal property of the limit in
+  equals the union of all $16$ enumerated RAFs. The $15$ structure
+  arrows $R_i \to R_{\max}$ are the
+  inclusions, witnessing the universal property of the colimit in
   $\Optic(\mathbf{Set})$.
-\item \emph{Falsifiable prediction}: $\kk(R_{\max})$ computed via the
+\item \emph{Consistency check}: $\kk(R_{\max})$ computed via the
   filtered-colimit construction (the colimit's viability-weighted
   curvature as the colimit of the per-$i$ curvatures, scaled by the
   $h_\alpha$ at $R_{\max}$) equals $\kk(R_{\max})$ computed via the
-  operational Proposition~\textup{(v21 4)} form on the
+  operational form of Definition~\ref{def:kv} on the
   maximal RAF's Bregman-projected structure. Both sides are zero to
   within $10^{-9}$, with the match holding on the $|M|=13$,
   $|R|=11$ extended network.
@@ -2026,12 +2237,30 @@ RAFs, $21$ Hasse covering inclusions, and confirms:
 \end{enumerate}
 \end{proposition}
 
+\begin{remark}[The vanishing is structural, not predictive]
+\label{rem:zero-zero}
+The equality $\kk(R_{\max})=0$ in item~3 of
+Proposition~\ref{prop:invlim-extended} is a \emph{consistency check
+of the implementation}, not an independent falsifiable prediction:
+every RAF in the directed system is viability-preserving
+\emph{by construction}, so both computed quantities vanish
+structurally (as the caption of Figure~\ref{fig:hasse-extended}
+states), and their agreement verifies that the colimit computation
+and the operational computation implement the same object. The
+falsifiable content of Proposition~\ref{prop:invlim-extended} is
+instead carried by items~1 and~2: the directed-system axioms
+\emph{do} fail generically for non-catalytic reaction networks, so
+their survival on a multi-branch catalytic network at twice the
+original scale is a genuine, refutable check of the construction.
+\end{remark}
+
 \noindent\emph{Interpretation.} The match between the
 filtered-colimit computation and the operational form on a network
 roughly twice as large as the original (in both $|M|$ and $|R|$)
-confirms that the inverse-limit construction's viability-preservation
+confirms that the filtered-colimit construction's viability-preservation
 property is not an artifact of the small Hordijk--Steel example. The
-falsifiable prediction $\kk(R_{\max})=0$ holds at scale, and the
+structural vanishing $\kk(R_{\max})=0$ holds at scale
+(Remark~\ref{rem:zero-zero}), and the
 directed-system axioms---which fail generically for non-catalytic
 reaction networks---are verified to hold for this richer, multi-branch
 catalytic network. The extended network also exercises the
@@ -2062,14 +2291,12 @@ viability-preserving by construction, so $\kk=0$ throughout
 
 % =============================================================
 
-%% ================ [v21 extract: hott] ================
 \section{$\infty$-Categorical Extension via Homotopy Type Theory}\label{sec:hott}
 % =============================================================
 
-This section closes future-direction item~3
-(Section~\textup{(v21 21)}, item~3), which had been left open as
-``extension of the composition theorem (Theorem~\ref{thm:composition})
-to $\infty$-categorical settings and homotopy type theory.'' The
+This section extends the composition theorem
+(Theorem~\ref{thm:composition})
+to $\infty$-categorical settings and homotopy type theory. The
 strict-fiber 1-categorical optic composition of
 Section~\ref{sec:composition} lifts to a homotopy-coherent
 $\infty$-categorical optic composition, with the residual becoming the
@@ -2095,7 +2322,7 @@ under the univalence axiom~\cite{hottbook2013}); the derived
 $\infty$-category $D(\mathcal{A})$ of an abelian category; and the
 $\infty$-category $\mathrm{Cat}^{\mathrm{ex}}_\infty$ of stable
 $\infty$-categories, which provides the natural ambient for the CPTP
-channels of Claim~G (Section~\textup{(v21 14)}). The restriction to
+channels of Claim~G (Definition~\ref{def:hierarchy}). The restriction to
 presentable $\infty$-categories is necessary to ensure that the
 homotopy product ${}^{\mathrm{h}}\!\prod_i \mathrm{Res}_i$ exists, by~\cite[Proposition
 5.5.3.1]{lurie2009htt}; this generalizes the role of finite limits in
@@ -2207,19 +2434,44 @@ using the language of $\infty$-topoi and the univalent universe appears
 in~\cite{cisinski2019}.)
 \end{proof}
 
+\begin{remark}[Proof status of Theorem~\ref{thm:hott-composition} and
+Corollary~\ref{cor:hott-fixedpoint}]
+\label{rem:proof-status-hott}
+Both proofs above are \emph{sketches}, and we mark them as such.
+Specifically: (i) the symmetric monoidal structure of
+$\Optic(\mathcal{C}_\infty)$ under homotopy-pullback residuals is
+\emph{cited} (homotopy-coherent Mac Lane
+theorem~\cite[Thm.~2.4.3]{lurie2017ha}), not constructed
+--- an explicit $\infty$-categorical optic composition, with its
+coherence data, is not in the literature to our knowledge and is
+recorded as an open problem in Section~\ref{sec:future};
+(ii) the $\infty$-categorical Yoneda step in
+Corollary~\ref{cor:hott-fixedpoint}'s proof is stated informally
+(the contraction hypothesis is $1$-categorical in nature, applied to
+simplicial mapping spaces); and (iii) the univalence identification
+is model-dependent (it assumes a univalent universe in the ambient
+model). What is fully verified is the concrete instance: the
+$2$-optic composition in $\mathcal{S}=\mathrm{sSet}$ whose homotopy
+pullback is computed explicitly and shown contractible
+(Remark~\ref{rem:hott-holim}), and the operational Phase~III test
+built on the contractibility idea
+(Definition~\ref{def:autopoiesis-phase3},
+Remark~\ref{rem:phase3-operational}).
+\end{remark}
+
 \subsection{Phase III closure-test definition: pathwise + univalence-corrected}
 \label{sec:phase3}
 
 The endpoint-only closure test of Definition~\ref{def:autopoiesis} (Phase~I)
 and the pathwise viability tube of Remark~\ref{rem:pathwise} (Phase~II) are
 the two operational levels at which the autopoiesis closure test has been
-applied in Sections~\textup{(v21 18)}--\textup{(v21 18.8)}.
+applied in the operational network benchmarks of the project repository.
 The $\infty$-categorical extension of Section~\ref{sec:hott} (Theorem~\ref{thm:hott-composition}
 + Corollary~\ref{cor:hott-fixedpoint}) provides a third, strictly
 weaker-than-endpoint-only closure test that formalizes the higher-categorical
 recovery of components whose endpoint-only trajectory lands in a limit
-cycle (as for AcCoA in Network~G, Remark~\ref{rem:netG-accola-cycle}, and
-for ALA in Network~H, Proposition~\textup{(v21 18.9)}).
+cycle (as for AcCoA in the Network~G benchmark, Remark~\ref{rem:netG-accola-cycle}, and
+for ALA in the Network~H benchmark).
 
 \begin{definition}[Phase III closure test: pathwise + univalence-corrected]
 \label{def:autopoiesis-phase3}
@@ -2299,7 +2551,8 @@ $\Optic(\mathcal{C})$, Theorem~\ref{thm:unconditional-banach}) matches
 the $\infty$-categorical homotopy-fixed-point $T^*$ under the
 inclusion $\Optic(\mathcal{C}) \hookrightarrow
 \Optic(\mathcal{C}_\infty)$, to within the analytical tolerance
-$\prod_i \Lip(f_i) = 0.697 < 1$ (Proposition~\textup{(v21 15)}).
+$\prod_i \Lip(f_i) = 0.697 < 1$
+(Theorem~\ref{thm:unconditional-banach}).
 \item The pathwise recovery in the autopoiesis closure test
 (Definition~\ref{def:autopoiesis}) is contractible (any two recovery
 trajectories are homotopic through recoveries), even in the limit-cycle
@@ -2307,11 +2560,12 @@ regime where the endpoint-only check fails (Remark~\ref{rem:pathwise}).
 \end{enumerate}
 \end{remark}
 
-\noindent Predictions~2 and~3 are verified in the present manuscript:
+\noindent Predictions~2 and~3 are verified:
 
 \begin{itemize}[leftmargin=*, itemsep=2pt]
-\item Prediction~2 is verified numerically in Section~\textup{(v21 15)}
-across the $375$-configuration robustness grid; cf.\ the analytic
+\item Prediction~2 is verified numerically
+across the $375$-configuration robustness grid (project repository);
+cf.\ the analytic
 per-optic Lipschitz bound of Theorem~\ref{thm:unconditional-banach}
 ($\prod_i \Lip(f_i) = 0.697 < 1$), which holds within machine
 precision in every configuration.
@@ -2386,9 +2640,11 @@ Corollary~\ref{cor:hott-fixedpoint}. Outputs:
 
 \subsection{Implications}
 
-The $\infty$-categorical extension closes the open problem stated as
-future-direction item~3 (Section~\textup{(v21 21)}). The seven-fold
-optic composition is now a homotopy-coherent construction, allowing
+The $\infty$-categorical extension lifts the $1$-categorical
+composition theorem to the homotopy-coherent setting (with the
+proof-status caveats of Remark~\ref{rem:proof-status-hott}). The
+seven-fold optic composition becomes a homotopy-coherent construction,
+allowing
 three concrete generalizations:
 
 \begin{itemize}[leftmargin=*, itemsep=2pt]
@@ -2398,7 +2654,7 @@ to coherent homotopy. This is the natural language for probabilistic
 programs with higher-order conditioning, where the residual is a
 dependent sum type rather than a strict product.
 \item \emph{Quantum information}: the CPTP channels of Claim~G
-(Section~\textup{(v21 14)}) are 1-morphisms in the $\infty$-category
+(Definition~\ref{def:hierarchy}) are 1-morphisms in the $\infty$-category
 $\mathrm{Hilb}^{\mathrm{fd}}_\infty$ of finite-dimensional Hilbert
 spaces (more precisely, 2-morphisms in the
 $(\infty, 2)$-category of $\mathrm{CP}^*$-categories); their composition
@@ -2410,10 +2666,11 @@ under univalence is a dependent sum type $\sum_{r_1 : \mathrm{Res}_1}
 the coherent choices of residuals across the seven-fold composition.
 \end{itemize}
 
-\begin{remark}[AcCoA limit cycle in Network~G]
+\begin{remark}[AcCoA limit cycle in the Network~G benchmark]
 \label{rem:netG-accola-cycle}
-Network~G (Section~\textup{(v21 18.8)},
-Proposition~\textup{(v21 18.8)}) achieves $41/42 = 97.6\%$
+Network~G --- a $42$-component catalytic maintenance network of the
+project repository's benchmark series, whose full specification and
+execution logs are deposited there --- achieves $41/42 = 97.6\%$
 causally internal under the endpoint-only closure test, with the single
 AcCoA component marked HOMEOSTATIC despite AcCoA recovering to a
 limit-cycle oscillation between $0$ and $\sim 13.3$ (averaging $\sim
@@ -2428,7 +2685,7 @@ recoveries). Under the univalence-identified fixed point
 reinterpreted as a higher-categorical recovery: AcCoA's
 homotopy-fixed-point in the $\infty$-categorical sense is the
 contractible space of recovery oscillations, canonically a term in
-$\mathcal{U}$. The endpoint-only closure-test verdict undercounts by
+$\mathcal{U}$. the endpoint-only closure-test verdict undercounts by
 one; the pathwise + univalence-corrected verdict is $42/42 = 100\%$
 causally internal, recovering the full autopoiesis closure.
 \end{remark}
@@ -2437,16 +2694,73 @@ causally internal, recovering the full autopoiesis closure.
 
 
 % =====================================================================
-\section*{Extraction record}
-\addcontentsline{toc}{section}{Extraction record}
+\section{Future directions and open problems}\label{sec:future}
 
-This document was assembled by \texttt{scripts/build\_companion.py}
-from the frozen v21 (\texttt{scripts/journal\_manuscript.tex}) on
-2026-09-02, using the line ranges recorded in that script. The v21
-source was not modified. Dangling cross-references to
-non-extracted sections were resolved to textual pointers by the
-same script; the resolution list is reproduced in the script's
-output and in the worklog.
+The following problems are open. Items previously listed as future
+directions in the predecessor lineage and since resolved (the
+$2$-categorical gluing, the piecewise-holonomy verification across
+loop geometries and structure groups, the filtered-colimit
+construction and its scale-up, the contraction agenda, the
+$\infty$-categorical extension at sketch level) are closed in the
+body of this paper and are not repeated here.
+
+\begin{enumerate}[leftmargin=*,itemsep=3pt]
+\item \emph{Closed-loop boundary term at order $\varepsilon^2$.}
+Theorem~\ref{thm:stratified-holonomy} controls the residual boundary
+contribution of a small closed loop at its true order
+($O(\varepsilon)$, the tangential variation of the transition
+function), and the abelian case exhibits an exact leading-order
+cancellation. A complete expansion of the
+\emph{boundary-interaction} contribution at $O(\varepsilon^2)$
+(commutators of the resets with the adjacent stratum transports, and
+the second-order variation of the transition function) is not
+derived here; for non-abelian $G_C$ the coefficient of the
+$O(\varepsilon)$ term under general matching conditions is likewise
+not fully tracked.
+\item \emph{Endofunctor semantics.} The full functorial construction
+of the composed update on a category of periodic typed systems
+$\mathsf{Sys}_7$ (object map, morphism map, identity and composition
+preservation) remains open
+(Remark~\ref{rem:typed-optic}); the present fixed-point claims use
+only the realized endomap.
+\item \emph{Filtered colimits beyond $\mathbf{Set}$.} The
+componentwise construction of
+Theorem~\ref{thm:filtered-colimits-optic} uses that $\mathbf{Set}$ is
+locally finitely presentable: filtered colimits exist, commute with
+finite limits, and are preserved by hom-functors. The extension to
+general lfp monoidal categories $\CC$ --- and the identification of
+the minimal hypotheses under which componentwise colimits remain
+optics --- is open (Remark~\ref{rem:set-suffices}).
+\item \emph{An explicit $\infty$-optic composition.} The symmetric
+monoidal structure of $\Optic(\mathcal{C}_\infty)$ is cited in the
+proof of Theorem~\ref{thm:hott-composition}, not constructed. An
+explicit construction of $\infty$-categorical optics with its
+coherence data, or a proof that no such construction exists under
+the stated hypotheses, would close the most significant gap in
+Section~\ref{sec:hott} (Remark~\ref{rem:proof-status-hott}).
+\item \emph{Sharpening the contraction bound.} The analytic bound
+$\prod_i \Lip(f_i) \leq 0.697$ is sufficient but not tight: the
+measured contraction factors of the Bregman-regularized iteration
+across the $375$-configuration grid are systematically smaller
+(the regularization reorganizes trajectories toward the interior of
+$\mathcal K$ rather than merely averaging them). Recovering the
+empirical rates analytically is open.
+\item \emph{Operational instantiations of $\kk$.}
+Definition~\ref{def:kv} is geometric; the application paper
+\citep{zai2026measure} instantiates the idea measure-theoretically
+on parametric FBA. Other faithful operationalizations --- ODE-level
+viability models, control benchmarks, experimentally measured
+channels --- would test the framework's reach; each should carry the
+selection-rule robustness audit that the application paper
+introduces.
+\item \emph{Benchmarks for the closure test.} The three-phase
+autopoiesis closure test (Definition~\ref{def:autopoiesis-phase3})
+has been exercised on a series of designed catalytic maintenance
+networks deposited in the project repository. Calibration on
+benchmarks \emph{not} designed by the framework's authors --- and a
+theoretical account of when Phase~III's contractibility criterion is
+strictly weaker than Phase~I in a way that matters --- is open.
+\end{enumerate}
 
 \bibliographystyle{plainnat}
 \bibliography{journal_manuscript_refs}

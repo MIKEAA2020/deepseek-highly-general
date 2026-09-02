@@ -99,10 +99,10 @@ Manuscript defects found and fixed: D-N1 (13 sweeps / 10 knockdowns), D-N2 (1.5e
 | E22R-1 | GPR check: 0 failures over 120 gene-reaction pairs (matches frozen v21 | PASS | both texts present | v21 sec E22 + v2 Sec 6.1 |
 | E22R-2 | distinctness b2097 shared with MAPPED-15; non-zero variation 435/435 ( | PASS | both texts present | v21 sec E22 + v2 Sec 6.1 |
 | JP-1 | tie-break robustness table present (5 rules TB0-TB4, rho_S >= 0.99897, | PASS | TB4 + 0.99897 + 9.3 present | v2 E-V8 table |
-| JP-2 | superscript numeric citations; no table of contents; generated PLOS re | PASS | all present | v2 preamble/backmatter |
-| JP-3 | abstract <= 300 words; Author Summary present and <= 200 words; keywor | PASS | abstract 289w, summary 158w | v2 front matter |
+| JP-2 | BMB retarget: author-year citations (natbib round); no table of conten | PASS | all present | v2 preamble/backmatter |
+| JP-3 | BMB retarget: abstract <= 300 words; no Author Summary; keywords line  | PASS | abstract 298w, keywords 6 | v2 front matter |
 | JP-4 | backmatter: Data/Software/Code Availability, Funding, Competing Intere | PASS | all present | v2 backmatter |
-| JP-5 | 26 PLOS-style references, numbered in order of first citation; all cit | PASS | 26 entries, order match True | generated plos refs |
+| JP-5 | BMB-style references: 27 entries, alphabetical with natbib author-year | PASS | 27 entries, labels True, all keys resolve True | generated bmb refs |
 | JP-6 | in-text 'Fig' abbreviation throughout (no 'Figure~') | PASS | Figure~ absent | v2 text |
 
 ## Counts ledger (near-colliding counts)

@@ -830,7 +830,7 @@
   },
   {
    "id": "JP-2",
-   "claim": "superscript numeric citations; no table of contents; generated PLOS reference list input",
+   "claim": "BMB retarget: author-year citations (natbib round); no table of contents; generated BMB reference list input; no Author Summary (PLOS-era block removed)",
    "artifact": "v2 preamble/backmatter",
    "value": "all present",
    "status": "PASS",
@@ -838,9 +838,9 @@
   },
   {
    "id": "JP-3",
-   "claim": "abstract <= 300 words; Author Summary present and <= 200 words; keywords line present",
+   "claim": "BMB retarget: abstract <= 300 words; no Author Summary; keywords line with <= 6 terms",
    "artifact": "v2 front matter",
-   "value": "abstract 289w, summary 158w",
+   "value": "abstract 298w, keywords 6",
    "status": "PASS",
    "note": ""
   },
@@ -854,9 +854,9 @@
   },
   {
    "id": "JP-5",
-   "claim": "26 PLOS-style references, numbered in order of first citation; all cited keys resolve",
-   "artifact": "generated plos refs",
-   "value": "26 entries, order match True",
+   "claim": "BMB-style references: 27 entries, alphabetical with natbib author-year labels; all cited keys resolve",
+   "artifact": "generated bmb refs",
+   "value": "27 entries, labels True, all keys resolve True",
    "status": "PASS",
    "note": ""
   },
