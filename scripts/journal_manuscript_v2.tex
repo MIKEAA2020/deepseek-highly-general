@@ -65,7 +65,7 @@
  pdftitle={A Measure-Theoretic Discrete Curvature Framework for
            Metabolic Gene Sensitivity: From Active-Set Geometry to
            Transcriptional Response},
- pdfauthor={Z.ai},
+ pdfauthor={X},
  pdfsubject={parametric FBA, discrete curvature measures, active-set
              stratification, metabolic gene sensitivity},
  pdfkeywords={discrete curvature, active set, parametric linear
@@ -75,7 +75,7 @@
 \title{A Measure-Theoretic Discrete Curvature Framework for Metabolic
        Gene Sensitivity: From Active-Set Geometry to Transcriptional
        Response}
-\author{Z.ai}
+\author{X}
 \date{September 2026}
 
 \begin{document}
@@ -1352,7 +1352,7 @@ with TPM log-fold changes. Numbers in the manuscript trace to
 committed artifacts via the numeric audit
 (\texttt{scripts/audit\_v2\_numbers.py} $\to$
 \texttt{download/deepseek\_bridge/v2\_number\_audit.json};
-$73$ checks).
+$98$ checks).
 
 \subsection{Reproducibility}
 
@@ -1372,9 +1372,9 @@ minutes each (scripts
 the last
 includes one $57$-solve engine run)\par}. The full numeric audit
 (\texttt{audit\_v2\_\allowbreak numbers.py}) re-derives every manuscript
-number from the committed artifacts ($73$ checks, $8$ repaired
-defects D-N1--D-N8, one counts ledger) and is re-runnable
-end-to-end.
+number from the committed artifacts ($98$ checks; $13$ repaired defects
+across audit generations, D-N1--N8 and D-JS1--5; one counts ledger) and
+is re-runnable end-to-end.
 
 % =====================================================================
 \appendix
@@ -1481,7 +1481,7 @@ $2/\sin\angle$ law to $2.5 \times 10^{-12}$, orthogonal edge case
 exactly $2$. \qed
 \vspace{0.6em}
 \noindent\emph{Provenance note (for editors and reviewers).} A
-section-level record of how this manuscript relates to the authors'
+section-level record of how this manuscript relates to the author's
 predecessor drafts, and the audit artifacts that accompany it, is
 available from the public repository together with the code and
 data; the covering letter summarizes the division of labor with the
@@ -1502,14 +1502,36 @@ public and cited in the reference list. No new experiments were
 performed.
 
 \section*{Funding}
-[To be completed by the submitter --- e.g., funders and grant
-numbers, or ``The author(s) received no specific funding for this
-work.'']\ The statements in this paragraph are the submitter's
-declaration, not a claim of the manuscript.
+This research received no specific grant from any funding agency in
+the public, commercial, or not-for-profit sectors, and no funding
+was received for the research, authorship, or publication of this
+article.
 
 \section*{Competing Interests}
-[To be completed by the submitter --- e.g., ``The author(s) have
-declared that no competing interests exist.'']
+The author declares no competing interests, financial or otherwise,
+in relation to the work described in this manuscript.
+
+\section*{Ethics Approval}
+Not applicable. The study is entirely computational: it involves no
+human participants, human tissue, or animal subjects; it performs no
+new experiments; and it analyzes only mathematical models of
+metabolic networks together with previously published, publicly
+available datasets.
+
+\section*{Declaration of Generative AI in Scientific Writing}
+During the preparation of this work the author used GLM (Z.ai) and
+DeepSeek large language models, under the author's direction and
+supervision, to assist with manuscript drafting and editing and with
+the development and documentation of the analysis code. All
+AI-assisted content was reviewed, verified, and edited by the
+author, who takes full responsibility for the final content of the
+manuscript and for the integrity of its results.
+
+\section*{Author Contributions}
+X is the sole author of this manuscript. X conceived the study
+design, developed the methodology and analysis code, performed the
+data analysis, and drafted and revised the manuscript, and approved
+the submitted version.
 
 \input{journal_manuscript_v2_bmb_refs}
 

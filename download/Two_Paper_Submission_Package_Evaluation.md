@@ -20,7 +20,7 @@ scripts, this report.
 |---|-----------|---------|--------|
 | 1 | commit + push, English, PAT retained | standing | done at end of round |
 | 2 | remaining audit points worth implementing | 12 implemented this round; 5 verified already present; 6 rejected with reasons (§3) | executed |
-| 3 | no-pay target journal | PLOS Comp Bio charges APC (~$3,190); **retargeted to Bulletin of Mathematical Biology** (Springer hybrid; free under the standard subscription route; author-year citations per BMB submission guidelines) — verified by web search | executed |
+| 3 | no-pay target journal | PLOS Comp Bio charges APC (~$3,190); **retargeted to Bulletin of Mathematical Biology** (Springer hybrid; free under the standard subscription route; author-year citations per BMB submission guidelines) — verified by web search. Companion target confirmed: **Theory and Applications of Categories** (TAC; ISSN 1201-561X, www.tac.mta.ca) — free electronic journal, no subscription and no author charges (diamond open access) — verified by web search (scripts/search_tac{,2}.json) | executed |
 | 4 | sentence-level flow scan | strong (one investigation, clean transitions); 1 mid-round glitch fixed; 1 verbatim triple tightened | executed |
 | 5 | remnant/redundancy scan | PLOS remnants 0; v21 body mentions 0 (both papers); overfull 26 → 4 (all ≤ 4pt or a pre-existing table-strut artifact) | executed |
 | 6 | clarification-merit scan | 4 warranted non-superficial additions (L_var defined, E28 glossed, dynamic-range claim made verifiable); candidates rejected as decorative are listed (§6) | executed |

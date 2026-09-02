@@ -1,0 +1,51 @@
+v21      :  2105 frags | survived   336 (16.0%) | light   51 | heavy  236 | dropped 1482
+v2_e32   :   239 frags | survived   216 (90.4%) | light   19 | heavy    2 | dropped    2
+v2_plos  :   249 frags | survived   229 (92.0%) | light    9 | heavy    1 | dropped   10
+comp_pre :   429 frags | survived   334 (77.9%) | light   46 | heavy   20 | dropped   29
+
+v21 envs: 186 | missing in current union: 120
+    theorem      2-categorical gluing theorem --- closing
+Conjecture~\ref{con (None)
+    definition   FBA-operational viability-weighted curvature $\kappa_V$;
+v10 (None)
+    definition   Algorithmic rate-distortion distance (sec:ard)
+    proposition  Properties of $\distD$ (None)
+    remark       No deterministic-versus-random-coding gap (prop:ard-props)
+    proposition  Derivation of $\kk$ (None)
+    definition   Smooth finite-code rate-distortion surrogate (None)
+    proposition  Operational viability margin from smooth surrogate (def:ard-surrogate)
+    conjecture   Algorithmic upper envelope (None)
+    definition   Smooth envelope (None)
+    lemma        Uniform Lipschitz bound on the surrogate family (None)
+    theorem      Smooth-envelope theorem --- closing
+Conjecture~\ref{conj:alg (None)
+    remark       Connection to the algorithmic rate-distortion $\distD$ (None)
+    remark       Numerical verification of the smooth-envelope theorem (None)
+    corollary    Geometric-phase form of $\kk$ for radially symmetric
+$V$ (None)
+    remark       MDP versus POMDP base space (None)
+    remark       Counterexamples to curvature-survival equivalence (None)
+    proposition  Claim F empirical verdict (None)
+    proposition  Claim G empirical verdict (None)
+    remark       Geometric origin of $\kk(a)=a^2$ and $H_{\mathrm{geo}}(a)=\p (None)
+    definition   Fisher--Rao distance as the gauge-invariant observable (None)
+    remark       Why the volume-density expression was replaced (None)
+    definition   Total-variance statistic with non-parametric
+bootstrap (None)
+    definition   Matching-no-loop-drift control (None)
+    remark       Why the protocol is falsifiable (None)
+    definition   Calibration / holdout split (def:control)
+    definition   Equal-exposure permutation test (None)
+    definition   Subdivision consistency (None)
+    remark       Geometric adaptation fatigue signature (None)
+    proposition  Stress-test verdicts (None)
+comp_pre envs: 63 | missing in current companion: 4
+    theorem      2-categorical gluing theorem --- closing
+Conjecture~\textup{ (None)
+    definition   FBA-operational viability-weighted curvature $\kappa_V$;
+v10 (None)
+    theorem      Unconditional Banach contraction of $T_{\mathrm{reg}}$ (None)
+    remark       AcCoA limit cycle in Network~G (None)
+v2_plos envs: 24 | missing in current v2: 0
+
+written: /home/z/my-project/download/deepseek_bridge/sentence_loss_scan.json

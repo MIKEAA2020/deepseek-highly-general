@@ -10,7 +10,7 @@ Gene Sensitivity: From Active-Set Geometry to Transcriptional Response
 
 Dear Editors,
 
-We are pleased to submit our manuscript "A Measure-Theoretic Discrete
+I am pleased to submit my manuscript "A Measure-Theoretic Discrete
 Curvature Framework for Metabolic Gene Sensitivity: From Active-Set
 Geometry to Transcriptional Response" for consideration as an Original
 Research Article in the Bulletin of Mathematical Biology.
@@ -33,11 +33,11 @@ the journal's readership:
    slope 1.000000 — where any smooth map would scale quadratically.
 
 2. **A validated, robustly tested gene-sensitivity metric.** From the
-   measure we derive a per-gene sensitivity score and show, in
-   *E. coli* (M3D microarrays, n = 424), that it predicts
+   measure the manuscript derives a per-gene sensitivity score and
+   shows, in *E. coli* (M3D microarrays, n = 424), that it predicts
    carbon-depletion transcriptional response
    (r = +0.395, p = 2.6 × 10⁻¹⁷; partial r = +0.269). The association
-   survives every robustness check we designed: metric invariance
+   survives every robustness check in the manuscript: metric invariance
    (ρ = 0.99998), five lexicographic tie-break conventions with the
    value layer exactly invariant, path variation, cross-platform
    replication (dissociating on PRECISE, as the layer theory predicts),
@@ -55,17 +55,18 @@ The mathematics is deliberately classical — parametric linear
 programming (chamber complexes, active sets, Danskin duality),
 Alexandrov's theorem, and distributional second derivatives of
 piecewise-affine maps — applied systematically to flux-balance models
-for the first time, we believe, at this level of exactness. This
-methods-plus-application character is, in our view, a direct fit for
+for the first time, I believe, at this level of exactness. This
+methods-plus-application character is, in my view, a direct fit for
 the Bulletin's mathematical-biology readership.
 
 **Disclosure of a related manuscript.** In the interest of full
-transparency we disclose that a companion manuscript is in preparation
-for separate submission: "Stratified Connections, Optic Composition,
-and the Homotopy Fixed-Point Extension: A Categorical Framework for
-Viability-Weighted Curvature" (theory paper). The two papers are
-related but distinct in purpose, and the division of labor is
-deliberate:
+transparency I disclose that a companion manuscript is in preparation
+for separate submission to *Theory and Applications of Categories*
+(a no-fee, diamond open-access journal): "Stratified Connections,
+Optic Composition, and the Homotopy Fixed-Point Extension: A
+Categorical Framework for Viability-Weighted Curvature" (theory
+paper). The two papers are related but distinct in purpose, and the
+division of labor is deliberate:
 
 - The **submitted manuscript** is the application: the
   measure-theoretic curvature of parametric FBA, the gene-level metric
@@ -98,20 +99,30 @@ artifacts, verified by a 98-check numeric audit (98/98 PASS) that
 re-derives each manuscript value from its committed artifact. All
 code, data manifests (SHA-256), and artifacts are publicly available;
 all biological data are public (BiGG models, M3D, PRECISE, PaxDb, and
-the condition-dependent *E. coli* proteome). We note that publication
-under the journal's standard (subscription) route is intended; no
-open-access charges are requested.
+the condition-dependent *E. coli* proteome). Publication under the
+journal's standard (subscription) route is intended; no open-access
+charges are requested.
 
-We confirm that this manuscript is original, has not been published
-previously, and is not under consideration by any other journal. All
-authors have read and approved the submitted manuscript. This work
-involved no human or animal subjects.
+I am the sole author of this manuscript. I conceived the study
+design, developed the methodology and analysis code, analyzed the
+data, and drafted the manuscript. In accordance with the journal's
+policy on generative AI in scientific writing, I disclose that
+GLM (Z.ai) and DeepSeek large language models were used as writing
+and coding assistants under my direction and supervision; all
+assisted content was reviewed, verified, and edited by me, and I
+take full responsibility for the content of the manuscript and the
+integrity of its results.
+
+I confirm that this manuscript is original, has not been published
+previously, and is not under consideration by any other journal. This
+work involved no human or animal subjects and required no ethics
+approval.
 
 Thank you for your consideration.
 
 Sincerely,
 
-[Corresponding author name]
+X
 [Affiliation]
 [Email]
 
@@ -119,9 +130,16 @@ Sincerely,
 if desired.]
 
 **Declarations:**
-- Competing interests: [To be completed by the submitter.]
-- Funding: [To be completed by the submitter.]
+- Funding: this research received no specific grant from any funding
+  agency in the public, commercial, or not-for-profit sectors.
+- Competing interests: the author declares none.
+- Ethics approval: not applicable (fully computational study; no
+  human or animal subjects; previously published public data only).
 - Data availability: all data and code public; complete bundle at
   https://github.com/MIKEAA2020/deepseek-highly-general (SHA-256
   manifest included); companion theory manuscript available at the
   same repository and on request.
+- Generative AI declaration: GLM (Z.ai) and DeepSeek assisted with
+  drafting, editing, and analysis-code development under the author's
+  direction; the author reviewed and edited all assisted content and
+  takes full responsibility for the published work.

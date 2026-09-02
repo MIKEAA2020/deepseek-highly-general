@@ -5181,3 +5181,76 @@ Stage Summary:
   reasons (out of scope / superseded / frozen-v21-only).
 - Target journal: Bulletin of Mathematical Biology (no author
   charges on the subscription route); PRECISE-1K stays deferred.
+
+---
+Task ID: declarations-final-scan
+Agent: main (Super Z)
+Task: User round 2026-09-02 (final): fill all submitter
+declarations (no funding, no competing interests, data availability,
+ethics, formal AI declaration for GLM and DeepSeek, sole author X),
+confirm TAC as companion target and give its full name, deep
+sentence-level scans for (a) accidental content loss or condensation
+and (b) conceptual clarity / seamless flow / remnants / redundancy /
+stylistic syntax; commit and push.
+
+Work Log:
+- Declarations: main paper backmatter completed (Funding, Competing
+  Interests, Ethics Approval, Declaration of Generative AI in
+  Scientific Writing, Author Contributions; Data/Software/Code
+  Availability retained); companion paper given an equivalent
+  Declarations block, semantically identical but textually distinct
+  (keeps the package's no-verbatim-overlap property strictly true;
+  verified by 7-gram scan: 44 shared 7-grams, 0 prose runs, the 1
+  flagged run being the known preamble-macro artifact).
+- Author identity: Z.ai -> X at all authorship sites (both papers'
+  \author and pdfauthor, companion title block, zai2026categorical /
+  zai2026measure bib entries, generated BMB reference list --
+  alphabetical position preserved Wang < X < Ziegler). Cover letters
+  singularized throughout; BMB letter declarations filled; new TAC
+  cover letter (download/cover_letter_tac.md).
+- TAC verified by web search (scripts/search_tac{,2}.json): full name
+  "Theory and Applications of Categories", ISSN 1201-561X,
+  www.tac.mta.ca, free electronic journal, no author charges; recorded
+  in Two_Paper_Submission_Package_Evaluation.md.
+- Sentence-level content-loss scan (new scripts/scan_sentence_loss.py,
+  artifact download/deepseek_bridge/sentence_loss_scan.json): all
+  sentences of v21 / v2@e6a0c61 / v2@5219ef0 / companion@e6a0c61
+  5-gram-traced into the current union. Zero accidental loss: v2 drops
+  = Author Summary (PLOS-only) + v21 bookkeeping + placeholders
+  superseded by real declarations; companion drops = 17 bookkeeping +
+  8 kappa_V removal + 4 pointer conversions; heavy rewrites = the
+  documented theorem repairs. Env-level: only 2 v21 envs present
+  pre-restructure and absent now (kappa_V definition -- deliberate;
+  AcCoA remark -- retitled false positive). Nothing from earlier
+  drafts qualifies for restoration (reasons per candidate documented
+  in download/Declarations_and_Final_Scan_Evaluation.md section 3).
+- Editorial scan fixes: main paper "73 checks" -> 98 checks / 13
+  repaired defects (stale audit counts in Methods; two sites);
+  companion: rem:2cat-span "left for future work" -> forward
+  references (flow contradiction with the next subsection's opening);
+  9 v21-style ALL-CAPS emphasis words -> \emph; rem:typed-optic
+  redundancy with thm:composition tightened; prop:invlim
+  "Equivalently," -> "As a consistency check,"; "$\mathcal{U}$. the"
+  -> "$\mathcal{U}$; the" syntax repair; \S ref style harmonized.
+- Builds: main 22 pp, companion 35 pp, both tectonic-clean with 0
+  undefined refs; overfull unchanged (main 4 tolerated, companion 0;
+  an earlier 7-count reading came from a stale .log; re-ran with
+  --keep-logs to confirm). cobra 0.32.1 reinstalled into the venv
+  (session restart). audit_v2_numbers.py: 98 PASS / 0 FAIL.
+  PDFs copied to download/.
+
+Stage Summary:
+- Both papers now carry complete, submission-ready declarations with
+  X as sole author and the formal GLM+DeepSeek AI declaration; cover
+  letters updated (BMB) and created (TAC).
+- Companion journal confirmed and named: Theory and Applications of
+  Categories (no fees, verified).
+- Content-loss verdict: zero accidental loss, zero unexplained
+  condensation, nothing worth restoring (all earlier-draft material is
+  either present, superseded by better content, or dispositioned).
+- Editorial verdict: 7 concrete defects found and fixed (1 stale
+  numeric claim in main; 6 flow/redundancy/style/syntax issues in
+  companion); remnant and duplication scans clean (2+2 false
+  positives documented).
+- Open items are submitter-level only (affiliation/email, real-name
+  replacement sites listed, PRECISE-1K post-submission).

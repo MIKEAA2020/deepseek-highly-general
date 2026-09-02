@@ -1,0 +1,56 @@
+[
+  {
+    "url": "http://www.tac.mta.ca/tac/authinfo.html",
+    "name": "Author Information",
+    "snippet": "1. The primary archive of Theory and Applications of Categories ( TAC ) is a set of electronic files in TeX source, dvi, pdf and pk font formats.",
+    "host_name": "www.tac.mta.ca",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "http://www.tac.mta.ca/tac",
+    "name": "Theory and Applications of Categories",
+    "snippet": "Theory and Applications of Categories . TAC logo. ISSN 1201 - 561X. Volume 45 - 2026. 1. Extension, deformation and categorification of AssDer Pairs: Apurba Das ...",
+    "host_name": "www.tac.mta.ca",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://golem.ph.utexas.edu/category/2012/12/bob_on_tac.html",
+    "name": "Bob on TAC | The n-Category Café",
+    "snippet": "Dec 8, 2012 — ... Theory and Applications of Categories ( TAC ). Bob's piece relates how TAC was set up, and why, despite TAC being one of the first electronic ...",
+    "host_name": "golem.ph.utexas.edu",
+    "rank": 2,
+    "date": "Dec 8, 2012",
+    "favicon": ""
+  },
+  {
+    "url": "https://journals.library.ualberta.ca/istl/index.php/istl/article/view/1808/1719",
+    "name": "Free Scholarly Electronic Journals: How Good Are They?",
+    "snippet": "by M Fosmire · 2000 · Cited by 66 — Many scholarly journals are freely available in electronic format ( no subscription fee ... Theory and Applications of Categories - http://www. tac .mta.ca/ tac / ...",
+    "host_name": "journals.library.ualberta.ca",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.LICS.2026.52",
+    "name": "The ∞-Category of ∞-Categories in Simplicial Type Theory",
+    "snippet": "by D Gratzer · 2026 · Cited by 5 — Theory and Applications of Categories , 19(3):41-49, 2007. URL: http://www. tac .mta.ca/ tac /volumes/19/3/19-03.pdf. Daniel R. Licata and Robert ...",
+    "host_name": "drops.dagstuhl.de",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://direct.mit.edu/books/oa-monograph/5460/bookpreview-pdf/2368028",
+    "name": "Sheaf Theory through Examples - Daniel Rosiak",
+    "snippet": "“Diagonal Arguments and Cartesian Closed Categories.” Reprints in. Theory and Applications of Categories 15:1–13. http://emis.matem.unam.mx/ journals / TAC / ...",
+    "host_name": "direct.mit.edu",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  }
+]

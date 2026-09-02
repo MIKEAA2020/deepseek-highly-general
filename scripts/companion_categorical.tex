@@ -90,7 +90,7 @@
  pdftitle={Stratified Connections, Optic Composition, and the
            Homotopy Fixed-Point Extension: A Categorical Framework
            for Viability-Weighted Curvature},
- pdfauthor={Z.ai},
+ pdfauthor={X},
  pdfsubject={categorical framework for viability-weighted curvature:
              stratified connections, optic composition, homotopy
              type theory},
@@ -112,7 +112,7 @@
    Homotopy Fixed-Point Extension:\par
    A Categorical Framework for Viability-Weighted Curvature\par}
   \vspace{0.8em}
-  {\normalsize Z.ai\par}
+  {\normalsize X\par}
   \vspace{0.2em}
   {\small\itshape Preprint, September 2026\par}
   \vspace{0.6em}
@@ -527,10 +527,11 @@ $\Stab_1\leftarrow\mathrm{Boundary}\rightarrow\Stab_2$ that glues the
 two smooth strata via a boundary 2-cell; the connection is defined
 piecewise on each stratum and a matching condition on the boundary
 supplies the 2-categorical compatibility. The formal development of
-the 2-categorical structure (the lax-functorial gluing, the boundary
-2-cell's coherence with the connection 1-forms, and the
-homotopy-theoretic well-definedness of the resulting holonomy) is
-left for future work; the operational requirement on the abelian and non-abelian
+the 2-categorical structure --- the lax-functorial gluing and the
+boundary $2$-cell's coherence with the connection $1$-forms --- is
+given in Section~\ref{sec:2cat-gluing} below, and the
+homotopy-theoretic well-definedness of the resulting holonomy is
+treated in Section~\ref{sec:hott}. The operational requirement on the abelian and non-abelian
 prototypes is that the active set
 remains constant along each loop, which places the loop entirely
 within a single smooth stratum and avoids the boundary discontinuity.
@@ -793,12 +794,12 @@ in the regime matching the $n=4$ prototype. Outputs:
 \begin{remark}[Third verification regime: non-abelian $G_C = CO(3)$ for
 endogenous reversibility]
 \label{rem:2cat-gluing-co3}
-The piecewise holonomy formula is further verified in the THIRD
+The piecewise holonomy formula is further verified in the \emph{third}
 structure-group regime of Definition~\ref{def:struct}, $G_C = CO(3)
 = \mathbb{R}_+ \ltimes SO(3)$, corresponding to endogenous reversibility
 in the policy-fiber hierarchy. The Lie algebra $\mathfrak{co}(3) =
 \mathbb{R} S \oplus \mathfrak{so}(3)$ decomposes as a direct sum of the
-CENTRAL scaling direction $S = I_3$ ($[S, \,\cdot\,] = 0$) and the
+\emph{central} scaling direction $S = I_3$ ($[S, \,\cdot\,] = 0$) and the
 non-abelian rotation part $\mathfrak{so}(3)$. The two-stratum base and
 stratum connection match the $SO(3)$ setup, but the boundary transition
 is now a $CO(3)$-valued map
@@ -830,7 +831,7 @@ limit ($\alpha = 0$, $\beta \neq 0$) recovers $H =
 precision (rotation holonomy composed with uniform scaling). The $CO(3)$
 verification completes the confirmation of
 Theorem~\ref{thm:stratified-holonomy} in
-ALL THREE structure-group regimes: abelian $U(1)$, non-abelian $SO(3)$,
+\emph{all three} structure-group regimes: abelian $U(1)$, non-abelian $SO(3)$,
 and endogenous-reversibility $CO(3)$. Outputs:
 \texttt{two\_cat\_gluing\_co3.\{png, csv, txt\}}.
 \end{remark}
@@ -838,15 +839,15 @@ and endogenous-reversibility $CO(3)$. Outputs:
 \begin{remark}[Topologically distinct loop: triangular geometry]
 \label{rem:2cat-gluing-so3-triangular}
 To verify that the piecewise holonomy formula is
-GEOMETRY-INDEPENDENT (and not an artifact of the rectangular loop
+\emph{geometry-independent} (and not an artifact of the rectangular loop
 shape), script \texttt{two\_cat\_gluing\_so3\_triangular.py} repeats
-the $SO(3)$ verification on a TRIANGULAR loop with vertices
+the $SO(3)$ verification on a \emph{triangular} loop with vertices
 $V_1 = (0, +\varepsilon)$, $V_2 = (+\varepsilon, -\varepsilon)$,
 $V_3 = (-\varepsilon, -\varepsilon)$ (traversed counterclockwise). The
 triangle is topologically distinct from the rectangle: $3$ vertices and
 $3$ edges instead of $4$ and $4$; boundary crossings at
-NON-PERPENDICULAR angles (the triangle's edges cross the $x$-axis at
-oblique angles, not vertically); an ASYMMETRIC distribution of stratum
+\emph{non-perpendicular} angles (the triangle's edges cross the $x$-axis at
+oblique angles, not vertically); an \emph{asymmetric} distribution of stratum
 pieces ($3$ pieces in $S_-$, $2$ in $S_+$; the rectangular loop splits
 its $4$ pieces symmetrically with $2$ per stratum). The triangle has
 signed area $2\varepsilon^2$ (twice the rectangular loop's $\varepsilon^2$
@@ -920,9 +921,9 @@ the corresponding area formula (pentagon $(5/2)\varepsilon^2
 = 0$ at $a_1 = 0$, grows linearly in $a_1$ in all three topologies).
 Combined with the rectangular ($U(1)$, $SO(3)$), $CO(3)$, and
 triangular verifications, the piecewise holonomy formula
-(Theorem~\ref{thm:stratified-holonomy}) is now verified on FIVE
+(Theorem~\ref{thm:stratified-holonomy}) is now verified on \emph{five}
 distinct loop shapes (rectangle, triangle, pentagon, circle,
-ellipse), confirming that the formula is GEOMETRY-INDEPENDENT: it
+ellipse), confirming that the formula is \emph{geometry-independent}: it
 holds for any loop shape, polygonal or smooth, isotropic or
 anisotropic. Outputs:
 \texttt{two\_cat\_gluing\_so3\_topology.\{png, csv, txt\}}.
@@ -1642,9 +1643,7 @@ preservation, and composition preservation. The full functorial
 construction is open and is recorded as
 the endofunctor-semantics analogue of the contraction agenda closed
 in Section~\ref{sec:lipschitz}. The operational fixed-point claim---that the
-realized update map $T = R(O) : S \to S$ (for the realization
-construction $R$ of Definition~\ref{def:realization}, which evaluates
-an endo-optic as an endomap on a complete metric state space $S$)
+realized update map $T = R(O) : S \to S$ (Definition~\ref{def:realization})
 has a unique fixed point whenever $T$ is a contraction---is established
 in Theorem~\ref{thm:unconditional-banach} (analytic upper bound on
 $\Lip(T_{\mathrm{reg}})$) with numerical
@@ -2002,9 +2001,9 @@ implies $V(R) \leq V(R')$, and (ii) \emph{directed continuity}:
 $V(\bigcup_i R_i) = \lim_i V(R_i)$ for directed systems. Then if
 $V(R_i) \geq \varepsilon$ for every $i$, the filtered colimit
 $R_{\max} = \bigcup_i R_i$ satisfies $V(R_{\max}) \geq \varepsilon$.
-Equivalently, the viability-weighted curvature $\kk(R_{\max})$
-computed both via the filtered-colimit construction and via the
-operational form of Definition~\ref{def:kv} agrees within
+As a consistency check, the viability-weighted curvature
+$\kk(R_{\max})$ computed via the filtered-colimit construction and
+via the operational form of Definition~\ref{def:kv} agrees within
 machine precision ($10^{-9}$) on the present small network.
 \end{proposition}
 
@@ -2685,7 +2684,7 @@ recoveries). Under the univalence-identified fixed point
 reinterpreted as a higher-categorical recovery: AcCoA's
 homotopy-fixed-point in the $\infty$-categorical sense is the
 contractible space of recovery oscillations, canonically a term in
-$\mathcal{U}$. the endpoint-only closure-test verdict undercounts by
+$\mathcal{U}$; the endpoint-only closure-test verdict undercounts by
 one; the pathwise + univalence-corrected verdict is $42/42 = 100\%$
 causally internal, recovering the full autopoiesis closure.
 \end{remark}
@@ -2761,6 +2760,44 @@ benchmarks \emph{not} designed by the framework's authors --- and a
 theoretical account of when Phase~III's contractibility criterion is
 strictly weaker than Phase~I in a way that matters --- is open.
 \end{enumerate}
+
+\section*{Declarations}
+\noindent\textbf{Funding.} This work received no financial support
+from any public, commercial, or not-for-profit funding agency.
+
+\smallskip
+\noindent\textbf{Competing interests.} The author has no
+competing interests, financial or non-financial, to declare.
+
+\smallskip
+\noindent\textbf{Ethics approval.} Not applicable. This is a purely
+mathematical and computational study: it involves no human
+participants, human tissue, or animal subjects, and no new
+experiments.
+
+\smallskip
+\noindent\textbf{Data and code availability.} All
+machine-verification scripts, numerical artifacts, and their SHA-256
+manifests are available in the public repository
+\href{https://github.com/MIKEAA2020/deepseek-highly-general}{github.com/
+MIKEAA2020/deepseek-highly-general}; the application paper
+\citep{zai2026measure} and its repository carry the biological data
+sources used there. No new experiments were performed.
+
+\smallskip
+\noindent\textbf{Declaration on generative AI.} In preparing this
+paper, the author was assisted by two large language models, GLM
+(Z.ai) and DeepSeek, which were used under the author's direction in
+drafting and editing the text and in developing the
+machine-verification code. All AI-assisted material was reviewed and
+edited by the author, who bears full responsibility for the paper's
+content and the integrity of its results.
+
+\smallskip
+\noindent\textbf{Author contributions.} X is the sole author of this
+paper: X conceived the framework, carried out the constructions and
+proofs, designed and ran the machine verifications, and drafted and
+revised the manuscript.
 
 \bibliographystyle{plainnat}
 \bibliography{journal_manuscript_refs}

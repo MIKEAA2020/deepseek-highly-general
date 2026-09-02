@@ -523,18 +523,8 @@ LaTeX Font Info:    Trying to load font information for U+rsfs on input line 83
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 ) [1
 
-]
-Overfull \hbox (11.79897pt too wide) in paragraph at lines 158--166
-\TU/lmr/m/n/10.95 responses ($\OML/cmm/m/it/10.95 r \OT1/cmr/m/n/10.95 = +0\OML
-/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 32$\TU/lmr/m/n/10.95 , $\OT1/cmr/m/n/10.95 
-+0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 22$\TU/lmr/m/n/10.95 ; E-V7), is robu
-st to the tie-break convention ($\OML/cmm/m/it/10.95 r \OMS/cmsy/m/n/10.95 2 \O
-T1/cmr/m/n/10.95 [+0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 386\OML/cmm/m/it/10
-.95 ; \OT1/cmr/m/n/10.95 +0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 396]$
- []
-
-[2] [3] [4]
-Overfull \hbox (3.83965pt too wide) in paragraph at lines 408--431
+] [2] [3] [4]
+Overfull \hbox (3.83965pt too wide) in paragraph at lines 409--432
 [][]\TU/lmr/bx/n/10.95 Proposition 3.12 \TU/lmr/m/n/10.95 (Semiconvexity collap
 se; signed layer for mixed GPRs)\TU/lmr/bx/n/10.95 . []\TU/lmr/m/it/10.95 A con
 tinuous piecewise-
@@ -543,11 +533,11 @@ tinuous piecewise-
 [5]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 532.
+(hyperref)                removing `math shift' on input line 533.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 532.
+(hyperref)                removing `math shift' on input line 533.
 
 [6] [7]
 File: ../download//m1_m3/fig_m1_summary.png Graphic file (type bmp)
@@ -559,13 +549,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 File: ../download//alexandrov_bridge/coupling_figures.png Graphic file (type bm
 p)
 <../download//alexandrov_bridge/coupling_figures.png>
- [8] [9] [10] [11]
-Overfull \hbox (17.36104pt too wide) in paragraph at lines 1000--1000
-[]\TU/lmr/bx/n/12 [E-E32] Event-measure stabilization across growing panels (Gl
-ivenko–Cantelli
- []
-
-[12]
+ [8] [9] [10] [11] [12]
 File: ../download//deepseek_bridge/v5_e24_recalibration.png Graphic file (type 
 bmp)
 <../download//deepseek_bridge/v5_e24_recalibration.png>
@@ -581,42 +565,35 @@ file (type bmp)
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1134.
+(hyperref)                removing `math shift' on input line 1138.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\times' on input line 1134.
+(hyperref)                removing `\times' on input line 1138.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1134.
+(hyperref)                removing `math shift' on input line 1138.
 
 [13]
-Overfull \hbox (2.38142pt too wide) in paragraph at lines 1149--1158
+Overfull \hbox (2.38142pt too wide) in paragraph at lines 1153--1162
 \TU/lmr/m/n/10.95 Two dissociations at the protein layer (PaxDb integrated abun
 dance ([][]Wang et al.[][], [][]2015[][]); GSE64021
  []
 
 [14] [15] [16] [17]
-Overfull \hbox (11.04936pt too wide) in paragraph at lines 1354--1371
-\TU/lmtt/m/n/10.95 v7_path_ robustness.py\TU/lmr/m/n/10.95 , \TU/lmtt/m/n/10.95
- precise_arm_ kappamu.py\TU/lmr/m/n/10.95 , \TU/lmtt/m/n/10.95 v8_tiebreak_ rob
-ustness.py\TU/lmr/m/n/10.95 , \TU/lmtt/m/n/10.95 e32_event_
- []
-
-
-Overfull \hbox (17.0pt too wide) in paragraph at lines 1411--1412
+Overfull \hbox (17.0pt too wide) in paragraph at lines 1418--1419
 [][] 
  []
 
 [18] [19]
-Overfull \hbox (1.30173pt too wide) in paragraph at lines 1484--1496
+Overfull \hbox (1.30173pt too wide) in paragraph at lines 1491--1503
 \TU/lmr/m/n/10.95 models, data manifests with SHA-256 checksums, and audit scri
 pts that re-derive every manuscript
  []
 
-(journal_manuscript_v2_bmb_refs [20]) [21] (journal_manuscript_v2.aux)
+[20] (journal_manuscript_v2_bmb_refs [21]) [22] (journal_manuscript_v2.aux)
 Package rerunfilecheck Info: File `journal_manuscript_v2.out' has not changed.
-(rerunfilecheck)             Checksum: 228F900DA524DD668799CFCE0367ED71;10134.
+(rerunfilecheck)             Checksum: 113383AEB92F311BC228A3540D11A1A9;10015.
  )
-Output written on journal_manuscript_v2.xdv (21 pages, 689772 bytes).
+Output written on journal_manuscript_v2.xdv (22 pages, 702248 bytes).
