@@ -5272,3 +5272,22 @@ Stage Summary:
 - All submission-package links verified and consolidated in download/SUBMISSION_PACKAGE_LINKS.md.
 - Key links: BMB portal https://www.editorialmanager.com/bmab (NOT jomb); BMB guidelines https://link.springer.com/journal/11538/submission-guidelines; TAC author info http://www.tac.mta.ca/tac/authinfo.html, submissions cc tac@mta.ca.
 - Remaining at submission time: [Submission date] placeholders, author name in place of "X", TAC receiving editor choice, BMB EM registration.
+
+---
+Task ID: overleaf-fix-1
+Agent: main (Z.ai)
+Task: User's standalone compile of journal_manuscript_v2.tex failed (pdftex.def "not found" for all 6 figure subpaths + missing input'ed journal_manuscript_v2_bmb_refs.tex at l.1536) -- repo tex was built from scripts/ with \graphicspath{{../download/}}, so a flat upload cannot resolve anything.
+
+Work Log:
+- Audited external dependencies of both manuscripts: main = 6 figures (m1_m3/, alexandrov_bridge/, deepseek_bridge/ subpaths) + \input{journal_manuscript_v2_bmb_refs} + natbib (no bibtex); companion = 4 flat figure names + \bibliography{journal_manuscript_refs} (plainnat). All packages standard/Overleaf-available.
+- Root fix: dual-rooted \graphicspath {{./}{../download/}} in BOTH tex files -- same source now compiles in-repo (../download/ root) AND standalone flat uploads (./ root).
+- Built compile-ready one-file upload ZIPs (scripts/build_submission_zips.sh, persisted): download/submission_main_bmb.zip (13 files: tex + bmb_refs + bib + 6 figures at exact relative subpaths + README) and download/submission_companion_tac.zip (7 files: tex + journal_manuscript_refs.bib + 4 figures + README).
+- Verified standalone: extracted each ZIP into a fresh dir and compiled with tectonic -- main 22 pp / companion 35 pp, exit 0, 0 undefined/error lines. Reproduces the user's failure scenario and passes.
+- Regression: rebuilt both PDFs from scripts/ (repo layout) -- 22/35 pp unchanged, figures resolve via ../download/; refreshed download/ PDFs.
+- Updated download/SUBMISSION_PACKAGE_LINKS.md: ZIP rows at top of both package tables + standalone-compile build note.
+- Fix along the way: build_submission_zips.sh zip step initially used wrong relative depth (../../download from stage/main = scripts/download) -- corrected to absolute output path.
+
+Stage Summary:
+- Standalone (Overleaf) compile failure root-caused and fixed at source: dual-root graphicspath + two compile-ready ZIPs.
+- Deliverables: download/submission_main_bmb.zip, download/submission_companion_tac.zip (both tectonic-verified standalone), regenerator scripts/build_submission_zips.sh.
+- Repo builds unchanged (22/35 pp); download PDFs refreshed from the edited sources.

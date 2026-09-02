@@ -34,6 +34,7 @@ Sensitivity: From Active-Set Geometry to Transcriptional Response
 
 | Item | View (blob) | Direct download (raw) |
 |---|---|---|
+| **One-file upload ZIP (compile-ready)** | — | [download/submission_main_bmb.zip](https://raw.githubusercontent.com/MIKEAA2020/deepseek-highly-general/main/download/submission_main_bmb.zip) |
 | Manuscript PDF (22 pp, declarations in backmatter) | [download/journal_manuscript_v2.pdf](https://github.com/MIKEAA2020/deepseek-highly-general/blob/main/download/journal_manuscript_v2.pdf) | [raw](https://raw.githubusercontent.com/MIKEAA2020/deepseek-highly-general/main/download/journal_manuscript_v2.pdf) |
 | Cover letter (with declarations, companion disclosure) | [download/cover_letter_bmb.md](https://github.com/MIKEAA2020/deepseek-highly-general/blob/main/download/cover_letter_bmb.md) | [raw](https://raw.githubusercontent.com/MIKEAA2020/deepseek-highly-general/main/download/cover_letter_bmb.md) |
 | LaTeX source | [scripts/journal_manuscript_v2.tex](https://github.com/MIKEAA2020/deepseek-highly-general/blob/main/scripts/journal_manuscript_v2.tex) | [raw](https://raw.githubusercontent.com/MIKEAA2020/deepseek-highly-general/main/scripts/journal_manuscript_v2.tex) |
@@ -52,8 +53,15 @@ Figures (embedded in the PDF; source PNGs if the portal requests separate files)
 | V8 tie-break robustness (E-V8) | [download/deepseek_bridge/v8_tiebreak_robustness.png](https://github.com/MIKEAA2020/deepseek-highly-general/blob/main/download/deepseek_bridge/v8_tiebreak_robustness.png) |
 | E32 event-measure stabilization | [download/deepseek_bridge/e32_event_measure_stabilization.png](https://github.com/MIKEAA2020/deepseek-highly-general/blob/main/download/deepseek_bridge/e32_event_measure_stabilization.png) |
 
-Build note: compile from `scripts/` (the LaTeX graphics path resolves to
-`../download/`); `journal_manuscript_v2.tex` inputs the BMB reference file.
+Build note: for Overleaf or any standalone compiler, upload **the ZIP** (it
+contains the .tex, the input'ed reference list, the .bib database, and all
+six figures at the exact relative subpaths the .tex expects — verified to
+compile standalone, 22 pp, 0 errors). If instead you upload individual
+files, upload them together with `journal_manuscript_v2_bmb_refs.tex` and
+the three figure subfolders (`m1_m3/`, `alexandrov_bridge/`,
+`deepseek_bridge/`) so the paths resolve; the .tex now searches both the
+upload directory and the repository layout
+(`\graphicspath{{./}{../download/}}`).
 
 ---
 
@@ -83,6 +91,7 @@ only after acceptance.
 
 | Item | View (blob) | Direct download (raw) |
 |---|---|---|
+| **One-file upload ZIP (compile-ready)** | — | [download/submission_companion_tac.zip](https://raw.githubusercontent.com/MIKEAA2020/deepseek-highly-general/main/download/submission_companion_tac.zip) |
 | Manuscript PDF (35 pp, self-contained theory, declarations in backmatter) | [download/companion_categorical.pdf](https://github.com/MIKEAA2020/deepseek-highly-general/blob/main/download/companion_categorical.pdf) | [raw](https://raw.githubusercontent.com/MIKEAA2020/deepseek-highly-general/main/download/companion_categorical.pdf) |
 | Cover letter | [download/cover_letter_tac.md](https://github.com/MIKEAA2020/deepseek-highly-general/blob/main/download/cover_letter_tac.md) | [raw](https://raw.githubusercontent.com/MIKEAA2020/deepseek-highly-general/main/download/cover_letter_tac.md) |
 | LaTeX source | [scripts/companion_categorical.tex](https://github.com/MIKEAA2020/deepseek-highly-general/blob/main/scripts/companion_categorical.tex) | [raw](https://raw.githubusercontent.com/MIKEAA2020/deepseek-highly-general/main/scripts/companion_categorical.tex) |
