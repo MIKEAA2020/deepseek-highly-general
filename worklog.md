@@ -5308,3 +5308,22 @@ Stage Summary:
 - Both manuscripts now free of all 4 flagged defect classes; formal journal conventions throughout; numbers unchanged (audit 98/98).
 - Deliverables refreshed: download/journal_manuscript_v2.pdf (21 pp), download/companion_categorical.pdf (35 pp), both compile-ready ZIPs (rebuilt from cleaned sources), SUBMISSION_PACKAGE_LINKS.md updated (21 pp, cleanup note, repo-rename option).
 - Open item for user: repo name contains "deepseek" (renders once per paper in Data Availability); rename via GitHub Settings recommended (PAT cannot).
+
+---
+Task ID: proof-restore-1 (plan)
+Agent: main (Z.ai)
+Task: User 4-point directive: (1) repo renamed to metabolic-curvature-measure; (2) proofs presented in full, exceptions = literature-citation or appendix-delegation; (3) deep line-level normalized diff scan v1 vs all versions, restoration candidates; (4) same scan vs entire chat history; freeze latest versions, create new files per revision.
+
+Work Log (assessment phase):
+- Repo rename NOT effective server-side: API still shows deepseek-highly-general (both PATs lack administration scope; PATCH declined). Remote kept on live old-name URL for push (GitHub redirects after user completes rename in web UI); new manuscripts carry the NEW url.
+- Line-level scans executed and persisted: scripts/scan_line_diff.py (paragraph units, token coverage) + scripts/scan_env_coverage.py (strict 8-gram env-body tracing, v1 envs: 214, proofs: 28; JSON artifacts in download/deepseek_bridge/).
+- v1 LOST-env catalogue (cov8<0.3, absent from both current papers): ARD/smooth-envelope chain (def surrogate, lemma uniform-Lip, thm smooth-envelope + closing remark, cor geometric-phase; P4 audit repairs still pending: compact parameter box + countable dense subfamily, C1+Clarke consistency, Cor 4.14 restatement); Claims F/G verdict props + figures; n3 calibration defs; prop:stress + fig; lemma Ito + thm Levy-3/2 + verification remark + fig (CLOSES the C_fat a^{3/2} basis of companion Claims C/D); lem:comm/prop:nonab; CPTP-Zeno lift (def Lindbladian, prop zeno-survival, prop Holevo + ensemble-correction remark that repairs the companion's optic-table imprecision); titer battery (4 props); Network A-K verdicts + essentiality + RAF->Zeno + persistent homology (Phase III anchor); E13 Theorem A (maxRAF = terminal coalgebra; P4 repair pending: deflationary operator, appendix proof, Theorem B demoted to conjecture).
+- Companion keeps hierarchy Claims A-G + CPTP contraction thm + Network G/H remarks, but verdicts/executions are repo-pointers only: restoration fills dangling dependencies.
+- Chat-history scan: P2/P3 (framing/provenance) superseded by restructure+cleanup; P4 math repairs: gauge/two-crossing + realization+sketch-status DONE in 9b3e4aa; REMAINING LIVE: E13 theorem-A repair (only if restored), smooth-envelope repairs (only if restored), trehalose re-run MOOT (E12/E16 dropped), Network-C/E14/Phase-I-sampling MOOT (v21-scoped). E32 done. PRECISE-1K stays deferred (post-submission).
+- Figures for restoration all present in download/ (claim_f_holonomy_plot, claim_g_zeno_plot, claim_d_heavytail_stress, levy_stable_3half_derivation, claims_ae_n4_nonabelian, cptc_zeno_contraction).
+
+Stage Summary (locked plan):
+- Freeze: v2 main + companion stay untouched at 319b944 (tag manuscript-v2-final); new revision files journal_manuscript_v3.tex (+ v3_bmb_refs) and companion_categorical_v2.tex.
+- Main v3: URL update; FULL proofs for prop:alex, prop:twolayer, prop:dualface, lem:lex (appendix), thm:coupling (expanded), prop:semiconvex, prop:maatom, thm:Bprime (i)-(iv; (iv) appendix), prop:seclaw, prop:dichotomy; literature replacements cited (Rockafellar; Evans-Gariepy; Gutierrez; Cohen-Steiner-Morvan; new refs added to v3 refs file).
+- Companion v2: URL update; restored (adapted + repaired + formal): smooth-envelope chain (P4-repaired), Claims F/G verdicts, prop:stress, Levy-3/2, lem:comm, CPTP-Zeno lift + Holevo ensemble fix, titer battery (compact), E13 Theorem A (repaired, proof in appendix, Thm B as conjecture), compact network-battery anchor section (summary table + persistent-homology/Phase III + closure-vs-essentiality); script-name mentions formalized; bib additions (hedges2024cybernetics, fong2017backprop, vereshchagin2010rate, clarke1975, milgromsegal2002, adamek2005, worrell2005).
+- Verification: builds, 98-check audit re-pointed to v3, 0 undefined refs, remnant scans, ZIP rebuild as v3, cover letters + links doc updated, commit + push.

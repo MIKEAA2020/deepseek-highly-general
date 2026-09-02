@@ -1,0 +1,4922 @@
+{
+ "n_envs_v1": 214,
+ "n_proofs_v1": 28,
+ "pairs": [
+  {
+   "proof_lines": [
+    697,
+    726
+   ],
+   "proof_cov8": 1.0,
+   "proof_title": "",
+   "target_env": "theorem",
+   "target_label": null,
+   "target_title": "",
+   "target_label_present": null,
+   "target_cov8": 0.95
+  },
+  {
+   "proof_lines": [
+    757,
+    773
+   ],
+   "proof_cov8": 0.76,
+   "proof_title": "",
+   "target_env": "theorem",
+   "target_label": null,
+   "target_title": "Piecewise holonomy formula",
+   "target_label_present": null,
+   "target_cov8": 0.6
+  },
+  {
+   "proof_lines": [
+    1019,
+    1033
+   ],
+   "proof_cov8": 1.0,
+   "proof_title": "",
+   "target_env": "proposition",
+   "target_label": null,
+   "target_title": "Fisher-minimal horizontal lift (KKT form)",
+   "target_label_present": null,
+   "target_cov8": 1.0
+  },
+  {
+   "proof_lines": [
+    1087,
+    1106
+   ],
+   "proof_cov8": 1.0,
+   "proof_title": "",
+   "target_env": "theorem",
+   "target_label": "thm:smallloop",
+   "target_title": "Small-loop viability--holonomy",
+   "target_label_present": true,
+   "target_cov8": 0.94
+  },
+  {
+   "proof_lines": [
+    1141,
+    1148
+   ],
+   "proof_cov8": 1.0,
+   "proof_title": "",
+   "target_env": "proposition",
+   "target_label": "prop:sqrt",
+   "target_title": "Square-root embedding",
+   "target_label_present": true,
+   "target_cov8": 1.0
+  },
+  {
+   "proof_lines": [
+    1365,
+    1373
+   ],
+   "proof_cov8": 0.0,
+   "proof_title": "",
+   "target_env": "proposition",
+   "target_label": "prop:ard-props",
+   "target_title": "Properties of $\\distD$",
+   "target_label_present": false,
+   "target_cov8": 0.0
+  },
+  {
+   "proof_lines": [
+    1408,
+    1426
+   ],
+   "proof_cov8": 0.02,
+   "proof_title": "",
+   "target_env": "proposition",
+   "target_label": "prop:kappa-derivation",
+   "target_title": "Derivation of $\\kk$",
+   "target_label_present": false,
+   "target_cov8": 0.28
+  },
+  {
+   "proof_lines": [
+    1478,
+    1490
+   ],
+   "proof_cov8": 0.0,
+   "proof_title": "",
+   "target_env": "proposition",
+   "target_label": null,
+   "target_title": "Operational viability margin from smooth surrogate",
+   "target_label_present": null,
+   "target_cov8": 0.0
+  },
+  {
+   "proof_lines": [
+    1545,
+    1560
+   ],
+   "proof_cov8": 0.0,
+   "proof_title": "",
+   "target_env": "lemma",
+   "target_label": null,
+   "target_title": "Uniform Lipschitz bound on the surrogate family",
+   "target_label_present": null,
+   "target_cov8": 0.0
+  },
+  {
+   "proof_lines": [
+    1599,
+    1631
+   ],
+   "proof_cov8": 0.0,
+   "proof_title": "",
+   "target_env": "theorem",
+   "target_label": null,
+   "target_title": "",
+   "target_label_present": null,
+   "target_cov8": 0.0
+  },
+  {
+   "proof_lines": [
+    1696,
+    1708
+   ],
+   "proof_cov8": 0.0,
+   "proof_title": "",
+   "target_env": "corollary",
+   "target_label": null,
+   "target_title": "",
+   "target_label_present": null,
+   "target_cov8": 0.0
+  },
+  {
+   "proof_lines": [
+    1786,
+    1799
+   ],
+   "proof_cov8": 1.0,
+   "proof_title": "",
+   "target_env": "proposition",
+   "target_label": null,
+   "target_title": "Bregman--Hessian Noether correspondence",
+   "target_label_present": null,
+   "target_cov8": 1.0
+  },
+  {
+   "proof_lines": [
+    1825,
+    1832
+   ],
+   "proof_cov8": 1.0,
+   "proof_title": "",
+   "target_env": "proposition",
+   "target_label": null,
+   "target_title": "Falsifiable precondition check",
+   "target_label_present": null,
+   "target_cov8": 1.0
+  },
+  {
+   "proof_lines": [
+    2027,
+    2053
+   ],
+   "proof_cov8": 1.0,
+   "proof_title": "Proof",
+   "target_env": "theorem",
+   "target_label": "thm:composition",
+   "target_title": "Composition as a typed endo-optic",
+   "target_label_present": true,
+   "target_cov8": 0.88
+  },
+  {
+   "proof_lines": [
+    2174,
+    2184
+   ],
+   "proof_cov8": 1.0,
+   "proof_title": "",
+   "target_env": "lemma",
+   "target_label": null,
+   "target_title": "Per-optic analytic Lipschitz bounds",
+   "target_label_present": null,
+   "target_cov8": 1.0
+  },
+  {
+   "proof_lines": [
+    2210,
+    2219
+   ],
+   "proof_cov8": 0.88,
+   "proof_title": "",
+   "target_env": "theorem",
+   "target_label": null,
+   "target_title": "Unconditional Banach contraction of $T_{\\mathrm{reg}}$",
+   "target_label_present": null,
+   "target_cov8": 0.6
+  },
+  {
+   "proof_lines": [
+    2292,
+    2324
+   ],
+   "proof_cov8": 1.0,
+   "proof_title": "",
+   "target_env": "theorem",
+   "target_label": null,
+   "target_title": "Projected CPTP channel contraction",
+   "target_label_present": null,
+   "target_cov8": 0.97
+  },
+  {
+   "proof_lines": [
+    2748,
+    2760
+   ],
+   "proof_cov8": 0.0,
+   "proof_title": "",
+   "target_env": "proposition",
+   "target_label": "prop:stress",
+   "target_title": "Stress-test verdicts",
+   "target_label_present": false,
+   "target_cov8": 0.0
+  },
+  {
+   "proof_lines": [
+    2827,
+    2844
+   ],
+   "proof_cov8": 0.0,
+   "proof_title": "Proof sketch",
+   "target_env": "lemma",
+   "target_label": null,
+   "target_title": "It\\^o expansion of the perturbed holonomy",
+   "target_label_present": null,
+   "target_cov8": 0.0
+  },
+  {
+   "proof_lines": [
+    2884,
+    2904
+   ],
+   "proof_cov8": 0.0,
+   "proof_title": "",
+   "target_env": "theorem",
+   "target_label": null,
+   "target_title": "",
+   "target_label_present": null,
+   "target_cov8": 0.0
+  },
+  {
+   "proof_lines": [
+    3142,
+    3149
+   ],
+   "proof_cov8": 0.0,
+   "proof_title": "",
+   "target_env": "proposition",
+   "target_label": null,
+   "target_title": "Quantum Zeno survival probability",
+   "target_label_present": null,
+   "target_cov8": 0.0
+  },
+  {
+   "proof_lines": [
+    3168,
+    3177
+   ],
+   "proof_cov8": 0.0,
+   "proof_title": "",
+   "target_env": "proposition",
+   "target_label": null,
+   "target_title": "Holevo information as the ensemble bound",
+   "target_label_present": null,
+   "target_cov8": 0.0
+  },
+  {
+   "proof_lines": [
+    3317,
+    3330
+   ],
+   "proof_cov8": 0.0,
+   "proof_title": "",
+   "target_env": "proposition",
+   "target_label": null,
+   "target_title": "Analytic upper bound on the contraction rate",
+   "target_label_present": null,
+   "target_cov8": 0.03
+  },
+  {
+   "proof_lines": [
+    3404,
+    3421
+   ],
+   "proof_cov8": 0.0,
+   "proof_title": "",
+   "target_env": "proposition",
+   "target_label": null,
+   "target_title": "Dimensional robustness of the contraction",
+   "target_label_present": null,
+   "target_cov8": 0.0
+  },
+  {
+   "proof_lines": [
+    3515,
+    3523
+   ],
+   "proof_cov8": 1.0,
+   "proof_title": "",
+   "target_env": "proposition",
+   "target_label": null,
+   "target_title": "Viability preservation under filtered colimit",
+   "target_label_present": null,
+   "target_cov8": 0.73
+  },
+  {
+   "proof_lines": [
+    3575,
+    3632
+   ],
+   "proof_cov8": 1.0,
+   "proof_title": "",
+   "target_env": "theorem",
+   "target_label": null,
+   "target_title": "Filtered colimits in $\\Optic(\\mathbf{Set})$",
+   "target_label_present": null,
+   "target_cov8": 1.0
+  },
+  {
+   "proof_lines": [
+    3868,
+    3890
+   ],
+   "proof_cov8": 1.0,
+   "proof_title": "Proof sketch",
+   "target_env": "theorem",
+   "target_label": null,
+   "target_title": "$\\infty$-categorical composition",
+   "target_label_present": null,
+   "target_cov8": 1.0
+  },
+  {
+   "proof_lines": [
+    3910,
+    3925
+   ],
+   "proof_cov8": 1.0,
+   "proof_title": "Proof sketch",
+   "target_env": "corollary",
+   "target_label": null,
+   "target_title": "Univalence-identified fixed point",
+   "target_label_present": null,
+   "target_cov8": 1.0
+  }
+ ],
+ "unproved_in_v1": [
+  {
+   "env": "definition",
+   "label": null,
+   "title": "Viability depth functional $D_V$; distinct from curvature",
+   "lines": [
+    435,
+    456
+   ],
+   "cov8": 0.94,
+   "label_present": false
+  },
+  {
+   "env": "definition",
+   "label": null,
+   "title": "Structure group: $O(r)$, $SO(r)$, or $CO(r)$ with Weyl scale",
+   "lines": [
+    458,
+    476
+   ],
+   "cov8": 0.95,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Fisher--Weyl policy structure, when $\\CO(r)$ is justified",
+   "lines": [
+    478,
+    491
+   ],
+   "cov8": 0.89,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Physical meaning of the $n=3\\to n=4$ transition",
+   "lines": [
+    493,
+    518
+   ],
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "definition",
+   "label": null,
+   "title": "Optic category",
+   "lines": [
+    520,
+    530
+   ],
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "definition",
+   "label": null,
+   "title": "RAF set",
+   "lines": [
+    532,
+    542
+   ],
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "definition",
+   "label": null,
+   "title": "CPTP channel",
+   "lines": [
+    544,
+    554
+   ],
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "definition",
+   "label": null,
+   "title": "Bregman divergence",
+   "lines": [
+    556,
+    568
+   ],
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "definition",
+   "label": null,
+   "title": "SAVGS",
+   "lines": [
+    580,
+    607
+   ],
+   "cov8": 0.95,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    616,
+    638
+   ],
+   "cov8": 0.78,
+   "label_present": false
+  },
+  {
+   "env": "definition",
+   "label": null,
+   "title": "2-category $\\mathbf{StCon}(B)$ of stratified connections",
+   "lines": [
+    651,
+    682
+   ],
+   "cov8": 0.87,
+   "label_present": false
+  },
+  {
+   "env": "theorem",
+   "label": null,
+   "title": "",
+   "lines": [
+    684,
+    695
+   ],
+   "cov8": 0.95,
+   "label_present": false
+  },
+  {
+   "env": "theorem",
+   "label": null,
+   "title": "Piecewise holonomy formula",
+   "lines": [
+    728,
+    755
+   ],
+   "cov8": 0.6,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Numerical verification of the piecewise holonomy formula",
+   "lines": [
+    775,
+    796
+   ],
+   "cov8": 0.96,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    798,
+    835
+   ],
+   "cov8": 0.94,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    837,
+    879
+   ],
+   "cov8": 0.91,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Topologically distinct loop: triangular geometry",
+   "lines": [
+    881,
+    919
+   ],
+   "cov8": 0.9,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Pentagon, circle, and ellipse loop topologies",
+   "lines": [
+    921,
+    972
+   ],
+   "cov8": 0.95,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Pathwise viability versus endpoint viability",
+   "lines": [
+    974,
+    990
+   ],
+   "cov8": 0.92,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "Fisher-minimal horizontal lift (KKT form)",
+   "lines": [
+    1003,
+    1017
+   ],
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    1035,
+    1053
+   ],
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "What Theorem~\\ref{thm:smallloop} does and does not claim",
+   "lines": [
+    1108,
+    1123
+   ],
+   "cov8": 0.92,
+   "label_present": false
+  },
+  {
+   "env": "definition",
+   "label": null,
+   "title": "Operational closure criteria",
+   "lines": [
+    1166,
+    1186
+   ],
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "definition",
+   "label": null,
+   "title": "",
+   "lines": [
+    1188,
+    1233
+   ],
+   "cov8": 0.93,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Why the test is non-circular and dynamical",
+   "lines": [
+    1235,
+    1258
+   ],
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "definition",
+   "label": null,
+   "title": "Closure-aware viability curvature",
+   "lines": [
+    1260,
+    1279
+   ],
+   "cov8": 0.9,
+   "label_present": false
+  },
+  {
+   "env": "definition",
+   "label": null,
+   "title": "",
+   "lines": [
+    1282,
+    1330
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "definition",
+   "label": null,
+   "title": "Algorithmic rate-distortion distance",
+   "lines": [
+    1348,
+    1356
+   ],
+   "cov8": 0.81,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "No deterministic-versus-random-coding gap",
+   "lines": [
+    1375,
+    1381
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    1428,
+    1435
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "definition",
+   "label": null,
+   "title": "Smooth finite-code rate-distortion surrogate",
+   "lines": [
+    1448,
+    1462
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "Operational viability margin from smooth surrogate",
+   "lines": [
+    1464,
+    1476
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "conjecture",
+   "label": null,
+   "title": "Algorithmic upper envelope",
+   "lines": [
+    1492,
+    1508
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "definition",
+   "label": null,
+   "title": "Smooth envelope",
+   "lines": [
+    1521,
+    1530
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "lemma",
+   "label": null,
+   "title": "Uniform Lipschitz bound on the surrogate family",
+   "lines": [
+    1532,
+    1543
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "theorem",
+   "label": null,
+   "title": "",
+   "lines": [
+    1562,
+    1597
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Connection to the algorithmic rate-distortion $\\distD$",
+   "lines": [
+    1633,
+    1651
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Numerical verification of the smooth-envelope theorem",
+   "lines": [
+    1653,
+    1673
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "corollary",
+   "label": null,
+   "title": "",
+   "lines": [
+    1675,
+    1694
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "MDP versus POMDP base space",
+   "lines": [
+    1710,
+    1728
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Counterexamples to curvature-survival equivalence",
+   "lines": [
+    1730,
+    1747
+   ],
+   "cov8": 0.02,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "Bregman--Hessian Noether correspondence",
+   "lines": [
+    1762,
+    1784
+   ],
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "corollary",
+   "label": null,
+   "title": "Affine Bregman invariance; sufficient condition",
+   "lines": [
+    1801,
+    1811
+   ],
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "Falsifiable precondition check",
+   "lines": [
+    1813,
+    1823
+   ],
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Application to gauge invariance of $\\kk$",
+   "lines": [
+    1834,
+    1845
+   ],
+   "cov8": 0.87,
+   "label_present": false
+  },
+  {
+   "env": "definition",
+   "label": null,
+   "title": "Falsification hierarchy",
+   "lines": [
+    1851,
+    1889
+   ],
+   "cov8": 0.89,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Recommended experimental ordering",
+   "lines": [
+    1895,
+    1903
+   ],
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "construction",
+   "label": null,
+   "title": "Seven-optic endofunctor",
+   "lines": [
+    1909,
+    1940
+   ],
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Optic decompositions of the arcs",
+   "lines": [
+    1942,
+    1958
+   ],
+   "cov8": 0.94,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Physical reading of the seven-optic composition",
+   "lines": [
+    1985,
+    2004
+   ],
+   "cov8": 0.99,
+   "label_present": false
+  },
+  {
+   "env": "corollary",
+   "label": "cor:unification",
+   "title": "Unification object",
+   "lines": [
+    2055,
+    2063
+   ],
+   "cov8": 1.0,
+   "label_present": true
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "Sufficient condition for fixed-point existence",
+   "lines": [
+    2065,
+    2070
+   ],
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    2072,
+    2087
+   ],
+   "cov8": 0.86,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Typed endo-optic, not automatic endofunctor",
+   "lines": [
+    2089,
+    2113
+   ],
+   "cov8": 0.71,
+   "label_present": false
+  },
+  {
+   "env": "lemma",
+   "label": null,
+   "title": "Per-optic analytic Lipschitz bounds",
+   "lines": [
+    2155,
+    2172
+   ],
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "theorem",
+   "label": null,
+   "title": "Unconditional Banach contraction of $T_{\\mathrm{reg}}$",
+   "lines": [
+    2186,
+    2208
+   ],
+   "cov8": 0.6,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Numerical verification of the per-optic bounds",
+   "lines": [
+    2221,
+    2235
+   ],
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "theorem",
+   "label": null,
+   "title": "Projected CPTP channel contraction",
+   "lines": [
+    2269,
+    2290
+   ],
+   "cov8": 0.97,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "The two contraction results are complementary",
+   "lines": [
+    2340,
+    2355
+   ],
+   "cov8": 0.78,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": "prop:claimF",
+   "title": "Claim F empirical verdict",
+   "lines": [
+    2379,
+    2397
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    2411,
+    2415
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": "prop:claimG",
+   "title": "Claim G empirical verdict",
+   "lines": [
+    2419,
+    2439
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    2441,
+    2448
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Geometric origin of $\\kk(a)=a^2$ and $H_{\\mathrm{geo}}(a)=\\pi a^2$",
+   "lines": [
+    2500,
+    2525
+   ],
+   "cov8": 0.01,
+   "label_present": false
+  },
+  {
+   "env": "definition",
+   "label": null,
+   "title": "Fisher--Rao distance as the gauge-invariant observable",
+   "lines": [
+    2535,
+    2552
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Why the volume-density expression was replaced",
+   "lines": [
+    2554,
+    2565
+   ],
+   "cov8": 0.01,
+   "label_present": false
+  },
+  {
+   "env": "definition",
+   "label": null,
+   "title": "",
+   "lines": [
+    2567,
+    2581
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "definition",
+   "label": null,
+   "title": "Matching-no-loop-drift control",
+   "lines": [
+    2583,
+    2593
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Why the protocol is falsifiable",
+   "lines": [
+    2595,
+    2610
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "definition",
+   "label": null,
+   "title": "Calibration / holdout split",
+   "lines": [
+    2612,
+    2625
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "definition",
+   "label": null,
+   "title": "Equal-exposure permutation test",
+   "lines": [
+    2627,
+    2638
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "definition",
+   "label": null,
+   "title": "Subdivision consistency",
+   "lines": [
+    2640,
+    2651
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Geometric adaptation fatigue signature",
+   "lines": [
+    2653,
+    2666
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "lemma",
+   "label": null,
+   "title": "It\\^o expansion of the perturbed holonomy",
+   "lines": [
+    2814,
+    2825
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "theorem",
+   "label": null,
+   "title": "",
+   "lines": [
+    2859,
+    2882
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Numerical verification",
+   "lines": [
+    2906,
+    2948
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "lemma",
+   "label": "lem:comm",
+   "title": "Non-abelian commutator signature",
+   "lines": [
+    2996,
+    3009
+   ],
+   "cov8": 0.03,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": "prop:nonab",
+   "title": "Non-abelian signature",
+   "lines": [
+    3060,
+    3068
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    3070,
+    3077
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "definition",
+   "label": null,
+   "title": "Dissipative Lindbladian and Liouvillian gap",
+   "lines": [
+    3100,
+    3119
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "Quantum Zeno survival probability",
+   "lines": [
+    3121,
+    3140
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "Holevo information as the ensemble bound",
+   "lines": [
+    3151,
+    3166
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "What the Holevo information is, and is not",
+   "lines": [
+    3179,
+    3186
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    3188,
+    3209
+   ],
+   "cov8": 0.04,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    3211,
+    3230
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    3247,
+    3272
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "Analytic upper bound on the contraction rate",
+   "lines": [
+    3289,
+    3315
+   ],
+   "cov8": 0.03,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "When does the analytic bound close the gap?",
+   "lines": [
+    3332,
+    3348
+   ],
+   "cov8": 0.04,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": "prop:titer-base",
+   "title": "Base contraction",
+   "lines": [
+    3350,
+    3361
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "",
+   "lines": [
+    3363,
+    3375
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "Dimensional robustness of the contraction",
+   "lines": [
+    3377,
+    3402
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "construction",
+   "label": null,
+   "title": "Directed system of RAFs in $\\Optic(\\mathbf{Set})$",
+   "lines": [
+    3470,
+    3499
+   ],
+   "cov8": 0.92,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "Viability preservation under filtered colimit",
+   "lines": [
+    3501,
+    3513
+   ],
+   "cov8": 0.73,
+   "label_present": false
+  },
+  {
+   "env": "theorem",
+   "label": null,
+   "title": "Filtered colimits in $\\Optic(\\mathbf{Set})$",
+   "lines": [
+    3552,
+    3573
+   ],
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Why $\\mathbf{Set}$ suffices; what fails for general $\\CC$",
+   "lines": [
+    3634,
+    3648
+   ],
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Viability preservation inheritance",
+   "lines": [
+    3650,
+    3663
+   ],
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "construction",
+   "label": null,
+   "title": "",
+   "lines": [
+    3681,
+    3712
+   ],
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "",
+   "lines": [
+    3714,
+    3746
+   ],
+   "cov8": 0.79,
+   "label_present": false
+  },
+  {
+   "env": "definition",
+   "label": null,
+   "title": "$\\infty$-categorical optic",
+   "lines": [
+    3821,
+    3837
+   ],
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "theorem",
+   "label": null,
+   "title": "$\\infty$-categorical composition",
+   "lines": [
+    3851,
+    3866
+   ],
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "corollary",
+   "label": null,
+   "title": "Univalence-identified fixed point",
+   "lines": [
+    3894,
+    3908
+   ],
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "definition",
+   "label": null,
+   "title": "Phase III closure test: pathwise + univalence-corrected",
+   "lines": [
+    3941,
+    3980
+   ],
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Operational implementation of Phase~III",
+   "lines": [
+    3982,
+    4002
+   ],
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Falsifiable predictions",
+   "lines": [
+    4006,
+    4025
+   ],
+   "cov8": 0.92,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    4042,
+    4102
+   ],
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "AcCoA limit cycle in Network~G",
+   "lines": [
+    4130,
+    4151
+   ],
+   "cov8": 0.86,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "Network A closure-test verdicts",
+   "lines": [
+    4213,
+    4239
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "Network B closure-test verdicts",
+   "lines": [
+    4266,
+    4279
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    4297,
+    4319
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "Network C closure-test verdicts",
+   "lines": [
+    4343,
+    4368
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Why iJO1366 is partially autopoietic",
+   "lines": [
+    4370,
+    4390
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "Network D closure-test verdicts",
+   "lines": [
+    4426,
+    4459
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "What the partial-autopoiesis verdict reveals",
+   "lines": [
+    4461,
+    4481
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "",
+   "lines": [
+    4526,
+    4559
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "What the Network E verdict reveals about autopoiesis",
+   "lines": [
+    4561,
+    4592
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "",
+   "lines": [
+    4654,
+    4690
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "What the Network F verdict reveals about cascade breaking",
+   "lines": [
+    4692,
+    4713
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "",
+   "lines": [
+    4790,
+    4828
+   ],
+   "cov8": 0.08,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Cascade-breaking interpretation",
+   "lines": [
+    4830,
+    4848
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "",
+   "lines": [
+    4919,
+    4967
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    4969,
+    4995
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "",
+   "lines": [
+    5078,
+    5128
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    5130,
+    5156
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "",
+   "lines": [
+    5262,
+    5309
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    5311,
+    5344
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "construction",
+   "label": null,
+   "title": "Network-K-style dampener overlay on iJO1366",
+   "lines": [
+    5381,
+    5396
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "iJO1366+dampener overlay verdict",
+   "lines": [
+    5398,
+    5414
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Scaling ceiling of the FBA closure test at genome scale",
+   "lines": [
+    5416,
+    5435
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "Network K robustness sweep verdict",
+   "lines": [
+    5457,
+    5480
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Noise-enhanced autopoiesis",
+   "lines": [
+    5482,
+    5502
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "construction",
+   "label": null,
+   "title": "Network-K closure-test simplicial diagram",
+   "lines": [
+    5522,
+    5538
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "HoTT infinity-categorical verdict on Network K",
+   "lines": [
+    5540,
+    5558
+   ],
+   "cov8": 0.09,
+   "label_present": false
+  },
+  {
+   "env": "construction",
+   "label": null,
+   "title": "Network-K AcCoA $\\leftrightarrow$ Acetate policy loop",
+   "lines": [
+    5560,
+    5588
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "Non-abelian SO(3) holonomy verdict on Network K",
+   "lines": [
+    5590,
+    5615
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    5617,
+    5638
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "$\\kk$ is nontrivially discriminating",
+   "lines": [
+    5724,
+    5744
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "construction",
+   "label": null,
+   "title": "Closure test on FIXED iJO1366, no engineering",
+   "lines": [
+    5760,
+    5773
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "Closure-test vs FBA essentiality on iJO1366",
+   "lines": [
+    5775,
+    5797
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    5799,
+    5813
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    5815,
+    5858
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    5860,
+    5924
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "RAF closure $\\to$ Zeno-schedule lower bound",
+   "lines": [
+    5935,
+    5957
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    5959,
+    5977
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "definition",
+   "label": null,
+   "title": "Persistent-homology contractibility test",
+   "lines": [
+    5993,
+    6008
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "",
+   "lines": [
+    6010,
+    6024
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "The HoTT section is theorem-backed, not metaphorical",
+   "lines": [
+    6026,
+    6041
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "MDL-optimal surrogate selection",
+   "lines": [
+    6055,
+    6073
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    6075,
+    6122
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    6124,
+    6177
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Task (a): real-FBA re-derivation of $c$",
+   "lines": [
+    6203,
+    6252
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Task (b): Network K+ cascade-breaking prescription",
+   "lines": [
+    6254,
+    6342
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Task (c): E--J universality test of dep-ratio profile",
+   "lines": [
+    6344,
+    6400
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Update to the elevation summary table",
+   "lines": [
+    6402,
+    6414
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    6430,
+    6478
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    6480,
+    6533
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    6535,
+    6598
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Update to the elevation summary table",
+   "lines": [
+    6600,
+    6609
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    6611,
+    6757
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    6759,
+    6828
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    6850,
+    6962
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    6964,
+    7055
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    7057,
+    7132
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Update to the elevation summary table --- v6",
+   "lines": [
+    7134,
+    7162
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    7189,
+    7348
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    7369,
+    7532
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    7552,
+    7663
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    7684,
+    7827
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "E19: three follow-ups from v10",
+   "lines": [
+    7844,
+    7970
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "v12 three follow-ups from v11",
+   "lines": [
+    7986,
+    8084
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "Joint thesis, strongest defensible form",
+   "lines": [
+    9345,
+    9355
+   ],
+   "cov8": 0.43,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    9357,
+    9384
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "Sharpened proposition",
+   "lines": [
+    9389,
+    9397
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Three sharpenings",
+   "lines": [
+    9399,
+    9413
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Falsifiability",
+   "lines": [
+    9415,
+    9427
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Distinction from the source's curvature-survival equivalence",
+   "lines": [
+    9463,
+    9477
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "conjecture",
+   "label": null,
+   "title": "",
+   "lines": [
+    9816,
+    9839
+   ],
+   "cov8": 0.03,
+   "label_present": false
+  },
+  {
+   "env": "conjecture",
+   "label": null,
+   "title": "Algorithmic upper envelope (CLOSED)",
+   "lines": [
+    9841,
+    9862
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "conjecture",
+   "label": null,
+   "title": "Filtered colimits in optic categories (CLOSED)",
+   "lines": [
+    9870,
+    9884
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "conjecture",
+   "label": null,
+   "title": "Heavy-tail $3/2$ fatigue exponent (CLOSED)",
+   "lines": [
+    9886,
+    9902
+   ],
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "conjecture",
+   "label": null,
+   "title": "Quantum self-reference resolution by Zeno contraction (CLOSED)",
+   "lines": [
+    9904,
+    9919
+   ],
+   "cov8": 0.03,
+   "label_present": false
+  }
+ ],
+ "envs": [
+  {
+   "env": "definition",
+   "label": null,
+   "title": "Viability depth functional $D_V$; distinct from curvature",
+   "lines": [
+    435,
+    456
+   ],
+   "nbody": 144,
+   "cov8": 0.94,
+   "label_present": false
+  },
+  {
+   "env": "definition",
+   "label": null,
+   "title": "Structure group: $O(r)$, $SO(r)$, or $CO(r)$ with Weyl scale",
+   "lines": [
+    458,
+    476
+   ],
+   "nbody": 149,
+   "cov8": 0.95,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Fisher--Weyl policy structure, when $\\CO(r)$ is justified",
+   "lines": [
+    478,
+    491
+   ],
+   "nbody": 107,
+   "cov8": 0.89,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Physical meaning of the $n=3\\to n=4$ transition",
+   "lines": [
+    493,
+    518
+   ],
+   "nbody": 164,
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "definition",
+   "label": null,
+   "title": "Optic category",
+   "lines": [
+    520,
+    530
+   ],
+   "nbody": 68,
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "definition",
+   "label": null,
+   "title": "RAF set",
+   "lines": [
+    532,
+    542
+   ],
+   "nbody": 74,
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "definition",
+   "label": null,
+   "title": "CPTP channel",
+   "lines": [
+    544,
+    554
+   ],
+   "nbody": 68,
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "definition",
+   "label": null,
+   "title": "Bregman divergence",
+   "lines": [
+    556,
+    568
+   ],
+   "nbody": 70,
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "definition",
+   "label": null,
+   "title": "SAVGS",
+   "lines": [
+    580,
+    607
+   ],
+   "nbody": 196,
+   "cov8": 0.95,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    616,
+    638
+   ],
+   "nbody": 164,
+   "cov8": 0.78,
+   "label_present": false
+  },
+  {
+   "env": "definition",
+   "label": null,
+   "title": "2-category $\\mathbf{StCon}(B)$ of stratified connections",
+   "lines": [
+    651,
+    682
+   ],
+   "nbody": 226,
+   "cov8": 0.87,
+   "label_present": false
+  },
+  {
+   "env": "theorem",
+   "label": null,
+   "title": "",
+   "lines": [
+    684,
+    695
+   ],
+   "nbody": 85,
+   "cov8": 0.95,
+   "label_present": false
+  },
+  {
+   "env": "proof",
+   "label": null,
+   "title": "",
+   "lines": [
+    697,
+    726
+   ],
+   "nbody": 233,
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "theorem",
+   "label": null,
+   "title": "Piecewise holonomy formula",
+   "lines": [
+    728,
+    755
+   ],
+   "nbody": 154,
+   "cov8": 0.6,
+   "label_present": false
+  },
+  {
+   "env": "proof",
+   "label": null,
+   "title": "",
+   "lines": [
+    757,
+    773
+   ],
+   "nbody": 122,
+   "cov8": 0.76,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Numerical verification of the piecewise holonomy formula",
+   "lines": [
+    775,
+    796
+   ],
+   "nbody": 178,
+   "cov8": 0.96,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    798,
+    835
+   ],
+   "nbody": 287,
+   "cov8": 0.94,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    837,
+    879
+   ],
+   "nbody": 311,
+   "cov8": 0.91,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Topologically distinct loop: triangular geometry",
+   "lines": [
+    881,
+    919
+   ],
+   "nbody": 325,
+   "cov8": 0.9,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Pentagon, circle, and ellipse loop topologies",
+   "lines": [
+    921,
+    972
+   ],
+   "nbody": 366,
+   "cov8": 0.95,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Pathwise viability versus endpoint viability",
+   "lines": [
+    974,
+    990
+   ],
+   "nbody": 121,
+   "cov8": 0.92,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "Fisher-minimal horizontal lift (KKT form)",
+   "lines": [
+    1003,
+    1017
+   ],
+   "nbody": 74,
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "proof",
+   "label": null,
+   "title": "",
+   "lines": [
+    1019,
+    1033
+   ],
+   "nbody": 111,
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    1035,
+    1053
+   ],
+   "nbody": 113,
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "theorem",
+   "label": "thm:smallloop",
+   "title": "Small-loop viability--holonomy",
+   "lines": [
+    1055,
+    1085
+   ],
+   "nbody": 160,
+   "cov8": 0.94,
+   "label_present": true
+  },
+  {
+   "env": "proof",
+   "label": null,
+   "title": "",
+   "lines": [
+    1087,
+    1106
+   ],
+   "nbody": 126,
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "What Theorem~\\ref{thm:smallloop} does and does not claim",
+   "lines": [
+    1108,
+    1123
+   ],
+   "nbody": 95,
+   "cov8": 0.92,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": "prop:sqrt",
+   "title": "Square-root embedding",
+   "lines": [
+    1127,
+    1139
+   ],
+   "nbody": 63,
+   "cov8": 1.0,
+   "label_present": true
+  },
+  {
+   "env": "proof",
+   "label": null,
+   "title": "",
+   "lines": [
+    1141,
+    1148
+   ],
+   "nbody": 49,
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "definition",
+   "label": null,
+   "title": "Operational closure criteria",
+   "lines": [
+    1166,
+    1186
+   ],
+   "nbody": 135,
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "definition",
+   "label": null,
+   "title": "",
+   "lines": [
+    1188,
+    1233
+   ],
+   "nbody": 292,
+   "cov8": 0.93,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Why the test is non-circular and dynamical",
+   "lines": [
+    1235,
+    1258
+   ],
+   "nbody": 190,
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "definition",
+   "label": null,
+   "title": "Closure-aware viability curvature",
+   "lines": [
+    1260,
+    1279
+   ],
+   "nbody": 88,
+   "cov8": 0.9,
+   "label_present": false
+  },
+  {
+   "env": "definition",
+   "label": null,
+   "title": "",
+   "lines": [
+    1282,
+    1330
+   ],
+   "nbody": 344,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "definition",
+   "label": null,
+   "title": "Algorithmic rate-distortion distance",
+   "lines": [
+    1348,
+    1356
+   ],
+   "nbody": 40,
+   "cov8": 0.81,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": "prop:ard-props",
+   "title": "Properties of $\\distD$",
+   "lines": [
+    1358,
+    1363
+   ],
+   "nbody": 38,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proof",
+   "label": null,
+   "title": "",
+   "lines": [
+    1365,
+    1373
+   ],
+   "nbody": 66,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "No deterministic-versus-random-coding gap",
+   "lines": [
+    1375,
+    1381
+   ],
+   "nbody": 44,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": "prop:kappa-derivation",
+   "title": "Derivation of $\\kk$",
+   "lines": [
+    1383,
+    1406
+   ],
+   "nbody": 150,
+   "cov8": 0.28,
+   "label_present": false
+  },
+  {
+   "env": "proof",
+   "label": null,
+   "title": "",
+   "lines": [
+    1408,
+    1426
+   ],
+   "nbody": 126,
+   "cov8": 0.02,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    1428,
+    1435
+   ],
+   "nbody": 44,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "definition",
+   "label": null,
+   "title": "Smooth finite-code rate-distortion surrogate",
+   "lines": [
+    1448,
+    1462
+   ],
+   "nbody": 81,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "Operational viability margin from smooth surrogate",
+   "lines": [
+    1464,
+    1476
+   ],
+   "nbody": 56,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proof",
+   "label": null,
+   "title": "",
+   "lines": [
+    1478,
+    1490
+   ],
+   "nbody": 90,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "conjecture",
+   "label": null,
+   "title": "Algorithmic upper envelope",
+   "lines": [
+    1492,
+    1508
+   ],
+   "nbody": 70,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "definition",
+   "label": null,
+   "title": "Smooth envelope",
+   "lines": [
+    1521,
+    1530
+   ],
+   "nbody": 53,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "lemma",
+   "label": null,
+   "title": "Uniform Lipschitz bound on the surrogate family",
+   "lines": [
+    1532,
+    1543
+   ],
+   "nbody": 63,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proof",
+   "label": null,
+   "title": "",
+   "lines": [
+    1545,
+    1560
+   ],
+   "nbody": 90,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "theorem",
+   "label": null,
+   "title": "",
+   "lines": [
+    1562,
+    1597
+   ],
+   "nbody": 175,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proof",
+   "label": null,
+   "title": "",
+   "lines": [
+    1599,
+    1631
+   ],
+   "nbody": 254,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Connection to the algorithmic rate-distortion $\\distD$",
+   "lines": [
+    1633,
+    1651
+   ],
+   "nbody": 143,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Numerical verification of the smooth-envelope theorem",
+   "lines": [
+    1653,
+    1673
+   ],
+   "nbody": 171,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "corollary",
+   "label": null,
+   "title": "",
+   "lines": [
+    1675,
+    1694
+   ],
+   "nbody": 135,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proof",
+   "label": null,
+   "title": "",
+   "lines": [
+    1696,
+    1708
+   ],
+   "nbody": 104,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "MDP versus POMDP base space",
+   "lines": [
+    1710,
+    1728
+   ],
+   "nbody": 157,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Counterexamples to curvature-survival equivalence",
+   "lines": [
+    1730,
+    1747
+   ],
+   "nbody": 129,
+   "cov8": 0.02,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "Bregman--Hessian Noether correspondence",
+   "lines": [
+    1762,
+    1784
+   ],
+   "nbody": 161,
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "proof",
+   "label": null,
+   "title": "",
+   "lines": [
+    1786,
+    1799
+   ],
+   "nbody": 109,
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "corollary",
+   "label": null,
+   "title": "Affine Bregman invariance; sufficient condition",
+   "lines": [
+    1801,
+    1811
+   ],
+   "nbody": 71,
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "Falsifiable precondition check",
+   "lines": [
+    1813,
+    1823
+   ],
+   "nbody": 73,
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "proof",
+   "label": null,
+   "title": "",
+   "lines": [
+    1825,
+    1832
+   ],
+   "nbody": 56,
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Application to gauge invariance of $\\kk$",
+   "lines": [
+    1834,
+    1845
+   ],
+   "nbody": 85,
+   "cov8": 0.87,
+   "label_present": false
+  },
+  {
+   "env": "definition",
+   "label": null,
+   "title": "Falsification hierarchy",
+   "lines": [
+    1851,
+    1889
+   ],
+   "nbody": 216,
+   "cov8": 0.89,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Recommended experimental ordering",
+   "lines": [
+    1895,
+    1903
+   ],
+   "nbody": 59,
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "construction",
+   "label": null,
+   "title": "Seven-optic endofunctor",
+   "lines": [
+    1909,
+    1940
+   ],
+   "nbody": 183,
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Optic decompositions of the arcs",
+   "lines": [
+    1942,
+    1958
+   ],
+   "nbody": 130,
+   "cov8": 0.94,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Physical reading of the seven-optic composition",
+   "lines": [
+    1985,
+    2004
+   ],
+   "nbody": 148,
+   "cov8": 0.99,
+   "label_present": false
+  },
+  {
+   "env": "theorem",
+   "label": "thm:composition",
+   "title": "Composition as a typed endo-optic",
+   "lines": [
+    2006,
+    2025
+   ],
+   "nbody": 152,
+   "cov8": 0.88,
+   "label_present": true
+  },
+  {
+   "env": "proof",
+   "label": null,
+   "title": "Proof",
+   "lines": [
+    2027,
+    2053
+   ],
+   "nbody": 193,
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "corollary",
+   "label": "cor:unification",
+   "title": "Unification object",
+   "lines": [
+    2055,
+    2063
+   ],
+   "nbody": 71,
+   "cov8": 1.0,
+   "label_present": true
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "Sufficient condition for fixed-point existence",
+   "lines": [
+    2065,
+    2070
+   ],
+   "nbody": 29,
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    2072,
+    2087
+   ],
+   "nbody": 106,
+   "cov8": 0.86,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Typed endo-optic, not automatic endofunctor",
+   "lines": [
+    2089,
+    2113
+   ],
+   "nbody": 197,
+   "cov8": 0.71,
+   "label_present": false
+  },
+  {
+   "env": "lemma",
+   "label": null,
+   "title": "Per-optic analytic Lipschitz bounds",
+   "lines": [
+    2155,
+    2172
+   ],
+   "nbody": 45,
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "proof",
+   "label": null,
+   "title": "",
+   "lines": [
+    2174,
+    2184
+   ],
+   "nbody": 45,
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "theorem",
+   "label": null,
+   "title": "Unconditional Banach contraction of $T_{\\mathrm{reg}}$",
+   "lines": [
+    2186,
+    2208
+   ],
+   "nbody": 86,
+   "cov8": 0.6,
+   "label_present": false
+  },
+  {
+   "env": "proof",
+   "label": null,
+   "title": "",
+   "lines": [
+    2210,
+    2219
+   ],
+   "nbody": 58,
+   "cov8": 0.88,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Numerical verification of the per-optic bounds",
+   "lines": [
+    2221,
+    2235
+   ],
+   "nbody": 83,
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "theorem",
+   "label": null,
+   "title": "Projected CPTP channel contraction",
+   "lines": [
+    2269,
+    2290
+   ],
+   "nbody": 108,
+   "cov8": 0.97,
+   "label_present": false
+  },
+  {
+   "env": "proof",
+   "label": null,
+   "title": "",
+   "lines": [
+    2292,
+    2324
+   ],
+   "nbody": 167,
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "The two contraction results are complementary",
+   "lines": [
+    2340,
+    2355
+   ],
+   "nbody": 92,
+   "cov8": 0.78,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": "prop:claimF",
+   "title": "Claim F empirical verdict",
+   "lines": [
+    2379,
+    2397
+   ],
+   "nbody": 97,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    2411,
+    2415
+   ],
+   "nbody": 25,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": "prop:claimG",
+   "title": "Claim G empirical verdict",
+   "lines": [
+    2419,
+    2439
+   ],
+   "nbody": 130,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    2441,
+    2448
+   ],
+   "nbody": 60,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Geometric origin of $\\kk(a)=a^2$ and $H_{\\mathrm{geo}}(a)=\\pi a^2$",
+   "lines": [
+    2500,
+    2525
+   ],
+   "nbody": 193,
+   "cov8": 0.01,
+   "label_present": false
+  },
+  {
+   "env": "definition",
+   "label": null,
+   "title": "Fisher--Rao distance as the gauge-invariant observable",
+   "lines": [
+    2535,
+    2552
+   ],
+   "nbody": 85,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Why the volume-density expression was replaced",
+   "lines": [
+    2554,
+    2565
+   ],
+   "nbody": 79,
+   "cov8": 0.01,
+   "label_present": false
+  },
+  {
+   "env": "definition",
+   "label": null,
+   "title": "",
+   "lines": [
+    2567,
+    2581
+   ],
+   "nbody": 64,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "definition",
+   "label": null,
+   "title": "Matching-no-loop-drift control",
+   "lines": [
+    2583,
+    2593
+   ],
+   "nbody": 73,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Why the protocol is falsifiable",
+   "lines": [
+    2595,
+    2610
+   ],
+   "nbody": 107,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "definition",
+   "label": null,
+   "title": "Calibration / holdout split",
+   "lines": [
+    2612,
+    2625
+   ],
+   "nbody": 78,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "definition",
+   "label": null,
+   "title": "Equal-exposure permutation test",
+   "lines": [
+    2627,
+    2638
+   ],
+   "nbody": 80,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "definition",
+   "label": null,
+   "title": "Subdivision consistency",
+   "lines": [
+    2640,
+    2651
+   ],
+   "nbody": 62,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Geometric adaptation fatigue signature",
+   "lines": [
+    2653,
+    2666
+   ],
+   "nbody": 84,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": "prop:stress",
+   "title": "Stress-test verdicts",
+   "lines": [
+    2729,
+    2746
+   ],
+   "nbody": 86,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proof",
+   "label": null,
+   "title": "",
+   "lines": [
+    2748,
+    2760
+   ],
+   "nbody": 85,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "lemma",
+   "label": null,
+   "title": "It\\^o expansion of the perturbed holonomy",
+   "lines": [
+    2814,
+    2825
+   ],
+   "nbody": 47,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proof",
+   "label": null,
+   "title": "Proof sketch",
+   "lines": [
+    2827,
+    2844
+   ],
+   "nbody": 103,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "theorem",
+   "label": null,
+   "title": "",
+   "lines": [
+    2859,
+    2882
+   ],
+   "nbody": 135,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proof",
+   "label": null,
+   "title": "",
+   "lines": [
+    2884,
+    2904
+   ],
+   "nbody": 155,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Numerical verification",
+   "lines": [
+    2906,
+    2948
+   ],
+   "nbody": 267,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "lemma",
+   "label": "lem:comm",
+   "title": "Non-abelian commutator signature",
+   "lines": [
+    2996,
+    3009
+   ],
+   "nbody": 55,
+   "cov8": 0.03,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": "prop:nonab",
+   "title": "Non-abelian signature",
+   "lines": [
+    3060,
+    3068
+   ],
+   "nbody": 41,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    3070,
+    3077
+   ],
+   "nbody": 44,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "definition",
+   "label": null,
+   "title": "Dissipative Lindbladian and Liouvillian gap",
+   "lines": [
+    3100,
+    3119
+   ],
+   "nbody": 122,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "Quantum Zeno survival probability",
+   "lines": [
+    3121,
+    3140
+   ],
+   "nbody": 100,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proof",
+   "label": null,
+   "title": "",
+   "lines": [
+    3142,
+    3149
+   ],
+   "nbody": 53,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "Holevo information as the ensemble bound",
+   "lines": [
+    3151,
+    3166
+   ],
+   "nbody": 96,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proof",
+   "label": null,
+   "title": "",
+   "lines": [
+    3168,
+    3177
+   ],
+   "nbody": 68,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "What the Holevo information is, and is not",
+   "lines": [
+    3179,
+    3186
+   ],
+   "nbody": 41,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    3188,
+    3209
+   ],
+   "nbody": 98,
+   "cov8": 0.04,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    3211,
+    3230
+   ],
+   "nbody": 132,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    3247,
+    3272
+   ],
+   "nbody": 211,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "Analytic upper bound on the contraction rate",
+   "lines": [
+    3289,
+    3315
+   ],
+   "nbody": 166,
+   "cov8": 0.03,
+   "label_present": false
+  },
+  {
+   "env": "proof",
+   "label": null,
+   "title": "",
+   "lines": [
+    3317,
+    3330
+   ],
+   "nbody": 87,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "When does the analytic bound close the gap?",
+   "lines": [
+    3332,
+    3348
+   ],
+   "nbody": 125,
+   "cov8": 0.04,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": "prop:titer-base",
+   "title": "Base contraction",
+   "lines": [
+    3350,
+    3361
+   ],
+   "nbody": 94,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "",
+   "lines": [
+    3363,
+    3375
+   ],
+   "nbody": 93,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "Dimensional robustness of the contraction",
+   "lines": [
+    3377,
+    3402
+   ],
+   "nbody": 173,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proof",
+   "label": null,
+   "title": "",
+   "lines": [
+    3404,
+    3421
+   ],
+   "nbody": 109,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "construction",
+   "label": null,
+   "title": "Directed system of RAFs in $\\Optic(\\mathbf{Set})$",
+   "lines": [
+    3470,
+    3499
+   ],
+   "nbody": 176,
+   "cov8": 0.92,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "Viability preservation under filtered colimit",
+   "lines": [
+    3501,
+    3513
+   ],
+   "nbody": 83,
+   "cov8": 0.73,
+   "label_present": false
+  },
+  {
+   "env": "proof",
+   "label": null,
+   "title": "",
+   "lines": [
+    3515,
+    3523
+   ],
+   "nbody": 65,
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "theorem",
+   "label": null,
+   "title": "Filtered colimits in $\\Optic(\\mathbf{Set})$",
+   "lines": [
+    3552,
+    3573
+   ],
+   "nbody": 106,
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "proof",
+   "label": null,
+   "title": "",
+   "lines": [
+    3575,
+    3632
+   ],
+   "nbody": 324,
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Why $\\mathbf{Set}$ suffices; what fails for general $\\CC$",
+   "lines": [
+    3634,
+    3648
+   ],
+   "nbody": 98,
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Viability preservation inheritance",
+   "lines": [
+    3650,
+    3663
+   ],
+   "nbody": 85,
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "construction",
+   "label": null,
+   "title": "",
+   "lines": [
+    3681,
+    3712
+   ],
+   "nbody": 175,
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "",
+   "lines": [
+    3714,
+    3746
+   ],
+   "nbody": 205,
+   "cov8": 0.79,
+   "label_present": false
+  },
+  {
+   "env": "definition",
+   "label": null,
+   "title": "$\\infty$-categorical optic",
+   "lines": [
+    3821,
+    3837
+   ],
+   "nbody": 84,
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "theorem",
+   "label": null,
+   "title": "$\\infty$-categorical composition",
+   "lines": [
+    3851,
+    3866
+   ],
+   "nbody": 65,
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "proof",
+   "label": null,
+   "title": "Proof sketch",
+   "lines": [
+    3868,
+    3890
+   ],
+   "nbody": 129,
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "corollary",
+   "label": null,
+   "title": "Univalence-identified fixed point",
+   "lines": [
+    3894,
+    3908
+   ],
+   "nbody": 73,
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "proof",
+   "label": null,
+   "title": "Proof sketch",
+   "lines": [
+    3910,
+    3925
+   ],
+   "nbody": 115,
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "definition",
+   "label": null,
+   "title": "Phase III closure test: pathwise + univalence-corrected",
+   "lines": [
+    3941,
+    3980
+   ],
+   "nbody": 269,
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Operational implementation of Phase~III",
+   "lines": [
+    3982,
+    4002
+   ],
+   "nbody": 142,
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Falsifiable predictions",
+   "lines": [
+    4006,
+    4025
+   ],
+   "nbody": 104,
+   "cov8": 0.92,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    4042,
+    4102
+   ],
+   "nbody": 448,
+   "cov8": 1.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "AcCoA limit cycle in Network~G",
+   "lines": [
+    4130,
+    4151
+   ],
+   "nbody": 147,
+   "cov8": 0.86,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "Network A closure-test verdicts",
+   "lines": [
+    4213,
+    4239
+   ],
+   "nbody": 148,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "Network B closure-test verdicts",
+   "lines": [
+    4266,
+    4279
+   ],
+   "nbody": 92,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    4297,
+    4319
+   ],
+   "nbody": 183,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "Network C closure-test verdicts",
+   "lines": [
+    4343,
+    4368
+   ],
+   "nbody": 145,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Why iJO1366 is partially autopoietic",
+   "lines": [
+    4370,
+    4390
+   ],
+   "nbody": 162,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "Network D closure-test verdicts",
+   "lines": [
+    4426,
+    4459
+   ],
+   "nbody": 206,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "What the partial-autopoiesis verdict reveals",
+   "lines": [
+    4461,
+    4481
+   ],
+   "nbody": 167,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "",
+   "lines": [
+    4526,
+    4559
+   ],
+   "nbody": 211,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "What the Network E verdict reveals about autopoiesis",
+   "lines": [
+    4561,
+    4592
+   ],
+   "nbody": 282,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "",
+   "lines": [
+    4654,
+    4690
+   ],
+   "nbody": 248,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "What the Network F verdict reveals about cascade breaking",
+   "lines": [
+    4692,
+    4713
+   ],
+   "nbody": 201,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "",
+   "lines": [
+    4790,
+    4828
+   ],
+   "nbody": 264,
+   "cov8": 0.08,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Cascade-breaking interpretation",
+   "lines": [
+    4830,
+    4848
+   ],
+   "nbody": 154,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "",
+   "lines": [
+    4919,
+    4967
+   ],
+   "nbody": 319,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    4969,
+    4995
+   ],
+   "nbody": 209,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "",
+   "lines": [
+    5078,
+    5128
+   ],
+   "nbody": 357,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    5130,
+    5156
+   ],
+   "nbody": 222,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "",
+   "lines": [
+    5262,
+    5309
+   ],
+   "nbody": 335,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    5311,
+    5344
+   ],
+   "nbody": 255,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "construction",
+   "label": null,
+   "title": "Network-K-style dampener overlay on iJO1366",
+   "lines": [
+    5381,
+    5396
+   ],
+   "nbody": 110,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "iJO1366+dampener overlay verdict",
+   "lines": [
+    5398,
+    5414
+   ],
+   "nbody": 112,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Scaling ceiling of the FBA closure test at genome scale",
+   "lines": [
+    5416,
+    5435
+   ],
+   "nbody": 143,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "Network K robustness sweep verdict",
+   "lines": [
+    5457,
+    5480
+   ],
+   "nbody": 190,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Noise-enhanced autopoiesis",
+   "lines": [
+    5482,
+    5502
+   ],
+   "nbody": 154,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "construction",
+   "label": null,
+   "title": "Network-K closure-test simplicial diagram",
+   "lines": [
+    5522,
+    5538
+   ],
+   "nbody": 128,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "HoTT infinity-categorical verdict on Network K",
+   "lines": [
+    5540,
+    5558
+   ],
+   "nbody": 134,
+   "cov8": 0.09,
+   "label_present": false
+  },
+  {
+   "env": "construction",
+   "label": null,
+   "title": "Network-K AcCoA $\\leftrightarrow$ Acetate policy loop",
+   "lines": [
+    5560,
+    5588
+   ],
+   "nbody": 157,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "Non-abelian SO(3) holonomy verdict on Network K",
+   "lines": [
+    5590,
+    5615
+   ],
+   "nbody": 161,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    5617,
+    5638
+   ],
+   "nbody": 148,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "$\\kk$ is nontrivially discriminating",
+   "lines": [
+    5724,
+    5744
+   ],
+   "nbody": 157,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "construction",
+   "label": null,
+   "title": "Closure test on FIXED iJO1366, no engineering",
+   "lines": [
+    5760,
+    5773
+   ],
+   "nbody": 80,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "Closure-test vs FBA essentiality on iJO1366",
+   "lines": [
+    5775,
+    5797
+   ],
+   "nbody": 149,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    5799,
+    5813
+   ],
+   "nbody": 103,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    5815,
+    5858
+   ],
+   "nbody": 273,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    5860,
+    5924
+   ],
+   "nbody": 480,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "RAF closure $\\to$ Zeno-schedule lower bound",
+   "lines": [
+    5935,
+    5957
+   ],
+   "nbody": 130,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    5959,
+    5977
+   ],
+   "nbody": 126,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "definition",
+   "label": null,
+   "title": "Persistent-homology contractibility test",
+   "lines": [
+    5993,
+    6008
+   ],
+   "nbody": 73,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "",
+   "lines": [
+    6010,
+    6024
+   ],
+   "nbody": 82,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "The HoTT section is theorem-backed, not metaphorical",
+   "lines": [
+    6026,
+    6041
+   ],
+   "nbody": 100,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "MDL-optimal surrogate selection",
+   "lines": [
+    6055,
+    6073
+   ],
+   "nbody": 157,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    6075,
+    6122
+   ],
+   "nbody": 363,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    6124,
+    6177
+   ],
+   "nbody": 426,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Task (a): real-FBA re-derivation of $c$",
+   "lines": [
+    6203,
+    6252
+   ],
+   "nbody": 362,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Task (b): Network K+ cascade-breaking prescription",
+   "lines": [
+    6254,
+    6342
+   ],
+   "nbody": 706,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Task (c): E--J universality test of dep-ratio profile",
+   "lines": [
+    6344,
+    6400
+   ],
+   "nbody": 439,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Update to the elevation summary table",
+   "lines": [
+    6402,
+    6414
+   ],
+   "nbody": 76,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    6430,
+    6478
+   ],
+   "nbody": 332,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    6480,
+    6533
+   ],
+   "nbody": 333,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    6535,
+    6598
+   ],
+   "nbody": 438,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Update to the elevation summary table",
+   "lines": [
+    6600,
+    6609
+   ],
+   "nbody": 55,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    6611,
+    6757
+   ],
+   "nbody": 1061,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    6759,
+    6828
+   ],
+   "nbody": 422,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    6850,
+    6962
+   ],
+   "nbody": 796,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    6964,
+    7055
+   ],
+   "nbody": 559,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    7057,
+    7132
+   ],
+   "nbody": 497,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Update to the elevation summary table --- v6",
+   "lines": [
+    7134,
+    7162
+   ],
+   "nbody": 192,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    7189,
+    7348
+   ],
+   "nbody": 1186,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    7369,
+    7532
+   ],
+   "nbody": 1183,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    7552,
+    7663
+   ],
+   "nbody": 697,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    7684,
+    7827
+   ],
+   "nbody": 949,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "E19: three follow-ups from v10",
+   "lines": [
+    7844,
+    7970
+   ],
+   "nbody": 913,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "v12 three follow-ups from v11",
+   "lines": [
+    7986,
+    8084
+   ],
+   "nbody": 882,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "Joint thesis, strongest defensible form",
+   "lines": [
+    9345,
+    9355
+   ],
+   "nbody": 63,
+   "cov8": 0.43,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "",
+   "lines": [
+    9357,
+    9384
+   ],
+   "nbody": 180,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "proposition",
+   "label": null,
+   "title": "Sharpened proposition",
+   "lines": [
+    9389,
+    9397
+   ],
+   "nbody": 43,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Three sharpenings",
+   "lines": [
+    9399,
+    9413
+   ],
+   "nbody": 103,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Falsifiability",
+   "lines": [
+    9415,
+    9427
+   ],
+   "nbody": 83,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "remark",
+   "label": null,
+   "title": "Distinction from the source's curvature-survival equivalence",
+   "lines": [
+    9463,
+    9477
+   ],
+   "nbody": 110,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "conjecture",
+   "label": null,
+   "title": "",
+   "lines": [
+    9816,
+    9839
+   ],
+   "nbody": 155,
+   "cov8": 0.03,
+   "label_present": false
+  },
+  {
+   "env": "conjecture",
+   "label": null,
+   "title": "Algorithmic upper envelope (CLOSED)",
+   "lines": [
+    9841,
+    9862
+   ],
+   "nbody": 136,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "conjecture",
+   "label": null,
+   "title": "Filtered colimits in optic categories (CLOSED)",
+   "lines": [
+    9870,
+    9884
+   ],
+   "nbody": 80,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "conjecture",
+   "label": null,
+   "title": "Heavy-tail $3/2$ fatigue exponent (CLOSED)",
+   "lines": [
+    9886,
+    9902
+   ],
+   "nbody": 90,
+   "cov8": 0.0,
+   "label_present": false
+  },
+  {
+   "env": "conjecture",
+   "label": null,
+   "title": "Quantum self-reference resolution by Zeno contraction (CLOSED)",
+   "lines": [
+    9904,
+    9919
+   ],
+   "nbody": 90,
+   "cov8": 0.03,
+   "label_present": false
+  }
+ ]
+}

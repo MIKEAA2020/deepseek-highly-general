@@ -1,0 +1,504 @@
+% =====================================================================
+%  journal_manuscript_v2  --  LAYER-0 (spine + theorem blocks)
+%  ---------------------------------------------------------------
+%  Status:     Layer-0 skeleton. Layer-1+ ports sections of the frozen
+%              v21 (scripts/journal_manuscript.tex, 10,830 lines,
+%              DO NOT MODIFY) into this document section by section.
+%  Policy:     single coherent manuscript (single-paper route, secured
+%              by the V5 recalibration). No diary, no version history,
+%              no session references. Reads as one investigation.
+%  Hierarchy:  [R-n] Result, [D-n] Definition/Design, [E-n]
+%              Experiment/Evidence blocks. Every claim is tagged.
+%  Sources:    Theorem B corrected per
+%              download/TheoremB_Verification_and_Strengthening.md
+%              (machine-verified; the (p-2)/TV/W1 defects repaired).
+% =====================================================================
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\graphicspath{{../download/}}
+\usepackage[colorlinks=true,linkcolor=blue!55!black,citecolor=blue!45!black,urlcolor=blue!55!black,bookmarks=true,bookmarksnumbered=true,unicode=true]{hyperref}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{construction}[theorem]{Construction}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\kk}{\kappa_{\!V}}
+\newcommand{\kmu}{\kappa^{\mu}}
+\newcommand{\HH}{\mathcal{H}}
+\newcommand{\OO}{\mathcal{O}}
+\newcommand{\CC}{\mathcal{C}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\TV}{\mathrm{TV}}
+\newcommand{\Lip}{\operatorname{Lip}}
+\newcommand{\dvol}{\,\mathrm{dvol}}
+\DeclareMathOperator{\KR}{KR}
+
+\hypersetup{
+ pdftitle={A Measure-Theoretic Discrete Curvature Framework for
+           Metabolic Gene Sensitivity: From Active-Set Geometry to
+           Transcriptional Response},
+ pdfauthor={Z.ai},
+ pdfsubject={parametric FBA, discrete curvature measures, active-set
+             stratification, metabolic gene sensitivity},
+ pdfkeywords={discrete curvature, active set, parametric linear
+              programming, flux rerouting, carbon depletion,
+              transcriptional response, epistasis, holonomy}}
+
+\title{A Measure-Theoretic Discrete Curvature Framework for Metabolic
+       Gene Sensitivity: From Active-Set Geometry to Transcriptional
+       Response}
+\author{Z.ai}
+\date{September 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent
+Parametric flux balance analysis defines, for every metabolic network, a
+piecewise-affine map from environmental and genetic parameters to optimal
+fluxes. We show that the distributional second derivative of this map is a
+matrix-valued Radon measure concentrated on the codimension-one strata of the
+active-set complex, and that this measure --- not a smooth curvature ---
+is the canonical carrier of the network's rerouting geometry: loop holonomy
+scales linearly in loop size (slope $1.00$, versus the quadratic scaling of
+any smooth map), and the second-order response mass concentrates
+($100.0000\%$) on operational active-set switches. We prove a
+refinement--resolution bridge (Theorem~B$'$): under mesh refinement the
+atomic measure converges weakly to the smooth curvature density, the
+dual-cell reconstruction converges strongly in $L^1$, and the total-variation
+claims of earlier formulations are replaced by an exact counterexample
+calculus; a resolution parameter $\sigma$ separates the discrete and smooth
+regimes through the measured window $h \ll \sigma \ll L_{\mathrm{var}}$.
+From the measure we derive a gene-level sensitivity metric $\kmu$ (measure
+mass along a parametric trajectory) and show, on
+\emph{E.~coli} (M3D microarrays, $n=424$ genes), that $\kmu$ predicts
+carbon-depletion transcriptional response ($r = +0.395$,
+$p = 2.6 \times 10^{-17}$; partial $r = +0.269$ controlling reference
+level; metric-invariant $\rho = 0.99998$ against the lexicographic
+definition), while the association does not propagate to the protein layer
+--- consistent with a model in which cells transcribe the potential for
+rerouting while buffering its translation. Double-knockout epistasis aligns
+with active-set structure ($\rho_S = 0.865$), and genotype loops close with
+phenotypic memory ($66\%$ non-reverting). The framework unifies three
+previously distinct sensitivity objects as one measure at different
+resolutions.
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+% =====================================================================
+\section{Introduction}\label{sec:intro}
+% [Layer-1 port: v21 sec:intro, rewritten to the single story]
+
+\paragraph{The object.}
+Let a metabolic network with $m$ reactions be operated by flux balance
+analysis with parameters $\theta \in \Theta \subset \RR^p$ (uptake bounds,
+knockdown scalings) entering the constraints affinely. The optimal flux map
+$v : \Theta \to \RR^m$ is continuous and piecewise affine (parametric
+linear programming), with breakpoints on the active-set strata of the
+constraint complex. Its distributional second derivative
+$\mu = D^2 v$ is therefore not a function but a \emph{measure} --- the
+discrete curvature carrier of the network's rerouting geometry.
+
+\paragraph{The claim structure.}
+This manuscript establishes, in order:
+\begin{enumerate}[label=(\roman*)]
+\item \textbf{[R1]} the atom structure and weak convergence of $\mu_h$
+      under refinement (Theorem~B$'$, \S\ref{sec:theoremB}), with the
+      exact counterexample calculus that separates what is provable from
+      what is false in earlier formulations;
+\item \textbf{[R2]} the two-layer separation: the codimension-one Hessian
+      layer is the unbiased curvature estimator; the codimension-two
+      angle-defect layer converges to the Gauss-map area density with an
+      exact sec-law bias (Proposition~\ref{prop:seclaw});
+\item \textbf{[R3]} the regime dichotomy: piecewise-affine maps with fixed
+      kink complexes produce $O(\varepsilon)$ loop holonomy (measured slope
+      $1.00$) where smooth maps produce $O(\varepsilon^2)$;
+\item \textbf{[R4]} the value function $\Phi = c_{\mathrm{bio}}^\top v^*$
+      is the canonical tie-break-free carrier, with shadow-price jumps
+      measurable to $6$--$7$ digits against Danskin envelopes;
+\item \textbf{[E-series]} the measure-derived metric $\kmu$ predicts
+      carbon-depletion transcriptional response and is buffered at the
+      protein layer (\S\ref{sec:empirical}).
+\end{enumerate}
+
+\paragraph{Positioning.}
+Kochanowski et al.\ demonstrated that global metabolic coordination under
+catabolic limitation is largely passive at the protein/metabolite level,
+driven by Crp and local metabolite concentrations. Our work asks a
+different question: whether a gene-specific, network-derived rerouting
+necessity predicts transcriptional response. We find that it does, and that
+this transcript-level association does not propagate to the protein layer
+--- consistent with a model in which cells transcribe the potential for
+rerouting while buffering its translation.
+
+% =====================================================================
+\section{Notation protocol and the R/D/E hierarchy}\label{sec:notation}
+
+\begin{itemize}
+\item \textbf{[R-$n$]} blocks are proved results (theorems, propositions,
+      lemmas) or machine-verified claims with reproducible artifacts.
+\item \textbf{[D-$n$]} blocks are definitions, constructions, and design
+      decisions (metric definitions, engine specifications).
+\item \textbf{[E-$n$]} blocks are executed experiments with deposited
+      artifacts (data files, figures, statistics).
+\item Conjectures are labelled as such; plausible-but-unproven claims are
+      demoted, never promoted.
+\end{itemize}
+
+% =====================================================================
+\section{The discrete curvature measure of parametric FBA}
+\label{sec:measure}
+
+% [Layer-1 port: v21 active-set / stratification definitions]
+
+\subsection{[D1] The measure}
+
+\begin{definition}[Atomic curvature measure]\label{def:mu}
+Let $u : \Omega \to \RR^m$ be continuous and piecewise affine on a
+polyhedral complex $\CC$ covering $\Omega$. For each codimension-one facet
+$F$ of $\CC$ shared by cells $\tau^-$, $\tau^+$, let
+$[\nabla u]_F = \nabla u|_{\tau^+} - \nabla u|_{\tau^-}$, let $n_F$ be the
+unit conormal oriented $\tau^- \to \tau^+$, and let $|F|$ be the facet
+measure. The \emph{atomic curvature measure} is the matrix-valued Radon
+measure
+\[
+\mu \;=\; D^2 u \;=\; \sum_{F} A_F \, \delta_F,
+\qquad
+A_F \;=\; [\nabla u]_F \otimes n_F \; |F| \;\in\; \RR^{m \times p \times p}.
+\]
+\end{definition}
+
+\begin{remark}[Support]\label{rem:support}
+$\mu$ is concentrated on the $(p-1)$-skeleton. The $(p-2)$-skeleton carries
+a different measure (the angle-defect layer,
+Proposition~\ref{prop:seclaw}); the two must not be conflated. In $p=1$ the
+atoms are the slope jumps at breakpoints.
+\end{remark}
+
+\subsection{[D2] The measure-theoretic sensitivity metric}
+
+\begin{definition}[$\kmu$]\label{def:kmu}
+For a $C^1$ parameter trajectory $\theta(t)$, $t \in [0,T]$, and its
+piecewise-affine optimal-flux response $v(\theta(t))$, let
+$\{t_e\}_e$ be the event times at which the trajectory crosses active-set
+strata, with atoms $A_e = A_{F(e)}$ evaluated on the crossed facet. Define
+\[
+\kmu(g) \;=\; \frac{1}{T}\sum_{e} \bigl\| A_e \bigr\| \, w_e(g),
+\]
+where $\|{\cdot}\|$ is the entrywise $1$-norm on
+$\RR^{m \times p \times p}$ and $w_e(g) \in \{0,1\}$ selects the events
+whose crossed stratum changes the activity of reactions assigned to gene
+$g$ (max over its reactions, per the GPR association).
+\end{definition}
+
+\begin{remark}[$\kmu$ is the safe regime of the reconstruction]
+$\kmu$ integrates measure mass along a one-dimensional trajectory --- the
+telescoping regime in which total variation and mass are automatically
+consistent (R2 remarks in \S\ref{sec:theoremB}); its resolution
+independence (measured mass $288.77$ stable under $4\times$/$8\times$
+trajectory refinement) is exactly the $L^1$-reconstruction regime of
+Theorem~B$'$(iv).
+\end{remark}
+
+% =====================================================================
+\section{The refinement--resolution bridge (Theorem B$'$)}
+\label{sec:theoremB}
+
+Throughout this section $\Omega \subset \RR^p$ is compact, $p \ge 1$,
+$u \in C^2(\Omega; \RR^m)$, $\{\mathcal{T}_h\}$ is a shape-regular family
+of conforming triangulations with mesh size
+$h = \max_\tau \operatorname{diam}(\tau) \to 0$, and $u_h$ is the
+continuous piecewise-affine interpolant of $u$ on $\mathcal{T}_h$.
+
+\begin{theorem}[Refinement--resolution bridge, corrected form]
+\label{thm:Bprime}
+Let $\mu_h = D^2 u_h$ (Definition~\ref{def:mu}) and
+$\mu = D^2u \dvol$. Then:
+\begin{enumerate}[label=(\roman*),leftmargin=2em]
+\item \textbf{(Atoms / support.)} $\mu_h$ is a finite matrix-valued Radon
+      measure concentrated on the $(p-1)$-skeleton of $\mathcal{T}_h$ with
+      atoms $A_F = [\nabla u_h]_F \otimes n_F |F|$; there are no atoms on
+      lower-dimensional strata.
+\item \textbf{(Weak convergence.)} $\mu_h \Rightarrow \mu$ weakly as
+      matrix-valued measures: for every
+      $\varphi \in C_c^\infty(\Omega)$,
+      $\langle \mu_h, \varphi \rangle \to \langle \mu, \varphi \rangle$.
+      Moreover $\|\mu_h - \mu\|_{\KR} \to 0$ in the
+      Kantorovich--Rubinstein (flat) norm.
+\item \textbf{(Total variation: the honest statement.)}
+      $\sup_h \|\mu_h\|_{\TV} \le C\,|u|_{C^2}|\Omega|$ (under
+      quasi-uniformity) and
+      $\liminf_h \|\mu_h\|_{\TV} \ge \|\mu\|_{\TV}$; but
+      $\|\mu_h\|_{\TV} \to \|\mu\|_{\TV}$ is \emph{false in general} ---
+      see Remark~\ref{rem:tvcounter}. It holds in the one-signed regime
+      (convex or concave data restricted to one-dimensional parameter
+      families), which is the regime of the parametric-LP value function
+      and of $\kmu$.
+\item \textbf{(No-mass-loss, correct form: $L^1$ reconstruction.)}
+      On structured complexes, the per-cell reconstructed density
+      $\rho_h(\mathrm{cell}) = |\mathrm{cell}|^{-1} \sum_{F \to
+      \mathrm{cell}} A_F$ converges to $D^2 u$ \emph{strongly in $L^1$}
+      with rate $O(h)$ for $u \in C^3$; consequently
+      $\|\rho_h\|_{L^1} \to \|\mu\|_{\TV}$. On unstructured complexes the
+      naive three-facet patch is not the dual cell; the general statement
+      requires the discrete-duality (dual-diamond) pairing.
+\item \textbf{(Resolution window.)} For the coarse-grained family
+      $\mu_{h,\sigma} = \mu_h * \varphi_\sigma$: at fixed $h$, the limit
+      $\sigma \to 0$ is the \emph{atomic} measure; the smooth object
+      exists only as a family member at matched resolution through the
+      window $h \ll \sigma \ll L_{\mathrm{var}}$ (the measured regime dial,
+      \S\ref{sec:m4}).
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}[Proof of (ii) (two lines)]
+For $\varphi \in C_c^\infty(\Omega)$,
+$\langle D^2 u_h, \varphi\rangle = \int_\Omega u_h D^2\varphi \dvol$ by the
+definition of distributional derivatives (no boundary terms arise).
+Since $\|u - u_h\|_\infty \le C h^2 |u|_{C^2}$ on shape-regular families,
+$\int u_h D^2\varphi \to \int u D^2\varphi = \langle \mu, \varphi\rangle$.
+The flat-norm statement follows by density of
+$\{c\,\varphi : \Lip(\varphi)\le 1\}$ in the KR dual cone and the uniform
+mass bound of (iii).
+\end{proof}
+
+\begin{remark}[Exact counterexample calculus]\label{rem:tvcounter}
+On the right-triangle mesh of $[0,1]^2$ with Hessian
+$H = \left(\begin{smallmatrix} a & b\\ b & c\end{smallmatrix}\right)$, the
+per-cell atoms are $A_{\mathrm{diag}} = b h^2 \mathbf{1}\mathbf{1}^\top$,
+$A_{\mathrm{vert}} = (a-b) h^2\, e_x \otimes e_x$,
+$A_{\mathrm{horiz}} = (c-b) h^2\, e_y \otimes e_y$; their \emph{sum} is
+exactly $h^2 H$ (machine-verified to $0.0$), while the entrywise total
+variation per cell is $|a-b| + |c-b| + 4|b|$ against the target
+$|a| + |c| + 2|b|$. Hence for $u = xy$ the ratio is exactly $3 - 1/n$, for
+the strictly convex $u = 2x^2 - xy + 2y^2$ it is $1.4 - 1/n$ (measured:
+$2.9922$ and $1.3922$ at $n=128$), and for generic smooth maps $3.7$--$4.4$.
+Total-variation convergence fails generically --- including under
+convexity --- while weak convergence holds at rate $O(h^2)$ throughout.
+\end{remark}
+
+\begin{proposition}[Two-layer separation and the sec law]
+\label{prop:seclaw}
+Let $K_h = \sum_v \operatorname{defect}(v)\,\delta_v$ be the vertex
+angle-defect measure of the polyhedral graph
+$\{(x, u_h(x))\}$. Then $K_h$ converges weakly to the \emph{Gauss-map area
+density}
+\[
+\frac{\det D^2 u}{\left(1 + |\nabla u|^2\right)^{3/2}} \dvol
+\;=\; K\,\sqrt{1+|\nabla u|^2}\,\dvol,
+\qquad
+K = \frac{\det D^2 u}{(1+|\nabla u|^2)^2},
+\]
+i.e.\ curvature per projected parameter area, \emph{not} the intrinsic
+Gaussian curvature. The bias factor is exactly
+$\sqrt{1+|\nabla u|^2}$ (the sec law): machine-verified to $0.0\%$ excess
+across $13$ probes spanning tilts $0.11$--$2.83$ and three tilt
+directions. Recovering intrinsic curvature requires the graph area
+correction.
+\end{proposition}
+
+\begin{remark}[Consequences]
+(i) The codimension-one Hessian layer is the unbiased estimator and the
+canonical carrier for the bridge; (ii) Regge/angle-defect formulations
+need the area correction of Proposition~\ref{prop:seclaw}; (iii) defects
+of a \emph{fixed} complex (as measured in the $M4b$ census) are
+scale-invariant $O(1)$ objects and are not contradicted by
+Proposition~\ref{prop:seclaw}, which concerns refinement limits.
+\end{remark}
+
+\begin{proposition}[Regime dichotomy; M4a in closed form]
+\label{prop:dichotomy}
+Let $B(\varepsilon)$ be the curvature mass captured by a loop of radius
+$\varepsilon$. For a $C^2$ map, $B(\varepsilon) = O(\varepsilon^2)$; for a
+piecewise-affine map whose kink complex meets the loop transversally,
+$B(\varepsilon) = O(\varepsilon)$. Measured slopes on the
+$M4a$ design: $2.000$ (smooth) and $1.00$ (parametric FBA,
+$76$-pair perturbation scan).
+\end{proposition}
+
+\subsection{[R-port] Bridge to parametric FBA}
+
+\begin{conjecture}[mpLP refinement bridge]\label{conj:bridge}
+Let $\{\Phi_n\}$ be a sequence of parametric-LP value functions (minima of
+tangent-plane families; $\theta$ in the right-hand side; nested outer
+approximations) converging uniformly to a $C^2$ limit $f$, with induced
+complexes $\mathcal{C}_n$. Then $\mu_n = D^2\Phi_n$ converges weakly to
+$D^2 f \dvol$ provided the complexes satisfy a per-cell discrete-duality
+identity (structured complexes) or a stable discrete-duality
+(dual-diamond) pairing. Along one-dimensional parameter cuts the
+conclusion holds unconditionally by monotone telescoping of the concave
+restriction.
+\end{conjecture}
+
+\begin{remark}[Status]
+The one-dimensional cut case is machine-verified (independent-seed
+reproduction of the refinement experiment: folded Wasserstein distance
+$0.058 \to 0.0039$, mass ratio $0.939 \to 1.0009$ across
+$n = 4 \to 128$). The general complex case is open; the discrete-duality
+pairing stability is the identified missing assumption.
+\end{remark}
+
+% =====================================================================
+\section{Computational validation}\label{sec:computational}
+
+% [Layer-1 port: M1/M3/M4 sections with figures from
+%  download/m1_m3/ and download/m4/]
+
+\subsection{[E-M1] Active-set curvature verification}
+Twelve parameter sweeps (glucose, oxygen, eight gene knockdowns) on
+\emph{E.~coli} iML1515 with an iJO1366 replication, solved by a
+three-stage lexicographic pFBA engine (deterministic optimum; fixed seeded
+tie-break weights after the discovery of pFBA vertex degeneracy).
+Result: $100.0000\%$ of second-order response mass concentrates on
+operational active-set switches in every sweep that crosses
+critical-region boundaries (mass $0.934$--$1.0$; AUC $0.83$--$1.00$;
+MWU $p \le 10^{-4}$); paths are piecewise affine to machine precision
+between events (relative segment residuals $\le 8 \times 10^{-14}$);
+negative controls behave as theory dictates (unused-pathway knockdown:
+zero events, zero curvature; single-critical-region sweep: noise-level
+$D^2 \sim 10^{-11}$).
+
+\subsection{[E-M3] Double-knockout epistasis and path dependence}
+$1{,}516$ single knockouts and $2{,}779$ double-knockout pairs across five
+panels. Epistasis $\varepsilon_{ij} = \kappa_{ij} - \kappa_i - \kappa_j$:
+all $40$ synthetic-lethal pairs are isozyme redundancies
+(tktA/tktB, acnA/acnB, metE/metH, \dots) with pure-emergence epistasis;
+$|\varepsilon_{ij}|$ aligns with active-set footprint overlap
+(Spearman $\rho_S = 0.865$, $J_{\mathrm{support}} = 0.800$); sequential
+($L_1$-MOMA) knockouts open nonzero commutators in $25\%$ of active pairs;
+closed genotype loops fail to return to the initial state in $66\%$ of
+pairs (phenotypic memory; median holonomy $\sim 110$).
+
+\subsection{[E-M4] Regime dial}
+\label{sec:m4}
+The smoothing identity $D^2(v * \phi_\sigma) = (D^2 v) * \phi_\sigma$
+holds to kernel self-test error $1.2 \times 10^{-6}$; measured crossover
+$\varepsilon^*/\sigma \in [2.45, 4.11]$ (median $3.1$) separates the
+$O(\varepsilon^2)$ smooth regime from the $O(\varepsilon)$ discrete
+regime. The $M4a$ scaling slope is $1.00$ on the interacting stratum;
+the $M4b$ census resolves the thin-wedge sliver structure
+(net measure jump $8.9$ vs.\ nominal $\pm 1884.6$).
+
+\subsection{[E-V1] The value function as canonical carrier}
+$\Phi = c_{\mathrm{bio}}^\top v^*$ is single-valued with no tie-breaking;
+it is piecewise affine at $4.2 \times 10^{-13}$ on the flux-event
+partition, carries one real atom
+$\Delta\Phi' = -0.006439$ at $t = 0.0358286$, and decouples from the
+flux-jump hierarchy (value/flux mass ratio $1.7 \times 10^{-6}$).
+Danskin: finite-difference shadow prices match envelope marginals to
+$6$--$7$ digits.
+
+% =====================================================================
+\section{Empirical association and protein-layer buffering}
+\label{sec:empirical}
+
+% [Layer-1 port: E22-E27 sections]
+
+\subsection{[E-V5] Transcriptional response under carbon depletion}
+On the deterministic lexicographic trajectory (E22 physiology, iJO1366),
+$\kmu$ (Definition~\ref{def:kmu}) versus log-fold carbon-depletion
+response (M3D, $n = 424$ genes):
+Pearson $r = +0.395$ ($p = 2.6 \times 10^{-17}$), Spearman
+$\rho_S = +0.414$, partial $r = +0.269$ controlling reference level
+($p = 1.8 \times 10^{-8}$), top-decile versus bottom-decile response
+$1.92$ vs $0.89$ (MWU $1.3 \times 10^{-7}$). Baseline reproduced to the
+digit ($r = +0.3739$, $n = 433$); metric invariance
+$\rho(\kmu, \kk^{\mathrm{lex}}) = 0.99998$ --- the association is an
+event-structure property, not a metric artifact.
+
+\subsection{[E-E27] Protein-layer null}
+Condition-dependent quantitative proteomics ($22$ conditions, triplicates,
+$n = 366$): protein-level correlation $r = -0.083$ against transcript
+$+0.419$ on the same genes. The transcript-level association does not
+propagate to the protein layer; buffering at translation is the consistent
+model, positioning Kochanowski et al.\ as prior art for the protein-layer
+null.
+
+% =====================================================================
+\section{Discussion: one measure, several resolutions}
+\label{sec:discussion}
+
+The three sensitivity objects of the earlier literature --- the geometric
+$\kk$, the flux-statistical $\kappa_{\mathrm{flux}}$, and the time-course
+$\kappa_{\mathrm{time}}$ --- are one measure at different resolutions: the
+atomic measure of Definition~\ref{def:mu}, its coarse-grainings
+$\mu * \phi_\sigma$, and its integrals along parameter trajectories
+($\kmu$). The smooth member exists only through the window
+$h \ll \sigma \ll L_{\mathrm{var}}$; the $\sigma \to 0$ limit is the
+atomic object. Open items, demoted to their honest status:
+Conjecture~\ref{conj:bridge} (general complex stability), the formal
+identity $\kappa_{\mathrm{flux}} = \mathcal{F}[\mu]$ (decoupled from the
+empirical association by the metric-invariance result), E28 under the
+$(\varepsilon, \sigma)$ design law, and E32 (event-measure stabilization
+--- the $L^1$-reconstruction regime of Theorem~\ref{thm:Bprime}(iv)).
+
+\paragraph{Limitations.}
+Correlational design; single-organism scope; operational (not
+combinatorial) active sets; lexicographic tie-breaking is an engine
+convention (the value-function carrier is immune); categorical and
+homotopy-theoretic material of the predecessor manuscript is retained only
+where it carries falsifiable content, with the remainder moved to a
+companion document.
+
+% =====================================================================
+\section{Methods}\label{sec:methods}
+% [Layer-1 port: lex-pFBA engine spec, M3D/PRECISE provenance,
+%  statistical protocols, reproducibility manifest]
+
+\paragraph{Engine.} Three-stage lexicographic pFBA on HiGHS (lexicographic
+order: biomass, then $\ell_1$ flux, then seeded deterministic weights);
+vertex degeneracy of plain pFBA documented ($0.69$ flux flips between
+warm-started solves) and resolved deterministically.
+
+\paragraph{Data.} M3D microarray panels (carbon-depletion contrast);
+PRECISE 2.0 evaluated (no carbon-depletion class, documented); Schmidt
+et al.\ 2016 condition-dependent proteome. SHA-256 provenance manifests
+deposited.
+
+\paragraph{Reproducibility.} All experiments deposit artifacts
+(npz/csv/json) with scripts; independent-seed reproductions recorded for
+the refinement prototype and the stress batteries.
+
+% =====================================================================
+\appendix
+\section{Layer-1 porting map}\label{sec:portmap}
+
+\begin{tabularx}{\textwidth}{lX}
+\toprule
+\textbf{v2 section} & \textbf{v21 source (frozen; do not modify)} \\
+\midrule
+\S\ref{sec:intro} & v21 sec 1 (rewritten to the single story) \\
+\S\ref{sec:notation} & v21 sec 2 (subset: active-set notation only) \\
+\S\ref{sec:measure} & v21 active-set stratification defs; new D1/D2 \\
+\S\ref{sec:theoremB} & new (Theorem B$'$; replaces the smooth bridge) \\
+\S\ref{sec:computational} & M1/M3/M4 report bodies \\
+\S\ref{sec:empirical} & v21 E22--E27 sections \\
+\S\ref{sec:discussion} & v21 discussion, rewritten as resolution statement \\
+\S\ref{sec:methods} & v21 methods; engine documentation \\
+companion & categorical/HoTT sections of v21 (trimmed subset) \\
+\bottomrule
+\end{tabularx}
+
+\end{document}

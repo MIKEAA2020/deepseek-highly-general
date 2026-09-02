@@ -1,0 +1,388 @@
+{
+ "totals": {
+  "reworded": 193,
+  "verbatim": 59,
+  "partial": 27
+ },
+ "env_status": {
+  "partial/conjecture": 1,
+  "partial/construction": 1,
+  "partial/equation": 4,
+  "partial/proposition": 3,
+  "partial/remark": 18,
+  "reworded/conjecture": 5,
+  "reworded/construction": 4,
+  "reworded/corollary": 1,
+  "reworded/definition": 17,
+  "reworded/equation": 40,
+  "reworded/lemma": 3,
+  "reworded/para": 2,
+  "reworded/proof": 18,
+  "reworded/proposition": 31,
+  "reworded/remark": 66,
+  "reworded/theorem": 6,
+  "verbatim/construction": 2,
+  "verbatim/corollary": 3,
+  "verbatim/definition": 9,
+  "verbatim/equation": 19,
+  "verbatim/lemma": 1,
+  "verbatim/proof": 10,
+  "verbatim/proposition": 5,
+  "verbatim/remark": 6,
+  "verbatim/theorem": 4
+ },
+ "n_units": 279,
+ "dropped_units": [
+  {
+   "v1_lines": [
+    4370,
+    4424
+   ],
+   "env": "remark",
+   "label": "rem:ijO1366-discussion",
+   "title": "Why iJO1366 is partially autopoietic",
+   "nlines": 51,
+   "status": "partial",
+   "tokscore": 0.783,
+   "head": "\\begin{remark}[Why iJO1366 is partially autopoietic] \\label{rem:ijO1366-discussion} The full iJO1366 model has substantial metabolic redundancy: most metabolite"
+  },
+  {
+   "v1_lines": [
+    4426,
+    4459
+   ],
+   "env": "proposition",
+   "label": "prop:netD-verdict",
+   "title": "Network D closure-test verdicts",
+   "nlines": 34,
+   "status": "partial",
+   "tokscore": 0.77,
+   "head": "\\begin{proposition}[Network D closure-test verdicts] \\label{prop:netD-verdict} Direct numerical simulation of the closure-test protocol (script \\texttt{autopoie"
+  },
+  {
+   "v1_lines": [
+    4461,
+    4524
+   ],
+   "env": "remark",
+   "label": "rem:netD-discussion",
+   "title": "What the partial-autopoiesis verdict reveals",
+   "nlines": 61,
+   "status": "partial",
+   "tokscore": 0.783,
+   "head": "\\begin{remark}[What the partial-autopoiesis verdict reveals] \\label{rem:netD-discussion} The Network D verdict ($5/17$ causally internal) improves on Network B'"
+  },
+  {
+   "v1_lines": [
+    4561,
+    4631
+   ],
+   "env": "remark",
+   "label": "rem:netE-discussion",
+   "title": "What the Network E verdict reveals about autopoiesis",
+   "nlines": 67,
+   "status": "partial",
+   "tokscore": 0.75,
+   "head": "\\begin{remark}[What the Network E verdict reveals about autopoiesis] \\label{rem:netE-discussion} The Network E verdict ($24/29$ causally internal, $82.8\\%$) clo"
+  },
+  {
+   "v1_lines": [
+    4692,
+    4788
+   ],
+   "env": "remark",
+   "label": "rem:netF-discussion",
+   "title": "What the Network F verdict reveals about cascade breaking",
+   "nlines": 94,
+   "status": "partial",
+   "tokscore": 0.761,
+   "head": "\\begin{remark}[What the Network F verdict reveals about cascade breaking] \\label{rem:netF-discussion} The Network F verdict ($29/31 = 93.5\\%$) demonstrates that"
+  },
+  {
+   "v1_lines": [
+    4886,
+    4917
+   ],
+   "env": "equation",
+   "label": "eq:netH-M17-M18",
+   "title": "",
+   "nlines": 32,
+   "status": "partial",
+   "tokscore": 0.786,
+   "head": "\\begin{equation}\\label{eq:netH-M17-M18} \\begin{aligned} &M17: \\quad \\mathrm{GLU} + \\mathrm{OAA} \\;\\to\\; \\mathrm{ASP} + \\alpha\\mathrm{KG} \\quad \\text{(cat.\\ ASPA"
+  },
+  {
+   "v1_lines": [
+    5037,
+    5076
+   ],
+   "env": "equation",
+   "label": "eq:netI-M19-M20",
+   "title": "",
+   "nlines": 40,
+   "status": "partial",
+   "tokscore": 0.776,
+   "head": "\\begin{equation}\\label{eq:netI-M19-M20} \\begin{aligned} &M19: \\quad \\mathrm{GLU} + \\mathrm{PYR} \\;\\to\\; \\mathrm{ALA} + \\alpha\\mathrm{KG} \\quad \\text{(cat.\\ ALT7"
+  },
+  {
+   "v1_lines": [
+    5130,
+    5211
+   ],
+   "env": "remark",
+   "label": "rem:netI-discussion",
+   "title": "",
+   "nlines": 78,
+   "status": "partial",
+   "tokscore": 0.774,
+   "head": "\\begin{remark}[ALA limit-cycle dampening interpretation, and the further-reduced Phase~I/Phase~III divergence] \\label{rem:netI-discussion} The ALT7/8 design ach"
+  },
+  {
+   "v1_lines": [
+    5212,
+    5260
+   ],
+   "env": "equation",
+   "label": "eq:netK-M23",
+   "title": "",
+   "nlines": 48,
+   "status": "partial",
+   "tokscore": 0.73,
+   "head": "\\begin{equation}\\label{eq:netK-M23} \\begin{aligned} &M23: \\quad \\mathrm{Acetate} + \\mathrm{ATP} \\;\\to\\; \\mathrm{AcCoA} + \\mathrm{ADP} + \\mathrm{Pi} \\quad \\text{"
+  },
+  {
+   "v1_lines": [
+    5311,
+    5379
+   ],
+   "env": "remark",
+   "label": "rem:netK-discussion",
+   "title": "",
+   "nlines": 65,
+   "status": "partial",
+   "tokscore": 0.761,
+   "head": "\\begin{remark}[Convergence of the iterative cascade-breaking strategy to full Phase~I closure, and the monotone improvement theorem] \\label{rem:netK-discussion}"
+  },
+  {
+   "v1_lines": [
+    5381,
+    5396
+   ],
+   "env": "construction",
+   "label": "con:ijO1366-overlay",
+   "title": "Network-K-style dampener overlay on iJO1366",
+   "nlines": 16,
+   "status": "partial",
+   "tokscore": 0.711,
+   "head": "\\begin{construction}[Network-K-style dampener overlay on iJO1366] \\label{con:ijO1366-overlay} Six new metabolic reactions are added to a deep copy of the iJO136"
+  },
+  {
+   "v1_lines": [
+    5398,
+    5414
+   ],
+   "env": "proposition",
+   "label": "prop:ijO1366-overlay",
+   "title": "iJO1366+dampener overlay verdict",
+   "nlines": 17,
+   "status": "partial",
+   "tokscore": 0.747,
+   "head": "\\begin{proposition}[iJO1366+dampener overlay verdict] \\label{prop:ijO1366-overlay} On the same $50$-metabolite test set used by Proposition~\\ref{prop:netC-verdi"
+  },
+  {
+   "v1_lines": [
+    5724,
+    5758
+   ],
+   "env": "remark",
+   "label": "rem:kappa-v-baselines",
+   "title": "$\\kk$ is nontrivially discriminating",
+   "nlines": 33,
+   "status": "partial",
+   "tokscore": 0.76,
+   "head": "\\begin{remark}[$\\kk$ is nontrivially discriminating] \\label{rem:kappa-v-baselines} Study~E1 (script \\texttt{novelty\\_kappa\\_v\\_baselines.py}) compares $\\kk$ to "
+  },
+  {
+   "v1_lines": [
+    5775,
+    5797
+   ],
+   "env": "proposition",
+   "label": "prop:iJO1366-external",
+   "title": "Closure-test vs FBA essentiality on iJO1366",
+   "nlines": 23,
+   "status": "partial",
+   "tokscore": 0.772,
+   "head": "\\begin{proposition}[Closure-test vs FBA essentiality on iJO1366] \\label{prop:iJO1366-external} On the FIXED iJO1366 model, the closure-test verdict and FBA sing"
+  },
+  {
+   "v1_lines": [
+    6000,
+    6008
+   ],
+   "env": "equation",
+   "label": "",
+   "title": "",
+   "nlines": 9,
+   "status": "partial",
+   "tokscore": 0.75,
+   "head": "\\begin{equation} \\mathrm{Betti}_0 = 1 \\;\\wedge\\; \\mathrm{Betti}_1 = 0 \\;\\wedge\\; \\mathrm{Betti}_2 = 0 \\end{equation} where $\\mathrm{Betti}_n$ counts the persist"
+  },
+  {
+   "v1_lines": [
+    6124,
+    6201
+   ],
+   "env": "remark",
+   "label": "rem:mdl-selection-rule-v3",
+   "title": "",
+   "nlines": 73,
+   "status": "partial",
+   "tokscore": 0.768,
+   "head": "\\begin{remark}[v3 iteration: $c = 1.625$ is SHAPE-DEPENDENT (not universal); transferability verified on $V = 1 - x^4$ and $V = 1 - x^6$] \\label{rem:mdl-selecti"
+  },
+  {
+   "v1_lines": [
+    6254,
+    6342
+   ],
+   "env": "remark",
+   "label": "rem:netkplus-cascade-breaking-v4",
+   "title": "Task (b): Network K+ cascade-breaking prescription",
+   "nlines": 87,
+   "status": "partial",
+   "tokscore": 0.686,
+   "head": "\\begin{remark}[Task (b): Network K+ cascade-breaking prescription] \\label{rem:netkplus-cascade-breaking-v4} The Network~K v2 dep-ratio analysis (Remark~\\ref{rem"
+  },
+  {
+   "v1_lines": [
+    6402,
+    6428
+   ],
+   "env": "remark",
+   "label": "rem:elevation-summary-table-v4",
+   "title": "Update to the elevation summary table",
+   "nlines": 21,
+   "status": "partial",
+   "tokscore": 0.784,
+   "head": "\\begin{remark}[Update to the elevation summary table] \\label{rem:elevation-summary-table-v4} Table~\\ref{tab:novelty-elevation-summary} is updated to include the"
+  },
+  {
+   "v1_lines": [
+    6611,
+    6757
+   ],
+   "env": "remark",
+   "label": "rem:e10-real-time-series",
+   "title": "",
+   "nlines": 144,
+   "status": "partial",
+   "tokscore": 0.759,
+   "head": "\\begin{remark}[Task E10: real metabolic time-series data test (Lemuth 2008) on iJO1366] \\label{rem:e10-real-time-series} Study~E10 (script \\texttt{novelty\\_real"
+  },
+  {
+   "v1_lines": [
+    6759,
+    6848
+   ],
+   "env": "remark",
+   "label": "rem:e11-cross-organism",
+   "title": "",
+   "nlines": 85,
+   "status": "partial",
+   "tokscore": 0.73,
+   "head": "\\begin{remark}[Task E11: cross-organism closure test on iAF1260 + iMM904 BiGG models] \\label{rem:e11-cross-organism} Study~E11 (script \\texttt{novelty\\_cross\\_o"
+  },
+  {
+   "v1_lines": [
+    7057,
+    7132
+   ],
+   "env": "remark",
+   "label": "",
+   "title": "",
+   "nlines": 71,
+   "status": "partial",
+   "tokscore": 0.794,
+   "head": "\\begin{remark}[Task E14: closure-test benchmark against chemical-organization decomposition and network-expansion scopes (Upgrade 3, part iii)] \\label{rem:e14-s"
+  },
+  {
+   "v1_lines": [
+    7189,
+    7367
+   ],
+   "env": "remark",
+   "label": "rem:e15-direct-keio",
+   "title": "",
+   "nlines": 170,
+   "status": "partial",
+   "tokscore": 0.707,
+   "head": "\\begin{remark}[Task E15: DIRECT $\\kappa_V$ vs raw Baba 2006 Keio essentiality (no transitive Orth-2011 hop)] \\label{rem:e15-direct-keio} Study~E15 (script \\text"
+  },
+  {
+   "v1_lines": [
+    7369,
+    7550
+   ],
+   "env": "remark",
+   "label": "rem:e16-iml1515-cross-rebuild",
+   "title": "",
+   "nlines": 173,
+   "status": "partial",
+   "tokscore": 0.689,
+   "head": "\\begin{remark}[Task E16: Cross-rebuild validation of $\\kappa_V$ on iML1515 --- does the model-gap candidate count drop as expected?] \\label{rem:e16-iml1515-cros"
+  },
+  {
+   "v1_lines": [
+    7684,
+    7842
+   ],
+   "env": "remark",
+   "label": "rem:e18-indicator-main-definition",
+   "title": "",
+   "nlines": 145,
+   "status": "partial",
+   "tokscore": 0.799,
+   "head": "\\begin{remark}[E18: indicator-weighted $\\kappa_V$ as main definition; re-runs of E1--E14] \\label{rem:e18-indicator-main-definition} \\textbf{Promotion.} Adopt \\["
+  },
+  {
+   "v1_lines": [
+    7986,
+    9342
+   ],
+   "env": "remark",
+   "label": "rem:e20-three-follow-ups",
+   "title": "v12 three follow-ups from v11",
+   "nlines": 1266,
+   "status": "partial",
+   "tokscore": 0.622,
+   "head": "\\begin{remark}[v12 three follow-ups from v11] \\label{rem:e20-three-follow-ups} \\mbox{} \\begin{itemize}\\itemsep0pt \\item \\textbf{Follow-up (1) \u2014 E8 extended thre"
+  },
+  {
+   "v1_lines": [
+    9463,
+    9814
+   ],
+   "env": "remark",
+   "label": "rem:curv-equiv",
+   "title": "Distinction from the source's curvature-survival equivalence",
+   "nlines": 323,
+   "status": "partial",
+   "tokscore": 0.778,
+   "head": "\\begin{remark}[Distinction from the source's curvature-survival equivalence] \\label{rem:curv-equiv} The proposition of this article is sharper than, and not equ"
+  },
+  {
+   "v1_lines": [
+    9904,
+    10830
+   ],
+   "env": "conjecture",
+   "label": "conj:zeno-selfref",
+   "title": "Quantum self-reference resolution by Zeno contraction (CLOSED)",
+   "nlines": 849,
+   "status": "partial",
+   "tokscore": 0.685,
+   "head": "\\begin{conjecture}[Quantum self-reference resolution by Zeno contraction (CLOSED)] \\label{conj:zeno-selfref} \\emph{Formerly open:} a quantum predictor subject t"
+  }
+ ]
+}
