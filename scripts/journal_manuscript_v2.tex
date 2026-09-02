@@ -23,6 +23,7 @@
 \usepackage{microtype}
 \usepackage{booktabs}
 \usepackage{tabularx}
+\usepackage[round]{natbib}
 \usepackage{enumitem}
 \usepackage{xcolor}
 \usepackage{graphicx}
@@ -83,7 +84,8 @@ active-set complex, and that this measure --- not a smooth curvature ---
 is the canonical carrier of the network's rerouting geometry: loop holonomy
 scales linearly in loop size (slope $1.00$, versus the quadratic scaling of
 any smooth map), and the second-order response mass concentrates
-($100.0000\%$) on operational active-set switches. We prove a
+($93.4$--$100.0\%$ per boundary-crossing sweep) on operational active-set
+switches. We prove a
 refinement--resolution bridge (Theorem~B$'$): under mesh refinement the
 atomic measure converges weakly to the smooth curvature density, the
 dual-cell reconstruction converges strongly in $L^1$, and the total-variation
@@ -96,7 +98,8 @@ mass along a parametric trajectory) and show, on
 carbon-depletion transcriptional response ($r = +0.395$,
 $p = 2.6 \times 10^{-17}$; partial $r = +0.269$ controlling reference
 level; metric-invariant $\rho = 0.99998$ against the lexicographic
-definition), while the association does not propagate to the protein layer
+definition; tie-break-robust across four alternative selection rules,
+E-V8), while the association does not propagate to the protein layer
 --- consistent with a model in which cells transcribe the potential for
 rerouting while buffering its translation. Double-knockout epistasis aligns
 with active-set structure ($\rho_S = 0.865$), and genotype loops close with
@@ -114,10 +117,10 @@ resolutions.
 
 \paragraph{The object.}
 Let a metabolic network with $m$ reactions be operated by flux balance
-analysis with parameters $\theta \in \Theta \subset \RR^p$ (uptake bounds,
+analysis \citep{varma1994, orth2010} with parameters $\theta \in \Theta \subset \RR^p$ (uptake bounds,
 knockdown scalings) entering the constraints affinely. The optimal flux map
 $v : \Theta \to \RR^m$ is continuous and piecewise affine (parametric
-linear programming), with breakpoints on the active-set strata of the
+linear programming \citep{borrelli2003}), with breakpoints on the active-set strata of the
 constraint complex. Its distributional second derivative
 $\mu = D^2 v$ is therefore not a function but a \emph{measure} --- the
 discrete curvature carrier of the network's rerouting geometry.
@@ -142,12 +145,14 @@ This manuscript establishes, in order:
 \item \textbf{[E-series]} the measure-derived metric $\kmu$ predicts
       carbon-depletion transcriptional response ($r = +0.395$),
       generalizes to oxygen-limitation and carbon-switch trajectories
-      with matched responses ($r = +0.32$, $+0.22$; E-V7), and is
+      with matched responses ($r = +0.32$, $+0.22$; E-V7), is robust
+      to the tie-break convention ($r \in [+0.386, +0.396]$ across
+      five selection rules; E-V8), and is
       buffered at the protein layer (\S\ref{sec:empirical}).
 \end{enumerate}
 
 \paragraph{Positioning.}
-Kochanowski et al.\ demonstrated that global metabolic coordination under
+\citet{kochanowski2013} demonstrated that global metabolic coordination under
 catabolic limitation is largely passive at the protein/metabolite level,
 driven by Crp and local metabolite concentrations. Our work asks a
 different question: whether a gene-specific, network-derived rerouting
@@ -200,6 +205,17 @@ Proposition~\ref{prop:seclaw}); the two must not be conflated. In $p=1$ the
 atoms are the slope jumps at breakpoints.
 \end{remark}
 
+The measure-theoretic language is classical: matrix-valued Radon
+measures and their weak convergence \citep{billingsley1999}, the
+Alexandrov Hessian of convex functions \citep{alexandrov1939}, the
+Monge--Amp\`ere measure \citep{gutierrez2001}, and Regge-type defect
+measures for piecewise-flat curvature \citep{regge1961, cheeger1984} on
+the geometric side; chamber complexes, normal fans, and multi-parametric
+LP value functions \citep{rockafellar1970, ziegler1995, borrelli2003} on
+the polyhedral side. The Kantorovich--Rubinstein (flat) norm used in
+Theorem~B$'$ is the standard optimal-transport flat norm
+\citep{villani2009}.
+
 \subsection{[D2] The measure-theoretic sensitivity metric}
 
 \begin{definition}[$\kmu$]\label{def:kmu}
@@ -250,9 +266,12 @@ flux map --- not the Monge--Amp\`ere atom layer
 (Proposition~\ref{prop:maatom}), which requires concavity and serves
 as the dual-face diagnostic. Robustness to the declared selection is
 measured, not assumed: the within-layer rank identity
-$\rho(\kmu, \kk^{\mathrm{lex}}) = 0.99998$ (E-V5), and the trajectory
+$\rho(\kmu, \kk^{\mathrm{lex}}) = 0.99998$ (E-V5), the trajectory
 substitutions of E-V7 reproduce the association under the same
-declared selection on two further paths.
+declared selection on two further paths, and E-V8 holds the
+association stable ($r \in [+0.386, +0.396]$, partial constant to
+three decimals) under four alternative stage-3 selection rules while
+the value layer stays exactly invariant.
 \end{remark}
 
 \subsection{[D3] The value-function layer (Alexandrov)}
@@ -262,7 +281,8 @@ Let $\Phi(\theta) = \max\{ c^\top v : Sv = 0,\ \ell(\theta) \le v \le
 u(\theta)\}$ with $\ell, u$ affine, feasible and bounded. Then $\Phi$ is
 concave (pointwise infimum of affine dual objectives over a
 $\theta$-independent dual feasible set), and $-\Phi$ carries a symmetric
-matrix-valued Radon Hessian measure $D^2(-\Phi)$ (Alexandrov), independent
+matrix-valued Radon Hessian measure $D^2(-\Phi)$ (Alexandrov
+\citep{alexandrov1939}), independent
 of the optimal-flux selection rule. Concavity fails in general under OR
 (isoenzyme) GPR rules for simultaneous multi-gene capacity vectors;
 single-gene axes, exchange-bound families, and AND-only subnetworks
@@ -302,7 +322,8 @@ $0.235000068$ ($16$ direction LPs over the dual optimal face).
 \end{proposition}
 
 \begin{remark}[Layer separation and PhPP positioning]\label{rem:layersep}
-The phenotype phase planes of Edwards--Ibarra--Palsson are the chamber
+The phenotype phase planes of Edwards--Ibarra--Palsson
+\citep{edwards2001, ibarra2002} are the chamber
 complex of $\Phi$; their sector corners are the atoms of the
 Monge--Amp\`ere layer. The empirical $\kmu$ of
 Definition~\ref{def:kmu} is a functional of the \emph{flux-map} measure
@@ -356,10 +377,11 @@ $|\Delta\Phi'| \le \|c\|_\infty \,\|\Delta v'\|_1$.
       value layer is structurally impossible.
 \end{enumerate}
 Machine-verified: identity error $0.0$ at all $12$ events and all
-$4$ clusters of the iML1515 cut ($\Phi = c^\top v^*$ to $10^{-9}$);
+$4$ clusters of the iML1515 cut ($\Phi = c^\top v^*$ to $10^{-9}$;
+Figure~\ref{fig:coupling});
 $11$ of $12$ events objective-invisible, with flux $\ell_1$ slope
 jumps up to $1.6 \times 10^{4}$ against $|c^\top \Delta v'| \le
-1.5 \times 10^{-7}$; $150$ random dense-objective LPs to $1.1 \times
+1.51 \times 10^{-7}$; $150$ random dense-objective LPs to $1.1 \times
 10^{-13}$ ($5$ events, all objective-moving --- the dichotomy); the
 degenerate follower family $60/60$ with invisible kinks at identity
 error $2.0 \times 10^{-13}$; two-dimensional mixed second
@@ -372,7 +394,10 @@ A continuous piecewise-affine function is semiconvex (resp.\
 semiconcave) iff it is convex (resp.\ concave) --- semiconvexity is
 not an available weakening for LP value functions (measured: the
 required constant blows up like $1/(2h)$; $\lambda \cdot h_{\max}
-\equiv 0.500$ across $\lambda = 1 \dots 10^{12}$). Nevertheless
+= 0.500$ numerically across $\lambda = 1 \dots 10^{6}$, the analytic
+law $\lambda\, h_{\max} = 1/(2\lambda)$ holding at every scale,
+with the numerical grid flooring above $\lambda \approx 10^{7}$).
+Nevertheless
 every continuous piecewise-affine $\Phi$, for any GPR structure,
 carries a finite \emph{signed} symmetric Radon Hessian measure on
 its crease skeleton with per-crease sign flags: for the OR-plus-cap
@@ -401,7 +426,8 @@ $\tfrac12|\det(j_1, j_2)| =
 overestimates by $2/\sin\angle \ge 2$, with equality iff the jumps
 are orthogonal (measured on $400$ random max-of-affine vertices:
 determinant $=$ fan area to $8.9 \times 10^{-16}$; product/atom
-median $3.296$, minimum exactly $2.000$; the $2/\sin\angle$ law to
+median $3.296$, minimum exactly $2.000$ (the orthogonal edge case;
+$2.000031$ over random vertices); the $2/\sin\angle$ law to
 $2.5 \times 10^{-12}$; in $p$ dimensions, atom $=
 (1/p!)|\det(j_1,\dots,j_p)|$ for simplex fans).
 \end{proposition}
@@ -505,7 +531,7 @@ exactly $h^2 H$ (machine-verified to $0.0$), while the entrywise total
 variation per cell is $|a-b| + |c-b| + 4|b|$ against the target
 $|a| + |c| + 2|b|$. Hence for $u = xy$ the ratio is exactly $3 - 1/n$, for
 the strictly convex $u = 2x^2 - xy + 2y^2$ it is $1.4 - 1/n$ (measured:
-$2.9922$ and $1.3922$ at $n=128$), and for generic smooth maps $3.7$--$4.4$.
+$2.9922$ and $1.3922$ at $n=128$), and for generic smooth maps $3.6$--$4.4$.
 Total-variation convergence fails generically --- including under
 convexity --- while weak convergence holds at rate $O(h^2)$ throughout.
 \end{remark}
@@ -600,18 +626,58 @@ property by structural necessity, not merely by empirical choice.
 %  download/m1_m3/ and download/m4/]
 
 \subsection{[E-M1] Active-set curvature verification}
-Twelve parameter sweeps (glucose, oxygen, eight gene knockdowns) on
-\emph{E.~coli} iML1515 with an iJO1366 replication, solved by a
+Thirteen parameter sweeps (glucose and oxygen uptake; capacity
+knockdowns of ten genes: pgi, zwf, tktA, pfkA, eno, gltA, aceA, ppc,
+gnd, rpe) on \emph{E.~coli} iML1515, solved by a
 three-stage lexicographic pFBA engine (deterministic optimum; fixed seeded
-tie-break weights after the discovery of pFBA vertex degeneracy).
-Result: $100.0000\%$ of second-order response mass concentrates on
+tie-break weights after the discovery of pFBA vertex degeneracy), with
+an iJO1366 glucose replication and an aceA unused-pathway negative
+control.
+Result: $93.4$--$100.0\%$ of second-order response mass concentrates on
 operational active-set switches in every sweep that crosses
-critical-region boundaries (mass $0.934$--$1.0$; AUC $0.83$--$1.00$;
-MWU $p \le 10^{-4}$); paths are piecewise affine to machine precision
-between events (relative segment residuals $\le 8 \times 10^{-14}$);
+critical-region boundaries (ten of the eleven crossing sweeps at mass
+exactly $1.000000$; mass $0.934$--$1.0$; AUC $0.83$--$1.00$;
+Mann--Whitney $p \le 2 \times 10^{-3}$, with seven of eleven crossing
+sweeps at $p \le 10^{-4}$; Figure~\ref{fig:m1}); between events the paths are piecewise
+affine to solver precision (event-free segment residuals $\le 1.2
+\times 10^{-10}$, with $8 \times 10^{-14}$ on the glucose sweep; one
+$19$-point segment of the eno sweep carries $4.1 \times 10^{-3}$ ---
+a sub-threshold kink invisible to the operational event proxy, which
+is also why that sweep's event mass is $0.934$ rather than $1.0$);
 negative controls behave as theory dictates (unused-pathway knockdown:
 zero events, zero curvature; single-critical-region sweep: noise-level
 $D^2 \sim 10^{-11}$).
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{m1_m3/fig_m1_summary.png}
+\caption{[E-M1] Active-set curvature verification (iML1515). Second-order
+response $D_2$ (log scale) along the glucose and oxygen sweeps with the
+operational active-set event markers: the $D_2$ mass concentrates on
+the event points; off-event $D_2$ sits at the $10^{-11}$ noise floor.
+The engine is the three-stage lexicographic pFBA solver of
+\S\ref{sec:methods}; all sweeps are cold-started and deterministic.
+Artifact: \texttt{m1\_m3/fig\_m1\_summary.png} /
+\texttt{m1\_summary.json}.}
+\label{fig:m1}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{alexandrov_bridge/coupling_figures.png}
+\caption{[Theorem~\ref{thm:coupling}] Machine verification of the
+value--flux crease coupling. The controlled follower-variable LPs:
+the value function $\Phi$ stays affine and identical under two
+lexicographic tie-breaks while the follower's second-difference mass
+flips; the coupling identity $\Delta\Phi' = c^\top \Delta v'$ holds to
+$0.0$ on the toys, $1.1 \times 10^{-13}$ on $150$ random dense-objective
+LPs, and $2.0 \times 10^{-13}$ on the $60/60$ degenerate follower
+family; on the iML1515 cut the identity error is $0.0$ at all $12$
+events and all $4$ clusters. Artifact:
+\texttt{alexandrov\_bridge/coupling\_figures.png} /
+\texttt{coupling\_results.json}.}
+\label{fig:coupling}
+\end{figure}
 
 \subsection{[E-M3] Double-knockout epistasis and path dependence}
 $1{,}516$ single knockouts and $2{,}779$ double-knockout pairs across five
@@ -620,7 +686,7 @@ all $40$ synthetic-lethal pairs are isozyme redundancies
 (tktA/tktB, acnA/acnB, metE/metH, \dots) with pure-emergence epistasis;
 $|\varepsilon_{ij}|$ aligns with active-set footprint overlap
 (Spearman $\rho_S = 0.865$, $J_{\mathrm{support}} = 0.800$); sequential
-($L_1$-MOMA) knockouts open nonzero commutators in $25\%$ of active pairs;
+($L_1$-MOMA \citep{segre2002}) knockouts open nonzero commutators in $25\%$ of active pairs;
 closed genotype loops fail to return to the initial state in $66\%$ of
 pairs (phenotypic memory; median holonomy $\sim 110$).
 
@@ -651,7 +717,7 @@ Theorem~\ref{thm:coupling} is machine-verified on this same cut:
 $\Delta\Phi' = c^\top \Delta v'$ with error $0.0$ at all $12$
 events and all $4$ clusters, $\Phi = c^\top v^*$ to $10^{-9}$, and
 the $11$ invisible events carry flux $\ell_1$ slope jumps up to
-$1.6 \times 10^{4}$ against $|c^\top \Delta v'| \le 1.5 \times
+$1.6 \times 10^{4}$ against $|c^\top \Delta v'| \le 1.51 \times
 10^{-7}$ --- the decoupling is the objective contraction, not a loss
 of network information.
 
@@ -689,9 +755,11 @@ than migrating.
 \subsection{[E-V5] Transcriptional response under carbon depletion}
 On the deterministic lexicographic trajectory (E22 physiology, iJO1366),
 $\kmu$ (Definition~\ref{def:kmu}) versus log-fold carbon-depletion
-response (M3D, $n = 424$ genes):
+response (M3D \citep{faith2008}, $n = 424$ genes;
+Figure~\ref{fig:v5}):
 Pearson $r = +0.395$ ($p = 2.6 \times 10^{-17}$), Spearman
-$\rho_S = +0.414$, partial $r = +0.269$ controlling reference level
+$\rho_S = +0.414$ (full panel, zeros included), partial $r = +0.269$
+controlling reference level
 ($p = 1.8 \times 10^{-8}$), top-decile versus bottom-decile response
 $1.92$ vs $0.89$ (MWU $1.3 \times 10^{-7}$). Baseline reproduced to the
 digit ($r = +0.3739$, $n = 433$); metric invariance
@@ -737,7 +805,7 @@ object.
 
 \subsection{[E-V7] Path robustness: what survives a trajectory change}
 Three trajectories through the same LP (frozen engine, seed, panel,
-statistics; only the path and its matched response vary): P0 glucose
+statistics; only the path and its matched response vary; Figure~\ref{fig:v7}): P0 glucose
 decline (E22 anchors; the V6 control), P1 oxygen limitation
 ($q_{\mathrm{glc}} = 5$ fixed, $q_{O_2}$ linear from $22$ to $1$),
 P2 acetate switch ($q_{O_2} = 22$ fixed; glucose $5 \to 0$ while
@@ -761,7 +829,7 @@ and a \emph{chamber crossing} iff they jump.
       degenerate ($0$ of $433$ genes --- the sparse-objective
       corollary of Theorem~\ref{thm:coupling} is path-free); the
       chamber-crossing shadow-price arm is null ($r = -0.17$,
-      $n = 68$ on P1; $r = +0.03$, $n = 71$ on P2); value-gated flux
+      $n = 68$ on P1; $r = +0.032$, $n = 71$ on P2); value-gated flux
       strain is a subset of $\kmu$ (equal or weaker on every path,
       never stronger).
 \item The flux-layer association generalizes: against the matched
@@ -778,6 +846,121 @@ and a \emph{chamber crossing} iff they jump.
       $2.4 \times 10^{-4}$ (P1), $5.5 \times 10^{-4}$ (P2).
 \end{enumerate}
 
+\subsection{[E-V8] Tie-break robustness: the association as a property
+of the protocol class}\label{sec:v8}
+
+The flux layer is selection-dependent by construction
+(Remark~\ref{rem:lock}); the declared lexicographic tie-break is one
+member of a family. V8 freezes the entire V5/V6 protocol (iJO1366,
+E22 physiology anchors, $8\times$ refinement, the $433$-gene E24
+panel, the M3D carbon-depletion response, the reference-level
+confound control) and varies \emph{only} the stage-3 tie-break of the
+engine:
+\begin{itemize}
+\item \textbf{TB0} (declared): $w \sim U(0.5, 1.5)$, seed 20240901,
+      $\min w^\top v$ --- the locked metric (control: reproduces V5
+      digit-exactly, $r = +0.3954$);
+\item \textbf{TB1} (fresh seed): $w \sim U(0.5, 1.5)$, seed 20240902
+      --- same family, independent draw;
+\item \textbf{TB2} (family swap): $w \sim \mathrm{LogN}(0, 1)$ clipped
+      to $[0.05, 20]$, seed 20240903 --- a different distribution
+      family with a thirteen-fold wider dynamic range;
+\item \textbf{TB3} (rule swap): stage-3 objective on the split
+      variables, $\min \sum_r w_r (f_r + r_r)$ --- weighted
+      \emph{absolute}-flux selection with TB0's weights;
+\item \textbf{TB4} (adversarial): $\max w^\top v$ --- the far end of
+      the stage-2-pinned optimal face, with TB0's weights.
+\end{itemize}
+
+\begin{table}[t]
+\centering
+\caption{[E-V8] Tie-break robustness of the association (V5 protocol
+frozen; only the stage-3 selection rule varies). The value layer
+(stage-1 biomass $\mu$) and the pFBA layer (stage-2 $\ell_1$, $s_2$)
+are invariant to $0.0$ across all variants --- the measured form of
+the tie-break-freeness of Proposition~\ref{prop:alex}. Artifact:
+\texttt{deepseek\_bridge/v8\_tiebreak\_robustness.}\{\texttt{json,
+csv,png}\}.}
+\label{tab:v8}
+\begin{tabular}{lccccc}
+\toprule
+Variant & $n_{\mathrm{nz}}$ & $r$ & partial $r$ &
+$\rho_S(\kmu, \kmu_{\mathrm{TB0}})$ & genes changed \\
+\midrule
+TB0 declared       & 424 & $+0.3954$ & $+0.269$ & --- & --- \\
+TB1 fresh seed     & 426 & $+0.3861$ & $+0.270$ & $0.99998$ & 91 \\
+TB2 LogN family    & 424 & $+0.3954$ & $+0.269$ & $0.99999$ & 90 \\
+TB3 $|v|$ rule     & 425 & $+0.3959$ & $+0.269$ & $0.99897$ & 109 \\
+TB4 $\max w^\top v$& 424 & $+0.3954$ & $+0.269$ & $0.99998$ & 117 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Three findings (Table~\ref{tab:v8}, Figure~\ref{fig:v8}). (i) \emph{The association is
+stable:} across all five rules $r \in [+0.386, +0.396]$ (maximum
+deviation $0.009$; all $p \le 1.4 \times 10^{-16}$) and the partial
+correlation is constant to three decimals ($+0.269$--$+0.270$). (ii)
+\emph{The tie-break genuinely binds:} the stage-2-pinned optimal face
+is multi-vertex, and the alternative rules select different flux
+vectors at all $57$ grid points (max $\|v_k - v_0\|_\infty$ up to
+$5.0$), changing per-gene $\kmu$ for $90$--$117$ of $433$ genes ---
+yet the per-gene ranking is essentially unchanged
+($\rho_S \ge 0.99897$), and the changed values are small on the
+$\kmu$ scale (max absolute change $9.3 \times 10^{-5}$); the TB1
+deviation of $0.009$ traces to two boundary genes entering the
+nonzero support ($n: 424 \to 426$), not to a reshaping of the metric.
+(iii) \emph{The value layer is exactly invariant:} stage-1 biomass
+$\mu$ and stage-2 $\ell_1$ mass agree across variants to $0.0$ ---
+Proposition~\ref{prop:alex} (tie-break-freeness of the value layer)
+measured on the full trajectory. Together with
+Corollary~\ref{conj:valueflux} this closes the robustness ledger: the
+declared selection is a convention, the value layer does not see it,
+and the flux-layer association is a property of the lexicographic
+protocol class, not of one rule.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{deepseek_bridge/v5_e24_recalibration.png}
+\caption{[E-V5] The primary association. (a) Per-gene
+$\log_{10}\kmu$ (flux-layer measure mass, per-gene max over the
+gene's reactions) versus M3D carbon-depletion response
+($\max|\log_2\mathrm{FC}|$, four stationary contrasts, $n = 424$
+nonzero genes); (b) the decisive comparison: the precursor time-course
+$\kk$ (E22, plain-FBA), the engine control $\kk^{\mathrm{lex}}$, and
+the measure-theoretic $\kmu$ on the same trajectory; (c) predictor
+agreement between $\kmu$ and the E22 $\kk$.
+Artifact: \texttt{deepseek\_bridge/v5\_e24\_recalibration.png} /
+\texttt{v5\_e24\_recalibration.json}.}
+\label{fig:v5}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.86\textwidth]{deepseek_bridge/v7_path_robustness.png}
+\caption{[E-V7] Path robustness. Three trajectories through the same
+LP (P0 glucose decline, P1 oxygen limitation, P2 acetate switch) with
+matched M3D responses: the one-chamber property is path-dependent
+(P1: 3 chamber crossings; P2: 4), while the layer decision and the
+flux-layer association survive on every path; the P1/P2 predictors
+correlate with the E24 carbon response at $r = +0.378$/$+0.391$.
+Artifact: \texttt{deepseek\_bridge/v7\_path\_robustness.png} /
+\texttt{v7\_path\_robustness.json}.}
+\label{fig:v7}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{deepseek_bridge/v8_tiebreak_robustness.png}
+\caption{[E-V8] Tie-break robustness. (a) The association across the
+five stage-3 selection rules (declared plus four variants); (b)
+per-gene predictor agreement between the declared rule and each
+variant; (c) the number of grid points at which the tie-break binds
+(of 57). The value layer is invariant to $0.0$ across all variants.
+Artifact: \texttt{deepseek\_bridge/v8\_tiebreak\_robustness.png} /
+\texttt{v8\_tiebreak\_robustness.json}.}
+\label{fig:v8}
+\end{figure}
+
 \subsection{[E-E25] Platform-by-class disambiguation ($2 \times 2$)}
 Is the association a carbon-depletion artifact, or a platform
 artifact? Four cells (two platforms $\times$ two perturbation
@@ -785,7 +968,7 @@ classes), executed with the precursor $\kk$ metric (rank-equivalent
 to $\kmu$ at $\rho = 0.99998$): carbon switch on microarray (M3D
 glycerol/acetate/proline vs glucose) switch-MAX $r = +0.196$; stress
 on microarray (heat shock, acid shock, ciprofloxacin) MAX $r =
-+0.298$; carbon starvation on RNA-seq (GSE64021 time course) MAX $r =
++0.298$; carbohydrate-responsive transcript levels: carbon starvation on RNA-seq (GSE64021 \citep{barrett2013} time course) MAX $r =
 +0.191$; heat shock on RNA-seq MAX $r = +0.345$ ($n = 241$--$433$;
 permutation $p \le 0.003$). Signed responses flip sign (stress arms
 $-0.22$ to $-0.32$): the metric tracks \emph{rerouting magnitude},
@@ -793,8 +976,9 @@ not direction, on both platforms and both classes --- the association
 is neither platform-specific nor carbon-class-specific.
 
 \subsection{[E-E26] Protein abundance versus protein change}
-Two dissociations at the protein layer (PaxDb integrated abundance;
-GSE64021 quantitative proteomics; $n = 169$--$429$): (i) abundance
+Two dissociations at the protein layer (PaxDb integrated abundance
+\citep{wang2015};
+GSE64021 quantitative proteomics \citep{barrett2013}; $n = 169$--$429$): (i) abundance
 \emph{level} associates (PaxDb baseline $r = +0.334$) ---
 high-rerouting genes are abundant proteins; (ii) abundance
 \emph{change} does not (protein log-fold change $r = +0.008$ to
@@ -803,11 +987,11 @@ $n = 799$). The transcriptional association stops at translation,
 consistent with buffering.
 
 \subsection{[E-E27] Protein-layer null}
-Condition-dependent quantitative proteomics ($22$ conditions, triplicates,
+Condition-dependent quantitative proteomics (\citet{schmidt2016}; $22$ conditions, triplicates,
 $n = 366$): protein-level correlation $r = -0.083$ against transcript
 $+0.419$ on the same genes. The transcript-level association does not
 propagate to the protein layer; buffering at translation is the consistent
-model, positioning Kochanowski et al.\ as prior art for the protein-layer
+model, positioning \citet{kochanowski2013} as prior art for the protein-layer
 null.
 
 % =====================================================================
@@ -834,27 +1018,45 @@ layer.
 \paragraph{Limitations.}
 Correlational design; single-organism scope; operational (not
 combinatorial) active sets; lexicographic tie-breaking is an engine
-convention (the value-function carrier is immune, and the flux layer
-declares it --- Remark~\ref{rem:lock}); the one-chamber structure of
-the E24 path is condition-specific (E-V7) while the layer decision
-itself is path-robust; the cross-platform carbon-switch dissociation
-(PRECISE, E-V5) bounds the generality of the association; categorical
-and homotopy-theoretic material of the predecessor manuscript is
-retained only where it carries falsifiable content, with the
-remainder moved to a companion document.
+convention (the value-function carrier is immune, the flux layer
+declares it --- Remark~\ref{rem:lock} --- and the association is
+stable across four alternative selection rules, E-V8); the
+one-chamber structure of the E24 path is condition-specific (E-V7)
+while the layer decision itself is path-robust; the cross-platform
+carbon-switch dissociation (PRECISE, E-V5) bounds the generality of
+the association; the E22 active-reaction census (438/2{,}583 and the
+GPR class counts) is plain-FBA and solver-version-sensitive at the
+$\pm 1$-reaction level, while the gene-level panel (435) is stable
+(numeric audit, Appendix~\ref{sec:counts}).
+
+\paragraph{The companion document.}
+The categorical and homotopy-theoretic material of the predecessor
+manuscript (optic-category composition, the $2$-category
+$\mathbf{StCon}(B)$ of stratified connections, the gluing and
+composition theorems, the filtered-colimit RAF construction, the
+HoTT/$\infty$-categorical extension) is \emph{preserved, not
+discarded}: it is extracted, with its status labels (proved /
+conjecture / machine-verified), into a separate companion paper
+(\emph{A Categorical Companion to the Measure-Theoretic Curvature
+Framework}, compiled from the frozen v21 source), which shares no
+load-bearing content with the present manuscript. The full frozen
+v21 (10{,}830 lines) and its complete Git history remain committed
+as the audit baseline; the split is a publication choice, not a
+deletion.
 
 \paragraph{What this paper is and is not.}
 The mathematics is classical: parametric linear programming (chamber
-complexes, active sets, Danskin duality), Alexandrov's theorem, and
+complexes, active sets, Danskin duality \citep{danskin1967}), Alexandrov's theorem \citep{alexandrov1939}, and
 distributional second derivatives of piecewise-affine maps;
 Theorem~\ref{thm:coupling} is an elementary identity. The contribution
 is the systematic \emph{application} of this machinery to flux-balance
-models --- the two-layer measure structure of the value/flux pair,
+models \citep{varma1994, orth2010, lewis2010} --- the two-layer measure structure of the value/flux pair,
 the exact coupling identity, the signed extension to arbitrary GPR
 structure --- together with the empirical association and its layer
 decision. No new measure-theoretic theorem is claimed; the nearest
-prior art (phenotype phase planes, mpLP value-function theory,
-discrete Monge--Amp\`ere, Regge-type defect measures) is cited where
+prior art (phenotype phase planes \citep{edwards2001, ibarra2002}, mpLP
+value-function theory \citep{borrelli2003},
+discrete Monge--Amp\`ere \citep{gutierrez2001}, Regge-type defect measures \citep{regge1961, cheeger1984}) is cited where
 it applies.
 
 % =====================================================================
@@ -862,27 +1064,224 @@ it applies.
 % [Layer-1 port: lex-pFBA engine spec, M3D/PRECISE provenance,
 %  statistical protocols, reproducibility manifest]
 
-\paragraph{Engine.} Three-stage lexicographic pFBA on HiGHS (lexicographic
-order: biomass, then $\ell_1$ flux, then seeded deterministic weights);
-vertex degeneracy of plain pFBA documented ($0.69$ flux flips between
-warm-started solves) and resolved deterministically.
+\subsection{The lexicographic pFBA engine}\label{sec:engine}
 
-\paragraph{Data.} M3D microarray panels (carbon-depletion contrast;
-WT anaerobic-vs-aerobic contrast; MOPS carbon-source switches);
-PRECISE 2.0 evaluated (no carbon-depletion class, documented); PRECISE
-WT carbon-switch conditions used for the cross-platform arm;
-Schmidt et al.\ 2016 condition-dependent proteome; PaxDb integrated
-abundance. SHA-256 provenance manifests deposited.
+All deterministic trajectories are computed by a purpose-built
+three-stage lexicographic solver on the variable split $x = (v, f,
+r)$ with $v = f - r$, $f, r \ge 0$, stoichiometry $Sv = 0$, and
+flux bounds $\ell(\theta) \le v \le u(\theta)$ entering affinely
+through the uptake bounds. The stages are strict lexicographic
+optimizations, each pinned at the previous stage's optimum:
+\begin{align}
+\text{(1)}\quad & \mu^* = \max\; c_{\mathrm{bio}}^\top v
+  \qquad\qquad\qquad\qquad\quad\; \text{(growth)} \notag\\
+\text{(2)}\quad & s^2 = \min\; \textstyle\sum_r (f_r + r_r)
+  \quad\text{s.t. } v_{\mathrm{bio}} \ge \mu^*(1 - \varepsilon_\mu)
+  \qquad \text{(parsimony)} \notag\\
+\text{(3)}\quad & \min\; w^\top v
+  \quad\text{s.t. } \textstyle\sum_r (f_r + r_r) \le s^2(1 +
+  \varepsilon_s) \qquad \text{(tie-break)} \notag
+\end{align}
+with $\varepsilon_\mu = \varepsilon_s = 10^{-9}$ and $w \sim
+U(0.5, 1.5)$ drawn once with seed 20240901 (the M-series protocol).
+Stage 3 exists because plain pFBA is vertex-degenerate on these
+models: repeated warm-started solves of the same LP flip $0.69$
+reactions on average between vertices of the optimal face. The LPs
+are solved with HiGHS
+\citep{huangfu2018} via \texttt{scipy.optimize.linprog}, cold-started
+and deterministic; a presolve-disabled retry handles the rare
+infeasibility mis-report. The lex optimum exists, is unique by
+construction, and is continuous piecewise affine in $\theta$
+(Lemma~\ref{lem:lex}); the tie-break is part of the metric's
+definition (Remark~\ref{rem:lock}), and its robustness is measured
+in E-V8. The E22 active-reaction census is the one plain-FBA
+computation retained (historical protocol of the precursor metric
+family); it is solver-version-sensitive at the $\pm 1$-reaction
+level, while the gene-level panel is stable.
 
-\paragraph{Reproducibility.} All experiments deposit artifacts
-(npz/csv/json) with scripts; independent-seed reproductions recorded for
-the refinement prototype and the stress batteries. The V6/V7 layer
-decisions and the PRECISE arm re-run in under two minutes each
-(\texttt{e24\_layer\_decision.py}, \texttt{v7\_path\_robustness.py},
-\texttt{precise\_arm\_kappamu.py}).
+\subsection{Models and data provenance}\label{sec:data}
+
+\paragraph{Models.} \emph{E.~coli} iJO1366 (2{,}583 reactions)
+\citep{orth2011} for the E-series association experiments; iML1515
+\citep{monk2017} for the M-series computational batteries (M1, M3,
+M4) and the V1/Theorem-C verification cut. Genome-scale models are
+loaded from the local BiGG JSON copies with SHA-256 manifests.
+
+\paragraph{M3D microarray compendium.} The E24/E25 expression panels
+come from the M3D \emph{E.~coli} compendium v4 Build 6
+\citep{faith2008, faith2007}: 4{,}297 gene probes $\times$ 907
+arrays, log$_2$ uniformly normalized. The carbon-depletion response
+is the maximum $|\log_2\mathrm{FC}|$ over the four stationary
+time points (135/330/480/720 min) against the MOPS glucose
+reference; the oxygen-limitation and acetate-switch responses use
+the M9 WT anaerobic-vs-aerobic and MOPS acetate-vs-glucose
+contrasts. The reference-level confound control is the mean
+log-phase WT MOPS glucose expression. The 117~MB compendium
+tarball is not committed (repository size); it is re-downloadable
+from the recorded URL with the committed SHA-256
+(\texttt{e73088f7\ldots}).
+
+\paragraph{PRECISE.} The cross-platform arm uses the ten WT
+non-glucose carbon conditions of the PRECISE compendium
+\citep{sastry2019} (RNA-seq, TPM). PRECISE has no
+carbon-depletion class; the dissociation is reported as an honest
+negative with per-condition values (E-V5).
+
+\paragraph{Proteomics.} Condition-dependent quantitative proteomics
+from \citet{schmidt2016} (22 conditions, triplicates); integrated
+protein abundance from PaxDb \citep{wang2015}; the GSE64021
+\citep{barrett2013} time course supplies the RNA-seq
+carbon-starvation and the quantitative proteomics arms (E-E25/E-E26).
+
+\subsection{Panel construction and GPR association}
+
+The E22 panel is built by reaction-based sampling: solve the
+lexicographic trajectory on the E22 physiology (glucose $5.0 \to
+1.0$, oxygen $22 \to 5$; eight anchors, $8\times$ per-segment
+refinement for the V-series), take the $438$ reactions active
+($|v| > 10^{-9}$ at any grid point) on the plain-FBA E22 census,
+classify each active reaction's GPR rule (single-gene $254$,
+isozyme-OR $96$, complex-AND $36$, mixed $18$, no-GPR $34$), and
+assign each gene the maximum over its associated reactions. The
+E24 panel is the $433$ genes of this set carrying M3D response
+data; the primary correlation uses the $424$ genes with nonzero
+$\kmu$. The near-colliding gene/reaction counts
+($424/433/435/438/440/525/537$) are disambiguated once in the
+counts ledger of Appendix~\ref{sec:counts}.
+
+\subsection{Statistical protocols}
+
+The predictor is $\log_{10}$ of the per-gene $\kmu$ (its
+distribution is log-linear over five decades); the response is
+$\max|\log_2 \mathrm{FC}|$ of the matched contrast. Reported
+statistics: Pearson $r$ with analytic $p$, Spearman $\rho_S$
+(raw predictor ranks, full panel and nonzero subset as labeled),
+partial $r$ controlling the M3D reference level by linear
+residualization of both variables, permutation $p$ ($10^5$
+label permutations, Monte Carlo), bootstrap 95\% CIs ($10^4$
+resamples), and top-vs-bottom decile contrasts (one-sided
+Mann--Whitney $U$). All tests are two-sided except the decile
+contrast. The PRECISE per-condition arms use the same protocol
+with TPM log-fold changes. Numbers in the manuscript trace to
+committed artifacts via the numeric audit
+(\texttt{scripts/audit\_v2\_numbers.py} $\to$
+\texttt{download/deepseek\_bridge/v2\_number\_audit.json};
+$73$ checks).
+
+\subsection{Reproducibility}
+
+All experiments deposit artifacts (npz/csv/json/png) with
+generating scripts under \texttt{scripts/} and
+\texttt{download/}; independent-seed reproductions are recorded
+for the refinement prototype (BT1) and the stress batteries. The
+V6/V7/V8 layer decisions, the PRECISE arm, and the tie-break
+robustness re-run in minutes each (scripts
+\texttt{e24\_layer\_} \texttt{decision.py},
+\texttt{v7\_path\_} \texttt{robustness.py},
+\texttt{precise\_arm\_} \texttt{kappamu.py},
+\texttt{v8\_tiebreak\_} \texttt{robustness.py}). The full numeric audit
+(\texttt{audit\_v2\_} \texttt{numbers.py}) re-derives every manuscript
+number from the committed artifacts ($73$ checks, $8$ repaired
+defects D-N1--D-N8, one counts ledger) and is re-runnable
+end-to-end.
 
 % =====================================================================
 \appendix
+\section{The counts ledger}\label{sec:counts}
+
+Near-colliding counts of the manuscript, each traced to a single
+committed artifact (numeric audit, 2026-09-02):
+
+\begin{tabularx}{\textwidth}{lX}
+\toprule
+\textbf{Value} & \textbf{Meaning (source)} \\
+\midrule
+$2{,}583$ & iJO1366 reactions (model file; recomputed E22-2R) \\
+$438$ & reactions active on the E22 physiology, $17.0\%$ (v15
+         script printout; plain-FBA, $\pm 1$ solver sensitivity) \\
+$440$ & reactions with $D_2 > 10^{-8}$ along the E24 trajectory
+         (reaction-level event count; V5/V8 json
+         \texttt{n\_events\_rxns}) \\
+$433$ & panel genes with M3D response (E24 csv row count) \\
+$424$ & panel genes with nonzero $\kmu$ --- the $n$ of the primary
+         correlation (v5/v6/v8 json \texttt{n\_nonzero}) \\
+$426$ & nonzero genes on the P1/P2 paths (V7 json) \\
+$435$ & genes with $\ge 1$ active reaction, E22 (e22 csv;
+         recomputed exactly) \\
+$454$ & max active reactions across the nine E23 conditions (v16
+         results json) \\
+$537$ & union of active reactions across conditions, $20.8\%$ (v16
+         results json; the frozen v21's $538$ is a typo) \\
+$525$ & genes with nonzero $\kappa$ across conditions (v16 results
+         json; the frozen v21's $524$ is a typo) \\
+$1{,}516$ & iML1515 genes, M3 single knockouts (m3 json) \\
+$2{,}779$ & double-knockout pairs, five panels (m3 json) \\
+\bottomrule
+\end{tabularx}
+
+\section{Proofs and proof sketches}\label{sec:proofs}
+
+\subsection{Proof of Theorem~\ref{thm:coupling}}
+
+$\Phi = c^\top v^*$ holds pointwise by optimality. Both sides are
+continuous piecewise affine (Lemma~\ref{lem:lex} for $v^*$; LP value
+function theory for $\Phi$), and differentiation of distributions is
+linear: applying $D^2$ to the pointwise identity gives the measure
+identity $D^2\Phi = \sum_r c_r\, D^2 v^*_r$. Restricting to a crease
+facet $F$ gives the per-crease form $\Delta\Phi'(t_k) = c^\top
+\Delta v'(t_k)$ at every crease time $t_k$ of any piecewise-affine
+trajectory, and the contraction bound $|\Delta\Phi'| \le
+\|c\|_\infty \|\Delta v'\|_1$ is H\"older's inequality. (i) An event
+with unique optima on both sides is a transversal optimal-vertex
+switch; its slope jump satisfies $c^\top \Delta v' = \Delta\Phi'
+\neq 0$ unless the value function is affine through it, which
+would force the optimum to persist --- hence
+objective-invisibility ($c^\top \Delta v' = 0$, $\Delta v' \ne 0$)
+occurs exactly inside $\ge 1$-dimensional optimal faces, where the
+tie-break selects among vertices without moving the objective;
+Theorem~\ref{thm:coupling}(ii) is the sparse-objective special
+case. The regularity input (continuity and piecewise affinity of
+$v^*$) is measured, not assumed: segment residuals $\le 8 \times
+10^{-14}$ (E-M1 glucose) and $\Phi$ piecewise affine at $4.2 \times
+10^{-13}$ (E-V1). \qed
+
+\subsection{Proof of Proposition~\ref{prop:semiconvex} (collapse)}
+
+If $f$ is $\lambda$-semiconvex, then $D^2 f + \lambda I \cdot
+\mathrm{Leb} \succeq 0$ as symmetric-matrix measures. For continuous
+piecewise-affine $f$, $D^2 f$ is supported on the codimension-one
+skeleton, hence purely singular with respect to Lebesgue; testing
+the inequality on skeleton sets forces the singular part itself
+PSD, so $D^2 f \succeq 0$. Mollifying, $D^2(f * \rho_\varepsilon)
+= (D^2 f) * \rho_\varepsilon \succeq 0$, and $f * \rho_\varepsilon
+\to f$ uniformly, so $f$ is convex as a uniform limit of convex
+functions. The converse is trivial. The numerical form: the
+smallest violating scale $h_{\max}(\lambda)$ of the OR-plus-cap
+value function satisfies $\lambda\,h_{\max} = 1/(2\lambda)$
+exactly (AX-10), i.e.\ no finite semiconvexity constant exists at
+any scale. The signed-layer statement is elementary distribution
+theory: a continuous PWL function has distributional $D^2$
+supported on its crease skeleton, a finite symmetric Radon measure
+with per-crease sign flags. \qed
+
+\subsection{Proof of Proposition~\ref{prop:maatom}}
+
+At a generic codimension-two vertex of a convex PWL $f$ on
+$\RR^2$, exactly three facets meet with gradients $n_1, n_2, n_3$
+(cyclically ordered). The Monge--Amp\`ere atom is the volume of
+the normal fan $\operatorname{conv}\{n_i\}$ (the gradient image
+sweeps the triangle). Writing $j_i = n_{i+1} - n_i$ for the
+codimension-one jumps, twice the fan area is $|\det(j_1, j_2)|$
+(the shoelace formula on the triangle), giving atom $=
+\tfrac12|\det(j_1, j_2)| = \tfrac12 |j_1||j_2| \sin\angle$; the
+product $|j_1||j_2|$ overestimates by $2/\sin\angle \ge 2$ with
+equality iff $j_1 \perp j_2$. The simplex-fan generalization to
+dimension $p$ is the same shoelace argument on a $p$-simplex fan.
+Machine verification: 400 random max-of-affine vertices,
+determinant $=$ fan area to $8.9 \times 10^{-16}$, the
+$2/\sin\angle$ law to $2.5 \times 10^{-12}$, orthogonal edge case
+exactly $2$. \qed
+
 \section{Layer-1 porting map}\label{sec:portmap}
 
 \begin{tabularx}{\textwidth}{lX}
@@ -896,11 +1295,17 @@ decisions and the PRECISE arm re-run in under two minutes each
 \S\ref{sec:computational} & M1/M3/M4 report bodies \\
 \S\ref{sec:empirical} & v21 E22--E27 sections (E22, E23, E25, E26
       ported; E24 $\to$ E-V5 with the PRECISE arm; E27 $\to$ E-E27;
-      V6/V7 new) \\
+      V6/V7/V8 new) \\
 \S\ref{sec:discussion} & v21 discussion, rewritten as resolution statement \\
-\S\ref{sec:methods} & v21 methods; engine documentation \\
-companion & categorical/HoTT sections of v21 (trimmed subset) \\
+\S\ref{sec:methods} & v21 methods; engine documentation (expanded) \\
+Appendices~\ref{sec:counts}--\ref{sec:proofs} & new (numeric audit
+      ledger; proofs of Theorem~C and Propositions S, M) \\
+companion & categorical/HoTT sections of v21 (preserved in
+      \emph{A Categorical Companion}, separate document) \\
 \bottomrule
 \end{tabularx}
+
+\bibliographystyle{plainnat}
+\bibliography{journal_manuscript_v2_refs}
 
 \end{document}

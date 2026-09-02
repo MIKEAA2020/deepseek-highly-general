@@ -4811,3 +4811,104 @@ Stage Summary:
   scripts/journal_manuscript_v2.{tex,pdf} (12 pages). Open:
   companion document (categorical/HoTT subset); E32; PRECISE-1K
   monitoring; journal-format references/figures pass.
+
+---
+Task ID: 6 (v2-finalization round, "v2 now clean" assessment)
+Agent: main (Super Z)
+Task: Evaluate and verify the external "v2 now clean" assessment
+(4 residual risks, 5 advice items, received 2026-09-02) before
+implementing; then implement all five advice items; commit and push.
+
+Work Log:
+- Verified all five premises against committed artifacts: v2 was a
+  12-page skeleton (0 \cite commands, no bibliography, no figures,
+  3-paragraph Methods); the tie-break robustness table was indeed
+  absent (rem:lock's rho = 0.99998 is a same-tie-break metric
+  comparison, not a selection-rule variation); the 440-vs-424/433
+  risk was real (440 traces to the reaction-level n_events_rxns
+  key; the near-collision class 424/433/435/438/440/525/537
+  demanded a full audit); the v2 Discussion's "companion document"
+  promise was unfulfilled (no companion artifact existed). Two
+  review defects documented (D-S1: "440 is minor" -- the right
+  fix was a counts ledger, not a number edit; D-S2: "lacks
+  supplementary material" -- the actual gaps were bibliography,
+  captions, Methods depth).
+- V8 (scripts/v8_tiebreak_robustness.py): the frozen V5/V6
+  protocol with ONLY the stage-3 tie-break varied across 5 rules
+  (TB0 declared U(0.5,1.5)/seed 20240901; TB1 fresh seed; TB2
+  LogN family; TB3 weighted-|v| rule swap; TB4 adversarial max).
+  TB0 reproduces V5 digit-exactly (r = +0.3954, p = 2.6e-17).
+  Findings: association stable r in [+0.386, +0.396], partial r
+  constant (+0.269..+0.270), rho_S >= 0.99897, tie-break genuinely
+  binds at all 57 grid points (max ||dv||_inf = 5.0, 90-117 of 433
+  genes change, max kappa change 9.3e-5); the VALUE LAYER is
+  exactly invariant (mu and s2 maxdiff 0.0 across all variants) --
+  Prop (alex) measured on the full E24 trajectory. Artifacts:
+  download/deepseek_bridge/v8_tiebreak_robustness.{json,csv,png}.
+- Numeric audit (scripts/audit_v2_numbers.py): every manuscript
+  number traced to its committed artifact, with recomputation from
+  deposited per-gene data where only derived statistics were
+  stored (E22-2R census from 8 fresh plain-FBA solves; V6-7 affine
+  law refit over 57 fresh lex solves; E25/E26/E27 correlations
+  from deposited CSVs). Result: 73 checks, 73 PASS after repairs;
+  8 manuscript defects found and fixed (D-N1 sweeps/knockdowns
+  counts 13/10; D-N2 1.51e-7; D-N3 lambda range; D-N4 TV ratio
+  3.6-4.4; D-N5 MWU p; D-N6 segment residuals 1.2e-10 + eno
+  sub-threshold kink; D-N7 abstract 93.4-100.0%; D-N8 +0.032).
+  Counts ledger (2,583/438/440/433/424/426/435/454/537/525/
+  1,516/2,779) added as Appendix A of v2. Artifact quirks
+  documented, not patched (V5 "(4x)/(8x)" label swap; V6 unstored
+  partial p; E22 census solver sensitivity +/-1 reaction).
+- v2 completed to journal format (12 -> 20 pages, tectonic,
+  0 undefined references): full Methods (5 subsections with the
+  three LP stages as display math, degeneracy documentation,
+  models/data provenance with SHA-256 manifest, statistics,
+  reproducibility); bibliography (journal_manuscript_v2_refs.bib,
+  natbib/plainnat, cited throughout); 5 captioned figures from
+  committed artifacts; formal E-V8 table; new [E-V8] section;
+  appendices (A ledger, B proofs for Theorem C / Prop S / Prop M,
+  C Layer-1 porting map); intro/rem:lock/Discussion updated.
+- Categorical/HoTT companion (scripts/build_companion.py ->
+  scripts/companion_categorical.tex/.pdf, 33 pages, 0 undefined
+  refs): 8 sections extracted VERBATIM from the frozen v21 with
+  recorded line ranges (optic preliminaries, SAVGS 2-categorical
+  gluing, Bregman-Noether, falsification hierarchy, single
+  composition theorem, Lipschitz/contraction, filtered-colimit
+  RAF, HoTT extension); status preserved (theorems stay theorems,
+  conjectures stay conjectures, machine-verified claims keep
+  artifact pointers); Sec. 2 inventory lists every v21 section
+  with its disposition (nothing silently excised); 19 dangling
+  cross-references repaired to textual pointers; 2 missing bib
+  entries added (also fixes the frozen v21's own undefined
+  citations without touching its .tex); main paper Discussion now
+  points to the companion explicitly.
+- E32 deliberately NOT started (advice 4): stays demoted to
+  honest status in the Discussion.
+- Wrote download/TieBreak_and_Completion_Evaluation.md (verdict
+  table for the review's premises; V8 design + findings; audit
+  method + D-N1..N8 + ledger; completion inventory; companion
+  inventory; advice scorecard 5/5 EXECUTED; reproducibility;
+  bug honesty).
+
+Stage Summary:
+- All five advice items EXECUTED: V8 tie-break robustness (stable
+  across 5 rules; value layer exactly invariant -- the cleanest
+  empirical form of the value/flux layer separation); 73-check
+  numeric audit (73 PASS, 8 defects repaired, counts ledger);
+  v2 at 20-page journal format; 33-page categorical/HoTT
+  companion built from the frozen v21 with full inventory; E32
+  deferred.
+- The "440 vs 424/433" risk resolved as a disambiguation problem,
+  not an error: both numbers are correct at their respective
+  levels (440 reactions with D2 > 1e-8; 424 nonzero of 433 panel
+  genes), now disambiguated once in the ledger.
+- Deliverables: scripts/{v8_tiebreak_robustness,audit_v2_numbers,
+  build_companion}.py, scripts/companion_categorical.{tex,pdf},
+  scripts/journal_manuscript_v2.{tex,pdf} +
+  journal_manuscript_v2_refs.bib,
+  download/deepseek_bridge/v8_tiebreak_robustness.{json,csv,png}
+  + v2_number_audit.{json,md},
+  download/TieBreak_and_Completion_Evaluation.md.
+  Open: E32 (deliberately deferred until the main paper is near
+  final); PRECISE-1K monitoring; journal submission pass (venue
+  formatting, cover letter).
