@@ -5254,3 +5254,21 @@ Stage Summary:
   positives documented).
 - Open items are submitter-level only (affiliation/email, real-name
   replacement sites listed, PRECISE-1K post-submission).
+
+---
+Task ID: links-1
+Agent: main (Z.ai)
+Task: Provide links for the full submission package for the two papers (main -> Bulletin of Mathematical Biology; companion -> Theory and Applications of Categories).
+
+Work Log:
+- Verified repo state: clean tree, remote up to date at 1895624 (push confirmed idempotent), repo public (private: false).
+- Enumerated package files from commits 5219ef0/9b3e4aa/1895624 and from LaTeX sources: main = journal_manuscript_v2.pdf + cover_letter_bmb.md + tex + bmb_refs + bib + 6 figures; companion = companion_categorical.pdf + cover_letter_tac.md + tex + 4 figures.
+- Verified all 22 file paths resolve on GitHub main via contents API (scripts/verify_gh_links.py) — ALL 200 OK.
+- Verified journal links: fetched TAC authinfo.html live (submission = PDF to an Editorial Board member except Managing Editor/TeXnical editors, cc tac@mta.ca; TeX+PDF only after acceptance); BMB Springer pages bot-protected via curl, verified via web search + smb.org society page.
+- Defect caught: first search suggested editorialmanager.com/jomb for BMB; jomb is the Journal of Mathematical Biology (different journal). Correct BMB portal confirmed as editorialmanager.com/bmab via SMB society page + 5 independent journal directories.
+- Wrote download/SUBMISSION_PACKAGE_LINKS.md (full link tables for both papers + pre-submission checklist) and delivered the same links in the session reply.
+
+Stage Summary:
+- All submission-package links verified and consolidated in download/SUBMISSION_PACKAGE_LINKS.md.
+- Key links: BMB portal https://www.editorialmanager.com/bmab (NOT jomb); BMB guidelines https://link.springer.com/journal/11538/submission-guidelines; TAC author info http://www.tac.mta.ca/tac/authinfo.html, submissions cc tac@mta.ca.
+- Remaining at submission time: [Submission date] placeholders, author name in place of "X", TAC receiving editor choice, BMB EM registration.
