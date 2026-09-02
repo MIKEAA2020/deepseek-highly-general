@@ -9,8 +9,9 @@
 %  textbook repetitions are replaced by external citations.
 %  Target journal: Bulletin of Mathematical Biology (Springer).
 %  Author-year citations (natbib); reference list in
-%  journal_manuscript_v3_bmb_refs.tex (extended by hand from the
-%  build_bmb_refs.py output with the proof-literature additions).
+%  journal_manuscript_v3_bmb_refs.tex (verbatim from the frozen v2
+%  refs: all proof-literature sources were already among the 27
+%  entries).
 %  Figures resolve from the current
 %  directory and from ../download/ via \graphicspath. The
 %  categorical framework is carried by the standalone theory
@@ -284,7 +285,7 @@ requires the concave class.
 \begin{proposition}[Two-layer structure of $D^2(-\Phi)$]\label{prop:twolayer}
 Let $f$ be convex piecewise affine. (i) The singular part of $D^2 f$ is
 supported on the codimension-one facets, with density
-$[\partial_n f]\,(g^+ - g^-) \otimes n$ per unit facet measure; it has no
+$(g^{+} - g^{-}) \otimes n = [\partial_{n} f]\; n \otimes n$ per unit facet measure; it has no
 atoms: the mass in an $\varepsilon$-neighborhood of a codimension-two
 vertex is $O(\varepsilon)$ (measured log--log slope $1.000$). (ii) The
 Monge--Amp\`ere measure $\det D^2 f$ is atomic at codimension-two
@@ -333,7 +334,8 @@ the evidence (\S\ref{sec:v5}, \S\ref{sec:v6}) actually lives.
 Let $\ell, u$ be continuous piecewise affine and let $v^*(\theta)$ be
 the three-stage lexicographic optimal flux (\S\ref{sec:methods}).
 Then $v^*$ is well defined, continuous, and piecewise affine; its
-graph over each GPR cell is polyhedral in $(v,\theta)$-space (each
+graph over each GPR cell is a finite polyhedral complex in
+$(v,\theta)$-space (each
 lexicographic stage adjoins the graph of a piecewise-affine value
 function, which is polyhedral, and an injective polyhedral projection
 is piecewise affine). Measured: path segment residuals $\le 8 \times 10^{-14}$ (\S\ref{sec:m1}); $\Phi$ piecewise affine at $4.2 \times 10^{-13}$ (\S\ref{sec:v1}).
@@ -551,16 +553,8 @@ $\mu = D^2u \dvol$. Then:
 \end{enumerate}
 \end{theorem}
 
-\begin{proof}[Proof of (ii) (two lines)]
-For $\varphi \in C_c^\infty(\Omega)$,
-$\langle D^2 u_h, \varphi\rangle = \int_\Omega u_h D^2\varphi \dvol$ by the
-definition of distributional derivatives (no boundary terms arise).
-Since $\|u - u_h\|_\infty \le C h^2 |u|_{C^2}$ on shape-regular families,
-$\int u_h D^2\varphi \to \int u D^2\varphi = \langle \mu, \varphi\rangle$.
-The flat-norm statement follows by density of
-$\{c\,\varphi : \Lip(\varphi)\le 1\}$ in the KR dual cone and the uniform
-mass bound of (iii).
-\end{proof}
+All five parts are proved in Appendix~\ref{sec:proofs}, the
+reconstruction part (iv) in Appendix~\ref{sec:techproofs}.
 
 \begin{remark}[Exact counterexample calculus]\label{rem:tvcounter}
 On the right-triangle mesh of $[0,1]^2$ with Hessian
@@ -1289,7 +1283,196 @@ $2{,}779$ & double-knockout pairs, five panels (deposited knockout file) \\
 \bottomrule
 \end{tabularx}
 
-\section{Proofs and proof sketches}\label{sec:proofs}
+\section{Proofs}\label{sec:proofs}
+
+This appendix proves the results of the manuscript in full. Where an
+argument would repeat textbook material, the standard source is cited
+in lieu of reproduction; the two long technical arguments
+(Lemma~\ref{lem:lex} and the reconstruction part (iv) of
+Theorem~\ref{thm:Bprime}) are delegated to
+Appendix~\ref{sec:techproofs} and cited there.
+
+\subsection{Proof of Proposition~\ref{prop:alex}}
+
+Write the primal as $\max\{c^\top v : Sv = 0,\ \ell(\theta) \le v
+\le u(\theta)\}$ with $\ell, u$ affine in $\theta$. Its dual is
+\[
+\min\ \bigl\{u(\theta)^\top w^{+} - \ell(\theta)^\top w^{-}
+\;:\; S^\top y + w^{+} - w^{-} = c,\; w^{\pm} \ge 0\bigr\},
+\]
+with $y$ free. The constraint set $\mathcal{D}$ of the dual does not
+involve $\theta$, so by weak duality every dual-feasible triple
+furnishes an affine upper bound on $\Phi$, and by strong duality
+(feasibility and boundedness are hypotheses) the value equals the
+dual optimum. The dual objective is linear in $(w^{+}, w^{-})$ for
+each fixed $\theta$, so the optimum over the polyhedron
+$\mathcal{D}$ is attained at one of its finitely many vertices.
+Hence $\Phi$ is the pointwise minimum of finitely many affine
+functions of $\theta$ and is therefore concave and piecewise affine
+(the polyhedral value-function structure is classical
+\citep{rockafellar1970, borrelli2003}).
+
+Since $\Phi$ is concave piecewise affine, $-\Phi$ is convex piecewise
+affine, and for every continuous piecewise-affine function the
+distributional second derivative is the finite signed facet measure
+computed in the proof of Proposition~\ref{prop:twolayer} below; each
+facet density of $D^{2}(-\Phi)$ is positive semidefinite because
+$-\Phi$ is convex --- the jump of the gradient across a facet of a
+continuous convex piecewise-affine function is purely normal,
+$[\nabla(-\Phi)]_{F} = \alpha_F\, n_F$ with $\alpha_F \ge 0$ by
+monotonicity of the subdifferential. This is the piecewise-affine
+instance of the Alexandrov Hessian measure of a convex function
+\citep{alexandrov1939}; in particular $D^{2}(-\Phi)$ is a finite
+symmetric positive-semidefinite matrix-valued Radon measure. As a
+measure it is a function of $\Phi$ alone, and $\Phi$ is a function
+of the LP data $(c, S, \ell, u)$ alone: no optimal-flux selection
+rule enters either object. Every measurable selection $v^{*}$ of
+optima reproduces the same $\Phi = c^{\top}v^{*}$, so
+$D^{2}(-\Phi)$ is selection-invariant; the selection acts only on
+the flux layer $D^{2}v^{*}$, whose mass moves by ten orders of
+magnitude between two lexicographic tie-breaks while the value
+layer stays exactly invariant (the controlled follower-variable
+experiment, \S\ref{sec:m1}).
+
+For the GPR structure, recall that under multiplicative activity
+scaling the capacity of a GPR-constrained reaction is built from
+gene activities by $\min$ (AND) and $\max$ (OR) nodes.
+\emph{AND-only rules:} the capacity $\min_{k} a_{k}(\theta)\,u_{j}$
+is the conjunction of the affine inequalities
+$v_{j} \le a_{k}(\theta)\,u_{j}$, one per participating gene, so the
+feasible set remains a polyhedron with $\theta$ entering only
+through affine right-hand sides, and the concavity argument above
+applies verbatim (AND-only subnetworks retain concavity).
+\emph{Exchange-bound families:} the bounds are affine in $\theta$ by
+assumption; the same argument applies. \emph{Single-gene axes:}
+hold all activities at the reference level and vary one gene. AND
+gates fall under the previous case. For an OR gate with further
+genes held at reference activity, the branch
+$\max(a_{g}(t),1)\,u_{j}$ is dominated by the constant reference
+branch for $a_{g}(t) \le 1$ --- the knockdown direction of the
+empirical trajectories --- so the bound is constant; if the varying
+gene is the gate's only member, the bound is affine. Either way the
+axis restriction is a parametric LP with affine or constant bounds,
+hence concave. \emph{Failure under OR:} an OR gate with two genes,
+capacity $\max(\theta_{1}, \theta_{2})$, all else unbounded, gives
+$\Phi(\theta_{1},\theta_{2}) = \max(\theta_{1},\theta_{2})$, which
+is convex and concave only if affine: at $\theta_{A} = (1,0)$ and
+$\theta_{B} = (0,1)$ the midpoint $(\tfrac12,\tfrac12)$ violates
+concavity by exactly $\tfrac12$ (the canonical measured violation;
+the random off-diagonal two-gene probe violates by $0.548$).
+\emph{OR-containing rules:} the value function is the maximum of
+finitely many concave piecewise-affine functions, one per branch
+selection, hence continuous piecewise affine, and it carries the
+signed crease measure of Proposition~\ref{prop:semiconvex}; only the
+Monge--Amp\`ere layer (Propositions~\ref{prop:twolayer}
+and~\ref{prop:dualface}) requires the concave class. \qed
+
+\subsection{Proof of Proposition~\ref{prop:twolayer}}
+
+\emph{(i).} Let $\{\tau\}$ be the finite cell decomposition on which
+$f$ is affine, with cell gradients $g_{\tau} = \nabla f|_{\tau}$. For
+a test function $\varphi \in C_c^\infty(\Omega)$ and indices $i,j$,
+the definition of distributional derivatives and a cellwise Green
+identity give
+\[
+\langle \partial_i\partial_j f, \varphi \rangle
+= \int_\Omega f\, \partial_i\partial_j\varphi \dvol
+= -\sum_{\tau} (g_\tau)_j \int_{\partial\tau} \varphi\,
+(\nu_\tau)_i \,\mathrm{d}\HH^{p-1},
+\]
+where $\nu_\tau$ is the outward normal of $\tau$; the boundary terms
+on $\partial\Omega$ vanish for $\varphi$ compactly supported. On an
+interior facet $F$ shared by cells $\tau^{+}, \tau^{-}$ the two
+outward normals are opposite, so the facet contributes
+$-([g]_F)_j (n_F)_i \int_F \varphi\,\mathrm{d}\HH^{p-1}$ with
+$[g]_F = g_{\tau^{+}} - g_{\tau^{-}}$ and $n_F = \nu_{\tau^{+}}$;
+the jump is constant along $F$ because $f$ is affine on each cell.
+Since $f$ is continuous, the tangential components of the gradient
+agree across $F$ (both equal the tangential derivative of the common
+trace), so $[g]_F$ is purely normal, $[g]_F =
+[\partial_{n}f]_F\,n_F$, and the facet density
+$(g^{+}-g^{-}) \otimes n_F = [\partial_{n}f]_F\, n_F \otimes n_F$ is
+symmetric and constant on $F$. Hence the singular part of $D^{2}f$
+is the finite facet sum $\sum_F [\partial_n f]_F\, n_F \otimes
+n_F\, \HH^{p-1}|_F$. There are no atoms: each facet $F$
+incident on a codimension-two vertex $v$ meets $B_\varepsilon(v)$ in
+$(p-1)$-measure at most $C\varepsilon^{p-1}$ (a ball of $F$'s affine
+hull), and there are finitely many facets, so the total variation
+mass in $B_\varepsilon(v)$ is $O(\varepsilon^{p-1}) = O(\varepsilon)$
+in the plane --- the measured log--log slope $1.000$.
+
+\emph{(ii).} For convex $f$ the Monge--Amp\`ere measure is defined by
+$\nu_f(E) = |\partial f(E)|$, the Lebesgue measure of the image of
+the subdifferential \citep{gutierrez2001}. At an interior cell point
+the subdifferential is the single gradient; at a facet point it is
+the segment $\operatorname{conv}\{g^{+}, g^{-}\}$, of area zero; at
+a codimension-two vertex $v$ the subdifferential is the convex hull
+of the gradients of the affine pieces active at $v$ (the max rule
+for subdifferentials, \citealp{rockafellar1970}), which for three or
+more active pieces in the plane is a two-dimensional polytope ---
+the normal fan of $v$. Hence $\nu_f(\{v\}) =
+|\operatorname{conv}\{n_i\}|$, the volume of the normal fan, and
+these are the only atoms, since facet-level subdifferentials carry
+zero two-dimensional area. The measured constancy of the atom under
+$\varepsilon$-shrinking of the vertex neighborhood is the
+$\varepsilon \to 0$ limit of this identity ($0.5$ for the canonical
+right-triangle fan). \qed
+
+\subsection{Proof of Proposition~\ref{prop:dualface}}
+
+Let $g = -\Phi$, convex piecewise affine
+(Proposition~\ref{prop:alex}). The minimum of a linear objective
+over the dual polyhedron $\mathcal{D}$ is attained at a vertex, so
+$g$ is the maximum of the finitely many affine dual objectives
+$C_i(\theta) = -\bigl(u(\theta)^\top w_i^{+} - \ell(\theta)^\top
+w_i^{-}\bigr)$ indexed by the basic dual solutions
+$(\lambda_i, y_i, w_i^{\pm})$; with the parameters carried into the
+upper bounds as $u(\theta) = u_0 + U\theta$, the gradient of the
+$i$-th piece is $\nabla C_i = -U^{\top} y_i$ (the bound prices $y_i$
+are the sensitivity coefficients of the value function --- Danskin's
+theorem \citep{danskin1967}). The pieces active at $\theta_v$ are
+exactly those of the basic dual solutions optimal at $\theta_v$, and
+the dual optimal face is the face of $\mathcal{D}$ on which the
+$\theta_v$-objective attains the optimum, whose vertices are
+precisely those basic optimal solutions \citep{ziegler1995,
+borrelli2003}.
+
+By the max rule \citep{rockafellar1970},
+$\partial g(\theta_v) = \operatorname{conv}\{\nabla C_i : i \text{
+active}\}$, the normal fan of $g$ at $\theta_v$; and by the
+subdifferential-image formula for the Monge--Amp\`ere measure (proof
+of Proposition~\ref{prop:twolayer}(ii); \citealp{gutierrez2001}),
+\[
+\det D^{2}(-\Phi)(\{\theta_v\}) = \nu_g(\{\theta_v\})
+= |\partial g(\theta_v)| = \bigl|\operatorname{conv}\{\nabla
+C_i\}\bigr|,
+\]
+the area of the normal fan: the first identity of the display. For
+the second, the linear map $y \mapsto U^{\top}y$ sends the dual
+optimal face to the polytope $\operatorname{conv}\{U^{\top}y_i\} =
+-\operatorname{conv}\{\nabla C_i\}$ (linear maps commute with
+convex hulls), so the two polygons are reflections of each other
+through the origin and have equal area:
+\[
+\bigl|\operatorname{conv}\{\nabla C_i\}\bigr|
+= \bigl|\bigl\{U^{\top} y : (\lambda, y) \text{ optimal
+dual}\bigr\}\bigr|.
+\]
+The machine verification enumerates the dual optimal face directly:
+vertex refined to machine precision by the exact triple-tie solve,
+$\Phi(\theta_v)$ matching the LP value to $10^{-15}$, fan area
+$0.235$ against dual-face enumeration area $0.235000068$ over $16$
+direction LPs. \qed
+
+\subsection{Proof of Lemma~\ref{lem:lex}}
+
+The proof is delegated to Appendix~\ref{sec:techproofs}: well-definedness
+of the staged selections by compactness and coordinate pinning;
+polyhedral chamber structure of each stage by multi-parametric LP
+theory \citep{borrelli2003}; polyhedrality of the
+coordinate-fixing step by Fourier--Motzkin elimination
+\citep{ziegler1995}; continuity and piecewise affinity of the
+inverse of the injective polyhedral projection. \qed
 
 \subsection{Proof of Theorem~\ref{thm:coupling}}
 
@@ -1350,7 +1533,376 @@ Machine verification: 400 random max-of-affine vertices,
 determinant $=$ fan area to $8.9 \times 10^{-16}$, the
 $2/\sin\angle$ law to $2.5 \times 10^{-12}$, orthogonal edge case
 exactly $2$. \qed
-\vspace{0.6em}
+
+\subsection{Proof of Theorem~\ref{thm:Bprime}}
+
+\emph{(i).} The interpolant $u_h$ is continuous piecewise affine, so
+the facet computation of the proof of
+Proposition~\ref{prop:twolayer}(i) applies verbatim: $D^{2}u_h$ is
+the finite signed measure $\sum_{F} [\nabla u_h]_F \otimes n_F\,
+\HH^{p-1}|_F$ over the interior facets of $\mathcal{T}_h$, with
+the jump constant on each facet (hence the atom $A_F = [\nabla
+u_h]_F \otimes n_F\,|F|$ of Definition~\ref{def:mu}, and $[\nabla
+u_h]_F = [\partial_{n}u_h]_F\,n_F$ by continuity of $u_h$). No atoms
+sit on lower-dimensional strata: the mass in $B_\varepsilon(v)$
+around a point $v$ of a codimension-two stratum is at most
+$\sum_{F \ni v} |[\partial_n u_h]_F|\,\HH^{p-1}(F \cap
+B_\varepsilon(v)) = O(\varepsilon^{p-1}) \to 0$, each facet being a
+$(p-1)$-polytope whose intersection with the ball is contained in a
+$(p-1)$-ball of radius $\varepsilon$.
+
+\emph{(ii).} For $\varphi \in C_c^\infty(\Omega)$,
+$\langle D^{2}u_h, \varphi\rangle = \int_\Omega u_h\, D^{2}\varphi
+\dvol$ by the definition of distributional derivatives; no boundary
+terms arise because $\varphi$ is compactly supported. The
+interpolation bound $\|u - u_h\|_\infty \le \tfrac12 h^{2}
+|u|_{C^{2}}$ holds on shape-regular families by a barycentric
+argument: for $x \in \tau$ with vertices $z_i$ and barycentric
+coordinates $\lambda_i(x)$, $u_h(x) - u(x) = \sum_i
+\lambda_i(x)\bigl(u(z_i) - u(x)\bigr)$, and Taylor's formula at $x$
+gives $u(z_i) - u(x) = \nabla u(x)^{\top}(z_i - x) + R_i$ with
+$|R_i| \le \tfrac12 |u|_{C^{2}} |z_i - x|^{2}$; the linear terms sum
+to $\nabla u(x)^{\top}\bigl(\sum_i \lambda_i(x) z_i - x\bigr) = 0$
+(the barycenter identity), leaving $\|u_h - u\|_\infty \le
+\tfrac12 h^{2}|u|_{C^{2}}$. Hence $\int (u_h - u)\,D^{2}\varphi \to
+0$ and $\langle D^{2}u_h,\varphi\rangle \to \int u\,D^{2}\varphi =
+\langle \mu, \varphi\rangle$. For the flat-norm statement, the
+Kantorovich--Rubinstein norm is the dual norm over the class
+$\{\phi : \Lip(\phi) \le 1,\ \|\phi\|_\infty \le 1\}$
+\citep{villani2009}; on the compact $\Omega$ this class is uniformly
+equicontinuous and uniformly bounded, hence totally bounded in the
+uniform norm (Arzel\`a--Ascoli). Weak convergence holds against each
+element of a uniform $\varepsilon$-net of the class by the first
+part of this item, and the uniform mass bound of part (iii)
+controls the remainder of the class, so the supremum over the whole
+class converges: $\|\mu_h - \mu\|_{\KR} \to 0$, componentwise and
+hence entrywise. No convergence of total variation is used or
+needed, consistent with part (iii).
+
+\emph{(iii).} For the upper bound, the gradient of the linear
+interpolant satisfies, on each simplex $\tau$ and for every
+$x \in \tau$,
+\[
+\nabla u_h|_{\tau} - \nabla u(x) = \sum_i R_i(x)\, \nabla\lambda_i,
+\qquad |R_i(x)| \le \tfrac12 h^{2} |u|_{C^{2}(\tau)},
+\]
+a decomposition obtained from the same barycentric representation,
+using $\sum_i \nabla\lambda_i = 0$ and $\sum_i (z_i -
+x)\nabla\lambda_i^{\top} = I$; shape regularity gives
+$|\nabla\lambda_i| \le C/h$, so $\|\nabla u_h - \nabla
+u\|_{L^\infty(\tau)} \le C h |u|_{C^{2}}$. At an interior facet $F$
+with midpoint $m$, $|[\nabla u_h]_F| \le 2Ch|u|_{C^{2}}$, and $|F|
+\le Ch^{p-1}$; quasi-uniformity bounds the number of facets by
+$C|\Omega| h^{-p}$. Summing the entrywise norms of the atoms,
+$\|\mu_h\|_{\TV} \le C\,|u|_{C^{2}}|\Omega|$, uniformly in $h$. For
+the liminf, the total variation of a matrix-valued measure is the
+sum of the total variations of its entries, each lower semicontinuous
+under weak convergence \citep{billingsley1999}, so
+$\liminf_h \|\mu_h\|_{\TV} \ge \|\mu\|_{\TV}$. That convergence of
+the total variation itself fails in general is the content of
+Remark~\ref{rem:tvcounter} (exact ratios $3 - 1/n$ and $1.4 - 1/n$;
+generic smooth maps $3.6$--$4.4$, including convex data). In the
+one-signed regime along a one-dimensional family the telescoping
+identity restores it: for convex $u \in C^{2}$ on $[a,b]$ with mesh
+$a = t_0 < \dots < t_N = b$, the interpolant $u_h$ is convex, its
+slope process $u_h'$ is nondecreasing piecewise constant, and
+\[
+\|\mu_h\|_{\TV} = \mu_h([a,b]) = \sum_{k} \Delta u_h'(t_k)
+= u_h'(b) - u_h'(a) \to u'(b) - u'(a) = \mu([a,b]) = \|\mu\|_{\TV},
+\]
+the endpoint slopes being one-sided secant slopes of $u$; the
+concave case is identical up to sign. The parametric-LP value
+function is concave, so its one-dimensional restrictions sit in this
+regime, as does $\kmu$ along a $C^{1}$ trajectory.
+
+\emph{(iv).} The reconstruction statement is proved in
+Appendix~\ref{sec:techproofs} (quadratic exactness of the per-cell
+facet sum on structured complexes, a third-order Taylor remainder
+bound, and the $L^{1}$ summation over cells).
+
+\emph{(v).} At fixed $h$, $\mu_h$ is a fixed finite facet sum; for
+the mollified family and a test $\psi$,
+$\int \psi \,\mathrm{d}(\mu_h * \varphi_\sigma) = \int (\psi *
+\tilde\varphi_\sigma)\,\mathrm{d}\mu_h \to \int \psi\,\mathrm{d}\mu_h$
+as $\sigma \to 0$, because $\psi * \tilde\varphi_\sigma \to \psi$
+uniformly and $\mu_h$ is a finite measure: the limit is the atomic
+measure. For the window, fix $\sigma$ and let $h \to 0$ first:
+\[
+\mu_{h,\sigma}(x) = \bigl\langle \mu_h,\,
+\varphi_\sigma(x - \cdot)\bigr\rangle \to \bigl\langle \mu,\,
+\varphi_\sigma(x - \cdot)\bigr\rangle = (\mu * \varphi_\sigma)(x),
+\]
+uniformly in $x$ over compact sets, by the weak convergence of part
+(ii) applied to the family of translates $\{\varphi_\sigma(x -
+\cdot)\}$, which is uniformly bounded and equicontinuous in
+$C^{2}$, together with the uniform mass bound of part (iii). The
+second limit is classical mollification of the smooth density:
+$\|\mu * \varphi_\sigma - D^{2}u\|_{L^{1}} \le C\sigma
+|u|_{C^{3}}$. Combining the two: at matched resolution, with
+$h/\sigma$ small enough that the first error is dominated and
+$\sigma/L_{\mathrm{var}}$ small enough that the second is, the
+coarse-grained family $\mu_{h,\sigma}$ tracks the smooth curvature
+density, while for $\sigma \ll h$ it resolves the individual atoms
+and for $\sigma \gtrsim L_{\mathrm{var}}$ it averages out the very
+variation it is supposed to measure: the smooth object exists only
+inside the window $h \ll \sigma \ll L_{\mathrm{var}}$, as measured in
+\S\ref{sec:m4}. \qed
+
+\subsection{Proof of Proposition~\ref{prop:seclaw}}
+
+The proof combines three facts. \emph{(a) Exact polyhedral identity.}
+For a polyhedral surface, the angle defect at a vertex equals the
+area of the spherical image of its normal fan: transporting the
+incident facet normals to the unit sphere, the spherical polygon
+they span has area $2\pi$ minus the sum of the exterior angles at
+the vertex, which is the defect \citep{regge1961, cheeger1984}; the
+identity is machine-verified to $0.0$ on the canonical fan (defect,
+spherical excess, and fan integral all equal). \emph{(b) Smooth
+graph identity.} For the graph $S_u = \{(x, u(x))\}$, the Gauss map
+$n(x) = (-\nabla u(x), 1)/\sqrt{1 + |\nabla u|^{2}}$ has spherical
+Jacobian per unit \emph{projected} (parameter) area
+\[
+\bigl|\operatorname{Jac} n\bigr| \;=\; K\,
+\frac{\mathrm{d}A}{\dvol} \;=\;
+\frac{\det D^{2}u}{\bigl(1 + |\nabla u|^{2}\bigr)^{3/2}},
+\]
+because the Jacobian with respect to \emph{surface} area is the
+Gaussian curvature $K = \det D^{2}u/(1 + |\nabla u|^{2})^{2}$ (the
+determinant of the shape operator, the classical Gauss-map identity)
+and the surface element is $\mathrm{d}A = \sqrt{1+|\nabla
+u|^{2}}\dvol$. \emph{(c) Convergence.} The vertex defect measure of
+the interpolant's graph assigns to each parameter-domain vertex the
+spherical area of its normal fan; by (a) this is the polyhedral
+Gauss-map image, and the curvature measures of piecewise-flat
+approximations converge weakly to the smooth curvature measures
+\citep{cheeger1984}. On the graph of $u_h$ over the triangulated
+parameter domain, the facet normals track the smooth Gauss map at
+scale $h$ (the gradient interpolation bound
+$\|\nabla u_h - \nabla u\|_\infty \le Ch|u|_{C^{2}}$ of the proof of
+Theorem~\ref{thm:Bprime}(iii)), so the union of the vertex normal
+fans over a parameter region $R$ covers the spherical image
+$n(R)$ up to a vanishing boundary discrepancy. Combining (a)--(c),
+against a test $\psi$ on the parameter domain,
+\[
+\int \psi \,\mathrm{d}K_h \;\to\; \int \psi(x)\,
+\frac{\det D^{2}u(x)}{\bigl(1+|\nabla u(x)|^{2}\bigr)^{3/2}}
+\dvol,
+\]
+the Gauss-map area density per projected parameter area. The
+\emph{intrinsic} Gaussian curvature is the same integrand divided
+by $\sqrt{1+|\nabla u|^{2}}$; the discrepancy factor is exactly
+$\sqrt{1+|\nabla u|^{2}} = \sec(\mathrm{tilt})$, the tilt being the
+angle between the graph normal and the vertical: the sec law.
+Recovering intrinsic curvature therefore requires multiplying by the
+graph area correction, as stated. The $0.0\%$ excess across the
+$13$ probes spanning tilts $0.11$--$2.83$ and three tilt directions
+is the numerical form of the exact factor. \qed
+
+\subsection{Proof of Proposition~\ref{prop:dichotomy}}
+
+\emph{Smooth case.} For a $C^{2}$ map the curvature mass is the
+total variation of $D^{2}u$, whose density is the bounded matrix
+field $D^{2}u$: the mass captured by a planar loop of radius
+$\varepsilon$ is at most $\|D^{2}u\|_{L^{\infty}}$ times the loop's
+area $\pi\varepsilon^{2}$ --- $B(\varepsilon) = O(\varepsilon^{2})$,
+the measured slope $2.000$ on the smooth arm of the regime-dial
+design.
+
+\emph{Piecewise-affine case.} For a piecewise-affine map the mass
+measure $D^{2}v$ is the facet-layer measure of the proof of
+Proposition~\ref{prop:twolayer}(i): finitely many facets, each
+carrying a bounded density against $(p-1)$-dimensional facet
+measure. A loop of radius $\varepsilon$ meets any given facet line
+in a chord of length at most $2\varepsilon$, so the captured mass is
+at most density times $2\varepsilon$ per facet crossed:
+$B(\varepsilon) = O(\varepsilon)$. When the kink complex meets the
+loop \emph{transversally}, the crossing is genuine, the chord is of
+exact order $\varepsilon$, and the captured mass is
+$\Theta(\varepsilon)$: the log--log slope $1.00$ of the
+parametric-FBA arm ($76$-pair perturbation scan). In general
+parameter dimension $p$ the same facet-measure computation gives
+$B(\varepsilon) = O(\varepsilon^{p-1})$; the dichotomy as stated is
+the planar case, which is where it is measured. \qed
+
+\section{Technical proofs}\label{sec:techproofs}
+
+The two long arguments deferred from Appendix~\ref{sec:proofs}.
+
+\subsection{Proof of Lemma~\ref{lem:lex}}
+
+\emph{Well-definedness.} For each $\theta$ the feasible set
+$P(\theta) = \{v : Sv = 0,\ \ell(\theta) \le v \le u(\theta)\}$ is a
+nonempty compact polytope (hypothesis). Stage 1 maximizes a linear
+objective over $P(\theta)$; its argmax $P_1(\theta)$ is a nonempty
+compact face. Stage 2 maximizes the secondary objective over
+$P_1(\theta)$, and so on; the final stage minimizes the coordinates
+$v_1, \dots, v_n$ one at a time, in a fixed order, over the current
+face. After the coordinate $v_j$ has been fixed to its conditional
+minimum, the remaining set is the face intersected with the
+hyperplane $v_j = m_j$; after all $n$ coordinates every component is
+pinned to a specific value, so the final set is a single point
+$v^{*}(\theta)$. Existence at every stage follows from compactness,
+uniqueness from the coordinate pinning, and the lexicographic
+optimum is therefore well defined.
+
+\emph{Piecewise affinity and continuity.} Consider the graph
+\[
+G = \bigl\{(v, \theta) : Sv = 0,\ \ell(\theta) \le v \le u(\theta)
+\bigr\} \subset \RR^{n} \times \RR^{p},
+\]
+a polyhedron, since $\ell$ and $u$ are affine. The optimal-set
+graphs are tracked through the stages by induction on the stage
+index $k$, with the following claim.
+
+\emph{Claim.} For each objective stage $k$ there is a finite
+partition of the parameter box into closed polyhedral chambers
+$\{K_{k,\alpha}\}$ such that the stage-$k$ value $\Phi_k$ is affine
+on each chamber and the stage-$k$ graph $G_k = \{(v,\theta) \in
+G_{k-1} : c_k^{\top}v = \Phi_k(\theta)\}$ intersects
+$\RR^{n} \times K_{k,\alpha}$ in a polyhedron.
+
+For $k = 1$ this is the structure theorem of multi-parametric
+linear programming: for an LP whose parameters enter affine
+right-hand sides, the parameter space admits a finite closed
+polyhedral chamber cover on which the value is affine and the
+optimal face varies polyhedrally \citep{borrelli2003}. Explicitly,
+over a chamber $K$ with $\Phi_1 = \ell_K$ affine,
+\[
+G_1 \cap \bigl(\RR^{n} \times K\bigr)
+= \bigl\{(v,\theta) : (v,\theta) \in G,\ \theta \in K,\
+c_1^{\top}v = \ell_K(\theta)\bigr\},
+\]
+an intersection of polyhedra; the affine constraint
+$c_1^{\top}v - \ell_K(\theta) = 0$ is legitimate because
+$\Phi_1 = \ell_K$ on $K$, so for $\theta \in K$ membership in the
+stage-1 face is exactly this equation. For the induction step,
+write each polyhedron $Q = G_k \cap (\RR^{n} \times K_{k})$ in the
+form $\{(v, \theta) : A v \le b + B\theta\}$ (every affine
+constraint in $(v, \theta)$ can be so rearranged, with the chamber
+constraint on $\theta$ absorbed into the right-hand side). The
+stage-$(k{+}1)$ value $\Phi_{k+1}(\theta) = \max\{c_{k+1}^{\top}v :
+Av \le b + B\theta\}$ is again a multi-parametric LP value function,
+so it subdivides $K_{k}$ into finitely many closed sub-chambers on
+which it is affine and the stage-$(k{+}1)$ graph is polyhedral,
+exactly as at $k = 1$ \citep{borrelli2003}. This proves the claim
+for the objective stages: each value $\Phi_k$ is continuous
+piecewise affine, and each graph $G_k$ is a finite union of
+polyhedra, polyhedral over each chamber of a common refinement.
+
+The coordinate-fixing stage keeps polyhedrality by Fourier--Motzkin
+elimination \citep{ziegler1995}. Let $Q = G_k \cap (\RR^{n} \times
+K)$ be one chamber piece of the stage-$k$ graph and let $j$ be the
+next coordinate to fix. Consider
+\[
+A_j = \bigl\{\bigl((v,\theta), (v',\theta')\bigr) \in Q \times Q :
+\theta = \theta',\ v_j \le v'_j\bigr\},
+\]
+a polyhedron in $\RR^{n+p} \times \RR^{n+p}$. Its projection onto
+the first factor is
+\[
+\bigl\{(v, \theta) \in Q : v_j \le v'_j \text{ for every }
+(v', \theta') \in Q \text{ with } \theta' = \theta\bigr\},
+\]
+which is precisely the stage graph after fixing
+$v_j = m_j(\theta) = \min\{v'_j : (v',\theta) \in Q\}$; projections
+of polyhedra are polyhedra (Fourier--Motzkin elimination), so the
+fixed-coordinate graph is polyhedral over the chamber, with compact
+slices preserved. Iterating over the $n$ coordinates, the final
+graph $G^{*}$ is, over each final chamber $K_{\alpha}$, a polyhedron
+that projects injectively onto $K_{\alpha}$, the $v$-slice being the
+single point $v^{*}(\theta)$.
+
+Over each final chamber, $v^{*}$ is the inverse of an injective
+polyhedral projection. Its continuity is the closed-graph lemma: the
+graph piece is closed, the slices are singletons, and a function
+with closed graph and locally bounded values is continuous. Its
+piecewise affinity is polyhedral geometry: the face lattice of the
+graph polyhedron projects to a finite polyhedral decomposition of
+$K_{\alpha}$, and on the relative interior of each projected face
+the inverse map is affine, an injective affine map between polytopes
+having an affine inverse on its image \citep{ziegler1995}. Chambers
+overlap on shared faces, and the selections computed on different
+chambers agree there because $v^{*}(\theta)$ is unique; gluing the
+affine pieces along the common closed faces gives a globally
+defined continuous piecewise-affine $v^{*}$. The graph over each GPR
+cell is a finite union of the chamber pieces (the chambers subdivide
+the cells, since the LP data is affine over a cell), that is, a
+finite polyhedral complex, as stated. The measured regularity inputs
+--- path segment residuals $\le 8 \times 10^{-14}$
+(\S\ref{sec:m1}) and $\Phi$ piecewise affine at $4.2 \times
+10^{-13}$ (\S\ref{sec:v1}) --- are the numerical form of the exact
+polyhedral identities above. \qed
+
+\subsection{Proof of Theorem~\ref{thm:Bprime}(iv)}
+
+\emph{Structured complexes.} Fix a translation-invariant complex
+with period $h$: each cell $C$ carries a fixed simplex pattern, and
+the assignment $F \to C$ of skeleton facets to cells is
+translation-equivariant. Write $S_C(u) = \sum_{F \to C} A_F$ for the
+per-cell signed facet sum and $\rho_h(C) = |C|^{-1}S_C(u)$ for the
+reconstructed density. Two properties drive the argument.
+
+\emph{(a) Quadratic exactness.} The map $u \mapsto S_C(u)$ is
+linear, since interpolation is linear in the data; and $S_C$ kills
+affine functions, since the interpolant of an affine function is
+exact and no jumps arise. For the quadratic $q_H(x) = \tfrac12
+x^{\top}Hx$, scaling homogeneity of the construction (atoms have the
+form $[\nabla q]\,|F| \sim h \cdot h^{p-1}$) gives $S_C(q_H) = c(P)\,
+h^{p} H$ with a dimensionless constant $c(P)$ depending only on the
+cell pattern. For the structured right-triangle lattice,
+$c(P)\,h^{p} = |C|$: the per-cell atoms
+$A_{\mathrm{diag}}, A_{\mathrm{vert}}, A_{\mathrm{horiz}}$ of
+Remark~\ref{rem:tvcounter} sum \emph{exactly} to $h^{2}H$ for the
+interpolant of $u = \tfrac12 x^{\top}Hx$ (machine-verified to
+$0.0$). Hence $S_C(q) = |C|\,D^{2}q$ exactly for every quadratic
+$q$: for quadratic data the reconstruction is exact,
+$\rho_h(C) = D^{2}q$.
+
+\emph{(b) Third-order remainder.} Let $u \in C^{3}$ and $q$ its
+second-order Taylor polynomial at the cell center $x_C$. On $C$,
+$|u - q| \le Ch^{3}|u|_{C^{3}}$ and $|u - q|_{C^{2}} \le
+Ch|u|_{C^{3}}$. On each simplex of the pattern, the barycentric
+gradient bound of the proof of Theorem~\ref{thm:Bprime}(iii) gives
+$\|\nabla (u - q)_h\|_{L^\infty} \le \|\nabla(u-q)\|_{L^\infty} +
+Ch\,|u - q|_{C^{2}} \le Ch^{2}|u|_{C^{3}}$, so each facet atom of
+the remainder is bounded by $Ch^{2} \cdot h^{p-1} = Ch^{p+1}$, and
+each cell carries a fixed number of facets: $|S_C(u - q)| \le
+Ch^{p+1}|u|_{C^{3}}$.
+
+\emph{(c) $L^{1}$ summation.} By (a) and (b),
+\[
+\rho_h(C) = |C|^{-1}\bigl(S_C(q) + S_C(u-q)\bigr) = D^{2}u(x_C) +
+O(h|u|_{C^{3}}),
+\]
+using $D^{2}q = D^{2}u(x_C)$ and $|C| \sim h^{p}$. Summing over
+cells,
+\[
+\begin{split}
+\|\rho_h - D^{2}u\|_{L^{1}}
+&= \sum_{C} \int_{C} \bigl|\rho_h(C) - D^{2}u(x)\bigr| \dvol\\
+&\le \sum_{C} |C| \Bigl(Ch|u|_{C^{3}} + \sup_{x \in C}
+\bigl|D^{2}u(x) - D^{2}u(x_C)\bigr|\Bigr)
+\le 2Ch|\Omega|\,|u|_{C^{3}},
+\end{split}
+\]
+the second term using $\sup_{x \in C}|D^{2}u(x) - D^{2}u(x_C)| \le
+h\,|u|_{C^{3}}$. This is strong $L^{1}$ convergence at rate $O(h)$
+for $u \in C^{3}$, and consequently
+$\bigl|\|\rho_h\|_{L^{1}} - \|D^{2}u\|_{L^{1}}\bigr| \le
+\|\rho_h - D^{2}u\|_{L^{1}} \to 0$ with $\|D^{2}u\|_{L^{1}} =
+\|\mu\|_{\TV}$: the no-mass-loss statement in its correct,
+cell-averaged form.
+
+\emph{Unstructured complexes.} The naive three-facet patch of an
+arbitrary cell is not the discrete-duality cell: the correct pairing
+weights each skeleton facet by its covolume (dual cell) in the
+normal direction, which is the framework in which the
+translation-covariance argument above is replaced by the
+discrete-duality (dual-diamond) identities
+\citep{cheeger1984}. The theorem therefore asserts the structured
+case, proved above, and records the pairing required for the general
+statement. \qed
+
 \section*{Data, Software, and Code Availability}
 All figures, tables, and numerical claims in this manuscript are
 produced by committed scripts from deposited artifacts; the complete
@@ -1397,6 +1949,6 @@ design, developed the methodology and analysis code, performed the
 data analysis, and drafted and revised the manuscript, and approved
 the submitted version.
 
-\input{journal_manuscript_v2_bmb_refs}
+\input{journal_manuscript_v3_bmb_refs}
 
 \end{document}

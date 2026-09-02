@@ -1,0 +1,872 @@
+{
+ "experiment": "v3 numeric consistency audit (proof-complete revision of risk 2 / advice 5; extended: E32 + restored E22 + journal-submission pass)",
+ "n_checks": 98,
+ "n_pass": 98,
+ "n_fail": 0,
+ "manuscript_defects_found": [
+  "D-N1: 'twelve sweeps / eight knockdowns' -> 13 sweeps / 10 knockdowns (m1_summary.json; M1 report body)",
+  "D-N2: '|cT dv| <= 1.5e-7' -> 1.51e-7 (ax8c events)",
+  "D-N3: 'lambda*h_max = 0.500 across lambda 1..1e12' -> numerically 1..1e6, analytic law at all scales (ax10)",
+  "D-N4: generic TV ratio '3.7-4.4' -> 3.6-4.4 (BT6)",
+  "D-N5: 'MWU p <= 1e-4' -> p <= 2e-3, 7 of 11 crossing sweeps at <= 1e-4 (rpe 1.7e-3, tktA 1.6e-3, zwf 9.1e-4)",
+  "D-N6: 'segment residuals <= 8e-14' -> <= 1.2e-10 (glucose 8e-14) with one documented eno sub-threshold kink at 4.1e-3",
+  "D-N7: abstract '100.0000%' -> 93.4-100.0% per crossing sweep (kd_eno 0.9345)",
+  "D-N8: 'r = +0.03' (P2 shadow arm) -> +0.032 for artifact digit match",
+  "D-JS1 (journal round): C1 'effective constant 1.9-2.1' -> 1.6-2.1 dipping at m=128 (e32 json; recomputed)",
+  "D-JS2 (journal round): 'exactly the finite-population correction' -> 'consistent with', measured ratio 0.49 vs pure FPC 0.29 at k=12 (e32 json)",
+  "D-JS3 (journal round): 'mid-range deviations up to 8%' -> as large as 8.2% (m=128) (e32 json)"
+ ],
+ "counts_ledger": [
+  {
+   "value": "2,583",
+   "meaning": "iJO1366 reactions (model size)",
+   "source": "data/bigg_models/iJO1366.json; recomputed in E22-2R"
+  },
+  {
+   "value": "438",
+   "meaning": "reactions active on the E22 physiology (17.0%)",
+   "source": "recomputed E22-2R; v16 results json baseline"
+  },
+  {
+   "value": "440",
+   "meaning": "reactions with D2 > 1e-8 along the E24 trajectory (reaction-level count; V5/V8 json n_events_rxns)",
+   "source": "v5_e24_recalibration.json:trajectory.refine_8.n_events_rxns; v8 json per-arm"
+  },
+  {
+   "value": "433",
+   "meaning": "panel genes with M3D response (E24 panel)",
+   "source": "novelty_v17_option_a_e24.csv row count"
+  },
+  {
+   "value": "424",
+   "meaning": "panel genes with NONZERO kappa_mu (the n of the primary correlation)",
+   "source": "v5/v6/v8 json n_nonzero"
+  },
+  {
+   "value": "426",
+   "meaning": "nonzero genes on P1/P2 paths (V7)",
+   "source": "v7_path_robustness.json:arms n"
+  },
+  {
+   "value": "435",
+   "meaning": "genes with >= 1 active reaction (E22)",
+   "source": "e22 csv (kappa_V_max > 0) = 435 (recomputed E22-1)"
+  },
+  {
+   "value": "454",
+   "meaning": "max active reactions across the 9 E23 conditions",
+   "source": "v16 results json coverage.active_rxns_per_condition"
+  },
+  {
+   "value": "537",
+   "meaning": "union of active reactions across conditions (20.8%)",
+   "source": "v16 results json coverage.union_active_rxns (v21 typo 538)"
+  },
+  {
+   "value": "525",
+   "meaning": "genes with nonzero kappa across conditions",
+   "source": "v16 results json coverage.union_genes_nonzero_kv (v21 typo 524)"
+  },
+  {
+   "value": "1,516",
+   "meaning": "iML1515 genes (M3 single knockouts)",
+   "source": "m3_summary.json:n_genes"
+  },
+  {
+   "value": "2,779",
+   "meaning": "double-knockout pairs (five panels)",
+   "source": "m3_summary.json:pairs.n_pairs"
+  }
+ ],
+ "checks": [
+  {
+   "id": "ABS-1",
+   "claim": "r = +0.395 (n=424)",
+   "artifact": "v5_e24_recalibration.json:arms.kappa_mu[nonzero]",
+   "value": "r=0.3954, n=424",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "ABS-2",
+   "claim": "p = 2.6e-17",
+   "artifact": "v5_e24_recalibration.json:arms.kappa_mu[nonzero].pearson_p",
+   "value": "2.58e-17",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "ABS-3",
+   "claim": "partial r = +0.269",
+   "artifact": "v5_e24_recalibration.json:arms.confound_control.partial",
+   "value": "0.2692",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "ABS-4",
+   "claim": "metric-invariance rho = 0.99998",
+   "artifact": "v6_layer_decision.json:predictor_agreement.spearman_kappamu_vs_kappaVlex",
+   "value": 0.9999881693960117,
+   "status": "PASS",
+   "note": "E-V5 'Spearman rho_S=+0.414' is the FULL-PANEL Spearman (spearman_raw_full_panel = 0.4138), distinct from the nonzero-panel Spearman 0.4296; both in the V5 artifact"
+  },
+  {
+   "id": "ABS-5",
+   "claim": "Spearman rho_S = +0.414 (E-V5 text)",
+   "artifact": "v5_e24_recalibration.json:...spearman_raw_full_panel",
+   "value": "0.4138",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "ABS-6",
+   "claim": "abstract: mass concentrates (93.4-100.0% per boundary-crossing sweep)",
+   "artifact": "m1_summary.json:sweeps (11 crossing sweeps)",
+   "value": "mass range [0.9345, 1.000000]",
+   "status": "PASS",
+   "note": "MANUSCRIPT DEFECT D-N7: abstract said '100.0000%'; 10 of 11 crossing sweeps are exactly 1.000000, kd_eno is 0.9345. FIXED in v2 to 93.4-100.0%."
+  },
+  {
+   "id": "ABS-7",
+   "claim": "loop holonomy slope 1.00 (76-pair scan)",
+   "artifact": "m4a_summary.json:median_slope_chi",
+   "value": "median=0.9982, mean=1.0086, n_pairs=76",
+   "status": "PASS",
+   "note": "0.9982 rounds to 1.00 at two decimals; slope~1 class = 9 of 12 informative pairs"
+  },
+  {
+   "id": "ABS-8",
+   "claim": "epistasis Spearman rho_S = 0.865 (J_dR)",
+   "artifact": "m3_summary.json:pairs.spearman_|eps|_J_dR.rho",
+   "value": "0.8649",
+   "status": "PASS",
+   "note": "0.865 is the |eps|-vs-J_dR (dual-reaction footprint) Spearman; J_support gives 0.800 (next check)"
+  },
+  {
+   "id": "ABS-9",
+   "claim": "J_support = 0.800",
+   "artifact": "m3_summary.json:pairs.spearman_|eps|_J_support.rho",
+   "value": "0.8003",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "ABS-10",
+   "claim": "66% non-reverting genotype loops",
+   "artifact": "m3_summary.json (path-dependence block); M3 report body",
+   "value": "traced to m3_epistasis_path_dependence.py printout / m1_m3 report PDF",
+   "status": "PASS",
+   "note": "66% and median holonomy ~110 are M3 script printouts stored in the committed M3 report (m1_m3/_m1_m3_body.pdf); the frozen json stores the pair-level blocks only"
+  },
+  {
+   "id": "M1-1",
+   "claim": "v2 says 'Twelve parameter sweeps (glucose, oxygen, eight gene knockdowns) + iJO replication'",
+   "artifact": "m1_summary.json:sweeps (key count)",
+   "value": "13 sweeps = 2 nutrient + 10 knockdowns + 1 iJO",
+   "status": "PASS",
+   "note": "MANUSCRIPT DEFECT D-N1: artifact and the M1 report body both give 2 nutrient + 10 knockdowns (pgi, zwf, tktA, pfkA, eno, gltA, aceA, ppc, gnd, rpe) + 1 iJO replication = 13; the M1 report's summary table '8 genes' is its own internal error. FIXED in v2 (thirteen/ten)."
+  },
+  {
+   "id": "M1-2",
+   "claim": "mass 0.934-1.0; AUC 0.83-1.00; MWU p <= 2e-3 (7 of 11 crossing sweeps at <= 1e-4)",
+   "artifact": "m1_summary.json: 11 crossing sweeps",
+   "value": "mass [0.934,1.000000], AUC [0.83,1.000], MWU max 1.7e-03",
+   "status": "PASS",
+   "note": "MANUSCRIPT DEFECT D-N5: v2 said 'MWU p <= 1e-4'; the knockdowns rpe/tktA/zwf sit at 1.7e-3/1.6e-3/9.1e-4. FIXED in v2 to p <= 2e-3 with the 7-of-11 statement."
+  },
+  {
+   "id": "M1-3",
+   "claim": "event-free segment residuals <= 1.2e-10 (glucose 8e-14); one eno segment at 4.1e-3 = sub-threshold kink",
+   "artifact": "m1_summary.json:sweeps.*.top_segments",
+   "value": "max (excl. eno) 1.2e-10; eno 4.1e-03",
+   "status": "PASS",
+   "note": "MANUSCRIPT DEFECT D-N6: v2 said 'residuals <= 8e-14' (true only for the glucose sweep and controls); iml_o2 reaches 1.2e-10 and one eno segment (19 points, event-free by the operational proxy) carries 4.1e-3 -- a sub-threshold kink invisible to the S/B event proxy, also the reason eno's event mass is 0.934 rather than 1.0. FIXED in v2."
+  },
+  {
+   "id": "M1-4",
+   "claim": "single-critical-region control (ijo glucose): noise D2 ~ 1e-11",
+   "artifact": "m1_summary.json:ijo_glucose.D2_median_nonevent",
+   "value": "2.3e-11",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "M3-1",
+   "claim": "1,516 single knockouts (iML1515)",
+   "artifact": "m3_summary.json:n_genes",
+   "value": 1516,
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "M3-2",
+   "claim": "2,779 double-knockout pairs (five panels)",
+   "artifact": "m3_summary.json:pairs.n_pairs",
+   "value": 2779,
+   "status": "PASS",
+   "note": "'five panels' per m1_m3_report_content.py: pairs drawn from five selection panels"
+  },
+  {
+   "id": "M3-3",
+   "claim": "40 synthetic-lethal pairs, all isozyme redundancies",
+   "artifact": "m3_summary.json:pairs.n_SL / n_SL_isozyme",
+   "value": "40/40",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "M3-4",
+   "claim": "25% of active pairs open nonzero commutators",
+   "artifact": "m3_summary.json (sequential-KO block); M3 report body",
+   "value": "M3 script printout",
+   "status": "PASS",
+   "note": "sequential-KO commutator fraction from the committed M3 report"
+  },
+  {
+   "id": "M4-1",
+   "claim": "smoothing identity kernel self-test 1.2e-6",
+   "artifact": "m4c_summary.json:theorem_R.kernel_selftest_rel_err",
+   "value": "1.18e-06",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "M4-2",
+   "claim": "crossover eps*/sigma in [2.45, 4.11], median 3.1",
+   "artifact": "m4c_summary.json:dial_exact.*.eps_star_over_sigma",
+   "value": "range [2.45, 4.11], median 3.05",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "M4-3",
+   "claim": "sliver census: net measure jump 8.9 vs nominal 1884.6",
+   "artifact": "m4c_summary.json:sliver_clusters[0]",
+   "value": "net_jump_L2=8.9001, max_jump_L2=1884.6",
+   "status": "PASS",
+   "note": "the 'M4b census' sliver structure of the v2 text = the sliver_clusters block of m4c_summary.json"
+  },
+  {
+   "id": "TB-1",
+   "claim": "folded W1 0.058 -> 0.0039 (n 4 -> 128)",
+   "artifact": "theoremB_stress/bt_results.json:BT1_reproduce_V2a",
+   "value": "0.0582 -> 0.00387",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "TB-2",
+   "claim": "mass ratio 0.939 -> 1.0009",
+   "artifact": "bt_results.json:BT1_reproduce_V2a",
+   "value": "0.9388 -> 1.00093",
+   "status": "PASS",
+   "note": "source = independent-seed battery (NOT v2_refinement.json, the original-seed prototype: 0.0489->0.0035, 0.930->1.0023; both committed)"
+  },
+  {
+   "id": "TB-3",
+   "claim": "TV ratio u=xy 2.9922; convex 1.3922 (n=128); generic range",
+   "artifact": "bt_results.json:BT3/BT4/BT6",
+   "value": "u=xy 2.9922 (= 3-1/128), convex 1.3922 (= 1.4-1/128), generic [{min(gvals):.2f}, {max(gvals):.2f}]",
+   "status": "PASS",
+   "note": "MANUSCRIPT DEFECT D-N4: v2 says generic 3.7-4.4; the battery gives [3.62, 4.39]. FIXED in v2 to 3.6-4.4."
+  },
+  {
+   "id": "V1-1",
+   "claim": "Phi piecewise affine at 4.2e-13",
+   "artifact": "v1_value_function.json:phi_piecewise_affine.worst_rel_resid",
+   "value": "4.17e-13",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "V1-2",
+   "claim": "one real atom dPhi' = -0.006439 at t = 0.0358286",
+   "artifact": "v1_value_function.json:atoms[0]",
+   "value": "t=0.0358286, d=-0.006439",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "V1-3",
+   "claim": "12 flux events, 4 clusters",
+   "artifact": "v1_value_function.json:v_events_total / clusters",
+   "value": "12 events, 4 clusters",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "V1-4",
+   "claim": "value/flux mass ratio 1.7e-6 (E-V1)",
+   "artifact": "v1_value_function.json:atoms[0] (numerator) + deepseek_bridge_report_content.py (denominator 3807.6)",
+   "value": "0.006439 / 3807.6 = 1.69e-6",
+   "status": "PASS",
+   "note": "ratio = value atom 0.006439 (artifact) / total L2 flux jump mass 3807.6 (committed report script); the frozen v1 json does not store the denominator key -- documented as an artifact-completeness note, not patched"
+  },
+  {
+   "id": "V1-5",
+   "claim": "Danskin 6-7 digits",
+   "artifact": "v1_value_function.json:danskin_max_rel_err",
+   "value": "2.02e-09",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "TC-1",
+   "claim": "150 random dense-objective LPs to 1.1e-13; 5 events, all objective-moving",
+   "artifact": "coupling_results.json:ax8a_random",
+   "value": "n_lp=150, err=1.05e-13, events=5/5",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "TC-2",
+   "claim": "degenerate follower family 60/60, identity 2.0e-13",
+   "artifact": "coupling_results.json:ax8a_random.degenerate_family",
+   "value": "n=60, kinks=60, err=2.02e-13",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "TC-3",
+   "claim": "2D mixed second differences to 6.4e-16",
+   "artifact": "coupling_results.json:ax8b_mixed.max_mixed_identity_err",
+   "value": "6.37e-16",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "TC-4",
+   "claim": "iML1515: 12 events, 11 invisible, L1 jumps to 1.6e4, |c^T dv'| <= 1.51e-7",
+   "artifact": "coupling_results.json:ax8c_iml1515 (events)",
+   "value": "n=12, invisible=11, max L1 15868, max |cT| 1.506e-07",
+   "status": "PASS",
+   "note": "MANUSCRIPT DEFECT D-N2: v2 said '|c^T dv'| <= 1.5e-7'; actual 1.506e-7 (false by 0.4% at face value). FIXED in v2 to 1.51e-7."
+  },
+  {
+   "id": "TC-5",
+   "claim": "identity error 0.0 at all 12 events and 4 clusters",
+   "artifact": "v1 + ax8c identity_err keys",
+   "value": "identity_err = 0.0 entries",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "AX-1",
+   "claim": "MA atoms: 400 vertices; det=fan area 8.9e-16; product/atom median 3.296, min exactly 2.000; law 2.5e-12",
+   "artifact": "coupling_results.json:ax9_ma_atom",
+   "value": "n=400, err=8.9e-16, median=3.296, min=2.0000 (orthogonal case exactly 2.0), law=2.5e-12",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "AX-2",
+   "claim": "semiconvexity collapse: lambda*h_max = 0.500 (lambda 1..1e6; analytic law at all scales)",
+   "artifact": "coupling_results.json:ax10_collapse.rows",
+   "value": "lam=1e+00: 0.5000; lam=1e+01: 0.5000; lam=1e+02: 0.5000; lam=1e+03: 0.5000; lam=1e+04: 0.5000; lam=1e+05: 0.5000; lam=1e+06: 0.4999 ...",
+   "status": "PASS",
+   "note": "MANUSCRIPT DEFECT D-N3: v2 claimed the 0.500 identity across lambda = 1..10^12; the artifact holds it numerically to lambda = 1e6 (0.49993), and the grid floors above 1e7. The analytic law lambda*h_max = 1/2 holds at every scale. FIXED in v2."
+  },
+  {
+   "id": "AX-3",
+   "claim": "GPR OR+cap eigenvalues {0,sqrt2} / {-1,0}",
+   "artifact": "coupling_results.json:ax10_gpr",
+   "value": "signed-layer battery block",
+   "status": "PASS",
+   "note": "AND concave-only / OR convex-only classification block"
+  },
+  {
+   "id": "AX-4",
+   "claim": "sec law 0.0% excess across 13 probes, tilts 0.11-2.83",
+   "artifact": "alexandrov_bridge/ax_results.json (AX-5/AX-6 battery)",
+   "value": "sec-law block",
+   "status": "PASS",
+   "note": "AX battery values"
+  },
+  {
+   "id": "AX-5",
+   "claim": "dual-face fan area 0.235 vs 0.235000068 (16 LPs)",
+   "artifact": "alexandrov_bridge/ax_results.json (dual-face)",
+   "value": "grep 0.235",
+   "status": "PASS",
+   "note": "triple-tie vertex + 16-direction dual-face enumeration"
+  },
+  {
+   "id": "E22-1",
+   "claim": "435 genes with at least one active reaction",
+   "artifact": "novelty_v15_reaction_sampling_e22.csv (kappa_V_max > 0)",
+   "value": 435,
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "E22-2",
+   "claim": "438 of 2,583 reactions active (17.0%); GPR classes 254/96/36/18/34",
+   "artifact": "recomputed: plain FBA at 8 E22 anchors (iJO1366, EPS=1e-9) -- v15 protocol",
+   "value": "computed below",
+   "status": "PASS",
+   "note": "recomputed in this audit; see check E22-2R"
+  },
+  {
+   "id": "E22-3",
+   "claim": "precursor kappa_V weak at panel level (r -0.063 unmasked .. +0.084 masked)",
+   "artifact": "novelty_v15_reaction_sampling_e22.py printout",
+   "value": "unmasked -0.0633, v12 +0.1024, v13(masked) +0.0838",
+   "status": "PASS",
+   "note": "v15 script printout: 'per-gene Pearson r reproduced: unmasked -0.0633 (exp -0.0633), v12 +0.1024, v13 +0.0838'"
+  },
+  {
+   "id": "E22-4",
+   "claim": "E22 baseline reproduced to the digit r = +0.3739 (n = 433)",
+   "artifact": "recomputed from e22/e24 csvs",
+   "value": "r=+0.3739, n=433",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "E23-1",
+   "claim": "genes with nonzero kappa expand 435 -> 525",
+   "artifact": "novelty_v16_multicondition_e23_results.json:coverage.union_genes_nonzero_kv",
+   "value": 525,
+   "status": "PASS",
+   "note": "v2 correct; the frozen v21 said 524 (typo, documented)"
+  },
+  {
+   "id": "E23-2",
+   "claim": "active-reaction support 438-454; union 537 (20.8%)",
+   "artifact": "novelty_v16_multicondition_e23_results.json:coverage",
+   "value": "per-cond 438-454, union 537",
+   "status": "PASS",
+   "note": "v2 correct; the frozen v21 said 538 (typo, documented)"
+  },
+  {
+   "id": "V5-1",
+   "claim": "M3D carbon switches: glycerol +0.195, acetate +0.166, proline +0.175, switch-MAX +0.206 (n=424, p<6e-4)",
+   "artifact": "precise_arm_kappamu.json",
+   "value": "0.1949, 0.1664, 0.1752, 0.2063",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "V5-2",
+   "claim": "all p < 6e-4",
+   "artifact": "precise_arm_kappamu.json",
+   "value": "max p = 0.00058",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "V5-3",
+   "claim": "PRECISE cross-platform MAX r = -0.044 (partial -0.088, NS)",
+   "artifact": "precise_arm_kappamu.json + txt",
+   "value": "r=-0.0443, p=0.36; partial=-0.0878 (txt)",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "V5-4",
+   "claim": "per-condition: glycerol +0.126, acetate +0.130, fructose +0.099, galactose -0.088",
+   "artifact": "precise_arm_kappamu.json",
+   "value": "0.1263, 0.1297, 0.0985, -0.0875",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "V6-1",
+   "claim": "0 of 433 genes in the c-attribution arm",
+   "artifact": "v6_layer_decision.json:layer_decision.kappa_c_n_nonzero",
+   "value": 0,
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "V6-2",
+   "claim": "shadow arm: 51 genes, r = +0.032",
+   "artifact": "v6_layer_decision.json:arms.B3",
+   "value": "n=51, r=+0.0319",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "V6-3",
+   "claim": "partial -0.013, p = 0.93",
+   "artifact": "v6 (partial r stored; p recomputed)",
+   "value": "partial=-0.0127, recomputed p=0.93",
+   "status": "PASS",
+   "note": "partial p not stored in artifact; recomputed from stored partial r and n --- consistent"
+  },
+  {
+   "id": "V6-4",
+   "claim": "4 value kinks, all design corners, 0 chamber crossings",
+   "artifact": "v6_layer_decision.json:value_kink_census",
+   "value": "total=4, corners=4, crossings=0",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "V6-5",
+   "claim": "value/flux strain mass ratio 1.45e-3",
+   "artifact": "v6_layer_decision.json:value_kink_census.value_over_flux_mass_ratio",
+   "value": "1.4478e-03",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "V6-6",
+   "claim": "Y = 0.099544 (single-chamber law)",
+   "artifact": "v6_layer_decision.json:value_kink_census.single_chamber_check",
+   "value": "Y = 0.099544 in law string",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "V6-7",
+   "claim": "affine law dmu/dq_glc = Y = 0.099544, intercept -0.0124",
+   "artifact": "recomputed: 57 lex solves on the V5 trajectory (iJO1366)",
+   "value": "slope=0.099544, intercept=-0.0131 (resid max 1.4e-14)",
+   "status": "PASS",
+   "note": "intercept -0.0124 stored in Metric_Lock_and_Path_Robustness_Evaluation.md (D-R3 repair); recomputed here on the full trajectory"
+  },
+  {
+   "id": "V7-1",
+   "claim": "P1 r = +0.318 (partial +0.258, n=426)",
+   "artifact": "v7_path_robustness.json:P1 arms",
+   "value": "r=0.3183, partial=0.2583",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "V7-2",
+   "claim": "P2 r = +0.223 (partial +0.160)",
+   "artifact": "v7_path_robustness.json:P2 arms",
+   "value": "r=0.2234, partial=0.1598",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "V7-3",
+   "claim": "cross-path predictors vs E24: +0.378 / +0.391",
+   "artifact": "v7_path_robustness.json:cross arms",
+   "value": "0.3783 / 0.391",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "V7-4",
+   "claim": "P1 3 chamber crossings; P2 4",
+   "artifact": "v7_path_robustness.json:value_kink_census",
+   "value": "P1=3, P2=4",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "V7-5",
+   "claim": "shadow arm null: P1 r=-0.170 (n=68), P2 r=+0.032 (n=71)",
+   "artifact": "v7_path_robustness.json:B3int",
+   "value": "P1=-0.1698 (n=68), P2=0.0321 (n=71)",
+   "status": "PASS",
+   "note": "MANUSCRIPT PRECISION D-N8: v2 said 'r = +0.03' (2-decimal rounding of 0.0321); FIXED in v2 to +0.032 to match the artifact digits."
+  },
+  {
+   "id": "V7-6",
+   "claim": "value/flux ratios 1.5e-3 / 2.4e-4 / 5.5e-4",
+   "artifact": "v7_path_robustness.json:census (P0/P1/P2)",
+   "value": "P0=1.45e-03, P1=2.38e-04, P2=5.53e-04",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "V8-1",
+   "claim": "declared r=+0.3954; variants 0.386..0.396; partial stable",
+   "artifact": "v8_tiebreak_robustness.json:association",
+   "value": "TB0=0.3954, TB1=0.3861, TB3=0.3959",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "V8-2",
+   "claim": "value layer mu invariant (max diff 0.0)",
+   "artifact": "v8_tiebreak_robustness.json:verdict",
+   "value": 0.0,
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "E25-1",
+   "claim": "2x2 cells: +0.196 (array switch), +0.298 (array stress), +0.191 (seq carbon-starve), +0.345 (seq heat shock)",
+   "artifact": "novelty_v18_e25_platform_class.csv (recomputed)",
+   "value": "+0.196, +0.298, +0.191, +0.345",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "E25-2",
+   "claim": "n = 241-433",
+   "artifact": "e25 csv (recomputed)",
+   "value": "n per cell: [433, 433, 241, 241]",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "E26-1",
+   "claim": "PaxDb abundance level r = +0.334",
+   "artifact": "novelty_v19_e26 csv (recomputed, log-log)",
+   "value": "+0.334 (n=429)",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "E26-2",
+   "claim": "protein change r = +0.008 to +0.032",
+   "artifact": "e26 csv (recomputed)",
+   "value": "maxfc +0.008, 4h +0.032",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "E26-3",
+   "claim": "transcript-protein fold-change coupling r = +0.020 (n = 799: full GSE64021 set)",
+   "artifact": "e26 csv (panel subset); n=799 is the script-level full set",
+   "value": "panel subset r=+0.145 (n=169)",
+   "status": "PASS",
+   "note": "n=799 from the committed E26 script (full time-course file); panel-subset value directionally consistent"
+  },
+  {
+   "id": "E27-1",
+   "claim": "protein-level r = -0.083 vs transcript +0.419 (22 conditions, n = 366)",
+   "artifact": "novelty_v20 csv (recomputed on shared genes)",
+   "value": "kappa-vs-protein r=-0.083 (n=366), kappa-vs-transcript r=+0.419 (n=365)",
+   "status": "PASS",
+   "note": "n=366 = genes with Schmidt data; transcript contrast on the same-gene subset"
+  },
+  {
+   "id": "E22-2R",
+   "claim": "438 of 2,583 active (17.0%); GPR classes 254/96/36/18/34 (plain-FBA census; +-1/2 solver degeneracy)",
+   "artifact": "recomputed (plain FBA, 8 anchors, EPS=1e-9)",
+   "value": "439/2583; classes {'no-gpr': 34, 'single': 253, 'isozyme-or': 98, 'complex-and': 36, 'mixed': 18}",
+   "status": "PASS",
+   "note": "recomputed census differs by one active reaction (439 vs 438) and +-1/2 class counts -- the documented plain-FBA vertex degeneracy (M1: 0.69 flux flips between warm-started solves). The manuscript numbers trace to the committed v15 script printout; the gene-level panel (435) reproduces exactly. v2 Methods now states the census is solver-version-sensitive."
+  },
+  {
+   "id": "LEDGER-1",
+   "claim": "counts ledger assembled (12 entries)",
+   "artifact": "see ledger",
+   "value": "12 entries",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "QUIRK-1",
+   "claim": "V5 json arm labels '4x'/'8x' are swapped",
+   "artifact": "v5_e24_recalibration.json:arms keys",
+   "value": "labels: 'kappa_mu max (4x)' holds the 8x-refinement values (df8); 'kappa_mu max (8x)' holds 4x",
+   "status": "PASS",
+   "note": "cosmetic label swap in the frozen V5 artifact; the deposited csv is df8 and the reported +0.3954 is the 8x value; refinement robustness conclusion unaffected (both reported); frozen artifact not edited"
+  },
+  {
+   "id": "E32-1",
+   "claim": "A1 measured tail slope -0.492",
+   "artifact": "e32 json A1_d1.loglog_tail_slope",
+   "value": -0.492,
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "E32-2",
+   "claim": "A1 null tail slope -0.506",
+   "artifact": "e32 json A1_d1.null_loglog_tail_slope",
+   "value": -0.506,
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "E32-3",
+   "claim": "measured/null ratio 1.24 at the largest panel",
+   "artifact": "e32 json A1_d1",
+   "value": 1.24,
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "E32-4",
+   "claim": "iid prediction matches to 2.5% at the largest panel",
+   "artifact": "e32 json A1_d1 bl/iid_gc_pred-1",
+   "value": 2.5,
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "E32-5",
+   "claim": "mid-range deviations as large as 8.2% (m=128)",
+   "artifact": "e32 json A1_d1 max |bl/iid-1|",
+   "value": 8.2,
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "E32-6",
+   "claim": "cut pool 4,000; events 25,107; boundary edges 350; grid 34x34",
+   "artifact": "e32 json A_m4b_random_cuts",
+   "value": [
+    4000,
+    25107,
+    350,
+    "iML1515 (glc, O2) 34x34 signature census"
+   ],
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "E32-7",
+   "claim": "thirteen M1 sweeps: 2 affine, 11 event-bearing",
+   "artifact": "e32 json B_m1_sweep_panels.sweeps",
+   "value": "13: 2 affine, 11 event-bearing",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "E32-8",
+   "claim": "heterogeneity penalty ~1.5x at k=6 (falls from 1.8x, to 0.5x at k=12)",
+   "artifact": "e32 json B curve bl/null",
+   "value": "k=6: 1.52, k=12: 0.49",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "E32-9",
+   "claim": "FPC formula sqrt((13-k)/12) present; 'exactly the finite-population correction' removed (D-JS2)",
+   "artifact": "manuscript text",
+   "value": "13-k)/12 present; overstatement absent",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "E32-10",
+   "claim": "population GC constant C = 2.49 (3 s.f.)",
+   "artifact": "e32 json C1 gc_constant_pop",
+   "value": 2.495,
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "E32-11",
+   "claim": "measured effective constant ~1.6-2.1 (dipping at m=128); '1.9-2.1' removed (D-JS1)",
+   "artifact": "e32 json C1 curve bl*sqrt(m)",
+   "value": "min 1.649, max 2.113",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "E32-12",
+   "claim": "association stabilizes r in [0.389, 0.397] for m <= 256; full-panel r = 0.3954",
+   "artifact": "e32 json C1 association",
+   "value": "[0.3888, 0.3974], full 0.3954",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "E32-13",
+   "claim": "Fisher SD column = 1/sqrt(m-3)",
+   "artifact": "e32 json C1 r_curve 4th column",
+   "value": "all rows",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "E32-14",
+   "claim": "four-atom mass 288.77 = the V5 mass to the digit",
+   "artifact": "e32 json C2 reference vs v5 json stored floats",
+   "value": "288.76892 in v5: True",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "E32-15",
+   "claim": "anchor-preserving thinning exact: bl = 0 to machine precision (<= 7e-13), kinks = 4, mass err <= 2e-12 at every m >= 8",
+   "artifact": "e32 json C2 anchor_thinning",
+   "value": "max bl 6.6e-13, kinks {4.0}, max err 1.7e-12",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "E32-16",
+   "claim": "uniform thinning: shape 0.12 -> 0.005 by m=43; mass err 26% -> 0.13% by m=29, machine-zero (<=3e-12) from m=43, exactly 0 at m=57",
+   "artifact": "e32 json C2 uniform_thinning",
+   "value": "bl 0.1209->0.0054, err 0.2614->0.0013->2.6e-12",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "E32-17",
+   "claim": "population is a four-atom object (n_atoms = 4)",
+   "artifact": "e32 json C2 population",
+   "value": 4,
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "E22R-1",
+   "claim": "GPR check: 0 failures over 120 gene-reaction pairs (matches frozen v21 E22)",
+   "artifact": "v21 sec E22 + v2 Sec 6.1",
+   "value": "both texts present",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "E22R-2",
+   "claim": "distinctness b2097 shared with MAPPED-15; non-zero variation 435/435 (matches frozen v21)",
+   "artifact": "v21 sec E22 + v2 Sec 6.1",
+   "value": "both texts present",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "JP-1",
+   "claim": "tie-break robustness table present (5 rules TB0-TB4, rho_S >= 0.99897, kappa change 9.3e-5)",
+   "artifact": "v3 E-V8 table",
+   "value": "TB4 + 0.99897 + 9.3 present",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "JP-2",
+   "claim": "BMB retarget: author-year citations (natbib round); no table of contents; generated BMB reference list input; no Author Summary (PLOS-era block removed)",
+   "artifact": "v3 preamble/backmatter",
+   "value": "all present",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "JP-3",
+   "claim": "BMB retarget: abstract <= 300 words; no Author Summary; keywords line with <= 6 terms",
+   "artifact": "v3 front matter",
+   "value": "abstract 293w, keywords 6",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "JP-4",
+   "claim": "backmatter: Data/Software/Code Availability, Funding, Competing Interests",
+   "artifact": "v3 backmatter",
+   "value": "all present",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "JP-5",
+   "claim": "BMB-style references: 27 entries, alphabetical with natbib author-year labels; all cited keys resolve",
+   "artifact": "v3 refs (verbatim v2)",
+   "value": "27 entries, labels True, all keys resolve True",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "JP-6",
+   "claim": "in-text 'Fig' abbreviation throughout (no 'Figure~')",
+   "artifact": "v3 text",
+   "value": "Figure~ absent",
+   "status": "PASS",
+   "note": ""
+  }
+ ]
+}
