@@ -403,31 +403,31 @@ File: l3backend-xetex.def 2022-02-07 L3 backend support: XeTeX
 ) (journal_manuscript_v2.aux)
 \openout1 = `journal_manuscript_v2.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 81.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 8
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 71.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 7
 1.
  (ts1cmr.fd
 File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -463,11 +463,11 @@ LaTeX Font Info:    ... okay on input line 81.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Info: Redefining \microtypecontext on input line 81.
-Package microtype Info: Applying patch `item' on input line 81.
-Package microtype Info: Applying patch `toc' on input line 81.
-Package microtype Info: Applying patch `eqnum' on input line 81.
-Package microtype Info: Applying patch `footnote' on input line 81.
+LaTeX Info: Redefining \microtypecontext on input line 71.
+Package microtype Info: Applying patch `item' on input line 71.
+Package microtype Info: Applying patch `toc' on input line 71.
+Package microtype Info: Applying patch `eqnum' on input line 71.
+Package microtype Info: Applying patch `footnote' on input line 71.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: No adjustment of tracking.
@@ -480,7 +480,7 @@ ern Roman (RS)
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring ON on input line 81.
+Package hyperref Info: Link coloring ON on input line 71.
  (nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
  (refcount.sty
@@ -490,9 +490,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count307
 )
-LaTeX Info: Redefining \ref on input line 81.
-LaTeX Info: Redefining \pageref on input line 81.
-LaTeX Info: Redefining \nameref on input line 81.
+LaTeX Info: Redefining \ref on input line 71.
+LaTeX Info: Redefining \pageref on input line 71.
+LaTeX Info: Redefining \nameref on input line 71.
 
 (journal_manuscript_v2.out) (journal_manuscript_v2.out)
 \@outlinefile=\write3
@@ -502,7 +502,7 @@ LaTeX Info: Redefining \nameref on input line 81.
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 83.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 73.
 
  (umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -510,46 +510,38 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 (mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 83.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 73.
 
  (umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 83
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 73
 .
  (ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 ) [1
 
-] [2] [3] [4]
-Overfull \hbox (3.83965pt too wide) in paragraph at lines 409--432
-[][]\TU/lmr/bx/n/10.95 Proposition 3.12 \TU/lmr/m/n/10.95 (Semiconvexity collap
+] [2] [3]
+Overfull \hbox (3.83965pt too wide) in paragraph at lines 372--395
+[][]\TU/lmr/bx/n/10.95 Proposition 2.12 \TU/lmr/m/n/10.95 (Semiconvexity collap
 se; signed layer for mixed GPRs)\TU/lmr/bx/n/10.95 . []\TU/lmr/m/it/10.95 A con
 tinuous piecewise-
  []
 
-[5]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 533.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 533.
-
-[6] [7]
+[4] [5] [6] [7]
 File: ../download//m1_m3/fig_m1_summary.png Graphic file (type bmp)
 <../download//m1_m3/fig_m1_summary.png>
+File: ../download//alexandrov_bridge/coupling_figures.png Graphic file (type bm
+p)
+<../download//alexandrov_bridge/coupling_figures.png>
+ [8]
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmtt' (encoding: TU).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-File: ../download//alexandrov_bridge/coupling_figures.png Graphic file (type bm
-p)
-<../download//alexandrov_bridge/coupling_figures.png>
- [8] [9] [10] [11] [12]
+ [9] [10] [11] [12]
 File: ../download//deepseek_bridge/v5_e24_recalibration.png Graphic file (type 
 bmp)
 <../download//deepseek_bridge/v5_e24_recalibration.png>
@@ -565,35 +557,35 @@ file (type bmp)
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1138.
+(hyperref)                removing `math shift' on input line 1056.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\times' on input line 1138.
+(hyperref)                removing `\times' on input line 1056.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1138.
+(hyperref)                removing `math shift' on input line 1056.
 
-[13]
-Overfull \hbox (2.38142pt too wide) in paragraph at lines 1153--1162
+
+Overfull \hbox (2.38142pt too wide) in paragraph at lines 1073--1082
 \TU/lmr/m/n/10.95 Two dissociations at the protein layer (PaxDb integrated abun
 dance ([][]Wang et al.[][], [][]2015[][]); GSE64021
  []
 
-[14] [15] [16] [17]
-Overfull \hbox (17.0pt too wide) in paragraph at lines 1418--1419
+[13] [14] [15] [16] [17]
+Overfull \hbox (17.0pt too wide) in paragraph at lines 1281--1282
 [][] 
  []
 
-[18] [19]
-Overfull \hbox (1.30173pt too wide) in paragraph at lines 1491--1503
+[18]
+Overfull \hbox (1.30173pt too wide) in paragraph at lines 1345--1357
 \TU/lmr/m/n/10.95 models, data manifests with SHA-256 checksums, and audit scri
 pts that re-derive every manuscript
  []
 
-[20] (journal_manuscript_v2_bmb_refs [21]) [22] (journal_manuscript_v2.aux)
+[19] (journal_manuscript_v2_bmb_refs [20]) [21] (journal_manuscript_v2.aux)
 Package rerunfilecheck Info: File `journal_manuscript_v2.out' has not changed.
-(rerunfilecheck)             Checksum: 113383AEB92F311BC228A3540D11A1A9;10015.
+(rerunfilecheck)             Checksum: 754A024A27E6E0EC3E1EE952F0F2264B;9115.
  )
-Output written on journal_manuscript_v2.xdv (22 pages, 702248 bytes).
+Output written on journal_manuscript_v2.xdv (21 pages, 692580 bytes).

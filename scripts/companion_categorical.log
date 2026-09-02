@@ -508,7 +508,7 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 \openout4 = `companion_categorical.toc'.
 
  [2] [3]
-LaTeX Font Info:    Trying to load font information for U+euf on input line 337
+LaTeX Font Info:    Trying to load font information for U+euf on input line 331
 .
  (ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
@@ -521,12 +521,12 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
  [9] [10] [11] [12]
-[13] [14] [15] [16] [17] [18]
+[13] [14] [15] [16] [17]
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmss' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [19] [20]
+ [18] [19] [20]
 File: ../download//lipschitz_constants_per_optic.png Graphic file (type bmp)
 <../download//lipschitz_constants_per_optic.png>
  [21]
@@ -538,20 +538,20 @@ File: ../download//inverse_limit_raf_hasse.png Graphic file (type bmp)
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2036.
+(hyperref)                removing `math shift' on input line 2017.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2036.
+(hyperref)                removing `math shift' on input line 2017.
 
 [23] [24] [25]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2157.
+(hyperref)                removing `math shift' on input line 2138.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2157.
+(hyperref)                removing `math shift' on input line 2138.
 
 [26]
 File: ../download//inverse_limit_raf_extended_hasse.png Graphic file (type bmp)
@@ -560,32 +560,32 @@ File: ../download//inverse_limit_raf_extended_hasse.png Graphic file (type bmp)
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2293.
+(hyperref)                removing `math shift' on input line 2274.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\infty' on input line 2293.
+(hyperref)                removing `\infty' on input line 2274.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2293.
+(hyperref)                removing `math shift' on input line 2274.
 
 [27]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2358.
+(hyperref)                removing `math shift' on input line 2339.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\infty' on input line 2358.
+(hyperref)                removing `\infty' on input line 2339.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2358.
+(hyperref)                removing `math shift' on input line 2339.
 
 [28] [29] [30] [31] [32] (companion_categorical.bbl [33] [34]) [35]
 (companion_categorical.aux)
 Package rerunfilecheck Info: File `companion_categorical.out' has not changed.
 (rerunfilecheck)             Checksum: 3C6B6D7C988FA473A9A213BF019B00EC;6993.
  )
-Output written on companion_categorical.xdv (35 pages, 1167016 bytes).
+Output written on companion_categorical.xdv (35 pages, 1158840 bytes).

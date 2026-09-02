@@ -523,7 +523,7 @@
    "id": "V6-7",
    "claim": "affine law dmu/dq_glc = Y = 0.099544, intercept -0.0124",
    "artifact": "recomputed: 57 lex solves on the V5 trajectory (iJO1366)",
-   "value": "slope=0.099544, intercept=-0.0131 (resid max 1.4e-14)",
+   "value": "slope=0.099544, intercept=-0.0131 (resid max 5.4e-15)",
    "status": "PASS",
    "note": "intercept -0.0124 stored in Metric_Lock_and_Path_Robustness_Evaluation.md (D-R3 repair); recomputed here on the full trajectory"
   },
@@ -840,7 +840,7 @@
    "id": "JP-3",
    "claim": "BMB retarget: abstract <= 300 words; no Author Summary; keywords line with <= 6 terms",
    "artifact": "v2 front matter",
-   "value": "abstract 298w, keywords 6",
+   "value": "abstract 293w, keywords 6",
    "status": "PASS",
    "note": ""
   },

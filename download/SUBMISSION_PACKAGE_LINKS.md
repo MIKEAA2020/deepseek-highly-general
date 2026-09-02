@@ -1,7 +1,7 @@
 # Submission Package Links — Two-Paper Package
 
 Generated 2026-09-02. All repository links verified live (HTTP 200 at `main`,
-commit `1895624`); all journal links verified against the official journal or
+latest `main`); all journal links verified against the official journal or
 society pages. Repository is public, so every link is directly accessible.
 
 - Repository: https://github.com/MIKEAA2020/deepseek-highly-general
@@ -14,7 +14,7 @@ society pages. Repository is public, so every link is directly accessible.
 
 **Title:** A Measure-Theoretic Discrete Curvature Framework for Metabolic Gene
 Sensitivity: From Active-Set Geometry to Transcriptional Response
-(Original Research Article; 22 pp; subscription route — no author charges).
+(Original Research Article; 21 pp; subscription route — no author charges).
 
 ### Journal / submission-portal links (all verified)
 
@@ -35,7 +35,7 @@ Sensitivity: From Active-Set Geometry to Transcriptional Response
 | Item | View (blob) | Direct download (raw) |
 |---|---|---|
 | **One-file upload ZIP (compile-ready)** | — | [download/submission_main_bmb.zip](https://raw.githubusercontent.com/MIKEAA2020/deepseek-highly-general/main/download/submission_main_bmb.zip) |
-| Manuscript PDF (22 pp, declarations in backmatter) | [download/journal_manuscript_v2.pdf](https://github.com/MIKEAA2020/deepseek-highly-general/blob/main/download/journal_manuscript_v2.pdf) | [raw](https://raw.githubusercontent.com/MIKEAA2020/deepseek-highly-general/main/download/journal_manuscript_v2.pdf) |
+| Manuscript PDF (21 pp, declarations in backmatter) | [download/journal_manuscript_v2.pdf](https://github.com/MIKEAA2020/deepseek-highly-general/blob/main/download/journal_manuscript_v2.pdf) | [raw](https://raw.githubusercontent.com/MIKEAA2020/deepseek-highly-general/main/download/journal_manuscript_v2.pdf) |
 | Cover letter (with declarations, companion disclosure) | [download/cover_letter_bmb.md](https://github.com/MIKEAA2020/deepseek-highly-general/blob/main/download/cover_letter_bmb.md) | [raw](https://raw.githubusercontent.com/MIKEAA2020/deepseek-highly-general/main/download/cover_letter_bmb.md) |
 | LaTeX source | [scripts/journal_manuscript_v2.tex](https://github.com/MIKEAA2020/deepseek-highly-general/blob/main/scripts/journal_manuscript_v2.tex) | [raw](https://raw.githubusercontent.com/MIKEAA2020/deepseek-highly-general/main/scripts/journal_manuscript_v2.tex) |
 | Reference list (BMB alphabetical, 27 entries) | [scripts/journal_manuscript_v2_bmb_refs.tex](https://github.com/MIKEAA2020/deepseek-highly-general/blob/main/scripts/journal_manuscript_v2_bmb_refs.tex) | [raw](https://raw.githubusercontent.com/MIKEAA2020/deepseek-highly-general/main/scripts/journal_manuscript_v2_bmb_refs.tex) |
@@ -56,7 +56,7 @@ Figures (embedded in the PDF; source PNGs if the portal requests separate files)
 Build note: for Overleaf or any standalone compiler, upload **the ZIP** (it
 contains the .tex, the input'ed reference list, the .bib database, and all
 six figures at the exact relative subpaths the .tex expects — verified to
-compile standalone, 22 pp, 0 errors). If instead you upload individual
+compile standalone, 21 pp, 0 errors). If instead you upload individual
 files, upload them together with `journal_manuscript_v2_bmb_refs.tex` and
 the three figure subfolders (`m1_m3/`, `alexandrov_bridge/`,
 `deepseek_bridge/`) so the paths resolve; the .tex now searches both the
@@ -132,3 +132,22 @@ placeholders; replace the sole-author placeholder "X" with the real author
 name at all authorship sites (title blocks, pdfauthor, bib entries, cover
 letters); select the receiving Editorial Board member for TAC (from
 geninfo.html); register/log in at the BMB Editorial Manager portal.
+
+Optional (2026-09-02 formal-cleanup round): the repository NAME still
+contains "deepseek" (rendered once per paper in the Data Availability
+URL). To make it neutral, rename the repository in GitHub
+(Settings -> General -> Repository name -> e.g.
+`metabolic-curvature-measure`); GitHub auto-redirects all old URLs, and
+the tex files / cover letters / this document then need the URL string
+updated (a one-line change per file, recompile). The rename could not be
+done from the PAT used in this session (no repository-administration
+scope).
+
+Formal cleanup executed (2026-09-02): all "Artifact: ... .png/.json"
+caption lines removed (source-data linkage now carried by the Data
+Availability statement); all internal experiment codes (E-V5, M4b, V8,
+Route 5, RC6, BT1, D-N1...), bracketed block tags, changelog/diary
+references to predecessor versions, and self-commentary wording removed
+from both papers; the Reproducibility and counts-appendix sections were
+reworded to formal conventions; the audit passes 98/98 after the edits
+(main now 21 pp, companion 35 pp, 0 errors, 0 undefined refs).

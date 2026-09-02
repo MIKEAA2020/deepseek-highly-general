@@ -61,7 +61,7 @@ Manuscript defects found and fixed: D-N1 (13 sweeps / 10 knockdowns), D-N2 (1.5e
 | V6-4 | 4 value kinks, all design corners, 0 chamber crossings | PASS | total=4, corners=4, crossings=0 | v6_layer_decision.json:value_kink_census |
 | V6-5 | value/flux strain mass ratio 1.45e-3 | PASS | 1.4478e-03 | v6_layer_decision.json:value_kink_census.value_over_flu |
 | V6-6 | Y = 0.099544 (single-chamber law) | PASS | Y = 0.099544 in law string | v6_layer_decision.json:value_kink_census.single_chamber |
-| V6-7 | affine law dmu/dq_glc = Y = 0.099544, intercept -0.0124 | PASS | slope=0.099544, intercept=-0.0131 (resid max 1.4e-14) | recomputed: 57 lex solves on the V5 trajectory (iJO1366 |
+| V6-7 | affine law dmu/dq_glc = Y = 0.099544, intercept -0.0124 | PASS | slope=0.099544, intercept=-0.0131 (resid max 5.4e-15) | recomputed: 57 lex solves on the V5 trajectory (iJO1366 |
 | V7-1 | P1 r = +0.318 (partial +0.258, n=426) | PASS | r=0.3183, partial=0.2583 | v7_path_robustness.json:P1 arms |
 | V7-2 | P2 r = +0.223 (partial +0.160) | PASS | r=0.2234, partial=0.1598 | v7_path_robustness.json:P2 arms |
 | V7-3 | cross-path predictors vs E24: +0.378 / +0.391 | PASS | 0.3783 / 0.391 | v7_path_robustness.json:cross arms |
@@ -100,7 +100,7 @@ Manuscript defects found and fixed: D-N1 (13 sweeps / 10 knockdowns), D-N2 (1.5e
 | E22R-2 | distinctness b2097 shared with MAPPED-15; non-zero variation 435/435 ( | PASS | both texts present | v21 sec E22 + v2 Sec 6.1 |
 | JP-1 | tie-break robustness table present (5 rules TB0-TB4, rho_S >= 0.99897, | PASS | TB4 + 0.99897 + 9.3 present | v2 E-V8 table |
 | JP-2 | BMB retarget: author-year citations (natbib round); no table of conten | PASS | all present | v2 preamble/backmatter |
-| JP-3 | BMB retarget: abstract <= 300 words; no Author Summary; keywords line  | PASS | abstract 298w, keywords 6 | v2 front matter |
+| JP-3 | BMB retarget: abstract <= 300 words; no Author Summary; keywords line  | PASS | abstract 293w, keywords 6 | v2 front matter |
 | JP-4 | backmatter: Data/Software/Code Availability, Funding, Competing Intere | PASS | all present | v2 backmatter |
 | JP-5 | BMB-style references: 27 entries, alphabetical with natbib author-year | PASS | 27 entries, labels True, all keys resolve True | generated bmb refs |
 | JP-6 | in-text 'Fig' abbreviation throughout (no 'Figure~') | PASS | Figure~ absent | v2 text |
