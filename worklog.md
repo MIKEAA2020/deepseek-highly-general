@@ -4912,3 +4912,104 @@ Stage Summary:
   Open: E32 (deliberately deferred until the main paper is near
   final); PRECISE-1K monitoring; journal submission pass (venue
   formatting, cover letter).
+
+---
+Task ID: 7 (E32 execution + deep content-loss scan round)
+Agent: main (Super Z)
+Task: User round 2026-09-02: (1) execute the previously deferred E32;
+(2) deep-scan the latest manuscript version against previous drafts for
+accidental content loss, condensation of legitimate content, and
+anything worth restoring (as-is or after corrections); push everything.
+
+Work Log:
+- E32 executed (scripts/e32_event_measure_stabilization.py, ~77 s
+  incl. one 57-solve TB0 engine run): event-measure stabilization,
+  Glivenko-Cantelli type, bounded-Lipschitz = W1 metric (domains
+  normalized; 1D exact, 2D transport LP), permutation nulls, BGU
+  population constants. Five arms: A1 M4b random cuts d=1 STABILIZES
+  AT GC RATE (tail slope -0.492 vs null -0.506; measured/null 1.24 at
+  the largest panel; iid C/sqrt(n) to 2.5%); A2 d=2 decays to the
+  reference-noise floor consistent with the d=2 rate; B thirteen M1
+  sweeps STABILIZE with mid-range heterogeneity penalty ~1.5x and the
+  finite-population correction sqrt((13-k)/12); C1 E24 gene panel
+  STABILIZES AT GC RATE (measured effective constant 1.9-2.1 vs
+  population C=2.49; association r in [+0.389,+0.397] with Fisher SD
+  1/sqrt(m-3)); C2 E24 trajectory: the event measure is a FOUR-ATOM
+  object (the four design corners carry the full flux-layer mass
+  288.77 = the V5 mass; anchor-preserving thinning exact at every
+  panel size, kinks = 4; uniform thinning decays by corner censoring,
+  0.121 -> 0.005, 26% -> 0.13% mass error, zero by m=43) -- the
+  one-chamber structure of E-V6 in event form; resolution effect =
+  Thm B'(iv) L1-reconstruction regime. Interpretation: two regimes
+  (statistical for random panels, structural/exact for designed
+  panels); deterministic Route-5 form remains open. Artifacts:
+  download/deepseek_bridge/e32_event_measure_stabilization.{json,
+  csv,png}.
+- Manuscript integration: new [E-E32] section + captioned figure;
+  abstract, contributions, limitations, reproducibility, Layer-1
+  porting map, and counts ledger (3 new rows: 4 atoms / 350 edges /
+  25,107 events) updated; Discussion no longer defers E32. 22 pages,
+  tectonic clean, 0 undefined references.
+- Numeric verification of every E-E32 manuscript number against the
+  committed json: all traced. Two precision defects found and
+  repaired: D-E32-1 "matches to 2%" -> 2.5% at the largest panel
+  (mid-range deviations up to 8%); D-E32-2 "with the predicted
+  asymptotic constant (C=2.49)" -> measured effective constant 1.9-2.1
+  against the population constant (finite-sample level of the W1
+  bridge). Artifact quirks documented not patched: C1 association
+  m=424 row is a single with-replacement draw (r=0.325, sd=0; the
+  full value 0.3954 is stored separately and matches V5); with-
+  replacement boundary flips at m>212; B-arm population k=13 excluded
+  from the curve.
+- Deep content-loss scan (scripts/scan_content_loss.py ->
+  v2_content_loss_scan.json): five-version v2 lineage inventoried
+  (L0 8pp -> 8pp -> 10pp -> 12pp -> 20pp). Results: monotone growth at
+  every level (envs 14->33, words 2,825->8,321), zero dropped envs,
+  zero dropped sections; only dropped paragraphs anywhere = the three
+  12pp Methods stubs superseded by the full Methods. Condensation
+  trace (scripts/trace_non_surviving_blocks.py, 5-gram survival): 49
+  of 52 blocks reworded-surviving, 1 partial, and the only 2
+  low-survival blocks are exactly the old Data/Reproducibility stubs
+  (content covered more deeply by the new Methods). No illegitimate
+  condensation.
+- v21 coverage: 332 envs; 115 verbatim in companion, 28 in v2; 212
+  title-flagged entries = 117 unique (rest are v21-internal duplicate
+  restatements). Body-text classification
+  (scripts/classify_flagged_envs.py ->
+  v21_flagged_env_classification.json): 1 title-repair false negative
+  (2-categorical gluing theorem, present in companion at 88% body
+  containment); 116 frozen-v21-only, ALL traced to v21 sections with
+  explicit dispositions in the companion Sec. 2 inventory (rate-
+  distortion/kk_geo superseded by kappa_mu; closure tests A-K; Claims
+  F/G; n=3/n=4 prototypes; Levy fatigue; CPTP-Zeno; elevation studies
+  E1-E20). Nothing silently excised.
+- One restoration executed: the E22 panel-construction four
+  verification checks (GPR mapping 0 failures/120 pairs; definition
+  consistency; distinctness b2097; non-zero variation 435/435),
+  v21 lines 8275-8300, restored into v2 Sec 6.1 -- materially
+  strengthens the panel-construction claim. Nothing else qualifies:
+  remaining frozen-only material is superseded in corrected form,
+  belongs to other research lines, or is preserved in the frozen v21.
+- Wrote download/E32_and_Content_Loss_Scan_Evaluation.md (design,
+  verdicts, numeric verification + D-E32-1/D-E32-2, quirks; scan
+  findings 1-4; restoration judgment; reproducibility).
+
+Stage Summary:
+- E32 EXECUTED (no longer deferred): random panels are Glivenko-
+  Cantelli objects; designed panels reproduce the event measure
+  exactly -- the cleanest closure of the deferral, with the
+  deterministic Route-5 form honestly open.
+- Content-loss scan: NO accidental loss, NO illegitimate condensation
+  in the v2 lineage; v21 fully accounted (ported / companioned /
+  dispositioned); one restoration (E22 four checks) integrated.
+- Manuscript: 22 pages, 0 undefined refs, all E-E32 numbers traced;
+  2 precision defects repaired.
+- Deliverables: scripts/{e32_event_measure_stabilization,
+  scan_content_loss,classify_flagged_envs,
+  trace_non_surviving_blocks}.py,
+  download/deepseek_bridge/e32_event_measure_stabilization.{json,
+  csv,png} + v2_content_loss_scan.json +
+  v21_flagged_env_classification.json, scripts/journal_manuscript_v2.
+  {tex,pdf}, download/E32_and_Content_Loss_Scan_Evaluation.md.
+  Open: PRECISE-1K monitoring; journal submission pass (venue
+  formatting, cover letter); Route-5 deterministic form.

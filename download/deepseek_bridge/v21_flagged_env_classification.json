@@ -1,0 +1,712 @@
+{
+ "summary": {
+  "unique_flagged": 117,
+  "present_retitle": 1,
+  "frozen_v21_only": 116,
+  "body_not_located": 0
+ },
+ "items": [
+  {
+   "kind": "theorem",
+   "title": "2-categorical gluing theorem --- closing\nConjecture~\\ref{conj:global-stratified-holonomy}",
+   "class": "PRESENT-RETITLE",
+   "frac": 0.88
+  },
+  {
+   "kind": "definition",
+   "title": "Algorithmic rate-distortion distance",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.024
+  },
+  {
+   "kind": "proposition",
+   "title": "Properties of $\\distD$",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "remark",
+   "title": "No deterministic-versus-random-coding gap",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "proposition",
+   "title": "Derivation of $\\kk$",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.037
+  },
+  {
+   "kind": "definition",
+   "title": "Smooth finite-code rate-distortion surrogate",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "proposition",
+   "title": "Operational viability margin from smooth surrogate",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.013
+  },
+  {
+   "kind": "conjecture",
+   "title": "Algorithmic upper envelope",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "definition",
+   "title": "Smooth envelope",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.018
+  },
+  {
+   "kind": "lemma",
+   "title": "Uniform Lipschitz bound on the surrogate family",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "theorem",
+   "title": "Smooth-envelope theorem --- closing\nConjecture~\\ref{conj:alg-envelope}",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.032
+  },
+  {
+   "kind": "remark",
+   "title": "Connection to the algorithmic rate-distortion $\\distD$",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "remark",
+   "title": "Numerical verification of the smooth-envelope theorem",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.026
+  },
+  {
+   "kind": "corollary",
+   "title": "Geometric-phase form of $\\kk$ for radially symmetric\n$V$",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.007
+  },
+  {
+   "kind": "remark",
+   "title": "MDP versus POMDP base space",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "remark",
+   "title": "Counterexamples to curvature-survival equivalence",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.007
+  },
+  {
+   "kind": "proposition",
+   "title": "Claim F empirical verdict",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.018
+  },
+  {
+   "kind": "proposition",
+   "title": "Claim G empirical verdict",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.029
+  },
+  {
+   "kind": "remark",
+   "title": "Geometric origin of $\\kk(a)=a^2$ and $H_{\\mathrm{geo}}(a)=\\pi a^2$",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.014
+  },
+  {
+   "kind": "definition",
+   "title": "Fisher--Rao distance as the gauge-invariant observable",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.025
+  },
+  {
+   "kind": "remark",
+   "title": "Why the volume-density expression was replaced",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.011
+  },
+  {
+   "kind": "definition",
+   "title": "Total-variance statistic with non-parametric\nbootstrap",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.035
+  },
+  {
+   "kind": "definition",
+   "title": "Matching-no-loop-drift control",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.012
+  },
+  {
+   "kind": "remark",
+   "title": "Why the protocol is falsifiable",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.023
+  },
+  {
+   "kind": "definition",
+   "title": "Calibration / holdout split",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "definition",
+   "title": "Equal-exposure permutation test",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "definition",
+   "title": "Subdivision consistency",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "remark",
+   "title": "Geometric adaptation fatigue signature",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "proposition",
+   "title": "Stress-test verdicts",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.018
+  },
+  {
+   "kind": "lemma",
+   "title": "It\\^o expansion of the perturbed holonomy",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "theorem",
+   "title": "$3/2$ fatigue exponent from L\\'evy $\\alpha$-stable\nfirst-passage",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.006
+  },
+  {
+   "kind": "lemma",
+   "title": "Non-abelian commutator signature",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.065
+  },
+  {
+   "kind": "proposition",
+   "title": "Non-abelian signature",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "definition",
+   "title": "Dissipative Lindbladian and Liouvillian gap",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.008
+  },
+  {
+   "kind": "proposition",
+   "title": "Quantum Zeno survival probability",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.018
+  },
+  {
+   "kind": "proposition",
+   "title": "Holevo information as the ensemble bound",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "remark",
+   "title": "What the Holevo information is, and is not",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.086
+  },
+  {
+   "kind": "remark",
+   "title": "Self-referential fixed-point resolution; Conjecture~\\ref{conj:zeno-selfref}\nclosed",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.184
+  },
+  {
+   "kind": "remark",
+   "title": "Perturbation-theoretic origin of the Zeno scaling\n$\\alpha_{\\mathrm{Zeno}}\\approx 2$",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "remark",
+   "title": "Why $R^2 = 1.0000$ on the Zeno curve is appropriate,\nnot circular",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "proposition",
+   "title": "Analytic upper bound on the contraction rate",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.103
+  },
+  {
+   "kind": "remark",
+   "title": "When does the analytic bound close the gap?",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.008
+  },
+  {
+   "kind": "proposition",
+   "title": "Base contraction",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.013
+  },
+  {
+   "kind": "proposition",
+   "title": "Control: single expansion optic does not break\ncontraction",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "proposition",
+   "title": "Dimensional robustness of the contraction",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.013
+  },
+  {
+   "kind": "proposition",
+   "title": "Network A closure-test verdicts",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "proposition",
+   "title": "Network B closure-test verdicts",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "remark",
+   "title": "What the test reveals, and what would make the networks\nautopoietic",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "proposition",
+   "title": "Network C closure-test verdicts",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "remark",
+   "title": "Why iJO1366 is partially autopoietic",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "proposition",
+   "title": "Network D closure-test verdicts",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "remark",
+   "title": "What the partial-autopoiesis verdict reveals",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "proposition",
+   "title": "Network E closure-test verdicts --- strictly\ngreater than Network D",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.006
+  },
+  {
+   "kind": "remark",
+   "title": "What the Network E verdict reveals about autopoiesis",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "proposition",
+   "title": "Network F closure-test verdicts --- strictly\ngreater than Network E in both absolute count and fraction",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.005
+  },
+  {
+   "kind": "remark",
+   "title": "What the Network F verdict reveals about cascade breaking",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "proposition",
+   "title": "Network G closure-test verdicts --- strictly\ngreater than Network F",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.12
+  },
+  {
+   "kind": "remark",
+   "title": "Cascade-breaking interpretation",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.013
+  },
+  {
+   "kind": "proposition",
+   "title": "Network H closure-test verdicts --- strictly\ngreater than Network G in both absolute count and fraction; AcCoA\ncascade broken; Phase~III pathwise + univalence-corrected verdict\n$= 100\\\n\\label{prop:netH-verdict}\nDirect numerical simulation of the closure-test protocol\n(script \\texttt{autopoiesis\\_network\\_H.py}) on Network H\n($55$ species: $11$ food + $44$ non-food; $70$ reactions) with\nMichaelis--Menten kinetics ($K_m = 0.1$), first-order degradation\n($\\delta = 0.05$), $T = 500$ steps, viability threshold\n$x_{\\mathrm{thresh}} = 0.1$, and the Phase~III contractibility test\nof Definition~\\ref{def:autopoiesis-phase3} (pathwise fraction\n$\\varphi = 0.4$, perturbation $\\sigma = 0.05$, statistical-tolerance\n$\\tau = 0.30$, $n = 2$ perturbed trajectories), gives:\n\\begin{center}\\footnotesize\n\\begin{tabular}{lccc}\n\\toprule\nLayer & Tested & Internal (Phase~I) & Internal (Phase~III) \\\\\n\\midrule\nMetabolic intermediates & 11 & 10 (all except ALA) & 11 (all) \\\\\nEnzymes (incl.~ALT5/6, ASPAT3/4, GLY/GLYP/PPK) & 32 & 32 (all) & 32 (all) \\\\\nRegulatory (TF) & 1 & 1 & 1 \\\\\n\\midrule\nTotal & 44 & 43 & 44 \\\\\n\\bottomrule\n\\end{tabular}\n\\end{center}\nNetwork H Phase~I endpoint-only verdict: $43/44$ components causally\ninternal ($97.7\\\n($97.6\\\n($97.7\\\nASPAT3/ASPAT4) and TF are causally internal. The AcCoA cascade\nfailure of Network G is BROKEN: AcCoA recovers via the boosted\n$M8$ (PDH) and the dampened OAA-ASP oscillation provided by the\n$M17/M18$ reversible transamination. Of the $11$ metabolic\nintermediates, $10$ are causally internal at Phase~I; the single\nremaining Phase~I ``failure'' is ALA, which recovers to a limit-cycle\noscillation (mean $49.8$, fraction above threshold $0.498$, just\nbelow the $0.5$ pathwise-fraction threshold but above the\nPhase~III threshold $\\varphi = 0.4$). The Phase~III contractibility\ntest PASSES for ALA: perturbed recovery trajectories have matching\nstatistical properties (mean, max, min within relative tolerance\n$\\tau = 0.30$), confirming that the perturbed recoveries are\nphase-shifted oscillations --- homotopy-equivalent through the\nreparameterization $\\gamma_a \\mapsto \\gamma_a \\circ \\rho$ of\nDefinition~\\ref{def:autopoiesis-phase3}(c). The Phase~III pathwise +\nunivalence-corrected verdict is therefore $44/44 = 100\\\ninternal.\n\\end{proposition}\n\n\\begin{remark}[ASP-cascade breaking interpretation, and the\nend of Phase~I/Phase~III divergence",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.048
+  },
+  {
+   "kind": "proposition",
+   "title": "Network I closure-test verdicts --- strictly\ngreater than Network H in both absolute count and fraction; ALA\nlimit-cycle dampened; Phase~III pathwise + univalence-corrected verdict\n$= 100\\\n\\label{prop:netI-verdict}\nDirect numerical simulation of the closure-test protocol\n(script \\texttt{autopoiesis\\_network\\_I.py}) on Network I\n($57$ species: $11$ food + $46$ non-food; $76$ reactions) with\nMichaelis--Menten kinetics ($K_m = 0.1$), first-order degradation\n($\\delta = 0.05$), $T = 500$ steps, viability threshold\n$x_{\\mathrm{thresh}} = 0.1$, and the Phase~III contractibility test\nof Definition~\\ref{def:autopoiesis-phase3} (pathwise fraction\n$\\varphi = 0.4$, perturbation $\\sigma = 0.05$, statistical-tolerance\n$\\tau = 0.30$, $n = 2$ perturbed trajectories), gives:\n\\begin{center}\\footnotesize\n\\begin{tabular}{lccc}\n\\toprule\nLayer & Tested & Internal (Phase~I) & Internal (Phase~III) \\\\\n\\midrule\nMetabolic intermediates & 11 & 10 (all except FBP) & 11 (all) \\\\\nEnzymes (incl.~ALT5/6, ASPAT3/4, ALT7/8, GLY/GLYP/PPK) & 34 & 34 (all) & 34 (all) \\\\\nRegulatory (TF) & 1 & 1 & 1 \\\\\n\\midrule\nTotal & 46 & 45 & 46 \\\\\n\\bottomrule\n\\end{tabular}\n\\end{center}\nNetwork I Phase~I endpoint-only verdict: $45/46$ components causally\ninternal ($97.8\\\n($97.7\\\n($97.8\\\nALT7/ALT8) and TF are causally internal. The ALA limit-cycle failure of\nNetwork H is DAMPENED at Phase~I: ALA recovers via the $M19$ alternative\nALA source (GLU + PYR $\\to$ ALA + $\\alpha$KG) catalyzed by the\n$\\alpha$KG-synthesized ALT7/8 isozyme pair, which stays at high level\nduring ALA knockout (synthesis uses $\\alpha$KG + GLU, neither of which\ndepends on ALA). ALA Phase~I recovery final $= 100$ (Network H had\n$0$). Of the $11$ metabolic intermediates, $10$ are causally internal at\nPhase~I; the single remaining Phase~I ``failure'' is FBP, which recovers\nto a limit-cycle oscillation (mean $47.4$, fraction above threshold\n$0.853$ --- comfortably above the $0.5$ pathwise-fraction threshold and\nwell above the Phase~III threshold $\\varphi = 0.4$). The Phase~III\ncontractibility test PASSES for FBP: perturbed recovery trajectories have\nmatching statistical properties (mean, max, min within relative tolerance\n$\\tau = 0.30$), confirming that the perturbed recoveries are\nphase-shifted oscillations --- homotopy-equivalent through the\nreparameterization $\\gamma_a \\mapsto \\gamma_a \\circ \\rho$ of\nDefinition~\\ref{def:autopoiesis-phase3}(c). The Phase~III pathwise +\nunivalence-corrected verdict is therefore $46/46 = 100\\\ninternal.\n\\end{proposition}\n\n\\begin{remark}[ALA limit-cycle dampening interpretation, and the\nfurther-reduced Phase~I/Phase~III divergence",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.042
+  },
+  {
+   "kind": "proposition",
+   "title": "Network K closure-test verdicts --- strictly\ngreater than Network J in both absolute count and fraction; AcCoA\nresidual dampened; FULL AUTOPOIESIS at Phase~I endpoint-only",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.045
+  },
+  {
+   "kind": "remark",
+   "title": "Convergence of the iterative cascade-breaking strategy\nto full Phase~I closure, and the monotone improvement theorem",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.01
+  },
+  {
+   "kind": "construction",
+   "title": "Network-K-style dampener overlay on iJO1366",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "proposition",
+   "title": "iJO1366+dampener overlay verdict",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "remark",
+   "title": "Scaling ceiling of the FBA closure test at genome scale",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "proposition",
+   "title": "Network K robustness sweep verdict",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.007
+  },
+  {
+   "kind": "remark",
+   "title": "Noise-enhanced autopoiesis",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.006
+  },
+  {
+   "kind": "construction",
+   "title": "Network-K closure-test simplicial diagram",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "proposition",
+   "title": "HoTT infinity-categorical verdict on Network K",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.132
+  },
+  {
+   "kind": "construction",
+   "title": "Network-K AcCoA $\\leftrightarrow$ Acetate policy loop",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.006
+  },
+  {
+   "kind": "proposition",
+   "title": "Non-abelian SO(3) holonomy verdict on Network K",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.019
+  },
+  {
+   "kind": "remark",
+   "title": "Higher-categorical and non-abelian verdicts as\nrefinements of Phase I/III",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.024
+  },
+  {
+   "kind": "remark",
+   "title": "$\\kk$ is nontrivially discriminating",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.007
+  },
+  {
+   "kind": "construction",
+   "title": "Closure test on FIXED iJO1366, no engineering",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "proposition",
+   "title": "Closure-test vs FBA essentiality on iJO1366",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "remark",
+   "title": "The $100\\\ndesign exercise; the iJO1366 verdict is a discovery exercise",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "remark",
+   "title": "v2 iteration: tighter closure-test semantics elevate\nreaction-level $\\kappa$ from $0.206$ to $0.898$",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "remark",
+   "title": "v3 iteration: FULL iJO1366 cytosolic reaction verdict\n(no sampling variance) + Network~K v2 dependency-ratio analysis",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "proposition",
+   "title": "RAF closure $\\to$ Zeno-schedule lower bound",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.006
+  },
+  {
+   "kind": "remark",
+   "title": "Theorem~\\ref{prop:raf-zeno-bound} verified on the\n$E \\to K$ lineage",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.007
+  },
+  {
+   "kind": "definition",
+   "title": "Persistent-homology contractibility test",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "proposition",
+   "title": "Persistent-homology test classifies all five\ntest cases correctly",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "remark",
+   "title": "The HoTT section is theorem-backed, not metaphorical",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.008
+  },
+  {
+   "kind": "remark",
+   "title": "MDL-optimal surrogate selection",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "remark",
+   "title": "v2 iteration: Bayesian model averaging +\npost-hoc calibration close the factor-of-$2$ gap",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "remark",
+   "title": "v3 iteration: $c = 1.625$ is SHAPE-DEPENDENT (not\nuniversal); transferability verified on $V = 1 - x^4$ and $V = 1 - x^6$",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "remark",
+   "title": "Task (a): real-FBA re-derivation of $c$",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "remark",
+   "title": "Task (b): Network K+ cascade-breaking prescription",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "remark",
+   "title": "Task (c): E--J universality test of dep-ratio profile",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "remark",
+   "title": "Update to the elevation summary table",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "remark",
+   "title": "Claim-by-claim verification of the Qwen novelty\nassessment",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.003
+  },
+  {
+   "kind": "remark",
+   "title": "Task E8: $\\kk$ baseline battery on REAL Network K KO\ntrajectories",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "remark",
+   "title": "Task E9: HoTT phase-transition + fundamental-group\ntest",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.007
+  },
+  {
+   "kind": "remark",
+   "title": "Task E10: real metabolic time-series data test\n(Lemuth 2008) on iJO1366",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "remark",
+   "title": "Task E11: cross-organism closure test on iAF1260 +\niMM904 BiGG models",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "remark",
+   "title": "Task E12: Keio-collection growth-phenotype validation\nof $\\kappa_V$ (Upgrade 1, biology channel)",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.001
+  },
+  {
+   "kind": "remark",
+   "title": "Task E13: terminal-coalgebra theorem for maxRAF +\nfunctorial realization of the seven-optic composite (Upgrade 2,\nmathematical closure)",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.002
+  },
+  {
+   "kind": "remark",
+   "title": "Task E14: closure-test benchmark against\nchemical-organization decomposition and network-expansion scopes\n(Upgrade 3, part iii)",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "remark",
+   "title": "Update to the elevation summary table --- v6",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "remark",
+   "title": "Task E15: DIRECT $\\kappa_V$ vs raw Baba 2006 Keio\nessentiality (no transitive Orth-2011 hop)",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "remark",
+   "title": "Task E16: Cross-rebuild validation of $\\kappa_V$ on iML1515\n--- does the model-gap candidate count drop as expected?",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "remark",
+   "title": "Task E17: $\\kappa_V^{(\\Delta b)}$ biomass-residual-weighted\nvariant --- cross-rebuild stability test",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "remark",
+   "title": "E18: indicator-weighted $\\kappa_V$ as main definition;\nre-runs of E1--E14",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.026
+  },
+  {
+   "kind": "remark",
+   "title": "E19: three follow-ups from v10",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.013
+  },
+  {
+   "kind": "remark",
+   "title": "v12 three follow-ups from v11",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.001
+  },
+  {
+   "kind": "proposition",
+   "title": "Joint thesis, strongest defensible form",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "remark",
+   "title": "The upper-bound language is justified by the\nsmooth-envelope theorem",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "proposition",
+   "title": "Sharpened proposition",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "remark",
+   "title": "Three sharpenings",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "remark",
+   "title": "Falsifiability",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.01
+  },
+  {
+   "kind": "remark",
+   "title": "Distinction from the source's curvature-survival equivalence",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.0
+  },
+  {
+   "kind": "conjecture",
+   "title": "Global stratified holonomy across constraint-switching\nboundaries (CLOSED)",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.086
+  },
+  {
+   "kind": "conjecture",
+   "title": "Algorithmic upper envelope (CLOSED)",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.006
+  },
+  {
+   "kind": "conjecture",
+   "title": "Filtered colimits in optic categories (CLOSED)",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.053
+  },
+  {
+   "kind": "conjecture",
+   "title": "Heavy-tail $3/2$ fatigue exponent (CLOSED)",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.009
+  },
+  {
+   "kind": "conjecture",
+   "title": "Quantum self-reference resolution by Zeno contraction (CLOSED)",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.155
+  },
+  {
+   "kind": "remark",
+   "title": "Numerical verification",
+   "class": "FROZEN-V21-ONLY",
+   "frac": 0.013
+  }
+ ]
+}

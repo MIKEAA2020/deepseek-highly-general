@@ -99,7 +99,9 @@ carbon-depletion transcriptional response ($r = +0.395$,
 $p = 2.6 \times 10^{-17}$; partial $r = +0.269$ controlling reference
 level; metric-invariant $\rho = 0.99998$ against the lexicographic
 definition; tie-break-robust across four alternative selection rules,
-E-V8), while the association does not propagate to the protein layer
+E-V8; the underlying event measures stabilize at the
+Glivenko--Cantelli rate across random panels, E-E32), while the
+association does not propagate to the protein layer
 --- consistent with a model in which cells transcribe the potential for
 rerouting while buffering its translation. Double-knockout epistasis aligns
 with active-set structure ($\rho_S = 0.865$), and genotype loops close with
@@ -147,8 +149,9 @@ This manuscript establishes, in order:
       generalizes to oxygen-limitation and carbon-switch trajectories
       with matched responses ($r = +0.32$, $+0.22$; E-V7), is robust
       to the tie-break convention ($r \in [+0.386, +0.396]$ across
-      five selection rules; E-V8), and is
-      buffered at the protein layer (\S\ref{sec:empirical}).
+      five selection rules; E-V8), is buffered at the protein layer
+      (\S\ref{sec:empirical}), and its event measures stabilize at
+      the Glivenko--Cantelli rate across random panels (E-E32).
 \end{enumerate}
 
 \paragraph{Positioning.}
@@ -733,12 +736,22 @@ $2{,}583$ reactions active ($17.0\%$), $435$ genes with at least one
 active reaction. GPR complexity classes over active reactions:
 single-gene $254$, isozyme-OR $96$, complex-AND $36$, mixed $18$,
 no-GPR $34$ --- the classes that drive the concavity analysis of
-Proposition~\ref{prop:semiconvex}. Panel construction is consistent
-with the precursor metric family to the digit (per-gene values and
-panel-level correlations reproduced exactly); the precursor geometric
-metric $\kk$ is weak at the panel level ($r$ from $-0.063$ unmasked
-to $+0.084$ masked) --- the discrepancy that motivated the
-recalibration to $\kmu$ (E-V5).
+Proposition~\ref{prop:semiconvex}. Panel construction passed four
+verification checks (v21 \S E22, restored here after the content-loss
+scan): (i) GPR mapping taken from cobra's authoritative
+\texttt{reaction.genes}, spot-checked against the raw rule strings on
+four reactions spanning all complexity classes, with set-equality of
+gene tokens and a bidirectional gene--reaction symmetry check on $50$
+sampled genes ($0$ failures over $120$ gene--reaction pairs); (ii)
+definition consistency --- the fresh re-derivation reproduces the
+stored precursor values exactly (per-gene maxima, the biomass-deficit
+maximum, and the unmasked/masked panel correlations to four
+decimals); (iii) distinctness --- the panel shares exactly one
+b-number with the precursor MAPPED-15; (iv) non-zero variation ---
+every panel gene has precursor $\kappa_V$ variation $> 0$ over T1--T8
+($435/435$). The precursor geometric metric $\kk$ is weak at the panel
+level ($r$ from $-0.063$ unmasked to $+0.084$ masked) --- the
+discrepancy that motivated the recalibration to $\kmu$ (E-V5).
 
 \subsection{[E-E23] Multi-condition support}
 Nine FBA conditions (baseline carbon decline; galactose, trehalose,
@@ -918,6 +931,69 @@ declared selection is a convention, the value layer does not see it,
 and the flux-layer association is a property of the lexicographic
 protocol class, not of one rule.
 
+\subsection{[E-E32] Event-measure stabilization across growing
+panels (Glivenko--Cantelli type)}\label{sec:e32}
+
+The refinement-stabilization question behind the frozen v21's
+Route-5 program (\emph{do the empirical event point measures of the
+lex-pFBA map converge as the sampled family grows?}) has a
+near-term statistical form, proposed as E32 and executed here on
+three existing data sources: random straight cuts through the M4b
+$(q_{\mathrm{glc}}, q_{O_2})$ signature plane (iML1515, $34\times34$
+census, $350$ boundary edges; a pool of $4{,}000$ random cuts
+yielding $25{,}107$ cut events), the thirteen M1 parameter sweeps
+($2$ affine, $11$ event-bearing), and the E24 protocol of this paper
+(gene panel and trajectory). The metric is the bounded-Lipschitz
+distance (domains normalized to unit diameter, where it equals
+$W_1$; exact in one dimension, transport LP in two); each arm carries
+a permutation null (event locations replaced by uniforms, panel
+structure kept) and the one-dimensional arms carry the classical
+Glivenko--Cantelli asymptotic constant
+$C = \int\sqrt{F(1-F)}\,dx$ of del~Barrio--Gin\'e--Uzet computed from
+the population (Figure~\ref{fig:e32}).
+\begin{enumerate}[label=(\roman*),leftmargin=2em]
+\item \emph{Random panels stabilize at the GC rate.} Pooled cut-event
+      locations on the cut coordinate (d=1): measured tail slope
+      $-0.492$ versus null $-0.506$, measured/null ratio $1.24$ at
+      the largest panel, and the iid prediction $C/\sqrt{n}$ matches
+      the measured curve to $2.5\%$ at the largest panel (mid-range
+      deviations up to $8\%$); the two-dimensional pooled
+      locations (transport LP) decay consistently with the $d=2$ rate
+      up to the reference-noise floor. Sweep panels (thirteen M1
+      families) stabilize with a mid-range heterogeneity penalty of
+      $\approx1.5\times$ the uniform null and a tail faster than
+      iid-GC --- exactly the finite-population correction
+      $\sqrt{(13-k)/12}$ of sampling without replacement from
+      thirteen heterogeneous sweeps. The E24 gene panel: the
+      $\kappa$ distribution stabilizes at the GC rate (measured
+      effective constant $\approx 1.9$--$2.1$ across panel sizes,
+      against the population Glivenko--Cantelli constant $C = 2.49$
+      on the $\log_{10}\kmu$ axis), and the association itself
+      stabilizes at $r \approx +0.39$ with the Fisher standard error
+      $1/\sqrt{m-3}$.
+\item \emph{Designed panels stabilize exactly, not statistically.}
+      The E24 trajectory event point measure is a \emph{four-atom}
+      object: the four design corners of the physiology anchors
+      carry the entire flux-layer mass ($288.77$; the V5 mass to the
+      digit) --- the one-chamber structure of E-V6 in its event form.
+      Anchor-preserving thinning reproduces it \emph{exactly} at every
+      panel size $m \ge 8$ (shape distance $0$, total-mass error
+      $0$, value-kink census $\equiv 4$); uniform random thinning
+      decays by corner censoring (shape distance $0.12 \to 0.005$,
+      mass error $26\% \to 0.1\%$, reaching zero by $m = 43$) --- a
+      resolution effect in the sense of Theorem~\ref{thm:Bprime}(iv),
+      not statistical averaging.
+\end{enumerate}
+Interpretation: the mean-field instinct is confirmed in its
+statistical form --- the empirical event measures over random panels
+(cuts, sweeps, genes) are Glivenko--Cantelli objects --- and
+simultaneously sharpened: stabilization has two regimes, statistical
+for random panels and structural (exact, design-immediate) for
+designed panels. The deterministic refinement-sequence form of the
+question (Route 5 proper: model-family sequences) remains open.
+Artifact: \texttt{deepseek\_bridge/}
+\texttt{e32\_event\_measure\_stabilization.}\{\texttt{json,csv,png}\}.
+
 \begin{figure}[t]
 \centering
 \includegraphics[width=\textwidth]{deepseek_bridge/v5_e24_recalibration.png}
@@ -959,6 +1035,24 @@ variant; (c) the number of grid points at which the tie-break binds
 Artifact: \texttt{deepseek\_bridge/v8\_tiebreak\_robustness.png} /
 \texttt{v8\_tiebreak\_robustness.json}.}
 \label{fig:v8}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{deepseek_bridge/e32_event_measure_stabilization.png}
+\caption{[E-E32] Event-measure stabilization. (a) M4b random cuts:
+pooled event-location distance decays at the Glivenko--Cantelli rate
+(measured tail slope $-0.492$; null $-0.506$; iid prediction
+$C/\sqrt{n}$ to $2.5\%$ at the largest panel); (b) M1 sweep panels: stabilization with the
+finite-population-correction tail; (c) E24 gene panel: the $\kappa$
+distribution at the GC rate (effective constant $\approx 1.9$--$2.1$
+vs.\ the population constant $C = 2.49$);
+(d) E24 trajectory: the $L^1$-reconstruction regime --- random
+thinning decays by corner censoring, anchor-preserving thinning is
+exact ($d_{BL} \equiv 0$) from $m \ge 8$. Artifact:
+\texttt{deepseek\_bridge/e32\_event\_measure\_stabilization.png} /
+\texttt{e32\_event\_measure\_stabilization.json}.}
+\label{fig:e32}
 \end{figure}
 
 \subsection{[E-E25] Platform-by-class disambiguation ($2 \times 2$)}
@@ -1006,9 +1100,12 @@ $\mu * \phi_\sigma$, and its integrals along parameter trajectories
 ($\kmu$). The smooth member exists only through the window
 $h \ll \sigma \ll L_{\mathrm{var}}$; the $\sigma \to 0$ limit is the
 atomic object. Open items, demoted to their honest status:
-Conjecture~\ref{conj:bridge} (general complex stability), E28 under the
-$(\varepsilon, \sigma)$ design law, and E32 (event-measure stabilization
---- the $L^1$-reconstruction regime of Theorem~\ref{thm:Bprime}(iv)).
+Conjecture~\ref{conj:bridge} (general complex stability) and E28
+under the $(\varepsilon, \sigma)$ design law. E32 (event-measure
+stabilization) is now executed (E-E32): the statistical form passes
+--- random panels are Glivenko--Cantelli objects, designed panels
+reproduce the event measure exactly --- and the deterministic
+refinement-sequence form (Route 5 proper) remains open.
 The formal identity $\kappa_{\mathrm{flux}} = \mathcal{F}[\mu]$ is closed by
 Theorem~\ref{thm:coupling} (the exact objective contraction
 $D^2\Phi = \sum_r c_r\, D^2 v^*_r$), which supersedes the earlier
@@ -1027,7 +1124,11 @@ carbon-switch dissociation (PRECISE, E-V5) bounds the generality of
 the association; the E22 active-reaction census (438/2{,}583 and the
 GPR class counts) is plain-FBA and solver-version-sensitive at the
 $\pm 1$-reaction level, while the gene-level panel (435) is stable
-(numeric audit, Appendix~\ref{sec:counts}).
+(numeric audit, Appendix~\ref{sec:counts}); the E32 sweep arm is
+panel-limited (thirteen M1 families, two of them affine --- the
+finite-population correction is part of the reported result) and the
+E32 two-dimensional arm is floor-limited at large panels by the
+transport-LP atom cap.
 
 \paragraph{The companion document.}
 The categorical and homotopy-theoretic material of the predecessor
@@ -1174,12 +1275,15 @@ All experiments deposit artifacts (npz/csv/json/png) with
 generating scripts under \texttt{scripts/} and
 \texttt{download/}; independent-seed reproductions are recorded
 for the refinement prototype (BT1) and the stress batteries. The
-V6/V7/V8 layer decisions, the PRECISE arm, and the tie-break
-robustness re-run in minutes each (scripts
+V6/V7/V8 layer decisions, the PRECISE arm, the tie-break
+robustness, and the E32 event-measure stabilization re-run in
+minutes each (scripts
 \texttt{e24\_layer\_} \texttt{decision.py},
 \texttt{v7\_path\_} \texttt{robustness.py},
 \texttt{precise\_arm\_} \texttt{kappamu.py},
-\texttt{v8\_tiebreak\_} \texttt{robustness.py}). The full numeric audit
+\texttt{v8\_tiebreak\_} \texttt{robustness.py},
+\texttt{e32\_event\_} \texttt{measure\_stabilization.py}; the last
+includes one $57$-solve engine run). The full numeric audit
 (\texttt{audit\_v2\_} \texttt{numbers.py}) re-derives every manuscript
 number from the committed artifacts ($73$ checks, $8$ repaired
 defects D-N1--D-N8, one counts ledger) and is re-runnable
@@ -1214,6 +1318,13 @@ $537$ & union of active reactions across conditions, $20.8\%$ (v16
          results json; the frozen v21's $538$ is a typo) \\
 $525$ & genes with nonzero $\kappa$ across conditions (v16 results
          json; the frozen v21's $524$ is a typo) \\
+$4$ & trajectory atoms of the E24 event measure --- the four design
+         corners carrying the full flux-layer mass $288.77$; identical
+         to the value-kink positions (V6/E32 jsons) \\
+$350$ & M4b boundary edges of the $(q_{\mathrm{glc}}, q_{O_2})$ signature
+         census, full $34\times34$ grid (m4b grid npz) \\
+$25{,}107$ & cut events in the E32 random-cut pool, $4{,}000$ cuts
+         (e32 json) \\
 $1{,}516$ & iML1515 genes, M3 single knockouts (m3 json) \\
 $2{,}779$ & double-knockout pairs, five panels (m3 json) \\
 \bottomrule
@@ -1295,7 +1406,7 @@ exactly $2$. \qed
 \S\ref{sec:computational} & M1/M3/M4 report bodies \\
 \S\ref{sec:empirical} & v21 E22--E27 sections (E22, E23, E25, E26
       ported; E24 $\to$ E-V5 with the PRECISE arm; E27 $\to$ E-E27;
-      V6/V7/V8 new) \\
+      V6/V7/V8/E32 new) \\
 \S\ref{sec:discussion} & v21 discussion, rewritten as resolution statement \\
 \S\ref{sec:methods} & v21 methods; engine documentation (expanded) \\
 Appendices~\ref{sec:counts}--\ref{sec:proofs} & new (numeric audit

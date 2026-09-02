@@ -1,0 +1,1307 @@
+{
+ "versions": {
+  "v2_51ce934_L0_8pp": {
+   "envs": 14,
+   "env_kinds": {
+    "conjecture": 1,
+    "definition": 2,
+    "proposition": 4,
+    "remark": 5,
+    "theorem": 2
+   },
+   "sections": 18,
+   "paragraphs": 7,
+   "E_items": [
+    "E27",
+    "M1",
+    "M3",
+    "M4",
+    "V1",
+    "V5",
+    "n",
+    "series"
+   ],
+   "tables": 0,
+   "figures": 0,
+   "words": 2825,
+   "cites": 0
+  },
+  "v2_3c0f876_8pp": {
+   "envs": 20,
+   "env_kinds": {
+    "conjecture": 2,
+    "definition": 2,
+    "proposition": 7,
+    "remark": 7,
+    "theorem": 2
+   },
+   "sections": 19,
+   "paragraphs": 7,
+   "E_items": [
+    "E27",
+    "M1",
+    "M3",
+    "M4",
+    "V1",
+    "V5",
+    "n",
+    "series"
+   ],
+   "tables": 0,
+   "figures": 0,
+   "words": 3474,
+   "cites": 0
+  },
+  "v2_3cc5f8a_10pp": {
+   "envs": 25,
+   "env_kinds": {
+    "conjecture": 1,
+    "corollary": 1,
+    "definition": 2,
+    "lemma": 1,
+    "proposition": 9,
+    "remark": 8,
+    "theorem": 3
+   },
+   "sections": 21,
+   "paragraphs": 7,
+   "E_items": [
+    "E27",
+    "M1",
+    "M3",
+    "M4",
+    "V1",
+    "V5",
+    "V6",
+    "n",
+    "series"
+   ],
+   "tables": 0,
+   "figures": 0,
+   "words": 4447,
+   "cites": 0
+  },
+  "v2_f3342b1_12pp": {
+   "envs": 28,
+   "env_kinds": {
+    "conjecture": 1,
+    "corollary": 1,
+    "definition": 2,
+    "lemma": 1,
+    "proposition": 9,
+    "remark": 11,
+    "theorem": 3
+   },
+   "sections": 26,
+   "paragraphs": 8,
+   "E_items": [
+    "E22",
+    "E23",
+    "E25",
+    "E26",
+    "E27",
+    "M1",
+    "M3",
+    "M4",
+    "V1",
+    "V5",
+    "V6",
+    "V7",
+    "n",
+    "series"
+   ],
+   "tables": 0,
+   "figures": 0,
+   "words": 5756,
+   "cites": 0
+  },
+  "v2_828c89a_20pp": {
+   "envs": 28,
+   "env_kinds": {
+    "conjecture": 1,
+    "corollary": 1,
+    "definition": 2,
+    "lemma": 1,
+    "proposition": 9,
+    "remark": 11,
+    "theorem": 3
+   },
+   "sections": 37,
+   "paragraphs": 10,
+   "E_items": [
+    "E22",
+    "E23",
+    "E25",
+    "E26",
+    "E27",
+    "M1",
+    "M3",
+    "M4",
+    "V1",
+    "V5",
+    "V6",
+    "V7",
+    "V8",
+    "n",
+    "series"
+   ],
+   "tables": 1,
+   "figures": 5,
+   "words": 8321,
+   "cites": 27
+  }
+ },
+ "transitions": [
+  {
+   "from": "v2_51ce934_L0_8pp",
+   "to": "v2_3c0f876_8pp",
+   "dropped_envs": [],
+   "dropped_sections": [],
+   "dropped_paragraphs": [],
+   "words": [
+    2825,
+    3474
+   ]
+  },
+  {
+   "from": "v2_3c0f876_8pp",
+   "to": "v2_3cc5f8a_10pp",
+   "dropped_envs": [],
+   "dropped_sections": [],
+   "dropped_paragraphs": [],
+   "words": [
+    3474,
+    4447
+   ]
+  },
+  {
+   "from": "v2_3cc5f8a_10pp",
+   "to": "v2_f3342b1_12pp",
+   "dropped_envs": [],
+   "dropped_sections": [],
+   "dropped_paragraphs": [],
+   "words": [
+    4447,
+    5756
+   ]
+  },
+  {
+   "from": "v2_f3342b1_12pp",
+   "to": "v2_828c89a_20pp",
+   "dropped_envs": [],
+   "dropped_sections": [],
+   "dropped_paragraphs": [
+    "Engine.",
+    "Data.",
+    "Reproducibility."
+   ],
+   "words": [
+    5756,
+    8321
+   ]
+  }
+ ],
+ "v21_coverage": {
+  "v21_envs": 332,
+  "v21_sections": 89,
+  "companion_envs": 115,
+  "v2_envs": 28,
+  "v21_envs_not_found_verbatim_in_v2_or_companion": [
+   {
+    "kind": "theorem",
+    "title": "2-categorical gluing theorem --- closing\nConjecture~\\ref{conj:global-stratified-holonomy}",
+    "label": null
+   },
+   {
+    "kind": "definition",
+    "title": "Algorithmic rate-distortion distance",
+    "label": null
+   },
+   {
+    "kind": "proposition",
+    "title": "Properties of $\\distD$",
+    "label": "prop:ard-props"
+   },
+   {
+    "kind": "remark",
+    "title": "No deterministic-versus-random-coding gap",
+    "label": null
+   },
+   {
+    "kind": "proposition",
+    "title": "Derivation of $\\kk$",
+    "label": "prop:kappa-derivation"
+   },
+   {
+    "kind": "definition",
+    "title": "Smooth finite-code rate-distortion surrogate",
+    "label": null
+   },
+   {
+    "kind": "proposition",
+    "title": "Operational viability margin from smooth surrogate",
+    "label": null
+   },
+   {
+    "kind": "conjecture",
+    "title": "Algorithmic upper envelope",
+    "label": null
+   },
+   {
+    "kind": "definition",
+    "title": "Smooth envelope",
+    "label": null
+   },
+   {
+    "kind": "lemma",
+    "title": "Uniform Lipschitz bound on the surrogate family",
+    "label": null
+   },
+   {
+    "kind": "theorem",
+    "title": "Smooth-envelope theorem --- closing\nConjecture~\\ref{conj:alg-envelope}",
+    "label": null
+   },
+   {
+    "kind": "remark",
+    "title": "Connection to the algorithmic rate-distortion $\\distD$",
+    "label": null
+   },
+   {
+    "kind": "remark",
+    "title": "Numerical verification of the smooth-envelope theorem",
+    "label": null
+   },
+   {
+    "kind": "corollary",
+    "title": "Geometric-phase form of $\\kk$ for radially symmetric\n$V$",
+    "label": "cor:kappa-geometric-phase"
+   },
+   {
+    "kind": "remark",
+    "title": "MDP versus POMDP base space",
+    "label": null
+   },
+   {
+    "kind": "remark",
+    "title": "Counterexamples to curvature-survival equivalence",
+    "label": null
+   },
+   {
+    "kind": "proposition",
+    "title": "Claim F empirical verdict",
+    "label": "prop:claimF"
+   },
+   {
+    "kind": "proposition",
+    "title": "Claim G empirical verdict",
+    "label": "prop:claimG"
+   },
+   {
+    "kind": "remark",
+    "title": "Geometric origin of $\\kk(a)=a^2$ and $H_{\\mathrm{geo}}(a)=\\pi a^2$",
+    "label": null
+   },
+   {
+    "kind": "definition",
+    "title": "Fisher--Rao distance as the gauge-invariant observable",
+    "label": null
+   },
+   {
+    "kind": "remark",
+    "title": "Why the volume-density expression was replaced",
+    "label": null
+   },
+   {
+    "kind": "definition",
+    "title": "Total-variance statistic with non-parametric\nbootstrap",
+    "label": null
+   },
+   {
+    "kind": "definition",
+    "title": "Matching-no-loop-drift control",
+    "label": null
+   },
+   {
+    "kind": "remark",
+    "title": "Why the protocol is falsifiable",
+    "label": null
+   },
+   {
+    "kind": "definition",
+    "title": "Calibration / holdout split",
+    "label": null
+   },
+   {
+    "kind": "definition",
+    "title": "Equal-exposure permutation test",
+    "label": null
+   },
+   {
+    "kind": "definition",
+    "title": "Subdivision consistency",
+    "label": null
+   },
+   {
+    "kind": "remark",
+    "title": "Geometric adaptation fatigue signature",
+    "label": null
+   },
+   {
+    "kind": "proposition",
+    "title": "Stress-test verdicts",
+    "label": "prop:stress"
+   },
+   {
+    "kind": "lemma",
+    "title": "It\\^o expansion of the perturbed holonomy",
+    "label": null
+   },
+   {
+    "kind": "theorem",
+    "title": "$3/2$ fatigue exponent from L\\'evy $\\alpha$-stable\nfirst-passage",
+    "label": "thm:levy-3half"
+   },
+   {
+    "kind": "lemma",
+    "title": "Non-abelian commutator signature",
+    "label": "lem:comm"
+   },
+   {
+    "kind": "proposition",
+    "title": "Non-abelian signature",
+    "label": "prop:nonab"
+   },
+   {
+    "kind": "definition",
+    "title": "Dissipative Lindbladian and Liouvillian gap",
+    "label": null
+   },
+   {
+    "kind": "proposition",
+    "title": "Quantum Zeno survival probability",
+    "label": null
+   },
+   {
+    "kind": "proposition",
+    "title": "Holevo information as the ensemble bound",
+    "label": null
+   },
+   {
+    "kind": "remark",
+    "title": "What the Holevo information is, and is not",
+    "label": null
+   },
+   {
+    "kind": "remark",
+    "title": "Self-referential fixed-point resolution; Conjecture~\\ref{conj:zeno-selfref}\nclosed",
+    "label": null
+   },
+   {
+    "kind": "remark",
+    "title": "Perturbation-theoretic origin of the Zeno scaling\n$\\alpha_{\\mathrm{Zeno}}\\approx 2$",
+    "label": null
+   },
+   {
+    "kind": "remark",
+    "title": "Why $R^2 = 1.0000$ on the Zeno curve is appropriate,\nnot circular",
+    "label": null
+   },
+   {
+    "kind": "proposition",
+    "title": "Analytic upper bound on the contraction rate",
+    "label": null
+   },
+   {
+    "kind": "remark",
+    "title": "When does the analytic bound close the gap?",
+    "label": null
+   },
+   {
+    "kind": "proposition",
+    "title": "Base contraction",
+    "label": "prop:titer-base"
+   },
+   {
+    "kind": "proposition",
+    "title": "Control: single expansion optic does not break\ncontraction",
+    "label": "prop:titer-control"
+   },
+   {
+    "kind": "proposition",
+    "title": "Dimensional robustness of the contraction",
+    "label": null
+   },
+   {
+    "kind": "proposition",
+    "title": "Network A closure-test verdicts",
+    "label": null
+   },
+   {
+    "kind": "proposition",
+    "title": "Network B closure-test verdicts",
+    "label": null
+   },
+   {
+    "kind": "remark",
+    "title": "What the test reveals, and what would make the networks\nautopoietic",
+    "label": "rem:autopoiesis-discussion"
+   },
+   {
+    "kind": "proposition",
+    "title": "Network C closure-test verdicts",
+    "label": null
+   },
+   {
+    "kind": "remark",
+    "title": "Why iJO1366 is partially autopoietic",
+    "label": null
+   },
+   {
+    "kind": "proposition",
+    "title": "Network D closure-test verdicts",
+    "label": null
+   },
+   {
+    "kind": "remark",
+    "title": "What the partial-autopoiesis verdict reveals",
+    "label": null
+   },
+   {
+    "kind": "proposition",
+    "title": "Network E closure-test verdicts --- strictly\ngreater than Network D",
+    "label": null
+   },
+   {
+    "kind": "remark",
+    "title": "What the Network E verdict reveals about autopoiesis",
+    "label": null
+   },
+   {
+    "kind": "proposition",
+    "title": "Network F closure-test verdicts --- strictly\ngreater than Network E in both absolute count and fraction",
+    "label": null
+   },
+   {
+    "kind": "remark",
+    "title": "What the Network F verdict reveals about cascade breaking",
+    "label": null
+   },
+   {
+    "kind": "proposition",
+    "title": "Network G closure-test verdicts --- strictly\ngreater than Network F",
+    "label": null
+   },
+   {
+    "kind": "remark",
+    "title": "Cascade-breaking interpretation",
+    "label": null
+   },
+   {
+    "kind": "proposition",
+    "title": "Network H closure-test verdicts --- strictly\ngreater than Network G in both absolute count and fraction; AcCoA\ncascade broken; Phase~III pathwise + univalence-corrected verdict\n$= 100\\\n\\label{prop:netH-verdict}\nDirect numerical simulation of the closure-test protocol\n(script \\texttt{autopoiesis\\_network\\_H.py}) on Network H\n($55$ species: $11$ food + $44$ non-food; $70$ reactions) with\nMichaelis--Menten kinetics ($K_m = 0.1$), first-order degradation\n($\\delta = 0.05$), $T = 500$ steps, viability threshold\n$x_{\\mathrm{thresh}} = 0.1$, and the Phase~III contractibility test\nof Definition~\\ref{def:autopoiesis-phase3} (pathwise fraction\n$\\varphi = 0.4$, perturbation $\\sigma = 0.05$, statistical-tolerance\n$\\tau = 0.30$, $n = 2$ perturbed trajectories), gives:\n\\begin{center}\\footnotesize\n\\begin{tabular}{lccc}\n\\toprule\nLayer & Tested & Internal (Phase~I) & Internal (Phase~III) \\\\\n\\midrule\nMetabolic intermediates & 11 & 10 (all except ALA) & 11 (all) \\\\\nEnzymes (incl.~ALT5/6, ASPAT3/4, GLY/GLYP/PPK) & 32 & 32 (all) & 32 (all) \\\\\nRegulatory (TF) & 1 & 1 & 1 \\\\\n\\midrule\nTotal & 44 & 43 & 44 \\\\\n\\bottomrule\n\\end{tabular}\n\\end{center}\nNetwork H Phase~I endpoint-only verdict: $43/44$ components causally\ninternal ($97.7\\\n($97.6\\\n($97.7\\\nASPAT3/ASPAT4) and TF are causally internal. The AcCoA cascade\nfailure of Network G is BROKEN: AcCoA recovers via the boosted\n$M8$ (PDH) and the dampened OAA-ASP oscillation provided by the\n$M17/M18$ reversible transamination. Of the $11$ metabolic\nintermediates, $10$ are causally internal at Phase~I; the single\nremaining Phase~I ``failure'' is ALA, which recovers to a limit-cycle\noscillation (mean $49.8$, fraction above threshold $0.498$, just\nbelow the $0.5$ pathwise-fraction threshold but above the\nPhase~III threshold $\\varphi = 0.4$). The Phase~III contractibility\ntest PASSES for ALA: perturbed recovery trajectories have matching\nstatistical properties (mean, max, min within relative tolerance\n$\\tau = 0.30$), confirming that the perturbed recoveries are\nphase-shifted oscillations --- homotopy-equivalent through the\nreparameterization $\\gamma_a \\mapsto \\gamma_a \\circ \\rho$ of\nDefinition~\\ref{def:autopoiesis-phase3}(c). The Phase~III pathwise +\nunivalence-corrected verdict is therefore $44/44 = 100\\\ninternal.\n\\end{proposition}\n\n\\begin{remark}[ASP-cascade breaking interpretation, and the\nend of Phase~I/Phase~III divergence",
+    "label": null
+   },
+   {
+    "kind": "proposition",
+    "title": "Network I closure-test verdicts --- strictly\ngreater than Network H in both absolute count and fraction; ALA\nlimit-cycle dampened; Phase~III pathwise + univalence-corrected verdict\n$= 100\\\n\\label{prop:netI-verdict}\nDirect numerical simulation of the closure-test protocol\n(script \\texttt{autopoiesis\\_network\\_I.py}) on Network I\n($57$ species: $11$ food + $46$ non-food; $76$ reactions) with\nMichaelis--Menten kinetics ($K_m = 0.1$), first-order degradation\n($\\delta = 0.05$), $T = 500$ steps, viability threshold\n$x_{\\mathrm{thresh}} = 0.1$, and the Phase~III contractibility test\nof Definition~\\ref{def:autopoiesis-phase3} (pathwise fraction\n$\\varphi = 0.4$, perturbation $\\sigma = 0.05$, statistical-tolerance\n$\\tau = 0.30$, $n = 2$ perturbed trajectories), gives:\n\\begin{center}\\footnotesize\n\\begin{tabular}{lccc}\n\\toprule\nLayer & Tested & Internal (Phase~I) & Internal (Phase~III) \\\\\n\\midrule\nMetabolic intermediates & 11 & 10 (all except FBP) & 11 (all) \\\\\nEnzymes (incl.~ALT5/6, ASPAT3/4, ALT7/8, GLY/GLYP/PPK) & 34 & 34 (all) & 34 (all) \\\\\nRegulatory (TF) & 1 & 1 & 1 \\\\\n\\midrule\nTotal & 46 & 45 & 46 \\\\\n\\bottomrule\n\\end{tabular}\n\\end{center}\nNetwork I Phase~I endpoint-only verdict: $45/46$ components causally\ninternal ($97.8\\\n($97.7\\\n($97.8\\\nALT7/ALT8) and TF are causally internal. The ALA limit-cycle failure of\nNetwork H is DAMPENED at Phase~I: ALA recovers via the $M19$ alternative\nALA source (GLU + PYR $\\to$ ALA + $\\alpha$KG) catalyzed by the\n$\\alpha$KG-synthesized ALT7/8 isozyme pair, which stays at high level\nduring ALA knockout (synthesis uses $\\alpha$KG + GLU, neither of which\ndepends on ALA). ALA Phase~I recovery final $= 100$ (Network H had\n$0$). Of the $11$ metabolic intermediates, $10$ are causally internal at\nPhase~I; the single remaining Phase~I ``failure'' is FBP, which recovers\nto a limit-cycle oscillation (mean $47.4$, fraction above threshold\n$0.853$ --- comfortably above the $0.5$ pathwise-fraction threshold and\nwell above the Phase~III threshold $\\varphi = 0.4$). The Phase~III\ncontractibility test PASSES for FBP: perturbed recovery trajectories have\nmatching statistical properties (mean, max, min within relative tolerance\n$\\tau = 0.30$), confirming that the perturbed recoveries are\nphase-shifted oscillations --- homotopy-equivalent through the\nreparameterization $\\gamma_a \\mapsto \\gamma_a \\circ \\rho$ of\nDefinition~\\ref{def:autopoiesis-phase3}(c). The Phase~III pathwise +\nunivalence-corrected verdict is therefore $46/46 = 100\\\ninternal.\n\\end{proposition}\n\n\\begin{remark}[ALA limit-cycle dampening interpretation, and the\nfurther-reduced Phase~I/Phase~III divergence",
+    "label": null
+   },
+   {
+    "kind": "proposition",
+    "title": "Network K closure-test verdicts --- strictly\ngreater than Network J in both absolute count and fraction; AcCoA\nresidual dampened; FULL AUTOPOIESIS at Phase~I endpoint-only",
+    "label": null
+   },
+   {
+    "kind": "remark",
+    "title": "Convergence of the iterative cascade-breaking strategy\nto full Phase~I closure, and the monotone improvement theorem",
+    "label": null
+   },
+   {
+    "kind": "construction",
+    "title": "Network-K-style dampener overlay on iJO1366",
+    "label": null
+   },
+   {
+    "kind": "proposition",
+    "title": "iJO1366+dampener overlay verdict",
+    "label": null
+   },
+   {
+    "kind": "remark",
+    "title": "Scaling ceiling of the FBA closure test at genome scale",
+    "label": null
+   },
+   {
+    "kind": "proposition",
+    "title": "Network K robustness sweep verdict",
+    "label": null
+   },
+   {
+    "kind": "remark",
+    "title": "Noise-enhanced autopoiesis",
+    "label": null
+   },
+   {
+    "kind": "construction",
+    "title": "Network-K closure-test simplicial diagram",
+    "label": null
+   },
+   {
+    "kind": "proposition",
+    "title": "HoTT infinity-categorical verdict on Network K",
+    "label": null
+   },
+   {
+    "kind": "construction",
+    "title": "Network-K AcCoA $\\leftrightarrow$ Acetate policy loop",
+    "label": null
+   },
+   {
+    "kind": "proposition",
+    "title": "Non-abelian SO(3) holonomy verdict on Network K",
+    "label": null
+   },
+   {
+    "kind": "remark",
+    "title": "Higher-categorical and non-abelian verdicts as\nrefinements of Phase I/III",
+    "label": null
+   },
+   {
+    "kind": "remark",
+    "title": "$\\kk$ is nontrivially discriminating",
+    "label": null
+   },
+   {
+    "kind": "construction",
+    "title": "Closure test on FIXED iJO1366, no engineering",
+    "label": null
+   },
+   {
+    "kind": "proposition",
+    "title": "Closure-test vs FBA essentiality on iJO1366",
+    "label": null
+   },
+   {
+    "kind": "remark",
+    "title": "The $100\\\ndesign exercise; the iJO1366 verdict is a discovery exercise",
+    "label": null
+   },
+   {
+    "kind": "remark",
+    "title": "v2 iteration: tighter closure-test semantics elevate\nreaction-level $\\kappa$ from $0.206$ to $0.898$",
+    "label": null
+   },
+   {
+    "kind": "remark",
+    "title": "v3 iteration: FULL iJO1366 cytosolic reaction verdict\n(no sampling variance) + Network~K v2 dependency-ratio analysis",
+    "label": null
+   },
+   {
+    "kind": "proposition",
+    "title": "RAF closure $\\to$ Zeno-schedule lower bound",
+    "label": null
+   },
+   {
+    "kind": "remark",
+    "title": "Theorem~\\ref{prop:raf-zeno-bound} verified on the\n$E \\to K$ lineage",
+    "label": null
+   },
+   {
+    "kind": "definition",
+    "title": "Persistent-homology contractibility test",
+    "label": null
+   },
+   {
+    "kind": "proposition",
+    "title": "Persistent-homology test classifies all five\ntest cases correctly",
+    "label": null
+   },
+   {
+    "kind": "remark",
+    "title": "The HoTT section is theorem-backed, not metaphorical",
+    "label": null
+   },
+   {
+    "kind": "remark",
+    "title": "MDL-optimal surrogate selection",
+    "label": null
+   },
+   {
+    "kind": "remark",
+    "title": "v2 iteration: Bayesian model averaging +\npost-hoc calibration close the factor-of-$2$ gap",
+    "label": null
+   },
+   {
+    "kind": "remark",
+    "title": "v3 iteration: $c = 1.625$ is SHAPE-DEPENDENT (not\nuniversal); transferability verified on $V = 1 - x^4$ and $V = 1 - x^6$",
+    "label": null
+   },
+   {
+    "kind": "remark",
+    "title": "Task (a): real-FBA re-derivation of $c$",
+    "label": null
+   },
+   {
+    "kind": "remark",
+    "title": "Task (b): Network K+ cascade-breaking prescription",
+    "label": null
+   },
+   {
+    "kind": "remark",
+    "title": "Task (c): E--J universality test of dep-ratio profile",
+    "label": null
+   },
+   {
+    "kind": "remark",
+    "title": "Update to the elevation summary table",
+    "label": null
+   },
+   {
+    "kind": "remark",
+    "title": "Claim-by-claim verification of the Qwen novelty\nassessment",
+    "label": null
+   },
+   {
+    "kind": "remark",
+    "title": "Task E8: $\\kk$ baseline battery on REAL Network K KO\ntrajectories",
+    "label": null
+   },
+   {
+    "kind": "remark",
+    "title": "Task E9: HoTT phase-transition + fundamental-group\ntest",
+    "label": null
+   },
+   {
+    "kind": "remark",
+    "title": "Update to the elevation summary table",
+    "label": null
+   },
+   {
+    "kind": "remark",
+    "title": "Task E10: real metabolic time-series data test\n(Lemuth 2008) on iJO1366",
+    "label": null
+   },
+   {
+    "kind": "remark",
+    "title": "Task E11: cross-organism closure test on iAF1260 +\niMM904 BiGG models",
+    "label": null
+   },
+   {
+    "kind": "remark",
+    "title": "Task E12: Keio-collection growth-phenotype validation\nof $\\kappa_V$ (Upgrade 1, biology channel)",
+    "label": null
+   },
+   {
+    "kind": "remark",
+    "title": "Task E13: terminal-coalgebra theorem for maxRAF +\nfunctorial realization of the seven-optic composite (Upgrade 2,\nmathematical closure)",
+    "label": null
+   },
+   {
+    "kind": "remark",
+    "title": "Task E14: closure-test benchmark against\nchemical-organization decomposition and network-expansion scopes\n(Upgrade 3, part iii)",
+    "label": null
+   },
+   {
+    "kind": "remark",
+    "title": "Update to the elevation summary table --- v6",
+    "label": null
+   },
+   {
+    "kind": "remark",
+    "title": "Task E15: DIRECT $\\kappa_V$ vs raw Baba 2006 Keio\nessentiality (no transitive Orth-2011 hop)",
+    "label": null
+   },
+   {
+    "kind": "remark",
+    "title": "Task E16: Cross-rebuild validation of $\\kappa_V$ on iML1515\n--- does the model-gap candidate count drop as expected?",
+    "label": null
+   },
+   {
+    "kind": "remark",
+    "title": "Task E17: $\\kappa_V^{(\\Delta b)}$ biomass-residual-weighted\nvariant --- cross-rebuild stability test",
+    "label": null
+   },
+   {
+    "kind": "remark",
+    "title": "E18: indicator-weighted $\\kappa_V$ as main definition;\nre-runs of E1--E14",
+    "label": null
+   },
+   {
+    "kind": "remark",
+    "title": "E19: three follow-ups from v10",
+    "label": null
+   },
+   {
+    "kind": "remark",
+    "title": "v12 three follow-ups from v11",
+    "label": null
+   },
+   {
+    "kind": "proposition",
+    "title": "Joint thesis, strongest defensible form",
+    "label": null
+   },
+   {
+    "kind": "remark",
+    "title": "The upper-bound language is justified by the\nsmooth-envelope theorem",
+    "label": null
+   },
+   {
+    "kind": "proposition",
+    "title": "Sharpened proposition",
+    "label": null
+   },
+   {
+    "kind": "remark",
+    "title": "Three sharpenings",
+    "label": null
+   },
+   {
+    "kind": "remark",
+    "title": "Falsifiability",
+    "label": null
+   },
+   {
+    "kind": "remark",
+    "title": "Distinction from the source's curvature-survival equivalence",
+    "label": null
+   },
+   {
+    "kind": "conjecture",
+    "title": "Global stratified holonomy across constraint-switching\nboundaries (CLOSED)",
+    "label": "conj:global-stratified-holonomy"
+   },
+   {
+    "kind": "conjecture",
+    "title": "Algorithmic upper envelope (CLOSED)",
+    "label": null
+   },
+   {
+    "kind": "conjecture",
+    "title": "Filtered colimits in optic categories (CLOSED)",
+    "label": null
+   },
+   {
+    "kind": "conjecture",
+    "title": "Heavy-tail $3/2$ fatigue exponent (CLOSED)",
+    "label": null
+   },
+   {
+    "kind": "conjecture",
+    "title": "Quantum self-reference resolution by Zeno contraction (CLOSED)",
+    "label": null
+   },
+   {
+    "kind": "definition",
+    "title": "Smooth finite-code rate-distortion surrogate",
+    "label": "def:ard-surrogate"
+   },
+   {
+    "kind": "proposition",
+    "title": "Operational viability margin from smooth surrogate",
+    "label": "prop:ard-surrogate"
+   },
+   {
+    "kind": "conjecture",
+    "title": "Algorithmic upper envelope",
+    "label": "conj:alg-envelope"
+   },
+   {
+    "kind": "definition",
+    "title": "Smooth envelope",
+    "label": "def:smooth-envelope"
+   },
+   {
+    "kind": "lemma",
+    "title": "Uniform Lipschitz bound on the surrogate family",
+    "label": "lem:uniform-lip"
+   },
+   {
+    "kind": "theorem",
+    "title": "Smooth-envelope theorem --- closing\nConjecture~\\ref{conj:alg-envelope}",
+    "label": "thm:smooth-envelope"
+   },
+   {
+    "kind": "remark",
+    "title": "Connection to the algorithmic rate-distortion $\\distD$",
+    "label": "rem:envelope-distD"
+   },
+   {
+    "kind": "remark",
+    "title": "Numerical verification of the smooth-envelope theorem",
+    "label": "rem:smooth-envelope-numeric"
+   },
+   {
+    "kind": "remark",
+    "title": "MDP versus POMDP base space",
+    "label": "rem:mdp-pomdp"
+   },
+   {
+    "kind": "remark",
+    "title": "Counterexamples to curvature-survival equivalence",
+    "label": "rem:curv-counterex"
+   },
+   {
+    "kind": "remark",
+    "title": "Geometric origin of $\\kk(a)=a^2$ and $H_{\\mathrm{geo}}(a)=\\pi a^2$",
+    "label": "rem:kappa-intuition"
+   },
+   {
+    "kind": "definition",
+    "title": "Fisher--Rao distance as the gauge-invariant observable",
+    "label": "def:hemp"
+   },
+   {
+    "kind": "definition",
+    "title": "Total-variance statistic with non-parametric\nbootstrap",
+    "label": "def:tstat"
+   },
+   {
+    "kind": "definition",
+    "title": "Matching-no-loop-drift control",
+    "label": "def:control"
+   },
+   {
+    "kind": "definition",
+    "title": "Calibration / holdout split",
+    "label": "def:calholdout"
+   },
+   {
+    "kind": "definition",
+    "title": "Equal-exposure permutation test",
+    "label": "def:permutation"
+   },
+   {
+    "kind": "definition",
+    "title": "Subdivision consistency",
+    "label": "def:subdivision"
+   },
+   {
+    "kind": "remark",
+    "title": "Geometric adaptation fatigue signature",
+    "label": "rem:reversed-loop"
+   },
+   {
+    "kind": "lemma",
+    "title": "It\\^o expansion of the perturbed holonomy",
+    "label": "lem:ito-expand"
+   },
+   {
+    "kind": "remark",
+    "title": "Numerical verification",
+    "label": "rem:levy-numerical"
+   },
+   {
+    "kind": "definition",
+    "title": "Dissipative Lindbladian and Liouvillian gap",
+    "label": "def:lindbladian"
+   },
+   {
+    "kind": "proposition",
+    "title": "Quantum Zeno survival probability",
+    "label": "prop:zeno-survival"
+   },
+   {
+    "kind": "proposition",
+    "title": "Holevo information as the ensemble bound",
+    "label": "prop:holevo"
+   },
+   {
+    "kind": "remark",
+    "title": "Self-referential fixed-point resolution; Conjecture~\\ref{conj:zeno-selfref}\nclosed",
+    "label": "rem:zeno-fixed-point"
+   },
+   {
+    "kind": "remark",
+    "title": "Perturbation-theoretic origin of the Zeno scaling\n$\\alpha_{\\mathrm{Zeno}}\\approx 2$",
+    "label": "rem:zeno-derivation"
+   },
+   {
+    "kind": "remark",
+    "title": "Why $R^2 = 1.0000$ on the Zeno curve is appropriate,\nnot circular",
+    "label": "rem:zeno-r2"
+   },
+   {
+    "kind": "proposition",
+    "title": "Analytic upper bound on the contraction rate",
+    "label": "prop:qbound"
+   },
+   {
+    "kind": "remark",
+    "title": "When does the analytic bound close the gap?",
+    "label": "rem:qbound-tightness"
+   },
+   {
+    "kind": "proposition",
+    "title": "Dimensional robustness of the contraction",
+    "label": "prop:titer"
+   },
+   {
+    "kind": "proposition",
+    "title": "Network A closure-test verdicts",
+    "label": "prop:netA-verdict"
+   },
+   {
+    "kind": "proposition",
+    "title": "Network B closure-test verdicts",
+    "label": "prop:netB-verdict"
+   },
+   {
+    "kind": "proposition",
+    "title": "Network C closure-test verdicts",
+    "label": "prop:netC-verdict"
+   },
+   {
+    "kind": "remark",
+    "title": "Why iJO1366 is partially autopoietic",
+    "label": "rem:ijO1366-discussion"
+   },
+   {
+    "kind": "proposition",
+    "title": "Network D closure-test verdicts",
+    "label": "prop:netD-verdict"
+   },
+   {
+    "kind": "remark",
+    "title": "What the partial-autopoiesis verdict reveals",
+    "label": "rem:netD-discussion"
+   },
+   {
+    "kind": "proposition",
+    "title": "Network E closure-test verdicts --- strictly\ngreater than Network D",
+    "label": "prop:netE-verdict"
+   },
+   {
+    "kind": "remark",
+    "title": "What the Network E verdict reveals about autopoiesis",
+    "label": "rem:netE-discussion"
+   },
+   {
+    "kind": "proposition",
+    "title": "Network F closure-test verdicts --- strictly\ngreater than Network E in both absolute count and fraction",
+    "label": "prop:netF-verdict"
+   },
+   {
+    "kind": "remark",
+    "title": "What the Network F verdict reveals about cascade breaking",
+    "label": "rem:netF-discussion"
+   },
+   {
+    "kind": "proposition",
+    "title": "Network G closure-test verdicts --- strictly\ngreater than Network F",
+    "label": "prop:netG-verdict"
+   },
+   {
+    "kind": "remark",
+    "title": "Cascade-breaking interpretation",
+    "label": "rem:netG-discussion"
+   },
+   {
+    "kind": "proposition",
+    "title": "Network H closure-test verdicts --- strictly\ngreater than Network G in both absolute count and fraction; AcCoA\ncascade broken; Phase~III pathwise + univalence-corrected verdict\n$= 100\\\n\\label{prop:netH-verdict}\nDirect numerical simulation of the closure-test protocol\n(script \\texttt{autopoiesis\\_network\\_H.py}) on Network H\n($55$ species: $11$ food + $44$ non-food; $70$ reactions) with\nMichaelis--Menten kinetics ($K_m = 0.1$), first-order degradation\n($\\delta = 0.05$), $T = 500$ steps, viability threshold\n$x_{\\mathrm{thresh}} = 0.1$, and the Phase~III contractibility test\nof Definition~\\ref{def:autopoiesis-phase3} (pathwise fraction\n$\\varphi = 0.4$, perturbation $\\sigma = 0.05$, statistical-tolerance\n$\\tau = 0.30$, $n = 2$ perturbed trajectories), gives:\n\\begin{center}\\footnotesize\n\\begin{tabular}{lccc}\n\\toprule\nLayer & Tested & Internal (Phase~I) & Internal (Phase~III) \\\\\n\\midrule\nMetabolic intermediates & 11 & 10 (all except ALA) & 11 (all) \\\\\nEnzymes (incl.~ALT5/6, ASPAT3/4, GLY/GLYP/PPK) & 32 & 32 (all) & 32 (all) \\\\\nRegulatory (TF) & 1 & 1 & 1 \\\\\n\\midrule\nTotal & 44 & 43 & 44 \\\\\n\\bottomrule\n\\end{tabular}\n\\end{center}\nNetwork H Phase~I endpoint-only verdict: $43/44$ components causally\ninternal ($97.7\\\n($97.6\\\n($97.7\\\nASPAT3/ASPAT4) and TF are causally internal. The AcCoA cascade\nfailure of Network G is BROKEN: AcCoA recovers via the boosted\n$M8$ (PDH) and the dampened OAA-ASP oscillation provided by the\n$M17/M18$ reversible transamination. Of the $11$ metabolic\nintermediates, $10$ are causally internal at Phase~I; the single\nremaining Phase~I ``failure'' is ALA, which recovers to a limit-cycle\noscillation (mean $49.8$, fraction above threshold $0.498$, just\nbelow the $0.5$ pathwise-fraction threshold but above the\nPhase~III threshold $\\varphi = 0.4$). The Phase~III contractibility\ntest PASSES for ALA: perturbed recovery trajectories have matching\nstatistical properties (mean, max, min within relative tolerance\n$\\tau = 0.30$), confirming that the perturbed recoveries are\nphase-shifted oscillations --- homotopy-equivalent through the\nreparameterization $\\gamma_a \\mapsto \\gamma_a \\circ \\rho$ of\nDefinition~\\ref{def:autopoiesis-phase3}(c). The Phase~III pathwise +\nunivalence-corrected verdict is therefore $44/44 = 100\\\ninternal.\n\\end{proposition}\n\n\\begin{remark}[ASP-cascade breaking interpretation, and the\nend of Phase~I/Phase~III divergence",
+    "label": "rem:netH-discussion"
+   },
+   {
+    "kind": "proposition",
+    "title": "Network I closure-test verdicts --- strictly\ngreater than Network H in both absolute count and fraction; ALA\nlimit-cycle dampened; Phase~III pathwise + univalence-corrected verdict\n$= 100\\\n\\label{prop:netI-verdict}\nDirect numerical simulation of the closure-test protocol\n(script \\texttt{autopoiesis\\_network\\_I.py}) on Network I\n($57$ species: $11$ food + $46$ non-food; $76$ reactions) with\nMichaelis--Menten kinetics ($K_m = 0.1$), first-order degradation\n($\\delta = 0.05$), $T = 500$ steps, viability threshold\n$x_{\\mathrm{thresh}} = 0.1$, and the Phase~III contractibility test\nof Definition~\\ref{def:autopoiesis-phase3} (pathwise fraction\n$\\varphi = 0.4$, perturbation $\\sigma = 0.05$, statistical-tolerance\n$\\tau = 0.30$, $n = 2$ perturbed trajectories), gives:\n\\begin{center}\\footnotesize\n\\begin{tabular}{lccc}\n\\toprule\nLayer & Tested & Internal (Phase~I) & Internal (Phase~III) \\\\\n\\midrule\nMetabolic intermediates & 11 & 10 (all except FBP) & 11 (all) \\\\\nEnzymes (incl.~ALT5/6, ASPAT3/4, ALT7/8, GLY/GLYP/PPK) & 34 & 34 (all) & 34 (all) \\\\\nRegulatory (TF) & 1 & 1 & 1 \\\\\n\\midrule\nTotal & 46 & 45 & 46 \\\\\n\\bottomrule\n\\end{tabular}\n\\end{center}\nNetwork I Phase~I endpoint-only verdict: $45/46$ components causally\ninternal ($97.8\\\n($97.7\\\n($97.8\\\nALT7/ALT8) and TF are causally internal. The ALA limit-cycle failure of\nNetwork H is DAMPENED at Phase~I: ALA recovers via the $M19$ alternative\nALA source (GLU + PYR $\\to$ ALA + $\\alpha$KG) catalyzed by the\n$\\alpha$KG-synthesized ALT7/8 isozyme pair, which stays at high level\nduring ALA knockout (synthesis uses $\\alpha$KG + GLU, neither of which\ndepends on ALA). ALA Phase~I recovery final $= 100$ (Network H had\n$0$). Of the $11$ metabolic intermediates, $10$ are causally internal at\nPhase~I; the single remaining Phase~I ``failure'' is FBP, which recovers\nto a limit-cycle oscillation (mean $47.4$, fraction above threshold\n$0.853$ --- comfortably above the $0.5$ pathwise-fraction threshold and\nwell above the Phase~III threshold $\\varphi = 0.4$). The Phase~III\ncontractibility test PASSES for FBP: perturbed recovery trajectories have\nmatching statistical properties (mean, max, min within relative tolerance\n$\\tau = 0.30$), confirming that the perturbed recoveries are\nphase-shifted oscillations --- homotopy-equivalent through the\nreparameterization $\\gamma_a \\mapsto \\gamma_a \\circ \\rho$ of\nDefinition~\\ref{def:autopoiesis-phase3}(c). The Phase~III pathwise +\nunivalence-corrected verdict is therefore $46/46 = 100\\\ninternal.\n\\end{proposition}\n\n\\begin{remark}[ALA limit-cycle dampening interpretation, and the\nfurther-reduced Phase~I/Phase~III divergence",
+    "label": "rem:netI-discussion"
+   },
+   {
+    "kind": "proposition",
+    "title": "Network K closure-test verdicts --- strictly\ngreater than Network J in both absolute count and fraction; AcCoA\nresidual dampened; FULL AUTOPOIESIS at Phase~I endpoint-only",
+    "label": "prop:netK-verdict"
+   },
+   {
+    "kind": "remark",
+    "title": "Convergence of the iterative cascade-breaking strategy\nto full Phase~I closure, and the monotone improvement theorem",
+    "label": "rem:netK-discussion"
+   },
+   {
+    "kind": "proposition",
+    "title": "iJO1366+dampener overlay verdict",
+    "label": "prop:ijO1366-overlay"
+   },
+   {
+    "kind": "remark",
+    "title": "Scaling ceiling of the FBA closure test at genome scale",
+    "label": "rem:ijO1366-overlay-ceiling"
+   },
+   {
+    "kind": "proposition",
+    "title": "Network K robustness sweep verdict",
+    "label": "prop:netK-robust"
+   },
+   {
+    "kind": "remark",
+    "title": "Noise-enhanced autopoiesis",
+    "label": "rem:noise-enhanced"
+   },
+   {
+    "kind": "proposition",
+    "title": "HoTT infinity-categorical verdict on Network K",
+    "label": "prop:netK-hott"
+   },
+   {
+    "kind": "proposition",
+    "title": "Non-abelian SO(3) holonomy verdict on Network K",
+    "label": "prop:netK-so3"
+   },
+   {
+    "kind": "remark",
+    "title": "Higher-categorical and non-abelian verdicts as\nrefinements of Phase I/III",
+    "label": "rem:netK-hott-so3"
+   },
+   {
+    "kind": "remark",
+    "title": "$\\kk$ is nontrivially discriminating",
+    "label": "rem:kappa-v-baselines"
+   },
+   {
+    "kind": "proposition",
+    "title": "Closure-test vs FBA essentiality on iJO1366",
+    "label": "prop:iJO1366-external"
+   },
+   {
+    "kind": "remark",
+    "title": "The $100\\\ndesign exercise; the iJO1366 verdict is a discovery exercise",
+    "label": "rem:iJO1366-discovery"
+   },
+   {
+    "kind": "remark",
+    "title": "v2 iteration: tighter closure-test semantics elevate\nreaction-level $\\kappa$ from $0.206$ to $0.898$",
+    "label": "rem:iJO1366-external-v2"
+   },
+   {
+    "kind": "remark",
+    "title": "v3 iteration: FULL iJO1366 cytosolic reaction verdict\n(no sampling variance) + Network~K v2 dependency-ratio analysis",
+    "label": "rem:iJO1366-external-v3"
+   },
+   {
+    "kind": "proposition",
+    "title": "RAF closure $\\to$ Zeno-schedule lower bound",
+    "label": "prop:raf-zeno-bound"
+   },
+   {
+    "kind": "remark",
+    "title": "Theorem~\\ref{prop:raf-zeno-bound} verified on the\n$E \\to K$ lineage",
+    "label": "rem:raf-zeno-verification"
+   },
+   {
+    "kind": "definition",
+    "title": "Persistent-homology contractibility test",
+    "label": "def:persistent-homology-contractibility"
+   },
+   {
+    "kind": "proposition",
+    "title": "Persistent-homology test classifies all five\ntest cases correctly",
+    "label": "prop:persistent-homology-verdict"
+   },
+   {
+    "kind": "remark",
+    "title": "The HoTT section is theorem-backed, not metaphorical",
+    "label": "rem:hott-persistent-homology"
+   },
+   {
+    "kind": "remark",
+    "title": "MDL-optimal surrogate selection",
+    "label": "rem:mdl-selection-rule"
+   },
+   {
+    "kind": "remark",
+    "title": "v2 iteration: Bayesian model averaging +\npost-hoc calibration close the factor-of-$2$ gap",
+    "label": "rem:mdl-selection-rule-v2"
+   },
+   {
+    "kind": "remark",
+    "title": "v3 iteration: $c = 1.625$ is SHAPE-DEPENDENT (not\nuniversal); transferability verified on $V = 1 - x^4$ and $V = 1 - x^6$",
+    "label": "rem:mdl-selection-rule-v3"
+   },
+   {
+    "kind": "remark",
+    "title": "Task (a): real-FBA re-derivation of $c$",
+    "label": "rem:real-fba-c-v4"
+   },
+   {
+    "kind": "remark",
+    "title": "Task (b): Network K+ cascade-breaking prescription",
+    "label": "rem:netkplus-cascade-breaking-v4"
+   },
+   {
+    "kind": "remark",
+    "title": "Task (c): E--J universality test of dep-ratio profile",
+    "label": "rem:networks-E-J-v3-dep-ratio-v4"
+   },
+   {
+    "kind": "remark",
+    "title": "Update to the elevation summary table",
+    "label": "rem:elevation-summary-table-v4"
+   },
+   {
+    "kind": "remark",
+    "title": "Claim-by-claim verification of the Qwen novelty\nassessment",
+    "label": "rem:qwen-claim-verification"
+   },
+   {
+    "kind": "remark",
+    "title": "Task E8: $\\kk$ baseline battery on REAL Network K KO\ntrajectories",
+    "label": "rem:kappa-v-real-network-k-v5"
+   },
+   {
+    "kind": "remark",
+    "title": "Task E9: HoTT phase-transition + fundamental-group\ntest",
+    "label": "rem:hott-phase-transition-v5"
+   },
+   {
+    "kind": "remark",
+    "title": "Update to the elevation summary table",
+    "label": "rem:elevation-summary-table-v5"
+   },
+   {
+    "kind": "remark",
+    "title": "Task E10: real metabolic time-series data test\n(Lemuth 2008) on iJO1366",
+    "label": "rem:e10-real-time-series"
+   },
+   {
+    "kind": "remark",
+    "title": "Task E11: cross-organism closure test on iAF1260 +\niMM904 BiGG models",
+    "label": "rem:e11-cross-organism"
+   },
+   {
+    "kind": "remark",
+    "title": "Task E12: Keio-collection growth-phenotype validation\nof $\\kappa_V$ (Upgrade 1, biology channel)",
+    "label": "rem:e12-keio-validation"
+   },
+   {
+    "kind": "remark",
+    "title": "Task E13: terminal-coalgebra theorem for maxRAF +\nfunctorial realization of the seven-optic composite (Upgrade 2,\nmathematical closure)",
+    "label": "rem:e13-terminal-coalgebra"
+   },
+   {
+    "kind": "remark",
+    "title": "Task E14: closure-test benchmark against\nchemical-organization decomposition and network-expansion scopes\n(Upgrade 3, part iii)",
+    "label": "rem:e14-structural-benchmark"
+   },
+   {
+    "kind": "remark",
+    "title": "Update to the elevation summary table --- v6",
+    "label": "rem:elevation-summary-table-v6"
+   },
+   {
+    "kind": "remark",
+    "title": "Task E15: DIRECT $\\kappa_V$ vs raw Baba 2006 Keio\nessentiality (no transitive Orth-2011 hop)",
+    "label": "rem:e15-direct-keio"
+   },
+   {
+    "kind": "remark",
+    "title": "Task E16: Cross-rebuild validation of $\\kappa_V$ on iML1515\n--- does the model-gap candidate count drop as expected?",
+    "label": "rem:e16-iml1515-cross-rebuild"
+   },
+   {
+    "kind": "remark",
+    "title": "Task E17: $\\kappa_V^{(\\Delta b)}$ biomass-residual-weighted\nvariant --- cross-rebuild stability test",
+    "label": "rem:e17-delta-biomass-variant"
+   },
+   {
+    "kind": "remark",
+    "title": "E18: indicator-weighted $\\kappa_V$ as main definition;\nre-runs of E1--E14",
+    "label": "rem:e18-indicator-main-definition"
+   },
+   {
+    "kind": "remark",
+    "title": "E19: three follow-ups from v10",
+    "label": "rem:e19-three-follow-ups"
+   },
+   {
+    "kind": "remark",
+    "title": "v12 three follow-ups from v11",
+    "label": "rem:e20-three-follow-ups"
+   },
+   {
+    "kind": "proposition",
+    "title": "Joint thesis, strongest defensible form",
+    "label": "prop:main"
+   },
+   {
+    "kind": "remark",
+    "title": "The upper-bound language is justified by the\nsmooth-envelope theorem",
+    "label": "rem:main-bound"
+   },
+   {
+    "kind": "proposition",
+    "title": "Sharpened proposition",
+    "label": "prop:main-sharp"
+   },
+   {
+    "kind": "remark",
+    "title": "Three sharpenings",
+    "label": "rem:sharpenings"
+   },
+   {
+    "kind": "remark",
+    "title": "Falsifiability",
+    "label": "rem:main-falsifiable"
+   },
+   {
+    "kind": "remark",
+    "title": "Distinction from the source's curvature-survival equivalence",
+    "label": "rem:curv-equiv"
+   },
+   {
+    "kind": "conjecture",
+    "title": "Algorithmic upper envelope (CLOSED)",
+    "label": "conj:alg-envelope-restate"
+   },
+   {
+    "kind": "conjecture",
+    "title": "Filtered colimits in optic categories (CLOSED)",
+    "label": "conj:filtered-colimits-optic"
+   },
+   {
+    "kind": "conjecture",
+    "title": "Heavy-tail $3/2$ fatigue exponent (CLOSED)",
+    "label": "conj:heavytail-3half"
+   },
+   {
+    "kind": "conjecture",
+    "title": "Quantum self-reference resolution by Zeno contraction (CLOSED)",
+    "label": "conj:zeno-selfref"
+   }
+  ],
+  "note": "verbatim label/title match only; companion Sec. 2 records the authoritative dispositions (frozen-v21 items are preserved by design, not by verbatim inclusion)"
+ },
+ "condensation": [
+  {
+   "from": "v2_51ce934_L0_8pp",
+   "to": "v2_3c0f876_8pp",
+   "blocks_before": 30,
+   "blocks_after": 36,
+   "verbatim_surviving": 30,
+   "shrunk_gt25pct": []
+  },
+  {
+   "from": "v2_3c0f876_8pp",
+   "to": "v2_3cc5f8a_10pp",
+   "blocks_before": 36,
+   "blocks_after": 42,
+   "verbatim_surviving": 35,
+   "shrunk_gt25pct": []
+  },
+  {
+   "from": "v2_3cc5f8a_10pp",
+   "to": "v2_f3342b1_12pp",
+   "blocks_before": 42,
+   "blocks_after": 52,
+   "verbatim_surviving": 41,
+   "shrunk_gt25pct": []
+  },
+  {
+   "from": "v2_f3342b1_12pp",
+   "to": "v2_828c89a_20pp",
+   "blocks_before": 52,
+   "blocks_after": 70,
+   "verbatim_surviving": 41,
+   "shrunk_gt25pct": []
+  }
+ ]
+}
