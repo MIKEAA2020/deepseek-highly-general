@@ -5013,3 +5013,81 @@ Stage Summary:
   {tex,pdf}, download/E32_and_Content_Loss_Scan_Evaluation.md.
   Open: PRECISE-1K monitoring; journal submission pass (venue
   formatting, cover letter); Route-5 deterministic form.
+
+---
+Task ID: 8 (journal-submission pass round)
+Agent: main (Super Z)
+Task: User round 2026-09-02: (1) verify the tie-break robustness
+table; (2) full journal formatting (references, captions, abstract,
+cover letter); (3) defer PRECISE-1K; (4) final overstatement pass over
+Results and Discussion; then commit and push.
+
+Work Log:
+- Premise verification: item 1 FALSE -- the formal E-V8 tie-break
+  table (5 rules TB0-TB4, r/partial-r/rho_S/genes-changed, plus a
+  dedicated figure) has been in the manuscript since commit 828c89a;
+  this round's summary had led with E32/content-scan, which is why the
+  reviewer missed it. New audit check JP-1 guards its presence.
+  Item 2 TRUE in part (gaps: reference style, author summary,
+  keywords, backmatter, ToC removal, cover letter). Item 3 ACCEPTED
+  (no action). Item 4 TRUE (5 defects found).
+- PLOS-style references (scripts/build_plos_refs.py -> generated
+  scripts/journal_manuscript_v2_plos_refs.tex): 26 entries in order of
+  first citation, PLOS entry layout, 6-author et al. rule, natbib
+  optional labels for the 2 textually-cited keys, \emph italics;
+  superscript numeric citations (natbib [super,sort&compress]).
+  Journal names kept as stored (PLOS copyediting abbreviates at proof
+  -- documented decision).
+- Front matter: keywords line (8 terms); Author Summary (158 words,
+  PLOS Comp Bio requirement); abstract 289 words (<= 300); ToC
+  removed; caption package with period label separator + "Fig"
+  abbreviation (captions and 6 in-text occurrences).
+- Backmatter added: Data/Software/Code Availability (public repo,
+  SHA-256 manifest, public sources); Funding and Competing Interests
+  as clearly-marked submitter placeholders (no author facts
+  invented).
+- Cover letter drafted (download/cover_letter_plos_compbio.md): PLOS
+  Computational Biology, Research Article, three-point significance
+  case with manuscript-traced numbers only.
+- Final accuracy pass: audit extended by 25 checks (E32-1..17 from
+  the e32 json; E22R-1..2 restored-E22 source traceability; JP-1..6
+  journal-pass structure) -> 98/98 PASS
+  (download/deepseek_bridge/v2_number_audit.{json,md}). Defects
+  found and fixed: D-JS1 (C1 effective constant 1.9-2.1 -> 1.6-2.1
+  dipping at m=128; recomputed); D-JS2 ('exactly the FPC' ->
+  'consistent with', measured 0.49 vs pure FPC 0.29 at k=12, honest
+  ratio curve 1.8x -> 1.5x -> 0.5x); D-JS3 ('up to 8%' -> 'as large
+  as 8.2%'); D-JS4 (restored E22 distinctness now names b2097 as in
+  the frozen v21); D-JS5 (C2 machine-zero claims quantified: anchor
+  bl <= 7e-13, mass err <= 2e-12, uniform-thinning err 2.6e-12 at
+  m=43 and exactly 0 only at the full panel m=57).
+- Phrase audit of every 'exactly/identical/to the digit/matches'
+  occurrence in Results/Discussion: all are mathematical identities,
+  machine-verified claims, or now quantified; zero novelty
+  superlatives.
+- Environment repair: cobra absent from the current venv (session
+  restart); installed cobra 0.32.1 into /home/z/.venv so the audit's
+  fresh-solve re-derivations remain runnable.
+- Manuscript rebuilt: 21 pages, tectonic clean, 0 undefined
+  references, front matter verified by text extraction.
+- Wrote download/Journal_Submission_Pass_Evaluation.md (premise
+  verdicts; target-journal rationale; executed items; D-JS1..5;
+  compliance table; open items for the submitter; reproducibility).
+
+Stage Summary:
+- Item 1: no action needed (E-V8 table verified present; guarded by
+  audit check JP-1).
+- Item 2 EXECUTED: PLOS Comp Bio submission package -- 26
+  PLOS-style numbered references (citation order, generated + checked),
+  superscript citations, keywords, 158-word Author Summary, 289-word
+  abstract, backmatter with placeholders, cover letter; 21-page
+  manuscript, 0 undefined refs.
+- Item 3: accepted, no action (PRECISE-1K stays deferred).
+- Item 4 EXECUTED: 98/98 audit PASS (25 new checks) + phrase audit;
+  5 defects repaired (D-JS1..5).
+- Target journal is a documented default (PLOS Computational
+  Biology); retargeting is mechanical via the reference generator.
+- Open: submitter-level items (author/affiliations, funding,
+  competing interests, suggested reviewers, SI split of appendices,
+  optional sastry2019 preprint -> published-version upgrade);
+  PRECISE-1K post-submission.

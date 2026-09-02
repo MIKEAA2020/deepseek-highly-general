@@ -1,8 +1,8 @@
-# v2 numeric consistency audit (2026-09-02)
+# v2 numeric consistency audit (2026-09-02; extended journal-submission round)
 
-**73 PASS / 0 FAIL of 73 checks.**
+**98 PASS / 0 FAIL of 98 checks.**
 
-Manuscript defects found (all fixed in v2 after this audit): D-N1 (13 sweeps / 10 knockdowns), D-N2 (1.5e-7 -> 1.51e-7), D-N3 (lambda range), D-N4 (TV ratio 3.6-4.4), D-N5 (MWU p <= 2e-3), D-N6 (residuals <= 1.2e-10 + documented eno sub-threshold kink), D-N7 (abstract 93.4-100.0%), D-N8 (+0.032).
+Manuscript defects found and fixed: D-N1 (13 sweeps / 10 knockdowns), D-N2 (1.5e-7 -> 1.51e-7), D-N3 (lambda range), D-N4 (TV ratio 3.6-4.4), D-N5 (MWU p <= 2e-3), D-N6 (residuals <= 1.2e-10 + documented eno sub-threshold kink), D-N7 (abstract 93.4-100.0%), D-N8 (+0.032); journal round: D-JS1 (C1 effective constant 1.6-2.1 dipping at m=128), D-JS2 ('exactly the FPC' -> 'consistent with', 0.49 vs 0.29 at k=12), D-JS3 ('up to 8%' -> 'as large as 8.2%').
 
 | id | claim | status | artifact value | source |
 |---|---|---|---|---|
@@ -79,6 +79,31 @@ Manuscript defects found (all fixed in v2 after this audit): D-N1 (13 sweeps / 1
 | E22-2R | 438 of 2,583 active (17.0%); GPR classes 254/96/36/18/34 (plain-FBA ce | PASS | 439/2583; classes {'no-gpr': 34, 'single': 253, 'isozyme-or': 98, 'com | recomputed (plain FBA, 8 anchors, EPS=1e-9) |
 | LEDGER-1 | counts ledger assembled (12 entries) | PASS | 12 entries | see ledger |
 | QUIRK-1 | V5 json arm labels '4x'/'8x' are swapped | PASS | labels: 'kappa_mu max (4x)' holds the 8x-refinement values (df8); 'kap | v5_e24_recalibration.json:arms keys |
+| E32-1 | A1 measured tail slope -0.492 | PASS | -0.492 | e32 json A1_d1.loglog_tail_slope |
+| E32-2 | A1 null tail slope -0.506 | PASS | -0.506 | e32 json A1_d1.null_loglog_tail_slope |
+| E32-3 | measured/null ratio 1.24 at the largest panel | PASS | 1.24 | e32 json A1_d1 |
+| E32-4 | iid prediction matches to 2.5% at the largest panel | PASS | 2.5 | e32 json A1_d1 bl/iid_gc_pred-1 |
+| E32-5 | mid-range deviations as large as 8.2% (m=128) | PASS | 8.2 | e32 json A1_d1 max |bl/iid-1| |
+| E32-6 | cut pool 4,000; events 25,107; boundary edges 350; grid 34x34 | PASS | (4000, 25107, 350, 'iML1515 (glc, O2) 34x34 signature census') | e32 json A_m4b_random_cuts |
+| E32-7 | thirteen M1 sweeps: 2 affine, 11 event-bearing | PASS | 13: 2 affine, 11 event-bearing | e32 json B_m1_sweep_panels.sweeps |
+| E32-8 | heterogeneity penalty ~1.5x at k=6 (falls from 1.8x, to 0.5x at k=12) | PASS | k=6: 1.52, k=12: 0.49 | e32 json B curve bl/null |
+| E32-9 | FPC formula sqrt((13-k)/12) present; 'exactly the finite-population co | PASS | 13-k)/12 present; overstatement absent | manuscript text |
+| E32-10 | population GC constant C = 2.49 (3 s.f.) | PASS | 2.495 | e32 json C1 gc_constant_pop |
+| E32-11 | measured effective constant ~1.6-2.1 (dipping at m=128); '1.9-2.1' rem | PASS | min 1.649, max 2.113 | e32 json C1 curve bl*sqrt(m) |
+| E32-12 | association stabilizes r in [0.389, 0.397] for m <= 256; full-panel r  | PASS | [0.3888, 0.3974], full 0.3954 | e32 json C1 association |
+| E32-13 | Fisher SD column = 1/sqrt(m-3) | PASS | all rows | e32 json C1 r_curve 4th column |
+| E32-14 | four-atom mass 288.77 = the V5 mass to the digit | PASS | 288.76892 in v5: True | e32 json C2 reference vs v5 json stored floats |
+| E32-15 | anchor-preserving thinning exact: bl = 0 to machine precision (<= 7e-1 | PASS | max bl 6.6e-13, kinks {4.0}, max err 1.7e-12 | e32 json C2 anchor_thinning |
+| E32-16 | uniform thinning: shape 0.12 -> 0.005 by m=43; mass err 26% -> 0.13% b | PASS | bl 0.1209->0.0054, err 0.2614->0.0013->2.6e-12 | e32 json C2 uniform_thinning |
+| E32-17 | population is a four-atom object (n_atoms = 4) | PASS | 4 | e32 json C2 population |
+| E22R-1 | GPR check: 0 failures over 120 gene-reaction pairs (matches frozen v21 | PASS | both texts present | v21 sec E22 + v2 Sec 6.1 |
+| E22R-2 | distinctness b2097 shared with MAPPED-15; non-zero variation 435/435 ( | PASS | both texts present | v21 sec E22 + v2 Sec 6.1 |
+| JP-1 | tie-break robustness table present (5 rules TB0-TB4, rho_S >= 0.99897, | PASS | TB4 + 0.99897 + 9.3 present | v2 E-V8 table |
+| JP-2 | superscript numeric citations; no table of contents; generated PLOS re | PASS | all present | v2 preamble/backmatter |
+| JP-3 | abstract <= 300 words; Author Summary present and <= 200 words; keywor | PASS | abstract 289w, summary 158w | v2 front matter |
+| JP-4 | backmatter: Data/Software/Code Availability, Funding, Competing Intere | PASS | all present | v2 backmatter |
+| JP-5 | 26 PLOS-style references, numbered in order of first citation; all cit | PASS | 26 entries, order match True | generated plos refs |
+| JP-6 | in-text 'Fig' abbreviation throughout (no 'Figure~') | PASS | Figure~ absent | v2 text |
 
 ## Counts ledger (near-colliding counts)
 

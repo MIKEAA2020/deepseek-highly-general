@@ -1,7 +1,7 @@
 {
- "experiment": "v2 numeric consistency audit (review residual risk 2 / advice 5)",
- "n_checks": 73,
- "n_pass": 73,
+ "experiment": "v2 numeric consistency audit (review residual risk 2 / advice 5; extended: E32 + restored E22 + journal-submission pass)",
+ "n_checks": 98,
+ "n_pass": 98,
  "n_fail": 0,
  "manuscript_defects_found": [
   "D-N1: 'twelve sweeps / eight knockdowns' -> 13 sweeps / 10 knockdowns (m1_summary.json; M1 report body)",
@@ -11,7 +11,10 @@
   "D-N5: 'MWU p <= 1e-4' -> p <= 2e-3, 7 of 11 crossing sweeps at <= 1e-4 (rpe 1.7e-3, tktA 1.6e-3, zwf 9.1e-4)",
   "D-N6: 'segment residuals <= 8e-14' -> <= 1.2e-10 (glucose 8e-14) with one documented eno sub-threshold kink at 4.1e-3",
   "D-N7: abstract '100.0000%' -> 93.4-100.0% per crossing sweep (kd_eno 0.9345)",
-  "D-N8: 'r = +0.03' (P2 shadow arm) -> +0.032 for artifact digit match"
+  "D-N8: 'r = +0.03' (P2 shadow arm) -> +0.032 for artifact digit match",
+  "D-JS1 (journal round): C1 'effective constant 1.9-2.1' -> 1.6-2.1 dipping at m=128 (e32 json; recomputed)",
+  "D-JS2 (journal round): 'exactly the finite-population correction' -> 'consistent with', measured ratio 0.49 vs pure FPC 0.29 at k=12 (e32 json)",
+  "D-JS3 (journal round): 'mid-range deviations up to 8%' -> as large as 8.2% (m=128) (e32 json)"
  ],
  "counts_ledger": [
   {
@@ -659,6 +662,211 @@
    "value": "labels: 'kappa_mu max (4x)' holds the 8x-refinement values (df8); 'kappa_mu max (8x)' holds 4x",
    "status": "PASS",
    "note": "cosmetic label swap in the frozen V5 artifact; the deposited csv is df8 and the reported +0.3954 is the 8x value; refinement robustness conclusion unaffected (both reported); frozen artifact not edited"
+  },
+  {
+   "id": "E32-1",
+   "claim": "A1 measured tail slope -0.492",
+   "artifact": "e32 json A1_d1.loglog_tail_slope",
+   "value": -0.492,
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "E32-2",
+   "claim": "A1 null tail slope -0.506",
+   "artifact": "e32 json A1_d1.null_loglog_tail_slope",
+   "value": -0.506,
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "E32-3",
+   "claim": "measured/null ratio 1.24 at the largest panel",
+   "artifact": "e32 json A1_d1",
+   "value": 1.24,
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "E32-4",
+   "claim": "iid prediction matches to 2.5% at the largest panel",
+   "artifact": "e32 json A1_d1 bl/iid_gc_pred-1",
+   "value": 2.5,
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "E32-5",
+   "claim": "mid-range deviations as large as 8.2% (m=128)",
+   "artifact": "e32 json A1_d1 max |bl/iid-1|",
+   "value": 8.2,
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "E32-6",
+   "claim": "cut pool 4,000; events 25,107; boundary edges 350; grid 34x34",
+   "artifact": "e32 json A_m4b_random_cuts",
+   "value": [
+    4000,
+    25107,
+    350,
+    "iML1515 (glc, O2) 34x34 signature census"
+   ],
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "E32-7",
+   "claim": "thirteen M1 sweeps: 2 affine, 11 event-bearing",
+   "artifact": "e32 json B_m1_sweep_panels.sweeps",
+   "value": "13: 2 affine, 11 event-bearing",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "E32-8",
+   "claim": "heterogeneity penalty ~1.5x at k=6 (falls from 1.8x, to 0.5x at k=12)",
+   "artifact": "e32 json B curve bl/null",
+   "value": "k=6: 1.52, k=12: 0.49",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "E32-9",
+   "claim": "FPC formula sqrt((13-k)/12) present; 'exactly the finite-population correction' removed (D-JS2)",
+   "artifact": "manuscript text",
+   "value": "13-k)/12 present; overstatement absent",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "E32-10",
+   "claim": "population GC constant C = 2.49 (3 s.f.)",
+   "artifact": "e32 json C1 gc_constant_pop",
+   "value": 2.495,
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "E32-11",
+   "claim": "measured effective constant ~1.6-2.1 (dipping at m=128); '1.9-2.1' removed (D-JS1)",
+   "artifact": "e32 json C1 curve bl*sqrt(m)",
+   "value": "min 1.649, max 2.113",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "E32-12",
+   "claim": "association stabilizes r in [0.389, 0.397] for m <= 256; full-panel r = 0.3954",
+   "artifact": "e32 json C1 association",
+   "value": "[0.3888, 0.3974], full 0.3954",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "E32-13",
+   "claim": "Fisher SD column = 1/sqrt(m-3)",
+   "artifact": "e32 json C1 r_curve 4th column",
+   "value": "all rows",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "E32-14",
+   "claim": "four-atom mass 288.77 = the V5 mass to the digit",
+   "artifact": "e32 json C2 reference vs v5 json stored floats",
+   "value": "288.76892 in v5: True",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "E32-15",
+   "claim": "anchor-preserving thinning exact: bl = 0 to machine precision (<= 7e-13), kinks = 4, mass err <= 2e-12 at every m >= 8",
+   "artifact": "e32 json C2 anchor_thinning",
+   "value": "max bl 6.6e-13, kinks {4.0}, max err 1.7e-12",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "E32-16",
+   "claim": "uniform thinning: shape 0.12 -> 0.005 by m=43; mass err 26% -> 0.13% by m=29, machine-zero (<=3e-12) from m=43, exactly 0 at m=57",
+   "artifact": "e32 json C2 uniform_thinning",
+   "value": "bl 0.1209->0.0054, err 0.2614->0.0013->2.6e-12",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "E32-17",
+   "claim": "population is a four-atom object (n_atoms = 4)",
+   "artifact": "e32 json C2 population",
+   "value": 4,
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "E22R-1",
+   "claim": "GPR check: 0 failures over 120 gene-reaction pairs (matches frozen v21 E22)",
+   "artifact": "v21 sec E22 + v2 Sec 6.1",
+   "value": "both texts present",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "E22R-2",
+   "claim": "distinctness b2097 shared with MAPPED-15; non-zero variation 435/435 (matches frozen v21)",
+   "artifact": "v21 sec E22 + v2 Sec 6.1",
+   "value": "both texts present",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "JP-1",
+   "claim": "tie-break robustness table present (5 rules TB0-TB4, rho_S >= 0.99897, kappa change 9.3e-5)",
+   "artifact": "v2 E-V8 table",
+   "value": "TB4 + 0.99897 + 9.3 present",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "JP-2",
+   "claim": "superscript numeric citations; no table of contents; generated PLOS reference list input",
+   "artifact": "v2 preamble/backmatter",
+   "value": "all present",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "JP-3",
+   "claim": "abstract <= 300 words; Author Summary present and <= 200 words; keywords line present",
+   "artifact": "v2 front matter",
+   "value": "abstract 289w, summary 158w",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "JP-4",
+   "claim": "backmatter: Data/Software/Code Availability, Funding, Competing Interests",
+   "artifact": "v2 backmatter",
+   "value": "all present",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "JP-5",
+   "claim": "26 PLOS-style references, numbered in order of first citation; all cited keys resolve",
+   "artifact": "generated plos refs",
+   "value": "26 entries, order match True",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "id": "JP-6",
+   "claim": "in-text 'Fig' abbreviation throughout (no 'Figure~')",
+   "artifact": "v2 text",
+   "value": "Figure~ absent",
+   "status": "PASS",
+   "note": ""
   }
  ]
 }

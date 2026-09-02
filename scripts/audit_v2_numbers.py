@@ -17,6 +17,7 @@ Outputs: download/deepseek_bridge/v2_number_audit.json (full ledger)
 """
 import json
 import os
+import re
 import sys
 import warnings
 
@@ -776,8 +777,209 @@ check("QUIRK-1", "V5 json arm labels '4x'/'8x' are swapped",
       "frozen artifact not edited")
 
 # =====================================================================
+# G. E32 event-measure stabilization + restored E22 checks +
+#    journal-submission pass (final accuracy round, item 4)
+# =====================================================================
+E32 = json.load(open(os.path.join(DB,
+            "e32_event_measure_stabilization.json")))
+A_ = E32["sources"]["A_m4b_random_cuts"]
+B_ = E32["sources"]["B_m1_sweep_panels"]
+C1_ = E32["sources"]["C1_e24_gene_panel"]
+C2_ = E32["sources"]["C2_e24_trajectory"]
+tex2 = open(os.path.join(BASE, "scripts",
+                         "journal_manuscript_v2.tex")).read()
+import math
+
+# --- A1 arm (M4b random cuts, d=1) ---
+a1 = A_["A1_d1"]
+check("E32-1", "A1 measured tail slope -0.492", "e32 json "
+      "A1_d1.loglog_tail_slope", round(a1["loglog_tail_slope"], 3),
+      close(a1["loglog_tail_slope"], -0.492, 5e-4))
+check("E32-2", "A1 null tail slope -0.506", "e32 json "
+      "A1_d1.null_loglog_tail_slope",
+      round(a1["null_loglog_tail_slope"], 3),
+      close(a1["null_loglog_tail_slope"], -0.506, 5e-4))
+ratio_large = a1["bl_mean"][-1] / a1["null_mean"][-1]
+check("E32-3", "measured/null ratio 1.24 at the largest panel",
+      "e32 json A1_d1", round(ratio_large, 2),
+      close(ratio_large, 1.24, 5e-3))
+dev_large = a1["bl_mean"][-1] / a1["iid_gc_pred"][-1] - 1.0
+check("E32-4", "iid prediction matches to 2.5% at the largest panel",
+      "e32 json A1_d1 bl/iid_gc_pred-1", round(100 * dev_large, 1),
+      close(100 * dev_large, 2.5, 0.05))
+devs = [abs(b / p - 1.0) * 100 for b, p in
+        zip(a1["bl_mean"], a1["iid_gc_pred"])]
+check("E32-5", "mid-range deviations as large as 8.2% (m=128)",
+      "e32 json A1_d1 max |bl/iid-1|", round(max(devs), 1),
+      close(max(devs), 8.2, 0.06) and "8.2" in tex2)
+check("E32-6", "cut pool 4,000; events 25,107; boundary edges 350; "
+      "grid 34x34", "e32 json A_m4b_random_cuts",
+      (A_["cut_pool"], A_["events_total"],
+       A_["n_boundary_edges_full_grid"], A_["plane"]),
+      A_["cut_pool"] == 4000 and A_["events_total"] == 25107 and
+      A_["n_boundary_edges_full_grid"] == 350 and
+      "34" in A_["plane"])
+
+# --- B arm (M1 sweep panels) ---
+sw = B_["sweeps"]
+n_affine = sum(1 for v in sw.values() if v["flux_events"] == 0)
+n_evbear = sum(1 for v in sw.values() if v["flux_events"] > 0)
+check("E32-7", "thirteen M1 sweeps: 2 affine, 11 event-bearing",
+      "e32 json B_m1_sweep_panels.sweeps", f"{len(sw)}: "
+      f"{n_affine} affine, {n_evbear} event-bearing",
+      len(sw) == 13 and n_affine == 2 and n_evbear == 11)
+bc = B_["curve"]
+k6 = bc["sizes"].index(6)
+r6 = bc["bl_mean"][k6] / bc["null_mean"][k6]
+r12 = bc["bl_mean"][-1] / bc["null_mean"][-1]
+check("E32-8", "heterogeneity penalty ~1.5x at k=6 (falls from 1.8x, "
+      "to 0.5x at k=12)", "e32 json B curve bl/null",
+      f"k=6: {r6:.2f}, k=12: {r12:.2f}",
+      close(r6, 1.5, 0.03) and close(r12, 0.49, 0.02) and
+      "1.8" in tex2 and "0.49" in tex2)
+check("E32-9", "FPC formula sqrt((13-k)/12) present; 'exactly the "
+      "finite-population correction' removed (D-JS2)",
+      "manuscript text", "13-k)/12 present; overstatement absent",
+      "(13-k)/12" in tex2 and
+      "exactly the finite-population" not in tex2)
+
+# --- C1 arm (E24 gene panel) ---
+check("E32-10", "population GC constant C = 2.49 (3 s.f.)", "e32 json "
+      "C1 gc_constant_pop", round(C1_["gc_constant_pop"], 3),
+      abs(C1_["gc_constant_pop"] - 2.49) <= 0.005)
+eff = [bl * math.sqrt(m) for m, bl in
+       zip(C1_["curve"]["sizes"], C1_["curve"]["bl_mean"]) if m < 424]
+check("E32-11", "measured effective constant ~1.6-2.1 (dipping at "
+      "m=128); '1.9-2.1' removed (D-JS1)", "e32 json C1 curve "
+      "bl*sqrt(m)", f"min {min(eff):.3f}, max {max(eff):.3f}",
+      close(min(eff), 1.648, 5e-3) and close(max(eff), 2.113, 5e-3)
+      and "1.6" in tex2 and "1.9--2.1" not in tex2)
+rc = C1_["association"]["r_curve"]
+rr = [row[1] for row in rc if row[0] <= 256]
+check("E32-12", "association stabilizes r in [0.389, 0.397] for "
+      "m <= 256; full-panel r = 0.3954", "e32 json C1 association",
+      f"[{min(rr):.4f}, {max(rr):.4f}], full "
+      f"{C1_['association']['r_full_nonzero']:.4f}",
+      min(rr) >= 0.38875 and max(rr) <= 0.39745 and
+      close(C1_["association"]["r_full_nonzero"], 0.3954, 5e-4))
+fisher_ok = all(close(row[3], 1.0 / math.sqrt(row[0] - 3), 5e-4)
+                for row in rc)
+check("E32-13", "Fisher SD column = 1/sqrt(m-3)", "e32 json C1 "
+      "r_curve 4th column", "all rows", fisher_ok)
+
+# --- C2 arm (E24 trajectory) ---
+def _floats(o):
+    if isinstance(o, dict):
+        for v in o.values():
+            yield from _floats(v)
+    elif isinstance(o, list):
+        for v in o:
+            yield from _floats(v)
+    elif isinstance(o, float):
+        yield o
+
+
+v5 = json.load(open(os.path.join(DB, "v5_e24_recalibration.json")))
+v5_vals = set(_floats(v5))
+ref = C2_["total_mass_4x_8x_v5_reference"]
+check("E32-14", "four-atom mass 288.77 = the V5 mass to the digit",
+      "e32 json C2 reference vs v5 json stored floats",
+      f"{ref:.5f} in v5: {ref in v5_vals}",
+      ref in v5_vals and close(ref, 288.77, 5e-4))
+anch = C2_["anchor_thinning"]
+check("E32-15", "anchor-preserving thinning exact: bl = 0 to machine "
+      "precision (<= 7e-13), kinks = 4, mass err <= 2e-12 at every "
+      "m >= 8", "e32 json C2 "
+      "anchor_thinning", f"max bl {max(anch['bl_mean']):.1e}, kinks "
+      f"{set(anch['value_kinks_mean'])}, max err "
+      f"{max(abs(x) for x in anch['rel_mass_err_mean']):.1e}",
+      max(anch["bl_mean"]) <= 1e-12 and
+      set(anch["value_kinks_mean"]) == {4.0} and
+      max(abs(x) for x in anch["rel_mass_err_mean"]) <= 2e-12)
+uni = C2_["uniform_thinning"]
+i43 = uni["sizes"].index(43)
+i29 = uni["sizes"].index(29)
+check("E32-16", "uniform thinning: shape 0.12 -> 0.005 by m=43; mass "
+      "err 26% -> 0.13% by m=29, machine-zero (<=3e-12) from m=43, "
+      "exactly 0 at m=57",
+      "e32 json C2 uniform_thinning",
+      f"bl {uni['bl_mean'][0]:.4f}->{uni['bl_mean'][i43]:.4f}, "
+      f"err {uni['rel_mass_err_mean'][0]:.4f}->"
+      f"{uni['rel_mass_err_mean'][i29]:.4f}->{uni['rel_mass_err_mean'][i43]:.1e}",
+      close(uni["bl_mean"][0], 0.12, 5e-3) and
+      close(uni["bl_mean"][i43], 0.0054, 5e-3) and
+      close(uni["rel_mass_err_mean"][0], 0.26, 5e-3) and
+      close(uni["rel_mass_err_mean"][i29], 0.0013, 5e-4) and
+      uni["rel_mass_err_mean"][i43] <= 3e-12 and
+      uni["rel_mass_err_mean"][i43 + 1] == 0.0 and
+      uni["bl_mean"][i43 + 1] == 0.0)
+check("E32-17", "population is a four-atom object (n_atoms = 4)",
+      "e32 json C2 population", C2_["population"]["n_atoms"],
+      C2_["population"]["n_atoms"] == 4)
+
+# --- restored E22 panel-construction checks (source: frozen v21) ---
+v21t = open(os.path.join(BASE, "scripts",
+                         "journal_manuscript.tex")).read()
+check("E22R-1", "GPR check: 0 failures over 120 gene-reaction pairs "
+      "(matches frozen v21 E22)", "v21 sec E22 + v2 Sec 6.1",
+      "both texts present", "0$ failures over $120$" in v21t and
+      ("0$ failures over $120$" in tex2))
+check("E22R-2", "distinctness b2097 shared with MAPPED-15; non-zero "
+      "variation 435/435 (matches frozen v21)",
+      "v21 sec E22 + v2 Sec 6.1", "both texts present",
+      "b2097" in v21t and "b2097" in tex2 and
+      "435/435" in v21t and "435/435" in tex2)
+
+# --- journal-submission pass structure checks ---
+check("JP-1", "tie-break robustness table present (5 rules TB0-TB4, "
+      "rho_S >= 0.99897, kappa change 9.3e-5)", "v2 E-V8 table",
+      "TB4 + 0.99897 + 9.3 present",
+      "TB4" in tex2 and "0.99897" in tex2 and "9.3" in tex2)
+check("JP-2", "superscript numeric citations; no table of contents; "
+      "generated PLOS reference list input",
+      "v2 preamble/backmatter", "all present",
+      "[super,sort&compress]{natbib}" in tex2 and
+      "tableofcontents" not in tex2 and
+      "journal_manuscript_v2_plos_refs" in tex2)
+m_abs = re.search(r"\\begin\{abstract\}(.*?)\\end\{abstract\}", tex2,
+                  re.S)
+abs_words = len(re.findall(r"[A-Za-z0-9\-]+",
+                re.sub(r"\\[a-zA-Z]+", " ", m_abs.group(1))))
+m_sum = re.search(r"\\section\*\{Author Summary\}(.*?)\\section",
+                  tex2, re.S)
+sum_words = len(re.findall(r"[A-Za-z0-9\-]+", m_sum.group(1))) \
+    if m_sum else -1
+check("JP-3", "abstract <= 300 words; Author Summary present and "
+      "<= 200 words; keywords line present", "v2 front matter",
+      f"abstract {abs_words}w, summary {sum_words}w",
+      abs_words <= 300 and 0 < sum_words <= 200 and
+      "Keywords:" in tex2)
+check("JP-4", "backmatter: Data/Software/Code Availability, Funding, "
+      "Competing Interests", "v2 backmatter", "all present",
+      "Data, Software, and Code Availability" in tex2 and
+      "Competing Interests" in tex2 and
+      "Funding" in tex2)
+plos_refs = open(os.path.join(BASE, "scripts",
+                 "journal_manuscript_v2_plos_refs.tex")).read()
+n_bib = len(re.findall(r"\\bibitem", plos_refs))
+order_keys = []
+for m in re.finditer(r"\\cite[tp]?\{([^}]*)\}", tex2):
+    for k in m.group(1).split(","):
+        k = k.strip()
+        if k and k not in order_keys:
+            order_keys.append(k)
+ref_order = re.findall(r"\\bibitem(?:\[[^\]]*\])?\{([^}]*)\}", plos_refs)
+check("JP-5", "26 PLOS-style references, numbered in order of first "
+      "citation; all cited keys resolve", "generated plos refs",
+      f"{n_bib} entries, order match {ref_order == order_keys}",
+      n_bib == 26 and ref_order == order_keys and
+      set(order_keys) == set(ref_order))
+check("JP-6", "in-text 'Fig' abbreviation throughout (no 'Figure~')",
+      "v2 text", "Figure~ absent", "Figure~" not in tex2)
+
 out = {"experiment": "v2 numeric consistency audit (review residual "
-                     "risk 2 / advice 5)",
+                     "risk 2 / advice 5; extended: E32 + restored "
+                     "E22 + journal-submission pass)",
        "n_checks": len(checks),
        "n_pass": sum(1 for c in checks if c["status"] == "PASS"),
        "n_fail": sum(1 for c in checks if c["status"] == "FAIL"),
@@ -796,22 +998,32 @@ out = {"experiment": "v2 numeric consistency audit (review residual "
            "D-N7: abstract '100.0000%' -> 93.4-100.0% per crossing "
            "sweep (kd_eno 0.9345)",
            "D-N8: 'r = +0.03' (P2 shadow arm) -> +0.032 for artifact "
-           "digit match"],
+           "digit match",
+           "D-JS1 (journal round): C1 'effective constant 1.9-2.1' -> "
+           "1.6-2.1 dipping at m=128 (e32 json; recomputed)",
+           "D-JS2 (journal round): 'exactly the finite-population "
+           "correction' -> 'consistent with', measured ratio 0.49 vs "
+           "pure FPC 0.29 at k=12 (e32 json)",
+           "D-JS3 (journal round): 'mid-range deviations up to 8%' -> "
+           "as large as 8.2% (m=128) (e32 json)"],
        "counts_ledger": [{"value": v, "meaning": m, "source": s}
                          for v, m, s in ledger],
        "checks": checks}
 with open(os.path.join(DB, "v2_number_audit.json"), "w") as f:
     json.dump(out, f, indent=1, default=str)
 
-md = ["# v2 numeric consistency audit (2026-09-02)", "",
+md = ["# v2 numeric consistency audit (2026-09-02; extended "
+      "journal-submission round)", "",
       f"**{out['n_pass']} PASS / {out['n_fail']} FAIL of "
       f"{out['n_checks']} checks.**", "",
-      "Manuscript defects found (all fixed in v2 after this audit): "
-      "D-N1 (13 sweeps / 10 knockdowns), D-N2 (1.5e-7 -> 1.51e-7), "
-      "D-N3 (lambda range), D-N4 (TV ratio 3.6-4.4), D-N5 (MWU p "
-      "<= 2e-3), D-N6 (residuals <= 1.2e-10 + documented eno "
-      "sub-threshold kink), D-N7 (abstract 93.4-100.0%), D-N8 "
-      "(+0.032).", "",
+      "Manuscript defects found and fixed: D-N1 (13 sweeps / 10 "
+      "knockdowns), D-N2 (1.5e-7 -> 1.51e-7), D-N3 (lambda range), "
+      "D-N4 (TV ratio 3.6-4.4), D-N5 (MWU p <= 2e-3), D-N6 (residuals "
+      "<= 1.2e-10 + documented eno sub-threshold kink), D-N7 (abstract "
+      "93.4-100.0%), D-N8 (+0.032); journal round: D-JS1 (C1 effective "
+      "constant 1.6-2.1 dipping at m=128), D-JS2 ('exactly the FPC' -> "
+      "'consistent with', 0.49 vs 0.29 at k=12), D-JS3 ('up to 8%' -> "
+      "'as large as 8.2%').", "",
       "| id | claim | status | artifact value | source |", "|---|---|---|---|---|"]
 for c in checks:
     md.append(f"| {c['id']} | {str(c['claim'])[:70]} | {c['status']} | "

@@ -23,7 +23,9 @@
 \usepackage{microtype}
 \usepackage{booktabs}
 \usepackage{tabularx}
-\usepackage[round]{natbib}
+\usepackage[super,sort&compress]{natbib}
+\usepackage[labelsep=period]{caption}
+\renewcommand{\figurename}{Fig}
 \usepackage{enumitem}
 \usepackage{xcolor}
 \usepackage{graphicx}
@@ -110,8 +112,29 @@ previously distinct sensitivity objects as one measure at different
 resolutions.
 \end{abstract}
 
-\tableofcontents
-\newpage
+\medskip
+\noindent\textbf{Keywords:} discrete curvature; active set; parametric
+linear programming; flux rerouting; carbon depletion; transcriptional
+response; epistasis; holonomy
+
+\bigskip
+\section*{Author Summary}
+When a bacterium's environment changes, its metabolism must reroute:
+reactions switch on and off, and the pattern of switching carries the
+geometry of the adaptation. This paper gives that geometry an exact,
+measurable form for flux-balance-analysis models: the second derivative
+of the optimal flux map is a matrix-valued measure concentrated on the
+switching surfaces of the active set. From this measure we derive a
+per-gene sensitivity score (the measure mass along a gene's parameter
+trajectory) and test it on \emph{E.~coli}: genes scored high by the
+geometry are the genes whose transcription responds to carbon
+starvation, with a robust statistical association that survives every
+robustness check we designed (metric, tie-break convention, path, and
+panel resampling), while the protein layer buffers the predicted
+change. The same geometry organizes double-knockout epistasis and
+predicts the memory of genetic loops. All code, data, and artifacts
+are publicly available, and every number in the paper is regenerated
+by committed scripts.
 
 % =====================================================================
 \section{Introduction}\label{sec:intro}
@@ -381,7 +404,7 @@ $|\Delta\Phi'| \le \|c\|_\infty \,\|\Delta v'\|_1$.
 \end{enumerate}
 Machine-verified: identity error $0.0$ at all $12$ events and all
 $4$ clusters of the iML1515 cut ($\Phi = c^\top v^*$ to $10^{-9}$;
-Figure~\ref{fig:coupling});
+Fig~\ref{fig:coupling});
 $11$ of $12$ events objective-invisible, with flux $\ell_1$ slope
 jumps up to $1.6 \times 10^{4}$ against $|c^\top \Delta v'| \le
 1.51 \times 10^{-7}$; $150$ random dense-objective LPs to $1.1 \times
@@ -641,7 +664,7 @@ operational active-set switches in every sweep that crosses
 critical-region boundaries (ten of the eleven crossing sweeps at mass
 exactly $1.000000$; mass $0.934$--$1.0$; AUC $0.83$--$1.00$;
 Mann--Whitney $p \le 2 \times 10^{-3}$, with seven of eleven crossing
-sweeps at $p \le 10^{-4}$; Figure~\ref{fig:m1}); between events the paths are piecewise
+sweeps at $p \le 10^{-4}$; Fig~\ref{fig:m1}); between events the paths are piecewise
 affine to solver precision (event-free segment residuals $\le 1.2
 \times 10^{-10}$, with $8 \times 10^{-14}$ on the glucose sweep; one
 $19$-point segment of the eno sweep carries $4.1 \times 10^{-3}$ ---
@@ -747,7 +770,7 @@ definition consistency --- the fresh re-derivation reproduces the
 stored precursor values exactly (per-gene maxima, the biomass-deficit
 maximum, and the unmasked/masked panel correlations to four
 decimals); (iii) distinctness --- the panel shares exactly one
-b-number with the precursor MAPPED-15; (iv) non-zero variation ---
+b-number with the precursor MAPPED-15 ($b2097$); (iv) non-zero variation ---
 every panel gene has precursor $\kappa_V$ variation $> 0$ over T1--T8
 ($435/435$). The precursor geometric metric $\kk$ is weak at the panel
 level ($r$ from $-0.063$ unmasked to $+0.084$ masked) --- the
@@ -769,7 +792,7 @@ than migrating.
 On the deterministic lexicographic trajectory (E22 physiology, iJO1366),
 $\kmu$ (Definition~\ref{def:kmu}) versus log-fold carbon-depletion
 response (M3D \citep{faith2008}, $n = 424$ genes;
-Figure~\ref{fig:v5}):
+Fig~\ref{fig:v5}):
 Pearson $r = +0.395$ ($p = 2.6 \times 10^{-17}$), Spearman
 $\rho_S = +0.414$ (full panel, zeros included), partial $r = +0.269$
 controlling reference level
@@ -818,7 +841,7 @@ object.
 
 \subsection{[E-V7] Path robustness: what survives a trajectory change}
 Three trajectories through the same LP (frozen engine, seed, panel,
-statistics; only the path and its matched response vary; Figure~\ref{fig:v7}): P0 glucose
+statistics; only the path and its matched response vary; Fig~\ref{fig:v7}): P0 glucose
 decline (E22 anchors; the V6 control), P1 oxygen limitation
 ($q_{\mathrm{glc}} = 5$ fixed, $q_{O_2}$ linear from $22$ to $1$),
 P2 acetate switch ($q_{O_2} = 22$ fixed; glucose $5 \to 0$ while
@@ -909,7 +932,7 @@ TB4 $\max w^\top v$& 424 & $+0.3954$ & $+0.269$ & $0.99998$ & 117 \\
 \end{tabular}
 \end{table}
 
-Three findings (Table~\ref{tab:v8}, Figure~\ref{fig:v8}). (i) \emph{The association is
+Three findings (Table~\ref{tab:v8}, Fig~\ref{fig:v8}). (i) \emph{The association is
 stable:} across all five rules $r \in [+0.386, +0.396]$ (maximum
 deviation $0.009$; all $p \le 1.4 \times 10^{-16}$) and the partial
 correlation is constant to three decimals ($+0.269$--$+0.270$). (ii)
@@ -950,24 +973,29 @@ a permutation null (event locations replaced by uniforms, panel
 structure kept) and the one-dimensional arms carry the classical
 Glivenko--Cantelli asymptotic constant
 $C = \int\sqrt{F(1-F)}\,dx$ of del~Barrio--Gin\'e--Uzet computed from
-the population (Figure~\ref{fig:e32}).
+the population (Fig~\ref{fig:e32}).
 \begin{enumerate}[label=(\roman*),leftmargin=2em]
 \item \emph{Random panels stabilize at the GC rate.} Pooled cut-event
       locations on the cut coordinate (d=1): measured tail slope
       $-0.492$ versus null $-0.506$, measured/null ratio $1.24$ at
       the largest panel, and the iid prediction $C/\sqrt{n}$ matches
       the measured curve to $2.5\%$ at the largest panel (mid-range
-      deviations up to $8\%$); the two-dimensional pooled
+      deviations as large as $8.2\%$); the two-dimensional pooled
       locations (transport LP) decay consistently with the $d=2$ rate
       up to the reference-noise floor. Sweep panels (thirteen M1
-      families) stabilize with a mid-range heterogeneity penalty of
-      $\approx1.5\times$ the uniform null and a tail faster than
-      iid-GC --- exactly the finite-population correction
+      families) stabilize with a heterogeneity penalty that falls
+      from $\approx1.8\times$ the uniform null at small panels
+      through $\approx1.5\times$ at $k = 6$ to $\approx0.5\times$ at
+      $k = 12$, and a tail faster than iid-GC --- consistent with the
+      finite-population correction
       $\sqrt{(13-k)/12}$ of sampling without replacement from
-      thirteen heterogeneous sweeps. The E24 gene panel: the
+      thirteen heterogeneous sweeps (measured null-relative ratio
+      $0.49$ at $k = 12$, against the pure FPC value $0.29$; the
+      residual is the sweep heterogeneity). The E24 gene panel: the
       $\kappa$ distribution stabilizes at the GC rate (measured
-      effective constant $\approx 1.9$--$2.1$ across panel sizes,
-      against the population Glivenko--Cantelli constant $C = 2.49$
+      effective constant $\approx 1.6$--$2.1$ across panel sizes
+      (dipping at $m = 128$), against the population
+      Glivenko--Cantelli constant $C = 2.49$
       on the $\log_{10}\kmu$ axis), and the association itself
       stabilizes at $r \approx +0.39$ with the Fisher standard error
       $1/\sqrt{m-3}$.
@@ -977,10 +1005,13 @@ the population (Figure~\ref{fig:e32}).
       carry the entire flux-layer mass ($288.77$; the V5 mass to the
       digit) --- the one-chamber structure of E-V6 in its event form.
       Anchor-preserving thinning reproduces it \emph{exactly} at every
-      panel size $m \ge 8$ (shape distance $0$, total-mass error
-      $0$, value-kink census $\equiv 4$); uniform random thinning
-      decays by corner censoring (shape distance $0.12 \to 0.005$,
-      mass error $26\% \to 0.1\%$, reaching zero by $m = 43$) --- a
+      panel size $m \ge 8$ (shape distance $0$ to machine precision,
+      $\le 7 \times 10^{-13}$; total-mass error $\le 2 \times
+      10^{-12}$; value-kink census $\equiv 4$); uniform random
+      thinning decays by corner censoring (shape distance
+      $0.12 \to 0.005$ by $m = 43$, mass error $26\% \to 0.13\%$ by
+      $m = 29$, machine-zero ($\le 3 \times 10^{-12}$) from
+      $m = 43$, and exactly $0$ at the full panel $m = 57$) --- a
       resolution effect in the sense of Theorem~\ref{thm:Bprime}(iv),
       not statistical averaging.
 \end{enumerate}
@@ -1043,10 +1074,13 @@ Artifact: \texttt{deepseek\_bridge/v8\_tiebreak\_robustness.png} /
 \caption{[E-E32] Event-measure stabilization. (a) M4b random cuts:
 pooled event-location distance decays at the Glivenko--Cantelli rate
 (measured tail slope $-0.492$; null $-0.506$; iid prediction
-$C/\sqrt{n}$ to $2.5\%$ at the largest panel); (b) M1 sweep panels: stabilization with the
-finite-population-correction tail; (c) E24 gene panel: the $\kappa$
-distribution at the GC rate (effective constant $\approx 1.9$--$2.1$
-vs.\ the population constant $C = 2.49$);
+$C/\sqrt{n}$ to $2.5\%$ at the largest panel, mid-range deviations
+as large as $8.2\%$); (b) M1 sweep panels: stabilization with a
+finite-population-corrected, heterogeneity-penalized tail
+(null-relative ratio $0.49$ at $k = 12$ against the pure FPC
+$0.29$); (c) E24 gene panel: the $\kappa$
+distribution at the GC rate (effective constant $\approx 1.6$--$2.1$,
+dipping at $m = 128$, vs.\ the population constant $C = 2.49$);
 (d) E24 trajectory: the $L^1$-reconstruction regime --- random
 thinning decays by corner censoring, anchor-preserving thinning is
 exact ($d_{BL} \equiv 0$) from $m \ge 8$. Artifact:
@@ -1416,7 +1450,30 @@ companion & categorical/HoTT sections of v21 (preserved in
 \bottomrule
 \end{tabularx}
 
-\bibliographystyle{plainnat}
-\bibliography{journal_manuscript_v2_refs}
+\section*{Data, Software, and Code Availability}
+All figures, tables, and numerical claims in this manuscript are
+produced by committed scripts from deposited artifacts; the complete
+bundle (generation scripts, result artifacts, genome-scale models,
+data manifests with SHA-256 checksums, and audit scripts that
+re-derive every manuscript number) is available at
+\href{https://github.com/MIKEAA2020/deepseek-highly-general}{github.com/
+MIKEAA2020/deepseek-highly-general}. Genome-scale models
+(iJO1366, iML1515) were obtained from the BiGG database; expression
+compendia from M3D and PRECISE; proteome data from PaxDb and the
+condition-dependent proteome of Schmidt~et~al.; all sources are
+public and cited in the reference list. No new experiments were
+performed.
+
+\section*{Funding}
+[To be completed by the submitter --- e.g., funders and grant
+numbers, or ``The author(s) received no specific funding for this
+work.'']\ The statements in this paragraph are the submitter's
+declaration, not a claim of the manuscript.
+
+\section*{Competing Interests}
+[To be completed by the submitter --- e.g., ``The author(s) have
+declared that no competing interests exist.'']
+
+\input{journal_manuscript_v2_plos_refs}
 
 \end{document}
