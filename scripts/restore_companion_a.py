@@ -53,7 +53,8 @@ replace_once(
 # ------------------------------------------------------------------
 replace_once(
 """$\\OO_2$ RPSI       & CPTP predictive update            & posterior decoder                 & $I(\\rho_{\\mathrm{out}};\\hat\\rho_{\\mathrm{in}})$ (Holevo) \\\\""",
-"""$\\OO_2$ RPSI       & CPTP predictive update            & posterior decoder                 & ensemble Holevo bound $\\chi$ \\\\""")
+"""$\\OO_2$ RPSI       & CPTP predictive update            & posterior decoder                 & ensemble Holevo bound $\\chi$ \\\\""",
+    "optic table O2 row")
 
 # ------------------------------------------------------------------
 # 3. O2 item in the domain-unification list
@@ -65,7 +66,8 @@ $I(\\rho_{\\mathrm{out}};\\hat\\rho_{\\mathrm{in}})$);""",
 """\\item $\\OO_2$: the RPSI optic (forward = CPTP predictive update,
 backward = posterior decoder, residual = the ensemble Holevo bound
 $\\chi = S(\\sum_x p_x \\rho_x) - \\sum_x p_x S(\\rho_x)$ of the
-prediction ensemble, Proposition~\\ref{prop:holevo});""")
+prediction ensemble, Proposition~\\ref{prop:holevo});""",
+    "O2 domain-unification item")
 
 # ------------------------------------------------------------------
 # 4. Smooth-envelope section before the filtered-colimit section

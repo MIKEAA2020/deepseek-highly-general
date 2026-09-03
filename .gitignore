@@ -17,3 +17,6 @@ data/schmidt2016/epmc_suppl.zip
 data/schmidt2016/NIHMS65833-supplement-Supplementary_figures_and_notes.pdf
 data/schmidt2016/emss-*.gif
 data/schmidt2016/emss-*.jpg
+
+# Overleaf ZIP build staging (rebuilt by scripts/build_submission_zips.sh)
+scripts/overleaf_stage/

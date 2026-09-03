@@ -88,8 +88,8 @@ written to stand alone; neither presents the other's results as its
 own. The companion is available for the editors' and reviewers'
 inspection in the same public repository as the submitted
 manuscript's code and data
-(https://github.com/MIKEAA2020/deepseek-highly-general, file
-`scripts/companion_categorical.tex`, compiled PDF included) and will
+(https://github.com/MIKEAA2020/metabolic-curvature-measure, file
+`scripts/companion_categorical_v2.tex`, compiled PDF included) and will
 be provided as a PDF on request; it is not under consideration
 elsewhere.
 
@@ -136,7 +136,7 @@ if desired.]
 - Ethics approval: not applicable (fully computational study; no
   human or animal subjects; previously published public data only).
 - Data availability: all data and code public; complete bundle at
-  https://github.com/MIKEAA2020/deepseek-highly-general (SHA-256
+  https://github.com/MIKEAA2020/metabolic-curvature-measure (SHA-256
   manifest included); companion theory manuscript available at the
   same repository and on request.
 - Generative AI declaration: GLM (Z.ai) and DeepSeek assisted with

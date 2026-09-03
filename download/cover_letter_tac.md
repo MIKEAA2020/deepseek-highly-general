@@ -76,8 +76,8 @@ self-contained for its own claims; neither presents the other's
 results as its own. The application manuscript is available for the
 editors' inspection in the same public repository as this paper's
 machine-verification code
-(https://github.com/MIKEAA2020/deepseek-highly-general, file
-`scripts/journal_manuscript_v2.tex`, compiled PDF included) and will
+(https://github.com/MIKEAA2020/metabolic-curvature-measure, file
+`scripts/journal_manuscript_v3.tex`, compiled PDF included) and will
 be provided as a PDF on request; it is not under consideration
 elsewhere.
 

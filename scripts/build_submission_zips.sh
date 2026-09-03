@@ -11,8 +11,8 @@ mkdir -p "$STAGE/main" "$STAGE/companion"
 
 # ---------- MAIN (Bulletin of Mathematical Biology) ----------
 M=$STAGE/main
-cp scripts/journal_manuscript_v2.tex          "$M/"
-cp scripts/journal_manuscript_v2_bmb_refs.tex "$M/"
+cp scripts/journal_manuscript_v3.tex          "$M/"
+cp scripts/journal_manuscript_v3_bmb_refs.tex "$M/"
 cp scripts/journal_manuscript_v2_refs.bib     "$M/"
 mkdir -p "$M/m1_m3" "$M/alexandrov_bridge" "$M/deepseek_bridge"
 cp download/m1_m3/fig_m1_summary.png                    "$M/m1_m3/"
@@ -30,13 +30,13 @@ Sensitivity: From Active-Set Geometry to Transcriptional Response
 
 ## How to compile
 - Overleaf: upload this ZIP via New Project -> Upload Project, set the main
-  document to journal_manuscript_v2.tex, recompile. (Run twice so natbib
+  document to journal_manuscript_v3.tex, recompile. (Run twice so natbib
   citations resolve; Overleaf does this automatically.)
-- Command line: pdflatex journal_manuscript_v2.tex  (x2)
+- Command line: pdflatex journal_manuscript_v3.tex  (x2)
 
 ## Contents
-- journal_manuscript_v2.tex        main source (main document)
-- journal_manuscript_v2_bmb_refs.tex  reference list (input by the main file)
+- journal_manuscript_v3.tex        main source (main document)
+- journal_manuscript_v3_bmb_refs.tex  reference list (input by the main file)
 - journal_manuscript_v2_refs.bib   underlying BibTeX database (not required
   for compilation; included for editorial source completeness)
 - m1_m3/, alexandrov_bridge/, deepseek_bridge/  figure PNGs at the exact
@@ -50,12 +50,20 @@ EOF
 
 # ---------- COMPANION (Theory and Applications of Categories) ----------
 C=$STAGE/companion
-cp scripts/companion_categorical.tex    "$C/"
+cp scripts/companion_categorical_v2.tex    "$C/"
 cp scripts/journal_manuscript_refs.bib  "$C/"
 cp download/lipschitz_constants_per_optic.png   "$C/"
 cp download/cptc_zeno_contraction.png           "$C/"
 cp download/inverse_limit_raf_hasse.png         "$C/"
 cp download/inverse_limit_raf_extended_hasse.png "$C/"
+cp download/claim_f_holonomy_plot.png           "$C/"
+cp download/claims_ae_n4_nonabelian.png         "$C/"
+cp download/claim_d_heavytail_stress.png        "$C/"
+cp download/levy_stable_3half_derivation.png    "$C/"
+cp download/claim_g_zeno_plot.png               "$C/"
+cp download/t_iteration_convergence_plot.png    "$C/"
+cp download/t_iteration_robustness_extension_axis_aligned.png "$C/"
+cp download/t_iteration_robustness_extension_rotated.png      "$C/"
 cat > "$C/README.md" << 'EOF'
 # Companion manuscript — Theory and Applications of Categories
 # Compile-ready standalone package
@@ -66,18 +74,18 @@ Curvature
 
 ## How to compile
 - Overleaf: upload this ZIP via New Project -> Upload Project, set the main
-  document to companion_categorical.tex, recompile (pdflatex + bibtex +
+  document to companion_categorical_v2.tex, recompile (pdflatex + bibtex +
   pdflatex x2; Overleaf runs this automatically).
 - Command line:
-    pdflatex companion_categorical.tex
-    bibtex   companion_categorical
-    pdflatex companion_categorical.tex
-    pdflatex companion_categorical.tex
+    pdflatex companion_categorical_v2.tex
+    bibtex   companion_categorical_v2
+    pdflatex companion_categorical_v2.tex
+    pdflatex companion_categorical_v2.tex
 
 ## Contents
-- companion_categorical.tex   main source (main document)
+- companion_categorical_v2.tex  main source (main document)
 - journal_manuscript_refs.bib BibTeX database (required by \bibliography)
-- 4 figure PNGs at the flat paths used by \includegraphics
+- 12 figure PNGs at the flat paths used by \includegraphics
 
 ## Before submitting
 - Replace the sole-author placeholder "X" with the real author name.
